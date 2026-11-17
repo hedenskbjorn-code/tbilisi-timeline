@@ -252,6 +252,8 @@ def _simplify_ring(ring, eps=1.5):
 
 # 10 districts (OpenStreetMap, ODbL): outlines + a label point with names in ka / en / ru
 dj = os.path.join(ROOT, "data", "boundaries", "tbilisi_districts_osm.geojson")
+_dl = os.path.join(ROOT, "data", "district_labels.json")
+DL = json.load(open(_dl, encoding="utf-8")) if os.path.exists(_dl) else {}
 if os.path.exists(dj):
     dfe = []
     for f in json.load(open(dj, encoding="utf-8"))["features"]:
@@ -260,7 +262,8 @@ if os.path.exists(dj):
                  "name_ru": (p["name_ru"] or "").replace("район ", "")}
         polys = [[_simplify_ring(r[0])] for r in f["geometry"]["coordinates"]]
         dfe.append({"type": "Feature", "geometry": {"type": "MultiPolygon", "coordinates": polys}, "properties": dict(names)})
-        dfe.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": p["label"]}, "properties": dict(names)})
+        lab = DL.get(names["name_en"])                     # label in the urban core (tools/district_labels.py), not the polygon middle
+        dfe.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": lab[:2] if lab else p["label"]}, "properties": dict(names)})
     json.dump({"type": "FeatureCollection", "features": dfe}, open(os.path.join(OUT, "districts.json"), "w", encoding="utf-8"),
               ensure_ascii=False, separators=(",", ":"))
     print("districts:", len(dfe) // 2)
@@ -311,7 +314,7 @@ if os.path.exists(_pl) and os.path.exists(_cu):
             print("settlement not found in OSM:", it["en"], it["place"])
             continue
         t = node["tags"]
-        pt = (node["lon"], node["lat"])
+        pt = (it["lng"], it["lat"]) if it.get("lng") else (node["lon"], node["lat"])      # curated position overrides the OSM node
         geom = "inside_old" if _inside(pt, old_r) else ("outside_old_inside_2019" if _inside(pt, new_r) else "outside_2019")
         nm = lambda k: (t.get("name:" + k) or "").replace("село ", "").replace("Village ", "").replace("სოფელი ", "")
         out_s.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [round(pt[0], 5), round(pt[1], 5)]},

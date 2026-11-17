@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tbilisi through time</title>
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org; font-src 'self' data: https://tiles.openfreemap.org; connect-src 'self' https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org; worker-src blob:; child-src blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 <script src="config.js"></script>
 </head>
@@ -42,6 +45,7 @@
   <label class="row"><input type="checkbox" id="showDistricts" checked> <span data-i="showDistricts"></span></label>
   <label class="row"><input type="checkbox" id="showSettle" checked> <span data-i="showSettle"></span></label>
   <label class="row"><input type="checkbox" id="showWater" checked> <span data-i="showWater"></span></label>
+  <label class="row"><input type="checkbox" id="showDensity" checked> <span data-i="showDensity"></span></label>
   <label class="row"><input type="checkbox" id="showLost" checked> <span data-i="showLost"></span></label>
   <label class="row sub"><input type="checkbox" id="showGhost"> <span data-i="showGhost"></span></label>
   <div id="tiers"><div class="small tiers-title" data-i="showFilter"></div>
@@ -61,6 +65,7 @@
       <div><i class="dot nat"></i><span data-i="legNat"></span></div>
       <div><i class="dot coarse"></i><span data-i="legCoarse"></span></div>
       <div><i class="dot ruin"></i><span data-i="legRuin"></span></div>
+      <div><i class="sw sw-density"></i><span data-i="legDensity"></span></div>
       <div><i class="sw sw-water"></i><span data-i="legWater"></span></div>
       <div><i class="sw sw-lake"></i><span data-i="legLake"></span></div>
       <div><i class="dot lost-on"></i><span data-i="legLostOn"></span></div>
@@ -102,11 +107,19 @@
       <select id="fbKind"><option value="data" data-i="fbK1"></option><option value="georef" data-i="fbK2"></option><option value="boundary" data-i="fbK3"></option><option value="translation" data-i="fbK4"></option><option value="rights" data-i="fbK5"></option><option value="other" data-i="fbK6"></option></select></label>
     <label><span data-i="fbText"></span><textarea id="fbMsg" rows="5" maxlength="2000" required></textarea></label>
     <label><span data-i="fbCtx"></span><input id="fbCtx" type="text" readonly></label>
-    <label><span data-i="fbContact"></span><input id="fbContactInput" type="text" maxlength="200" placeholder="email / telegram (optional)"></label>
+    <label><span data-i="fbContact"></span><input id="fbContactInput" type="text" maxlength="200" placeholder="email / telegram (optional)"><span class="small" data-i="fbContactWarn"></span></label>
     <input id="fbTrap" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="trap">
     <div class="modalbtns"><button type="button" id="fbCancel" class="chip" data-i="fbCancel"></button><button type="submit" id="fbSend" class="chip primary" data-i="fbSend"></button></div>
     <p id="fbStatus" class="small"></p>
   </form>
+</div>
+
+<div id="infoModal" class="modal" hidden>
+  <div class="modalbox viewbox">
+    <h2 id="imTitle"></h2>
+    <div id="imBody"></div>
+    <div class="modalbtns"><button type="button" id="imClose" class="chip" data-i="viewClose"></button></div>
+  </div>
 </div>
 
 <div id="viewModal" class="modal" hidden>
@@ -120,7 +133,7 @@
   </div>
 </div>
 
-<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="vendor/maplibre-gl.js"></script>
 <script src="translit.js"></script>
 <script src="app.js"></script>
 </body>

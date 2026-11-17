@@ -143,3 +143,10 @@ body.panel-open #yearchip { display:none; }
 .viewbox img { display:block; width:100%; max-height:62vh; object-fit:contain; background:#0002; border-radius:6px; margin:6px 0; }
 .viewbox .small { margin-top:3px; }
 .viewbox a { color:var(--accent); }
+
+.pop .actions { display:flex; gap:14px; margin-top:8px; font-size:12px; }
+#imBody .small { margin:4px 0; }
+#imBody h4 { margin:12px 0 4px; font-size:13px; }
+#imBody a { color:var(--accent); }
+
+.sw-density { height:10px; background:linear-gradient(90deg,#fff3b0,#fdd976 20%,#fd8d3c 45%,#f03b20 65%,#bd0026 85%,#6e0028); border:1px solid #0003; }
