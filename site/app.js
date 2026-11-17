@@ -94,6 +94,8 @@
       viewClose: "Закрыть",
       viewLicense: "лицензия",
       viewSource: "источник",
+      trNote: "Название и адрес переведены или транслитерированы автоматически с грузинского оригинала (реестр) и могут быть неточными.",
+      trOrig: "оригинал",
       typesTitle: "Назначение (сейчас — по названию, иначе по реестру)", func: "Современное назначение (по названию)", func0: "Первоначальное назначение (по реестру)", wiki: "Статья в Википедии",
       types: { residential: "Жилые дома", religious: "Религиозные", defense: "Оборонительные", culture: "Образование, наука, культура",
                public: "Общественные и торговые", transport: "Транспорт и инженерия", memorial: "Мемориалы и парки", rural: "Археология и сельское", other: "Прочие" },
@@ -182,6 +184,8 @@
       viewClose: "Close",
       viewLicense: "licence",
       viewSource: "source",
+      trNote: "The name and address are translated or transliterated automatically from the Georgian original (register) and may be inexact.",
+      trOrig: "original",
       typesTitle: "Use (today — by name, otherwise per register)", func: "Present-day use (by name)", func0: "Original function (per register)", wiki: "Wikipedia article",
       types: { residential: "Residential houses", religious: "Religious", defense: "Defensive", culture: "Education, science, culture",
                public: "Public and commercial", transport: "Transport and engineering", memorial: "Memorials and parks", rural: "Archaeology and rural", other: "Other" },
@@ -772,8 +776,15 @@
     const el = document.createElement("div");
     el.className = "pop";
     const h3 = document.createElement("h3");
-    h3.textContent = p.name || "—";
+    const shownName = window.GeoTr ? window.GeoTr.name(p.name, lang, p.wp) : p.name;
+    h3.textContent = shownName || "—";
     el.appendChild(h3);
+    if (p.name && shownName !== p.name) {                       // Georgian original under the translated name
+      const o = document.createElement("div");
+      o.className = "k small";
+      o.textContent = L.trOrig + ": " + p.name;
+      el.appendChild(o);
+    }
     const row = (k, v) => {
       if (v === null || v === undefined || v === "" || v === "null") return;
       const d = document.createElement("div");
@@ -784,15 +795,16 @@
       d.appendChild(document.createTextNode(v));
       el.appendChild(d);
     };
-    row(L.address, p.address);
+    row(L.address, window.GeoTr ? window.GeoTr.address(p.address, lang) : p.address);
     row(L.cls, (L.classes[p.cls] || p.cls) + " · " + (p.national ? L.national : p.monument ? L.monument : L.object));
     if (p.fo) { row(L.func, L.types[p.fn]); row(L.func0, L.types[p.fo]); }
     else row(L.func0, L.types[p.fn]);
     if (p.ruin === true || p.ruin === "true") row(L.ruinRow, L.ruinTxt);
-    row(L.date, p.raw_date);
+    row(L.date, window.GeoTr ? window.GeoTr.date(p.raw_date, lang) : p.raw_date);
     row(L.est, `${p.ye} (${L.range} ${p.y0}–${p.y1}, ${L.prec}: ${L.precision[p.prec] || p.prec}; ${L.src[p.src] || p.src || "—"})`);
     row(L.reg, p.reg);
     if (p.unc === true || p.unc === "true") row("⚠", L.unc);
+    if (lang !== "ka" && L.trNote) { const n = document.createElement("div"); n.className = "k small"; n.textContent = L.trNote; el.appendChild(n); }
     addWiki(el, p);
     addPhotos(el, p);
     const fb = document.createElement("div");
