@@ -323,5 +323,7 @@ if os.path.exists(_pl) and os.path.exists(_cu):
     print("settlements:", len(out_s), {g: sum(1 for f in out_s if f["properties"]["geom"] == g) for g in ("inside_old", "outside_old_inside_2019", "outside_2019")})
 import subprocess, sys
 subprocess.run([sys.executable, "-P", os.path.join(ROOT, "tools", "build_lost.py")], check=False)
+if os.path.exists(os.path.join(ROOT, "data", "raw", "admin", "osm_water.json")):
+    subprocess.run([sys.executable, "-P", os.path.join(ROOT, "tools", "build_water.py")], check=False)
 print("urban outlines:", len(urban), "years:", sorted({f["properties"]["snap"] for f in urban}))
 print("monuments:", len(feats), "unknown classes:", unknown, "plans:", [(p["id"], p["accuracy_m"], bool(p["boundary"])) for p in plans])

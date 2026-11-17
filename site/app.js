@@ -83,6 +83,12 @@
       lostAcc: (m, pos) => `Положение ${pos === "plan" ? "снято с исторического плана" : "по координатам из источника"}, погрешность ≈ ${m} м`,
       lostChk: "Год утраты найден на странице источника (слабая проверка)", lostNoChk: "Год утраты на странице источника не найден автоматически",
       lostSrc: "Список составлен ИИ по Wikidata, Википедии и легендам планов; не является официальным.", lostSources: "Источники",
+      showWater: "Тбилисское море и озёра (исторические)",
+      legWater: "Тбилисское море (водохранилище, с 1951–1953)", legLake: "Солёные озёра до водохранилища (по листу 1954 г., ±300 м)",
+      waterRes: "Тбилисское море (Тбилисское водохранилище)", waterLake: "Солёное озеро (на месте или рядом с будущим Тбилисским морем)",
+      waterTxtRes: (y) => y < 1951 ? "В этот год моря ещё не было: на месте залитой позже долины были солёные озёра (серая заливка показывает будущую акваторию)." : y < 1953 ? "Водохранилище заполнялось: источники расходятся в дате открытия (1951 или 1953)." : "Водохранилище существует (контур по OpenStreetMap; площадь по литературе 11,2–11,6 км²).",
+      waterTxtLake: (y) => y < 1953 ? "Озеро показано по американскому листу NK 38-8 (издание 1954, составлен в 1951 по съёмкам 1920–40-х); более ранний вид озёр неизвестен. Положение ±300 м." : "К этому году озёра затоплены водохранилищем.",
+      waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
       typesTitle: "Назначение (сейчас — по названию, иначе по реестру)", func: "Современное назначение (по названию)", func0: "Первоначальное назначение (по реестру)", wiki: "Статья в Википедии",
       types: { residential: "Жилые дома", religious: "Религиозные", defense: "Оборонительные", culture: "Образование, наука, культура",
                public: "Общественные и торговые", transport: "Транспорт и инженерия", memorial: "Мемориалы и парки", rural: "Археология и сельское", other: "Прочие" },
@@ -160,6 +166,12 @@
       lostAcc: (m, pos) => `Position ${pos === "plan" ? "read from a historical plan" : "from a source coordinate"}, error ≈ ${m} m`,
       lostChk: "The year of loss was found on a cited source page (weak check)", lostNoChk: "The year of loss was not found automatically on the cited pages",
       lostSrc: "The list was compiled by an AI from Wikidata, Wikipedia and plan legends; it is not official.", lostSources: "Sources",
+      showWater: "Tbilisi Sea and lakes (historical)",
+      legWater: "Tbilisi Sea (reservoir, from 1951–1953)", legLake: "Salt lakes before the reservoir (from the 1954 sheet, ±300 m)",
+      waterRes: "Tbilisi Sea (Tbilisi Reservoir)", waterLake: "Salt lake (on or next to the site of the future Tbilisi Sea)",
+      waterTxtRes: (y) => y < 1951 ? "The sea did not exist in this year: the valley flooded later held salt lakes (the grey fill marks the future water surface)." : y < 1953 ? "The reservoir was being filled: sources disagree on the opening date (1951 or 1953)." : "The reservoir exists (outline from OpenStreetMap; the literature gives 11.2–11.6 km²).",
+      waterTxtLake: (y) => y < 1953 ? "The lake is shown from the American sheet NK 38-8 (1954 edition, compiled in 1951 from surveys of the 1920s–40s); the earlier extent of the lakes is unknown. Position ±300 m." : "By this year the lakes were flooded by the reservoir.",
+      waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); sheet NK 38-8 of the U.S. Army Map Service (lakes).",
       typesTitle: "Use (today — by name, otherwise per register)", func: "Present-day use (by name)", func0: "Original function (per register)", wiki: "Wikipedia article",
       types: { residential: "Residential houses", religious: "Religious", defense: "Defensive", culture: "Education, science, culture",
                public: "Public and commercial", transport: "Transport and engineering", memorial: "Memorials and parks", rural: "Archaeology and rural", other: "Other" },
@@ -238,6 +250,12 @@
       lostAcc: (m, pos) => `მდებარეობა ${pos === "plan" ? "აღებულია ისტორიული გეგმიდან" : "წყაროს კოორდინატებით"}, ცდომილება ≈ ${m} მ`,
       lostChk: "დაკარგვის წელი ნაპოვნია მითითებულ წყაროს გვერდზე (სუსტი შემოწმება)", lostNoChk: "დაკარგვის წელი მითითებულ გვერდებზე ავტომატურად ვერ მოიძებნა",
       lostSrc: "სია შედგენილია ხელოვნური ინტელექტის მიერ Wikidata-ს, ვიკიპედიისა და გეგმების ლეგენდების მიხედვით; ოფიციალური არ არის.", lostSources: "წყაროები",
+      showWater: "თბილისის ზღვა და ტბები (ისტორიული)",
+      legWater: "თბილისის ზღვა (წყალსაცავი, 1951–1953-დან)", legLake: "მლაშე ტბები წყალსაცავამდე (1954 წლის ფურცლიდან, ±300 მ)",
+      waterRes: "თბილისის ზღვა (თბილისის წყალსაცავი)", waterLake: "მლაშე ტბა (მომავალი თბილისის ზღვის ადგილას ან გვერდით)",
+      waterTxtRes: (y) => y < 1951 ? "ამ წელს ზღვა ჯერ არ არსებობდა: მოგვიანებით დატბორილ ველზე მლაშე ტბები იყო (ნაცრისფერი შევსება მომავალ აკვატორიას აჩვენებს)." : y < 1953 ? "წყალსაცავი ივსებოდა: წყაროები ხსნის თარიღზე ერთმანეთს არ ემთხვევა (1951 ან 1953)." : "წყალსაცავი არსებობს (კონტური OpenStreetMap-იდან; ლიტერატურაში 11,2–11,6 კმ²).",
+      waterTxtLake: (y) => y < 1953 ? "ტბა ნაჩვენებია ამერიკული ფურცლით NK 38-8 (1954 წლის გამოცემა, 1951 წელს შედგენილი 1920–40-იანი წლების აგეგმვებით); ტბების უფრო ადრინდელი სახე უცნობია. მდებარეობა ±300 მ." : "ამ წლისთვის ტბები წყალსაცავმა დატბორა.",
+      waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); აშშ-ის არმიის რუკების სამსახურის ფურცელი NK 38-8 (ტბები).",
       typesTitle: "დანიშნულება (დღეს — სახელის მიხედვით, სხვა შემთხვევაში რეესტრით)", func: "დღევანდელი დანიშნულება (სახელის მიხედვით)", func0: "თავდაპირველი დანიშნულება (რეესტრის მიხედვით)", wiki: "სტატია ვიკიპედიაში",
       types: { residential: "საცხოვრებელი სახლები", religious: "რელიგიური", defense: "თავდაცვითი", culture: "განათლება, მეცნიერება, კულტურა",
                public: "საზოგადოებრივი და სავაჭრო", transport: "ტრანსპორტი და ინჟინერია", memorial: "მემორიალები და პარკები", rural: "არქეოლოგია და სოფლის", other: "სხვა" },
@@ -267,7 +285,8 @@
     // OpenFreeMap vector tiles (free, no key; data © OpenStreetMap contributors, © OpenMapTiles; attribution added by MapLibre)
     // OpenFreeMap "liberty" style, same in light and dark system themes (free, no key; attribution is added by MapLibre)
     style: "https://tiles.openfreemap.org/styles/liberty",
-    center: [44.8085, 41.6955], zoom: 13.2, minZoom: 9, maxZoom: 19, hash: false,
+    center: (() => { const c = (new URLSearchParams(location.search).get("c") || "").split(",").map(Number); return c.length >= 2 && c.every(isFinite) ? [c[0], c[1]] : [44.8085, 41.6955]; })(),
+    zoom: (() => { const c = (new URLSearchParams(location.search).get("c") || "").split(",").map(Number); return c.length >= 3 && isFinite(c[2]) ? c[2] : 13.2; })(), minZoom: 9, maxZoom: 19, hash: false,
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
@@ -378,6 +397,7 @@
     }
     updateUrban();
     updateSettle();
+    updateWater();
     updateLost();
     if (map.getLayer("admin-line")) map.setLayoutProperty("admin-line", "visibility", $("showAdmin").checked ? "visible" : "none");
     const oldOn = $("showAdmin").checked && year >= 1973 && year <= 2005;
@@ -590,6 +610,32 @@
     new maplibregl.Popup({ maxWidth: "320px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
   }
 
+  function updateWater() {
+    if (!map.getLayer("res-cover")) return;
+    const on = $("showWater").checked;
+    const early = year < 1951, mid = year >= 1951 && year < 1953, late = year >= 1953;
+    const vis = (id, v) => map.setLayoutProperty(id, "visibility", on && v ? "visible" : "none");
+    vis("res-cover", early || mid);                      // the area of the future sea: land-coloured before filling
+    vis("res-line", late || mid);
+    vis("lake54-fill", early || mid);                    // the old salt lakes
+    map.setPaintProperty("res-cover", "fill-opacity", mid ? 0.4 : 0.95);
+    map.setPaintProperty("lake54-fill", "fill-opacity", mid ? 0.4 : 0.85);
+  }
+
+  function waterPopup(p, lngLat) {
+    const L = t();
+    const el = document.createElement("div");
+    el.className = "pop";
+    const isRes = p.t === "res";
+    const h3 = document.createElement("h3");
+    h3.textContent = isRes ? L.waterRes : L.waterLake;
+    el.appendChild(h3);
+    const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); };
+    add(isRes ? L.waterTxtRes(year) : L.waterTxtLake(year));
+    add(L.waterSrc, "k small");
+    new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+  }
+
   function updateSettle() {
     if (!map.getLayer("settle-dot")) return;
     const vis = $("showSettle").checked ? "visible" : "none";
@@ -729,6 +775,21 @@
       if (f.properties.acc) urbanMeta[s].acc = Math.max(urbanMeta[s].acc, f.properties.acc);
     }
     urbanSnaps = Object.keys(urbanMeta).map(Number).sort((a, b) => a - b);
+    let water = { type: "FeatureCollection", features: [] };
+    try { water = await getJSON("data/water.json"); } catch (e) {}
+    map.addSource("water", { type: "geojson", data: water });
+    // before the reservoir: a land-coloured cover over its modern outline (the basemap draws today's water)
+    map.addLayer({ id: "res-cover", type: "fill", source: "water", filter: ["==", ["get", "t"], "res"], layout: { visibility: "none" },
+                   paint: { "fill-color": "#e6e4da", "fill-opacity": 0.95 } });
+    map.addLayer({ id: "res-line", type: "line", source: "water", filter: ["==", ["get", "t"], "res"], layout: { visibility: "none" },
+                   paint: { "line-color": "#4a86c8", "line-width": 1.5 } });
+    map.addLayer({ id: "lake54-fill", type: "fill", source: "water", filter: ["==", ["get", "t"], "lake54"], layout: { visibility: "none" },
+                   paint: { "fill-color": "#7db0ea", "fill-opacity": 0.85, "fill-outline-color": "#3b78bd" } });
+    for (const id of ["res-cover", "lake54-fill"]) {
+      map.on("click", id, (e) => { if (e.features && e.features[0]) waterPopup(e.features[0].properties, e.lngLat); });
+      map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
+      map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
+    }
     let admin = { type: "FeatureCollection", features: [] };
     try { admin = await getJSON("data/admin.json"); } catch (e) {}
     map.addSource("admin", { type: "geojson", data: admin });
@@ -806,7 +867,7 @@
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", e.target.value / 100);
