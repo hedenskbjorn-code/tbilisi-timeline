@@ -109,23 +109,44 @@
   }
   const idx = (lang) => (lang === "ru" ? 1 : 0);
 
+  // Translations made for this project (data/names_i18n.json, produced by an AI and spot-checked): {names: {ka: {en, ru}}, streets: {ka: {en, ru}}}
+  let DICT = { names: {}, streets: {} };
+  let STREETS = [];
+  function setDict(d) {
+    DICT = { names: (d && d.names) || {}, streets: (d && d.streets) || {} };
+    STREETS = Object.keys(DICT.streets).sort((a, b) => b.length - a.length);
+  }
+  // Name for the interface language: Wikipedia title > whole-name dictionary > AI translation of the project > the Georgian original.
+  // Word-by-word transliteration is NOT used for names: it produces unreadable pseudo-words. src: "wiki" | "dict" | "ai" | "orig".
   // wp: "ka:title|en:title|ru:title" (Wikipedia titles of the object, when matched)
-  function name(ka, lang, wp) {
-    if (lang !== "en" && lang !== "ru") return ka;
+  function nameInfo(ka, lang, wp) {
+    if (lang !== "en" && lang !== "ru") return { text: ka, src: "orig" };
     const i = idx(lang);
     if (wp) {
       const m = String(wp).split("|").map((x) => x.split(/:(.+)/)).find((x) => x[0] === lang);
-      if (m && m[1]) return m[1].replace(/\s*\(.*?\)\s*$/, "");
+      if (m && m[1]) return { text: m[1].replace(/\s*\(.*?\)\s*$/, ""), src: "wiki" };
     }
     const s = (ka || "").trim();
-    if (NAMES[s]) return NAMES[s][i];
-    return words(s, WORDS, i);
+    if (NAMES[s]) return { text: NAMES[s][i], src: "dict" };
+    const d = DICT.names[s];
+    if (d && d[lang]) return { text: d[lang], src: "ai" };
+    return { text: ka, src: "orig" };
   }
+  const name = (ka, lang, wp) => nameInfo(ka, lang, wp).text;
+  // Address: known street names come from the project's translations; type words are translated and the rest of an unknown street
+  // name is transliterated (this is how addresses are usually written on maps).
   function address(ka, lang) {
     if (lang !== "en" && lang !== "ru") return ka;
     if (!ka) return ka;
     const i = idx(lang);
-    return ka.split(/(\/)/).map((part) => (part === "/" ? part : words(part.replace(/\.(?=[ა-ჿ])/g, ". "), ADDR, i))).join("").replace(/\s+/g, " ").replace(/\.\s+(?=\d)/g, ".");
+    const hold = [];
+    let s = ka;
+    for (const ph of STREETS) {
+      const tr = DICT.streets[ph][lang];
+      if (tr && s.includes(ph)) { s = s.split(ph).join("\u0001" + hold.length + "\u0001"); hold.push(tr); }
+    }
+    s = s.split(/(\/)/).map((part) => (part === "/" ? part : words(part.replace(/\.(?=[ა-ჿ])/g, ". "), ADDR, i))).join("").replace(/\s+/g, " ").replace(/\.\s+(?=\d)/g, ".");
+    return s.replace(/\u0001(\d+)\u0001/g, (m, k) => hold[+k]).replace(/\s*\/\s*$/, "");
   }
   // "date in register" is a templated Georgian phrase: century + part of it, sometimes a year
   const ROM = [[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]];
@@ -163,5 +184,5 @@
     if (segs.some((x) => x === null)) return raw;               // anything not recognised: keep the register text
     return segs.filter(Boolean).join("; ");
   }
-  window.GeoTr = { name, address, date };
+  window.GeoTr = { name, nameInfo, address, date, setDict };
 })();

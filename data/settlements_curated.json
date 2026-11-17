@@ -1,5 +1,5 @@
 {
- "note": "Settlements around Tbilisi and the year they were annexed to the city. The years, the 'from' municipality and the legal basis were relayed by an external AI (Gemini) from secondary sources (Sh. Kakuria 1979; Great Soviet Encyclopedia 1976; Parliament of Georgia resolution of 27 Dec 2006, which could not be opened) and are NOT checked against the originals. 'geom' (inside/outside the pre-2006 boundary) is computed by the project from geoBoundaries ADM2 and the 2019 boundary and does confirm the order for the 2006 group. Names and positions: OpenStreetMap (place nodes). Corrected 2026-11-17 after reading ru/ka Wikipedia (Ponichala, Didi Lilo, Patara Lilo); the other 1973 entries (Orkhevi, Airport, Lilo) and all legal bases remain unverified.",
+ "note": "Settlements around Tbilisi and the year they were annexed to the city. The years, the 'from' municipality and the legal basis were relayed by an external AI (Gemini) from secondary sources (Sh. Kakuria 1979; Great Soviet Encyclopedia 1976; Parliament of Georgia resolution of 27 Dec 2006, which could not be opened) and are NOT checked against the originals. 'geom' (inside/outside the pre-2006 boundary) is computed by the project from geoBoundaries ADM2 and the 2019 boundary and does confirm the order for the 2006 group. Names and positions: OpenStreetMap (place nodes). Corrected 2026-11-17 after reading ru/ka Wikipedia (Ponichala, Didi Lilo, Patara Lilo); the other 1973 entries (Orkhevi, Airport, Lilo) and all legal bases remain unverified. Position of 'Dighomi' overridden (lng/lat) after the owner's remark: the OSM place node was about 1.5 km off the old village. 'Bagebi' position overridden likewise (1911 sheet).",
  "items": [
   {
    "en": "Tskneti",
@@ -95,7 +95,10 @@
   {
    "en": "Bagebi",
    "place": "neighbourhood",
-   "year": 1949
+   "year": 1949,
+   "lng": 44.74205,
+   "lat": 41.7085,
+   "pos_note": "position of the label 'Пос. Бакеби (к Цкнети)' on the 1911 sheet; the OSM place node lies about 900 m west of it"
   },
   {
    "en": "Ponichala",
@@ -153,7 +156,10 @@
   {
    "en": "Dighomi",
    "place": "quarter",
-   "year": null
+   "year": null,
+   "lng": 44.74226,
+   "lat": 41.77212,
+   "pos_note": "position of the church of the old village Digomi (Kviratskhoveli) on the 1911 sheet; the OSM place node lies about 1.5 km north-west of it"
   }
  ]
 }

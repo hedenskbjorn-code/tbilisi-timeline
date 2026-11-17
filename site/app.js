@@ -36,6 +36,8 @@
         "Объекты: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство по сохранению культурного наследия). Письменной открытой лицензии на эти данные найти не удалось; в некоммерческих целях используется сокращённая выборка (название, адрес, координаты, даты, номер). Даты — оценка по записям реестра.",
         "Планы Тифлиса 1735 (Вахушти, схематичный), 1785 (Пищевич), 1800 (Чуйко), 1821 (Швецов), 1844 (Военно-топографическое депо), 1850 (Генеральный штаб), 1887 (А. Ильин) 1911 (топографический лист окрестностей) и 1913 (землемерный отдел городской управы): сканы Wikimedia Commons, общественное достояние. Планы привязаны к современной карте по контрольным точкам (точность около 50 м, у плана 1735 года около 150 м), границы застройки обведены по ним вручную.",
         "Исторические виды Тифлиса (1578–1910-е): миниатюра «Нусрет-наме» (British Library), гравюры по рисункам Шардена и Турнефора, картины Чернецова, Лермонтова, Франкена и Айвазовского, фотографии Ермакова и Прокудина-Горского; файлы Wikimedia Commons, общественное достояние; уменьшенные копии. Это рисунки и снимки с одной точки, к карте они не привязаны.",
+        "Приватность: страница не использует cookie и аналитику; в браузере хранится только выбранный язык. При открытии браузер обращается к tiles.openfreemap.org (подложка карты) и к wikimedia.org (превью фотографий), поэтому им виден адрес посетителя. Форма обратной связи через GitHub создаёт публичный Issue.",
+        "Плотность застройки: доля площади, занятая контурами зданий OpenStreetMap (© участники OpenStreetMap, ODbL), в ячейках около 100×100 м; это состояние на момент выгрузки (ноябрь 2026), у зданий в OSM нет годов постройки, поэтому слой показывается только для современных лет.",
         "Административная граница Тбилиси (2019): OCHA COD-AB Georgia (HDX), источник — Национальная статистическая служба Грузии, лицензия CC BY-IGO. Площадь 502,5 км² совпадает с данными диссертации для периода после 2006 года.",
         "Границы районов и их названия: © участники OpenStreetMap, лицензия ODbL (этот набор данных — производная база; при повторном использовании сохраняйте ту же лицензию и атрибуцию). Показано современное деление на 10 районов.",
         "Серая пунктирная линия 1973–2005 годов — граница из geoBoundaries (ADM2, метаданные: 2007). Проверка по положению посёлков: присоединённые в 2006 году (Цхнети, Цавкиси, Окрокана, Кикети, Бетания, Диди Дигоми, Загэси) лежат вне неё, присоединённые раньше (Поничала, Орхеви, Глдани, Варкетили) внутри, то есть она соответствует границе до реформы 2006 года. Её площадь ≈ 330 км² меньше 354 км² из диссертации, причина не установлена. Деление на районы и их названия по периодам (без границ) пересказаны ИИ по вторичным источникам и не проверены по первоисточникам.",
@@ -94,8 +96,15 @@
       viewClose: "Закрыть",
       viewLicense: "лицензия",
       viewSource: "источник",
-      trNote: "Название и адрес переведены или транслитерированы автоматически с грузинского оригинала (реестр) и могут быть неточными.",
+      trNote: "Название и улицы переведены автоматически (ИИ) с грузинского оригинала из реестра и могут быть неточными.",
       trOrig: "оригинал",
+      fbContactWarn: "Внимание: при отправке через GitHub контакт попадёт в публичный Issue и будет виден всем. Не указывайте то, что не хотите публиковать.",
+      infoBtn: "Источники и подробности",
+      infoTitle: "Источники и подробности",
+      infoRegister: "Данные объекта: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство сохранения культурного наследия), сокращённая выжимка для некоммерческого использования. Условия и полный список источников: «О проекте и источниках» на боковой панели.",
+      infoPhotos: "Фотографии",
+      showDensity: "Плотность застройки (OSM, сейчас)",
+      legDensity: "Плотность застройки по зданиям OSM (с 2015): светлее — реже, тёмно-красный — очень плотно",
       typesTitle: "Назначение (сейчас — по названию, иначе по реестру)", func: "Современное назначение (по названию)", func0: "Первоначальное назначение (по реестру)", wiki: "Статья в Википедии",
       types: { residential: "Жилые дома", religious: "Религиозные", defense: "Оборонительные", culture: "Образование, наука, культура",
                public: "Общественные и торговые", transport: "Транспорт и инженерия", memorial: "Мемориалы и парки", rural: "Археология и сельское", other: "Прочие" },
@@ -126,6 +135,8 @@
         "Objects: public information from the register of immovable cultural heritage of Georgia (National Agency for Cultural Heritage Preservation). No written open licence for this data could be found; a reduced extract (name, address, coordinates, dates, number) is used for non-commercial purposes. Dates are estimated from register records.",
         "Plans of Tiflis, 1735 (Vakhushti, schematic), 1785 (Pishchevich), 1800 (Chuiko), 1821 (Shvetsov), 1844 (Military Topographic Depot), 1850 (General Staff), 1887 (A. Ilyin) 1911 (topographic sheet of the environs) and 1913 (city survey department): scans from Wikimedia Commons, public domain. The plans are registered to the modern map with control points (accuracy about 50 m, about 150 m for 1735) and the built-up outlines are traced by hand from them.",
         "Historical views of Tiflis (1578 to the 1910s): a miniature from the Nusretname (British Library), engravings after drawings by Chardin and Tournefort, paintings by Chernetsov, Lermontov, Franken and Aivazovsky, photographs by Yermakov and Prokudin-Gorsky; Wikimedia Commons files, public domain; reduced copies. They are drawings and photographs from a single viewpoint and are not tied to the map.",
+        "Privacy: the page uses no cookies or analytics; only the chosen language is stored in the browser. On loading, the browser contacts tiles.openfreemap.org (basemap) and wikimedia.org (photo previews), so these services can see the visitor's address. The feedback form through GitHub creates a public Issue.",
+        "Building density: the share of ground covered by OpenStreetMap building footprints (© OpenStreetMap contributors, ODbL) in cells of about 100×100 m; it shows the state at the time of export (November 2026); OSM buildings have no construction years, so the layer is shown only for recent years.",
         "Administrative boundary of Tbilisi (2019): OCHA COD-AB Georgia (HDX), source: National Statistics Office of Georgia, licence CC BY-IGO. Its area of 502.5 km² matches the thesis figure for the period after 2006.",
         "District boundaries and names: © OpenStreetMap contributors, ODbL (this dataset is a derived database; keep the same licence and attribution if you reuse it). The current division into 10 districts is shown.",
         "The grey dashed line for 1973–2005 is a boundary from geoBoundaries (ADM2, metadata: 2007). Checked by the position of settlements: those annexed in 2006 (Tskneti, Tsavkisi, Okrokana, Kiketi, Betania, Didi Dighomi, Zahesi) lie outside it, those annexed earlier (Ponichala, Orkhevi, Gldani, Varketili) inside, so it matches the pre-2006 limit. Its area of about 330 km² is smaller than the 354 km² in the thesis, the reason is not established. The district divisions and names by period (without boundaries) were relayed by an AI from secondary sources and are not checked against the originals.",
@@ -184,8 +195,15 @@
       viewClose: "Close",
       viewLicense: "licence",
       viewSource: "source",
-      trNote: "The name and address are translated or transliterated automatically from the Georgian original (register) and may be inexact.",
+      trNote: "The name and streets were translated automatically (AI) from the Georgian original in the register and may be inexact.",
       trOrig: "original",
+      fbContactWarn: "Note: when sent through GitHub, the contact goes into a public Issue and is visible to everyone. Leave it empty if you do not want that.",
+      infoBtn: "Sources and details",
+      infoTitle: "Sources and details",
+      infoRegister: "Object data: public records of the register of immovable cultural heritage monuments of Georgia (National Agency for Cultural Heritage Preservation), a reduced extract for non-commercial use. Terms and the full list of sources: “About and sources” in the side panel.",
+      infoPhotos: "Photographs",
+      showDensity: "Building density (OSM, today)",
+      legDensity: "Building density from OSM footprints (from 2015): lighter is sparser, dark red is very dense",
       typesTitle: "Use (today — by name, otherwise per register)", func: "Present-day use (by name)", func0: "Original function (per register)", wiki: "Wikipedia article",
       types: { residential: "Residential houses", religious: "Religious", defense: "Defensive", culture: "Education, science, culture",
                public: "Public and commercial", transport: "Transport and engineering", memorial: "Memorials and parks", rural: "Archaeology and rural", other: "Other" },
@@ -217,6 +235,8 @@
         "ობიექტები: საქართველოს უძრავი კულტურული მემკვიდრეობის ძეგლთა რეესტრის საჯარო ინფორმაცია (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო). ამ მონაცემებისთვის წერილობითი ღია ლიცენზია ვერ მოიძებნა; არაკომერციული მიზნით გამოყენებულია შემოკლებული ამონარიდი (სახელწოდება, მისამართი, კოორდინატები, თარიღები, ნომერი). თარიღები რეესტრის ჩანაწერებზე დაფუძნებული შეფასებაა.",
         "ტფილისის გეგმები, 1735 (ვახუშტი, სქემატური), 1785 (პიშჩევიჩი), 1800 (ჩუიკო), 1821 (შვეცოვი), 1844 (სამხედრო-ტოპოგრაფიული დეპო), 1850 (გენშტაბი), 1887 (ა. ილინი) 1911 (შემოგარენის ტოპოგრაფიული ფურცელი) და 1913 (საქალაქო სამმართველოს მიწისმზომელთა განყოფილება): Wikimedia Commons-ის სკანები, საჯარო სივრცე. გეგმები თანამედროვე რუკაზე მიბმულია საკონტროლო წერტილებით (სიზუსტე დაახლოებით 50 მ, 1735 წლის გეგმისთვის დაახლოებით 150 მ), განაშენიანების საზღვრები მათ მიხედვით ხელით არის დატანილი.",
         "ტფილისის ისტორიული ხედები (1578–1910-იანი წლები): „ნუსრეთნამეს“ მინიატურა (British Library), გრავიურები შარდენისა და ტურნეფორის ნახატებით, ჩერნეცოვის, ლერმონტოვის, ფრანკენისა და აივაზოვსკის ნახატები, ერმაკოვისა და პროკუდინ-გორსკის ფოტოები; Wikimedia Commons-ის ფაილები, საჯარო სივრცე; შემცირებული ასლები. ესენი ერთი წერტილიდან შესრულებული ნახატები და ფოტოებია და რუკას არ უკავშირდება.",
+        "კონფიდენციალურობა: გვერდი არ იყენებს cookie-ს და ანალიტიკას; ბრაუზერში მხოლოდ არჩეული ენა ინახება. ჩატვირთვისას ბრაუზერი მიმართავს tiles.openfreemap.org-ს (რუკის ფონი) და wikimedia.org-ს (ფოტოების გადახედვა), ამიტომ ამ სერვისებს ეხილვებათ სტუმრის მისამართი. GitHub-ით გაგზავნილი უკუკავშირი საჯარო Issue-ს ქმნის.",
+        "განაშენიანების სიმჭიდროვე: OpenStreetMap-ის შენობების კონტურებით დაკავებული ფართობის წილი (© OpenStreetMap contributors, ODbL), დაახლოებით 100×100 მ უჯრედებში; ნაჩვენებია ექსპორტის მომენტის მდგომარეობა (2026 წლის ნოემბერი); OSM-ის შენობებს აგების წლები არ აქვს, ამიტომ ფენა მხოლოდ თანამედროვე წლებისთვის ჩანს.",
         "თბილისის ადმინისტრაციული საზღვარი (2019): OCHA COD-AB Georgia (HDX), წყარო — საქართველოს სტატისტიკის ეროვნული სამსახური, ლიცენზია CC BY-IGO. ფართობი 502,5 კმ² ემთხვევა დისერტაციის მონაცემს 2006 წლის შემდგომი პერიოდისთვის.",
         "რაიონების საზღვრები და სახელები: © OpenStreetMap-ის მონაწილეები, ლიცენზია ODbL (ეს მონაცემთა ნაკრები წარმოებული ბაზაა; გამოყენებისას შეინარჩუნეთ იგივე ლიცენზია და ატრიბუცია). ნაჩვენებია 10 რაიონად დღევანდელი დაყოფა.",
         "1973–2005 წლების ნაცრისფერი წყვეტილი ხაზი — geoBoundaries-ის საზღვარია (ADM2, მეტამონაცემები: 2007). შემოწმება დასახლებების მდებარეობით: 2006 წელს მიერთებული (წყნეთი, წავკისი, ოქროყანა, კიკეთი, ბეთანია, დიდი დიღომი, ზაჰესი) მის გარეთაა, ადრე მიერთებული (პონიჭალა, ორხევი, გლდანი, ვარკეთილი) — შიგნით, ანუ ის შეესაბამება 2006 წლამდე არსებულ საზღვარს. მისი ფართობი დაახლოებით 330 კმ² დისერტაციის 354 კმ²-ზე ნაკლებია, მიზეზი დადგენილი არ არის. რაიონული დაყოფა და სახელები პერიოდების მიხედვით (საზღვრების გარეშე) გადმოცემულია ხელოვნური ინტელექტის მიერ მეორადი წყაროებიდან და ორიგინალებთან შემოწმებული არ არის.",
@@ -275,6 +295,13 @@
       viewClose: "დახურვა",
       viewLicense: "ლიცენზია",
       viewSource: "წყარო",
+      fbContactWarn: "ყურადღება: GitHub-ის გავლით გაგზავნისას კონტაქტი საჯარო Issue-ში მოხვდება და ყველას დაენახება. თუ არ გსურთ, ნუ მიუთითებთ.",
+      infoBtn: "წყაროები და დეტალები",
+      infoTitle: "წყაროები და დეტალები",
+      infoRegister: "ობიექტის მონაცემები: საქართველოს კულტურული მემკვიდრეობის უძრავი ძეგლების რეესტრის საჯარო ცნობები (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო), შემოკლებული ამონარიდი არაკომერციული გამოყენებისთვის. პირობები და წყაროების სრული სია: „პროექტის შესახებ და წყაროები“ გვერდით პანელში.",
+      infoPhotos: "ფოტოები",
+      showDensity: "განაშენიანების სიმჭიდროვე (OSM, დღეს)",
+      legDensity: "განაშენიანების სიმჭიდროვე OSM-ის შენობების მიხედვით (2015-დან): ღია — იშვიათი, მუქი წითელი — ძალიან მჭიდრო",
       typesTitle: "დანიშნულება (დღეს — სახელის მიხედვით, სხვა შემთხვევაში რეესტრით)", func: "დღევანდელი დანიშნულება (სახელის მიხედვით)", func0: "თავდაპირველი დანიშნულება (რეესტრის მიხედვით)", wiki: "სტატია ვიკიპედიაში",
       types: { residential: "საცხოვრებელი სახლები", religious: "რელიგიური", defense: "თავდაცვითი", culture: "განათლება, მეცნიერება, კულტურა",
                public: "საზოგადოებრივი და სავაჭრო", transport: "ტრანსპორტი და ინჟინერია", memorial: "მემორიალები და პარკები", rural: "არქეოლოგია და სოფლის", other: "სხვა" },
@@ -417,6 +444,7 @@
     updateUrban();
     updateSettle();
     updateWater();
+    updateDensity();
     updateViews();
     updateLost();
     if (map.getLayer("admin-line")) map.setLayoutProperty("admin-line", "visibility", $("showAdmin").checked ? "visible" : "none");
@@ -510,6 +538,32 @@
   }
 
   let photoInfo = null;
+  // Details that do not belong on the card (licences, sources, register notes) live in a separate window opened by a button.
+  function openInfo(build) {
+    $("imTitle").textContent = t().infoTitle;
+    const body = $("imBody");
+    body.textContent = "";
+    build(body);
+    $("infoModal").hidden = false;
+  }
+  function closeInfo() { $("infoModal").hidden = true; }
+  $("imClose").addEventListener("click", closeInfo);
+  $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
+  function infoLine(body, text, cls) { const d = document.createElement("div"); d.className = cls || "small"; d.textContent = text; body.appendChild(d); return d; }
+  function actions(el, openDetails, fbObj) {
+    const box = document.createElement("div");
+    box.className = "actions";
+    const a1 = document.createElement("a");
+    a1.href = "#"; a1.className = "fb"; a1.textContent = t().infoBtn;
+    a1.addEventListener("click", (ev) => { ev.preventDefault(); openDetails(); });
+    const a2 = document.createElement("a");
+    a2.href = "#"; a2.className = "fb"; a2.textContent = t().fbPopup;
+    a2.addEventListener("click", (ev) => { ev.preventDefault(); openFeedback(fbObj); });
+    box.appendChild(a1); box.appendChild(a2);
+    el.appendChild(box);
+  }
+
   async function addPhotos(el, p) {
     if (!p.ph) return;
     const box = document.createElement("div");
@@ -530,15 +584,29 @@
       img.src = f.thumb; img.loading = "lazy"; img.alt = p.name || "";
       a.appendChild(img);
       fig.appendChild(a);
-      const cap = document.createElement("figcaption");
-      cap.textContent = [t().photoBy + ":", f.author || "?", f.license ? "· " + f.license : ""].join(" ");
-      fig.appendChild(cap);
+      a.title = [f.author || "", f.license || ""].filter(Boolean).join(" · ");
       box.appendChild(fig);
     });
-    const note = document.createElement("div");
-    note.className = "k small";
-    note.textContent = t().photo + " — Wikimedia Commons";
-    box.appendChild(note);
+  }
+  async function photoCredits(body, p) {
+    if (!p.ph) return;
+    try { if (!photoInfo) photoInfo = await getJSON("data/photos.json"); } catch (e) { return; }
+    const titles = String(p.ph).split("|").filter((x) => photoInfo[x] && photoInfo[x].thumb);
+    if (!titles.length) return;
+    const h = document.createElement("h4");
+    h.textContent = t().infoPhotos;
+    body.appendChild(h);
+    titles.forEach((ti) => {
+      const f = photoInfo[ti];
+      const d = document.createElement("div");
+      d.className = "small";
+      d.appendChild(document.createTextNode([f.author || "?", f.license || ""].filter(Boolean).join(" · ") + " · "));
+      const a = document.createElement("a");
+      a.href = f.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikimedia Commons";
+      d.appendChild(a);
+      body.appendChild(d);
+    });
+    infoLine(body, t().photo);
   }
 
   // Wikipedia link in the interface language; if there is no article in it: English, then Georgian, Russian only as the last resort
@@ -621,21 +689,20 @@
     const st = lostState(p);
     if (st) add(year + ": " + L.lostState[st], "k small");
     if (p.repl && p.repl !== "null") add(L.lostRepl + ": " + p.repl);
-    add(L.lostAcc(p.acc, p.pos), "k small");
-    add(p.chk === true || p.chk === "true" ? L.lostChk : L.lostNoChk, "k small");
-    add(L.lostSrc, "k small");
     let srcs = [];
     try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
-    const wl = wikiLink(p);
-    if (wl || srcs.length) {
-      const d = add(L.lostSources + ": ", "k small");
-      if (wl) d.appendChild(wl);
-      srcs.slice(0, 4).forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = (i || wl ? ", " : "") + decodeURIComponent(u.split("/")[2].replace("www.", "")); d.appendChild(a); });
-    }
-    const fb = document.createElement("div"); const fa = document.createElement("a");
-    fa.href = "#"; fa.className = "fb"; fa.textContent = L.fbPopup;
-    fa.addEventListener("click", (ev) => { ev.preventDefault(); openFeedback({ id: "lost", name: p.name_ru || p.name_en, reg: "-" }); });
-    fb.appendChild(fa); el.appendChild(fb);
+    addWiki(el, p);
+    actions(el, () => openInfo((body) => {
+      infoLine(body, L.lostAcc(p.acc, p.pos));
+      infoLine(body, p.chk === true || p.chk === "true" ? L.lostChk : L.lostNoChk);
+      infoLine(body, L.lostSrc);
+      const wl = wikiLink(p);
+      if (wl || srcs.length) {
+        const d = infoLine(body, L.lostSources + ": ");
+        if (wl) d.appendChild(wl);
+        srcs.slice(0, 4).forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = (i || wl ? ", " : "") + decodeURIComponent(u.split("/")[2].replace("www.", "")); d.appendChild(a); });
+      }
+    }), { id: "lost", name: p.name_ru || p.name_en, reg: "-" });
     new maplibregl.Popup({ maxWidth: "320px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
   }
 
@@ -708,6 +775,10 @@
   $("viewModal").addEventListener("click", (e) => { if (e.target === $("viewModal")) closeView(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("viewModal").hidden) closeView(); });
 
+  function updateDensity() {
+    if (map.getLayer("density-img")) map.setLayoutProperty("density-img", "visibility", $("showDensity").checked && year >= 2015 ? "visible" : "none");
+  }
+
   function updateSettle() {
     if (!map.getLayer("settle-dot")) return;
     const vis = $("showSettle").checked ? "visible" : "none";
@@ -776,7 +847,8 @@
     const el = document.createElement("div");
     el.className = "pop";
     const h3 = document.createElement("h3");
-    const shownName = window.GeoTr ? window.GeoTr.name(p.name, lang, p.wp) : p.name;
+    const nmInfo = window.GeoTr ? window.GeoTr.nameInfo(p.name, lang, p.wp) : { text: p.name, src: "orig" };
+    const shownName = nmInfo.text;
     h3.textContent = shownName || "—";
     el.appendChild(h3);
     if (p.name && shownName !== p.name) {                       // Georgian original under the translated name
@@ -801,18 +873,16 @@
     else row(L.func0, L.types[p.fn]);
     if (p.ruin === true || p.ruin === "true") row(L.ruinRow, L.ruinTxt);
     row(L.date, window.GeoTr ? window.GeoTr.date(p.raw_date, lang) : p.raw_date);
-    row(L.est, `${p.ye} (${L.range} ${p.y0}–${p.y1}, ${L.prec}: ${L.precision[p.prec] || p.prec}; ${L.src[p.src] || p.src || "—"})`);
-    row(L.reg, p.reg);
     if (p.unc === true || p.unc === "true") row("⚠", L.unc);
-    if (lang !== "ka" && L.trNote) { const n = document.createElement("div"); n.className = "k small"; n.textContent = L.trNote; el.appendChild(n); }
     addWiki(el, p);
     addPhotos(el, p);
-    const fb = document.createElement("div");
-    const fa = document.createElement("a");
-    fa.href = "#"; fa.className = "fb"; fa.textContent = L.fbPopup;
-    fa.addEventListener("click", (ev) => { ev.preventDefault(); openFeedback({ id: p.id, name: p.name, reg: p.reg }); });
-    fb.appendChild(fa);
-    el.appendChild(fb);
+    actions(el, () => openInfo((body) => {
+      infoLine(body, L.est + ": " + `${p.ye} (${L.range} ${p.y0}–${p.y1}, ${L.prec}: ${L.precision[p.prec] || p.prec}; ${L.src[p.src] || p.src || "—"})`);
+      infoLine(body, L.reg + ": " + p.reg);
+      infoLine(body, L.infoRegister);
+      if (lang !== "ka" && nmInfo.src === "ai" && L.trNote) infoLine(body, L.trNote);
+      photoCredits(body, p);
+    }), { id: p.id, name: p.name, reg: p.reg });
     new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
   }
 
@@ -838,6 +908,7 @@
     plans = pl;
     try { areas = (await getJSON("data/city_area.json")).areas; } catch (e) { areas = []; }
     try { views = await getJSON("data/views.json"); } catch (e) { views = []; }
+    try { if (window.GeoTr) window.GeoTr.setDict(await getJSON("data/names_i18n.json", 1)); } catch (e) { /* not produced yet: names stay Georgian */ }
     const feats = [];
     for (const f of mon.features) {
       const p = f.properties;
@@ -871,6 +942,11 @@
       map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
       map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
     }
+    try {                                            // building density today (OSM footprints), shown only for recent years
+      const dm = await getJSON("data/density.json", 1);
+      map.addSource("density", { type: "image", url: "data/density.png", coordinates: dm.coordinates });
+      map.addLayer({ id: "density-img", type: "raster", source: "density", layout: { visibility: "none" }, paint: { "raster-opacity": 0.8, "raster-fade-duration": 0 } });
+    } catch (e) { /* no density layer */ }
     let admin = { type: "FeatureCollection", features: [] };
     try { admin = await getJSON("data/admin.json"); } catch (e) {}
     map.addSource("admin", { type: "geojson", data: admin });
@@ -948,7 +1024,7 @@
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", e.target.value / 100);
