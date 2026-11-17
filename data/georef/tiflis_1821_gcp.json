@@ -1,0 +1,132 @@
+{
+ "gcps": [
+  {
+   "px": [
+    3872,
+    7035
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "No.97 Metekhi Church"
+  },
+  {
+   "px": [
+    3525,
+    7450
+   ],
+   "lnglat": [
+    44.80907,
+    41.68785
+   ],
+   "label": "No.12 St Nicholas in Narikala"
+  },
+  {
+   "px": [
+    3272,
+    6815
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "No.41 Sioni Cathedral"
+  },
+  {
+   "px": [
+    3318,
+    6368
+   ],
+   "lnglat": [
+    44.80662,
+    41.6955
+   ],
+   "label": "No.44 Anchiskhati Basilica"
+  },
+  {
+   "px": [
+    2848,
+    7058
+   ],
+   "lnglat": [
+    44.80354,
+    41.69278
+   ],
+   "label": "No.67 Catholic Church (Abesadze 4)"
+  },
+  {
+   "px": [
+    3378,
+    5518
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "No.90 Vank Monastery"
+  },
+  {
+   "px": [
+    2165,
+    5435
+   ],
+   "lnglat": [
+    44.7993,
+    41.69797
+   ],
+   "label": "No.85 Kashveti Church"
+  },
+  {
+   "px": [
+    2425,
+    5975
+   ],
+   "lnglat": [
+    44.79896,
+    41.69603
+   ],
+   "label": "No.72 Commander-in-Chief Palace"
+  },
+  {
+   "px": [
+    4028,
+    6818
+   ],
+   "lnglat": [
+    44.81268,
+    41.69169
+   ],
+   "label": "No.98 Darejan Palace"
+  },
+  {
+   "px": [
+    4395,
+    7065
+   ],
+   "lnglat": [
+    44.81372,
+    41.69257
+   ],
+   "label": "No.101 Echmiadzin Church"
+  },
+  {
+   "px": [
+    1600,
+    4630
+   ],
+   "lnglat": [
+    44.78887,
+    41.69583
+   ],
+   "label": "No.89 Mamadaviti Church"
+  }
+ ],
+ "excluded_default": [
+  4,
+  5,
+  6,
+  10
+ ],
+ "note": "points proposed by an external AI from the plan legend and checked numerically; excluded_default = indices dropped by leave-one-out cleaning (see sources.md)"
+}

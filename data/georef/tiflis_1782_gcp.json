@@ -1,0 +1,119 @@
+{
+ "gcps": [
+  {
+   "px": [
+    1015,
+    1000
+   ],
+   "lnglat": [
+    44.8139,
+    41.68775
+   ],
+   "label": "Sulfur baths"
+  },
+  {
+   "px": [
+    1145,
+    1828
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "Metekhi"
+  },
+  {
+   "px": [
+    1270,
+    1845
+   ],
+   "lnglat": [
+    44.8106,
+    41.6895
+   ],
+   "label": "Metekhi bridge"
+  },
+  {
+   "px": [
+    992,
+    2365
+   ],
+   "lnglat": [
+    44.81268,
+    41.69169
+   ],
+   "label": "Sachino"
+  },
+  {
+   "px": [
+    2048,
+    2485
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "Sioni"
+  },
+  {
+   "px": [
+    2252,
+    2436
+   ],
+   "lnglat": [
+    44.80653,
+    41.69097
+   ],
+   "label": "Norashen"
+  },
+  {
+   "px": [
+    2398,
+    2278
+   ],
+   "lnglat": [
+    44.80646,
+    41.69065
+   ],
+   "label": "Jvaris Mama"
+  },
+  {
+   "px": [
+    2085,
+    4085
+   ],
+   "lnglat": [
+    44.80687,
+    41.69552
+   ],
+   "label": "Anchiskhati"
+  },
+  {
+   "px": [
+    2180,
+    4885
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "Vank"
+  },
+  {
+   "px": [
+    3665,
+    5035
+   ],
+   "lnglat": [
+    44.7993,
+    41.69797
+   ],
+   "label": "Kashveti"
+  }
+ ],
+ "excluded_default": [
+  0,
+  3
+ ],
+ "note": "points proposed by an external AI from the plan legend, checked numerically; excluded_default = indices dropped by leave-one-out cleaning"
+}

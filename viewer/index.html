@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tbilisi Plan Aligner</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+  :root { --bg:#fff; --fg:#1a1a1a; --panel:#ffffffee; --accent:#b4412c; --muted:#666; --line:#0003; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --fg:#eee; --panel:#1d2026ee; --muted:#9aa; --line:#fff3; } }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:14px/1.4 system-ui,sans-serif; }
+  #map { position:absolute; inset:0; }
+  #panel { position:absolute; top:12px; left:12px; width:290px; max-width:calc(100vw - 40px); max-height:calc(100vh - 24px); overflow:auto;
+           background:var(--panel); padding:12px; border-radius:8px; box-shadow:0 2px 10px #0004; z-index:5; }
+  #panel h1 { font-size:15px; margin:0 0 8px; }
+  #panel h2 { font-size:13px; margin:12px 0 4px; padding-top:8px; border-top:1px solid var(--line); }
+  #panel label { display:block; margin:8px 0 2px; color:var(--muted); font-size:12px; }
+  #panel label.inline { display:flex; gap:6px; align-items:center; }
+  #panel select, #panel input[type=range] { width:100%; }
+  #panel button { margin:6px 6px 0 0; padding:6px 10px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:5px; cursor:pointer; }
+  #panel button.secondary { background:transparent; color:var(--accent); }
+  #status { margin-top:10px; font-size:12px; color:var(--muted); min-height:1.4em; }
+  .handle { width:16px; height:16px; border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 0 3px #000a; cursor:grab; }
+  .handle.center { background:#2a6fb4; width:20px; height:20px; }
+  .vtx { width:10px; height:10px; background:#fff; border:2px solid #222; border-radius:2px; cursor:grab; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="panel">
+  <h1>Old plans: align and trace</h1>
+  <label for="plan">Plan</label>
+  <select id="plan"></select>
+  <label for="op">Plan opacity: <span id="opv">60</span>%</label>
+  <input id="op" type="range" min="0" max="100" value="60">
+  <label class="inline"><input type="checkbox" id="handles"> Plan handles (align)</label>
+  <div>
+    <button id="save">Save alignment</button>
+    <button id="reset" class="secondary">Reset</button>
+    <button id="toggle" class="secondary">Hide plan</button>
+  </div>
+
+  <h2>Boundary</h2>
+  <label for="btype">Type</label>
+  <select id="btype">
+    <option value="city_limit">City limit (official line)</option>
+    <option value="built_up">Built-up area</option>
+  </select>
+  <label for="bconf">Confidence</label>
+  <select id="bconf">
+    <option value="precise">Precise (line on the plan)</option>
+    <option value="approximate">Approximate (by eye)</option>
+  </select>
+  <div>
+    <button id="newpoly">New polygon</button>
+    <button id="finish" class="secondary">Finish</button>
+    <button id="undo" class="secondary">Undo vertex</button>
+    <button id="delpoly" class="secondary">Delete polygon</button>
+    <button id="savebnd">Save boundary</button>
+  </div>
+  <h2>Control points</h2>
+  <label class="inline"><input type="checkbox" id="cpmode"> Add points: click a feature on the plan, then the same spot on the base map</label>
+  <div id="gcplist" style="font-size:12px;max-height:120px;overflow:auto;margin-top:4px"></div>
+  <div>
+    <button id="savegcp">Save points</button>
+    <button id="warp" class="secondary">Compute warp</button>
+    <button id="cleargcp" class="secondary">Clear all</button>
+  </div>
+  <label class="inline"><input type="checkbox" id="usewarp"> Show warped plan (after Compute warp)</label>
+  <div id="warpinfo" style="font-size:12px;color:var(--muted)"></div>
+  <div id="status">Loading...</div>
+</div>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

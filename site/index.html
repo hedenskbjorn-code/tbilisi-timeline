@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tbilisi through time</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+</head>
+<body>
+<div id="map"></div>
+<div id="yearchip"></div>
+
+<header id="top">
+  <button id="menu" class="chip" aria-label="menu" aria-expanded="false">☰</button>
+  <h1 id="title"></h1>
+  <div class="spacer"></div>
+  <button id="fbOpen" class="chip" data-i="fbBtn"></button>
+  <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
+</header>
+
+<aside id="side">
+  <div id="yearbox">
+    <div id="year">1887</div>
+    <div id="count"></div>
+  </div>
+  <div id="planline"></div>
+  <div id="bndline"></div>
+  <div id="arealine"></div>
+  <details id="distinfo"><summary id="distsum"></summary><div id="distbody"></div></details>
+
+  <label class="row"><input type="checkbox" id="showPlan" checked> <span data-i="showPlan"></span></label>
+  <label class="row col">
+    <span data-i="planOpacity"></span> <output id="opv">65%</output>
+    <input type="range" id="op" min="0" max="100" value="65">
+  </label>
+  <label class="row"><input type="checkbox" id="showBnd" checked> <span data-i="showBnd"></span></label>
+  <label class="row"><input type="checkbox" id="showAdmin" checked> <span data-i="showAdmin"></span></label>
+  <label class="row"><input type="checkbox" id="showDistricts" checked> <span data-i="showDistricts"></span></label>
+  <label class="row"><input type="checkbox" id="showSettle" checked> <span data-i="showSettle"></span></label>
+  <div id="tiers"><div class="small tiers-title" data-i="showFilter"></div>
+    <label class="row"><input type="checkbox" id="showNat" checked> <span data-i="showNat"></span></label>
+    <label class="row"><input type="checkbox" id="showMon" checked> <span data-i="showMon"></span></label>
+    <label class="row"><input type="checkbox" id="showObj" checked> <span data-i="showObj"></span></label>
+  </div>
+
+  <div id="types"><div class="small types-title" data-i="typesTitle"></div><div id="typelist"></div></div>
+
+  <details id="legendbox" open>
+    <summary data-i="legTitle"></summary>
+    <div class="legend">
+      <div class="lg-h" data-i="legObjects"></div>
+      <div><i class="dot new"></i><span data-i="legNew"></span></div>
+      <div><i class="dot old"></i><span data-i="legOld"></span></div>
+      <div><i class="dot nat"></i><span data-i="legNat"></span></div>
+      <div><i class="dot coarse"></i><span data-i="legCoarse"></span></div>
+      <div><i class="dot ruin"></i><span data-i="legRuin"></span></div>
+      <div class="lg-h" data-i="legBounds"></div>
+      <div><i class="sw sw-fill"></i><span data-i="legFill"></span></div>
+      <div><i class="sw sw-solid"></i><span data-i="legSat"></span></div>
+      <div><i class="sw sw-dash"></i><span data-i="legTraced"></span></div>
+      <div><i class="sw sw-admin"></i><span data-i="legAdmin"></span></div>
+      <div><i class="sw sw-old"></i><span data-i="legOldAdmin"></span></div>
+      <div><i class="sw sw-dist"></i><span data-i="legDistLine"></span></div>
+      <div><i class="sw sw-plan"></i><span data-i="legPlan"></span></div>
+      <div class="lg-h" data-i="legNames"></div>
+      <div><span class="lg-label lg-district">Mtatsminda</span><span data-i="legDistName"></span></div>
+      <div><i class="dot setl-before"></i><span data-i="legSetBefore"></span></div>
+      <div><i class="dot setl-after"></i><span data-i="legSetAfter"></span></div>
+      <div><i class="dot setl-unk"></i><span data-i="legSetUnk"></span></div>
+      <div><span class="lg-label lg-settle">Kojori</span><span data-i="legSetName"></span></div>
+    </div>
+  </details>
+  <p id="note" class="small"></p>
+  <details id="about"><summary data-i="aboutTitle"></summary><div id="abouttext"></div></details>
+</aside>
+
+<footer id="bottom">
+  <button id="play" class="chip" aria-label="play">▶</button>
+  <div id="sliderwrap">
+    <input type="range" id="slider" min="1700" max="2025" step="1" value="1887">
+    <div id="ticks"></div>
+  </div>
+</footer>
+
+<div id="fbModal" class="modal" hidden>
+  <form id="fbForm" class="modalbox" autocomplete="off">
+    <h2 data-i="fbTitle"></h2>
+    <p class="small" data-i="fbHint"></p>
+    <label><span data-i="fbType"></span>
+      <select id="fbKind"><option value="data" data-i="fbK1"></option><option value="georef" data-i="fbK2"></option><option value="boundary" data-i="fbK3"></option><option value="translation" data-i="fbK4"></option><option value="rights" data-i="fbK5"></option><option value="other" data-i="fbK6"></option></select></label>
+    <label><span data-i="fbText"></span><textarea id="fbMsg" rows="5" maxlength="2000" required></textarea></label>
+    <label><span data-i="fbCtx"></span><input id="fbCtx" type="text" readonly></label>
+    <label><span data-i="fbContact"></span><input id="fbContactInput" type="text" maxlength="200" placeholder="email / telegram (optional)"></label>
+    <input id="fbTrap" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="trap">
+    <div class="modalbtns"><button type="button" id="fbCancel" class="chip" data-i="fbCancel"></button><button type="submit" id="fbSend" class="chip primary" data-i="fbSend"></button></div>
+    <p id="fbStatus" class="small"></p>
+  </form>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

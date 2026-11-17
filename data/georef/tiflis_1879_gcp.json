@@ -1,0 +1,141 @@
+{
+ "gcps": [
+  {
+   "px": [
+    4175,
+    1068
+   ],
+   "lnglat": [
+    44.798,
+    41.7211
+   ],
+   "label": "Station"
+  },
+  {
+   "px": [
+    3490,
+    1545
+   ],
+   "lnglat": [
+    44.78967,
+    41.71679
+   ],
+   "label": "Observatory"
+  },
+  {
+   "px": [
+    4275,
+    2120
+   ],
+   "lnglat": [
+    44.80102,
+    41.71134
+   ],
+   "label": "Alexander Nevsky"
+  },
+  {
+   "px": [
+    4348,
+    2255
+   ],
+   "lnglat": [
+    44.80182,
+    41.70996
+   ],
+   "label": "Peter and Paul"
+  },
+  {
+   "px": [
+    3262,
+    2524
+   ],
+   "lnglat": [
+    44.78899,
+    41.70792
+   ],
+   "label": "Lurji monastery"
+  },
+  {
+   "px": [
+    3284,
+    3765
+   ],
+   "lnglat": [
+    44.78887,
+    41.69583
+   ],
+   "label": "Mamadaviti"
+  },
+  {
+   "px": [
+    4068,
+    3538
+   ],
+   "lnglat": [
+    44.7993,
+    41.69797
+   ],
+   "label": "Kashveti"
+  },
+  {
+   "px": [
+    4686,
+    3510
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "Vank"
+  },
+  {
+   "px": [
+    4735,
+    3772
+   ],
+   "lnglat": [
+    44.80687,
+    41.69552
+   ],
+   "label": "Anchiskhati"
+  },
+  {
+   "px": [
+    4744,
+    4158
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "Sioni"
+  },
+  {
+   "px": [
+    5065,
+    4295
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "Metekhi"
+  },
+  {
+   "px": [
+    5852,
+    4862
+   ],
+   "lnglat": [
+    44.82002,
+    41.68459
+   ],
+   "label": "St Nicholas Kharpukhi"
+  }
+ ],
+ "excluded_default": [
+  5,
+  1
+ ],
+ "note": "points proposed by an external AI from the plan legend, checked numerically; excluded_default = indices dropped by leave-one-out cleaning"
+}

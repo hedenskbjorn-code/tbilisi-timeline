@@ -1,0 +1,130 @@
+{
+ "gcps": [
+  {
+   "px": [
+    498,
+    725
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "No.66 Metekhi Church"
+  },
+  {
+   "px": [
+    1105,
+    922
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "No.3 Sioni Cathedral"
+  },
+  {
+   "px": [
+    1165,
+    1692
+   ],
+   "lnglat": [
+    44.80662,
+    41.6955
+   ],
+   "label": "No.4 Anchiskhati Basilica"
+  },
+  {
+   "px": [
+    1182,
+    1502
+   ],
+   "lnglat": [
+    44.80649,
+    41.69465
+   ],
+   "label": "No.6 Karis Eklesia"
+  },
+  {
+   "px": [
+    1192,
+    955
+   ],
+   "lnglat": [
+    44.80653,
+    41.69097
+   ],
+   "label": "No.32 Norashen Church"
+  },
+  {
+   "px": [
+    1322,
+    912
+   ],
+   "lnglat": [
+    44.80646,
+    41.69065
+   ],
+   "label": "No.33 Jvaris Mama Church"
+  },
+  {
+   "px": [
+    1612,
+    958
+   ],
+   "lnglat": [
+    44.80423,
+    41.6903
+   ],
+   "label": "No.39 Moghni Church"
+  },
+  {
+   "px": [
+    1595,
+    535
+   ],
+   "lnglat": [
+    44.80397,
+    41.68923
+   ],
+   "label": "No.43 Petkhani (Lower Betlemi)"
+  },
+  {
+   "px": [
+    1118,
+    522
+   ],
+   "lnglat": [
+    44.80664,
+    41.6887
+   ],
+   "label": "No.45 Kldisubani Church"
+  },
+  {
+   "px": [
+    610,
+    420
+   ],
+   "lnglat": [
+    44.81103,
+    41.68811
+   ],
+   "label": "No.62 Sulfur Baths"
+  },
+  {
+   "px": [
+    1122,
+    1988
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "No.72 Vank Monastery"
+  }
+ ],
+ "excluded_default": [
+  7,
+  8
+ ],
+ "note": "points proposed by an external AI from the plan legend and checked numerically; excluded_default = indices dropped by leave-one-out cleaning (see sources.md)"
+}

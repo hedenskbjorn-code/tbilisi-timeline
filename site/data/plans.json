@@ -1,0 +1,263 @@
+[
+ {
+  "id": "tiflis_1735",
+  "year": 1735,
+  "title": "Plan of Tiflis by Prince Vakhushti, 1735 (schematic)",
+  "source": "Wikimedia Commons, File:Tbilisi plan by Prince Vakhushti (original).jpg (public domain)",
+  "image": "data/tiflis_1735.webp",
+  "corners": [
+   [
+    44.79027777,
+    41.70339093
+   ],
+   [
+    44.82820819,
+    41.70339093
+   ],
+   [
+    44.82820819,
+    41.68403369
+   ],
+   [
+    44.79027777,
+    41.68403369
+   ]
+  ],
+  "accuracy_m": 158,
+  "points": 10,
+  "boundary": "data/tiflis_1735_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1782",
+  "year": 1782,
+  "title": "Plan of Tiflis, 1782 (Russian State Military History Archive)",
+  "source": "Wikimedia Commons, File:Map of Tbilisi 1782 (1).jpg (public domain)",
+  "image": "data/tiflis_1782.webp",
+  "corners": [
+   [
+    44.77750071,
+    41.70079004
+   ],
+   [
+    44.8169496,
+    41.70079004
+   ],
+   [
+    44.8169496,
+    41.68400005
+   ],
+   [
+    44.77750071,
+    41.68400005
+   ]
+  ],
+  "accuracy_m": 59,
+  "points": 8,
+  "boundary": "data/tiflis_1782_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1785",
+  "year": 1785,
+  "title": "Plan of Tiflis by A. S. Pishchevich, 1785",
+  "source": "Wikimedia Commons, File:Pishchevich map of Tiflis, 1785.jpg (public domain)",
+  "image": "data/tiflis_1785.webp",
+  "corners": [
+   [
+    44.79494192,
+    41.70037269
+   ],
+   [
+    44.81512833,
+    41.70037269
+   ],
+   [
+    44.81512833,
+    41.68327782
+   ],
+   [
+    44.79494192,
+    41.68327782
+   ]
+  ],
+  "accuracy_m": 49,
+  "points": 9,
+  "boundary": "data/tiflis_1785_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1800",
+  "year": 1800,
+  "title": "Plan of Tiflis by V. Chuiko, 1800",
+  "source": "Wikimedia Commons, File:Tbilisi map 1800 (Chuiko).jpg (public domain)",
+  "image": "data/tiflis_1800.webp",
+  "corners": [
+   [
+    44.79228199,
+    41.70678231
+   ],
+   [
+    44.82279916,
+    41.70678231
+   ],
+   [
+    44.82279916,
+    41.6812412
+   ],
+   [
+    44.79228199,
+    41.6812412
+   ]
+  ],
+  "accuracy_m": 52,
+  "points": 10,
+  "boundary": "data/tiflis_1800_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1802",
+  "year": 1802,
+  "title": "Plan of the city of Tiflis, 1802",
+  "source": "Wikimedia Commons, File:Plan of Tbilisi 1802.gif (public domain)",
+  "image": "data/tiflis_1802.webp",
+  "corners": [
+   [
+    44.79257177,
+    41.70628064
+   ],
+   [
+    44.8205343,
+    41.70628064
+   ],
+   [
+    44.8205343,
+    41.68314076
+   ],
+   [
+    44.79257177,
+    41.68314076
+   ]
+  ],
+  "accuracy_m": 33,
+  "points": 12,
+  "boundary": "data/tiflis_1802_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1844",
+  "year": 1844,
+  "title": "Plan of the city of Tiflis, 1844 (Military Topographic Depot)",
+  "source": "Wikimedia Commons, File:Map of Tbilisi 1844.jpg (public domain)",
+  "image": "data/tiflis_1844.webp",
+  "corners": [
+   [
+    44.78199547,
+    41.71691652
+   ],
+   [
+    44.85533881,
+    41.71691652
+   ],
+   [
+    44.85533881,
+    41.66965612
+   ],
+   [
+    44.78199547,
+    41.66965612
+   ]
+  ],
+  "accuracy_m": 49,
+  "points": 8,
+  "boundary": "data/tiflis_1844_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1879",
+  "year": 1879,
+  "title": "Plan of Tiflis, 1879 (2nd ed., Melikov press; BnF)",
+  "source": "Wikimedia Commons, File:Планъ Тифлиса (2e édition) - btv1b53020910n.jpg (BnF, public domain)",
+  "image": "data/tiflis_1879.webp",
+  "corners": [
+   [
+    44.75060746,
+    41.73339721
+   ],
+   [
+    44.86355885,
+    41.73339721
+   ],
+   [
+    44.86355885,
+    41.66156331
+   ],
+   [
+    44.75060746,
+    41.66156331
+   ]
+  ],
+  "accuracy_m": 60,
+  "points": 10,
+  "boundary": "data/tiflis_1879_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1887",
+  "year": 1887,
+  "title": "Plan of Tiflis with environs, 1887 (A. Ilyin, St Petersburg)",
+  "source": "Wikimedia Commons, File:Tiflis city plan, 1887.jpg (PD-RusEmpire)",
+  "image": "data/tiflis_1887.webp",
+  "corners": [
+   [
+    44.77324797,
+    41.729279
+   ],
+   [
+    44.86101049,
+    41.729279
+   ],
+   [
+    44.86101049,
+    41.66743772
+   ],
+   [
+    44.77324797,
+    41.66743772
+   ]
+  ],
+  "accuracy_m": 40,
+  "points": 15,
+  "boundary": "data/tiflis_1887_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tbilisi_1913",
+  "year": 1913,
+  "title": "Plan of the city of Tiflis, 1913 (Tiflis city survey dept.)",
+  "source": "Wikimedia Commons, File:Map of Tbilisi 1913.jpg (Public domain per Commons)",
+  "image": "data/tbilisi_1913.webp",
+  "corners": [
+   [
+    44.77150678,
+    41.73738417
+   ],
+   [
+    44.86338631,
+    41.73738417
+   ],
+   [
+    44.86338631,
+    41.66695826
+   ],
+   [
+    44.77150678,
+    41.66695826
+   ]
+  ],
+  "accuracy_m": 45,
+  "points": 16,
+  "boundary": "data/tbilisi_1913_boundary.geojson",
+  "boundary_partial": false
+ }
+]
