@@ -1,0 +1,141 @@
+{
+ "gcps": [
+  {
+   "px": [
+    2635,
+    2525
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "No.89 Metekhi Church"
+  },
+  {
+   "px": [
+    3155,
+    1895
+   ],
+   "lnglat": [
+    44.80907,
+    41.68785
+   ],
+   "label": "No.7 St Nicholas in Narikala"
+  },
+  {
+   "px": [
+    3465,
+    3115
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "No.25 Sioni Cathedral"
+  },
+  {
+   "px": [
+    3455,
+    4390
+   ],
+   "lnglat": [
+    44.80662,
+    41.6955
+   ],
+   "label": "No.32 Anchiskhati Basilica"
+  },
+  {
+   "px": [
+    3690,
+    4050
+   ],
+   "lnglat": [
+    44.80649,
+    41.69465
+   ],
+   "label": "No.30 Karis Eklesia"
+  },
+  {
+   "px": [
+    3675,
+    5175
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "No.81 Vank Cathedral"
+  },
+  {
+   "px": [
+    5195,
+    5365
+   ],
+   "lnglat": [
+    44.7993,
+    41.69797
+   ],
+   "label": "No.75 Kashveti Church"
+  },
+  {
+   "px": [
+    4730,
+    4950
+   ],
+   "lnglat": [
+    44.80168,
+    41.69671
+   ],
+   "label": "No.77 Sameba (Trinity) Church"
+  },
+  {
+   "px": [
+    2085,
+    2415
+   ],
+   "lnglat": [
+    44.81268,
+    41.69169
+   ],
+   "label": "No.87 Darejan Palace (Sachino)"
+  },
+  {
+   "px": [
+    1845,
+    2725
+   ],
+   "lnglat": [
+    44.81372,
+    41.69257
+   ],
+   "label": "No.85 Echmiadzin Church"
+  },
+  {
+   "px": [
+    2065,
+    3605
+   ],
+   "lnglat": [
+    44.81342,
+    41.69365
+   ],
+   "label": "No.90 St Marine in Avlabari"
+  },
+  {
+   "px": [
+    2525,
+    1735
+   ],
+   "lnglat": [
+    44.81103,
+    41.68811
+   ],
+   "label": "No.71 Sulfur Baths"
+  }
+ ],
+ "excluded_default": [
+  8,
+  9
+ ],
+ "note": "points proposed by an external AI from the plan legend and checked numerically; excluded_default = indices dropped by leave-one-out cleaning (see sources.md)"
+}

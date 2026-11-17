@@ -1,0 +1,143 @@
+{
+ "gcps": [
+  {
+   "px": [
+    3605,
+    4800
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "No.11 Metekhi Church"
+  },
+  {
+   "px": [
+    3260,
+    4950
+   ],
+   "lnglat": [
+    44.80888,
+    41.68918
+   ],
+   "label": "No.53 Surb Gevorg Cathedral"
+  },
+  {
+   "px": [
+    3155,
+    4580
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "No.39 Sioni Cathedral"
+  },
+  {
+   "px": [
+    2975,
+    4050
+   ],
+   "lnglat": [
+    44.80662,
+    41.6955
+   ],
+   "label": "No.46 Anchiskhati Basilica"
+  },
+  {
+   "px": [
+    2905,
+    3475
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "No.36 Vank Cathedral"
+  },
+  {
+   "px": [
+    2690,
+    4745
+   ],
+   "lnglat": [
+    44.80354,
+    41.69278
+   ],
+   "label": "No.48 Catholic Church (Abesadze 4)"
+  },
+  {
+   "px": [
+    2705,
+    4970
+   ],
+   "lnglat": [
+    44.80423,
+    41.6903
+   ],
+   "label": "No.51 Moghni Church"
+  },
+  {
+   "px": [
+    2110,
+    3435
+   ],
+   "lnglat": [
+    44.7993,
+    41.69797
+   ],
+   "label": "No.37 Kashveti Church"
+  },
+  {
+   "px": [
+    2040,
+    3790
+   ],
+   "lnglat": [
+    44.79896,
+    41.69603
+   ],
+   "label": "No.42 Viceroy Palace"
+  },
+  {
+   "px": [
+    835,
+    1600
+   ],
+   "lnglat": [
+    44.78899,
+    41.70792
+   ],
+   "label": "Lurji Monastery (Vera)"
+  },
+  {
+   "px": [
+    3835,
+    4205
+   ],
+   "lnglat": [
+    44.81206,
+    41.69359
+   ],
+   "label": "No.13 Church in Avlabari (Gelati 13)"
+  },
+  {
+   "px": [
+    4125,
+    4635
+   ],
+   "lnglat": [
+    44.81372,
+    41.69257
+   ],
+   "label": "No.17 Echmiadzin Church in Avlabari"
+  }
+ ],
+ "excluded_default": [
+  3,
+  5,
+  6,
+  11
+ ],
+ "note": "points proposed by an external AI from the plan legend and checked numerically; excluded_default = indices dropped by leave-one-out cleaning (see sources.md)"
+}

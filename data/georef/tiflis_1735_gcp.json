@@ -1,0 +1,116 @@
+{
+ "gcps": [
+  {
+   "px": [
+    660,
+    1525
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "Metekhi Church"
+  },
+  {
+   "px": [
+    1125,
+    1125
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "No.11 Sioni Cathedral"
+  },
+  {
+   "px": [
+    1408,
+    1280
+   ],
+   "lnglat": [
+    44.80662,
+    41.6955
+   ],
+   "label": "No.6 Anchiskhati"
+  },
+  {
+   "px": [
+    1285,
+    1285
+   ],
+   "lnglat": [
+    44.80649,
+    41.69465
+   ],
+   "label": "No.3 Karis Eklesia"
+  },
+  {
+   "px": [
+    495,
+    1345
+   ],
+   "lnglat": [
+    44.80907,
+    41.68785
+   ],
+   "label": "No.16 St Nicholas in Narikala"
+  },
+  {
+   "px": [
+    2175,
+    795
+   ],
+   "lnglat": [
+    44.7993,
+    41.69797
+   ],
+   "label": "No.33 Kashveti Church"
+  },
+  {
+   "px": [
+    1910,
+    1245
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "No.25 Vank Cathedral"
+  },
+  {
+   "px": [
+    1025,
+    795
+   ],
+   "lnglat": [
+    44.8012,
+    41.69225
+   ],
+   "label": "No.21 Kojori Gate"
+  },
+  {
+   "px": [
+    1415,
+    845
+   ],
+   "lnglat": [
+    44.8035,
+    41.6946
+   ],
+   "label": "No.22 Dighomi Gate"
+  },
+  {
+   "px": [
+    2420,
+    1835
+   ],
+   "lnglat": [
+    44.80912,
+    41.70111
+   ],
+   "label": "No.63 Kviratskhoveli in Chugureti"
+  }
+ ],
+ "excluded_default": [],
+ "note": "points proposed by an external AI from the plan legend and checked numerically; excluded_default = indices dropped by leave-one-out cleaning (see sources.md)"
+}

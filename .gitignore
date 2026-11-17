@@ -1,0 +1,12 @@
+# large or not-for-publication data (rebuilt by the scripts in tools/)
+data/raw/
+data/cache/
+data/warped/
+data/tbilisi_monuments.geojson
+# working files
+for_gemini/
+*.bak
+*.bak[0-9]
+*.part
+__pycache__/
+*.bak*

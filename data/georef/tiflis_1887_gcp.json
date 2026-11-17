@@ -1,0 +1,202 @@
+{
+ "gcps": [
+  {
+   "px": [
+    2152.6,
+    2993.5
+   ],
+   "lnglat": [
+    44.81125,
+    41.690155
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    1942.2,
+    2904.4
+   ],
+   "lnglat": [
+    44.807526,
+    41.691325
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    1899.5,
+    2573.7
+   ],
+   "lnglat": [
+    44.806874,
+    41.69552
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    1826.3,
+    2386.1
+   ],
+   "lnglat": [
+    44.805746,
+    41.69739
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    2655.1,
+    3439.2
+   ],
+   "lnglat": [
+    44.820021,
+    41.684589
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    852.3,
+    2537.2
+   ],
+   "lnglat": [
+    44.78887,
+    41.69583
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    1069.0,
+    3066.5
+   ],
+   "lnglat": [
+    44.79236,
+    41.68921
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    1015.4491484144199,
+    3382.9579566954144
+   ],
+   "lnglat": [
+    44.79317506907617,
+    41.6859373206203
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    3598.8101171682188,
+    4479.3706037713555
+   ],
+   "lnglat": [
+    44.836683459533845,
+    41.67163709528509
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    1291.6179708950076,
+    613.821333435792
+   ],
+   "lnglat": [
+    44.79770313208323,
+    41.720776489344956
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    609.4564532037231,
+    416.0479065348404
+   ],
+   "lnglat": [
+    44.78888901615579,
+    41.72127281091892
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    1057.4426155110173,
+    195.20736136686705
+   ],
+   "lnglat": [
+    44.79637317282007,
+    41.72316994638652
+   ],
+   "label": ""
+  },
+  {
+   "px": [
+    1547,
+    1355
+   ],
+   "lnglat": [
+    44.8010227,
+    41.7113449
+   ],
+   "label": "Church of St Alexander Nevsky (plan symbol; OSM building centre)"
+  },
+  {
+   "px": [
+    1589,
+    1456
+   ],
+   "lnglat": [
+    44.8018217,
+    41.7099554
+   ],
+   "label": "Catholic church of Sts Peter and Paul, 'Nov. Katol. Sobor' (plan symbol; OSM building centre)"
+  },
+  {
+   "px": [
+    874,
+    916
+   ],
+   "lnglat": [
+    44.78967,
+    41.71679
+   ],
+   "label": "Physical observatory main building (proposed by an external AI, pixel/coords checked only against the fit)"
+  },
+  {
+   "px": [
+    1108,
+    695
+   ],
+   "lnglat": [
+    44.79335,
+    41.71978
+   ],
+   "label": "Junction Elizavetinskaya / Vokzalnoe shosse"
+  },
+  {
+   "px": [
+    1215,
+    1265
+   ],
+   "lnglat": [
+    44.79541,
+    41.71257
+   ],
+   "label": "Corner building on Mikhailovsky prospect"
+  },
+  {
+   "px": [
+    1344,
+    1445
+   ],
+   "lnglat": [
+    44.79725,
+    41.70965
+   ],
+   "label": "Junction Mikhailovsky pr. / Kirochnaya (Marjanishvili square)"
+  }
+ ]
+}

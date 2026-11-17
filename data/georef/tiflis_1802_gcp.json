@@ -1,0 +1,138 @@
+{
+ "gcps": [
+  {
+   "px": [
+    603,
+    862
+   ],
+   "lnglat": [
+    44.7993,
+    41.69797
+   ],
+   "label": "Kashveti"
+  },
+  {
+   "px": [
+    1215,
+    975
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "Vank"
+  },
+  {
+   "px": [
+    1262,
+    1312
+   ],
+   "lnglat": [
+    44.80687,
+    41.69552
+   ],
+   "label": "Anchiskhati"
+  },
+  {
+   "px": [
+    910,
+    1560
+   ],
+   "lnglat": [
+    44.80357,
+    41.69279
+   ],
+   "label": "Catholic church"
+  },
+  {
+   "px": [
+    1302,
+    1816
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "Sioni"
+  },
+  {
+   "px": [
+    1170,
+    1855
+   ],
+   "lnglat": [
+    44.80653,
+    41.69097
+   ],
+   "label": "Norashen"
+  },
+  {
+   "px": [
+    918,
+    1902
+   ],
+   "lnglat": [
+    44.80423,
+    41.6903
+   ],
+   "label": "Moghni"
+  },
+  {
+   "px": [
+    1183,
+    2135
+   ],
+   "lnglat": [
+    44.80664,
+    41.6887
+   ],
+   "label": "Kldisubani"
+  },
+  {
+   "px": [
+    1416,
+    2086
+   ],
+   "lnglat": [
+    44.80888,
+    41.68918
+   ],
+   "label": "Surb Gevorg"
+  },
+  {
+   "px": [
+    1422,
+    2266
+   ],
+   "lnglat": [
+    44.80907,
+    41.68785
+   ],
+   "label": "St Nicholas Narikala"
+  },
+  {
+   "px": [
+    1626,
+    2005
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "Metekhi"
+  },
+  {
+   "px": [
+    1808,
+    1815
+   ],
+   "lnglat": [
+    44.81268,
+    41.69169
+   ],
+   "label": "Sachino"
+  }
+ ],
+ "excluded_default": [],
+ "note": "points proposed by an external AI from the plan legend, checked numerically; excluded_default = indices dropped by leave-one-out cleaning"
+}
