@@ -12,6 +12,8 @@ Output properties: names, kind, built/lost ranges, reason, replaced, sources, ch
 """
 import json
 import os
+import re
+import urllib.parse
 
 import numpy as np
 
@@ -36,8 +38,26 @@ def fits():
     return out
 
 
+def wiki_links(urls, ll):
+    """Language versions of the Wikipedia articles cited for one record: {"ru": title, "ka": title, "en": title}.
+    Articles that do not exist (data/lost_langlinks.json marks them missing) are dropped."""
+    out = {}
+    for u in urls:
+        m = re.match(r"https://(ru|ka|en)\.wikipedia\.org/wiki/(.+)$", u)
+        if not m:
+            continue
+        e = ll.get(m.group(1) + ":" + urllib.parse.unquote(m.group(2)).replace("_", " "))
+        if not e or e.get("missing"):
+            continue
+        for k, v in e.items():
+            out.setdefault(k, v)
+    return out
+
+
 def main():
     F = fits()
+    llp = os.path.join(ROOT, "data", "lost_langlinks.json")
+    LL = json.load(open(llp, encoding="utf-8")) if os.path.exists(llp) else {}
     src = json.load(open(os.path.join(ROOT, "data", "lost_buildings_gemini.json"), encoding="utf-8"))
     chk_path = os.path.join(ROOT, "data", "lost_check.json")
     chk = json.load(open(chk_path, encoding="utf-8")) if os.path.exists(chk_path) else {}
@@ -53,12 +73,14 @@ def main():
         else:
             continue
         srcs = [u for u in (x.get("sources") or []) if not any(q in u for q in BAD_WIKIDATA)]
+        wp = wiki_links(srcs, LL)
+        srcs = [u for u in srcs if not re.match(r"https://(ru|ka|en)\.wikipedia\.org/", u)]      # Wikipedia goes through "wp" (language-aware)
         c = chk.get(x.get("name_ru"), {})
         feats.append({"type": "Feature", "id": len(feats), "geometry": {"type": "Point", "coordinates": [round(lng, 5), round(lat, 5)]},
                       "properties": {"name_ka": x.get("name_ka"), "name_en": x.get("name_en"), "name_ru": x.get("name_ru"),
                                      "kind": x.get("kind"), "b0": x.get("built_from"), "b1": x.get("built_to"),
                                      "l0": x.get("lost_from"), "l1": x.get("lost_to"), "why": x.get("lost_reason"),
-                                     "repl": x.get("what_replaced"), "src": srcs, "chk": bool(c.get("year_in_source")),
+                                     "repl": x.get("what_replaced"), "src": srcs, **({"wp": "|".join("%s:%s" % kv for kv in wp.items())} if wp else {}), "chk": bool(c.get("year_in_source")),
                                      "acc": acc, "pos": pos}})
     out = os.path.join(ROOT, "site", "data", "lost.json")
     json.dump({"type": "FeatureCollection", "features": feats}, open(out, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))

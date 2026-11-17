@@ -22,7 +22,7 @@ Published with GitHub Pages from the `site/` folder (see `.github/workflows/page
 - Administrative boundary of Tbilisi (2019): OCHA COD-AB Georgia v01 via HDX (source: National Statistics Office of Georgia), CC BY-IGO.
 - District boundaries and names (10 districts): (c) OpenStreetMap contributors, ODbL 1.0 (`site/data/districts.json` is a derived database: keep the licence and attribution when reusing it).
 - An older city boundary shown for 1999-2005 comes from geoBoundaries ADM2 (metadata: 2007, public domain); its date is not confirmed.
-- Tbilisi Sea outline: (c) OpenStreetMap contributors, ODbL; the earlier salt lakes are traced from the U.S. Army Map Service sheet NK 38-8 (public domain).
+- Tbilisi Sea outline: (c) OpenStreetMap contributors, ODbL; the earlier salt lakes are traced from a topographic sheet of the Tiflis environs of c.1911 (Wikimedia Commons, public domain).
 - City area figures: N. Kharebava, PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024.
 - Photos: Wikimedia Commons, shown with author and licence; they are matched to objects by coordinates only and may show a neighbouring building.
 - Built-up outlines since 1972: GUSV, Zenodo doi:10.5281/zenodo.14523232, CC BY 4.0 (smoothed and simplified). 1954 outline: U.S. Army Map Service sheet NK 38-8, public domain.

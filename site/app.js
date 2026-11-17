@@ -34,7 +34,8 @@
       about: [
         "Некоммерческий хобби-проект на открытых данных. Даты, границы и привязка планов — приблизительные оценки, а не официальные сведения.",
         "Объекты: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство по сохранению культурного наследия). Письменной открытой лицензии на эти данные найти не удалось; в некоммерческих целях используется сокращённая выборка (название, адрес, координаты, даты, номер). Даты — оценка по записям реестра.",
-        "Планы Тифлиса 1735 (Вахушти, схематичный), 1785 (Пищевич), 1800 (Чуйко), 1844 (Военно-топографическое депо), 1887 (А. Ильин) и 1913 (землемерный отдел городской управы): сканы Wikimedia Commons, общественное достояние. Планы привязаны к современной карте по контрольным точкам (точность около 50 м, у плана 1735 года около 150 м), границы застройки обведены по ним вручную.",
+        "Планы Тифлиса 1735 (Вахушти, схематичный), 1785 (Пищевич), 1800 (Чуйко), 1821 (Швецов), 1844 (Военно-топографическое депо), 1850 (Генеральный штаб), 1887 (А. Ильин) 1911 (топографический лист окрестностей) и 1913 (землемерный отдел городской управы): сканы Wikimedia Commons, общественное достояние. Планы привязаны к современной карте по контрольным точкам (точность около 50 м, у плана 1735 года около 150 м), границы застройки обведены по ним вручную.",
+        "Исторические виды Тифлиса (1578–1910-е): миниатюра «Нусрет-наме» (British Library), гравюры по рисункам Шардена и Турнефора, картины Чернецова, Лермонтова, Франкена и Айвазовского, фотографии Ермакова и Прокудина-Горского; файлы Wikimedia Commons, общественное достояние; уменьшенные копии. Это рисунки и снимки с одной точки, к карте они не привязаны.",
         "Административная граница Тбилиси (2019): OCHA COD-AB Georgia (HDX), источник — Национальная статистическая служба Грузии, лицензия CC BY-IGO. Площадь 502,5 км² совпадает с данными диссертации для периода после 2006 года.",
         "Границы районов и их названия: © участники OpenStreetMap, лицензия ODbL (этот набор данных — производная база; при повторном использовании сохраняйте ту же лицензию и атрибуцию). Показано современное деление на 10 районов.",
         "Серая пунктирная линия 1973–2005 годов — граница из geoBoundaries (ADM2, метаданные: 2007). Проверка по положению посёлков: присоединённые в 2006 году (Цхнети, Цавкиси, Окрокана, Кикети, Бетания, Диди Дигоми, Загэси) лежат вне неё, присоединённые раньше (Поничала, Орхеви, Глдани, Варкетили) внутри, то есть она соответствует границе до реформы 2006 года. Её площадь ≈ 330 км² меньше 354 км² из диссертации, причина не установлена. Деление на районы и их названия по периодам (без границ) пересказаны ИИ по вторичным источникам и не проверены по первоисточникам.",
@@ -84,11 +85,15 @@
       lostChk: "Год утраты найден на странице источника (слабая проверка)", lostNoChk: "Год утраты на странице источника не найден автоматически",
       lostSrc: "Список составлен ИИ по Wikidata, Википедии и легендам планов; не является официальным.", lostSources: "Источники",
       showWater: "Тбилисское море и озёра (исторические)",
-      legWater: "Тбилисское море (водохранилище, с 1951–1953)", legLake: "Солёные озёра до водохранилища (по листу 1954 г., ±300 м)",
+      legWater: "Тбилисское море (водохранилище, с 1951–1953)", legLake: "Солёные озёра до водохранилища (по топографическому листу ок. 1911 г.)",
       waterRes: "Тбилисское море (Тбилисское водохранилище)", waterLake: "Солёное озеро (на месте или рядом с будущим Тбилисским морем)",
       waterTxtRes: (y) => y < 1951 ? "В этот год моря ещё не было: на месте залитой позже долины были солёные озёра (серая заливка показывает будущую акваторию)." : y < 1953 ? "Водохранилище заполнялось: источники расходятся в дате открытия (1951 или 1953)." : "Водохранилище существует (контур по OpenStreetMap; площадь по литературе 11,2–11,6 км²).",
-      waterTxtLake: (y) => y < 1953 ? "Озеро показано по американскому листу NK 38-8 (издание 1954, составлен в 1951 по съёмкам 1920–40-х); более ранний вид озёр неизвестен. Положение ±300 м." : "К этому году озёра затоплены водохранилищем.",
+      waterTxtLake: (y) => y < 1953 ? "Озеро обведено по топографическому листу окрестностей Тифлиса около 1911 г. (1:42 000); как выглядели озёра раньше и как менялись до 1951 г., не проверено. Положение около ±70 м." : "К этому году озёра затоплены водохранилищем.",
       waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
+      viewsTitle: "Исторические виды (рисунки, не планы)",
+      viewClose: "Закрыть",
+      viewLicense: "лицензия",
+      viewSource: "источник",
       typesTitle: "Назначение (сейчас — по названию, иначе по реестру)", func: "Современное назначение (по названию)", func0: "Первоначальное назначение (по реестру)", wiki: "Статья в Википедии",
       types: { residential: "Жилые дома", religious: "Религиозные", defense: "Оборонительные", culture: "Образование, наука, культура",
                public: "Общественные и торговые", transport: "Транспорт и инженерия", memorial: "Мемориалы и парки", rural: "Археология и сельское", other: "Прочие" },
@@ -117,7 +122,8 @@
       about: [
         "A non-commercial hobby project built on open data. Dates, boundaries and plan registration are approximations, not official information.",
         "Objects: public information from the register of immovable cultural heritage of Georgia (National Agency for Cultural Heritage Preservation). No written open licence for this data could be found; a reduced extract (name, address, coordinates, dates, number) is used for non-commercial purposes. Dates are estimated from register records.",
-        "Plans of Tiflis, 1735 (Vakhushti, schematic), 1785 (Pishchevich), 1800 (Chuiko), 1844 (Military Topographic Depot), 1887 (A. Ilyin) and 1913 (city survey department): scans from Wikimedia Commons, public domain. The plans are registered to the modern map with control points (accuracy about 50 m, about 150 m for 1735) and the built-up outlines are traced by hand from them.",
+        "Plans of Tiflis, 1735 (Vakhushti, schematic), 1785 (Pishchevich), 1800 (Chuiko), 1821 (Shvetsov), 1844 (Military Topographic Depot), 1850 (General Staff), 1887 (A. Ilyin) 1911 (topographic sheet of the environs) and 1913 (city survey department): scans from Wikimedia Commons, public domain. The plans are registered to the modern map with control points (accuracy about 50 m, about 150 m for 1735) and the built-up outlines are traced by hand from them.",
+        "Historical views of Tiflis (1578 to the 1910s): a miniature from the Nusretname (British Library), engravings after drawings by Chardin and Tournefort, paintings by Chernetsov, Lermontov, Franken and Aivazovsky, photographs by Yermakov and Prokudin-Gorsky; Wikimedia Commons files, public domain; reduced copies. They are drawings and photographs from a single viewpoint and are not tied to the map.",
         "Administrative boundary of Tbilisi (2019): OCHA COD-AB Georgia (HDX), source: National Statistics Office of Georgia, licence CC BY-IGO. Its area of 502.5 km² matches the thesis figure for the period after 2006.",
         "District boundaries and names: © OpenStreetMap contributors, ODbL (this dataset is a derived database; keep the same licence and attribution if you reuse it). The current division into 10 districts is shown.",
         "The grey dashed line for 1973–2005 is a boundary from geoBoundaries (ADM2, metadata: 2007). Checked by the position of settlements: those annexed in 2006 (Tskneti, Tsavkisi, Okrokana, Kiketi, Betania, Didi Dighomi, Zahesi) lie outside it, those annexed earlier (Ponichala, Orkhevi, Gldani, Varketili) inside, so it matches the pre-2006 limit. Its area of about 330 km² is smaller than the 354 km² in the thesis, the reason is not established. The district divisions and names by period (without boundaries) were relayed by an AI from secondary sources and are not checked against the originals.",
@@ -167,11 +173,15 @@
       lostChk: "The year of loss was found on a cited source page (weak check)", lostNoChk: "The year of loss was not found automatically on the cited pages",
       lostSrc: "The list was compiled by an AI from Wikidata, Wikipedia and plan legends; it is not official.", lostSources: "Sources",
       showWater: "Tbilisi Sea and lakes (historical)",
-      legWater: "Tbilisi Sea (reservoir, from 1951–1953)", legLake: "Salt lakes before the reservoir (from the 1954 sheet, ±300 m)",
+      legWater: "Tbilisi Sea (reservoir, from 1951–1953)", legLake: "Salt lakes before the reservoir (from the topographic sheet of c.1911)",
       waterRes: "Tbilisi Sea (Tbilisi Reservoir)", waterLake: "Salt lake (on or next to the site of the future Tbilisi Sea)",
       waterTxtRes: (y) => y < 1951 ? "The sea did not exist in this year: the valley flooded later held salt lakes (the grey fill marks the future water surface)." : y < 1953 ? "The reservoir was being filled: sources disagree on the opening date (1951 or 1953)." : "The reservoir exists (outline from OpenStreetMap; the literature gives 11.2–11.6 km²).",
-      waterTxtLake: (y) => y < 1953 ? "The lake is shown from the American sheet NK 38-8 (1954 edition, compiled in 1951 from surveys of the 1920s–40s); the earlier extent of the lakes is unknown. Position ±300 m." : "By this year the lakes were flooded by the reservoir.",
-      waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); sheet NK 38-8 of the U.S. Army Map Service (lakes).",
+      waterTxtLake: (y) => y < 1953 ? "The lake is outlined from the topographic sheet of the Tiflis environs of about 1911 (1:42,000); how the lakes looked earlier, and how they changed before 1951, has not been checked. Position about ±70 m." : "By this year the lakes were flooded by the reservoir.",
+      waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); topographic sheet of c.1911 (lakes).",
+      viewsTitle: "Historical views (drawings, not plans)",
+      viewClose: "Close",
+      viewLicense: "licence",
+      viewSource: "source",
       typesTitle: "Use (today — by name, otherwise per register)", func: "Present-day use (by name)", func0: "Original function (per register)", wiki: "Wikipedia article",
       types: { residential: "Residential houses", religious: "Religious", defense: "Defensive", culture: "Education, science, culture",
                public: "Public and commercial", transport: "Transport and engineering", memorial: "Memorials and parks", rural: "Archaeology and rural", other: "Other" },
@@ -185,11 +195,11 @@
       count: (n, y) => `${n} ობიექტი ${y} წლისთვის`,
       noPlan: (first, last, y) => y < first ? `ამ პერიოდის გეგმა ჯერ არ არის (პირველი — ${first}).` : `ამ პერიოდისთვის გეგმა ჯერ არ არის (ბოლო — ${last}). ფონი — თანამედროვე რუკა.`,
       plan: (y, m) => `${y} წლის გეგმა, მიბმის სიზუსტე ≈ ${m} მ`,
-      bnd: (y) => `ქალაქის განაშენიანების საზღვარი ${y} წლის გეგმით (თვალზე, მიახლოებით)`,
+      bnd: (y) => `ქალაქის განაშენიანების საზღვარი ${y} წლის გეგმით (თვალით, მიახლოებით)`,
       bndPartial: (y) => `ქალაქის საზღვარი ${y} წლის გეგმით: დატანილია მხოლოდ კარგად ხილული მონაკვეთები (ჩრდილოეთი და აღმოსავლეთი), დასავლეთი და სამხრეთი არ არის დატანილი`,
       noBnd: (y) => `${y} წლის გეგმის საზღვარი ჯერ არ არის დატანილი.`,
       area: (km, y, src) => `ქალაქის ტერიტორია ≈ ${km} კმ² (${y} წლის მონაცემი; ${src === "sec" ? "მეორადი წყარო, ორიგინალთან არ არის შემოწმებული" : "ხარებავა 2024"})`,
-      note: (undated) => `ობიექტების თარიღები რეესტრის ჩანაწერებიდანაა; თარიღთა დიაპაზონისთვის (საუკუნის მეოთხედი, საუკუნე და ა. შ.) შკალაზე აღებულია დიაპაზონის ბოლო, ე. ი. „არაუგვიანეს“. ${undated} თარიღის არმქონე ობიექტი ნაჩვენები არ არის. საფონე რუკა — OpenFreeMap / OpenStreetMap.`,
+      note: (undated) => `ობიექტების თარიღები რეესტრის ჩანაწერებიდანაა; თარიღთა დიაპაზონისთვის (საუკუნის მეოთხედი, საუკუნე და ა. შ.) შკალაზე აღებულია დიაპაზონის ბოლო, ე. ი. „არაუგვიანეს“. ${undated} თარიღის არმქონე ობიექტი ნაჩვენები არ არის. ფონური რუკა — OpenFreeMap / OpenStreetMap.`,
       name: "სახელწოდება", address: "მისამართი", cls: "ტიპი", date: "თარიღი რეესტრში", est: "შკალაზე ჩანს", range: "დიაპაზონი", prec: "სიზუსტე",
       reg: "რეესტრის №", unc: "მდებარეობა რუკაზე სავარაუდოა", national: "ეროვნული მნიშვნელობის", object: "კულტურული მემკვიდრეობის ობიექტი", monument: "ძეგლი",
       photo: "ფოტო წერტილის სიახლოვეს (შეიძლება მეზობელ შენობას აჩვენებდეს)", photoBy: "ფოტო",
@@ -201,7 +211,8 @@
       about: [
         "არაკომერციული ჰობი-პროექტი ღია მონაცემებზე. თარიღები, საზღვრები და გეგმების მიბმა მიახლოებითია და არ წარმოადგენს ოფიციალურ ინფორმაციას.",
         "ობიექტები: საქართველოს უძრავი კულტურული მემკვიდრეობის ძეგლთა რეესტრის საჯარო ინფორმაცია (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო). ამ მონაცემებისთვის წერილობითი ღია ლიცენზია ვერ მოიძებნა; არაკომერციული მიზნით გამოყენებულია შემოკლებული ამონარიდი (სახელწოდება, მისამართი, კოორდინატები, თარიღები, ნომერი). თარიღები რეესტრის ჩანაწერებზე დაფუძნებული შეფასებაა.",
-        "ტფილისის გეგმები, 1735 (ვახუშტი, სქემატური), 1785 (პიშჩევიჩი), 1800 (ჩუიკო), 1844 (სამხედრო-ტოპოგრაფიული დეპო), 1887 (ა. ილინი) და 1913 (საქალაქო სამმართველოს მიწისმზომელთა განყოფილება): Wikimedia Commons-ის სკანები, საჯარო სივრცე. გეგმები თანამედროვე რუკაზე მიბმულია საკონტროლო წერტილებით (სიზუსტე დაახლოებით 50 მ, 1735 წლის გეგმისთვის დაახლოებით 150 მ), განაშენიანების საზღვრები მათ მიხედვით ხელით არის დატანილი.",
+        "ტფილისის გეგმები, 1735 (ვახუშტი, სქემატური), 1785 (პიშჩევიჩი), 1800 (ჩუიკო), 1821 (შვეცოვი), 1844 (სამხედრო-ტოპოგრაფიული დეპო), 1850 (გენშტაბი), 1887 (ა. ილინი) 1911 (შემოგარენის ტოპოგრაფიული ფურცელი) და 1913 (საქალაქო სამმართველოს მიწისმზომელთა განყოფილება): Wikimedia Commons-ის სკანები, საჯარო სივრცე. გეგმები თანამედროვე რუკაზე მიბმულია საკონტროლო წერტილებით (სიზუსტე დაახლოებით 50 მ, 1735 წლის გეგმისთვის დაახლოებით 150 მ), განაშენიანების საზღვრები მათ მიხედვით ხელით არის დატანილი.",
+        "ტფილისის ისტორიული ხედები (1578–1910-იანი წლები): „ნუსრეთნამეს“ მინიატურა (British Library), გრავიურები შარდენისა და ტურნეფორის ნახატებით, ჩერნეცოვის, ლერმონტოვის, ფრანკენისა და აივაზოვსკის ნახატები, ერმაკოვისა და პროკუდინ-გორსკის ფოტოები; Wikimedia Commons-ის ფაილები, საჯარო სივრცე; შემცირებული ასლები. ესენი ერთი წერტილიდან შესრულებული ნახატები და ფოტოებია და რუკას არ უკავშირდება.",
         "თბილისის ადმინისტრაციული საზღვარი (2019): OCHA COD-AB Georgia (HDX), წყარო — საქართველოს სტატისტიკის ეროვნული სამსახური, ლიცენზია CC BY-IGO. ფართობი 502,5 კმ² ემთხვევა დისერტაციის მონაცემს 2006 წლის შემდგომი პერიოდისთვის.",
         "რაიონების საზღვრები და სახელები: © OpenStreetMap-ის მონაწილეები, ლიცენზია ODbL (ეს მონაცემთა ნაკრები წარმოებული ბაზაა; გამოყენებისას შეინარჩუნეთ იგივე ლიცენზია და ატრიბუცია). ნაჩვენებია 10 რაიონად დღევანდელი დაყოფა.",
         "1973–2005 წლების ნაცრისფერი წყვეტილი ხაზი — geoBoundaries-ის საზღვარია (ADM2, მეტამონაცემები: 2007). შემოწმება დასახლებების მდებარეობით: 2006 წელს მიერთებული (წყნეთი, წავკისი, ოქროყანა, კიკეთი, ბეთანია, დიდი დიღომი, ზაჰესი) მის გარეთაა, ადრე მიერთებული (პონიჭალა, ორხევი, გლდანი, ვარკეთილი) — შიგნით, ანუ ის შეესაბამება 2006 წლამდე არსებულ საზღვარს. მისი ფართობი დაახლოებით 330 კმ² დისერტაციის 354 კმ²-ზე ნაკლებია, მიზეზი დადგენილი არ არის. რაიონული დაყოფა და სახელები პერიოდების მიხედვით (საზღვრების გარეშე) გადმოცემულია ხელოვნური ინტელექტის მიერ მეორადი წყაროებიდან და ორიგინალებთან შემოწმებული არ არის.",
@@ -221,7 +232,7 @@
       settleSrc: "წელი და საფუძველი გადმოცემულია ხელოვნური ინტელექტის მიერ მეორადი წყაროებიდან (ქაქურია 1979, საბჭოთა დიდი ენციკლოპედია, 2006 წლის პარლამენტის დადგენილება) და ორიგინალებთან შემოწმებული არ არის.",
       settleGeom: { inside_old: "მდებარეობით 2006 წლამდე არსებული საქალაქო საზღვრის შიგნითაა.", outside_old_inside_2019: "მდებარეობით 2006 წლამდე არსებული საზღვრის გარეთაა და დღევანდელის შიგნით: ეს შეესაბამება 2006 წელს მიერთებას.", outside_2019: "დღევანდელი საქალაქო საზღვრის გარეთაა." },
       settleFrom: { Gardabani: "გარდაბნის რაიონიდან", Mtskheta: "მცხეთის რაიონიდან" },
-      settleNow: (y, inCity) => `${y} წელს: ${inCity === null ? "შეერთების წელი უცნობია" : inCity ? "ადმინისტრაციულად ქალაქის ნაწილია (ეს არ ნიშნავს, რომ დაშენებულია)" : "ჯერ არ შედიოდა ქალაქში"}`,
+      settleNow: (y, inCity) => `${y} წელს: ${inCity === null ? "შეერთების წელი უცნობია" : inCity ? "ადმინისტრაციულად ქალაქის ნაწილია (ეს არ ნიშნავს, რომ განაშენიანებულია)" : "ჯერ არ შედიოდა ქალაქში"}`,
       settleConflict: "⚠ მდებარეობა წელს ეწინააღმდეგება: 2006 წლამდე არსებული საზღვრის გარეთაა (ან გადმოცემული წელი არასწორია, ან ნაკრების საზღვარი ამ სოფელს არ მოიცავს).",
       legRuin: "ნანგრევები ან ნაშთები (რეესტრის სახელის მიხედვით)", ruinRow: "მდგომარეობა", ruinTxt: "ნანგრევები, ნაშთები ან ობიექტის ადგილი (რეესტრის სახელის მიხედვით)",
       legTitle: "პირობითი ნიშნები", legObjects: "რეესტრის ობიექტები (წერტილები)", legBounds: "ხაზები და არეები", legNames: "წარწერები",
@@ -251,11 +262,15 @@
       lostChk: "დაკარგვის წელი ნაპოვნია მითითებულ წყაროს გვერდზე (სუსტი შემოწმება)", lostNoChk: "დაკარგვის წელი მითითებულ გვერდებზე ავტომატურად ვერ მოიძებნა",
       lostSrc: "სია შედგენილია ხელოვნური ინტელექტის მიერ Wikidata-ს, ვიკიპედიისა და გეგმების ლეგენდების მიხედვით; ოფიციალური არ არის.", lostSources: "წყაროები",
       showWater: "თბილისის ზღვა და ტბები (ისტორიული)",
-      legWater: "თბილისის ზღვა (წყალსაცავი, 1951–1953-დან)", legLake: "მლაშე ტბები წყალსაცავამდე (1954 წლის ფურცლიდან, ±300 მ)",
+      legWater: "თბილისის ზღვა (წყალსაცავი, 1951–1953-დან)", legLake: "მლაშე ტბები წყალსაცავამდე (დაახლოებით 1911 წლის ტოპოგრაფიული ფურცლიდან)",
       waterRes: "თბილისის ზღვა (თბილისის წყალსაცავი)", waterLake: "მლაშე ტბა (მომავალი თბილისის ზღვის ადგილას ან გვერდით)",
-      waterTxtRes: (y) => y < 1951 ? "ამ წელს ზღვა ჯერ არ არსებობდა: მოგვიანებით დატბორილ ველზე მლაშე ტბები იყო (ნაცრისფერი შევსება მომავალ აკვატორიას აჩვენებს)." : y < 1953 ? "წყალსაცავი ივსებოდა: წყაროები ხსნის თარიღზე ერთმანეთს არ ემთხვევა (1951 ან 1953)." : "წყალსაცავი არსებობს (კონტური OpenStreetMap-იდან; ლიტერატურაში 11,2–11,6 კმ²).",
-      waterTxtLake: (y) => y < 1953 ? "ტბა ნაჩვენებია ამერიკული ფურცლით NK 38-8 (1954 წლის გამოცემა, 1951 წელს შედგენილი 1920–40-იანი წლების აგეგმვებით); ტბების უფრო ადრინდელი სახე უცნობია. მდებარეობა ±300 მ." : "ამ წლისთვის ტბები წყალსაცავმა დატბორა.",
-      waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); აშშ-ის არმიის რუკების სამსახურის ფურცელი NK 38-8 (ტბები).",
+      waterTxtRes: (y) => y < 1951 ? "ამ წელს ზღვა ჯერ არ არსებობდა: მოგვიანებით დატბორილ ველზე მლაშე ტბები იყო (ნაცრისფერი შევსება მომავალ აკვატორიას აჩვენებს)." : y < 1953 ? "წყალსაცავი ივსებოდა: წყაროები გახსნის თარიღზე ერთმანეთს არ ემთხვევა (1951 ან 1953)." : "წყალსაცავი არსებობს (კონტური OpenStreetMap-იდან; ლიტერატურაში 11,2–11,6 კმ²).",
+      waterTxtLake: (y) => y < 1953 ? "ტბა შემოხაზულია დაახლოებით 1911 წლის თბილისის შემოგარენის ტოპოგრაფიული ფურცლით (1:42 000); ტბების უფრო ადრინდელი სახე და 1951 წლამდე ცვლილებები არ შემოწმებულა. მდებარეობა დაახლოებით ±70 მ." : "ამ წლისთვის ტბები წყალსაცავმა დატბორა.",
+      waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); ტოპოგრაფიული ფურცელი დაახლოებით 1911 წლიდან (ტბები).",
+      viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
+      viewClose: "დახურვა",
+      viewLicense: "ლიცენზია",
+      viewSource: "წყარო",
       typesTitle: "დანიშნულება (დღეს — სახელის მიხედვით, სხვა შემთხვევაში რეესტრით)", func: "დღევანდელი დანიშნულება (სახელის მიხედვით)", func0: "თავდაპირველი დანიშნულება (რეესტრის მიხედვით)", wiki: "სტატია ვიკიპედიაში",
       types: { residential: "საცხოვრებელი სახლები", religious: "რელიგიური", defense: "თავდაცვითი", culture: "განათლება, მეცნიერება, კულტურა",
                public: "საზოგადოებრივი და სავაჭრო", transport: "ტრანსპორტი და ინჟინერია", memorial: "მემორიალები და პარკები", rural: "არქეოლოგია და სოფლის", other: "სხვა" },
@@ -398,6 +413,7 @@
     updateUrban();
     updateSettle();
     updateWater();
+    updateViews();
     updateLost();
     if (map.getLayer("admin-line")) map.setLayoutProperty("admin-line", "visibility", $("showAdmin").checked ? "visible" : "none");
     const oldOn = $("showAdmin").checked && year >= 1973 && year <= 2005;
@@ -465,7 +481,7 @@
       box.appendChild(s);
     };
     // every year that has a data snapshot (built-up outline or old plan) is marked and clickable; round years fill gaps
-    const marked = [...new Set([...urbanSnaps, ...plans.map((p) => p.year)])].sort((a, b) => a - b);
+    const marked = [...new Set([...urbanSnaps, ...plans.map((p) => p.year), ...views.map((v) => v.year)])].sort((a, b) => a - b);
     const round = [];
     for (let y = 400; y < 1700; y += 200) round.push(y);                  // the compressed early period: every 200 years
     for (let y = 1750; y <= MAX; y += 50) if (!marked.some((p) => Math.abs(p - y) < 12)) round.push(y);
@@ -521,17 +537,24 @@
     box.appendChild(note);
   }
 
-  function addWiki(el, p) {
-    if (!p.wp) return;
+  // Wikipedia link in the interface language; if there is no article in it: English, then Georgian, Russian only as the last resort
+  function wikiLink(p) {
+    if (!p.wp) return null;
     const links = {};
     String(p.wp).split("|").forEach((x) => { const i = x.indexOf(":"); if (i > 0) links[x.slice(0, i)] = x.slice(i + 1); });
-    const l = [lang, "en", "ru", "ka"].find((c) => links[c]);
-    if (!l) return;
-    const d = document.createElement("div");
+    const l = [lang, "en", "ka", "ru"].find((c) => links[c]);
+    if (!l) return null;
     const a = document.createElement("a");
     a.href = "https://" + l + ".wikipedia.org/wiki/" + encodeURIComponent(links[l].replace(/ /g, "_"));
     a.target = "_blank"; a.rel = "noopener";
     a.textContent = t().wiki + " (" + l + ")";
+    return a;
+  }
+
+  function addWiki(el, p) {
+    const a = wikiLink(p);
+    if (!a) return;
+    const d = document.createElement("div");
     d.appendChild(a);
     el.appendChild(d);
   }
@@ -599,9 +622,11 @@
     add(L.lostSrc, "k small");
     let srcs = [];
     try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
-    if (srcs.length) {
+    const wl = wikiLink(p);
+    if (wl || srcs.length) {
       const d = add(L.lostSources + ": ", "k small");
-      srcs.slice(0, 4).forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = (i ? ", " : "") + decodeURIComponent(u.split("/")[2].replace("www.", "")); d.appendChild(a); });
+      if (wl) d.appendChild(wl);
+      srcs.slice(0, 4).forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = (i || wl ? ", " : "") + decodeURIComponent(u.split("/")[2].replace("www.", "")); d.appendChild(a); });
     }
     const fb = document.createElement("div"); const fa = document.createElement("a");
     fa.href = "#"; fa.className = "fb"; fa.textContent = L.fbPopup;
@@ -635,6 +660,49 @@
     add(L.waterSrc, "k small");
     new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
   }
+
+  let views = [];
+  const VIEW_WINDOW = 150;                       // a view is offered for 150 years after its date
+
+  function updateViews() {
+    const box = $("viewsline");
+    if (!box) return;
+    const list = views.filter((v) => year >= v.year && year < v.year + (v.window || VIEW_WINDOW));
+    box.textContent = "";
+    box.hidden = !list.length;
+    if (!list.length) return;
+    const h = document.createElement("div");
+    h.className = "vl-h";
+    h.textContent = t().viewsTitle;
+    box.appendChild(h);
+    for (const v of list) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = v.year + " · " + (v.title[lang] || v.title.en);
+      b.addEventListener("click", () => openView(v));
+      box.appendChild(b);
+    }
+  }
+
+  function openView(v) {
+    const L = t();
+    $("vmTitle").textContent = v.title[lang] || v.title.en;
+    const img = $("vmImg");
+    img.src = v.image;
+    img.alt = v.title[lang] || v.title.en;
+    $("vmAuthor").textContent = v.author[lang] || v.author.en;
+    $("vmNote").textContent = v.note[lang] || v.note.en;
+    const src = $("vmSrc");
+    src.textContent = L.viewLicense + ": " + v.license + " · " + L.viewSource + ": ";
+    const a = document.createElement("a");
+    a.href = v.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikimedia Commons";
+    src.appendChild(a);
+    $("viewModal").hidden = false;
+  }
+  function closeView() { $("viewModal").hidden = true; }
+  $("vmClose").addEventListener("click", closeView);
+  $("viewModal").addEventListener("click", (e) => { if (e.target === $("viewModal")) closeView(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("viewModal").hidden) closeView(); });
 
   function updateSettle() {
     if (!map.getLayer("settle-dot")) return;
@@ -757,6 +825,7 @@
     ]);
     plans = pl;
     try { areas = (await getJSON("data/city_area.json")).areas; } catch (e) { areas = []; }
+    try { views = await getJSON("data/views.json"); } catch (e) { views = []; }
     const feats = [];
     for (const f of mon.features) {
       const p = f.properties;

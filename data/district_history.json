@@ -1,49 +1,311 @@
 {
-  "note": "Names of the district divisions of Tbilisi by period, WITHOUT geometry (historical district boundaries were not found in open data). The periods and the correspondence to the modern districts were relayed by an external AI (Gemini) from secondary sources (Kakuria 1979, encyclopaedias, decisions of the Tbilisi Sakrebulo and a presidential decree of 9 Nov 2000, as cited by it); they have NOT been checked against the originals. English transliterations of Soviet names are the project's own.",
-  "periods": [
-    {"from": 1979, "to": 1989, "label": {"ru": "10 районов (1979–1989)", "en": "10 districts (1979–1989)", "ka": "10 რაიონი (1979–1989)"},
-     "items": [
-       {"ka": "კიროვის რაიონი", "en": "Kirov", "ru": "Кировский", "modern": ["Krtsanisi"]},
-       {"ka": "კალინინის რაიონი", "en": "Kalinin", "ru": "Калининский", "modern": ["Mtatsminda"]},
-       {"ka": "ორჯონიკიძის რაიონი", "en": "Ordzhonikidze", "ru": "Орджоникидзевский", "modern": ["Vake", "Saburtalo"]},
-       {"ka": "პირველი მაისის რაიონი", "en": "Pervomaisky (First of May; Stalin district until 1961)", "ru": "Первомайский (до 1961 — Сталинский)", "modern": ["Didube"]},
-       {"ka": "ოქტომბრის რაიონი", "en": "Oktyabrsky (October)", "ru": "Октябрьский", "modern": ["Chugureti"]},
-       {"ka": "ლენინის რაიონი", "en": "Lenin", "ru": "Ленинский", "modern": ["Nadzaladevi"]},
-       {"ka": "გლდანის რაიონი", "en": "Gldani (from 1979)", "ru": "Глданский (с 1979)", "modern": ["Gldani"]},
-       {"ka": "26 კომისრის რაიონი", "en": "26 Commissars", "ru": "26 бакинских комиссаров", "modern": ["Isani"]},
-       {"ka": "საქარხნო რაიონი", "en": "Zavodskoy (Factory)", "ru": "Заводской", "modern": ["Samgori"]}
-     ]},
-    {"from": 1990, "to": 1999, "label": {"ru": "10 районов (1990–1999)", "en": "10 districts (1990–1999)", "ka": "10 რაიონი (1990–1999)"},
-     "items": [
-       {"ka": "კრწანისის რაიონი", "en": "Krtsanisi", "ru": "Крцаниси", "modern": ["Krtsanisi"]},
-       {"ka": "მთაწმინდის რაიონი", "en": "Mtatsminda", "ru": "Мтацминда", "modern": ["Mtatsminda"]},
-       {"ka": "ვაკის რაიონი", "en": "Vake (Vake and Saburtalo separated in the 1990s)", "ru": "Ваке (Ваке и Сабуртало разделены в 1990-х)", "modern": ["Vake"]},
-       {"ka": "საბურთალოს რაიონი", "en": "Saburtalo", "ru": "Сабуртало", "modern": ["Saburtalo"]},
-       {"ka": "დიდუბის რაიონი", "en": "Didube", "ru": "Дидубе", "modern": ["Didube"]},
-       {"ka": "ჩუღურეთის რაიონი", "en": "Chugureti", "ru": "Чугурети", "modern": ["Chugureti"]},
-       {"ka": "ნაძალადევის რაიონი", "en": "Nadzaladevi", "ru": "Надзаладеви", "modern": ["Nadzaladevi"]},
-       {"ka": "გლდანის რაიონი", "en": "Gldani", "ru": "Глдани", "modern": ["Gldani"]},
-       {"ka": "ისნის რაიონი", "en": "Isani", "ru": "Исани", "modern": ["Isani"]},
-       {"ka": "სამგორის რაიონი", "en": "Samgori", "ru": "Самгори", "modern": ["Samgori"]}
-     ]},
-    {"from": 2000, "to": 2006, "label": {"ru": "5 укрупнённых районов (2000–2006)", "en": "5 merged districts (2000–2006)", "ka": "5 გაერთიანებული რაიონი (2000–2006)"},
-     "items": [
-       {"ka": "მთაწმინდა-კრწანისის რაიონი", "en": "Mtatsminda-Krtsanisi", "ru": "Мтацминда-Крцаниси", "modern": ["Mtatsminda", "Krtsanisi"]},
-       {"ka": "ვაკე-საბურთალოს რაიონი", "en": "Vake-Saburtalo", "ru": "Ваке-Сабуртало", "modern": ["Vake", "Saburtalo"]},
-       {"ka": "დიდუბე-ჩუღურეთის რაიონი", "en": "Didube-Chugureti", "ru": "Дидубе-Чугурети", "modern": ["Didube", "Chugureti"]},
-       {"ka": "გლდანი-ნაძალადევის რაიონი", "en": "Gldani-Nadzaladevi", "ru": "Глдани-Надзаладеви", "modern": ["Gldani", "Nadzaladevi"]},
-       {"ka": "ისანი-სამგორის რაიონი", "en": "Isani-Samgori", "ru": "Исани-Самгори", "modern": ["Isani", "Samgori"]}
-     ]},
-    {"from": 2007, "to": 2012, "label": {"ru": "6 районов (2007–2012)", "en": "6 districts (2007–2012)", "ka": "6 რაიონი (2007–2012)"},
-     "items": [
-       {"ka": "მთაწმინდა-კრწანისის რაიონი", "en": "Mtatsminda-Krtsanisi", "ru": "Мтацминда-Крцаниси", "modern": ["Mtatsminda", "Krtsanisi"]},
-       {"ka": "ვაკე-საბურთალოს რაიონი", "en": "Vake-Saburtalo", "ru": "Ваке-Сабуртало", "modern": ["Vake", "Saburtalo"]},
-       {"ka": "დიდუბე-ჩუღურეთის რაიონი", "en": "Didube-Chugureti", "ru": "Дидубе-Чугурети", "modern": ["Didube", "Chugureti"]},
-       {"ka": "გლდანი-ნაძალადევის რაიონი", "en": "Gldani-Nadzaladevi", "ru": "Глдани-Надзаладеви", "modern": ["Gldani", "Nadzaladevi"]},
-       {"ka": "ისანი-სამგორის რაიონი", "en": "Isani-Samgori", "ru": "Исани-Самгори", "modern": ["Isani", "Samgori"]},
-       {"ka": "დიდგორის რაიონი", "en": "Didgori (annexed mountain villages: Tskneti, Kojori, Tabakhmela, Shindisi, Tsavkisi, Kiketi, Okrokana, Betania, Akhaldaba)", "ru": "Дидгори (присоединённые горные посёлки: Цхнети, Коджори, Табахмела, Шиндиси, Цавкиси, Кикети, Окрокана, Бетания, Ахалдаба)", "modern": ["Vake", "Mtatsminda"]}
-     ]},
-    {"from": 2013, "to": 2100, "label": {"ru": "10 районов (с 2013)", "en": "10 districts (since 2013)", "ka": "10 რაიონი (2013-დან)"},
-     "items": "modern"}
-  ]
+ "note": "Names of the district divisions of Tbilisi by period, WITHOUT geometry (historical district boundaries were not found in open data). The periods and the correspondence to the modern districts were relayed by an external AI (Gemini) from secondary sources (Kakuria 1979, encyclopaedias, decisions of the Tbilisi Sakrebulo and a presidential decree of 9 Nov 2000, as cited by it); they have NOT been checked against the originals. English transliterations of Soviet names are the project's own.",
+ "periods": [
+  {
+   "from": 1979,
+   "to": 1989,
+   "label": {
+    "ru": "Районы 1979–1989 (в списке 9; число и состав не проверены)",
+    "en": "Districts 1979–1989 (9 listed; number and composition not verified)",
+    "ka": "რაიონები 1979–1989 (სიაში 9; რაოდენობა და შემადგენლობა შემოწმებული არ არის)"
+   },
+   "items": [
+    {
+     "ka": "კიროვის რაიონი",
+     "en": "Kirov",
+     "ru": "Кировский",
+     "modern": [
+      "Krtsanisi"
+     ]
+    },
+    {
+     "ka": "კალინინის რაიონი",
+     "en": "Kalinin",
+     "ru": "Калининский",
+     "modern": [
+      "Mtatsminda"
+     ]
+    },
+    {
+     "ka": "ორჯონიკიძის რაიონი",
+     "en": "Ordzhonikidze",
+     "ru": "Орджоникидзевский",
+     "modern": [
+      "Vake",
+      "Saburtalo"
+     ]
+    },
+    {
+     "ka": "პირველი მაისის რაიონი",
+     "en": "Pervomaisky (First of May; Stalin district until 1961)",
+     "ru": "Первомайский (до 1961 — Сталинский)",
+     "modern": [
+      "Didube"
+     ]
+    },
+    {
+     "ka": "ოქტომბრის რაიონი",
+     "en": "Oktyabrsky (October)",
+     "ru": "Октябрьский",
+     "modern": [
+      "Chugureti"
+     ]
+    },
+    {
+     "ka": "ლენინის რაიონი",
+     "en": "Lenin",
+     "ru": "Ленинский",
+     "modern": [
+      "Nadzaladevi"
+     ]
+    },
+    {
+     "ka": "გლდანის რაიონი",
+     "en": "Gldani (from 1979)",
+     "ru": "Глданский (с 1979)",
+     "modern": [
+      "Gldani"
+     ]
+    },
+    {
+     "ka": "26 კომისრის რაიონი",
+     "en": "26 Commissars",
+     "ru": "26 бакинских комиссаров",
+     "modern": [
+      "Isani"
+     ]
+    },
+    {
+     "ka": "საქარხნო რაიონი",
+     "en": "Zavodskoy (Factory)",
+     "ru": "Заводской",
+     "modern": [
+      "Samgori"
+     ]
+    }
+   ]
+  },
+  {
+   "from": 1990,
+   "to": 1999,
+   "label": {
+    "ru": "10 районов (1990–1999)",
+    "en": "10 districts (1990–1999)",
+    "ka": "10 რაიონი (1990–1999)"
+   },
+   "items": [
+    {
+     "ka": "კრწანისის რაიონი",
+     "en": "Krtsanisi",
+     "ru": "Крцаниси",
+     "modern": [
+      "Krtsanisi"
+     ]
+    },
+    {
+     "ka": "მთაწმინდის რაიონი",
+     "en": "Mtatsminda",
+     "ru": "Мтацминда",
+     "modern": [
+      "Mtatsminda"
+     ]
+    },
+    {
+     "ka": "ვაკის რაიონი",
+     "en": "Vake (Vake and Saburtalo separated in the 1990s)",
+     "ru": "Ваке (Ваке и Сабуртало разделены в 1990-х)",
+     "modern": [
+      "Vake"
+     ]
+    },
+    {
+     "ka": "საბურთალოს რაიონი",
+     "en": "Saburtalo",
+     "ru": "Сабуртало",
+     "modern": [
+      "Saburtalo"
+     ]
+    },
+    {
+     "ka": "დიდუბის რაიონი",
+     "en": "Didube",
+     "ru": "Дидубе",
+     "modern": [
+      "Didube"
+     ]
+    },
+    {
+     "ka": "ჩუღურეთის რაიონი",
+     "en": "Chugureti",
+     "ru": "Чугурети",
+     "modern": [
+      "Chugureti"
+     ]
+    },
+    {
+     "ka": "ნაძალადევის რაიონი",
+     "en": "Nadzaladevi",
+     "ru": "Надзаладеви",
+     "modern": [
+      "Nadzaladevi"
+     ]
+    },
+    {
+     "ka": "გლდანის რაიონი",
+     "en": "Gldani",
+     "ru": "Глдани",
+     "modern": [
+      "Gldani"
+     ]
+    },
+    {
+     "ka": "ისნის რაიონი",
+     "en": "Isani",
+     "ru": "Исани",
+     "modern": [
+      "Isani"
+     ]
+    },
+    {
+     "ka": "სამგორის რაიონი",
+     "en": "Samgori",
+     "ru": "Самгори",
+     "modern": [
+      "Samgori"
+     ]
+    }
+   ]
+  },
+  {
+   "from": 2000,
+   "to": 2006,
+   "label": {
+    "ru": "5 укрупнённых районов (2000–2006)",
+    "en": "5 merged districts (2000–2006)",
+    "ka": "5 გაერთიანებული რაიონი (2000–2006)"
+   },
+   "items": [
+    {
+     "ka": "მთაწმინდა-კრწანისის რაიონი",
+     "en": "Mtatsminda-Krtsanisi",
+     "ru": "Мтацминда-Крцаниси",
+     "modern": [
+      "Mtatsminda",
+      "Krtsanisi"
+     ]
+    },
+    {
+     "ka": "ვაკე-საბურთალოს რაიონი",
+     "en": "Vake-Saburtalo",
+     "ru": "Ваке-Сабуртало",
+     "modern": [
+      "Vake",
+      "Saburtalo"
+     ]
+    },
+    {
+     "ka": "დიდუბე-ჩუღურეთის რაიონი",
+     "en": "Didube-Chugureti",
+     "ru": "Дидубе-Чугурети",
+     "modern": [
+      "Didube",
+      "Chugureti"
+     ]
+    },
+    {
+     "ka": "გლდანი-ნაძალადევის რაიონი",
+     "en": "Gldani-Nadzaladevi",
+     "ru": "Глдани-Надзаладеви",
+     "modern": [
+      "Gldani",
+      "Nadzaladevi"
+     ]
+    },
+    {
+     "ka": "ისანი-სამგორის რაიონი",
+     "en": "Isani-Samgori",
+     "ru": "Исани-Самгори",
+     "modern": [
+      "Isani",
+      "Samgori"
+     ]
+    }
+   ]
+  },
+  {
+   "from": 2007,
+   "to": 2012,
+   "label": {
+    "ru": "6 районов (2007–2012)",
+    "en": "6 districts (2007–2012)",
+    "ka": "6 რაიონი (2007–2012)"
+   },
+   "items": [
+    {
+     "ka": "მთაწმინდა-კრწანისის რაიონი",
+     "en": "Mtatsminda-Krtsanisi",
+     "ru": "Мтацминда-Крцаниси",
+     "modern": [
+      "Mtatsminda",
+      "Krtsanisi"
+     ]
+    },
+    {
+     "ka": "ვაკე-საბურთალოს რაიონი",
+     "en": "Vake-Saburtalo",
+     "ru": "Ваке-Сабуртало",
+     "modern": [
+      "Vake",
+      "Saburtalo"
+     ]
+    },
+    {
+     "ka": "დიდუბე-ჩუღურეთის რაიონი",
+     "en": "Didube-Chugureti",
+     "ru": "Дидубе-Чугурети",
+     "modern": [
+      "Didube",
+      "Chugureti"
+     ]
+    },
+    {
+     "ka": "გლდანი-ნაძალადევის რაიონი",
+     "en": "Gldani-Nadzaladevi",
+     "ru": "Глдани-Надзаладеви",
+     "modern": [
+      "Gldani",
+      "Nadzaladevi"
+     ]
+    },
+    {
+     "ka": "ისანი-სამგორის რაიონი",
+     "en": "Isani-Samgori",
+     "ru": "Исани-Самгори",
+     "modern": [
+      "Isani",
+      "Samgori"
+     ]
+    },
+    {
+     "ka": "დიდგორის რაიონი",
+     "en": "Didgori (annexed mountain villages: Tskneti, Kojori, Tabakhmela, Shindisi, Tsavkisi, Kiketi, Okrokana, Betania, Akhaldaba)",
+     "ru": "Дидгори (присоединённые горные посёлки: Цхнети, Коджори, Табахмела, Шиндиси, Цавкиси, Кикети, Окрокана, Бетания, Ахалдаба)",
+     "modern": [
+      "Vake",
+      "Mtatsminda"
+     ]
+    }
+   ]
+  },
+  {
+   "from": 2013,
+   "to": 2100,
+   "label": {
+    "ru": "10 районов (с 2013)",
+    "en": "10 districts (since 2013)",
+    "ka": "10 რაიონი (2013-დან)"
+   },
+   "items": "modern"
+  }
+ ]
 }

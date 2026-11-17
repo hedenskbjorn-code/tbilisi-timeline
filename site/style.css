@@ -134,3 +134,12 @@ body.panel-open #yearchip { display:none; }
 
 .sw-water { height:10px; border:2px solid #4a86c8; background:#9cc3ee88; }
 .sw-lake { height:10px; border:2px dashed #3b78bd; background:#7db0ea77; }
+
+#viewsline { margin:6px 0 2px; font-size:12px; }
+#viewsline .vl-h { color:var(--muted); margin-bottom:3px; }
+#viewsline button { display:block; width:100%; text-align:left; margin:2px 0; padding:5px 8px; font:inherit; color:var(--fg); background:var(--panel); border:1px solid var(--line); border-radius:6px; cursor:pointer; }
+#viewsline button:hover { border-color:var(--accent); }
+.viewbox { width:min(900px,100%); }
+.viewbox img { display:block; width:100%; max-height:62vh; object-fit:contain; background:#0002; border-radius:6px; margin:6px 0; }
+.viewbox .small { margin-top:3px; }
+.viewbox a { color:var(--accent); }

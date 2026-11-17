@@ -1,31 +1,159 @@
 {
-  "note": "Settlements around Tbilisi and the year they were annexed to the city. The years, the 'from' municipality and the legal basis were relayed by an external AI (Gemini) from secondary sources (Sh. Kakuria 1979; Great Soviet Encyclopedia 1976; Parliament of Georgia resolution of 27 Dec 2006, which could not be opened) and are NOT checked against the originals. 'geom' (inside/outside the pre-2006 boundary) is computed by the project from geoBoundaries ADM2 and the 2019 boundary and does confirm the order for the 2006 group. Names and positions: OpenStreetMap (place nodes).",
-  "items": [
-    {"en": "Tskneti", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Kojori", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Tabakhmela", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Shindisi", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Tsavkisi", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Kiketi", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Okrokana", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Betania", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Akhaldaba", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Samadlo", "place": "neighbourhood", "year": 2006, "from": "Gardabani"},
-    {"en": "Zahesi", "place": "neighbourhood", "year": 2006, "from": "Mtskheta"},
-    {"en": "Didi Dighomi", "place": "quarter", "year": 2006, "from": "Mtskheta"},
-    {"en": "Avchala", "place": "neighbourhood", "year": 2006, "from": "Mtskheta", "note": "upper part"},
-    {"en": "Avchala", "place": "quarter", "year": 1962, "from": "Gardabani", "note": "southern part, urban-type settlement"},
-    {"en": "Village Gldani", "place": "neighbourhood", "year": 1949},
-    {"en": "Bagebi", "place": "neighbourhood", "year": 1949},
-    {"en": "Ponichala", "place": "neighbourhood", "year": 1973},
-    {"en": "Kvemo Ponichala", "place": "neighbourhood", "year": 1973},
-    {"en": "Orkhevi", "place": "quarter", "year": 1973},
-    {"en": "Airport", "place": "quarter", "year": 1973},
-    {"en": "Lilo", "place": "quarter", "year": 1973},
-    {"en": "Didi Lilo", "place": "neighbourhood", "year": 1973},
-    {"en": "Patara Lilo", "place": "neighbourhood", "year": 1973},
-    {"en": "Mukhiani", "place": "quarter", "year": null},
-    {"en": "Varketili", "place": "quarter", "year": null},
-    {"en": "Dighomi", "place": "quarter", "year": null}
-  ]
+ "note": "Settlements around Tbilisi and the year they were annexed to the city. The years, the 'from' municipality and the legal basis were relayed by an external AI (Gemini) from secondary sources (Sh. Kakuria 1979; Great Soviet Encyclopedia 1976; Parliament of Georgia resolution of 27 Dec 2006, which could not be opened) and are NOT checked against the originals. 'geom' (inside/outside the pre-2006 boundary) is computed by the project from geoBoundaries ADM2 and the 2019 boundary and does confirm the order for the 2006 group. Names and positions: OpenStreetMap (place nodes). Corrected 2026-11-17 after reading ru/ka Wikipedia (Ponichala, Didi Lilo, Patara Lilo); the other 1973 entries (Orkhevi, Airport, Lilo) and all legal bases remain unverified.",
+ "items": [
+  {
+   "en": "Tskneti",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Kojori",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Tabakhmela",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Shindisi",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Tsavkisi",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Kiketi",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Okrokana",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Betania",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Akhaldaba",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Samadlo",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Gardabani"
+  },
+  {
+   "en": "Zahesi",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Mtskheta"
+  },
+  {
+   "en": "Didi Dighomi",
+   "place": "quarter",
+   "year": 2006,
+   "from": "Mtskheta"
+  },
+  {
+   "en": "Avchala",
+   "place": "neighbourhood",
+   "year": 2006,
+   "from": "Mtskheta",
+   "note": "upper part"
+  },
+  {
+   "en": "Avchala",
+   "place": "quarter",
+   "year": 1962,
+   "from": "Gardabani",
+   "note": "southern part, urban-type settlement"
+  },
+  {
+   "en": "Village Gldani",
+   "place": "neighbourhood",
+   "year": 1949
+  },
+  {
+   "en": "Bagebi",
+   "place": "neighbourhood",
+   "year": 1949
+  },
+  {
+   "en": "Ponichala",
+   "place": "neighbourhood",
+   "year": 2007,
+   "note": "ru/ka Wikipedia: Soganlugi renamed Ponichala in 1973; joined Tbilisi in 2006 (ka) / Jan 2007 (ru). Earlier value 1973 was the renaming. NB: the ADM2 polygon puts it inside the pre-2006 boundary - unresolved.",
+   "from": "Gardabani"
+  },
+  {
+   "en": "Kvemo Ponichala",
+   "place": "neighbourhood",
+   "year": null,
+   "note": "part of Ponichala; year not verified (earlier value 1973 was probably the Ponichala renaming)",
+   "from": null
+  },
+  {
+   "en": "Orkhevi",
+   "place": "quarter",
+   "year": 1973
+  },
+  {
+   "en": "Airport",
+   "place": "quarter",
+   "year": 1973
+  },
+  {
+   "en": "Lilo",
+   "place": "quarter",
+   "year": 1973
+  },
+  {
+   "en": "Didi Lilo",
+   "place": "neighbourhood",
+   "year": 2007,
+   "note": "ka Wikipedia: within Tbilisi since 2007 (ru Wikipedia: in Gardabani municipality until 2008); earlier value 1973 not confirmed",
+   "from": "Gardabani"
+  },
+  {
+   "en": "Patara Lilo",
+   "place": "neighbourhood",
+   "year": 2007,
+   "note": "ka Wikipedia: joined Tbilisi in 2007; earlier value 1973 not confirmed",
+   "from": "Gardabani"
+  },
+  {
+   "en": "Mukhiani",
+   "place": "quarter",
+   "year": null
+  },
+  {
+   "en": "Varketili",
+   "place": "quarter",
+   "year": null
+  },
+  {
+   "en": "Dighomi",
+   "place": "quarter",
+   "year": null
+  }
+ ]
 }

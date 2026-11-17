@@ -141,9 +141,9 @@
   "id": "tiflis_1821",
   "year": 1821,
   "title": "Plan of Tiflis by Shvetsov, 1821",
-  "image": "/data/raw/plans/1821_shvetsov.jpg",
-  "width": 7059,
-  "height": 12735,
+  "image": "/data/raw/plans/1821_shvetsov_map.jpg",
+  "width": 6520,
+  "height": 5520,
   "initialCorners": [
    [
     44.772262,
@@ -163,7 +163,7 @@
    ]
   ],
   "source": "Wikimedia Commons, File:Map of Tbilisi 1821.jpg (public domain)",
-  "site": false
+  "site": true
  },
  {
   "id": "tiflis_1844",
@@ -304,5 +304,59 @@
   ],
   "source": "Wikimedia Commons, File:Map of Tbilisi 1884.jpg (public domain)",
   "site": false
+ },
+ {
+  "id": "tiflis_1911",
+  "year": 1911,
+  "title": "Topographic sheet of Tiflis and environs, c.1911 (1:42 000)",
+  "image": "/data/raw/plans/1911_map.jpg",
+  "width": 5149,
+  "height": 4153,
+  "initialCorners": [
+   [
+    44.698669667453366,
+    41.782175521085264
+   ],
+   [
+    44.92123310068347,
+    41.781912758391954
+   ],
+   [
+    44.92053774547621,
+    41.65193003594179
+   ],
+   [
+    44.6979743122461,
+    41.6521927986351
+   ]
+  ],
+  "source": "Wikimedia Commons, File:Tbilisi map 1911.jpg"
+ },
+ {
+  "id": "tiflis_1850",
+  "year": 1850,
+  "title": "Plan of Tiflis with environs, 1850 (General Staff)",
+  "image": "/data/raw/plans/1850_map.jpg",
+  "width": 2023,
+  "height": 2310,
+  "initialCorners": [
+   [
+    44.78023473161657,
+    41.72609268208464
+   ],
+   [
+    44.84943143746845,
+    41.72599306938947
+   ],
+   [
+    44.849645289881416,
+    41.66663961950508
+   ],
+   [
+    44.78044858402953,
+    41.66673923220026
+   ]
+  ],
+  "source": "Wikimedia Commons, File:Map of Tbilisi 1850.jpg"
  }
 ]
