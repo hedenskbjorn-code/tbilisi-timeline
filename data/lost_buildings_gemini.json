@@ -1,0 +1,825 @@
+[
+  {
+    "name_ka": "ტფილისის ალექსანდრე ნეველის სამხედრო ტაძარი",
+    "name_en": "Tbilisi Military Cathedral (St. Alexander Nevsky Cathedral)",
+    "name_ru": "Александро-Невский военный собор (Кавказский военный собор)",
+    "kind": "cathedral",
+    "lat": 41.69667,
+    "lng": 44.79806,
+    "coord_source": "wikidata Q2097127",
+    "plan": null,
+    "built_from": 1871,
+    "built_to": 1897,
+    "lost_from": 1930,
+    "lost_to": 1930,
+    "lost_reason": "demolished",
+    "what_replaced": "Здание Парламента Грузии (бывший Дом правительства Грузинской ССР, пр. Руставели, 8)",
+    "sources": [
+      "https://www.wikidata.org/wiki/Q2097127",
+      "https://ru.wikipedia.org/wiki/Собор_Александра_Невского_(Тифлис)",
+      "https://en.wikipedia.org/wiki/Tbilisi_Military_Cathedral",
+      "https://ka.wikipedia.org/wiki/ტფილისის_სამხედრო_ტაძარი"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Главный военный православный собор Тифлиса на Гунибской (Соборной) площади по Головинскому проспекту (арх. Д. И. Гримм, Р. А. Гёдике). Закладка 1871 г., основное строительство 1889–1897 гг. Снесён в 1930 г. по распоряжению советских властей для постройки Дома правительства. На плане tbilisi_1913_full.jpg (проверено по фрагменту 1:1 m1913_2.png, Pt 14) показан в центре Соборной пл. в пикселе (1721, 3419) с подписью «36а»."
+  },
+  {
+    "name_ka": "ვანქის ტაძარი",
+    "name_en": "Vank Cathedral (Pashavank)",
+    "name_ru": "Ванкский кафедральный собор (Харасн-Манканц / Сурб Аствацацин)",
+    "kind": "cathedral",
+    "lat": 41.69739,
+    "lng": 44.80575,
+    "coord_source": "wikidata Q4793165",
+    "plan": null,
+    "built_from": 1720,
+    "built_to": 1720,
+    "lost_from": 1938,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Средняя школа № 104 (ул. Г. Атонели, 31); от ансамбля уцелела только отдельно стоящая трёхъярусная колокольня",
+    "sources": [
+      "https://www.wikidata.org/wiki/Q4793165",
+      "https://ru.wikipedia.org/wiki/Ванкский_собор",
+      "https://ka.wikipedia.org/wiki/ვანქის_ტაძარი"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Главный армянский кафедральный собор и монастырский комплекс Тифлиса (основан в конце XV–XVI вв., капитально отстроен при католикосе Аствацатуре ок. 1720 г., обновлён в XIX в.). Снесён в 1938 г. по приказу Л. Берии. Положение на исторических планах (проверено по вырезкам 1:1): 1782_cgvia.jpg — (2180, 4885) № 71; 1800_chuiko.jpg — (3675, 5175) № 81; 1802_plan.gif — (1215, 975) № 80; 1844_unknown.jpg — (2902, 3468) № 36; 1879_bnf.jpg — (4686, 3510) «А 1»."
+  },
+  {
+    "name_ka": "წმინდა ნიკოლოზის სამხედრო ტაძარი (ალექსანდრეს ბაღი)",
+    "name_en": "Corps St. Nicholas Military Cathedral in Alexander Garden",
+    "name_ru": "Корпусной Николаевский военный собор",
+    "kind": "cathedral",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4268,
+      "y": 3460,
+      "legend": "П 1 — Во имя св. Николая. (Армейскій соборъ)"
+    },
+    "built_from": 1848,
+    "built_to": 1852,
+    "lost_from": 1921,
+    "lost_to": 1929,
+    "lost_reason": "demolished",
+    "what_replaced": "Территория парка 9 Апреля (верхняя часть бывшего Александровского сада за Национальной галереей)",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Корпусной_Николаевский_собор"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Заложен в 1848 г. по проекту арх. Дж. Скудьери (погибшего на его строительстве в 1851 г.). Разобран в 1920-х гг. при реконструкции Александровского сада. Координаты в статье русской Википедии: 41.69889, 44.80139 (41°41′56″ с. ш., 44°48′05″ в. д.). Пиксель на 1879_bnf.jpg снят по вырезке 1:1 1879_fine2_lurji_mamadaviti_kashveti.jpg; на плане tbilisi_1913_full.jpg (вырезка 1:1 m1913_2.png, Pt 15) храм находится в (1792, 3355)."
+  },
+  {
+    "name_ka": "წმინდა პეტრესა და პავლეს ლუთერანული ეკლესია",
+    "name_en": "Lutheran Church of Saints Peter and Paul, Tbilisi",
+    "name_ru": "Лютеранская церковь Святых Петра и Павла (Немецкая кирха на Кирочной ул.)",
+    "kind": "church",
+    "lat": 41.70944,
+    "lng": 44.79722,
+    "coord_source": "wikidata Q4273295",
+    "plan": null,
+    "built_from": 1894,
+    "built_to": 1897,
+    "lost_from": 1940,
+    "lost_to": 1947,
+    "lost_reason": "demolished",
+    "what_replaced": "Сквер и жилая застройка у площади Марджанишвили (ул. Котэ Марджанишвили)",
+    "sources": [
+      "https://www.wikidata.org/wiki/Q4273295",
+      "https://ru.wikipedia.org/wiki/Лютеранская_церковь_Святых_Петра_и_Павла_(Тбилиси)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Неоготическая лютеранская кирха немецкой колонии в Тифлисе (арх. Л. Бильфельд), построенная в 1894–1897 гг. Закрыта и снесена в 1940–1946 гг. На плане tbilisi_1913_full.jpg (проверено по вырезке 1:1 m1913_2.png, Pt 10) здание кирхи с крестом подписано номером «267» в пикселе (1668, 2340) на Кирочной улице."
+  },
+  {
+    "name_ka": "თბილისის შიიტური მეჩეთი (შაჰ-აბასის მეჩეთი)",
+    "name_en": "Shah Abbas Mosque (Shia Blue Mosque, Tbilisi)",
+    "name_ru": "Тбилисская шиитская (Голубая) мечеть Шаха Исмаила / Шаха Аббаса",
+    "kind": "mosque",
+    "lat": 41.69028,
+    "lng": 44.80944,
+    "coord_source": "wikidata Q4453133",
+    "plan": null,
+    "built_from": 1522,
+    "built_to": 1606,
+    "lost_from": 1951,
+    "lost_to": 1951,
+    "lost_reason": "demolished",
+    "what_replaced": "Правобережный съезд нового Метехского моста и набережная на пл. Вахтанга Горгасали (Майдане)",
+    "sources": [
+      "https://www.wikidata.org/wiki/Q4453133",
+      "https://ru.wikipedia.org/wiki/Шиитская_мечеть_(Тбилиси)",
+      "https://en.wikipedia.org/wiki/List_of_mosques_in_Georgia"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Историческая шиитская мечеть у западного предмостья Метехского моста (заложена в 1522–1524 гг. при шахе Исмаиле I, перестроена в 1606 г. при шахе Аббасе I, существовала весь период 1700–1951 гг.). Снесена осенью 1951 г. при строительстве нового Метехского моста. На планах (вырезки 1:1): 1782_cgvia.jpg — (1392, 1882) № 48; 1800_chuiko.jpg — (2950, 2560) № 57; 1802_plan.gif — (1482, 2035) № 65; 1879_bnf.jpg — (4932, 4338) «М 11»."
+  },
+  {
+    "name_ka": "კალოუბნის წმინდა გიორგის ეკლესია",
+    "name_en": "Kaloubani St. George Church",
+    "name_ru": "Калоубанская церковь Святого Георгия (и Пресвятой Богородицы)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4195,
+      "y": 3682,
+      "legend": "П 3 — (Калоубани)"
+    },
+    "built_from": 1700,
+    "built_to": 1780,
+    "lost_from": 1930,
+    "lost_to": 1936,
+    "lost_reason": "demolished",
+    "what_replaced": "Здание кинотеатра «Руставели» (пр. Шота Руставели, 5, построено в 1938–1939 гг., арх. Н. П. Северов)",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/კალოუბანი",
+      "https://ru.wikipedia.org/wiki/Калоубани"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Древний православный храм в районе Калоубани на Головинском проспекте (напротив здания нынешнего Национального музея Грузии). Снесён в 1930-х гг. перед постройкой кинотеатра «Руставели». Пиксель на 1879_bnf.jpg снят по вырезке 1:1 1879_fine2_lurji_mamadaviti_kashveti.jpg. Также видна на планах: 1782_cgvia.jpg — (3805, 4715) № 76; 1800_chuiko.jpg — (5085, 5015) № 76; 1802_plan.gif — (637, 1020) № 77; tbilisi_1913_full.jpg (m1913_2.png, Pt 15) — (1814, 3420) № 69."
+  },
+  {
+    "name_ka": "კამოიანცის წმინდა გიორგის ეკლესია",
+    "name_en": "Kamoyants St. Gevorg Church",
+    "name_ru": "Церковь Святого Георгия (Камоянц Сурб Геворг)",
+    "kind": "church",
+    "lat": 41.69472,
+    "lng": 44.79972,
+    "coord_source": "wikidata Q6359074",
+    "plan": null,
+    "built_from": 1727,
+    "built_to": 1788,
+    "lost_from": 1937,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Застройка между пр. Руставели и ул. Г. Табидзе / пл. Свободы",
+    "sources": [
+      "https://www.wikidata.org/wiki/Q6359074",
+      "https://ru.wikipedia.org/wiki/Церковь_Святого_Георгия_(Камоянц)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Армянская церковь в Гареубани / Калоубани (основана в 1727 г., обновлена Габриелом Камояном в 1788 г.). Снесена в 1937–1938 гг. На планах (вырезки 1:1): 1782_cgvia.jpg — (4172, 4268) № 77; 1800_chuiko.jpg — (4695, 4970) № 77; 1802_plan.gif — (806, 1063) № 79; 1844_unknown.jpg — (2282, 4072) № 46; 1879_bnf.jpg — (4250, 3812) «А 3 — Камуантъ сагдари»."
+  },
+  {
+    "name_ka": "ჯიგრաշენის ღვთისმშობლის ხარების ეკლესია",
+    "name_en": "Jigrashen Avetyats Church (Church of the Annunciation)",
+    "name_ru": "Церковь Благовещения Пресвятой Богородицы (Джиграшен Аветьяц)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4565,
+      "y": 3982,
+      "legend": "А 16 — Благовѣщ. (Джиграшенъ)"
+    },
+    "built_from": 1624,
+    "built_to": 1729,
+    "lost_from": 1937,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Проезжая часть и застройка ул. Котэ Абхази (бывш. Армянский базар / ул. Леселидзе)",
+    "sources": [
+      "https://www.wikidata.org/wiki/Q4504593",
+      "https://ru.wikipedia.org/wiki/Церковь_Благовещения_(Джиграшен)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Крупная купольная армянская церковь на Армянском базаре (заложена в 1624 г., перестроена в 1729 г.). Снесена в 1937–1938 гг. при реконструкции и расширении ул. Леселидзе. В Wikidata Q4504593 указаны ошибочные координаты вне Старого города, поэтому дана точная привязка по вырезке 1:1 1879_fine3_kala_metekhi_avlabari.jpg из плана 1879_bnf.jpg. Также на планах: 1782_cgvia.jpg — (3238, 3355) № 21; 1802_plan.gif — (992, 1655) № 61; 1844_unknown.jpg — (2715, 4815) № 49."
+  },
+  {
+    "name_ka": "ხოჯივანქის ღვთისმშობლის ეკლესია და სასაფლაო",
+    "name_en": "Khojivank Surb Astvatsatsin Church and Cemetery",
+    "name_ru": "Церковь Пресвятой Богородицы (Сурб Аствацацин) и некрополь Ходживанк",
+    "kind": "church",
+    "lat": 41.69833,
+    "lng": 44.81861,
+    "coord_source": "wikidata Q4793209",
+    "plan": null,
+    "built_from": 1655,
+    "built_to": 1780,
+    "lost_from": 1937,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Парк Дружбы, а с 1995–2004 гг. — комплекс кафедрального собора Святой Троицы (Цминда Самеба) и небольшой сохранившийся мемориал Пантеона Ходживанка",
+    "sources": [
+      "https://www.wikidata.org/wiki/Q4793209",
+      "https://ru.wikipedia.org/wiki/Ходживанк",
+      "https://ka.wikipedia.org/wiki/ხოჯივანქი"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Крупнейший армянский мемориальный комплекс и церковь Сурб Аствацацин (построена в 1655 г. Ходжой Бебутом) в Авлабаре на склоне горы Элиа. Церковь и основная часть некрополя разрушены в 1937–1938 гг. На плане 1879_bnf.jpg (вырезка 1:1 1879_c3_kala_metekhi_kharpukh.jpg) подписана «А 23 — Монаст. Ходжи-Ванкъ (кладбищен.)» в пикселе (5542, 3495)."
+  },
+  {
+    "name_ka": "ზრკინიანცის წმინდა გიორგის ეკლესია",
+    "name_en": "Zrkinyants St. Gevorg Church",
+    "name_ru": "Церковь Святого Георгия (Зркинянц Сурб Геворг)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "tbilisi_1913_full.jpg",
+      "x": 1055,
+      "y": 3060,
+      "legend": "Знак церкви (+) между Елизавет. просп. и Московск. пер. у Хлѣбной горки"
+    },
+    "built_from": 1713,
+    "built_to": 1717,
+    "lost_from": 1937,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Жилая застройка в районе ул. А. Грибоедова / Кобулетской (вблизи Академии художеств)",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Церковь_Святого_Георгия_(Зркинянц)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Армянская церковь рода Зркинянц (Зркиновых), построенная в 1713–1717 гг. и снесённая в 1937–1938 гг. Пиксель (1055, 3060) снят по вырезке 1:1 m1913_2.png (Pt 13) из плана tbilisi_1913_full.jpg; также обозначена на плане 1879_bnf.jpg (вырезка 1:1 1879_c2_vera_mtatsminda_sololaki.jpg) в пикселе (3160, 3230) под индексом «А 14»."
+  },
+  {
+    "name_ka": "წმინდა სარქისის ეკლესია (ხარფუხი)",
+    "name_en": "St. Sarkis Church in Kharpukhi, Tbilisi",
+    "name_ru": "Церковь Святого Саркиса в Харпухе (Сурб Саркис)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 5318,
+      "y": 4565,
+      "legend": "А 18 — Св. Саркиса (Сурпъ-Саркисъ)"
+    },
+    "built_from": 1737,
+    "built_to": 1831,
+    "lost_from": 1936,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Жилая застройка района Абанотубани / Харпухи (ул. И. Гришашвили / бывш. Сурб-Саркисская)",
+    "sources": [
+      "https://en.wikipedia.org/wiki/St._Sarkis_Church_(Tbilisi,_Georgia)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Построена в 1737 г. в районе Харпух над Серными банями, разрушена в 1795 г. и восстановлена в 1831 г.; снесена в 1930-х гг. по приказу Л. Берии. Пиксель снят по вырезке 1:1 1879_fine3_kala_metekhi_avlabari.jpg из плана 1879_bnf.jpg; также видна на плане 1844_unknown.jpg (1844_exact_bot.png) в (3905, 5560) под № 54."
+  },
+  {
+    "name_ka": "კუკიის სურბ ასტვაწაწინის ეკლესია",
+    "name_en": "Kukia Surb Astvatsatsin Church",
+    "name_ru": "Кукийская церковь Пресвятой Богородицы (Сурб Аствацацин в Куках)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4312,
+      "y": 2822,
+      "legend": "А 12 — Пресв. Богор. (Въ Кукахъ)"
+    },
+    "built_from": 1820,
+    "built_to": 1860,
+    "lost_from": 1930,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Городская застройка в районе пр. Давида Агмашенебели (бывш. Михайловский пр.) и ул. Г. Читаиа",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Список_армянских_храмов_Грузии"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Армянская церковь Пресвятой Богородицы в районе Кукия (на пересечении Колонийской и Кочубеевской улиц у Михайловского пр.). Снесена в 1930-е гг. Пиксель снят по вырезке 1:1 1879_c1_north_station_colony.jpg из плана 1879_bnf.jpg."
+  },
+  {
+    "name_ka": "თბილისის ამაღლების ეკლესია (ძველი)",
+    "name_en": "Old Ascension Church in Sololaki, Tbilisi",
+    "name_ru": "Церковь Вознесения Господня в Сололаки (старая Амаглеба)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 3655,
+      "y": 4422,
+      "legend": "П 12 — Возн. Госп."
+    },
+    "built_from": 1845,
+    "built_to": 1847,
+    "lost_from": 1921,
+    "lost_to": 1929,
+    "lost_reason": "demolished",
+    "what_replaced": "Городская застройка в конце ул. Амаглеба (бывш. Вознесенской ул.) в Сололаки; в 2000-х гг. поблизости выстроен новый храм",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_ამაღლების_ეკლესია"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Построена в 1845–1847 гг. в Сололаки по инициативе историка Платона Иоселиани, дала название Вознесенской улице (ныне ул. Амаглеба). Снесена советскими властями в 1920-х гг. Пиксель снят по вырезке 1:1 1879_c2_vera_mtatsminda_sololaki.jpg из плана 1879_bnf.jpg."
+  },
+  {
+    "name_ka": "ვერის სასაფლაოს წმინდა ნიკოლოზის ეკლესია",
+    "name_en": "Vera Cemetery St. Nicholas Church",
+    "name_ru": "Церковь Святого Николая на старом Верийском кладбище",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 3198,
+      "y": 2498,
+      "legend": "П 22 — На кладбищѣ Вера"
+    },
+    "built_from": 1830,
+    "built_to": 1865,
+    "lost_from": 1930,
+    "lost_to": 1939,
+    "lost_reason": "demolished",
+    "what_replaced": "Парк Вере (бывш. парк им. С. М. Кирова, заложенный на месте старого Верийского кладбища в 1933 г.)",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/კატეგორია:თბილისის_დანგრეული_შენობა-ნაგებობები"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Православная кладбищенская церковь Св. Николая Чудотворца на старом Верийском кладбище (западнее Синего монастыря Лурджи). Утрачена в 1930-е гг. при превращении кладбища в парк им. Кирова (ныне парк Вере). Пиксель снят по вырезке 1:1 1879_c1_north_station_colony.jpg; также видна на tbilisi_1913_full.jpg (m1913_2.png, Pt 11/12) под № 12 в (975, 2472)."
+  },
+  {
+    "name_ka": "თამამშევის ქარვასლა და ოპერის თეატრი",
+    "name_en": "Tamamshev Caravanserai and Opera Theatre",
+    "name_ru": "Караван-сарай и Оперный театр Гавриила Тамамшева на Эриванской площади",
+    "kind": "caravanserai",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4332,
+      "y": 3928,
+      "legend": "Здание в центре Эриванской площади (пл. I, домъ Тамамшева)"
+    },
+    "built_from": 1847,
+    "built_to": 1851,
+    "lost_from": 1934,
+    "lost_to": 1934,
+    "lost_reason": "demolished",
+    "what_replaced": "Центральное открытое пространство площади Свободы (бывш. Эриванской пл. / пл. Берии / пл. Ленина)",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Площадь_Свободы_(Тбилиси)",
+      "https://ru.wikipedia.org/wiki/Тбилисский_академический_театр_оперы_и_балета_имени_З._Палиашвили"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Масштабное здание караван-сарая с первым городским оперным театром внутри, построенное в 1847–1851 гг. по проекту арх. Дж. Скудьери и расписанное кн. Г. Гагариным. Театральный зал сгорел в 1874 г., а сам караван-сарай занимал центр Эриванской площади вплоть до сноса в 1934 г. Пиксель на 1879_bnf.jpg снят по вырезке 1:1 1879_fine2_lurji_mamadaviti_kashveti.jpg; на tbilisi_1913_full.jpg (m1913_2.png, Pt 16) корпус подписан номером «106» в (1908, 3705)."
+  },
+  {
+    "name_ka": "როსტომ მეფისა და ერეკლე II-ის სასახლე",
+    "name_en": "Royal Palace of King Rostom and King Erekle II in Kala",
+    "name_ru": "Царский дворец Ростома и Ираклия II в Кала (с дворцовой церковью)",
+    "kind": "palace",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1782_cgvia.jpg",
+      "x": 2075,
+      "y": 3530,
+      "legend": "No. 6–11 — Cours du pallais de la famille royale / appartements du roi Heracle"
+    },
+    "built_from": 1638,
+    "built_to": 1782,
+    "lost_from": 1795,
+    "lost_to": 1805,
+    "lost_reason": "destroyed",
+    "what_replaced": "Застройка вдоль набережной Куры и площади Ираклия II (между Сионским собором и Анчисхати)",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)",
+      "https://commons.wikimedia.org/wiki/File:Tbilisi_map_1800_(Chuiko).jpg"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Главный царский дворец Картли-Кахетинских царей на берегу Куры между Сиони и Анчисхати. Разрушен войсками Ага-Мохаммед-хана в сентябре 1795 г., руины («Раззоренной Царской Дворецъ») показаны на планах 1800 и 1802 гг. и разобраны в начале XIX в. Пиксель снят по вырезке 1:1 1782_c3_lower_kala_vank.jpg; также на 1800_chuiko.jpg (z1800_sioni_anchiskhati.jpg) — (3480, 4030) № 60; на 1802_plan.gif (1802_c1_north_gareubani.jpg) — (1280, 1410) № 19."
+  },
+  {
+    "name_ka": "მეტეხის ციხე (მეტეხის საპყრობილე)",
+    "name_en": "Metekhi Castle and Prison",
+    "name_ru": "Метехский замок (крепостные бастионы и корпуса Метехской тюрьмы)",
+    "kind": "barracks",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1802_plan.gif",
+      "x": 1660,
+      "y": 2010,
+      "legend": "X — Метехъ"
+    },
+    "built_from": 1700,
+    "built_to": 1819,
+    "lost_from": 1937,
+    "lost_to": 1959,
+    "lost_reason": "demolished",
+    "what_replaced": "Открытое плато вокруг храма Метехи и памятник царю Вахтангу Горгасали (установлен в 1961 г.)",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Метехский_замок",
+      "https://ru.wikipedia.org/wiki/Метехи"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Бастионная крепость вокруг храма Метехи на скале над Курой, перестроенная в 1819 г. в Метехский тюремный замок. Казематы и крепостные стены вокруг храма были полностью снесены в 1937 и 1958–1959 гг. (сохранился только средневековый храм Метехи). Пиксель снят по вырезке 1:1 1802_c3_avlabari_metekhi.jpg; на tbilisi_1913_full.jpg (m1913_1.png, Pt 3/4) комплекс подписан номером «232» в (2550, 3985)."
+  },
+  {
+    "name_ka": "მუხრანის ხიდი",
+    "name_en": "Mukhrani Bridge, Tbilisi",
+    "name_ru": "Мухранский мост через Куру",
+    "kind": "bridge",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "tbilisi_1913_full.jpg",
+      "x": 2325,
+      "y": 3425,
+      "legend": "Мухранскій мостъ"
+    },
+    "built_from": 1909,
+    "built_to": 1911,
+    "lost_from": 1963,
+    "lost_to": 1965,
+    "lost_reason": "demolished",
+    "what_replaced": "Мост Николоза Бараташвили (железобетонный двухъярусный мост, открыт в 1965–1966 гг.)",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Мост_Бараташвили",
+      "https://ru.wikipedia.org/wiki/Улица_Бараташвили_(Тбилиси)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Стальной арочный мост через Куру, построенный в 1909–1911 гг. по проекту инж. Е. О. Патона на месте бывшего Мухранского парома. Разобран в 1963–1965 гг. ввиду недостаточной пропускной способности и заменён мостом Бараташвили (современные координаты: 41.69691, 44.80896). Пиксель центра пролёта (2325, 3425) и левобережного устоя (2402, 3406) снят по вырезке 1:1 m1913_1.png (Pt 1) из плана tbilisi_1913_full.jpg."
+  },
+  {
+    "name_ka": "ძველი მეტეხისა და ავლაბრის ხიდები",
+    "name_en": "Old Metekhi and Avlabari Bridges (1870)",
+    "name_ru": "Старые Метехский и Авлабарский мосты (парные мосты 1870 г.)",
+    "kind": "bridge",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 5008,
+      "y": 4332,
+      "legend": "U — Метехскій; Z — Авлабарскій"
+    },
+    "built_from": 1870,
+    "built_to": 1870,
+    "lost_from": 1951,
+    "lost_to": 1951,
+    "lost_reason": "demolished",
+    "what_replaced": "Современный железобетонный Метехский мост (1951 г.)",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Метехский_мост"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Два соседних металлических/каменных моста 1870 г. у Метехской скалы (Метехский мост «U» в (4982, 4280) и Авлабарский мост «Z» в (5008, 4332) на вырезке 1:1 1879_fine3_kala_metekhi_avlabari.jpg из плана 1879_bnf.jpg; также видны на tbilisi_1913_full.jpg в m1913_1.png, Pt 3/4). Оба моста были снесены в 1951 г. при строительстве нынешнего железобетонного Метехского моста."
+  },
+  {
+    "name_ka": "მნაცაკანოვის ხიდი",
+    "name_en": "Mnatsakanov Bridge, Tbilisi",
+    "name_ru": "Мнацакановский мост через Куру (в Харпухе / Ортачала)",
+    "kind": "bridge",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 5945,
+      "y": 4610,
+      "legend": "K — Мнацакановскій"
+    },
+    "built_from": 1850,
+    "built_to": 1865,
+    "lost_from": 1950,
+    "lost_to": 1955,
+    "lost_reason": "demolished",
+    "what_replaced": "Плотина и мостовой переход Ортачальской ГЭС / мост 300 Арагвинцев",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Ортачальская_ГЭС"
+    ],
+    "verified": "opened",
+    "confidence": "medium",
+    "notes": "Исторический мост через Куру ниже Харпуха, построенный в середине XIX в. на средства купца Мнацаканова. Пиксель (5945, 4610) снят по вырезке 1:1 1879_c3_kala_metekhi_kharpukh.jpg из плана 1879_bnf.jpg; также подписан «Мнацакановскій мостъ» на tbilisi_1913_full.jpg (m1913_1.png, Pt 7) в (3355, 4560)."
+  },
+  {
+    "name_ka": "თბილისის რკინიგზის სადგურის პირველი და მეორე შენობა",
+    "name_en": "First (1872) and Second (1952) Tbilisi Central Railway Station buildings",
+    "name_ru": "Старые здания Тифлисского (Тбилисского) главного железнодорожного вокзала (1872 и 1952 гг.)",
+    "kind": "station",
+    "lat": 41.72110,
+    "lng": 44.79800,
+    "coord_source": "wikidata Q1975743",
+    "plan": null,
+    "built_from": 1872,
+    "built_to": 1952,
+    "lost_from": 1952,
+    "lost_to": 1982,
+    "lost_reason": "demolished",
+    "what_replaced": "Современное здание вокзала и ТЦ «Тбилиси-Централ» (Вокзальная пл., 2)",
+    "sources": [
+      "https://www.wikidata.org/wiki/Q1975743",
+      "https://ru.wikipedia.org/wiki/Тбилиси-Пассажирская",
+      "https://ru.wikipedia.org/wiki/Тер-Микелов,_Гавриил_Михайлович"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Первое здание пассажирского вокзала Поти-Тифлисской ж. д. открыто в 1872 г. (на плане 1879_bnf.jpg в вырезке 1:1 1879_fine1_station_obs_nevsky.jpg — пиксель 4175, 1068 «Ст. желѣзной дороги») и снесено к 1952 г. Построенное на его месте монументальное сталинское здание вокзала 1952 г. (арх. Г. М. Тер-Микелов) было в свою очередь взорвано в 1982 г. для постройки нынешнего комплекса."
+  },
+  {
+    "name_ka": "მაღლაკარი (კოჯრის / წავკისის კარი)",
+    "name_en": "Maglakari (Kojori / Upper Gate of Kala city wall)",
+    "name_ru": "Верхние (Коджорские / Цовкисские / Маглакари) ворота городской стены Кала",
+    "kind": "gate",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1782_cgvia.jpg",
+      "x": 3542,
+      "y": 3255,
+      "legend": "No. 22 — porte haute nomme maglakarri"
+    },
+    "built_from": 1600,
+    "built_to": 1750,
+    "lost_from": 1795,
+    "lost_to": 1830,
+    "lost_reason": "demolished",
+    "what_replaced": "Выход ул. Котэ Абхази и ул. Ш. Дадиани к площади Свободы",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)",
+      "https://ka.wikipedia.org/wiki/თბილისის_1735_წლის_გეგმა"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Главные западные (верхние) ворота крепостной стены Кала, ведшие к Коджори и Цавкиси. Пиксель (3542, 3255) снят по вырезке 1:1 1782_c3_lower_kala_vank.jpg из плана 1782_cgvia.jpg; на плане 1802_plan.gif (1802_c2_kala_narikala.jpg) подписаны под № 33 («33. Цовкискія») в (768, 1528). Разобраны в первой трети XIX в. при срытии старых стен и планировке Эриванской пл."
+  },
+  {
+    "name_ka": "დიღმის კარი (შუაკარი)",
+    "name_en": "Dighomi Gate (Shuakari) of Kala city wall",
+    "name_ru": "Дигомские (Средние / Шуакари) ворота и северо-западная стена Кала",
+    "kind": "gate",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1782_cgvia.jpg",
+      "x": 3272,
+      "y": 4282,
+      "legend": "No. 23 — porte nommée Tighonis karri"
+    },
+    "built_from": 1600,
+    "built_to": 1750,
+    "lost_from": 1820,
+    "lost_to": 1845,
+    "lost_reason": "demolished",
+    "what_replaced": "Улица Пушкина (в районе пересечения с ул. Серебряной / Чахрухадзе; в 2012 г. при раскопках открыты фундаменты стены и башен)",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)",
+      "https://ka.wikipedia.org/wiki/თბილისის_1735_წლის_გეგმა"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Северо-западные ворота городской стены Кала на дороге в Дигоми и Гареубани. Пиксель (3272, 4282) снят по вырезке 1:1 1782_c3_lower_kala_vank.jpg; на плане 1800_chuiko.jpg (z1800_sioni_anchiskhati.jpg) — (3682, 4712) № 24; на плане 1802_plan.gif (1802_c1_north_gareubani.jpg) — (885, 1165) № 34 («34. Дюгомскія»). Надземная часть разобрана в 1820–1840-х гг."
+  },
+  {
+    "name_ka": "წყლისკარი (მუხრანის კარი)",
+    "name_en": "Tskliskari (Mukhrani / Water Gate) of Kala city wall",
+    "name_ru": "Водяные (Мухранские / Цклискари) ворота городской стены Кала",
+    "kind": "gate",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1782_cgvia.jpg",
+      "x": 2358,
+      "y": 4345,
+      "legend": "No. 1 — porte de l'eau nommée Zkliskarri"
+    },
+    "built_from": 1600,
+    "built_to": 1750,
+    "lost_from": 1820,
+    "lost_to": 1845,
+    "lost_reason": "demolished",
+    "what_replaced": "Район ул. Николоза Бараташвили / Шавтели у выхода к Куре",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Северо-восточные ворота стены Кала у Анчисхати и спуска к воде (Куре) и Ванкскому предместью. Пиксель (2358, 4345) снят по вырезке 1:1 1782_c3_lower_kala_vank.jpg; на плане 1802_plan.gif (1802_c1_north_gareubani.jpg) подписаны под № 35 («35. Мухранскія») в (1228, 1110). Разобраны в первой половине XIX в."
+  },
+  {
+    "name_ka": "განჯის კარი (აბანოს კარი)",
+    "name_en": "Ganja Gate (Bath Gate) of Kala city wall",
+    "name_ru": "Гянджинские (Банные) ворота южной крепостной стены Кала",
+    "kind": "gate",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1782_cgvia.jpg",
+      "x": 1882,
+      "y": 765,
+      "legend": "No. 61 — porte nomé Gengiskarri"
+    },
+    "built_from": 1600,
+    "built_to": 1750,
+    "lost_from": 1810,
+    "lost_to": 1840,
+    "lost_reason": "demolished",
+    "what_replaced": "Улица Ботаническая / район Серных бань в Абанотубани",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Южные крепостные ворота с мостом через ручей Цавкисисцкали (Легвтахеви), ведшие из цитадели и Кала на Гянджинскую (Персидскую) дорогу и к Серным баням. Пиксель (1882, 765) снят по вырезке 1:1 1782_c1_narikala_metekhi.jpg; на плане 1802_plan.gif (1802_c2_kala_narikala.jpg) показаны № 30 («Ганжинскія», 1322, 2352) и № 31 («Банныя», 1552, 2212)."
+  },
+  {
+    "name_ka": "ავლაბრის კარი (მეტეხის კარი)",
+    "name_en": "Avlabari Gate (Metekhi Gate) of Tbilisi city wall",
+    "name_ru": "Авлабарские (Метехские) ворота городской стены",
+    "kind": "gate",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1802_plan.gif",
+      "x": 1642,
+      "y": 1938,
+      "legend": "No. 32 — Авлабарскія"
+    },
+    "built_from": 1600,
+    "built_to": 1770,
+    "lost_from": 1820,
+    "lost_to": 1850,
+    "lost_reason": "demolished",
+    "what_replaced": "Подъём от Метехского моста к Авлабару (ул. Метехи / Винный подъём)",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Ворота Авлабарского (Метехского) укрепления у левобережного предмостья Метехского моста, ведшие из замка Метехи в Авлабар и на Кахетинскую дорогу. Пиксель (1642, 1938) снят по вырезке 1:1 1802_c3_avlabari_metekhi.jpg из плана 1802_plan.gif."
+  },
+  {
+    "name_ka": "კარის წმინდა გიორგის ეკლესია (მეფის სასახლის ეკლესია)",
+    "name_en": "Royal Court Church of St. George (Karis Eklesia)",
+    "name_ru": "Придворная церковь Святого Георгия последнего царя Грузии (Карис эклесиа)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4762,
+      "y": 3832,
+      "legend": "П 8 — Во имя св. Георгія. Бывшая придворной послѣдняго царя Грузіи"
+    },
+    "built_from": 1710,
+    "built_to": 1710,
+    "lost_from": 1930,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Сквер на ул. Шавтели южнее базилики Анчисхати и резиденции Патриарха Грузии",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Дворцовая церковь Св. Георгия, построенная царём Вахтангом VI в 1710 г. рядом с Анчисхати и царским дворцом. Снесена в 1930-е гг. Пиксель снят по вырезке 1:1 1879_fine3_kala_metekhi_avlabari.jpg из плана 1879_bnf.jpg; также обозначена на 1782_cgvia.jpg (1782_c3_lower_kala_vank.jpg) в (2070, 3745) № 5–6 и на 1802_plan.gif (1802_c1_north_gareubani.jpg) в (1256, 1340) № 42."
+  },
+  {
+    "name_ka": "კვირაცხოვლის (წმინდა თომას) ეკლესია კალაში",
+    "name_en": "St. Thomas (Kviratskhoveli) Church in Kala",
+    "name_ru": "Церковь Святого Апостола Фомы (Квирацховели в Верхнем Кала)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4630,
+      "y": 3718,
+      "legend": "П 9 — Св. Апост. Ѳомы (Квирацховели)"
+    },
+    "built_from": 1700,
+    "built_to": 1780,
+    "lost_from": 1925,
+    "lost_to": 1938,
+    "lost_reason": "demolished",
+    "what_replaced": "Улица Николоза Бараташвили / сквер у крепостной стены",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Православная церковь Св. Апостола Фомы (Квирацховели) у северной стены Верхнего Кала (вблизи нынешней ул. Бараташвили). Пиксель (4630, 3718) снят по вырезке 1:1 1879_fine3_kala_metekhi_avlabari.jpg из плана 1879_bnf.jpg; также показана на плане 1802_plan.gif (1802_c1_north_gareubani.jpg) в (1090, 1218) под № 45 («45. Святаго Апостола Фоми»)."
+  },
+  {
+    "name_ka": "წმინდა ეკატერინეს ბერძნული ეკლესია (ბრზენ-ხანა)",
+    "name_en": "St. Catherine Greek Orthodox Church (Brzen-khana)",
+    "name_ru": "Греческая церковь Святой Великомученицы Екатерины (Брзень-хана)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4970,
+      "y": 4395,
+      "legend": "П 11 — Во имя Св. Екатерины (Брзень-хана)"
+    },
+    "built_from": 1750,
+    "built_to": 1800,
+    "lost_from": 1930,
+    "lost_to": 1951,
+    "lost_reason": "demolished",
+    "what_replaced": "Застройка и дорожная развязка в районе площади Вахтанга Горгасали (Майдана) у подножия Нарикалы",
+    "sources": [
+      "https://ka.wikipedia.org/wiki/თბილისის_გეგმა_(პიშჩევიჩისა)"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Греческая православная церковь Св. Великомученицы Екатерины в районе Татарского Майдана у подножия Нарикалы. Пиксель (4970, 4395) снят по вырезке 1:1 1879_fine3_kala_metekhi_avlabari.jpg из плана 1879_bnf.jpg; также указана в экспликации плана 1802_plan.gif (1802_c2_kala_narikala.jpg) в рубрике «Греческіе церкви» под № 47 («47. Святыя великомученицы Екатерины», 1480, 2075)."
+  },
+  {
+    "name_ka": "პატარა ციხის საყდარი (მთავარანგელოზ გაბრიელის ეკლესია)",
+    "name_en": "Patara Tsikhis-Sagdari (Archangel Gabriel Armenian Church)",
+    "name_ru": "Церковь Архангела Гавриила (Патара Цихис-Сагдари / Малая крепостная церковь)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 5022,
+      "y": 4425,
+      "legend": "А 5 — Арханг. Гавріила (Патара Цихисъ-Сагдари)"
+    },
+    "built_from": 1700,
+    "built_to": 1780,
+    "lost_from": 1930,
+    "lost_to": 1940,
+    "lost_reason": "demolished",
+    "what_replaced": "Сквер и проезжая часть в районе площади Вахтанга Горгасали (Майдана) и Серных бань",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Список_армянских_храмов_Грузии"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Армянская церковь Архангела Гавриила (Малая Цихис-Сагдари) у южного края Майдана и входа в Абанотубани. Снесена в 1930-е гг. Пиксель (5022, 4425) снят по вырезке 1:1 1879_fine3_kala_metekhi_avlabari.jpg из плана 1879_bnf.jpg; также показана на плане 1884_map.jpg (1884_fine3_kala_avlabari_kharpukh.jpg) под литерой «г.» в VI участке."
+  },
+  {
+    "name_ka": "დიდი ციხის საყდარი (ღვთისმშობლის ეკლესია)",
+    "name_en": "Didi Tsikhis-Sagdari (Surb Astvatsatsin Armenian Church)",
+    "name_ru": "Церковь Пресвятой Богородицы (Диди Цихис-Сагдари / Большая крепостная церковь)",
+    "kind": "church",
+    "lat": null,
+    "lng": null,
+    "coord_source": "plan",
+    "plan": {
+      "file": "1879_bnf.jpg",
+      "x": 4722,
+      "y": 4075,
+      "legend": "А 19 — Прес. Богор. (Диди цихисъ-Сагдари)"
+    },
+    "built_from": 1700,
+    "built_to": 1780,
+    "lost_from": 1930,
+    "lost_to": 1940,
+    "lost_reason": "demolished",
+    "what_replaced": "Городская застройка в квартале между ул. Котэ Абхази и ул. Сиони",
+    "sources": [
+      "https://ru.wikipedia.org/wiki/Список_армянских_храмов_Грузии"
+    ],
+    "verified": "opened",
+    "confidence": "high",
+    "notes": "Армянская церковь Пресвятой Богородицы (Большая Цихис-Сагдари) в Кала между Сионским собором и Армянским базаром. Снесена в советское время (1930-е гг.). Пиксель (4722, 4075) снят по вырезке 1:1 1879_fine3_kala_metekhi_avlabari.jpg из плана 1879_bnf.jpg."
+  }
+]
