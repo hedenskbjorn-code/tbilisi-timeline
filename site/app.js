@@ -1,6 +1,11 @@
 (() => {
   "use strict";
-  const MIN = 1700, MAX = 2025, NEW_YEARS = 25;
+  // The timeline starts at the earliest written evidence of the fortress (about 364, see "About"); the long early period is
+  // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-90, 1000-1700 -> 90-200, 1700-2025 -> 200-1000)
+  const MIN = 364, MAX = 2025, NEW_YEARS = 25;
+  const KNOTS = [[364, 0], [1000, 90], [1700, 200], [2025, 1000]];
+  const y2v = (y) => { for (let i = 1; i < KNOTS.length; i++) if (y <= KNOTS[i][0]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return v0 + ((y - y0) / (y1 - y0)) * (v1 - v0); } return 1000; };
+  const v2y = (v) => { for (let i = 1; i < KNOTS.length; i++) if (v <= KNOTS[i][1]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return Math.round(y0 + ((v - v0) / (v1 - v0)) * (y1 - y0)); } return MAX; };
   const PLAN_AFTER = 10; // the last plan is shown at most this many years after its date
   const COARSE = new Set(["century", "half", "mixed"]);
 
@@ -35,6 +40,7 @@
         "Серая пунктирная линия 1973–2005 годов — граница из geoBoundaries (ADM2, метаданные: 2007). Проверка по положению посёлков: присоединённые в 2006 году (Цхнети, Цавкиси, Окрокана, Кикети, Бетания, Диди Дигоми, Загэси) лежат вне неё, присоединённые раньше (Поничала, Орхеви, Глдани, Варкетили) внутри, то есть она соответствует границе до реформы 2006 года. Её площадь ≈ 330 км² меньше 354 км² из диссертации, причина не установлена. Деление на районы и их названия по периодам (без границ) пересказаны ИИ по вторичным источникам и не проверены по первоисточникам.",
         "Площадь города: Н. Харебава, диссертация, Тбилисский государственный университет им. Ив. Джавахишвили, 2024.",
         "Фото: Wikimedia Commons, с указанием автора и лицензии; подбираются по координатам и могут показывать соседнее здание.",
+        "Шкала времени начинается с IV века: по общим обзорам (Википедия, не проверено по первоисточникам), самые ранние письменные сведения о крепости на месте города относятся к середине–второй половине IV века (около 364 г.), а традиционная дата основания города по грузинским летописям — 458 г. (Вахтанг Горгасали). До 1700 года шкала сжата, до 1735 года планов и границ нет, показаны только объекты реестра.",
         "Утраченные здания: список составлен ИИ (Gemini) по Wikidata, Википедии (ka, ru, en) и легендам исторических планов; даты и положение приблизительны, значок показывает, найден ли год утраты на странице источника. Не является официальным реестром.",
         "Границы застройки с 1972 года: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), лицензия CC BY 4.0; сглажены и упрощены проектом. Контур 1954 года: заливка застройки на листе NK 38-8 Army Map Service (США, 1:250 000), общественное достояние; положение приблизительное.",
         "Фоновая карта: OpenFreeMap, © OpenMapTiles, данные © участники OpenStreetMap. Библиотека карты: MapLibre GL JS.",
@@ -111,6 +117,7 @@
         "The grey dashed line for 1973–2005 is a boundary from geoBoundaries (ADM2, metadata: 2007). Checked by the position of settlements: those annexed in 2006 (Tskneti, Tsavkisi, Okrokana, Kiketi, Betania, Didi Dighomi, Zahesi) lie outside it, those annexed earlier (Ponichala, Orkhevi, Gldani, Varketili) inside, so it matches the pre-2006 limit. Its area of about 330 km² is smaller than the 354 km² in the thesis, the reason is not established. The district divisions and names by period (without boundaries) were relayed by an AI from secondary sources and are not checked against the originals.",
         "City area: N. Kharebava, PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024.",
         "Photos: Wikimedia Commons, shown with author and licence; matched by coordinates and may show a neighbouring building.",
+        "The timeline starts in the 4th century: according to general surveys (Wikipedia, not checked against the primary sources), the earliest written evidence of a fortress at the site dates to the mid to late 4th century (about 364), and the traditional date of the city’s foundation in the Georgian chronicles is 458 (Vakhtang Gorgasali). The scale is compressed before 1700; there are no plans or outlines before 1735, only register objects are shown.",
         "Lost buildings: the list was compiled by an AI (Gemini) from Wikidata, Wikipedia (ka, ru, en) and the legends of historical plans; dates and positions are approximate, and the popup says whether the year of loss was found on a source page. It is not an official register.",
         "Built-up outlines since 1972: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), licence CC BY 4.0; smoothed and simplified by the project. The 1954 outline: built-up fill on sheet NK 38-8 of the U.S. Army Map Service (1:250 000), public domain; position is approximate.",
         "Base map: OpenFreeMap, © OpenMapTiles, data © OpenStreetMap contributors. Map library: MapLibre GL JS.",
@@ -188,6 +195,7 @@
         "1973–2005 წლების ნაცრისფერი წყვეტილი ხაზი — geoBoundaries-ის საზღვარია (ADM2, მეტამონაცემები: 2007). შემოწმება დასახლებების მდებარეობით: 2006 წელს მიერთებული (წყნეთი, წავკისი, ოქროყანა, კიკეთი, ბეთანია, დიდი დიღომი, ზაჰესი) მის გარეთაა, ადრე მიერთებული (პონიჭალა, ორხევი, გლდანი, ვარკეთილი) — შიგნით, ანუ ის შეესაბამება 2006 წლამდე არსებულ საზღვარს. მისი ფართობი დაახლოებით 330 კმ² დისერტაციის 354 კმ²-ზე ნაკლებია, მიზეზი დადგენილი არ არის. რაიონული დაყოფა და სახელები პერიოდების მიხედვით (საზღვრების გარეშე) გადმოცემულია ხელოვნური ინტელექტის მიერ მეორადი წყაროებიდან და ორიგინალებთან შემოწმებული არ არის.",
         "ქალაქის ფართობი: ნ. ხარებავა, სადოქტორო დისერტაცია, ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი, 2024.",
         "ფოტოები: Wikimedia Commons, ავტორისა და ლიცენზიის მითითებით; შერჩეულია კოორდინატებით და შეიძლება მეზობელ შენობას აჩვენებდეს.",
+        "დროის შკალა იწყება IV საუკუნიდან: ზოგადი მიმოხილვების მიხედვით (ვიკიპედია, პირველწყაროებთან შემოწმებული არ არის), ქალაქის ადგილას ციხესიმაგრის შესახებ უძველესი წერილობითი ცნობები IV საუკუნის შუა და მეორე ნახევარს (დაახლოებით 364 წელი) განეკუთვნება, ხოლო ქალაქის დაარსების ტრადიციული თარიღი ქართული მატიანეების მიხედვით 458 წელია (ვახტანგ გორგასალი). 1700 წლამდე შკალა შეკუმშულია, 1735 წლამდე გეგმები და საზღვრები არ არის, ნაჩვენებია მხოლოდ რეესტრის ობიექტები.",
         "დაკარგული შენობები: სია შედგენილია ხელოვნური ინტელექტის (Gemini) მიერ Wikidata-ს, ვიკიპედიის (ka, ru, en) და ისტორიული გეგმების ლეგენდების მიხედვით; თარიღები და მდებარეობა მიახლოებითია, ბუშტი აჩვენებს, ნაპოვნია თუ არა დაკარგვის წელი წყაროს გვერდზე. ეს არ არის ოფიციალური რეესტრი.",
         "განაშენიანების საზღვრები 1972 წლიდან: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), ლიცენზია CC BY 4.0; გასწორებული და გამარტივებულია პროექტის მიერ. 1954 წლის კონტური: აშშ-ის არმიის რუკების სამსახურის NK 38-8 ფურცელზე განაშენიანების შევსება (1:250 000), საჯარო სივრცე; მდებარეობა მიახლოებითია.",
         "ფონური რუკა: OpenFreeMap, © OpenMapTiles, მონაცემები © OpenStreetMap-ის მონაწილეები. რუკის ბიბლიოთეკა: MapLibre GL JS.",
@@ -351,7 +359,7 @@
   function update() {
     $("year").textContent = year;
     if ($("yearchip")) $("yearchip").textContent = year;
-    $("slider").value = year;
+    $("slider").value = Math.round(y2v(year));
     try { history.replaceState(null, "", "#" + year); } catch (e) {}
     if (!map.getLayer("mon")) return;
     map.setFilter("mon", filterExpr());
@@ -432,27 +440,29 @@
       s.textContent = y;
       s.title = String(y);
       if (cls) s.className = cls;
-      s.style.left = `calc(8px + (100% - 16px) * ${(y - MIN) / (MAX - MIN)})`;
+      s.style.left = `calc(8px + (100% - 16px) * ${y2v(y) / 1000})`;
       s.addEventListener("click", () => { year = y; update(); });
       box.appendChild(s);
     };
     // every year that has a data snapshot (built-up outline or old plan) is marked and clickable; round years fill gaps
     const marked = [...new Set([...urbanSnaps, ...plans.map((p) => p.year)])].sort((a, b) => a - b);
     const round = [];
-    for (let y = Math.ceil(MIN / 50) * 50; y <= MAX; y += 50) if (!marked.some((p) => Math.abs(p - y) < 12)) round.push(y);
+    for (let y = 400; y < 1700; y += 200) round.push(y);                  // the compressed early period: every 200 years
+    for (let y = 1750; y <= MAX; y += 50) if (!marked.some((p) => Math.abs(p - y) < 12)) round.push(y);
     if (!marked.some((p) => Math.abs(p - MAX) < 12)) round.push(MAX);
+    round.unshift(MIN);
     const width = Math.max(box.clientWidth - 16, 300);
     const rows = [[], []];                                   // x positions of labels already placed on each of two rows
     const fits = (r, x) => rows[r].every((q) => Math.abs(q - x) >= 34);
     const items = [];
     for (const y of marked) {                                // snapshot years first: always get a tick, a label if there is room
-      const x = ((y - MIN) / (MAX - MIN)) * width;
+      const x = (y2v(y) / 1000) * width;
       const r = fits(0, x) ? 0 : fits(1, x) ? 1 : -1;
       if (r >= 0) rows[r].push(x);
       items.push({ y, cls: "plan", r, label: r >= 0 });
     }
     for (const y of round) {                                 // round years only where they do not collide
-      const x = ((y - MIN) / (MAX - MIN)) * width;
+      const x = (y2v(y) / 1000) * width;
       const r = fits(0, x) ? 0 : fits(1, x) ? 1 : -1;
       if (r >= 0) { rows[r].push(x); items.push({ y, cls: "", r, label: true }); }
     }
@@ -795,7 +805,7 @@
     applyLang();
   });
 
-  $("slider").addEventListener("input", (e) => { year = +e.target.value; update(); });
+  $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
   for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
@@ -813,7 +823,7 @@
     if (year >= MAX) year = MIN;
     $("play").textContent = "❚❚";
     timer = setInterval(() => {
-      year++;
+      year = Math.min(MAX, year + (year < 1000 ? 25 : year < 1700 ? 10 : 1));
       update();
       if (year >= MAX) { clearInterval(timer); timer = null; $("play").textContent = "▶"; }
     }, 80);
@@ -821,6 +831,6 @@
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", update);
   window.addEventListener("resize", () => { if (urbanSnaps.length || plans.length) buildTicks(); });
-  $("slider").value = year;
+  $("slider").value = Math.round(y2v(year));
   $("year").textContent = year;
 })();
