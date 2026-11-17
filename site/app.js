@@ -35,6 +35,7 @@
         "Серая пунктирная линия 1973–2005 годов — граница из geoBoundaries (ADM2, метаданные: 2007). Проверка по положению посёлков: присоединённые в 2006 году (Цхнети, Цавкиси, Окрокана, Кикети, Бетания, Диди Дигоми, Загэси) лежат вне неё, присоединённые раньше (Поничала, Орхеви, Глдани, Варкетили) внутри, то есть она соответствует границе до реформы 2006 года. Её площадь ≈ 330 км² меньше 354 км² из диссертации, причина не установлена. Деление на районы и их названия по периодам (без границ) пересказаны ИИ по вторичным источникам и не проверены по первоисточникам.",
         "Площадь города: Н. Харебава, диссертация, Тбилисский государственный университет им. Ив. Джавахишвили, 2024.",
         "Фото: Wikimedia Commons, с указанием автора и лицензии; подбираются по координатам и могут показывать соседнее здание.",
+        "Утраченные здания: список составлен ИИ (Gemini) по Wikidata, Википедии (ka, ru, en) и легендам исторических планов; даты и положение приблизительны, значок показывает, найден ли год утраты на странице источника. Не является официальным реестром.",
         "Границы застройки с 1972 года: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), лицензия CC BY 4.0; сглажены и упрощены проектом. Контур 1954 года: заливка застройки на листе NK 38-8 Army Map Service (США, 1:250 000), общественное достояние; положение приблизительное.",
         "Фоновая карта: OpenFreeMap, © OpenMapTiles, данные © участники OpenStreetMap. Библиотека карты: MapLibre GL JS.",
       ],
@@ -68,6 +69,14 @@
       fbType: "Что не так", fbK1: "Ошибка в данных объекта (название, дата, адрес, положение)", fbK2: "Старый план лежит не там (привязка)", fbK3: "Граница города или застройки", fbK4: "Ошибка в переводе или названии", fbK5: "Вопрос по правам, прошу убрать данные", fbK6: "Другое",
       fbText: "Описание", fbCtx: "Контекст (подставляется автоматически)", fbContact: "Как с вами связаться (по желанию)", fbSend: "Отправить", fbCancel: "Отмена",
       fbSent: "Спасибо! Обращение отправлено.", fbOpened: "Открыто окно GitHub: подтвердите отправку обращения там.", fbPopup: "Сообщить об ошибке по этому объекту",
+      showLost: "Утраченные здания (снесены или разрушены)", showGhost: "показывать и после утраты (бледно)",
+      legLostOn: "Утраченное здание: ещё стоит в этот год", legLostUnc: "Утраченное: год постройки или сноса неточен", legLostOff: "Утраченное: уже снесено (бледный «призрак»)",
+      lostKinds: { church: "церковь", cathedral: "собор", mosque: "мечеть", synagogue: "синагога", caravanserai: "караван-сарай", theatre: "театр", gate: "ворота", wall: "стена", tower: "башня", bridge: "мост", station: "вокзал", barracks: "казармы/замок", palace: "дворец", house: "дом", other: "другое" },
+      lostWhy: { demolished: "снесён", destroyed: "разрушен", rebuilt: "перестроен", flooded: "затоплен", unknown: "причина неизвестна" },
+      lostBuilt: "Построен", lostLost: "Утрачен", lostRepl: "Сейчас на месте", lostState: { stand: "в этот год ещё стоит", unc: "в этот год мог уже быть снесён (дата утраты неточна)", gone: "в этот год уже утрачен", early: "в этот год мог ещё не существовать (дата постройки неточна)" },
+      lostAcc: (m, pos) => `Положение ${pos === "plan" ? "снято с исторического плана" : "по координатам из источника"}, погрешность ≈ ${m} м`,
+      lostChk: "Год утраты найден на странице источника (слабая проверка)", lostNoChk: "Год утраты на странице источника не найден автоматически",
+      lostSrc: "Список составлен ИИ по Wikidata, Википедии и легендам планов; не является официальным.", lostSources: "Источники",
       typesTitle: "Назначение (сейчас — по названию, иначе по реестру)", func: "Современное назначение (по названию)", func0: "Первоначальное назначение (по реестру)", wiki: "Статья в Википедии",
       types: { residential: "Жилые дома", religious: "Религиозные", defense: "Оборонительные", culture: "Образование, наука, культура",
                public: "Общественные и торговые", transport: "Транспорт и инженерия", memorial: "Мемориалы и парки", rural: "Археология и сельское", other: "Прочие" },
@@ -102,6 +111,7 @@
         "The grey dashed line for 1973–2005 is a boundary from geoBoundaries (ADM2, metadata: 2007). Checked by the position of settlements: those annexed in 2006 (Tskneti, Tsavkisi, Okrokana, Kiketi, Betania, Didi Dighomi, Zahesi) lie outside it, those annexed earlier (Ponichala, Orkhevi, Gldani, Varketili) inside, so it matches the pre-2006 limit. Its area of about 330 km² is smaller than the 354 km² in the thesis, the reason is not established. The district divisions and names by period (without boundaries) were relayed by an AI from secondary sources and are not checked against the originals.",
         "City area: N. Kharebava, PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024.",
         "Photos: Wikimedia Commons, shown with author and licence; matched by coordinates and may show a neighbouring building.",
+        "Lost buildings: the list was compiled by an AI (Gemini) from Wikidata, Wikipedia (ka, ru, en) and the legends of historical plans; dates and positions are approximate, and the popup says whether the year of loss was found on a source page. It is not an official register.",
         "Built-up outlines since 1972: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), licence CC BY 4.0; smoothed and simplified by the project. The 1954 outline: built-up fill on sheet NK 38-8 of the U.S. Army Map Service (1:250 000), public domain; position is approximate.",
         "Base map: OpenFreeMap, © OpenMapTiles, data © OpenStreetMap contributors. Map library: MapLibre GL JS.",
       ],
@@ -135,6 +145,14 @@
       fbType: "What is wrong", fbK1: "Error in an object's data (name, date, address, position)", fbK2: "An old plan is misplaced (registration)", fbK3: "City or built-up boundary", fbK4: "Error in a translation or a name", fbK5: "Rights question, please remove data", fbK6: "Other",
       fbText: "Description", fbCtx: "Context (filled in automatically)", fbContact: "How to reach you (optional)", fbSend: "Send", fbCancel: "Cancel",
       fbSent: "Thank you! The report was sent.", fbOpened: "A GitHub window was opened: confirm sending the issue there.", fbPopup: "Report a problem with this object",
+      showLost: "Lost buildings (demolished or destroyed)", showGhost: "also show after the loss (faint)",
+      legLostOn: "Lost building: still standing in this year", legLostUnc: "Lost: date of construction or loss is imprecise", legLostOff: "Lost: already gone (faint “ghost”)",
+      lostKinds: { church: "church", cathedral: "cathedral", mosque: "mosque", synagogue: "synagogue", caravanserai: "caravanserai", theatre: "theatre", gate: "gate", wall: "wall", tower: "tower", bridge: "bridge", station: "station", barracks: "barracks/castle", palace: "palace", house: "house", other: "other" },
+      lostWhy: { demolished: "demolished", destroyed: "destroyed", rebuilt: "rebuilt", flooded: "flooded", unknown: "reason unknown" },
+      lostBuilt: "Built", lostLost: "Lost", lostRepl: "Now on the site", lostState: { stand: "still standing in this year", unc: "may already have been demolished in this year (loss date imprecise)", gone: "already lost in this year", early: "may not yet have existed in this year (construction date imprecise)" },
+      lostAcc: (m, pos) => `Position ${pos === "plan" ? "read from a historical plan" : "from a source coordinate"}, error ≈ ${m} m`,
+      lostChk: "The year of loss was found on a cited source page (weak check)", lostNoChk: "The year of loss was not found automatically on the cited pages",
+      lostSrc: "The list was compiled by an AI from Wikidata, Wikipedia and plan legends; it is not official.", lostSources: "Sources",
       typesTitle: "Use (today — by name, otherwise per register)", func: "Present-day use (by name)", func0: "Original function (per register)", wiki: "Wikipedia article",
       types: { residential: "Residential houses", religious: "Religious", defense: "Defensive", culture: "Education, science, culture",
                public: "Public and commercial", transport: "Transport and engineering", memorial: "Memorials and parks", rural: "Archaeology and rural", other: "Other" },
@@ -170,6 +188,7 @@
         "1973–2005 წლების ნაცრისფერი წყვეტილი ხაზი — geoBoundaries-ის საზღვარია (ADM2, მეტამონაცემები: 2007). შემოწმება დასახლებების მდებარეობით: 2006 წელს მიერთებული (წყნეთი, წავკისი, ოქროყანა, კიკეთი, ბეთანია, დიდი დიღომი, ზაჰესი) მის გარეთაა, ადრე მიერთებული (პონიჭალა, ორხევი, გლდანი, ვარკეთილი) — შიგნით, ანუ ის შეესაბამება 2006 წლამდე არსებულ საზღვარს. მისი ფართობი დაახლოებით 330 კმ² დისერტაციის 354 კმ²-ზე ნაკლებია, მიზეზი დადგენილი არ არის. რაიონული დაყოფა და სახელები პერიოდების მიხედვით (საზღვრების გარეშე) გადმოცემულია ხელოვნური ინტელექტის მიერ მეორადი წყაროებიდან და ორიგინალებთან შემოწმებული არ არის.",
         "ქალაქის ფართობი: ნ. ხარებავა, სადოქტორო დისერტაცია, ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი, 2024.",
         "ფოტოები: Wikimedia Commons, ავტორისა და ლიცენზიის მითითებით; შერჩეულია კოორდინატებით და შეიძლება მეზობელ შენობას აჩვენებდეს.",
+        "დაკარგული შენობები: სია შედგენილია ხელოვნური ინტელექტის (Gemini) მიერ Wikidata-ს, ვიკიპედიის (ka, ru, en) და ისტორიული გეგმების ლეგენდების მიხედვით; თარიღები და მდებარეობა მიახლოებითია, ბუშტი აჩვენებს, ნაპოვნია თუ არა დაკარგვის წელი წყაროს გვერდზე. ეს არ არის ოფიციალური რეესტრი.",
         "განაშენიანების საზღვრები 1972 წლიდან: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), ლიცენზია CC BY 4.0; გასწორებული და გამარტივებულია პროექტის მიერ. 1954 წლის კონტური: აშშ-ის არმიის რუკების სამსახურის NK 38-8 ფურცელზე განაშენიანების შევსება (1:250 000), საჯარო სივრცე; მდებარეობა მიახლოებითია.",
         "ფონური რუკა: OpenFreeMap, © OpenMapTiles, მონაცემები © OpenStreetMap-ის მონაწილეები. რუკის ბიბლიოთეკა: MapLibre GL JS.",
       ],
@@ -203,6 +222,14 @@
       fbType: "რა არის არასწორი", fbK1: "შეცდომა ობიექტის მონაცემებში (სახელი, თარიღი, მისამართი, მდებარეობა)", fbK2: "ძველი გეგმა არასწორ ადგილასაა (მიბმა)", fbK3: "ქალაქის ან განაშენიანების საზღვარი", fbK4: "შეცდომა თარგმანში ან სახელში", fbK5: "უფლებების საკითხი, გთხოვთ წაშალოთ მონაცემები", fbK6: "სხვა",
       fbText: "აღწერა", fbCtx: "კონტექსტი (ივსება ავტომატურად)", fbContact: "როგორ დაგიკავშირდეთ (სურვილისამებრ)", fbSend: "გაგზავნა", fbCancel: "გაუქმება",
       fbSent: "გმადლობთ! შეტყობინება გაიგზავნა.", fbOpened: "გაიხსნა GitHub-ის ფანჯარა: დაადასტურეთ იქ გაგზავნა.", fbPopup: "შეატყობინეთ ამ ობიექტის შესახებ შეცდომა",
+      showLost: "დაკარგული შენობები (დანგრეული ან განადგურებული)", showGhost: "დაკარგვის შემდეგაც ჩვენება (მკრთალად)",
+      legLostOn: "დაკარგული შენობა: ამ წელს ჯერ დგას", legLostUnc: "დაკარგული: აშენების ან დაკარგვის თარიღი ზუსტი არ არის", legLostOff: "დაკარგული: უკვე აღარ არის (მკრთალი „აჩრდილი“)",
+      lostKinds: { church: "ეკლესია", cathedral: "ტაძარი", mosque: "მეჩეთი", synagogue: "სინაგოგა", caravanserai: "ქარვასლა", theatre: "თეატრი", gate: "კარიბჭე", wall: "გალავანი", tower: "კოშკი", bridge: "ხიდი", station: "სადგური", barracks: "ყაზარმა/ციხე", palace: "სასახლე", house: "სახლი", other: "სხვა" },
+      lostWhy: { demolished: "დანგრეულია", destroyed: "განადგურებულია", rebuilt: "გადაკეთებულია", flooded: "დატბორილია", unknown: "მიზეზი უცნობია" },
+      lostBuilt: "აშენდა", lostLost: "დაიკარგა", lostRepl: "ამჟამად ადგილზე", lostState: { stand: "ამ წელს ჯერ დგას", unc: "ამ წელს შეიძლება უკვე დანგრეული ყოფილიყო (დაკარგვის თარიღი ზუსტი არ არის)", gone: "ამ წელს უკვე დაკარგულია", early: "ამ წელს შეიძლება ჯერ არ არსებულიყო (აშენების თარიღი ზუსტი არ არის)" },
+      lostAcc: (m, pos) => `მდებარეობა ${pos === "plan" ? "აღებულია ისტორიული გეგმიდან" : "წყაროს კოორდინატებით"}, ცდომილება ≈ ${m} მ`,
+      lostChk: "დაკარგვის წელი ნაპოვნია მითითებულ წყაროს გვერდზე (სუსტი შემოწმება)", lostNoChk: "დაკარგვის წელი მითითებულ გვერდებზე ავტომატურად ვერ მოიძებნა",
+      lostSrc: "სია შედგენილია ხელოვნური ინტელექტის მიერ Wikidata-ს, ვიკიპედიისა და გეგმების ლეგენდების მიხედვით; ოფიციალური არ არის.", lostSources: "წყაროები",
       typesTitle: "დანიშნულება (დღეს — სახელის მიხედვით, სხვა შემთხვევაში რეესტრით)", func: "დღევანდელი დანიშნულება (სახელის მიხედვით)", func0: "თავდაპირველი დანიშნულება (რეესტრის მიხედვით)", wiki: "სტატია ვიკიპედიაში",
       types: { residential: "საცხოვრებელი სახლები", religious: "რელიგიური", defense: "თავდაცვითი", culture: "განათლება, მეცნიერება, კულტურა",
                public: "საზოგადოებრივი და სავაჭრო", transport: "ტრანსპორტი და ინჟინერია", memorial: "მემორიალები და პარკები", rural: "არქეოლოგია და სოფლის", other: "სხვა" },
@@ -343,6 +370,7 @@
     }
     updateUrban();
     updateSettle();
+    updateLost();
     if (map.getLayer("admin-line")) map.setLayoutProperty("admin-line", "visibility", $("showAdmin").checked ? "visible" : "none");
     const oldOn = $("showAdmin").checked && year >= 1973 && year <= 2005;
     if (map.getLayer("admin-old-line")) map.setLayoutProperty("admin-old-line", "visibility", oldOn ? "visible" : "none");
@@ -494,6 +522,62 @@
     if (p.conflict === true || p.conflict === "true") add(L.settleConflict, "k small");
     add(L.settleSrc, "k small");
     new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+  }
+
+  let lostFeats = [];
+  // state of a lost building in the selected year: early (before construction is certain), stand, unc (loss date imprecise), gone
+  function lostState(p) {
+    const n = (v) => (v === null || v === undefined || v === "null" ? null : Number(v));
+    const b0 = n(p.b0), b1 = n(p.b1) ?? b0, l0 = n(p.l0), l1 = n(p.l1) ?? l0;
+    if (b0 !== null && year < b0) return null;                       // certainly not built yet: not shown
+    if (l1 !== null && year >= l1) return "gone";
+    if (l0 !== null && year >= l0) return "unc";
+    if (b1 !== null && year < b1) return "early";
+    return "stand";
+  }
+  function updateLost() {
+    if (!map.getLayer("lost-dot")) return;
+    const on = $("showLost").checked, ghost = $("showGhost").checked;
+    map.setLayoutProperty("lost-dot", "visibility", on ? "visible" : "none");
+    if (!on) return;
+    const feats = lostFeats;
+    const ids = { stand: [], unc: [], early: [], gone: [] };
+    feats.forEach((f, i) => { const s = lostState(f.properties); if (s) ids[s].push(i); });
+    const idx = (a) => ["literal", a];
+    map.setFilter("lost-dot", ["any", ["in", ["id"], idx(ids.stand)], ["in", ["id"], idx(ids.unc)], ["in", ["id"], idx(ids.early)], ...(ghost ? [["in", ["id"], idx(ids.gone)]] : [])]);
+    map.setPaintProperty("lost-dot", "circle-stroke-opacity", ["case", ["in", ["id"], idx(ids.stand)], 1, ["in", ["id"], idx(ids.gone)], 0.35, 0.65]);
+    map.setPaintProperty("lost-dot", "circle-stroke-color", ["case", ["in", ["id"], idx(ids.gone)], "#999999", "#8b5a2b"]);
+    map.setPaintProperty("lost-dot", "circle-opacity", ["case", ["in", ["id"], idx(ids.gone)], 0.04, 0.14]);
+  }
+
+  function lostPopup(p, lngLat) {
+    const L = t();
+    const el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = p["name_" + lang] || p.name_ru || p.name_en || "—";
+    el.appendChild(h3);
+    const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); return d; };
+    const rng = (a, b) => (a === null || a === undefined || a === "null" ? "?" : (b === null || b === undefined || b === "null" || b === a ? String(a) : a + "–" + b));
+    add((L.lostKinds[p.kind] || p.kind) + " · " + (L.lostWhy[p.why] || p.why));
+    add(L.lostBuilt + ": " + rng(p.b0, p.b1) + " · " + L.lostLost + ": " + rng(p.l0, p.l1));
+    const st = lostState(p);
+    if (st) add(year + ": " + L.lostState[st], "k small");
+    if (p.repl && p.repl !== "null") add(L.lostRepl + ": " + p.repl);
+    add(L.lostAcc(p.acc, p.pos), "k small");
+    add(p.chk === true || p.chk === "true" ? L.lostChk : L.lostNoChk, "k small");
+    add(L.lostSrc, "k small");
+    let srcs = [];
+    try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
+    if (srcs.length) {
+      const d = add(L.lostSources + ": ", "k small");
+      srcs.slice(0, 4).forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = (i ? ", " : "") + decodeURIComponent(u.split("/")[2].replace("www.", "")); d.appendChild(a); });
+    }
+    const fb = document.createElement("div"); const fa = document.createElement("a");
+    fa.href = "#"; fa.className = "fb"; fa.textContent = L.fbPopup;
+    fa.addEventListener("click", (ev) => { ev.preventDefault(); openFeedback({ id: "lost", name: p.name_ru || p.name_en, reg: "-" }); });
+    fb.appendChild(fa); el.appendChild(fb);
+    new maplibregl.Popup({ maxWidth: "320px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
   }
 
   function updateSettle() {
@@ -667,6 +751,16 @@
     map.on("click", "settle-dot", (e) => { if (e.features && e.features[0]) settlePopup(e.features[0].properties, e.lngLat); });
     map.on("mouseenter", "settle-dot", () => { map.getCanvas().style.cursor = "pointer"; });
     map.on("mouseleave", "settle-dot", () => { map.getCanvas().style.cursor = ""; });
+    let lost = { type: "FeatureCollection", features: [] };
+    try { lost = await getJSON("data/lost.json"); } catch (e) {}
+    lostFeats = lost.features;
+    map.addSource("lost", { type: "geojson", data: lost });
+    map.addLayer({ id: "lost-dot", type: "circle", source: "lost",
+                   paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 15, 9, 18, 13], "circle-color": "#8b5a2b", "circle-opacity": 0.12,
+                            "circle-stroke-width": 2.5, "circle-stroke-color": "#8b5a2b", "circle-stroke-opacity": 1 } });
+    map.on("click", "lost-dot", (e) => { if (e.features && e.features[0]) lostPopup(e.features[0].properties, e.lngLat); });
+    map.on("mouseenter", "lost-dot", () => { map.getCanvas().style.cursor = "pointer"; });
+    map.on("mouseleave", "lost-dot", () => { map.getCanvas().style.cursor = ""; });
     map.addSource("urban", { type: "geojson", data: urban });
     map.addLayer({ id: "urban-fill", type: "fill", source: "urban",
                    paint: { "fill-color": "#b4412c", "fill-opacity": ["case", ["==", ["get", "kind"], "other"], 0.05, 0.12] } });
@@ -702,7 +796,7 @@
   });
 
   $("slider").addEventListener("input", (e) => { year = +e.target.value; update(); });
-  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", e.target.value / 100);
