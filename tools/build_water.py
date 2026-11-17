@@ -1,8 +1,8 @@
 """Water bodies that changed: the Tbilisi Sea (reservoir) and the three salt lakes it replaced.
 
-Inputs : data/raw/admin/osm_water.json   (OpenStreetMap, ODbL; Overpass export of water polygons)
+Inputs : data/raw/admin/osm_water.json   (OpenStreetMap, ODbL); data/warped/tiflis_1911.webp (georeferenced sheet c.1911)
          data/raw/plans/1954_ams_nk38-8.jpg (U.S. Army Map Service sheet NK 38-8, 1:250 000, public domain)
-Outputs: data/boundaries/tbilisi_lakes_1954.geojson   the blue lake fills traced from the 1954 sheet
+Outputs: data/boundaries/tbilisi_lakes_1911.geojson   the blue lake fills traced from the 1954 sheet
          site/data/water.json                          reservoir (OSM) + 1954 lakes, for the page
 
 How the lakes are placed: the sheet is georeferenced with the five points used for the 1954 built-up outline; the check is Lisi
@@ -71,44 +71,44 @@ def reservoir():
     return [[[round(x, 5), round(y, 5)] for x, y in r] for r in rings]
 
 
-def lakes_1954():
-    pts = [(2335, 1322, 44.75, 41.75), (1882, 932, 44.5768, 41.8492), (2277, 1016, 44.7235, 41.8385), (2468, 1444, 44.798, 41.7211), (2632, 1568, 44.855, 41.6852)]
-    px = np.array([[p[0], p[1]] for p in pts], float)
-    w = np.array([[np.radians(p[2]) * R * np.cos(LAT0), np.radians(p[3]) * R] for p in pts])
-    M, *_ = np.linalg.lstsq(np.c_[px, np.ones(5)], w, rcond=None)
+def lakes_1911():
+    """Blue lake fills on the georeferenced c.1911 topographic sheet (data/warped/tiflis_1911, 8 control points, LOO 56 m)."""
+    from PIL import Image
+    Image.MAX_IMAGE_PIXELS = None
+    im = cv2.cvtColor(np.array(Image.open(os.path.join(ROOT, "data", "warped", "tiflis_1911.webp")).convert("RGB")), cv2.COLOR_RGB2BGR)
+    j = json.load(open(os.path.join(ROOT, "data", "warped", "tiflis_1911.json"), encoding="utf-8"))
+    (w0, n0), (w1, _), (_, s0) = j["corners"][0], j["corners"][1], j["corners"][3]
+    H, W = im.shape[:2]
+    my = lambda lat: math.log(math.tan(math.pi / 4 + math.radians(lat) / 2))
+    imy = lambda y: math.degrees(2 * math.atan(math.exp(y)) - math.pi / 2)
 
     def ll(x, y):
-        e, n = np.array([x, y, 1.0]) @ M
-        return float(np.degrees(e / (R * np.cos(LAT0)))), float(np.degrees(n / R))
-    im = cv2.imread(os.path.join(ROOT, "data", "raw", "plans", "1954_ams_nk38-8.jpg"))
-    x0, y0, x1, y1 = 2450, 1230, 2800, 1480                      # window around the three salt lakes (Kukia, Ilguniani, Avlabari)
-    hsv = cv2.cvtColor(im[y0:y1, x0:x1], cv2.COLOR_BGR2HSV)
-    m = cv2.inRange(hsv, (95, 60, 120), (125, 255, 255))
-    m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5)))
+        return w0 + x / W * (w1 - w0), imy(my(n0) + y / H * (my(s0) - my(n0)))
+    hsv = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
+    m = cv2.inRange(hsv, (100, 70, 150), (125, 255, 255))
+    m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7)))
     cnts, _ = cv2.findContours(m, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     feats = []
     for c in cnts:
-        if cv2.contourArea(c) < 30:
-            continue
-        (_, _), (rw, rh), _ = cv2.minAreaRect(c)
-        if min(rw, rh) < 1 or max(rw, rh) / max(min(rw, rh), 1e-6) > 5:       # thin lines (the blue UTM grid), not lakes
-            continue
-        ap = cv2.approxPolyDP(c, 0.8, True)[:, 0, :]
+        ap = cv2.approxPolyDP(c, 1.5, True)[:, 0, :]
         if len(ap) < 4:
             continue
-        ring = [[round(v, 5) for v in ll(x0 + x, y0 + y)] for x, y in ap]
+        ring = [[round(v, 5) for v in ll(x, y)] for x, y in ap]
         ring.append(ring[0])
+        a = area_km2(ring)
+        if a < 0.1:
+            continue
         feats.append({"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [ring]},
-                      "properties": {"t": "lake54", "area_km2": round(area_km2(ring), 2)}})
+                      "properties": {"t": "lake54", "area_km2": round(a, 2)}})
     return feats
 
 
 def main():
-    lk = lakes_1954()
-    out = os.path.join(ROOT, "data", "boundaries", "tbilisi_lakes_1954.geojson")
+    lk = lakes_1911()
+    out = os.path.join(ROOT, "data", "boundaries", "tbilisi_lakes_1911.geojson")
     json.dump({"type": "FeatureCollection", "features": lk,
-               "properties": {"source": "blue lake fills on U.S. Army Map Service sheet NK 38-8 (1:250 000, ed. 1954, compiled 1951)",
-                              "accuracy_note": "five-point georeferencing; Lisi Lake check ~15 m, edge of sheet up to ~300 m"}},
+               "properties": {"source": "blue lake fills on the topographic sheet of Tiflis environs c.1911 (1:42 000), georeferenced with 8 control points",
+                              "accuracy_note": "8-point affine, leave-one-out 56 m; lake outline coincides with the OSM reservoir outline at Avlabari"}},
               open(out, "w", encoding="utf-8"), ensure_ascii=False)
     res = reservoir()
     pts_res = np.array([p for r in res for p in r])

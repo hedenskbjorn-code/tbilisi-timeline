@@ -178,7 +178,7 @@ for pl in sorted(plans_src, key=lambda p: p["year"]):
     _im.save(os.path.join(OUT, pid + ".webp"), "WEBP", quality=80, method=6)
     entry = {"id": pid, "year": pl["year"], "title": pl["title"], "source": pl["source"],
              "image": "data/%s.webp" % pid, "corners": w["corners"],
-             "accuracy_m": round(w["loo_rms_m"]) if w.get("loo_rms_m") else None, "points": w["points"],
+             "accuracy_m": ({"tiflis_1850": 40, "tiflis_1821": 100}.get(pid) or (round(w["loo_rms_m"]) if w.get("loo_rms_m") else None)),   # 1850: LOO is 13 m but all 14 points are in the centre; 40 m is a cautious estimate for the whole plan "points": w["points"],
              "boundary": None}
     b = os.path.join(ROOT, "data", "boundaries", pid + ".geojson")
     if os.path.exists(b):
@@ -201,8 +201,8 @@ def _round(c):
 
 
 urban = []
-ACC = {1735: 150, 1954: 700}      # rough positional accuracy in metres where it is worse than ~100 m (shown on the page)
-for pid, snap in (("tiflis_1735", 1735), ("tiflis_1782", 1782), ("tiflis_1785", 1785), ("tiflis_1800", 1800), ("tiflis_1802", 1802), ("tiflis_1844", 1844), ("tiflis_1879", 1879), ("tiflis_1887", 1887), ("tbilisi_1913", 1913), ("tbilisi_1954_ams", 1954)):
+ACC = {1735: 150, 1850: 40, 1911: 70, 1954: 700}      # rough positional accuracy in metres where it is worse than ~100 m (shown on the page)
+for pid, snap in (("tiflis_1735", 1735), ("tiflis_1782", 1782), ("tiflis_1785", 1785), ("tiflis_1800", 1800), ("tiflis_1802", 1802), ("tiflis_1844", 1844), ("tiflis_1850", 1850), ("tiflis_1879", 1879), ("tiflis_1884", 1884), ("tiflis_1887", 1887), ("tiflis_1911", 1911), ("tbilisi_1913", 1913), ("tbilisi_1954_ams", 1954)):
     b = os.path.join(ROOT, "data", "boundaries", pid + ".geojson")
     if os.path.exists(b):
         for f in json.load(open(b, encoding="utf-8"))["features"]:

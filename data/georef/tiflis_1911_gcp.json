@@ -1,0 +1,130 @@
+{
+ "gcps": [
+  {
+   "px": [
+    2613,
+    2932
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "Metekhi church (block with cross on the left bank at the Kura bend) - high"
+  },
+  {
+   "px": [
+    2099,
+    2745
+   ],
+   "lnglat": [
+    44.78887,
+    41.69583
+   ],
+   "label": "Mamadaviti church (cross symbol at label 'Мон. Св. Давида') - high/medium"
+  },
+  {
+   "px": [
+    2613,
+    2157
+   ],
+   "lnglat": [
+    44.811,
+    41.71448
+   ],
+   "label": "Kukia St Nino church (filled symbol in SW corner of Kukia cemetery) - medium"
+  },
+  {
+   "px": [
+    2177,
+    2376
+   ],
+   "lnglat": [
+    44.79275,
+    41.70778
+   ],
+   "label": "Vera bridge over the Kura = Galaktion Tabidze bridge (centre of span) - medium"
+  },
+  {
+   "px": [
+    4478,
+    3833
+   ],
+   "lnglat": [
+    44.89144,
+    41.66212
+   ],
+   "label": "St Barbara church, Ponichala (circle-with-cross symbol at 'Св. Варвары (дальн.)') - medium"
+  },
+  {
+   "px": [
+    888,
+    3527
+   ],
+   "lnglat": [
+    44.73712,
+    41.67084
+   ],
+   "label": "Tsavkisi church symbol (N edge of village) = St Nino church - medium/low"
+  },
+  {
+   "px": [
+    1009,
+    312
+   ],
+   "lnglat": [
+    44.74226,
+    41.77212
+   ],
+   "label": "Digomi church cross (E part of village) = Kviratskhoveli church - medium/low"
+  },
+  {
+   "px": [
+    3822,
+    900
+   ],
+   "lnglat": [
+    44.86459,
+    41.75259
+   ],
+   "label": "Trig point 321.4 'Г. Джварикобис-гора' = Kvirikobis Mta peak 684 m - low"
+  },
+  {
+   "px": [
+    571,
+    1221
+   ],
+   "lnglat": [
+    44.72286,
+    41.74425
+   ],
+   "label": "Height mark '310' W of Lisi lake = unnamed OSM peak 663.9 m - low"
+  },
+  {
+   "px": [
+    3580,
+    3050
+   ],
+   "lnglat": [
+    44.85462,
+    41.68598
+   ],
+   "label": "Navtlug station 'Ст. 4 кл.' (building block by the tracks) = Navtlughi station - low"
+  },
+  {
+   "px": [
+    2018,
+    1680
+   ],
+   "lnglat": [
+    44.78584,
+    41.7297
+   ],
+   "label": "Didube church-like building = St Mariam church of Didube - low"
+  }
+ ],
+ "excluded_default": [
+  5,
+  7,
+  9
+ ]
+}

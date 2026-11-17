@@ -24,7 +24,6 @@
    ]
   ],
   "accuracy_m": 158,
-  "points": 10,
   "boundary": "data/tiflis_1735_boundary.geojson",
   "boundary_partial": false
  },
@@ -53,7 +52,6 @@
    ]
   ],
   "accuracy_m": 59,
-  "points": 8,
   "boundary": "data/tiflis_1782_boundary.geojson",
   "boundary_partial": false
  },
@@ -82,7 +80,6 @@
    ]
   ],
   "accuracy_m": 49,
-  "points": 9,
   "boundary": "data/tiflis_1785_boundary.geojson",
   "boundary_partial": false
  },
@@ -111,7 +108,6 @@
    ]
   ],
   "accuracy_m": 52,
-  "points": 10,
   "boundary": "data/tiflis_1800_boundary.geojson",
   "boundary_partial": false
  },
@@ -140,9 +136,35 @@
    ]
   ],
   "accuracy_m": 33,
-  "points": 12,
   "boundary": "data/tiflis_1802_boundary.geojson",
   "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1821",
+  "year": 1821,
+  "title": "Plan of Tiflis by Shvetsov, 1821",
+  "source": "Wikimedia Commons, File:Map of Tbilisi 1821.jpg (public domain)",
+  "image": "data/tiflis_1821.webp",
+  "corners": [
+   [
+    44.78095729,
+    41.71015848
+   ],
+   [
+    44.83335651,
+    41.71015848
+   ],
+   [
+    44.83335651,
+    41.68044958
+   ],
+   [
+    44.78095729,
+    41.68044958
+   ]
+  ],
+  "accuracy_m": 100,
+  "boundary": null
  },
  {
   "id": "tiflis_1844",
@@ -169,8 +191,35 @@
    ]
   ],
   "accuracy_m": 49,
-  "points": 8,
   "boundary": "data/tiflis_1844_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1850",
+  "year": 1850,
+  "title": "Plan of Tiflis with environs, 1850 (General Staff)",
+  "source": "Wikimedia Commons, File:Map of Tbilisi 1850.jpg",
+  "image": "data/tiflis_1850.webp",
+  "corners": [
+   [
+    44.78023473,
+    41.72608449
+   ],
+   [
+    44.84964529,
+    41.72608449
+   ],
+   [
+    44.84964529,
+    41.66663401
+   ],
+   [
+    44.78023473,
+    41.66663401
+   ]
+  ],
+  "accuracy_m": 40,
+  "boundary": "data/tiflis_1850_boundary.geojson",
   "boundary_partial": false
  },
  {
@@ -198,7 +247,6 @@
    ]
   ],
   "accuracy_m": 60,
-  "points": 10,
   "boundary": "data/tiflis_1879_boundary.geojson",
   "boundary_partial": false
  },
@@ -227,8 +275,35 @@
    ]
   ],
   "accuracy_m": 40,
-  "points": 15,
   "boundary": "data/tiflis_1887_boundary.geojson",
+  "boundary_partial": false
+ },
+ {
+  "id": "tiflis_1911",
+  "year": 1911,
+  "title": "Topographic sheet of Tiflis and environs, c.1911 (1:42 000)",
+  "source": "Wikimedia Commons, File:Tbilisi map 1911.jpg",
+  "image": "data/tiflis_1911.webp",
+  "corners": [
+   [
+    44.69797431,
+    41.78214997
+   ],
+   [
+    44.9212331,
+    41.78214997
+   ],
+   [
+    44.9212331,
+    41.65191458
+   ],
+   [
+    44.69797431,
+    41.65191458
+   ]
+  ],
+  "accuracy_m": 56,
+  "boundary": "data/tiflis_1911_boundary.geojson",
   "boundary_partial": false
  },
  {
@@ -256,7 +331,6 @@
    ]
   ],
   "accuracy_m": 45,
-  "points": 16,
   "boundary": "data/tbilisi_1913_boundary.geojson",
   "boundary_partial": false
  }

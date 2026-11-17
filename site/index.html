@@ -29,6 +29,7 @@
   <div id="planline"></div>
   <div id="bndline"></div>
   <div id="arealine"></div>
+  <div id="viewsline" hidden></div>
   <details id="distinfo"><summary id="distsum"></summary><div id="distbody"></div></details>
 
   <label class="row"><input type="checkbox" id="showPlan" checked> <span data-i="showPlan"></span></label>
@@ -106,6 +107,17 @@
     <div class="modalbtns"><button type="button" id="fbCancel" class="chip" data-i="fbCancel"></button><button type="submit" id="fbSend" class="chip primary" data-i="fbSend"></button></div>
     <p id="fbStatus" class="small"></p>
   </form>
+</div>
+
+<div id="viewModal" class="modal" hidden>
+  <div class="modalbox viewbox">
+    <h2 id="vmTitle"></h2>
+    <img id="vmImg" alt="">
+    <div id="vmAuthor" class="small"></div>
+    <div id="vmNote" class="small"></div>
+    <div id="vmSrc" class="small"></div>
+    <div class="modalbtns"><button type="button" id="vmClose" class="chip" data-i="viewClose"></button></div>
+  </div>
 </div>
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>

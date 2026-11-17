@@ -1,0 +1,199 @@
+{
+ "gcps": [
+  {
+   "px": [
+    903,
+    1397
+   ],
+   "lnglat": [
+    44.81125,
+    41.69014
+   ],
+   "label": "Metekhi church (inside 'Zam. Metekhsky' enclosure)"
+  },
+  {
+   "px": [
+    796,
+    1353
+   ],
+   "lnglat": [
+    44.80753,
+    41.69132
+   ],
+   "label": "Sioni cathedral"
+  },
+  {
+   "px": [
+    777,
+    1193
+   ],
+   "lnglat": [
+    44.80687,
+    41.69552
+   ],
+   "label": "Anchiskhati basilica"
+  },
+  {
+   "px": [
+    247,
+    1179
+   ],
+   "lnglat": [
+    44.78887,
+    41.69583
+   ],
+   "label": "Mamadaviti ('Mon. Sv. Davida')"
+  },
+  {
+   "px": [
+    973,
+    1306
+   ],
+   "lnglat": [
+    44.8137412,
+    41.6925552
+   ],
+   "label": "Echmiadzin church, Avlabari (OSM way 220702092)"
+  },
+  {
+   "px": [
+    927,
+    1260
+   ],
+   "lnglat": [
+    44.8120732,
+    41.6935849
+   ],
+   "label": "St Minas church ruins, Avlabari (OSM way 758009917)"
+  },
+  {
+   "px": [
+    944,
+    1338
+   ],
+   "lnglat": [
+    44.812693,
+    41.6916914
+   ],
+   "label": "Transfiguration church at Darejan palace, Avlabari (OSM way 123574142)"
+  },
+  {
+   "px": [
+    834,
+    1437
+   ],
+   "lnglat": [
+    44.80888,
+    41.68918
+   ],
+   "label": "Surb Gevorg cathedral (Meidan)"
+  },
+  {
+   "px": [
+    766,
+    1222
+   ],
+   "lnglat": [
+    44.8065072,
+    41.6946588
+   ],
+   "label": "Kari St George church (OSM way 1125780341)"
+  },
+  {
+   "px": [
+    715,
+    1238
+   ],
+   "lnglat": [
+    44.8047262,
+    41.6943292
+   ],
+   "label": "Surb Nshan church (OSM way 661361748)"
+  },
+  {
+   "px": [
+    766,
+    1363
+   ],
+   "lnglat": [
+    44.80653,
+    41.69097
+   ],
+   "label": "Norashen church"
+  },
+  {
+   "px": [
+    697,
+    1387
+   ],
+   "lnglat": [
+    44.80423,
+    41.6903
+   ],
+   "label": "Surb Gevorg of Mughni"
+  },
+  {
+   "px": [
+    741,
+    1112
+   ],
+   "lnglat": [
+    44.80575,
+    41.69739
+   ],
+   "label": "Vank cathedral complex centre vs bell-tower coordinate (medium-low)"
+  },
+  {
+   "px": [
+    556,
+    1092
+   ],
+   "lnglat": [
+    44.7993,
+    41.69797
+   ],
+   "label": "Kashveti (old church, dark mark '6' at Golovinsky pr.; medium-low)"
+  },
+  {
+   "px": [
+    781,
+    957
+   ],
+   "lnglat": [
+    44.8070697,
+    41.7015005
+   ],
+   "label": "Chugureti St Nicholas church (OSM way 246757401; LOW: construction date not verified)"
+  },
+  {
+   "px": [
+    658,
+    999
+   ],
+   "lnglat": [
+    44.8025609,
+    41.7004726
+   ],
+   "label": "Dry Bridge / small Mikhailovsky bridge, plan letter R (OSM way 1150481713; LOW: completed 1851)"
+  },
+  {
+   "px": [
+    1154,
+    1605
+   ],
+   "lnglat": [
+    44.820021,
+    41.6845886
+   ],
+   "label": "Kharpukhi St Nicholas church, cross '+c' south of Erivan gate (OSM way 1207608184; LOW: dated 1853)"
+  }
+ ],
+ "low_confidence": [
+  12,
+  13,
+  14,
+  15,
+  16
+ ],
+ "note": "Candidate GCPs for 1850_map.jpg (2023x2310). Pixels read from magnified gridded crops. Indices 14-16 are objects dated 1851/1853/undated but drawn on the plan; see tiflis_1850_gcp_candidate_notes.md. Rejected: Lurji (cross at px 204,703), Khojivank (1066,1117), Catholic church (677,1283), Kashveti alt. (583,1090)."
+}

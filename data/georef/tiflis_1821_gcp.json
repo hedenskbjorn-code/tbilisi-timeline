@@ -2,131 +2,190 @@
  "gcps": [
   {
    "px": [
-    3872,
-    7035
+    3660,
+    3730
    ],
    "lnglat": [
-    44.81125,
-    41.69014
+    44.810631,
+    41.691362
    ],
-   "label": "No.97 Metekhi Church"
+   "label": "Метехская церковь / замок Метехи [pair with plan 1850 px [885, 1350]; Gemini conf high]"
   },
   {
    "px": [
-    3525,
-    7450
+    3490,
+    3735
    ],
    "lnglat": [
-    44.80907,
-    41.68785
+    44.809434,
+    41.691235
    ],
-   "label": "No.12 St Nicholas in Narikala"
+   "label": "Метехский мост через Куру [pair with plan 1850 px [850, 1355]; Gemini conf high]"
   },
   {
    "px": [
-    3272,
-    6815
+    3260,
+    4175
    ],
    "lnglat": [
-    44.80753,
-    41.69132
+    44.806707,
+    41.68867
    ],
-   "label": "No.41 Sioni Cathedral"
+   "label": "Крепость Нарикала (главная цитадель) [pair with plan 1850 px [770, 1455]; Gemini conf high]"
   },
   {
    "px": [
-    3318,
-    6368
+    3515,
+    3880
    ],
    "lnglat": [
-    44.80662,
-    41.6955
+    44.80978,
+    41.690335
    ],
-   "label": "No.44 Anchiskhati Basilica"
+   "label": "Устье ручья Цавкисисцкали (Абанотубани) у Куры [pair with plan 1850 px [860, 1390]; Gemini conf high]"
   },
   {
    "px": [
-    2848,
-    7058
+    2615,
+    1520
    ],
    "lnglat": [
-    44.80354,
-    41.69278
+    44.799988,
+    41.702426
    ],
-   "label": "No.67 Catholic Church (Abesadze 4)"
+   "label": "Мадатовский остров — северо-западная оконечность [pair with plan 1850 px [575, 920]; Gemini conf high]"
   },
   {
    "px": [
-    3378,
-    5518
+    3230,
+    3120
    ],
    "lnglat": [
-    44.80575,
-    41.69739
+    44.807195,
+    41.695606
    ],
-   "label": "No.90 Vank Monastery"
+   "label": "Мадатовский остров — юго-восточная оконечность [pair with plan 1850 px [785, 1185]; Gemini conf high]"
   },
   {
    "px": [
-    2165,
-    5435
+    2900,
+    2260
    ],
    "lnglat": [
-    44.7993,
-    41.69797
+    44.804453,
+    41.697281
    ],
-   "label": "No.85 Kashveti Church"
+   "label": "Ванкский собор (огороженный комплекс севернее стены Кала) [pair with plan 1850 px [705, 1120]; Gemini conf high]"
   },
   {
    "px": [
-    2425,
-    5975
+    600,
+    2210
    ],
    "lnglat": [
-    44.79896,
-    41.69603
+    44.786672,
+    41.695816
    ],
-   "label": "No.72 Commander-in-Chief Palace"
+   "label": "Церковь Мамадавити (Св. Давида) на склоне Мтацминды [pair with plan 1850 px [185, 1178]; Gemini conf high]"
   },
   {
    "px": [
-    4028,
-    6818
+    3030,
+    3470
    ],
    "lnglat": [
-    44.81268,
-    41.69169
+    44.80731,
+    41.692189
    ],
-   "label": "No.98 Darejan Palace"
+   "label": "Собор Сиони [pair with plan 1850 px [788, 1318]; Gemini conf medium]"
   },
   {
    "px": [
-    4395,
-    7065
+    3100,
+    3140
    ],
    "lnglat": [
-    44.81372,
-    41.69257
+    44.806004,
+    41.694067
    ],
-   "label": "No.101 Echmiadzin Church"
+   "label": "Церковь Анчисхати [pair with plan 1850 px [750, 1245]; Gemini conf medium]"
   },
   {
    "px": [
-    1600,
-    4630
+    3255,
+    1325
    ],
    "lnglat": [
-    44.78887,
-    41.69583
+    44.806814,
+    41.706399
    ],
-   "label": "No.89 Mamadaviti Church"
+   "label": "Деревня Кукия — восточный угол наделов [pair with plan 1850 px [775, 765]; Gemini conf medium]"
+  },
+  {
+   "px": [
+    4240,
+    3810
+   ],
+   "lnglat": [
+    44.818844,
+    41.690451
+   ],
+   "label": "Авлабар — восточная оконечность квартала H. [pair with plan 1850 px [1125, 1385]; Gemini conf medium]"
+  },
+  {
+   "px": [
+    4015,
+    2920
+   ],
+   "lnglat": [
+    44.817619,
+    41.698161
+   ],
+   "label": "Храм/комплекс i. в северном Авлабаре [pair with plan 1850 px [1090, 1085]; Gemini conf medium]"
+  },
+  {
+   "px": [
+    2300,
+    1645
+   ],
+   "lnglat": [
+    44.794515,
+    41.702434
+   ],
+   "label": "Казарменный/огороженный двор #83 в районе Вера–Вардисубани [pair with plan 1850 px [415, 920]; Gemini conf medium]"
+  },
+  {
+   "px": [
+    2420,
+    2620
+   ],
+   "lnglat": [
+    44.800358,
+    41.694589
+   ],
+   "label": "Северо-западный угол Старого города (Кала) / Эриванская площадь [pair with plan 1850 px [585, 1225]; Gemini conf low]"
+  },
+  {
+   "px": [
+    1380,
+    3580
+   ],
+   "lnglat": [
+    44.793362,
+    41.690102
+   ],
+   "label": "Юго-западный вход в Сололакскую долину у подножия хребта [pair with plan 1850 px [380, 1400]; Gemini conf low]"
   }
  ],
  "excluded_default": [
+  2,
   4,
   5,
-  6,
-  10
+  8,
+  10,
+  11,
+  12,
+  13
  ],
- "note": "points proposed by an external AI from the plan legend and checked numerically; excluded_default = indices dropped by leave-one-out cleaning (see sources.md)"
+ "note": "pairs read by Gemini on plans 1821 and 1850; ground coordinates computed from the project's 1850 fit; 8 of 16 kept after leave-one-out screening (selection makes the quoted LOO optimistic); px are in data/raw/plans/1821_shvetsov_map.jpg = crop (240,3240)-(6760,8760) of the original scan"
 }
