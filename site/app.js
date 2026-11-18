@@ -362,7 +362,7 @@
       showTopo: "გენშტაბის ტოპოგრაფიული რუკა (სსიპ, საქართველო) რუკის თავზე",
       topoNote: "საბჭოთა ტოპორუკები სხვადასხვა გამოცემისა (გამოცემები სიაშია); maps.gov.ge-ს საჯარო ტაილები (თბილისის რაიონი). ფურცლის ნაწილები შეიძლება სხვადასხვა წლისა იყოს.",
       swLeft: "ძველი გეგმა (ზოლის მარცხნივ)", swRight: "თანამედროვე რუკა (მარჯვნივ)",
-      btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფონები",
+      btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
       stMore: "სახელები წლების მიხედვით ცნობილია არა ყველა ქუჩისთვის (ისტორიული სახელები რუსულადაა, წყაროების მიხედვით).",
@@ -914,7 +914,7 @@
     add(L.settleGeom[p.geom] || "", "k small");
     if (p.conflict === true || p.conflict === "true") add(L.settleConflict, "k small");
     add(L.settleSrc, "k small");
-    new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+    showPopup("300px", lngLat, el);
   }
 
   let lostFeats = [];
@@ -971,7 +971,7 @@
         srcs.slice(0, 4).forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = (i || wl ? ", " : "") + decodeURIComponent(u.split("/")[2].replace("www.", "")); d.appendChild(a); });
       }
     }), { id: "lost", name: p.name_ru || p.name_en, reg: "-" });
-    new maplibregl.Popup({ maxWidth: "320px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+    showPopup("320px", lngLat, el);
   }
 
   function updateWater() {
@@ -997,7 +997,7 @@
     const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); };
     add(isRes ? L.waterTxtRes(year) : L.waterTxtLake(year));
     add(L.waterSrc, "k small");
-    new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+    showPopup("300px", lngLat, el);
   }
 
   let views = [];
@@ -1096,7 +1096,7 @@
       srcs.forEach((u) => { const d = document.createElement("div"); d.className = "small"; const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u); d.appendChild(a); body.appendChild(d); });
       infoLine(body, "OpenStreetMap contributors (ODbL): geometry");
     }), { id: p.id, name: p.name_en, reg: "-" });
-    new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+    showPopup("300px", lngLat, el);
   }
 
   let streetsLoaded = false;
@@ -1193,6 +1193,46 @@
     apply();
   }
 
+  // A card must lie inside the free part of the screen: not under the top bar, the slider, or an open side panel. The map is moved a little if needed,
+  // and a tall card gets its own scrollbar.
+  function freeRect() {
+    const W = window.innerWidth, H = window.innerHeight, m = 8;
+    const r = { left: m, right: W - m, top: $("top").getBoundingClientRect().bottom + 4, bottom: $("bottom").getBoundingClientRect().top - m };
+    const mobile = window.matchMedia("(max-width:640px)").matches;
+    for (const id of ["side", "filters"]) {
+      const el = $(id);
+      if (!el || el.hidden) continue;
+      const b = el.getBoundingClientRect();
+      if (mobile) r.top = Math.max(r.top, b.bottom + m);
+      else if (b.left < W / 2) r.left = Math.max(r.left, b.right + m);
+      else r.right = Math.min(r.right, b.left - m);
+    }
+    return r;
+  }
+  function showPopup(maxWidth, lngLat, el) {
+    const pop = new maplibregl.Popup({ maxWidth, focusAfterOpen: false }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+    const fit = () => {
+      const node = pop.getElement();
+      if (!node) return;
+      const f = freeRect(), content = node.querySelector(".maplibregl-popup-content");
+      if (content) { content.style.maxHeight = Math.max(160, f.bottom - f.top - 24) + "px"; content.style.overflowY = "auto"; }
+      const r = node.getBoundingClientRect();
+      let dx = 0, dy = 0;
+      if (r.left < f.left) dx = r.left - f.left; else if (r.right > f.right) dx = r.right - f.right;
+      if (r.top < f.top) dy = r.top - f.top; else if (r.bottom > f.bottom) dy = r.bottom - f.bottom;
+      if (dx || dy) map.panBy([dx, dy], { duration: 250 });
+    };
+    requestAnimationFrame(() => requestAnimationFrame(fit));
+    if (window.ResizeObserver) {                      // photos load later and make the card taller: fit again
+      const content = pop.getElement().querySelector(".maplibregl-popup-content");
+      let t = null;
+      const ro = new ResizeObserver(() => { clearTimeout(t); t = setTimeout(fit, 60); });
+      if (content) ro.observe(content);
+      pop.on("close", () => ro.disconnect());
+    }
+    return pop;
+  }
+
   function popup(p, lngLat) {
     const L = t();
     const el = document.createElement("div");
@@ -1234,7 +1274,7 @@
       if (lang !== "ka" && nmInfo.src === "ai" && L.trNote) infoLine(body, L.trNote);
       photoCredits(body, p);
     }), { id: p.id, name: p.name, reg: p.reg });
-    new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+    showPopup("300px", lngLat, el);
   }
 
   // JSON loader with retries (a dropped connection must not leave a layer silently empty)
