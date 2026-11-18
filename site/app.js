@@ -140,7 +140,7 @@
       c94Pos: "Положение",
       c94Conf: { high: "уверенность высокая", medium: "уверенность средняя (около 100-150 м)", low: "уверенность низкая (200 м и больше)" },
       c94Src: "Источник",
-      btnInfo: "Справка", btnFilters: "Фильтры", btnViews: "Виды", viewsAll: "Все виды (не только к выбранному году)", viewsNone: "К этому году видов нет. Включите «Все виды».", filtersTitle: "Фильтры и слои",
+      btnInfo: "Справка", btnFilters: "Фильтры", evCluster: "События рядом на шкале (выберите)", btnViews: "Виды", viewsAll: "Все виды (не только к выбранному году)", viewsNone: "К этому году видов нет. Включите «Все виды».", filtersTitle: "Фильтры и слои",
       stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
       stNow: "сейчас",
       stMore: "Названия по годам известны не для всех улиц.",
@@ -287,7 +287,7 @@
       c94Pos: "Position",
       c94Conf: { high: "high confidence", medium: "medium confidence (about 100-150 m)", low: "low confidence (200 m or more)" },
       c94Src: "Source",
-      btnInfo: "Info", btnFilters: "Filters", btnViews: "Views", viewsAll: "All views (not only for the chosen year)", viewsNone: "No views for this year. Tick \"All views\".", filtersTitle: "Filters and layers",
+      btnInfo: "Info", btnFilters: "Filters", evCluster: "Events close together on the scale (choose one)", btnViews: "Views", viewsAll: "All views (not only for the chosen year)", viewsNone: "No views for this year. Tick \"All views\".", filtersTitle: "Filters and layers",
       stTitle: "Street names in this year (checked against Wikipedia)",
       stNow: "today",
       stMore: "Names by year are known only for some streets.",
@@ -433,7 +433,7 @@
       c94Pos: "მდებარეობა",
       c94Conf: { high: "მაღალი სიზუსტე", medium: "საშუალო სიზუსტე (დაახლოებით 100-150 მ)", low: "დაბალი სიზუსტე (200 მ და მეტი)" },
       c94Src: "წყარო",
-      btnInfo: "ცნობა", btnFilters: "ფილტრები", btnViews: "ხედები", viewsAll: "ყველა ხედი (არა მხოლოდ არჩეული წლისთვის)", viewsNone: "ამ წლისთვის ხედები არ არის. ჩართეთ „ყველა ხედი“.", filtersTitle: "ფილტრები და ფენები",
+      btnInfo: "ცნობა", btnFilters: "ფილტრები", evCluster: "მოვლენები სკალაზე ახლოს (აირჩიეთ)", btnViews: "ხედები", viewsAll: "ყველა ხედი (არა მხოლოდ არჩეული წლისთვის)", viewsNone: "ამ წლისთვის ხედები არ არის. ჩართეთ „ყველა ხედი“.", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
       stMore: "სახელები წლების მიხედვით ცნობილია არა ყველა ქუჩისთვის.",
@@ -1035,17 +1035,51 @@
     const box = $("evmarks");
     if (!box) return;
     box.textContent = "";
-    for (const ev of histEvents) {
+    // markers that would overlap on the scale are merged into one marker with a count; a click on it lists the events
+    const W = Math.max(0, box.clientWidth - 16), GAP = 19;
+    const items = histEvents.map((ev) => ({ ev, x: 8 + W * (y2v(ev.year) / 1000) })).sort((a, b) => a.x - b.x || a.ev.year - b.ev.year);
+    const groups = [];
+    for (const it of items) {
+      const g = groups[groups.length - 1];
+      if (g && it.x - g.x0 < GAP) g.list.push(it.ev); else groups.push({ x0: it.x, list: [it.ev] });
+    }
+    for (const g of groups) {
       const b = document.createElement("button");
       b.type = "button";
-      b.textContent = EV_ICON[ev.cat] || EV_ICON.other;
-      b.title = ev.date + " \u00B7 " + (ev[lang] || ev.en);
+      const first = g.list[0];
+      b.textContent = EV_ICON[first.cat] || EV_ICON.other;
+      b.style.left = `calc(8px + (100% - 16px) * ${y2v(first.year) / 1000})`;
+      if (g.list.length === 1) {
+        b.title = first.date + " \u00B7 " + (first[lang] || first.en);
+        b.addEventListener("click", () => { year = first.year; update(); showHistEvent(first); });
+      } else {
+        const last = g.list[g.list.length - 1];
+        b.className = "cl";
+        b.dataset.n = g.list.length;
+        b.title = g.list.length + " \u00B7 " + first.year + (last.year !== first.year ? "\u2013" + last.year : "");
+        b.addEventListener("click", () => showEventList(g.list));
+      }
       b.setAttribute("aria-label", b.title);
-      b.style.left = `calc(8px + (100% - 16px) * ${y2v(ev.year) / 1000})`;
-      b.addEventListener("click", () => { year = ev.year; update(); showHistEvent(ev); });
       box.appendChild(b);
     }
   }
+  function showEventList(list) {
+    const L = t();
+    openInfo((body) => {
+      for (const ev of list) {
+        const d = document.createElement("div");
+        d.className = "evrow";
+        const txt = ev[lang] || ev.en;
+        d.textContent = (EV_ICON[ev.cat] || EV_ICON.other) + " " + ev.date + " \u00B7 " + (txt.length > 130 ? txt.slice(0, 127) + "\u2026" : txt);
+        d.tabIndex = 0;
+        d.addEventListener("click", () => { year = ev.year; update(); showHistEvent(ev); });
+        d.addEventListener("keydown", (e) => { if (e.key === "Enter") d.click(); });
+        body.appendChild(d);
+      }
+    });
+    $("imTitle").textContent = L.evCluster;
+  }
+  { let rz = null; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (histEvents.length) buildEvMarks(); }, 150); }); }
   let evMarker = null;
   function showEventPlace(ev) {
     if (evMarker) { evMarker.remove(); evMarker = null; }
@@ -1280,7 +1314,7 @@
     const box = $("vgrid");
     if (!box || $("views").hidden) return;                       // tiles (and their images) are built only while the panel is open
     const all = $("viewsAll").checked;
-    const list = all ? views : views.filter((v) => year >= v.year && year < v.year + (v.window || VIEW_WINDOW));
+    const list = all ? views : views.filter((v) => year >= (v.from !== undefined ? v.from : v.year) && year < v.year + (v.window || VIEW_WINDOW));   // "from": the start of the five-year period of the later photographs
     box.textContent = "";
     if (!list.length) {
       const m = document.createElement("div");
@@ -1317,9 +1351,10 @@
     $("vmAuthor").textContent = v.author[lang] || v.author.en;
     $("vmNote").textContent = v.note[lang] || v.note.en;
     const src = $("vmSrc");
-    src.textContent = L.viewLicense + ": " + v.license + " · " + L.viewSource + ": ";
+    const lic = typeof v.license === "object" ? (v.license[lang] || v.license.en) : v.license;
+    src.textContent = L.viewLicense + ": " + lic + " · " + L.viewSource + ": ";
     const a = document.createElement("a");
-    a.href = v.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikimedia Commons";
+    a.href = v.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = v.page_label ? (v.page_label[lang] || v.page_label.en) : "Wikimedia Commons";
     src.appendChild(a);
     $("viewModal").hidden = false;
   }

@@ -235,3 +235,9 @@ body.nofilters #views { right:16px; }
   #fbOpen::before { content:"\2691"; font-size:14px; }
   #lang { width:80px; padding:5px 4px; font-size:11px; }
 }
+
+/* merged event markers on the timeline */
+#evmarks button.cl { font-weight:700; }
+#evmarks button.cl::after { content:attr(data-n); position:absolute; right:-3px; top:-5px; min-width:12px; padding:0 3px; font:700 9px/12px system-ui,sans-serif; color:#fff; background:var(--accent); border-radius:8px; }
+.evrow { margin:4px 0; padding:6px 8px; border:1px solid var(--line); border-radius:6px; cursor:pointer; font-size:13px; }
+.evrow:hover, .evrow:focus { border-color:var(--accent); outline:none; }

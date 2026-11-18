@@ -135,6 +135,29 @@
   "page": "https://commons.wikimedia.org/wiki/File:Ng_chernetsov,_Tiflis,_1839.jpg"
  },
  {
+  "id": "timm_tiflis_1850s",
+  "year": 1856,
+  "window": 25,
+  "image": "data/views/timm_tiflis_1850s.webp",
+  "title": {
+   "ru": "Вид Тифлиса, В. Тимм (опубликован в 1851-1862)",
+   "en": "A view of Tiflis, V. Timm (published 1851-1862)",
+   "ka": "თბილისის ხედი, ვ. ტიმი (გამოქვეყნდა 1851-1862)"
+  },
+  "author": {
+   "ru": "Василий Тимм",
+   "en": "Vasily Timm",
+   "ka": "ვასილი ტიმი"
+  },
+  "note": {
+   "ru": "Рисунок из Wikimedia Commons (общественное достояние); подпись и годы публикации по описанию на Commons. К карте не привязан.",
+   "en": "Drawing from Wikimedia Commons (public domain); the caption and the years of publication are as given on Commons. Not tied to the map.",
+   "ka": "ნახატი Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და გამოცემის წლები Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tiflis_by_Timm,_Vasilii_Fedorovich.jpg"
+ },
+ {
   "id": "franken_1859",
   "year": 1859,
   "window": 50,
@@ -164,7 +187,8 @@
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Palace_of_Caucasian_Viceroy%2C_Tiflis_15.jpg/960px-Palace_of_Caucasian_Viceroy%2C_Tiflis_15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "title": {
    "ru": "Дворец кавказского наместника, 1865",
-   "en": "Palace of the Caucasian Viceroy, 1865"
+   "en": "Palace of the Caucasian Viceroy, 1865",
+   "ka": "კავკასიის მეფისნაცვლის სასახლე, 1865"
   },
   "author": {
    "ru": "автор неизвестен",
@@ -226,13 +250,267 @@
   "page": "https://commons.wikimedia.org/wiki/File:Tiflis.jpg"
  },
  {
+  "id": "roinashvili_general_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/roinashvili_general_1870s.webp",
+  "title": {
+   "ru": "Общий вид Тифлиса, А. Роинашвили (1870-е)",
+   "en": "General view of Tiflis, A. Roinashvili (1870s)",
+   "ka": "თბილისის საერთო ხედი, ა. როინაშვილი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Александр Роинашвили",
+   "en": "Alexander Roinashvili",
+   "ka": "ალექსანდრე როინაშვილი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:General_view_of_Tbilisi._A._Roinov.jpg"
+ },
+ {
+  "id": "roinashvili_station_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/roinashvili_station_1870s.webp",
+  "title": {
+   "ru": "Железнодорожный вокзал, А. Роинашвили (1870-е)",
+   "en": "The railway station, A. Roinashvili (1870s)",
+   "ka": "რკინიგზის სადგური, ა. როინაშვილი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Александр Роинашвили",
+   "en": "Alexander Roinashvili",
+   "ka": "ალექსანდრე როინაშვილი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi,_Railroad_station,_1870s.jpg"
+ },
+ {
+  "id": "kennan_michael_bridge_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_michael_bridge_1870s.webp",
+  "title": {
+   "ru": "Михайловский мост и Мадатовский остров, Дж. Кеннан (1870-е)",
+   "en": "Michael Bridge and Madatov Island, G. Kennan (1870s)",
+   "ka": "მიხეილის ხიდი და მადათოვის კუნძული, ჯ. კენანი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tiflis,_Michael_Bridge_and_Madatofski_Island.jpg"
+ },
+ {
+  "id": "kennan_golovinsky_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_golovinsky_1870s.webp",
+  "title": {
+   "ru": "Головинский проспект, Дж. Кеннан (1870-е)",
+   "en": "Golovinsky Prospekt, G. Kennan (1870s)",
+   "ka": "გოლოვინის პროსპექტი, ჯ. კენანი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Golovinskii_Prospect_in_Tbilisi.jpg"
+ },
+ {
+  "id": "kennan_tatar_bazaar_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_tatar_bazaar_1870s.webp",
+  "title": {
+   "ru": "Татарский базар, Дж. Кеннан (1870-е)",
+   "en": "The Tatar bazaar, G. Kennan (1870s)",
+   "ka": "თათრის ბაზარი, ჯ. კენანი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tiflis,_Tatar_bazaar.jpg"
+ },
+ {
+  "id": "kennan_theater_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_theater_1870s.webp",
+  "title": {
+   "ru": "Императорский театр, Дж. Кеннан (1870-е)",
+   "en": "The Imperial Theatre, G. Kennan (1870s)",
+   "ka": "საიმპერატორო თეატრი, ჯ. კენანი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tiflis,_The_Imperial_Theater,_1870s.jpg"
+ },
+ {
+  "id": "kennan_seminary_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_seminary_1870s.webp",
+  "title": {
+   "ru": "Духовная семинария на Эриванской площади, Дж. Кеннан (1870-е)",
+   "en": "The Orthodox seminary on Erivan Square, G. Kennan (1870s)",
+   "ka": "მართლმადიდებლური სემინარია ერევნის მოედანზე, ჯ. კენანი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi,_Orthodox_Theological_Seminary_on_Yerevan_Square.jpg"
+ },
+ {
+  "id": "kennan_sioni_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_sioni_1870s.webp",
+  "title": {
+   "ru": "Собор Сиони, Дж. Кеннан (1870-е)",
+   "en": "Sioni Cathedral, G. Kennan (1870s)",
+   "ka": "სიონის ტაძარი, ჯ. კენანი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Sioni_Cathedral-old.jpg"
+ },
+ {
+  "id": "kennan_peski_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_peski_1870s.webp",
+  "title": {
+   "ru": "Площадь в Песках, Дж. Кеннан (1870-е)",
+   "en": "A square in Peski, G. Kennan (1870s)",
+   "ka": "მოედანი რიყეზე („პესკი“), ჯ. კენანი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Square_on_the_sand,_Tbilisi_1870s.jpg"
+ },
+ {
+  "id": "kennan_mosque_sololaki_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_mosque_sololaki_1870s.webp",
+  "title": {
+   "ru": "Мечеть на площади и часть Сололаки, Дж. Кеннан (1870-е)",
+   "en": "A mosque on the square and part of Sololaki, G. Kennan (1870s)",
+   "ka": "მეჩეთი მოედანზე და სოლოლაკის ნაწილი, ჯ. კენანი (1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi,_Mosque_at_Square_and_part_of_suburb_of_Sololaki,_1870s.jpg"
+ },
+ {
+  "id": "kreitan_vorontsov_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kreitan_vorontsov_1870s.webp",
+  "title": {
+   "ru": "Памятник князю Воронцову у Михайловского моста (В. Крейтан, 1870-е)",
+   "en": "The monument to Prince Vorontsov at the Michael Bridge (V. Kreitan, 1870s)",
+   "ka": "თავად ვორონცოვის ძეგლი მიხეილის ხიდთან (ვ. კრეიტანი, 1870-იანი წწ.)"
+  },
+  "author": {
+   "ru": "Василий Крейтан",
+   "en": "Vasily Kreitan",
+   "ka": "ვასილი კრეიტანი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Monument_to_Prince_Vorontsov_at_Mikhailovsky_Bridge,_Tiflis.jpg"
+ },
+ {
   "id": "ermakov_nevsky",
   "year": 1881,
   "window": 35,
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Alexander_Nevsky_Cathedral%2C_Tbilisi_%28%E1%83%A2%E1%83%A4%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AE%E1%83%94%E1%83%93%E1%83%A0%E1%83%9D_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98%29.jpg/960px-Alexander_Nevsky_Cathedral%2C_Tbilisi_%28%E1%83%A2%E1%83%A4%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AE%E1%83%94%E1%83%93%E1%83%A0%E1%83%9D_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "title": {
    "ru": "Собор Александра Невского (Д. Ермаков, 1881–1916)",
-   "en": "Alexander Nevsky Cathedral (D. Yermakov, 1881-1916)"
+   "en": "Alexander Nevsky Cathedral (D. Yermakov, 1881-1916)",
+   "ka": "ალექსანდრე ნეველის ტაძარი (დ. ერმაკოვი, 1881–1916)"
   },
   "author": {
    "ru": "Дмитрий Ермаков",
@@ -254,7 +532,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Ermakov._Stores_on_Michael_Bridge._1885.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "title": {
    "ru": "Лавки на Михайловском мосту, 1885 (Д. Ермаков)",
-   "en": "Shops on the Michael Bridge, 1885 (D. Yermakov)"
+   "en": "Shops on the Michael Bridge, 1885 (D. Yermakov)",
+   "ka": "მაღაზიები მიხეილის ხიდზე, 1885 (დ. ერმაკოვი)"
   },
   "author": {
    "ru": "Дмитрий Ермаков",
@@ -270,13 +549,37 @@
   "page": "https://commons.wikimedia.org/wiki/File:Ermakov._Stores_on_Michael_Bridge._1885.jpg"
  },
  {
+  "id": "kennan_tsar_1888",
+  "year": 1888,
+  "window": 15,
+  "image": "data/views/kennan_tsar_1888.webp",
+  "title": {
+   "ru": "Вход царя в Дворянское собрание, 29 сентября 1888 (Дж. Кеннан)",
+   "en": "The Tsar's entrance at the Assembly of the Gentry, 29 September 1888 (G. Kennan)",
+   "ka": "მეფის შესვლა თავადაზნაურთა კრების შენობაში, 1888 წლის 29 სექტემბერი (ჯ. კენანი)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан (по записи Нью-Йоркской публичной библиотеки)",
+   "en": "George Kennan (as recorded by the New York Public Library)",
+   "ka": "ჯორჯ კენანი (ნიუ-იორკის საჯარო ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tsars_Entrance_at_the_Assembly_of_Gentry_in_Tbilisi.jpg"
+ },
+ {
   "id": "engel_michael_bridge",
   "year": 1890,
   "window": 28,
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Alexander_Engel._Michail_Bridge.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "title": {
    "ru": "Михайловский мост (А. Энгель, 1890–1918)",
-   "en": "Michael Bridge (A. Engel, 1890-1918)"
+   "en": "Michael Bridge (A. Engel, 1890-1918)",
+   "ka": "მიხეილის ხიდი (ა. ენგელი, 1890–1918)"
   },
   "author": {
    "ru": "Александр Энгель",
@@ -298,7 +601,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Ermakov._Abano_%28Bath%29_Street_and_a_rise_leading_to_the_Botanical_Garden._1890.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "title": {
    "ru": "Улица Абано и подъём к Ботаническому саду, 1890 (Д. Ермаков)",
-   "en": "Abano (Bath) Street and the rise to the Botanical Garden, 1890 (D. Yermakov)"
+   "en": "Abano (Bath) Street and the rise to the Botanical Garden, 1890 (D. Yermakov)",
+   "ka": "აბანოს ქუჩა და აღმართი ბოტანიკური ბაღისკენ, 1890 (დ. ერმაკოვი)"
   },
   "author": {
    "ru": "Дмитрий Ермаков",
@@ -320,7 +624,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alexander_Engel._Rique_district.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "title": {
    "ru": "Район Рике (А. Энгель, 1890–1918)",
-   "en": "Rike district (A. Engel, 1890-1918)"
+   "en": "Rike district (A. Engel, 1890-1918)",
+   "ka": "რიყის უბანი (ა. ენგელი, 1890–1918)"
   },
   "author": {
    "ru": "Александр Энгель",
@@ -342,7 +647,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/Alexander_Engel._Shiite_Mosque_in_Maidan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "title": {
    "ru": "Шиитская мечеть на Майдане (А. Энгель, 1890–1918)",
-   "en": "Shiite mosque in the Maidan (A. Engel, 1890-1918)"
+   "en": "Shiite mosque in the Maidan (A. Engel, 1890-1918)",
+   "ka": "შიიტური მეჩეთი მაიდანზე (ა. ენგელი, 1890–1918)"
   },
   "author": {
    "ru": "Александр Энгель",
@@ -356,6 +662,121 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Alexander_Engel._Shiite_Mosque_in_Maidan.jpg"
+ },
+ {
+  "id": "roinashvili_vera_gardens",
+  "year": 1890,
+  "window": 25,
+  "image": "data/views/roinashvili_vera_gardens.webp",
+  "title": {
+   "ru": "Верийские сады, А. Роинашвили (до 1898)",
+   "en": "The Vera gardens, A. Roinashvili (before 1898)",
+   "ka": "ვერის ბაღები, ა. როინაშვილი (1898 წლამდე)"
+  },
+  "author": {
+   "ru": "Александр Роинашвили",
+   "en": "Alexander Roinashvili",
+   "ka": "ალექსანდრე როინაშვილი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:A._Roinashvili._0056_-_Tiflis._Vera_gardens.jpg"
+ },
+ {
+  "id": "ermakov_griboedov_grave",
+  "year": 1890,
+  "window": 25,
+  "image": "data/views/ermakov_griboedov_grave.webp",
+  "title": {
+   "ru": "Могила Грибоедова, Д. Ермаков (до 1896)",
+   "en": "Griboyedov's grave, D. Yermakov (before 1896)",
+   "ka": "გრიბოედოვის საფლავი, დ. ერმაკოვი (1896 წლამდე)"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Ermakov_6275._%D0%A2%D0%B8%D1%84%D0%BB%D0%B8%D1%81%D1%8A._%D0%9C%D0%BE%D0%B3%D0%B8%D0%BB%D0%B0_%D0%93%D1%80%D0%B8%D0%B1%D0%BE%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0.jpg"
+ },
+ {
+  "id": "ermakov_maidan_bridge",
+  "year": 1890,
+  "window": 25,
+  "image": "data/views/ermakov_maidan_bridge.webp",
+  "title": {
+   "ru": "Мост на Майдане, татарская мечеть и развалины крепости, Д. Ермаков (до 1896)",
+   "en": "The bridge at the Maidan, a Tatar mosque and the ruins of the fortress, D. Yermakov (before 1896)",
+   "ka": "ხიდი მაიდანზე, თათრული მეჩეთი და ციხის ნანგრევები, დ. ერმაკოვი (1896 წლამდე)"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Ermakov._2959._%D0%A2%D0%B8%D1%84%D0%BB%D0%B8%D1%81%D1%8A._%D0%9C%D0%BE%D1%81%D1%82%D1%8A_%D0%BD%D0%B0_%D0%9C%D0%B0%D0%B9%D0%B4%D0%B0%D0%BD%D0%B5,_%D1%82%D0%B0%D1%82%D0%B0%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%BC%D0%B5%D1%87%D0%B5%D1%82%D1%8C_%D0%B8_%D1%80%D0%B0%D0%B7%D0%B2%D0%B0%D0%BB%D0%B8%D0%BD%D1%8B_%D0%BA%D1%80%D0%B5%D0%BF%D0%BE%D1%81%D1%82%D0%B8.jpg"
+ },
+ {
+  "id": "ermakov_old_town_53",
+  "year": 1890,
+  "window": 25,
+  "image": "data/views/ermakov_old_town_53.webp",
+  "title": {
+   "ru": "Общий вид старого города, крепость и Кура, Д. Ермаков (до 1896)",
+   "en": "General view of the old town, the fortress and the Kura, D. Yermakov (before 1896)",
+   "ka": "ძველი ქალაქის საერთო ხედი, ციხე და მტკვარი, დ. ერმაკოვი (1896 წლამდე)"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Ermakov._53._%D0%A2%D0%B8%D1%84%D0%BB%D0%B8%D1%81%D1%8A._%D0%9E%D0%B1%D1%89%D0%B8%D0%B9_%D0%B2%D0%B8%D0%B4%D1%8A_%D1%81%D1%82%D0%B0%D1%80%D0%B0%D0%B3%D0%BE_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0_%D0%BA%D1%80%D0%B5%D0%BF_%D0%B8_%D1%80._%D0%9A%D1%83%D1%80%D1%8B.jpg"
+ },
+ {
+  "id": "ermakov_abanotubani",
+  "year": 1895,
+  "window": 20,
+  "image": "data/views/ermakov_abanotubani.webp",
+  "title": {
+   "ru": "Абанотубани и церковь Сурб Саркис, Д. Ермаков (до 1899)",
+   "en": "Abanotubani and the church of Surb Sargis, D. Yermakov (before 1899)",
+   "ka": "აბანოთუბანი და სურბ სარქისის ეკლესია, დ. ერმაკოვი (1899 წლამდე)"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Abanotubani_and_Surb_Sargisi_church.jpg"
  },
  {
   "id": "yermakov_avlabari_bridge",
@@ -410,7 +831,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Ermakov._An_old_part_of_the_town_seen_from_Metekhi_Castle._1900.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "title": {
    "ru": "Старая часть города с Метехского замка, 1900 (Д. Ермаков)",
-   "en": "The old part of the town seen from Metekhi Castle, 1900 (D. Yermakov)"
+   "en": "The old part of the town seen from Metekhi Castle, 1900 (D. Yermakov)",
+   "ka": "ძველი უბანი მეტეხის ციხიდან, 1900 (დ. ერმაკოვი)"
   },
   "author": {
    "ru": "Дмитрий Ермаков",
@@ -432,7 +854,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Grand_Hotel_and_Hotel_London%2C_Tiflis_%28D._Ermakov%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "title": {
    "ru": "Гранд-отель и гостиница «Лондон», около 1900 (Д. Ермаков)",
-   "en": "Grand Hotel and Hotel London, about 1900 (D. Yermakov)"
+   "en": "Grand Hotel and Hotel London, about 1900 (D. Yermakov)",
+   "ka": "გრანდ-ოტელი და სასტუმრო „ლონდონი“, დაახლოებით 1900 (დ. ერმაკოვი)"
   },
   "author": {
    "ru": "Дмитрий Ермаков",
@@ -446,6 +869,75 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Grand_Hotel_and_Hotel_London%2C_Tiflis_%28D._Ermakov%29.jpg"
+ },
+ {
+  "id": "ermakov_hotel_palace",
+  "year": 1900,
+  "window": 20,
+  "image": "data/views/ermakov_hotel_palace.webp",
+  "title": {
+   "ru": "Гостиница «Палас» на нынешней площади Свободы, Д. Ермаков (около 1900)",
+   "en": "Hotel Palace on today's Freedom Square, D. Yermakov (about 1900)",
+   "ka": "სასტუმრო „პალასი“ დღევანდელ თავისუფლების მოედანზე, დ. ერმაკოვი (დაახლ. 1900)"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Image-Tbilisi_XIXc_05.jpg"
+ },
+ {
+  "id": "debaye_fortress_1900",
+  "year": 1900,
+  "window": 15,
+  "image": "data/views/debaye_fortress_1900.webp",
+  "title": {
+   "ru": "Руины крепости, Ж. де Бай (1900)",
+   "en": "Ruins of the fortress, J. de Baye (1900)",
+   "ka": "ციხის ნანგრევები, ჟ. დე ბეი (1900)"
+  },
+  "author": {
+   "ru": "Жозеф де Бай",
+   "en": "Joseph de Baye",
+   "ka": "ჟოზეფ დე ბეი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Ruins_of_fortress,_Tbilisi_(de_Baye).JPG"
+ },
+ {
+  "id": "debaye_david_1900",
+  "year": 1900,
+  "window": 15,
+  "image": "data/views/debaye_david_1900.webp",
+  "title": {
+   "ru": "Монастырь св. Давида, Ж. де Бай (1900)",
+   "en": "The monastery of St David, J. de Baye (1900)",
+   "ka": "წმ. დავითის მონასტერი, ჟ. დე ბეი (1900)"
+  },
+  "author": {
+   "ru": "Жозеф де Бай",
+   "en": "Joseph de Baye",
+   "ka": "ჟოზეფ დე ბეი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:St.-David_monastery,_Tbilisi_(de_Baye)-1.JPG"
  },
  {
   "id": "prokudin_havlabar",
@@ -477,7 +969,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Standseilbahn_Tiflis_1905.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "title": {
    "ru": "Фуникулёр, 1905",
-   "en": "The funicular, 1905"
+   "en": "The funicular, 1905",
+   "ka": "ფუნიკულიორი, 1905"
   },
   "author": {
    "ru": "автор неизвестен",
@@ -537,5 +1030,1319 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Metekhi_Prison_and_Church._Sergei_Mikhailovich_Prokudin-Gorskii.jpg"
+ },
+ {
+  "id": "curtis_floating_mill_1911",
+  "year": 1911,
+  "window": 15,
+  "image": "data/views/curtis_floating_mill_1911.webp",
+  "title": {
+   "ru": "Плавучая мельница, Тифлис, У. Кёртис (1911)",
+   "en": "A floating flour mill, Tiflis, W. Curtis (1911)",
+   "ka": "მცურავი წისქვილი, ტიფლისი, უ. კერტისი (1911)"
+  },
+  "author": {
+   "ru": "Уильям Элерой Кёртис",
+   "en": "William Eleroy Curtis",
+   "ka": "უილიამ ელეროი კერტისი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Floating_flour_mill,_Tiflis_(Curtis,_1911).JPG"
+ },
+ {
+  "id": "curtis_club_1911",
+  "year": 1911,
+  "window": 15,
+  "image": "data/views/curtis_club_1911.webp",
+  "title": {
+   "ru": "Главный клуб Тифлиса, У. Кёртис (1911)",
+   "en": "The principal club of Tiflis, W. Curtis (1911)",
+   "ka": "ტიფლისის მთავარი კლუბი, უ. კერტისი (1911)"
+  },
+  "author": {
+   "ru": "Уильям Элерой Кёртис",
+   "en": "William Eleroy Curtis",
+   "ka": "უილიამ ელეროი კერტისი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Principal_club_at_Tiflis_(Curtis,_1911).JPG"
+ },
+ {
+  "id": "dartigues_french_hospital_1918",
+  "year": 1918,
+  "window": 10,
+  "image": "data/views/dartigues_french_hospital_1918.webp",
+  "title": {
+   "ru": "Квартал Тифлиса с Французским госпиталем у Верийского моста, Л. Дартиг (1917-1919)",
+   "en": "The quarter of Tiflis with the French hospital near the Vera bridge, L. Dartigues (1917-1919)",
+   "ka": "თბილისის უბანი ფრანგული ჰოსპიტლით ვერის ხიდთან, ლ. დარტიგი (1917-1919)"
+  },
+  "author": {
+   "ru": "Л. Дартиг",
+   "en": "L. Dartigues",
+   "ka": "ლ. დარტიგი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Quartier_de_Tiflis_ou_se_trouvait_l%27H%C3%B4pital_Fran%C3%A7ais_pr%C3%A9s_du_pont_de_V%C3%A9ra_sur_la_Coura_(Dartigues_1919).jpg"
+ },
+ {
+  "id": "klar_second_international_1920",
+  "year": 1920,
+  "window": 5,
+  "image": "data/views/klar_second_international_1920.webp",
+  "title": {
+   "ru": "Делегация II Интернационала в Тбилиси, сентябрь 1920 (Э. Клар)",
+   "en": "The Second International delegation in Tbilisi, September 1920 (E. Klar)",
+   "ka": "II ინტერნაციონალის დელეგაცია თბილისში, 1920 წლის სექტემბერი (ე. კლარი)"
+  },
+  "author": {
+   "ru": "Эдуард Клар",
+   "en": "Eduard Klar",
+   "ka": "ედუარდ კლარი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Second_International_delegation_in_Tbilisi.jpg",
+  "from": 1920
+ },
+ {
+  "id": "red_army_1921",
+  "year": 1921,
+  "window": 4,
+  "image": "data/views/red_army_1921.webp",
+  "title": {
+   "ru": "Вступление 11-й Красной армии в Тбилиси, 25 февраля 1921",
+   "en": "The 11th Red Army enters Tbilisi, 25 February 1921",
+   "ka": "მე-11 წითელი არმიის შესვლა თბილისში, 1921 წლის 25 თებერვალი"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Red_Army_in_Tiflis_Feb_25_1921.jpg",
+  "from": 1920
+ },
+ {
+  "id": "red_army_soldiers_1921",
+  "year": 1921,
+  "window": 4,
+  "image": "data/views/red_army_soldiers_1921.webp",
+  "title": {
+   "ru": "Бойцы 11-й Красной армии в Тбилиси, 1921",
+   "en": "Soldiers of the 11th Red Army in Tbilisi, 1921",
+   "ka": "მე-11 წითელი არმიის მებრძოლები თბილისში, 1921"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%BE%D0%B9%D1%86%D1%8B_11-%D0%B9_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B9_%D0%B0%D1%80%D0%BC%D0%B8%D0%B8_%D0%B2_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8.jpg",
+  "from": 1920
+ },
+ {
+  "id": "nansen_view_1925",
+  "year": 1925,
+  "window": 5,
+  "image": "data/views/nansen_view_1925.webp",
+  "title": {
+   "ru": "Вид на город, 1925 (снимок из поездки Ф. Нансена)",
+   "en": "A view of the city, 1925 (a picture from Fridtjof Nansen's journey)",
+   "ka": "ქალაქის ხედი, 1925 (ფ. ნანსენის მოგზაურობის ფოტო)"
+  },
+  "author": {
+   "ru": "Фритьоф Нансен (по записи Национальной библиотеки Норвегии)",
+   "en": "Fridtjof Nansen (as recorded by the National Library of Norway)",
+   "ka": "ფრიტიოფ ნანსენი (ნორვეგიის ეროვნული ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:No-nb_bldsa_6d026.jpg",
+  "from": 1925
+ },
+ {
+  "id": "nansen_fortress_1925",
+  "year": 1925,
+  "window": 5,
+  "image": "data/views/nansen_fortress_1925.webp",
+  "title": {
+   "ru": "Вид на юг со старой «персидской» крепостью, 1925 (снимок из поездки Ф. Нансена)",
+   "en": "A view to the south with the old 'Persian' fortress, 1925 (a picture from Nansen's journey)",
+   "ka": "ხედი სამხრეთით ძველი „სპარსული“ ციხით, 1925 (ნანსენის მოგზაურობის ფოტო)"
+  },
+  "author": {
+   "ru": "Фритьоф Нансен (по записи Национальной библиотеки Норвегии)",
+   "en": "Fridtjof Nansen (as recorded by the National Library of Norway)",
+   "ka": "ფრიტიოფ ნანსენი (ნორვეგიის ეროვნული ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:No-nb_bldsa_6d037.jpg",
+  "from": 1925
+ },
+ {
+  "id": "nansen_gate_1925",
+  "year": 1925,
+  "window": 5,
+  "image": "data/views/nansen_gate_1925.webp",
+  "title": {
+   "ru": "Проход у базаров, 1925 (снимок из поездки Ф. Нансена)",
+   "en": "A gate near the bazaars, 1925 (a picture from Nansen's journey)",
+   "ka": "კარიბჭე ბაზრების მახლობლად, 1925 (ნანსენის მოგზაურობის ფოტო)"
+  },
+  "author": {
+   "ru": "Фритьоф Нансен (по записи Национальной библиотеки Норвегии)",
+   "en": "Fridtjof Nansen (as recorded by the National Library of Norway)",
+   "ka": "ფრიტიოფ ნანსენი (ნორვეგიის ეროვნული ბიბლიოთეკის ჩანაწერით)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:No-nb_bldsa_6d038.jpg",
+  "from": 1925
+ },
+ {
+  "id": "schmerling_old_tbilisi_1928",
+  "year": 1928,
+  "window": 2,
+  "image": "data/views/schmerling_old_tbilisi_1928.webp",
+  "title": {
+   "ru": "Старый Тбилиси, О. Шмерлинг (1928)",
+   "en": "Old Tbilisi, O. Schmerling (1928)",
+   "ka": "ძველი თბილისი, ო. შმერლინგი (1928)"
+  },
+  "author": {
+   "ru": "Оскар Шмерлинг",
+   "en": "Oskar Schmerling",
+   "ka": "ოსკარ შმერლინგი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Old_Tbilisi,_Oskar_Shmerling_8.JPG",
+  "from": 1925
+ },
+ {
+  "id": "tb_institute_1930s",
+  "year": 1932,
+  "window": 3,
+  "image": "data/views/tb_institute_1930s.webp",
+  "title": {
+   "ru": "Здание Тбилисского института туберкулёза (1930-е)",
+   "en": "The building of the Tbilisi Tuberculosis Institute (1930s)",
+   "ka": "თბილისის ტუბერკულოზის ინსტიტუტის შენობა (1930-იანი წწ.)"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Tuberculosis_Institute.jpg",
+  "from": 1930
+ },
+ {
+  "id": "khojivank_1934",
+  "year": 1934,
+  "window": 1,
+  "image": "data/views/khojivank_1934.webp",
+  "title": {
+   "ru": "Армянское кладбище Ходживанк, 1934",
+   "en": "The Armenian Khojivank cemetery, 1934",
+   "ka": "ხოჯივანქის სომხური სასაფლაო, 1934"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:%D4%BD%D5%B8%D5%BB%D5%AB%D5%BE%D5%A1%D5%B6%D6%84%D5%AB_%D5%A3%D5%A5%D6%80%D5%A5%D5%A6%D5%B4%D5%A1%D5%B6%D5%A1%D5%BF%D5%B8%D6%82%D5%B6,_%D4%B9%D5%AB%D6%86%D5%AC%D5%AB%D5%BD_-_Khojivank_Armenian_Pantheon,_Tiflis_(1934)_01.jpg",
+  "from": 1930
+ },
+ {
+  "id": "khojivank_1935_02",
+  "year": 1935,
+  "window": 5,
+  "image": "data/views/khojivank_1935_02.webp",
+  "title": {
+   "ru": "Армянское кладбище Ходживанк, 1935",
+   "en": "The Armenian Khojivank cemetery, 1935",
+   "ka": "ხოჯივანქის სომხური სასაფლაო, 1935"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:%D4%BD%D5%B8%D5%BB%D5%AB%D5%BE%D5%A1%D5%B6%D6%84%D5%AB_%D5%A3%D5%A5%D6%80%D5%A5%D5%A6%D5%B4%D5%A1%D5%B6%D5%A1%D5%BF%D5%B8%D6%82%D5%B6,_%D4%B9%D5%AB%D6%86%D5%AC%D5%AB%D5%BD_-_Khojivank_Armenian_Pantheon,_Tiflis_(1935)_02.jpg",
+  "from": 1935
+ },
+ {
+  "id": "khojivank_1935_06",
+  "year": 1935,
+  "window": 5,
+  "image": "data/views/khojivank_1935_06.webp",
+  "title": {
+   "ru": "Армянское кладбище Ходживанк (другой вид), 1935",
+   "en": "The Armenian Khojivank cemetery (another view), 1935",
+   "ka": "ხოჯივანქის სომხური სასაფლაო (სხვა ხედი), 1935"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:%D4%BD%D5%B8%D5%BB%D5%AB%D5%BE%D5%A1%D5%B6%D6%84%D5%AB_%D5%A3%D5%A5%D6%80%D5%A5%D5%A6%D5%B4%D5%A1%D5%B6%D5%A1%D5%BF%D5%B8%D6%82%D5%B6,_%D4%B9%D5%AB%D6%86%D5%AC%D5%AB%D5%BD_-_Khojivank_Armenian_Pantheon,_Tiflis_(1935)_06.jpg",
+  "from": 1935
+ },
+ {
+  "id": "tram_m_1935",
+  "year": 1935,
+  "window": 5,
+  "image": "data/views/tram_m_1935.webp",
+  "title": {
+   "ru": "Трамвай типа М в Тбилиси, 1935",
+   "en": "A type M tram in Tbilisi, 1935",
+   "ka": "M ტიპის ტრამვაი თბილისში, 1935"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 3.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 3.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 3.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tram_type_M_Tbilisi.jpg",
+  "from": 1935
+ },
+ {
+  "id": "khojivank_church",
+  "year": 1936,
+  "window": 4,
+  "image": "data/views/khojivank_church.webp",
+  "title": {
+   "ru": "Армянская церковь Св. Богородицы в Ходживанке (до 1936-1938)",
+   "en": "The Armenian Church of the Holy Mother of God at Khojivank (before 1936-1938)",
+   "ka": "ხოჯივანქის ღვთისმშობლის სომხური ეკლესია (1936-1938 წლებამდე)"
+  },
+  "author": {
+   "ru": "Անհայտ է",
+   "en": "Անհայտ է",
+   "ka": "Անհայտ է"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:%D4%BD%D5%B8%D5%BB%D5%AB%D5%BE%D5%A1%D5%B6%D6%84%D5%AB_%D5%8D%D5%B8%D6%82%D6%80%D5%A2_%D4%B1%D5%BD%D5%BF%D5%BE%D5%A1%D5%AE%D5%A1%D5%AE%D5%AB%D5%B6_%D5%A5%D5%AF%D5%A5%D5%B2%D5%A5%D6%81%D5%AB_-_Khojivank_Holy_Mother_of_God_Armenian_Church.jpg",
+  "from": 1935
+ },
+ {
+  "id": "institute_mel_1938",
+  "year": 1938,
+  "window": 2,
+  "image": "data/views/institute_mel_1938.webp",
+  "title": {
+   "ru": "Здание Института Маркса - Энгельса - Ленина, 1938",
+   "en": "The building of the Marx-Engels-Lenin Institute, 1938",
+   "ka": "მარქსის-ენგელსის-ლენინის ინსტიტუტის შენობა, 1938"
+  },
+  "author": {
+   "ru": "Communist Party of Georgian SSR",
+   "en": "Communist Party of Georgian SSR",
+   "ka": "Communist Party of Georgian SSR"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:1938-InstituteMarxEngelsLenin_Building.jpg",
+  "from": 1935
+ },
+ {
+  "id": "circus_1940",
+  "year": 1940,
+  "window": 5,
+  "image": "data/views/circus_1940.webp",
+  "title": {
+   "ru": "Тбилисский государственный цирк, 1940",
+   "en": "The Tbilisi State Circus, 1940",
+   "ka": "თბილისის სახელმწიფო ცირკი, 1940"
+  },
+  "author": {
+   "ru": "Elena Antsuta",
+   "en": "Elena Antsuta",
+   "ka": "Elena Antsuta"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_circus.JPG",
+  "from": 1940
+ },
+ {
+  "id": "conservatoire_1940",
+  "year": 1940,
+  "window": 5,
+  "image": "data/views/conservatoire_1940.webp",
+  "title": {
+   "ru": "Преподаватели и студенты Тбилисской консерватории, 1940",
+   "en": "Staff and students of the Tbilisi Conservatoire, 1940",
+   "ka": "თბილისის კონსერვატორიის პედაგოგები და სტუდენტები, 1940"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_State_Conservatoire-1940.jpg",
+  "from": 1940
+ },
+ {
+  "id": "building_1950_1",
+  "year": 1950,
+  "window": 5,
+  "image": "data/views/building_1950_1.webp",
+  "title": {
+   "ru": "Строительство административного здания (в названии файла: Академия наук Грузии), 1950",
+   "en": "Construction of an administrative building (the file is titled Georgian Academy of Sciences), 1950",
+   "ka": "ადმინისტრაციული შენობის მშენებლობა (ფაილის სათაური: საქართველოს მეცნიერებათა აკადემია), 1950"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Georgian_Academy_of_Sciences_(1950)-1.jpg",
+  "from": 1950
+ },
+ {
+  "id": "building_1950_2",
+  "year": 1950,
+  "window": 5,
+  "image": "data/views/building_1950_2.webp",
+  "title": {
+   "ru": "Строительство административного здания, другой кадр, 1950",
+   "en": "Construction of an administrative building, another frame, 1950",
+   "ka": "ადმინისტრაციული შენობის მშენებლობა, სხვა კადრი, 1950"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Georgian_Academy_of_Sciences_(1950)-2.jpg",
+  "from": 1950
+ },
+ {
+  "id": "lenin_square_1953",
+  "year": 1953,
+  "window": 2,
+  "image": "data/views/lenin_square_1953.webp",
+  "title": {
+   "ru": "Площадь Ленина, 1953 (А. Мирцхулава на площади)",
+   "en": "Lenin Square, 1953 (A. Mirtskhulava on the square)",
+   "ka": "ლენინის მოედანი, 1953 (ა. მირცხულავა მოედანზე)"
+  },
+  "author": {
+   "ru": "Irina Demetradze",
+   "en": "Irina Demetradze",
+   "ka": "Irina Demetradze"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Mirtskhulava_on_Lenin_Square.jpg",
+  "from": 1950
+ },
+ {
+  "id": "demo_1956",
+  "year": 1956,
+  "window": 4,
+  "image": "data/views/demo_1956.webp",
+  "title": {
+   "ru": "Толпа у памятника Сталину, март 1956",
+   "en": "A crowd at the statue of Stalin, March 1956",
+   "ka": "ხალხი სტალინის ძეგლთან, 1956 წლის მარტი"
+  },
+  "author": {
+   "ru": "автор неизвестен",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:1956_Georgian_demonstrations_in_Tbilisi.jpg",
+  "from": 1955
+ },
+ {
+  "id": "khrushchev_train_1956",
+  "year": 1956,
+  "window": 4,
+  "image": "data/views/khrushchev_train_1956.webp",
+  "title": {
+   "ru": "Встречающие поезд Н. С. Хрущёва в Тбилиси, 1956",
+   "en": "People meeting N. S. Khrushchev's train in Tbilisi, 1956",
+   "ka": "ნ. ს. ხრუშჩოვის მატარებლის დახვედრა თბილისში, 1956"
+  },
+  "author": {
+   "ru": "Главархив Москвы",
+   "en": "Главархив Москвы",
+   "ka": "Главархив Москвы"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Khruschev%27s_train_in_Tbilisi.jpg",
+  "from": 1955
+ },
+ {
+  "id": "fortepan_galaktion_1960",
+  "year": 1960,
+  "window": 5,
+  "image": "data/views/fortepan_galaktion_1960.webp",
+  "title": {
+   "ru": "Мост Галактиона (Верийский), 1960 (Fortepan 53527)",
+   "en": "The Galaktion Bridge (the Vera bridge), 1960 (Fortepan 53527)",
+   "ka": "გალაკტიონის (ვერის) ხიდი, 1960 (Fortepan 53527)"
+  },
+  "author": {
+   "ru": "Fortepan, ID 53527",
+   "en": "Fortepan, ID 53527",
+   "ka": "Fortepan, ID 53527"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 3.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 3.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 3.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Galaktion_h%C3%ADd._Fortepan_53527.jpg",
+  "from": 1960
+ },
+ {
+  "id": "fortepan_rustaveli_1960",
+  "year": 1960,
+  "window": 5,
+  "image": "data/views/fortepan_rustaveli_1960.webp",
+  "title": {
+   "ru": "Проспект Руставели у гостиницы «Мажестик» (ныне «Мариотт»), 1960 (Fortepan 53528)",
+   "en": "Rustaveli Avenue by the Hotel Majestic (now the Marriott), 1960 (Fortepan 53528)",
+   "ka": "რუსთაველის გამზირი სასტუმრო „მაჟესტიკთან“ (ახლანდელი „მარიოტი“), 1960 (Fortepan 53528)"
+  },
+  "author": {
+   "ru": "Fortepan, ID 53528",
+   "en": "Fortepan, ID 53528",
+   "ka": "Fortepan, ID 53528"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 3.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 3.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 3.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Rusztaveli_sug%C3%A1r%C3%BAt_a_Hotel_Mariott_(egykor_Hotel_Majestic)_el%C5%91tt._Fortepan_53528.jpg",
+  "from": 1960
+ },
+ {
+  "id": "dupakier_panorama_1964",
+  "year": 1964,
+  "window": 1,
+  "image": "data/views/dupakier_panorama_1964.webp",
+  "title": {
+   "ru": "Панорама Тбилиси, 1964 (Ж. Дюпакье)",
+   "en": "A panorama of Tbilisi, 1964 (J. Dupakier)",
+   "ka": "თბილისის პანორამა, 1964 (ჟ. დიუპაკიე)"
+  },
+  "author": {
+   "ru": "Жак Дюпакье",
+   "en": "Jacques Dupakier",
+   "ka": "ჟაკ დიუპაკიე"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:468_-_Panorama_of_the_city_of_Tbilisi.jpg",
+  "from": 1960
+ },
+ {
+  "id": "dupakier_kura_1964",
+  "year": 1964,
+  "window": 1,
+  "image": "data/views/dupakier_kura_1964.webp",
+  "title": {
+   "ru": "Кура в Тбилиси, 1964 (Ж. Дюпакье)",
+   "en": "The Kura in Tbilisi, 1964 (J. Dupakier)",
+   "ka": "მტკვარი თბილისში, 1964 (ჟ. დიუპაკიე)"
+  },
+  "author": {
+   "ru": "Жак Дюпакье",
+   "en": "Jacques Dupakier",
+   "ka": "ჟაკ დიუპაკიე"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:483_-_Kura_river_Tbilisi.jpg",
+  "from": 1960
+ },
+ {
+  "id": "dupakier_lenin_1964",
+  "year": 1964,
+  "window": 1,
+  "image": "data/views/dupakier_lenin_1964.webp",
+  "title": {
+   "ru": "Памятник Ленину на площади Ленина (ныне площадь Свободы), 1964 (Ж. Дюпакье)",
+   "en": "The monument to Lenin on Lenin Square (today Freedom Square), 1964 (J. Dupakier)",
+   "ka": "ლენინის ძეგლი ლენინის მოედანზე (დღევანდელი თავისუფლების მოედანი), 1964 (ჟ. დიუპაკიე)"
+  },
+  "author": {
+   "ru": "Жак Дюпакье",
+   "en": "Jacques Dupakier",
+   "ka": "ჟაკ დიუპაკიე"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:488_-_Monument_to_VI_Lenin_Tbilisi.jpg",
+  "from": 1960
+ },
+ {
+  "id": "yershov_view_1971",
+  "year": 1971,
+  "window": 4,
+  "image": "data/views/yershov_view_1971.webp",
+  "title": {
+   "ru": "Вид Тбилиси, 1971 (В. Ершов)",
+   "en": "A view of Tbilisi, 1971 (V. Yershov)",
+   "ka": "თბილისის ხედი, 1971 (ვ. ერშოვი)"
+  },
+  "author": {
+   "ru": "Виктор Ершов",
+   "en": "Viktor Yershov",
+   "ka": "ვიქტორ ერშოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:View_of_Tbilisi,_Georgian_SSR._Viktor_Yershov._1971.jpg",
+  "from": 1970
+ },
+ {
+  "id": "yershov_tram_stop_1971",
+  "year": 1971,
+  "window": 4,
+  "image": "data/views/yershov_tram_stop_1971.webp",
+  "title": {
+   "ru": "На трамвайной остановке, 1971 (В. Ершов)",
+   "en": "At a tram stop, 1971 (V. Yershov)",
+   "ka": "ტრამვაის გაჩერებაზე, 1971 (ვ. ერშოვი)"
+  },
+  "author": {
+   "ru": "Виктор Ершов",
+   "en": "Viktor Yershov",
+   "ka": "ვიქტორ ერშოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:At_a_tram_stop._Tbilisi,_Georgia._Viktor_Yershov._1971.jpg",
+  "from": 1970
+ },
+ {
+  "id": "yershov_street_1971",
+  "year": 1971,
+  "window": 4,
+  "image": "data/views/yershov_street_1971.webp",
+  "title": {
+   "ru": "Улица Тбилиси, 1971 (В. Ершов)",
+   "en": "A street in Tbilisi, 1971 (V. Yershov)",
+   "ka": "ქუჩა თბილისში, 1971 (ვ. ერშოვი)"
+  },
+  "author": {
+   "ru": "Виктор Ершов",
+   "en": "Viktor Yershov",
+   "ka": "ვიქტორ ერშოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi,_Georgian_SSR._Viktor_Yershov._1971.jpg",
+  "from": 1970
+ },
+ {
+  "id": "avdoyan_metekhi_1973",
+  "year": 1973,
+  "window": 2,
+  "image": "data/views/avdoyan_metekhi_1973.webp",
+  "title": {
+   "ru": "Церковь Метехи, май 1973 (Л. Авдоян)",
+   "en": "Metekhi church, May 1973 (L. Avdoyan)",
+   "ka": "მეტეხის ეკლესია, 1973 წლის მაისი (ლ. ავდოიანი)"
+  },
+  "author": {
+   "ru": "Левон Авдоян",
+   "en": "Levon Avdoyan",
+   "ka": "ლევონ ავდოიანი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Metekhi_church,_Georgia._May_1973.jpg",
+  "from": 1970
+ },
+ {
+  "id": "mskhalaya_view_1975",
+  "year": 1975,
+  "window": 5,
+  "image": "data/views/mskhalaya_view_1975.webp",
+  "title": {
+   "ru": "Вид с крепости, 1975 (А. Мсхалая)",
+   "en": "A view from the fortress, 1975 (A. Mskhalaia)",
+   "ka": "ხედი ციხიდან, 1975 (ა. მსხალაია)"
+  },
+  "author": {
+   "ru": "Андрей Мсхалая",
+   "en": "Andrei Mskhalaia",
+   "ka": "ანდრია მსხალაია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 3.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 3.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 3.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:1975%D0%B3._%D0%92%D0%B8%D0%B4_%D1%81_%D0%BA%D1%80%D0%B5%D0%BF%D0%BE%D1%81%D1%82%D0%B8_03_-_panoramio.jpg",
+  "from": 1975
+ },
+ {
+  "id": "yershov_traffic_1975",
+  "year": 1975,
+  "window": 5,
+  "image": "data/views/yershov_traffic_1975.webp",
+  "title": {
+   "ru": "Регулировщица на улице Тбилиси, август 1975 (В. Ершов)",
+   "en": "A woman traffic controller in Tbilisi, August 1975 (V. Yershov)",
+   "ka": "მოძრაობის მარეგულირებელი ქალი თბილისში, 1975 წლის აგვისტო (ვ. ერშოვი)"
+  },
+  "author": {
+   "ru": "Виктор Ершов",
+   "en": "Viktor Yershov",
+   "ka": "ვიქტორ ერშოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:A_female_traffic-controller_in_Tbilisi,_Georgia._August_1975.jpg",
+  "from": 1975
+ },
+ {
+  "id": "yershov_polytech_1970s",
+  "year": 1976,
+  "window": 4,
+  "image": "data/views/yershov_polytech_1970s.webp",
+  "title": {
+   "ru": "В Политехническом институте Грузии, 1970-е (В. Ершов)",
+   "en": "At the Polytechnic Institute of Georgia, 1970s (V. Yershov)",
+   "ka": "საქართველოს პოლიტექნიკურ ინსტიტუტში, 1970-იანი წწ. (ვ. ერშოვი)"
+  },
+  "author": {
+   "ru": "Виктор Ершов",
+   "en": "Viktor Yershov",
+   "ka": "ვიქტორ ერშოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:At_the_Polytechnic_Institute_of_Georgia._Tbilisi,_Georgian_Soviet_Socialist_Republic._1970s.jpg",
+  "from": 1975
+ },
+ {
+  "id": "city_hall_1979",
+  "year": 1979,
+  "window": 1,
+  "image": "data/views/city_hall_1979.webp",
+  "title": {
+   "ru": "Здание горсовета и памятник Ленину, 1979 (Б. Мимиц)",
+   "en": "Tbilisi City Hall and the Lenin monument, 1979 (B. Miemietz)",
+   "ka": "თბილისის საქალაქო საბჭოს შენობა და ლენინის ძეგლი, 1979 (ბ. მიმიეცი)"
+  },
+  "author": {
+   "ru": "Бербель Мимиц",
+   "en": "Bärbel Miemietz",
+   "ka": "ბერბელ მიმიეცი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:1979_Tbilisi_City_hall.jpg",
+  "from": 1975
+ },
+ {
+  "id": "kavlashvili_model_1980",
+  "year": 1980,
+  "window": 5,
+  "image": "data/views/kavlashvili_model_1980.webp",
+  "title": {
+   "ru": "Ш. Кавлашвили у макета застройки Старого Тбилиси, около 1980",
+   "en": "Shota Kavlashvili with a model of new construction in Old Tbilisi, about 1980",
+   "ka": "შ. ქავლაშვილი ძველი თბილისის მშენებლობის მაკეტთან, დაახლოებით 1980"
+  },
+  "author": {
+   "ru": "Sololackey",
+   "en": "Sololackey",
+   "ka": "Sololackey"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 4.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 4.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Misc_Shota_Kavlashvili_Old_Tbilisi_Model_c1980.jpg",
+  "from": 1980
+ },
+ {
+  "id": "kakheti_highway_1982",
+  "year": 1982,
+  "window": 3,
+  "image": "data/views/kakheti_highway_1982.webp",
+  "title": {
+   "ru": "Кахетинское шоссе в Тбилиси, около 1982 (JG)",
+   "en": "The Kakheti highway in Tbilisi, about 1982 (JG)",
+   "ka": "კახეთის გზატკეცილი თბილისში, დაახლოებით 1982 (JG)"
+  },
+  "author": {
+   "ru": "JG",
+   "en": "JG",
+   "ka": "JG"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Kakheti_Highway_in_Tbilisi_ca_1982_(A302).jpg",
+  "from": 1980
+ },
+ {
+  "id": "tiflis_1987",
+  "year": 1987,
+  "window": 3,
+  "image": "data/views/tiflis_1987.webp",
+  "title": {
+   "ru": "Тбилиси, весна 1987",
+   "en": "Tbilisi, spring 1987",
+   "ka": "თბილისი, 1987 წლის გაზაფხული"
+  },
+  "author": {
+   "ru": "Don-kun",
+   "en": "Don-kun",
+   "ka": "Don-kun"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tiflis1987.jpg",
+  "from": 1985
+ },
+ {
+  "id": "georgien_1987_005",
+  "year": 1987,
+  "window": 3,
+  "image": "data/views/georgien_1987_005.webp",
+  "title": {
+   "ru": "Улица в Тбилиси, 1987",
+   "en": "A street in Tbilisi, 1987",
+   "ka": "ქუჩა თბილისში, 1987"
+  },
+  "author": {
+   "ru": "meine Großmutter / own grandma",
+   "en": "meine Großmutter / own grandma",
+   "ka": "meine Großmutter / own grandma"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Georgien_1987_005.jpg",
+  "from": 1985
+ },
+ {
+  "id": "georgien_1987_006",
+  "year": 1987,
+  "window": 3,
+  "image": "data/views/georgien_1987_006.webp",
+  "title": {
+   "ru": "Ботаническая улица, Тбилиси, 1987",
+   "en": "Botanicheskaya Street, Tbilisi, 1987",
+   "ka": "ბოტანიკური ქუჩა, თბილისი, 1987"
+  },
+  "author": {
+   "ru": "meine Großmutter / own grandma",
+   "en": "meine Großmutter / own grandma",
+   "ka": "meine Großmutter / own grandma"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Georgien_1987_006.jpg",
+  "from": 1985
+ },
+ {
+  "id": "intourist_view_1988",
+  "year": 1988,
+  "window": 2,
+  "image": "data/views/intourist_view_1988.webp",
+  "title": {
+   "ru": "Вид из гостиницы «Интурист», 1988 (Т. Нирман)",
+   "en": "A view from the Intourist Hotel, 1988 (T. Niermann)",
+   "ka": "ხედი სასტუმრო „ინტურისტიდან“, 1988 (ტ. ნირმანი)"
+  },
+  "author": {
+   "ru": "Тилль Нирман",
+   "en": "Till Niermann",
+   "ka": "ტილ ნირმანი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 3.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 3.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 3.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_from_Hotel_Intourist_1988.jpg",
+  "from": 1985
+ },
+ {
+  "id": "wolinski_1988",
+  "year": 1988,
+  "window": 2,
+  "image": "data/views/wolinski_1988.webp",
+  "title": {
+   "ru": "Тбилиси, сентябрь 1988 (А. Волински)",
+   "en": "Tbilisi, September 1988 (A. Wolinski)",
+   "ka": "თბილისი, 1988 წლის სექტემბერი (ა. ვოლინსკი)"
+  },
+  "author": {
+   "ru": "Анджей Волински",
+   "en": "Andrzej Wolinski",
+   "ka": "ანჯეი ვოლინსკი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 3.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 3.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 3.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tyflis_-_Tbilisi_-_Sept.1988_-_panoramio.jpg",
+  "from": 1985
+ },
+ {
+  "id": "chubinidze_1991_03",
+  "year": 1992,
+  "window": 3,
+  "image": "data/views/chubinidze_1991_03.webp",
+  "title": {
+   "ru": "Тбилиси, 1991-1992 (негативы из находки Г. Чубинидзе), кадр 3",
+   "en": "Tbilisi, 1991-1992 (negatives found by G. Chubinidze), frame 3",
+   "ka": "თბილისი, 1991-1992 (გ. ჩუბინიძის მიერ ნაპოვნი ნეგატივები), კადრი 3"
+  },
+  "author": {
+   "ru": "автор снимков неизвестен; негативы нашёл на барахолке и отсканировал Габриэль Чубинидзе (Gabriel Chubinidze), лаборатория Magnolia Film Lab",
+   "en": "the photographer is unknown; the negatives were found at a flea market and scanned by Gabriel Chubinidze, Magnolia Film Lab",
+   "ka": "ფოტოგრაფი უცნობია; ნეგატივები ბაზრობაზე იპოვა და დაასკანერა გაბრიელ ჩუბინიძემ (Gabriel Chubinidze), Magnolia Film Lab"
+  },
+  "note": {
+   "ru": "Кадр из негативов 1991-1992 годов (гражданская война в Тбилиси), опубликованных Габриэлем Чубинидзе. Публикуется с разрешения Г. Чубинидзе; при появлении автора снимков подпись будет дополнена. Места съёмки в посте не названы. К карте не привязан.",
+   "en": "A frame from negatives of 1991-1992 (the civil war in Tbilisi) published by Gabriel Chubinidze. Used with the permission of G. Chubinidze; the credit will be completed if the photographer is identified. The places are not named in the post. Not tied to the map.",
+   "ka": "კადრი 1991-1992 წლების ნეგატივებიდან (სამოქალაქო ომი თბილისში), რომელიც გამოაქვეყნა გაბრიელ ჩუბინიძემ. გამოიყენება გ. ჩუბინიძის ნებართვით; ფოტოგრაფის დადგენის შემთხვევაში წარწერა შეივსება. გადაღების ადგილები პოსტში არ არის დასახელებული. რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "используется с разрешения Г. Чубинидзе",
+   "en": "used with the permission of G. Chubinidze",
+   "ka": "გამოიყენება გ. ჩუბინიძის ნებართვით"
+  },
+  "page": "https://www.facebook.com/gchubinidze111/posts/pfbid02r4BvDdBs4FatqqpQtt7f6U4jfNe7Zo3cPYza329BupXXjXDAi2d5zeCR385X4wzkl",
+  "page_label": {
+   "ru": "пост Габриэля Чубинидзе на Facebook",
+   "en": "Gabriel Chubinidze's Facebook post",
+   "ka": "გაბრიელ ჩუბინიძის პოსტი Facebook-ზე"
+  },
+  "from": 1990
+ },
+ {
+  "id": "chubinidze_1991_13",
+  "year": 1992,
+  "window": 3,
+  "image": "data/views/chubinidze_1991_13.webp",
+  "title": {
+   "ru": "Тбилиси, 1991-1992 (негативы из находки Г. Чубинидзе), кадр 13",
+   "en": "Tbilisi, 1991-1992 (negatives found by G. Chubinidze), frame 13",
+   "ka": "თბილისი, 1991-1992 (გ. ჩუბინიძის მიერ ნაპოვნი ნეგატივები), კადრი 13"
+  },
+  "author": {
+   "ru": "автор снимков неизвестен; негативы нашёл на барахолке и отсканировал Габриэль Чубинидзе (Gabriel Chubinidze), лаборатория Magnolia Film Lab",
+   "en": "the photographer is unknown; the negatives were found at a flea market and scanned by Gabriel Chubinidze, Magnolia Film Lab",
+   "ka": "ფოტოგრაფი უცნობია; ნეგატივები ბაზრობაზე იპოვა და დაასკანერა გაბრიელ ჩუბინიძემ (Gabriel Chubinidze), Magnolia Film Lab"
+  },
+  "note": {
+   "ru": "Кадр из негативов 1991-1992 годов (гражданская война в Тбилиси), опубликованных Габриэлем Чубинидзе. Публикуется с разрешения Г. Чубинидзе; при появлении автора снимков подпись будет дополнена. Места съёмки в посте не названы. К карте не привязан.",
+   "en": "A frame from negatives of 1991-1992 (the civil war in Tbilisi) published by Gabriel Chubinidze. Used with the permission of G. Chubinidze; the credit will be completed if the photographer is identified. The places are not named in the post. Not tied to the map.",
+   "ka": "კადრი 1991-1992 წლების ნეგატივებიდან (სამოქალაქო ომი თბილისში), რომელიც გამოაქვეყნა გაბრიელ ჩუბინიძემ. გამოიყენება გ. ჩუბინიძის ნებართვით; ფოტოგრაფის დადგენის შემთხვევაში წარწერა შეივსება. გადაღების ადგილები პოსტში არ არის დასახელებული. რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "используется с разрешения Г. Чубинидзе",
+   "en": "used with the permission of G. Chubinidze",
+   "ka": "გამოიყენება გ. ჩუბინიძის ნებართვით"
+  },
+  "page": "https://www.facebook.com/gchubinidze111/posts/pfbid02r4BvDdBs4FatqqpQtt7f6U4jfNe7Zo3cPYza329BupXXjXDAi2d5zeCR385X4wzkl",
+  "page_label": {
+   "ru": "пост Габриэля Чубинидзе на Facebook",
+   "en": "Gabriel Chubinidze's Facebook post",
+   "ka": "გაბრიელ ჩუბინიძის პოსტი Facebook-ზე"
+  },
+  "from": 1990
+ },
+ {
+  "id": "chubinidze_1991_25",
+  "year": 1992,
+  "window": 3,
+  "image": "data/views/chubinidze_1991_25.webp",
+  "title": {
+   "ru": "Тбилиси, 1991-1992 (негативы из находки Г. Чубинидзе), кадр 25",
+   "en": "Tbilisi, 1991-1992 (negatives found by G. Chubinidze), frame 25",
+   "ka": "თბილისი, 1991-1992 (გ. ჩუბინიძის მიერ ნაპოვნი ნეგატივები), კადრი 25"
+  },
+  "author": {
+   "ru": "автор снимков неизвестен; негативы нашёл на барахолке и отсканировал Габриэль Чубинидзе (Gabriel Chubinidze), лаборатория Magnolia Film Lab",
+   "en": "the photographer is unknown; the negatives were found at a flea market and scanned by Gabriel Chubinidze, Magnolia Film Lab",
+   "ka": "ფოტოგრაფი უცნობია; ნეგატივები ბაზრობაზე იპოვა და დაასკანერა გაბრიელ ჩუბინიძემ (Gabriel Chubinidze), Magnolia Film Lab"
+  },
+  "note": {
+   "ru": "Кадр из негативов 1991-1992 годов (гражданская война в Тбилиси), опубликованных Габриэлем Чубинидзе. Публикуется с разрешения Г. Чубинидзе; при появлении автора снимков подпись будет дополнена. Места съёмки в посте не названы. К карте не привязан.",
+   "en": "A frame from negatives of 1991-1992 (the civil war in Tbilisi) published by Gabriel Chubinidze. Used with the permission of G. Chubinidze; the credit will be completed if the photographer is identified. The places are not named in the post. Not tied to the map.",
+   "ka": "კადრი 1991-1992 წლების ნეგატივებიდან (სამოქალაქო ომი თბილისში), რომელიც გამოაქვეყნა გაბრიელ ჩუბინიძემ. გამოიყენება გ. ჩუბინიძის ნებართვით; ფოტოგრაფის დადგენის შემთხვევაში წარწერა შეივსება. გადაღების ადგილები პოსტში არ არის დასახელებული. რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "используется с разрешения Г. Чубинидзе",
+   "en": "used with the permission of G. Chubinidze",
+   "ka": "გამოიყენება გ. ჩუბინიძის ნებართვით"
+  },
+  "page": "https://www.facebook.com/gchubinidze111/posts/pfbid02r4BvDdBs4FatqqpQtt7f6U4jfNe7Zo3cPYza329BupXXjXDAi2d5zeCR385X4wzkl",
+  "page_label": {
+   "ru": "пост Габриэля Чубинидзе на Facebook",
+   "en": "Gabriel Chubinidze's Facebook post",
+   "ka": "გაბრიელ ჩუბინიძის პოსტი Facebook-ზე"
+  },
+  "from": 1990
+ },
+ {
+  "id": "chubinidze_1991_59",
+  "year": 1992,
+  "window": 3,
+  "image": "data/views/chubinidze_1991_59.webp",
+  "title": {
+   "ru": "Тбилиси, 1991-1992 (негативы из находки Г. Чубинидзе), кадр 59",
+   "en": "Tbilisi, 1991-1992 (negatives found by G. Chubinidze), frame 59",
+   "ka": "თბილისი, 1991-1992 (გ. ჩუბინიძის მიერ ნაპოვნი ნეგატივები), კადრი 59"
+  },
+  "author": {
+   "ru": "автор снимков неизвестен; негативы нашёл на барахолке и отсканировал Габриэль Чубинидзе (Gabriel Chubinidze), лаборатория Magnolia Film Lab",
+   "en": "the photographer is unknown; the negatives were found at a flea market and scanned by Gabriel Chubinidze, Magnolia Film Lab",
+   "ka": "ფოტოგრაფი უცნობია; ნეგატივები ბაზრობაზე იპოვა და დაასკანერა გაბრიელ ჩუბინიძემ (Gabriel Chubinidze), Magnolia Film Lab"
+  },
+  "note": {
+   "ru": "Кадр из негативов 1991-1992 годов (гражданская война в Тбилиси), опубликованных Габриэлем Чубинидзе. Публикуется с разрешения Г. Чубинидзе; при появлении автора снимков подпись будет дополнена. Места съёмки в посте не названы. К карте не привязан.",
+   "en": "A frame from negatives of 1991-1992 (the civil war in Tbilisi) published by Gabriel Chubinidze. Used with the permission of G. Chubinidze; the credit will be completed if the photographer is identified. The places are not named in the post. Not tied to the map.",
+   "ka": "კადრი 1991-1992 წლების ნეგატივებიდან (სამოქალაქო ომი თბილისში), რომელიც გამოაქვეყნა გაბრიელ ჩუბინიძემ. გამოიყენება გ. ჩუბინიძის ნებართვით; ფოტოგრაფის დადგენის შემთხვევაში წარწერა შეივსება. გადაღების ადგილები პოსტში არ არის დასახელებული. რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "используется с разрешения Г. Чубинидзе",
+   "en": "used with the permission of G. Chubinidze",
+   "ka": "გამოიყენება გ. ჩუბინიძის ნებართვით"
+  },
+  "page": "https://www.facebook.com/gchubinidze111/posts/pfbid02r4BvDdBs4FatqqpQtt7f6U4jfNe7Zo3cPYza329BupXXjXDAi2d5zeCR385X4wzkl",
+  "page_label": {
+   "ru": "пост Габриэля Чубинидзе на Facebook",
+   "en": "Gabriel Chubinidze's Facebook post",
+   "ka": "გაბრიელ ჩუბინიძის პოსტი Facebook-ზე"
+  },
+  "from": 1990
+ },
+ {
+  "id": "chubinidze_1991_62",
+  "year": 1992,
+  "window": 3,
+  "image": "data/views/chubinidze_1991_62.webp",
+  "title": {
+   "ru": "Тбилиси, 1991-1992 (негативы из находки Г. Чубинидзе), кадр 62",
+   "en": "Tbilisi, 1991-1992 (negatives found by G. Chubinidze), frame 62",
+   "ka": "თბილისი, 1991-1992 (გ. ჩუბინიძის მიერ ნაპოვნი ნეგატივები), კადრი 62"
+  },
+  "author": {
+   "ru": "автор снимков неизвестен; негативы нашёл на барахолке и отсканировал Габриэль Чубинидзе (Gabriel Chubinidze), лаборатория Magnolia Film Lab",
+   "en": "the photographer is unknown; the negatives were found at a flea market and scanned by Gabriel Chubinidze, Magnolia Film Lab",
+   "ka": "ფოტოგრაფი უცნობია; ნეგატივები ბაზრობაზე იპოვა და დაასკანერა გაბრიელ ჩუბინიძემ (Gabriel Chubinidze), Magnolia Film Lab"
+  },
+  "note": {
+   "ru": "Кадр из негативов 1991-1992 годов (гражданская война в Тбилиси), опубликованных Габриэлем Чубинидзе. Публикуется с разрешения Г. Чубинидзе; при появлении автора снимков подпись будет дополнена. Места съёмки в посте не названы. К карте не привязан.",
+   "en": "A frame from negatives of 1991-1992 (the civil war in Tbilisi) published by Gabriel Chubinidze. Used with the permission of G. Chubinidze; the credit will be completed if the photographer is identified. The places are not named in the post. Not tied to the map.",
+   "ka": "კადრი 1991-1992 წლების ნეგატივებიდან (სამოქალაქო ომი თბილისში), რომელიც გამოაქვეყნა გაბრიელ ჩუბინიძემ. გამოიყენება გ. ჩუბინიძის ნებართვით; ფოტოგრაფის დადგენის შემთხვევაში წარწერა შეივსება. გადაღების ადგილები პოსტში არ არის დასახელებული. რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "используется с разрешения Г. Чубинидзе",
+   "en": "used with the permission of G. Chubinidze",
+   "ka": "გამოიყენება გ. ჩუბინიძის ნებართვით"
+  },
+  "page": "https://www.facebook.com/gchubinidze111/posts/pfbid02r4BvDdBs4FatqqpQtt7f6U4jfNe7Zo3cPYza329BupXXjXDAi2d5zeCR385X4wzkl",
+  "page_label": {
+   "ru": "пост Габриэля Чубинидзе на Facebook",
+   "en": "Gabriel Chubinidze's Facebook post",
+   "ka": "გაბრიელ ჩუბინიძის პოსტი Facebook-ზე"
+  },
+  "from": 1990
+ },
+ {
+  "id": "widmann_market_1996",
+  "year": 1996,
+  "window": 4,
+  "image": "data/views/widmann_market_1996.webp",
+  "title": {
+   "ru": "Центральный рынок Тбилиси, ноябрь 1996 (Т. Видман)",
+   "en": "The central market in Tbilisi, November 1996 (T. Widmann)",
+   "ka": "თბილისის ცენტრალური ბაზარი, 1996 წლის ნოემბერი (თ. ვიდმანი)"
+  },
+  "author": {
+   "ru": "Томас Видман",
+   "en": "Thomas Widmann",
+   "ka": "თომას ვიდმანი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:The_central_market_in_Tbilisi.jpg",
+  "from": 1995
+ },
+ {
+  "id": "widmann_trolleybus_1997",
+  "year": 1997,
+  "window": 3,
+  "image": "data/views/widmann_trolleybus_1997.webp",
+  "title": {
+   "ru": "Троллейбус у киоска Coca-Cola, март 1997 (Т. Видман)",
+   "en": "A trolleybus and a Coca-Cola stand, March 1997 (T. Widmann)",
+   "ka": "ტროლეიბუსი და Coca-Cola-ს ჯიხური, 1997 წლის მარტი (თ. ვიდმანი)"
+  },
+  "author": {
+   "ru": "Томас Видман",
+   "en": "Thomas Widmann",
+   "ka": "თომას ვიდმანი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Trolleybus_and_Coca-Cola.jpg",
+  "from": 1995
+ },
+ {
+  "id": "mishveladze_1997",
+  "year": 1997,
+  "window": 3,
+  "image": "data/views/mishveladze_1997.webp",
+  "title": {
+   "ru": "Улица Арчила Мишвеладзе, 1997 (viralbus)",
+   "en": "Archil Mishveladze Street, 1997 (viralbus)",
+   "ka": "არჩილ მიშველაძის ქუჩა, 1997 (viralbus)"
+  },
+  "author": {
+   "ru": "viralbus",
+   "en": "viralbus",
+   "ka": "viralbus"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Archil_Mishveladze_Street,_1997.jpg",
+  "from": 1995
+ },
+ {
+  "id": "galaktion_monument_1997",
+  "year": 1997,
+  "window": 3,
+  "image": "data/views/galaktion_monument_1997.webp",
+  "title": {
+   "ru": "Памятник Галактиону Табидзе в Ваке, июнь 1997 (Т. Видман)",
+   "en": "The monument to Galaktion Tabidze in Vake, June 1997 (T. Widmann)",
+   "ka": "გალაკტიონ ტაბიძის ძეგლი ვაკეში, 1997 წლის ივნისი (თ. ვიდმანი)"
+  },
+  "author": {
+   "ru": "Томас Видман",
+   "en": "Thomas Widmann",
+   "ka": "თომას ვიდმანი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the year are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და წელი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:A_monument_in_Tbilisi.jpg",
+  "from": 1995
  }
 ]
