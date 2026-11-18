@@ -9,9 +9,31 @@
    "en": "Tbilisi sacked by the allied Byzantine and Khazar armies",
    "src": [
     "https://en.wikipedia.org/wiki/History_of_Tbilisi",
-    "https://en.wikipedia.org/wiki/Tbilisi"
+    "https://en.wikipedia.org/wiki/Tbilisi",
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
    ],
-   "ka": "თბილისი დაარბიეს ბიზანტიისა და ხაზარების მოკავშირე ჯარებმა"
+   "ka": "თბილისი დაარბიეს ბიზანტიისა და ხაზარების მოკავშირე ჯარებმა",
+   "note": {
+    "ru": "ru.wikipedia (История Тбилиси): в 626 году Ираклий и хазары осадили город и после нескольких месяцев осады захватили его.",
+    "en": "ru.wikipedia (History of Tbilisi): in 626 Heraclius and the Khazars besieged the city and took it after several months of siege.",
+    "ka": "ru.wikipedia-ს (История Тбилиси) მიხედვით: 626 წელს ჰერაკლე და ხაზარები ქალაქს შემოადგნენ და რამდენიმეთვიანი ალყის შემდეგ აიღეს."
+   }
+  },
+  {
+   "year": 653,
+   "date": "653",
+   "cat": "power",
+   "ru": "Арабская армия Хабиба ибн Масламы приходит в Закавказье; в Тбилиси подписан договор: арабы гарантируют безопасность жителям, храмам и вере при условии признания зависимости и джизьи в один динар с семьи",
+   "en": "The Arab army of Habib ibn Maslama comes to Transcaucasia; a treaty is signed in Tbilisi: the Arabs guarantee safety to the inhabitants, churches and religion on condition of recognised subordination and a jizya of one dinar per family",
+   "ka": "ჰაბიბ იბნ მასლამას არაბული არმია მოდის ამიერკავკასიაში; თბილისში ხელი მოეწერა ხელშეკრულებას: არაბები მოსახლეობას, ტაძრებსა და რწმენას უსაფრთხოებას უზრუნველყოფენ დამორჩილების აღიარებისა და თითო ოჯახზე ერთი დინარის ჯიზიის პირობით",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
   },
   {
    "year": 737,
@@ -59,6 +81,22 @@
    "ka": "არაბი სარდალი ბუღა ალ-თურქი თბილისს თავს ესხმის"
   },
   {
+   "year": 1046,
+   "date": "1046",
+   "cat": "power",
+   "ru": "Весной царь Баграт на короткое время занимает Тбилиси: горожане встречают его на Дигомском поле, ему передают ключи города и вводят во дворец эмира; Исани сопротивляется (мост разрушен)",
+   "en": "In spring King Bagrat briefly takes Tbilisi: the townspeople meet him on the Digomi field, the keys of the city are handed over and he is led into the emir's palace; Isani resists (the bridge was destroyed)",
+   "ka": "გაზაფხულზე მეფე ბაგრატი ხანმოკლედ იკავებს თბილისს: ქალაქელები დიღმის ველზე ხვდებიან, ქალაქის გასაღებებს გადასცემენ და ამირას სასახლეში შეჰყავთ; ისანი წინააღმდეგობას უწევს (ხიდი დაანგრიეს)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись. В статье царь назван «Баграт III»; по хронологии (Баграт III умер в 1014 году) это, скорее всего, Баграт IV: это моя оценка, она не проверена. Описание дано по «Летописи Картли» в цитате статьи.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked. The article calls the king 'Bagrat III'; by chronology (Bagrat III died in 1014) it is most likely Bagrat IV: this is my estimate, not checked. The description is from the Chronicle of Kartli as quoted in the article.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა. სტატიაში მეფე „ბაგრატ III“-ადაა დასახელებული; ქრონოლოგიით (ბაგრატ III გარდაიცვალა 1014 წელს) ეს, სავარაუდოდ, ბაგრატ IV-ა: ეს ჩემი შეფასებაა, შემოწმებული არ არის. აღწერა მოცემულია „ქართლის ცხოვრების“ მიხედვით, სტატიის ციტატაში."
+   }
+  },
+  {
    "year": 1068,
    "date": "1068",
    "cat": "invasion",
@@ -83,9 +121,15 @@
    "en": "King David the Builder storms Tbilisi (the siege began in 1121 after the Battle of Didgori)",
    "src": [
     "https://en.wikipedia.org/wiki/History_of_Tbilisi",
-    "https://en.wikipedia.org/wiki/Tbilisi"
+    "https://en.wikipedia.org/wiki/Tbilisi",
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
    ],
-   "ka": "მეფე დავით აღმაშენებელი თბილისს იერიშით იღებს (ალყა დაიწყო 1121 წელს დიდგორის ბრძოლის შემდეგ)"
+   "ka": "მეფე დავით აღმაშენებელი თბილისს იერიშით იღებს (ალყა დაიწყო 1121 წელს დიდგორის ბრძოლის შემდეგ)",
+   "note": {
+    "ru": "По ru.wikipedia (История Тбилиси): город отдан на трёхдневное разграбление, большая часть сожжена, 500 жителей повешены; по Ибн аль-Асиру Давид затем «старался угодить жителям»; столица перенесена в Тбилиси из Кутаиси.",
+    "en": "According to ru.wikipedia (History of Tbilisi): the city was given up to three days of looting, most of it was burned, 500 inhabitants were hanged; according to Ibn al-Athir, David afterwards 'tried to please the townspeople'; the capital was moved to Tbilisi from Kutaisi.",
+    "ka": "ru.wikipedia-ს (История Тбилиси) მიხედვით: ქალაქი სამდღიან ძარცვას მიეცა, უმეტესი ნაწილი დაიწვა, 500 მოსახლე ჩამოახრჩვეს; იბნ ალ-ასირის მიხედვით, დავითი შემდეგ „ცდილობდა ქალაქელთა გულის მოგებას“; დედაქალაქი ქუთაისიდან თბილისში გადმოიტანეს."
+   }
   },
   {
    "year": 1226,
@@ -97,6 +141,54 @@
     "https://en.wikipedia.org/wiki/Tbilisi"
    ],
    "ka": "თბილისი აიღო ხორეზმშაჰმა ჯალალ ად-დინმა, ათიათასობით ქრისტიანი მოკლეს"
+  },
+  {
+   "year": 1238,
+   "date": "1238",
+   "cat": "invasion",
+   "ru": "Тбилиси захвачен монголами; их власть продлится около ста лет",
+   "en": "Tbilisi is captured by the Mongols; their rule lasts about a hundred years",
+   "ka": "თბილისი დაიპყრეს მონღოლებმა; მათი ბატონობა დაახლოებით ასი წელი გაგრძელდა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1327,
+   "date": "1327",
+   "cat": "power",
+   "ru": "Царь Георгий V Блистательный изгоняет монголов, Тбилиси начинает возрождаться; по указанию папы Иоанна XXII центр католической епархии переносится из Смирны в Тбилиси",
+   "en": "King Giorgi V the Brilliant expels the Mongols and Tbilisi begins to revive; on the instruction of Pope John XXII the centre of the Catholic diocese is moved from Smyrna to Tbilisi",
+   "ka": "მეფე გიორგი V ბრწყინვალე მონღოლებს განდევნის და თბილისი აღორძინებას იწყებს; პაპ იოანე XXII-ის მითითებით კათოლიკური ეპარქიის ცენტრი სმირნიდან თბილისში გადაიტანეს",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1366,
+   "date": "1366",
+   "cat": "other",
+   "ru": "Великая чума, опустошившая почти всю Европу, доходит до Тбилиси",
+   "en": "The Great Plague, which devastated almost all of Europe, reaches Tbilisi",
+   "ka": "დიდი ჭირი, რომელმაც თითქმის მთელი ევროპა გააპარტახა, თბილისამდე აღწევს",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
   },
   {
    "year": 1386,
@@ -118,14 +210,47 @@
    "en": "Jahan Shah invades and loots Tbilisi",
    "src": [
     "https://en.wikipedia.org/wiki/Tbilisi",
-    "https://en.wikipedia.org/wiki/History_of_Tbilisi"
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi",
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
    ],
    "note": {
-    "ru": "Страница Tbilisi: 1440 (looted), History of Tbilisi: 1444 (destroyed).",
-    "en": "The Tbilisi page: 1440 (looted), History of Tbilisi: 1444 (destroyed).",
-    "ka": "გვერდი Tbilisi: 1440 (looted), History of Tbilisi: 1444 (destroyed)."
+    "ru": "Страница Tbilisi: 1440 (looted), History of Tbilisi: 1444 (destroyed). ru.wikipedia (История Тбилиси): в марте 1444 года Джаханшах вторгся с 20-тысячной армией и разрушил Тбилиси, затем предпринял второй поход.",
+    "en": "The Tbilisi page: 1440 (looted), History of Tbilisi: 1444 (destroyed). ru.wikipedia (History of Tbilisi): in March 1444 Jahan Shah invaded with an army of 20,000 and destroyed Tbilisi, then made a second campaign.",
+    "ka": "გვერდი Tbilisi: 1440 (looted), History of Tbilisi: 1444 (destroyed). ru.wikipedia-ს (История Тбилиси) მიხედვით: 1444 წლის მარტში ჯაჰანშაჰი 20 000-იანი ჯარით შემოიჭრა და თბილისი დაანგრია, შემდეგ მეორე ლაშქრობაც წამოიწყო."
    },
    "ka": "ჯაჰანშაჰი თბილისს თავს ესხმის და ძარცვავს"
+  },
+  {
+   "year": 1477,
+   "date": "1477-1478",
+   "cat": "invasion",
+   "ru": "Город находится в руках Узун-Хасана, правителя государства Ак-Коюнлу",
+   "en": "The city is in the hands of Uzun Hasan, ruler of the Ak Koyunlu state",
+   "ka": "ქალაქი აღმოჩნდა აყ-ყოინლუს სახელმწიფოს მმართველის უზუნ ჰასანის ხელში",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1522,
+   "date": "1522",
+   "cat": "invasion",
+   "ru": "Шах Исмаил I вторгается в Картли: грузинская армия разбита, Тбилиси сдаётся шаху; в 1524 году после смерти шаха город занимает Давид X",
+   "en": "Shah Ismail I invades Kartli: the Georgian army is defeated and Tbilisi surrenders to the shah; in 1524, after the shah's death, David X takes the city",
+   "ka": "შაჰი ისმაილ I ქართლში შემოიჭრება: ქართული ჯარი დამარცხდა და თბილისი შაჰს დანებდა; 1524 წელს, შაჰის სიკვდილის შემდეგ, ქალაქს დავით X იკავებს",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
   },
   {
    "year": 1536,
@@ -134,9 +259,31 @@
    "ru": "Иранская армия сжигает Тбилиси",
    "en": "The Iranian army burns Tbilisi",
    "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8",
     "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
    ],
-   "ka": "ირანის ჯარმა თბილისი დაწვა"
+   "ka": "ირანის ჯარმა თბილისი დაწვა",
+   "note": {
+    "ru": "Персидский гарнизон остался в крепости; царь Луарсаб отбил Тбилиси только в 1539 году (ru.wikipedia, История Тбилиси).",
+    "en": "A Persian garrison stayed in the fortress; King Luarsab recaptured Tbilisi only in 1539 (ru.wikipedia, History of Tbilisi).",
+    "ka": "სპარსული გარნიზონი ციხესიმაგრეში დარჩა; მეფე ლუარსაბმა თბილისი მხოლოდ 1539 წელს დაიბრუნა (ru.wikipedia, История Тбилиси)."
+   }
+  },
+  {
+   "year": 1556,
+   "date": "1556",
+   "cat": "invasion",
+   "ru": "При восшествии на царство Симона I Тбилиси занят кызылбашами, резиденция царя переносится в Гори; персы оставляют наместником Давида (Даудхана)",
+   "en": "On the accession of Simon I Tbilisi is occupied by the Qizilbash and the king's residence moves to Gori; the Persians leave David (Daud Khan) as governor",
+   "ka": "სიმონ I-ის გამეფებისას თბილისს ყიზილბაშები იკავებენ, მეფის რეზიდენცია გორში გადადის; სპარსელები მოადგილედ ტოვებენ დავითს (დაუდ-ხანს)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
   },
   {
    "year": 1578,
@@ -148,6 +295,22 @@
     "https://en.wikipedia.org/wiki/Tbilisi"
    ],
    "ka": "თბილისი დაიპყრეს ოსმალებმა (ოსმან-ფაშა და მუსტაფა-ფაშა)"
+  },
+  {
+   "year": 1583,
+   "date": "1583",
+   "cat": "power",
+   "ru": "Царь Симон I Великий прогоняет турок и снова делает Тбилиси столицей страны",
+   "en": "King Simon I the Great drives out the Turks and makes Tbilisi the capital again",
+   "ka": "მეფე სიმონ I დიდი თურქებს განდევნის და თბილისს კვლავ ქვეყნის დედაქალაქად აქცევს",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
   },
   {
    "year": 1651,
@@ -186,6 +349,22 @@
     "ka": "კატალოგის ცხრილში 13 ივნისია (22:30), მოგზაურის ციტატაში 13 ივლისი. ავტორების შეფასება: MS 4,2, ინტენსივობა 6-7 (გვ. 48-49). პარამეტრები (მაგნიტუდა, ინტენსივობა, სიღრმე) ავტორებმა გამოთვალეს მაკროსეისმური აღწერების მიხედვით და ისინი სავარაუდოა."
    },
    "ka": "მიწისძვრა თბილისში: მეფე გიორგის კარზე ქორწილის დროს ღამით სახლები ირყეოდა, მხოლოდ დაბალი სახლები გადარჩა (იტალიელი მოგზაურის ფარლის მიხედვით)"
+  },
+  {
+   "year": 1783,
+   "date": "24.07.1783",
+   "cat": "power",
+   "ru": "Подписан Георгиевский трактат: Картли-Кахетинское царство переходит под протекторат России (по новому стилю 4 августа)",
+   "en": "The Treaty of Georgievsk is signed: the Kingdom of Kartli-Kakheti comes under Russian protection (4 August, New Style)",
+   "ka": "გაფორმდა გეორგიევსკის ტრაქტატი: ქართლ-კახეთის სამეფო რუსეთის მფარველობაში გადადის (ახალი სტილით 4 აგვისტო)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись. Договор заключён не в Тбилиси (по названию, в Георгиевске), событие касается города как столицы царства.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked. The treaty was concluded not in Tbilisi (by its name, in Georgievsk); the event concerns the city as the capital of the kingdom.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა. ხელშეკრულება დაიდო არა თბილისში (სახელწოდების მიხედვით, გეორგიევსკში); მოვლენა ქალაქს ეხება როგორც სამეფოს დედაქალაქს."
+   }
   },
   {
    "year": 1795,
@@ -417,6 +596,22 @@
    }
   },
   {
+   "year": 1844,
+   "date": "12.1844",
+   "cat": "power",
+   "ru": "С декабря Тифлис является административным центром Кавказского наместничества России",
+   "en": "From December Tiflis is the administrative centre of the Russian Caucasus Viceroyalty",
+   "ka": "დეკემბრიდან თბილისი რუსეთის კავკასიის მეფისნაცვლობის ადმინისტრაციული ცენტრია",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
    "year": 1855,
    "date": "28.08.1855",
    "cat": "flood",
@@ -616,6 +811,22 @@
    }
   },
   {
+   "year": 1893,
+   "date": "1893",
+   "cat": "other",
+   "ru": "Из Тифлиса распространяется деятельность «Месаме-даси», первой социал-демократической организации в Грузии и на Кавказе (в 1898 году в неё вступает Сталин)",
+   "en": "The activity of Mesame Dasi, the first social-democratic organisation in Georgia and the Caucasus, spreads from Tiflis (Stalin joins it in 1898)",
+   "ka": "თბილისიდან ვრცელდება „მესამე დასის“ საქმიანობა, საქართველოსა და კავკასიაში პირველი სოციალ-დემოკრატიული ორგანიზაციისა (1898 წელს მას სტალინი უერთდება)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
    "year": 1894,
    "date": "29.11.1894",
    "cat": "earthquake",
@@ -755,6 +966,38 @@
     "ka": "ინფორმაცია გადმოცემულია სტატიის ცხრილისა და ტექსტის მიხედვით (წაკითხულია ეკრანზე; ქართულიდან თარგმანი ჩემია). დაღუპულთა რიცხვი სტატიაშია მითითებული."
    },
    "ka": "წავკისისწყლის წყალდიდობამ მთლიანად დაანგრია აბანოთუბნის კვარტალი (10 დაღუპული)"
+  },
+  {
+   "year": 1905,
+   "date": "1905",
+   "cat": "other",
+   "ru": "Революция 1905-1907 годов: в Тбилиси рабочие ведут стачечную борьбу, забастовки перерастают в вооружённые столкновения с частями императорской армии (по официальной статистике, в 1905 году на каждого рабочего приходилось 4½ стачки)",
+   "en": "The revolution of 1905-1907: workers in Tbilisi fight by strikes, which grow into armed clashes with units of the imperial army (by official statistics there were 4½ strikes per worker in 1905)",
+   "ka": "1905-1907 წლების რევოლუცია: თბილისში მუშები გაფიცვებს მართავენ, გაფიცვები იმპერიული არმიის ნაწილებთან შეიარაღებულ შეტაკებებში გადაიზარდა (ოფიციალური სტატისტიკით, 1905 წელს თითო მუშაზე 4½ გაფიცვა მოდიოდა)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись. Формулировки и цифры статьи (в советской традиции) не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked. The wording and figures of the article (in the Soviet tradition) were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა. სტატიის ფორმულირებები და ციფრები (საბჭოთა ტრადიციით) არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1918,
+   "date": "22.04.1918",
+   "cat": "power",
+   "ru": "Закавказский сейм провозглашает Закавказскую Демократическую Федеративную Республику со столицей в Тифлисе (комиссариат был созван в Тифлисе 28 ноября 1917 года); в мае республика распалась",
+   "en": "The Transcaucasian Seim proclaims the Transcaucasian Democratic Federative Republic with its capital in Tiflis (the Commissariat was convened in Tiflis on 28 November 1917); in May the republic broke up",
+   "ka": "ამიერკავკასიის სეიმი აცხადებს ამიერკავკასიის დემოკრატიულ ფედერაციულ რესპუბლიკას დედაქალაქით თბილისში (კომისარიატი თბილისში მოიწვიეს 1917 წლის 28 ნოემბერს); მაისში რესპუბლიკა დაიშალა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ],
+   "note": {
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
   },
   {
    "year": 1918,
