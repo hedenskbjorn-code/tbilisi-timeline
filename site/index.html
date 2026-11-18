@@ -23,11 +23,17 @@
   <button id="btnInfo" class="chip" data-i="btnInfo" aria-pressed="true"></button>
   <button id="btnFilters" class="chip" data-i="btnFilters" aria-pressed="true"></button>
   <button id="btnViews" class="chip" data-i="btnViews" aria-pressed="false"></button>
+  <button id="btnSearch" class="chip" type="button" aria-expanded="false">&#128269;</button>
   <h1 id="title"></h1>
   <div class="spacer"></div>
   <button id="fbOpen" class="chip" data-i="fbBtn"></button>
   <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
 </header>
+
+<div id="search" role="search" hidden>
+  <input id="searchQ" type="search" autocomplete="off" spellcheck="false">
+  <ul id="searchRes"></ul>
+</div>
 
 <aside id="side">
   <button class="pclose" data-panel="info" aria-label="close">×</button>

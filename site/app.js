@@ -6,6 +6,7 @@
   const FULL_KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
   const ZOOM_STEPS = [364, 1700, 1800, 1850, 1900, 1950, 1980, 2000];   // the scale can start from any of these years (zoom)
   let zoomIx = 0;
+  let searchIndex = null, searchRows = [], searchSel = -1;      // search (see the block "search" below)
   let KNOTS = FULL_KNOTS;                         // zoomed scale: one linear piece from the chosen year to MAX (see setZoom)
   const y2v = (y) => { for (let i = 1; i < KNOTS.length; i++) if (y <= KNOTS[i][0]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return v0 + ((y - y0) / (y1 - y0)) * (v1 - v0); } return 1000; };
   const v2y = (v) => { for (let i = 1; i < KNOTS.length; i++) if (v <= KNOTS[i][1]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return Math.round(y0 + ((v - v0) / (v1 - v0)) * (y1 - y0)); } return MAX; };
@@ -101,6 +102,7 @@
       waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
       viewsTitle: "Исторические виды (рисунки, не планы)",
       viewClose: "Закрыть",
+      searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
       viewPrev: "Предыдущее фото",
       viewNext: "Следующее фото",
@@ -251,6 +253,7 @@
       waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); topographic sheet of c.1911 (lakes).",
       viewsTitle: "Historical views (drawings, not plans)",
       viewClose: "Close",
+      searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
       viewPrev: "Previous photo",
       viewNext: "Next photo",
@@ -402,6 +405,7 @@
       waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); ტოპოგრაფიული ფურცელი დაახლოებით 1911 წლიდან (ტბები).",
       viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
       viewClose: "დახურვა",
+      searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
       viewPrev: "წინა ფოტო",
       viewNext: "შემდეგი ფოტო",
@@ -774,6 +778,7 @@
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
     updateZoomUi();
+    updateSearchUi();
     $("note").textContent = t().note(undated);
     buildTypes();
     buildAbout();
@@ -1933,6 +1938,116 @@
   $("zoomOut").addEventListener("click", () => zoomBy(-1));
   $("sliderwrap").addEventListener("wheel", (e) => { e.preventDefault(); zoomBy(e.deltaY < 0 ? 1 : -1); }, { passive: false });
   updateZoomUi();
+
+  // search: objects of the register (name and address in three languages), historical events and years
+  const normQ = (s) => String(s || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  function buildSearchIndex() {
+    const idx = [], tr = window.GeoTr;
+    for (const f of (monuments ? monuments.features : [])) {
+      const p = f.properties, parts = [p.name || "", p.address || ""];
+      for (const l of ["ru", "en"]) {
+        try { if (tr) { parts.push(tr.nameInfo(p.name, l, p.wp).text, tr.address(p.address, l)); } } catch (e) {}
+      }
+      idx.push({ kind: "o", f, key: normQ(parts.join(" ")) });
+    }
+    for (const ev of histEvents) idx.push({ kind: "e", ev, key: normQ([ev.ru, ev.en, ev.ka, ev.date, ev.year].join(" ")) });
+    return idx;
+  }
+  function updateSearchUi() {
+    $("searchQ").placeholder = t().searchPh;
+    $("searchQ").setAttribute("aria-label", t().searchPh);
+    $("btnSearch").title = t().searchBtn;
+    $("btnSearch").setAttribute("aria-label", t().searchBtn);
+    if (!$("search").hidden) renderSearch();
+  }
+  function runSearch(q) {
+    const toks = normQ(q).split(" ").filter(Boolean);
+    const rows = [];
+    if (!toks.length) return rows;
+    if (/^\d{3,4}$/.test(toks[0]) && toks.length === 1 && +toks[0] >= MIN && +toks[0] <= MAX) rows.push({ kind: "y", year: +toks[0] });
+    if (!searchIndex || (searchIndex.length === 0 && monuments)) searchIndex = buildSearchIndex();
+    const scored = [];
+    for (const it of searchIndex) {
+      let s = 0;
+      for (const tk of toks) {
+        const k = it.key;
+        if (!k.includes(tk)) { s = -1; break; }
+        s += k.startsWith(tk) ? 3 : k.includes(" " + tk) ? 2 : 1;
+      }
+      if (s >= 0) scored.push({ it, s: s + (it.kind === "e" ? 0.5 : 0) });
+    }
+    scored.sort((a, b) => b.s - a.s);
+    for (const x of scored.slice(0, 40)) rows.push(x.it);
+    rows.more = scored.length > 40;
+    return rows;
+  }
+  function renderSearch() {
+    const L = t(), ul = $("searchRes");
+    ul.textContent = "";
+    const q = $("searchQ").value;
+    searchRows = runSearch(q);
+    searchSel = searchRows.length ? 0 : -1;
+    if (!normQ(q)) return;
+    if (!searchRows.length) { const li = document.createElement("li"); li.className = "sn"; li.textContent = L.searchNone; ul.appendChild(li); return; }
+    searchRows.forEach((r, i) => {
+      const li = document.createElement("li"), a = document.createElement("div"), b = document.createElement("div");
+      b.className = "st";
+      if (r.kind === "y") { a.textContent = "\u23F1 " + L.searchYear + " " + r.year; }
+      else if (r.kind === "e") { a.textContent = (EV_ICON[r.ev.cat] || EV_ICON.other) + " " + (r.ev[lang] || r.ev.en); b.textContent = r.ev.date + " \u00B7 " + (L.evCats[r.ev.cat] || ""); }
+      else {
+        const p = r.f.properties, tr = window.GeoTr;
+        let nm = p.name, ad = p.address;
+        try { if (tr) { nm = tr.nameInfo(p.name, lang, p.wp).text || p.name; ad = tr.address(p.address, lang); } } catch (e) {}
+        a.textContent = (p.fn === "religious" ? "\u26EA " : "\uD83C\uDFDB\uFE0F ") + (nm || "\u2014");
+        b.textContent = [ad, (L.classes[p.cls] || p.cls), p.ye].filter(Boolean).join(" \u00B7 ");
+      }
+      li.appendChild(a); if (b.textContent) li.appendChild(b);
+      li.addEventListener("mousedown", (e) => e.preventDefault());
+      li.addEventListener("click", () => pickSearch(r));
+      li.dataset.i = i;
+      ul.appendChild(li);
+    });
+    if (searchRows.more) { const li = document.createElement("li"); li.className = "sn"; li.textContent = L.searchMore; ul.appendChild(li); }
+    markSearchSel();
+  }
+  function markSearchSel() {
+    [...$("searchRes").querySelectorAll("li[data-i]")].forEach((li) => {
+      const on = +li.dataset.i === searchSel;
+      li.classList.toggle("sel", on);
+      if (on) li.scrollIntoView({ block: "nearest" });
+    });
+  }
+  function closeSearch() { $("search").hidden = true; $("btnSearch").setAttribute("aria-expanded", "false"); }
+  function openSearch() {
+    $("search").hidden = false; $("btnSearch").setAttribute("aria-expanded", "true");
+    $("searchQ").focus(); $("searchQ").select();
+    if ($("searchQ").value) renderSearch();
+  }
+  function pickSearch(r) {
+    closeSearch();
+    let target = year;
+    if (r.kind === "y") target = r.year;
+    else if (r.kind === "e") target = r.ev.year;
+    else target = Math.max(year, r.f.properties.ye);
+    if (target < ZOOM_STEPS[zoomIx]) setZoom(0);             // the time scale is zoomed in past this year: show the whole scale
+    year = target;
+    update();
+    if (r.kind === "e") { showHistEvent(r.ev); return; }
+    if (r.kind === "o") {
+      const [lng, lat] = r.f.geometry.coordinates;
+      map.flyTo({ center: [lng, lat], zoom: Math.max(map.getZoom(), 17), duration: 1200 });
+      popup(r.f.properties, { lng, lat });
+    }
+  }
+  $("btnSearch").addEventListener("click", () => { if ($("search").hidden) openSearch(); else closeSearch(); });
+  $("searchQ").addEventListener("input", renderSearch);
+  $("searchQ").addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") { e.preventDefault(); if (searchRows.length) { searchSel = (searchSel + 1) % searchRows.length; markSearchSel(); } }
+    else if (e.key === "ArrowUp") { e.preventDefault(); if (searchRows.length) { searchSel = (searchSel - 1 + searchRows.length) % searchRows.length; markSearchSel(); } }
+    else if (e.key === "Enter") { e.preventDefault(); if (searchRows[searchSel]) pickSearch(searchRows[searchSel]); }
+    else if (e.key === "Escape") { e.preventDefault(); closeSearch(); $("btnSearch").focus(); }
+  });
+  updateSearchUi();
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", update);
   window.addEventListener("resize", () => { if (urbanSnaps.length || plans.length) buildTicks(); });
