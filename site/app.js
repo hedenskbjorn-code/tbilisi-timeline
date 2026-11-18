@@ -6,6 +6,7 @@
   const FULL_KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
   const ZOOM_W = [0, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
   let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
+  let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
   let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
   let searchIndex = null, searchRows = [], searchSel = -1;      // search (see the block "search" below)
   let KNOTS = FULL_KNOTS;                         // zoomed scale: one linear piece over the window zoomLo..zoomHi (see applyWindow)
@@ -104,6 +105,7 @@
       viewsTitle: "Исторические виды (рисунки, не планы)",
       viewClose: "Закрыть",
       showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", lutheran: "Лютеранская", yazidi: "Езидская", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
+      showRulers: "Правители и формы власти (полоса под шкалой)", ruleNow: "Кто правил", ruleState: "Государство", ruleOver: "Внешняя власть", ruleForm: "Форма власти", ruleYears: "Годы", ruleNoData: "нет данных",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -257,6 +259,7 @@
       viewsTitle: "Historical views (drawings, not plans)",
       viewClose: "Close",
       showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", lutheran: "Lutheran", yazidi: "Yazidi", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
+      showRulers: "Rulers and forms of government (a band under the scale)", ruleNow: "Who ruled", ruleState: "State", ruleOver: "Outside power", ruleForm: "Form of rule", ruleYears: "Years", ruleNoData: "no data",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -411,6 +414,7 @@
       viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
       viewClose: "დახურვა",
       showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", lutheran: "ლუთერანული", yazidi: "ეზიდური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
+      showRulers: "მმართველები და მმართველობის ფორმები (ზოლი სკალის ქვეშ)", ruleNow: "ვინ მართავდა", ruleState: "სახელმწიფო", ruleOver: "გარე ძალა", ruleForm: "მმართველობის ფორმა", ruleYears: "წლები", ruleNoData: "მონაცემი არ არის",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -755,6 +759,7 @@
     updatePop();
     updateC94();
     updateReligious();
+    updateRuleLine();
     updateStreets();
     updateViews();
     updateSwipe();
@@ -789,6 +794,7 @@
     updateZoomUi();
     updateSearchUi();
     updateRelUi();
+    buildRulersBand();
     $("note").textContent = t().note(undated);
     buildTypes();
     buildAbout();
@@ -1792,6 +1798,7 @@
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
+    try { rulersData = await getJSON("data/rulers.json", 1); buildRulersBand(); updateRuleLine(); } catch (e) { console.error("rulers", e && e.message); rulersData = null; }
     try { religious = await getJSON("data/religious.json", 1); addReligious(); } catch (e) { console.error("religious", e && e.message); religious = []; }
     try { c94 = await getJSON("data/city1894.json", 2); addC94(); } catch (e) { console.error("c94", e && e.message); c94 = null; }
     try { stNames = (await getJSON("data/street_names.json", 2)).streets; stGeom = await getJSON("data/street_geom.json", 2); addStLabelsLayer(); updateStNames(); } catch (e) { stNames = []; }
@@ -1883,7 +1890,7 @@
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showRulers", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
@@ -1935,7 +1942,7 @@
       zoomLo = lo; zoomHi = lo + w; KNOTS = [[zoomLo, 0], [zoomHi, 1000]];
     }
     $("slider").value = Math.round(y2v(year));
-    buildTicks(); buildEvMarks(); updateZoomUi();
+    buildTicks(); buildEvMarks(); buildRulersBand(); updateZoomUi();
   }
   function ensureInWindow() {
     if (zoomIx === 0 || (year >= zoomLo && year <= zoomHi)) return;
@@ -1978,6 +1985,82 @@
     else zoomBy(e.deltaY < 0 ? 1 : -1);
   }, { passive: false });
   updateZoomUi();
+
+  // forms of state and rulers over Tbilisi: a band under the time scale (two rows with up to two lanes each), a line "who ruled" in the side panel, a card on a click
+  const RULE_LANE_H = 13;
+  const dispYear = (v) => Math.floor(v + 0.0001);
+  const rText = (o) => (o && (o[lang] || o.en)) || "";
+  function buildRulersBand() {
+    const box = $("rulers");
+    if (!box) return;
+    const on = $("showRulers") && $("showRulers").checked && rulersData;
+    box.hidden = !on;
+    document.body.classList.toggle("rulers-on", !!on);
+    if (!on) return;
+    const lo = zoomLo, hi = zoomHi, W = Math.max(0, $("rStates").clientWidth - 16);
+    const fill = (row, items, kindOf, nameOf) => {
+      row.textContent = "";
+      let lanes = 0;
+      for (const it of items) {
+        if (it.to <= lo || it.from >= hi) continue;
+        const a = Math.max(it.from, lo), b = Math.min(it.to, hi), x1 = y2v(a) / 1000, x2 = y2v(b) / 1000;
+        const px = (x2 - x1) * W;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "rseg " + kindOf(it) + (it.approx ? " approx" : "");
+        btn.style.left = "calc(8px + (100% - 16px) * " + x1 + ")";
+        btn.style.width = "max(2px, calc((100% - 16px) * " + (x2 - x1) + "))";
+        const lane = it.lane || 0;
+        btn.style.top = lane * RULE_LANE_H + "px";
+        lanes = Math.max(lanes, lane + 1);
+        if (px >= 34) btn.textContent = nameOf(it);
+        btn.title = nameOf(it) + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to);
+        btn.addEventListener("click", () => showRulerCard(it));
+        row.appendChild(btn);
+      }
+      row.style.height = Math.max(lanes, 1) * RULE_LANE_H + "px";
+    };
+    fill($("rStates"), rulersData.states, (it) => "rk-" + it.kind, (it) => rText(it.name));
+    fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name));
+  }
+  function showRulerCard(it) {
+    const L = t(), isState = it.kind !== undefined, g = rulersData.groups[isState ? it.kind : it.grp];
+    openInfo((body) => {
+      infoLine(body, (rText(g) || "") + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to), "small");
+      infoLine(body, rText(it.name), "");
+      if (isState && it.form) infoLine(body, L.ruleForm + ": " + rText(it.form));
+      if (!isState && it.title) infoLine(body, rText(it.title));
+      if (it.note && rText(it.note)) infoLine(body, rText(it.note));
+      if (it.approx) infoLine(body, "\u2248");
+      infoLine(body, L.evSrc + ":");
+      for (const u of it.src) {
+        const d = document.createElement("div"), a = document.createElement("a");
+        d.className = "small";
+        a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURI(u).replace("https://", "");
+        d.appendChild(a);
+        body.appendChild(d);
+      }
+    });
+  }
+  function updateRuleLine() {
+    const box = $("ruleline");
+    if (!box) return;
+    box.textContent = "";
+    if (!rulersData || !$("showRulers").checked) return;
+    const L = t(), within = (it) => year >= it.from && year < it.to;
+    const add = (k, v) => { const d = document.createElement("div"); const kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; d.appendChild(kk); d.appendChild(document.createTextNode(v)); box.appendChild(d); };
+    const st = rulersData.states.filter((s) => within(s) && !s.lane), ov = rulersData.states.filter((s) => within(s) && s.lane);
+    const rl = rulersData.rulers.filter(within);
+    const head = document.createElement("div");
+    head.className = "small";
+    head.textContent = L.ruleNow + " (" + year + ")";
+    box.appendChild(head);
+    add(L.ruleState, st.length ? st.map((s) => rText(s.name)).join("; ") : L.ruleNoData);
+    for (const s of ov) add(L.ruleOver, rText(s.name));
+    for (const r of rl) add(rText(r.title) || rText(rulersData.groups[r.grp]), rText(r.name));
+  }
+  $("showRulers").addEventListener("change", () => { buildRulersBand(); updateRuleLine(); });
+  if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
 
   // religious buildings of different religions: points that appear in the year of the building and disappear when it was destroyed
   const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", lutheran: "#868e96", yazidi: "#74b816", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c" };
@@ -2159,7 +2242,7 @@
   updateSearchUi();
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", update);
-  window.addEventListener("resize", () => { if (urbanSnaps.length || plans.length) buildTicks(); });
+  window.addEventListener("resize", () => { if (urbanSnaps.length || plans.length) buildTicks(); buildRulersBand(); });
   $("slider").value = Math.round(y2v(year));
   $("year").textContent = year;
 })();
