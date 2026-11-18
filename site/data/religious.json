@@ -483,6 +483,36 @@
   ]
  },
  {
+  "id": "alexander_nevsky",
+  "rel": "russian",
+  "from": 1897,
+  "date": "1871-1897",
+  "lat": 41.69666667,
+  "lon": 44.79805556,
+  "name": {
+   "ru": "Александро-Невский военный собор",
+   "en": "Alexander Nevsky Military Cathedral",
+   "ka": "ტფილისის წმინდა ალექსანდრე ნეველის სამხედრო ტაძარი"
+  },
+  "status": {
+   "ru": "снесён в 1930; на месте Дом Правительства (ныне Парламент Грузии)",
+   "en": "demolished in 1930; the Government House (now the Parliament) stands on the site",
+   "ka": "დანგრეულია 1930 წელს; ადგილზე სახელმწიფო სახლია (დღეს საქართველოს პარლამენტი)"
+  },
+  "note": {
+   "ru": "Заложен 16 апреля 1871 (по ru 6 апреля) на Гунибской площади; в 1877 стройка остановлена, возобновлена в 1890, новый фундамент 1891; освящён 21 мая 1897 (архитектор Давид Гримм). Снесён по указанию Берии. Рядом в Александровском саду стояла малая часовня Александра Невского (заложена в 1888; к 1925 снята), см. статью на ka.wikipedia.",
+   "en": "Begun on 16 April 1871 (6 April per ru) on Gunib Square; suspended in 1877, resumed in 1890, new foundation in 1891; consecrated on 21 May 1897 (architect David Grimm). Demolished on Beria's order. Nearby in Alexander's Garden stood a small Alexander Nevsky chapel (founded in 1888; removed by 1925), see the ka.wikipedia article.",
+   "ka": "ჩაეყარა 1871 წლის 16 აპრილს ღუნიბის მოედანზე; 1877 წელს მშენებლობა შეჩერდა, 1890 წელს განახლდა, ახალი საძირკველი 1891 წელს; აკურთხეს 1897 წლის 21 მაისს (არქიტექტორი დავით გრიმი). დაანგრიეს ბერიას მითითებით. ახლოს ალექსანდრეს ბაღში იდგა ალექსანდრე ნეველის პატარა სამლოცველო (1888; 1925 წლისთვის მოხსნილია)."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Alexander_Nevsky_Cathedral,_Tiflis",
+   "https://ru.wikipedia.org/wiki/Собор_Александра_Невского_(Тифлис)",
+   "https://ka.wikipedia.org/wiki/ტფილისის_სამხედრო_ტაძარი",
+   "https://ka.wikipedia.org/wiki/თბილისის_წმინდა_ალექსანდრე_ნეველის_სამლოცველო"
+  ],
+  "to": 1930
+ },
+ {
   "id": "kashveti",
   "rel": "orthodox",
   "from": 1910,
