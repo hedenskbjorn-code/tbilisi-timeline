@@ -203,6 +203,29 @@
   "page": "https://commons.wikimedia.org/wiki/File:View_of_Tiflis_from_Seid-Abaz,_Ivan_Aivazovsky.jpg"
  },
  {
+  "id": "kennan_tiflis_1870s",
+  "year": 1875,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Tiflis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "title": {
+   "ru": "Тифлис, открытка 1870-х",
+   "en": "Tiflis, a postcard of the 1870s",
+   "ka": "თბილისი, 1870-იანი წლების ღია ბარათი"
+  },
+  "author": {
+   "ru": "по записи библиотеки NYPL: Джордж Кеннан (1845-1924)",
+   "en": "by the NYPL record: George Kennan (1845-1924)",
+   "ka": "NYPL-ის ჩანაწერით: ჯორჯ კენანი (1845-1924)"
+  },
+  "note": {
+   "ru": "Открытка из Wikimedia Commons (общественное достояние); подпись и десятилетие по описанию на Commons. К карте не привязана.",
+   "en": "A postcard from Wikimedia Commons (public domain); the caption and the decade are as given on Commons. Not tied to the map.",
+   "ka": "ღია ბარათი Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და ათწლეული Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tiflis.jpg"
+ },
+ {
   "id": "ermakov_nevsky",
   "year": 1881,
   "window": 35,
