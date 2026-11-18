@@ -1,6 +1,54 @@
 {
- "note": "Verified 2026-11-18 by reading the cited Wikipedia pages (Gemini draft of 23 events was checked; events not confirmed by any page were dropped: 1723, 1735, 1830, 1844, Gori earthquake 1920 felt in Tbilisi, flood 1956, independence declaration 9.04.1991; the 4 January 1900 earthquake with >1000 deaths in the list of earthquakes in Georgia rests on newspaper footnotes only and was not used). Removed after the owner's check: separate marks for Vere floods 1960, 1963, 1972, 1995 (they rested on one sentence of the 2015 flood article, and the link led to an article about 2015); the sentence is kept in the note of the 2015 event. 2026-11-18: earthquakes of 1682, 1803, 1804, 1819, 1894 and the full entry for 1896 added from the monograph of Varazanashvili, Tsereteli, Tsereteli (2011), which the owner found (PDF read in full). 2026-11-18: floods 1651-1968 added from Amiranashvili et al. (2023), found in the openlibrary.ge repository.",
+ "note": "Verified 2026-11-18 by reading the cited Wikipedia pages (Gemini draft of 23 events was checked; events not confirmed by any page were dropped: 1723, 1735, 1830, 1844, Gori earthquake 1920 felt in Tbilisi, flood 1956, independence declaration 9.04.1991; the 4 January 1900 earthquake with >1000 deaths in the list of earthquakes in Georgia rests on newspaper footnotes only and was not used). Removed after the owner's check: separate marks for Vere floods 1960, 1963, 1972, 1995 (they rested on one sentence of the 2015 flood article, and the link led to an article about 2015); the sentence is kept in the note of the 2015 event. 2026-11-18: earthquakes of 1682, 1803, 1804, 1819, 1894 and the full entry for 1896 added from the monograph of Varazanashvili, Tsereteli, Tsereteli (2011), which the owner found (PDF read in full). 2026-11-18: floods 1651-1968 added from Amiranashvili et al. (2023), found in the openlibrary.ge repository. Added 2026-11-18 (positive events, category 'build'; the oldest surviving buildings, category 'oldest'): each checked against the cited English Wikipedia page; not added because not confirmed: Jvari Mama, the bridges' opening years, Hotel Iveria, the Sports Palace, Junior Eurovision 2017, the zoo, the Tbilisi Sea; festivals and the UEFA Super Cup 2015 were left out at the owner's request. Points on the map: the coordinates of the English Wikipedia pages of the buildings.",
  "events": [
+  {
+   "year": 364,
+   "date": "364",
+   "cat": "oldest",
+   "src": [
+    "https://en.wikipedia.org/wiki/Narikala"
+   ],
+   "ru": "Крепость Нарикала: основана около 364 года (при Вараз-Бакуре); большая часть сохранившихся укреплений относится к XVI-XVII векам",
+   "en": "Narikala fortress: founded about 364 (under Varaz-Bakur); most of the surviving fortifications date from the 16th-17th centuries",
+   "ka": "ნარიყალას ციხე: დაარსებულია დაახლოებით 364 წელს (ვარაზ-ბაკურის დროს); შემორჩენილი სიმაგრეების უმეტესობა XVI-XVII საუკუნეებისაა",
+   "note": {
+    "ru": "en.wikipedia: предание связывает основание и с Вахтангом Горгасали; в 1827 году землетрясение и разборка повредили крепость.",
+    "en": "en.wikipedia: tradition also credits Vakhtang Gorgasali; in 1827 an earthquake and demolition damaged the fortress.",
+    "ka": "en.wikipedia: გადმოცემით დამაარსებლად ვახტანგ გორგასალიც ესახელება; 1827 წელს მიწისძვრამ და დანგრევამ ციხე დააზიანა."
+   },
+   "place": {
+    "lng": 44.80861111,
+    "lat": 41.68777778,
+    "zoom": 16,
+    "ru": "Крепость Нарикала",
+    "en": "Narikala fortress",
+    "src": "coordinates of the page 'Narikala' on English Wikipedia"
+   }
+  },
+  {
+   "year": 550,
+   "date": "500-599",
+   "cat": "oldest",
+   "src": [
+    "https://en.wikipedia.org/wiki/Anchiskhati_Basilica"
+   ],
+   "ru": "Базилика Анчисхати, VI век: старейшая сохранившаяся церковь Тбилиси",
+   "en": "Anchiskhati Basilica, 6th century: the oldest surviving church in Tbilisi",
+   "ka": "ანჩისხატის ბაზილიკა, VI საუკუნე: თბილისის უძველესი შემორჩენილი ეკლესია",
+   "note": {
+    "ru": "en.wikipedia: позднее неоднократно перестраивалась (XV-XVII вв.), колокольня 1675 года; реставрация 1958-1964 вернула облик XVII века.",
+    "en": "en.wikipedia: rebuilt several times later (15th-17th centuries), the belfry is of 1675; a restoration in 1958-1964 returned it to its 17th-century look.",
+    "ka": "en.wikipedia: შემდგომში არაერთხელ გადაკეთდა (XV-XVII სს.), სამრეკლო 1675 წლისაა; 1958-1964 წლების რესტავრაციამ XVII საუკუნის იერი დაუბრუნა."
+   },
+   "place": {
+    "lng": 44.80694444,
+    "lat": 41.69555556,
+    "zoom": 16,
+    "ru": "Базилика Анчисхати",
+    "en": "Anchiskhati Basilica",
+    "src": "coordinates of the page 'Anchiskhati Basilica' on English Wikipedia"
+   }
+  },
   {
    "year": 627,
    "date": "627",
@@ -114,6 +162,30 @@
    "ka": "თბილისი დაარბიეს სელჯუკებმა (ალფ-არსლანი)"
   },
   {
+   "year": 1112,
+   "date": "1112",
+   "cat": "oldest",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi_Sioni_Cathedral"
+   ],
+   "ru": "Давид Строитель полностью перестраивает собор Сиони: основа нынешней постройки относится к этому времени (первая церковь VI-VII веков)",
+   "en": "David the Builder completely rebuilds Sioni Cathedral: the basic elements of the present structure date from then (the first church was of the 6th-7th centuries)",
+   "ka": "დავით აღმაშენებელმა სიონის ტაძარი მთლიანად ხელახლა ააგო: დღევანდელი შენობის საფუძველი ამ დროიდან მოდის (პირველი ეკლესია VI-VII საუკუნეებისაა)",
+   "note": {
+    "ru": "en.wikipedia: в той же статье упомянута и версия XIII века; колокольня 1812 года.",
+    "en": "en.wikipedia: the same article also mentions a 13th-century version; the belfry is of 1812.",
+    "ka": "en.wikipedia: იმავე სტატიაში XIII საუკუნის ვერსიაც არის ნახსენები; სამრეკლო 1812 წლისაა."
+   },
+   "place": {
+    "lng": 44.8075,
+    "lat": 41.6914,
+    "zoom": 16,
+    "ru": "Собор Сиони",
+    "en": "Sioni Cathedral",
+    "src": "coordinates of the page 'Tbilisi Sioni Cathedral' on English Wikipedia"
+   }
+  },
+  {
    "year": 1122,
    "date": "1122",
    "cat": "power",
@@ -156,6 +228,54 @@
     "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
     "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
     "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1251,
+   "date": "1251",
+   "cat": "oldest",
+   "src": [
+    "https://en.wikipedia.org/wiki/Saint_George%27s_Church,_Tbilisi"
+   ],
+   "ru": "Армянская церковь Сурб Геворг (св. Георгия) завершена к 1251 году или раньше",
+   "en": "The Armenian church of Surb Gevorg (St George) is completed by 1251 or earlier",
+   "ka": "სომხური ეკლესია სურბ გევორგი (წმ. გიორგი) დასრულდა 1251 წლამდე ან უფრო ადრე",
+   "note": {
+    "ru": "en.wikipedia: одна из двух действующих армянских церквей Тбилиси.",
+    "en": "en.wikipedia: one of the two functioning Armenian churches in Tbilisi.",
+    "ka": "en.wikipedia: თბილისის ორი მოქმედი სომხური ეკლესიიდან ერთ-ერთია."
+   },
+   "place": {
+    "lng": 44.8089,
+    "lat": 41.6892,
+    "zoom": 16,
+    "ru": "Церковь Сурб Геворг",
+    "en": "Surb Gevorg church",
+    "src": "coordinates of the page 'Saint George's Church, Tbilisi' on English Wikipedia"
+   }
+  },
+  {
+   "year": 1278,
+   "date": "1278-1289",
+   "cat": "oldest",
+   "src": [
+    "https://en.wikipedia.org/wiki/Metekhi_Church"
+   ],
+   "ru": "Построена церковь Метехи (1278-1289, при Деметре II); сохранились оригинальные стены с восточной и северной сторон",
+   "en": "Metekhi Church is built (1278-1289, under Demetrius II); the original walls survive on the east and north sides",
+   "ka": "აშენდა მეტეხის ეკლესია (1278-1289, დემეტრე II-ის დროს); შემორჩენილია ორიგინალური კედლები აღმოსავლეთისა და ჩრდილოეთის მხარეს",
+   "note": {
+    "ru": "en.wikipedia: южная стена перестроена из кирпича в XVIII веке; более ранние даты (V-VI вв.) известны лишь по преданию.",
+    "en": "en.wikipedia: the south wall was rebuilt in brick in the 18th century; earlier dates (5th-6th century) rest on oral tradition only.",
+    "ka": "en.wikipedia: სამხრეთის კედელი XVIII საუკუნეში აგურით გადაკეთდა; უფრო ადრინდელი თარიღები (V-VI სს.) მხოლოდ გადმოცემას ეყრდნობა."
+   },
+   "place": {
+    "lng": 44.81118,
+    "lat": 41.69013,
+    "zoom": 16,
+    "ru": "Церковь Метехи",
+    "en": "Metekhi Church",
+    "src": "coordinates of the page 'Metekhi Church' on English Wikipedia"
    }
   },
   {
@@ -612,6 +732,54 @@
    }
   },
   {
+   "year": 1845,
+   "date": "1845",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/National_Botanical_Garden_of_Georgia"
+   ],
+   "ru": "Ботанический сад официально учреждён как Тифлисский ботанический сад",
+   "en": "The Botanical Garden is officially established as the Tiflis Botanical Garden",
+   "ka": "ბოტანიკური ბაღი ოფიციალურად დაარსდა როგორც ტფილისის ბოტანიკური ბაღი",
+   "note": {
+    "ru": "en.wikipedia: сад описан уже в 1671 году, возможно, основан не позднее 1625.",
+    "en": "en.wikipedia: the garden is described as early as 1671 and may have been founded by 1625.",
+    "ka": "en.wikipedia: ბაღი უკვე 1671 წელს არის აღწერილი და შესაძლოა 1625 წლამდე იყოს დაარსებული."
+   },
+   "place": {
+    "lng": 44.8075,
+    "lat": 41.68611111,
+    "zoom": 16,
+    "ru": "Ботанический сад",
+    "en": "The Botanical Garden",
+    "src": "coordinates of the page 'National Botanical Garden of Georgia' on English Wikipedia"
+   }
+  },
+  {
+   "year": 1851,
+   "date": "12.04.1851",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Georgian_National_Opera_Theater"
+   ],
+   "ru": "Открыт оперный театр в Тбилиси (стройка начата в 1847, торжественное открытие 9 ноября 1851)",
+   "en": "The opera house opens in Tbilisi (building began in 1847; grand inauguration on 9 November 1851)",
+   "ka": "თბილისში გაიხსნა საოპერო თეატრი (მშენებლობა დაიწყო 1847 წელს; საზეიმო გახსნა 1851 წლის 9 ნოემბერს)",
+   "note": {
+    "ru": "en.wikipedia (Georgian National Opera Theater): театр сгорел 11 октября 1874; окончательно открыт заново в 1896.",
+    "en": "en.wikipedia (Georgian National Opera Theater): the theatre burnt down on 11 October 1874 and finally reopened in 1896.",
+    "ka": "en.wikipedia (Georgian National Opera Theater): თეატრი 1874 წლის 11 ოქტომბერს დაიწვა და საბოლოოდ 1896 წელს ხელახლა გაიხსნა."
+   },
+   "place": {
+    "lng": 44.79616667,
+    "lat": 41.70130556,
+    "zoom": 16,
+    "ru": "Оперный театр",
+    "en": "The opera house",
+    "src": "coordinates of the page 'Georgian National Opera Theater' on English Wikipedia"
+   }
+  },
+  {
    "year": 1855,
    "date": "28.08.1855",
    "cat": "flood",
@@ -811,6 +979,36 @@
    }
   },
   {
+   "year": 1883,
+   "date": "3.04.1883",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Trams_in_Tbilisi"
+   ],
+   "ru": "Открыта конка, трамвай на конной тяге",
+   "en": "The horse tram opens, the first tram line in the city",
+   "ka": "გაიხსნა ცხენებით გამწევი ტრამვაი (კონკა)"
+  },
+  {
+   "year": 1887,
+   "date": "1887",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Rustaveli_Theatre"
+   ],
+   "ru": "Достроено здание на проспекте Руставели (тогда Общество художников), с 1921 года Театр имени Руставели",
+   "en": "The building on Rustaveli Avenue is completed (then the Artists' Society), the Rustaveli Theatre since 1921",
+   "ka": "დასრულდა შენობა რუსთაველის გამზირზე (მაშინ მხატვართა საზოგადოება), 1921 წლიდან რუსთაველის თეატრი",
+   "place": {
+    "lng": 44.79777778,
+    "lat": 41.69972222,
+    "zoom": 16,
+    "ru": "Театр Руставели",
+    "en": "The Rustaveli Theatre",
+    "src": "coordinates of the page 'Rustaveli Theatre' on English Wikipedia"
+   }
+  },
+  {
    "year": 1893,
    "date": "1893",
    "cat": "other",
@@ -968,6 +1166,23 @@
    "ka": "წავკისისწყლის წყალდიდობამ მთლიანად დაანგრია აბანოთუბნის კვარტალი (10 დაღუპული)"
   },
   {
+   "year": 1904,
+   "date": "1904",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Trams_in_Tbilisi",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "ru": "Начало электрификации трамвая в Тбилиси",
+   "en": "The Tbilisi tram begins to be electrified",
+   "ka": "თბილისში ტრამვაის ელექტრიფიკაცია დაიწყო",
+   "note": {
+    "ru": "en.wikipedia (Trams in Tbilisi): электрификация шла с июня 1904 по август 1905.",
+    "en": "en.wikipedia (Trams in Tbilisi): the electrification took place between June 1904 and August 1905.",
+    "ka": "en.wikipedia (Trams in Tbilisi): ელექტრიფიკაცია 1904 წლის ივნისიდან 1905 წლის აგვისტომდე მიმდინარეობდა."
+   }
+  },
+  {
    "year": 1905,
    "date": "1905",
    "cat": "other",
@@ -982,6 +1197,28 @@
     "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked. The wording and figures of the article (in the Soviet tradition) were not checked.",
     "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა. სტატიის ფორმულირებები და ციფრები (საბჭოთა ტრადიციით) არ შემოწმებულა."
    }
+  },
+  {
+   "year": 1905,
+   "date": "1901-1905",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi_State_Conservatoire"
+   ],
+   "ru": "Построено здание, в котором с 1917 года работает Тбилисская консерватория",
+   "en": "The building of today's Tbilisi State Conservatoire is built (the conservatoire itself was founded on 1 May 1917)",
+   "ka": "აშენდა შენობა, რომელშიც 1917 წლიდან თბილისის სახელმწიფო კონსერვატორია მოღვაწეობს"
+  },
+  {
+   "year": 1905,
+   "date": "1905",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "ru": "Впервые построен фуникулёр на Мтацминду (в 2012 году открыт заново после многолетнего перерыва)",
+   "en": "The funicular up Mtatsminda is first built (reopened in 2012 after a multi-year closure)",
+   "ka": "პირველად აშენდა ფუნიკულიორი მთაწმინდაზე (2012 წელს ხელახლა გაიხსნა მრავალწლიანი შეჩერების შემდეგ)"
   },
   {
    "year": 1918,
@@ -1016,6 +1253,30 @@
    "ka": "გამოცხადდა საქართველოს დამოუკიდებლობა, თბილისი ხდება საქართველოს დემოკრატიული რესპუბლიკის დედაქალაქი"
   },
   {
+   "year": 1918,
+   "date": "1918",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi_State_University"
+   ],
+   "ru": "Основан Тбилисский государственный университет, первый университет на Кавказе",
+   "en": "Tbilisi State University is founded, the first university in the Caucasus",
+   "ka": "დაარსდა თბილისის სახელმწიფო უნივერსიტეტი, პირველი უნივერსიტეტი კავკასიაში",
+   "note": {
+    "ru": "en.wikipedia: в статье встречаются разные даты: 26 января и 8 февраля 1918.",
+    "en": "en.wikipedia: the article gives different dates: 26 January and 8 February 1918.",
+    "ka": "en.wikipedia: სტატიაში სხვადასხვა თარიღია მითითებული: 1918 წლის 26 იანვარი და 8 თებერვალი."
+   },
+   "place": {
+    "lng": 44.77833333,
+    "lat": 41.71,
+    "zoom": 16,
+    "ru": "Тбилисский государственный университет",
+    "en": "Tbilisi State University",
+    "src": "coordinates of the page 'Tbilisi State University' on English Wikipedia"
+   }
+  },
+  {
    "year": 1921,
    "date": "25.02.1921",
    "cat": "invasion",
@@ -1046,6 +1307,25 @@
    "ka": "ვერეს წყალდიდობამ მტკვარში გააყოლა მდინარესთან ღამის გამთენებელი გლეხები ხარებითა და არბებით (10-ზე მეტი დაღუპული)"
   },
   {
+   "year": 1936,
+   "date": "1936",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Boris_Paichadze_Dinamo_Arena"
+   ],
+   "ru": "Открыт стадион «Динамо» на 23 тысячи мест",
+   "en": "The Dinamo stadium opens, with 23,000 seats",
+   "ka": "გაიხსნა დინამოს სტადიონი 23 ათასი ადგილით",
+   "place": {
+    "lng": 44.78972222,
+    "lat": 41.72305556,
+    "zoom": 16,
+    "ru": "Стадион «Динамо» (арена Бориса Пайчадзе)",
+    "en": "The Dinamo stadium (Boris Paichadze Dinamo Arena)",
+    "src": "coordinates of the page 'Boris Paichadze Dinamo Arena' on English Wikipedia"
+   }
+  },
+  {
    "year": 1940,
    "date": "10.05.1940",
    "cat": "flood",
@@ -1063,6 +1343,25 @@
     "ka": "ინფორმაცია გადმოცემულია სტატიის ცხრილისა და ტექსტის მიხედვით (წაკითხულია ეკრანზე; ქართულიდან თარგმანი ჩემია). დაღუპულთა რიცხვი სტატიაშია მითითებული."
    },
    "ka": "კოკისპირულმა წვიმამ (166 მმ) გამოიწვია მტკვრისა და ვერეს წყალდიდობა: ტალახიანი და ქვიანი ნაკადები ქუჩებს, სარდაფებსა და პირველ სართულებს ავსებდა, ტრანსპორტი რამდენიმე დღით გაჩერდა; დაიღუპა 20-ზე მეტი ადამიანი"
+  },
+  {
+   "year": 1946,
+   "date": "1946",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Vake_Park"
+   ],
+   "ru": "Открыт парк Ваке",
+   "en": "Vake Park opens",
+   "ka": "გაიხსნა ვაკის პარკი",
+   "place": {
+    "lng": 44.751389,
+    "lat": 41.708889,
+    "zoom": 16,
+    "ru": "Парк Ваке",
+    "en": "Vake Park",
+    "src": "coordinates of the page 'Vake Park' on English Wikipedia"
+   }
   },
   {
    "year": 1955,
@@ -1120,6 +1419,17 @@
    "ka": "ვერეს წყალდიდობა: ზემოთ დანგრეულია ხიდები, მილსადენები და ჰიდრონაგებობები; ვაკე-საბურთალოს გვირაბთან ჩახერგილობის გარღვევის შემდეგ წყალი (259 მ³/წმ) მტკვრისკენ გამოექანა და ზოოპარკსა და აბრეშუმის ფაბრიკაში შეიჭრა"
   },
   {
+   "year": 1966,
+   "date": "11.01.1966",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi_Metro"
+   ],
+   "ru": "Открыто Тбилисское метро: первые шесть станций (стройка началась в 1952); четвёртое метро в СССР",
+   "en": "The Tbilisi Metro opens with its first six stations (construction began in 1952); the fourth metro system in the USSR",
+   "ka": "გაიხსნა თბილისის მეტროპოლიტენი პირველი ექვსი სადგურით (მშენებლობა დაიწყო 1952 წელს); მეოთხე მეტრო სსრკ-ში"
+  },
+  {
    "year": 1968,
    "date": "18-19.04.1968",
    "cat": "flood",
@@ -1137,6 +1447,64 @@
     "ka": "ინფორმაცია გადმოცემულია სტატიის ცხრილისა და ტექსტის მიხედვით (წაკითხულია ეკრანზე; ქართულიდან თარგმანი ჩემია). დაღუპულთა რიცხვი სტატიაშია მითითებული."
    },
    "ka": "მტკვრის უდიდესი წყალდიდობა დაკვირვების მანძილზე: 19 აპრილს პიკი 2450 მ³/წმ, კალაპოტის გამტარუნარიანობაზე (1800 მ³/წმ) 36%-ით მეტი; დაიტბორა სახლების სარდაფები და პირველი სართულები"
+  },
+  {
+   "year": 1972,
+   "date": "1972",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi_TV_Broadcasting_Tower"
+   ],
+   "ru": "Построена Тбилисская телебашня на Мтацминде",
+   "en": "The Tbilisi TV tower is built on Mtatsminda",
+   "ka": "მთაწმინდაზე აშენდა თბილისის სატელევიზიო კოშკი",
+   "place": {
+    "lng": 44.78472222,
+    "lat": 41.69583333,
+    "zoom": 16,
+    "ru": "Телебашня на Мтацминде",
+    "en": "The TV tower on Mtatsminda",
+    "src": "coordinates of the page 'Tbilisi TV Broadcasting Tower' on English Wikipedia"
+   }
+  },
+  {
+   "year": 1976,
+   "date": "26.09.1976",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Boris_Paichadze_Dinamo_Arena"
+   ],
+   "ru": "Открыта реконструированная арена «Динамо»; первый официальный матч 29 сентября (3:0 с «Кардифф Сити»)",
+   "en": "The rebuilt Dinamo Arena is inaugurated; the first official match is on 29 September (3-0 against Cardiff City)",
+   "ka": "გაიხსნა რეკონსტრუირებული დინამოს არენა; პირველი ოფიციალური მატჩი 29 სექტემბერს (3:0 კარდიფ სიტისთან)",
+   "place": {
+    "lng": 44.78972222,
+    "lat": 41.72305556,
+    "zoom": 16,
+    "ru": "Стадион «Динамо» (арена Бориса Пайчадзе)",
+    "en": "The Dinamo stadium (Boris Paichadze Dinamo Arena)",
+    "src": "coordinates of the page 'Boris Paichadze Dinamo Arena' on English Wikipedia"
+   }
+  },
+  {
+   "year": 1981,
+   "date": "1981",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/FC_Dinamo_Tbilisi",
+    "https://en.wikipedia.org/wiki/Boris_Paichadze_Dinamo_Arena"
+   ],
+   "ru": "«Динамо» Тбилиси выигрывает Кубок обладателей кубков УЕФА (финал в Дюссельдорфе, 2:1 с «Карл Цейсс»); 80 тысяч болельщиков встречают команду на стадионе",
+   "en": "Dinamo Tbilisi win the UEFA Cup Winners' Cup (final in Dusseldorf, 2-1 against Carl Zeiss Jena); 80,000 fans greet the team at the stadium",
+   "ka": "თბილისის დინამო იგებს უეფას თასი მფლობელთა თასს (ფინალი დიუსელდორფში, 2:1 კარლ ცაისის წინააღმდეგ); 80 ათასი გულშემატკივარი ხვდება გუნდს სტადიონზე",
+   "place": {
+    "lng": 44.78972222,
+    "lat": 41.72305556,
+    "zoom": 16,
+    "ru": "Стадион «Динамо» (арена Бориса Пайчадзе)",
+    "en": "The Dinamo stadium (Boris Paichadze Dinamo Arena)",
+    "src": "coordinates of the page 'Boris Paichadze Dinamo Arena' on English Wikipedia"
+   }
   },
   {
    "year": 1989,
@@ -1199,6 +1567,74 @@
    "ka": "მიწისძვრა თბილისში (mb 4,8): ეპიცენტრი ქალაქის ფარგლებში, 5-7 დაღუპული, 18 000 შინამეურნეობა მძიმედ დაზარალდა"
   },
   {
+   "year": 2004,
+   "date": "23.11.2004",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Holy_Trinity_Cathedral_of_Tbilisi"
+   ],
+   "ru": "Освящён собор Святой Троицы (Самеба); закладка состоялась 23 ноября 1995",
+   "en": "The Holy Trinity Cathedral (Sameba) is consecrated; the foundation was laid on 23 November 1995",
+   "ka": "აკურთხეს წმინდა სამების ტაძარი (სამება); საძირკველი 1995 წლის 23 ნოემბერს ჩაეყარა",
+   "place": {
+    "lng": 44.81666667,
+    "lat": 41.6975,
+    "zoom": 16,
+    "ru": "Собор Самеба",
+    "en": "Sameba Cathedral",
+    "src": "coordinates of the page 'Holy Trinity Cathedral of Tbilisi' on English Wikipedia"
+   }
+  },
+  {
+   "year": 2006,
+   "date": "23.11.2006",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Freedom_Square,_Tbilisi"
+   ],
+   "ru": "На площади Свободы открыт монумент Свободы со Святым Георгием (на месте памятника Ленину, снесённого в 1991)",
+   "en": "The Liberty Monument with St George is unveiled on Freedom Square (where the Lenin statue stood until 1991)",
+   "ka": "თავისუფლების მოედანზე გაიხსნა თავისუფლების მონუმენტი წმინდა გიორგით (ლენინის ძეგლის ადგილზე, რომელიც 1991 წელს დაანგრიეს)",
+   "place": {
+    "lng": 44.80166667,
+    "lat": 41.69333333,
+    "zoom": 16.5,
+    "ru": "Площадь Свободы",
+    "en": "Freedom Square",
+    "src": "coordinates of the page 'Freedom Square, Tbilisi' on English Wikipedia"
+   }
+  },
+  {
+   "year": 2010,
+   "date": "6.05.2010",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bridge_of_Peace"
+   ],
+   "ru": "Официально открыт Мост Мира через Куру",
+   "en": "The Bridge of Peace over the Kura is officially opened",
+   "ka": "ოფიციალურად გაიხსნა მშვიდობის ხიდი მტკვარზე",
+   "place": {
+    "lng": 44.8082,
+    "lat": 41.6929,
+    "zoom": 16,
+    "ru": "Мост Мира",
+    "en": "The Bridge of Peace",
+    "src": "coordinates of the page 'Bridge of Peace' on English Wikipedia"
+   }
+  },
+  {
+   "year": 2012,
+   "date": "2012",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "ru": "Начала работать канатная дорога Рике - Нарикала; фуникулёр на Мтацминду открыт вновь",
+   "en": "The Rike Park - Narikala gondola lift starts to run; the Mtatsminda funicular reopens",
+   "ka": "ამოქმედდა რიყის პარკი - ნარიყალას საბაგირო; მთაწმინდის ფუნიკულიორი ხელახლა გაიხსნა"
+  },
+  {
    "year": 2015,
    "date": "13-14.06.2015",
    "cat": "flood",
@@ -1222,6 +1658,25 @@
     "src": "centre of Heroes' Square from OpenStreetMap; the page names the Vere valley, the zoo and Heroes' Square"
    },
    "ka": "მდინარე ვერეს წყალდიდობა: სულ მცირე 20 დაღუპული, დაზიანდა ზოოპარკი და გმირთა მოედანი"
+  },
+  {
+   "year": 2016,
+   "date": "1.2016",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Georgian_National_Opera_Theater"
+   ],
+   "ru": "Завершена реставрация оперного театра (около 40 млн долларов)",
+   "en": "The restoration of the opera house is completed (about 40 million dollars)",
+   "ka": "დასრულდა საოპერო თეატრის რესტავრაცია (დაახლოებით 40 მილიონი დოლარი)",
+   "place": {
+    "lng": 44.79616667,
+    "lat": 41.70130556,
+    "zoom": 16,
+    "ru": "Оперный театр",
+    "en": "The opera house",
+    "src": "coordinates of the page 'Georgian National Opera Theater' on English Wikipedia"
+   }
   }
  ]
 }
