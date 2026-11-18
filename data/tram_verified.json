@@ -28,5 +28,15 @@
   "closing years of routes 1, 2, 11: not stated (only the lists of routes in 2000, 2003, 2005)",
   "1986 length 105 km: contradicted (en and ru infobox: 54 km in 1986; 105 km is 1965-1970)",
   "route 12 omitted Barisakhos St; Isani/Samgori for route 7 not stated; depot No 3 not stated"
- ]
+ ],
+ "search_2026_11_18_1904_1962": {
+  "sources": {
+   "antiqueland": "https://antiqueland.ru/articles/380/ (article from the magazine Antiquariat no. 81, Nov 2010, based on a book by A. Avchukhov; dates old style (new style))",
+   "memogzauri": "https://www.memogzauri.com/tbilisi-tram-history/",
+   "blogspot": "http://tramvai-tbilisi.blogspot.com/p/blog-page_13.html"
+  },
+  "lines_named_without_streets": "Konka and electric lines of 1883-1911 are named (Mikhailovskaya, Erivan, Olginskaya, Peski, Vera, Ortachala, Mushtaid, Avchala, Leskovskaya, Sadovaya, Tskhneti, Didube, Avlabar, Golovin, Navtlugi, Sololaki, slaughterhouse, Mukhran, Nakhalovka) with opening or electrification dates, but the pages name streets only for: Mikhailovsky avenue (first konka line, with Vorontsov Square - railway station), Mushtaid lane (depot), Avchala/Molokan streets (proposal of 1888), Vera bridge and descent, the garden gates of Mushtaid. Not drawn: no street list.",
+  "closures": "1942 last 1 m lines; 1957 Dzneladze street; 1959 9th hospital - Bagebi; old Ortachala and Sololaki lines closed (no year); lines moved from Rustaveli and Plekhanov avenues to parallel Dzneladze and Clara Zetkin streets (no year)",
+  "conflict": "first broad-gauge line: memogzauri 1933 Isani hospital - Samgori ceramic works; ru.wikipedia 15.02.1934 Meat Combine - Shaumyan Square; the earlier 'not supported' verdict on the 1933 claim is softened: one Georgian page states it"
+ }
 }
