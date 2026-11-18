@@ -2889,9 +2889,9 @@
   "window": 1,
   "image": "data/views/mod_2019_balconies.webp",
   "title": {
-   "ru": "Дом с кружевными деревянными балконами, июль 2019",
-   "en": "A house with lace-like wooden balconies, July 2019",
-   "ka": "სახლი ხის ჩუქურთმიანი აივნებით, 2019 წლის ივლისი"
+   "ru": "Дом князя Габашвили на проспекте Руставели, июль 2019",
+   "en": "Prince Gabashvili's house on Rustaveli Avenue, July 2019",
+   "ka": "თავად გაბაშვილის სახლი რუსთაველის გამზირზე, 2019 წლის ივლისი"
   },
   "author": {
    "ru": "Михаил Диденко",
@@ -2899,9 +2899,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
-   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта. Здание: дом князя Василия Габашвили (Руставели, 54; построен в 1896 по проекту Корнелия Татищева, ru.wikipedia, «Дом Габашвили (Тбилиси)»). Дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The building: the house of Prince Vasil Gabashvili (Rustaveli 54; built in 1896 to a design by Cornelius Tatishchev, ru.wikipedia, 'Дом Габашвили (Тбилиси)'). The date is from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. შენობა: თავად ვასილ გაბაშვილის სახლი (რუსთაველის 54; აშენდა 1896 წელს კორნელიუს ტატიშჩევის პროექტით, ru.wikipedia, „Дом Габашвили (Тбилиси)“). თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",

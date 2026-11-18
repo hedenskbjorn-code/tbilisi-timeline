@@ -21,7 +21,7 @@ NOTE = A("Фото автора проекта. Подпись и дата по 
 # (file n, id, year, ru, en, ka)
 ITEMS = [
     (2, "mod_2018_kura", 2018, "Набережная Куры и Самеба вдали, октябрь 2018", "The Kura embankment with Sameba in the distance, October 2018", "მტკვრის სანაპირო და შორს სამების ტაძარი, 2018 წლის ოქტომბერი"),
-    (16, "mod_2019_balconies", 2019, "Дом с кружевными деревянными балконами, июль 2019", "A house with lace-like wooden balconies, July 2019", "სახლი ხის ჩუქურთმიანი აივნებით, 2019 წლის ივლისი"),
+    (16, "mod_2019_balconies", 2019, "Дом князя Габашвили на проспекте Руставели, июль 2019", "Prince Gabashvili's house on Rustaveli Avenue, July 2019", "თავად გაბაშვილის სახლი რუსთაველის გამზირზე, 2019 წლის ივლისი"),
     (17, "mod_2019_panorama", 2019, "Панорама Тбилиси с горы, июль 2019", "A panorama of Tbilisi from the hill, July 2019", "თბილისის პანორამა მთიდან, 2019 წლის ივლისი"),
     (11, "mod_2019_evening", 2019, "Вечер над крышами города, май 2019", "Evening over the roofs of the city, May 2019", "საღამო ქალაქის სახურავებზე, 2019 წლის მაისი"),
     (25, "mod_2020_narikala_view", 2020, "Старый Тбилиси, Кура и мост Метехи, вид с Нарикала, февраль 2020", "Old Tbilisi, the Kura and the Metekhi bridge seen from Narikala, February 2020", "ძველი თბილისი, მტკვარი და მეტეხის ხიდი ნარიყალადან, 2020 წლის თებერვალი"),
