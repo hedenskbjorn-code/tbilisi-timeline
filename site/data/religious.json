@@ -1,0 +1,564 @@
+[
+ {
+  "id": "atashgah",
+  "rel": "zoroastrian",
+  "from": 364,
+  "date": "224-651",
+  "lat": 41.68885,
+  "lon": 44.80559,
+  "name": {
+   "ru": "Атешга (храм огня)",
+   "en": "Atashgah (fire temple)",
+   "ka": "ათეშგა"
+  },
+  "status": {
+   "ru": "сохранилась: кирпичное здание под защитной крышей",
+   "en": "survives: a brick building under a protective roof",
+   "ka": "შემორჩენილია: აგურის შენობა დამცავი სახურავის ქვეშ"
+  },
+  "note": {
+   "ru": "Зороастрийский храм огня; датируется эпохой Сасанидов (224-651). Описывается как самый северный зороастрийский храм огня в мире. Рядом с церковью Земо Бетлеми.",
+   "en": "A Zoroastrian fire temple, generally dated to the Sasanian era (224-651). Described as the northernmost Zoroastrian fire temple in the world. Close to the Zemo Betlemi church.",
+   "ka": "ზოროასტრული ცეცხლის ტაძარი, ჩვეულებრივ სასანიანთა ეპოქით (224-651) თარიღდება. აღწერენ როგორც მსოფლიოში ყველაზე ჩრდილოეთით მდებარე ზოროასტრულ ცეცხლის ტაძარს. ახლოსაა ზემო ბეთლემის ეკლესიასთან."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Atashgah_of_Tbilisi"
+  ]
+ },
+ {
+  "id": "anchiskhati",
+  "rel": "orthodox",
+  "from": 550,
+  "date": "500-599",
+  "lat": 41.69555556,
+  "lon": 44.80694444,
+  "name": {
+   "ru": "Базилика Анчисхати",
+   "en": "Anchiskhati Basilica",
+   "ka": "ანჩისხატის ბაზილიკა"
+  },
+  "status": {
+   "ru": "сохранилась",
+   "en": "survives",
+   "ka": "შემორჩენილია"
+  },
+  "note": {
+   "ru": "VI век; старейшая сохранившаяся церковь Тбилиси. Позднее перестраивалась (XV-XVII вв.), колокольня 1675 года, реставрация 1958-1964.",
+   "en": "6th century; the oldest surviving church in Tbilisi. Rebuilt later (15th-17th centuries), the belfry is of 1675, restored in 1958-1964.",
+   "ka": "VI საუკუნე; თბილისის უძველესი შემორჩენილი ეკლესია. შემდგომში გადაკეთდა (XV-XVII სს.), სამრეკლო 1675 წლისაა, რესტავრაცია 1958-1964 წლებში."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Anchiskhati_Basilica"
+  ]
+ },
+ {
+  "id": "sioni",
+  "rel": "orthodox",
+  "from": 575,
+  "date": "575-639",
+  "lat": 41.6914,
+  "lon": 44.8075,
+  "name": {
+   "ru": "Собор Сиони",
+   "en": "Sioni Cathedral",
+   "ka": "სიონის ტაძარი"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Строительство начато около 575, завершено около 639 (по преданию, замысел Вахтанга Горгасали V века). Полностью перестроен Давидом Строителем в 1112; колокольня 1812. До 2004 года резиденция Католикоса-Патриарха.",
+   "en": "Begun about 575 and completed about 639 (tradition ascribes the idea to Vakhtang Gorgasali, 5th century). Completely rebuilt by David the Builder in 1112; the belfry is of 1812. Seat of the Catholicos-Patriarch until 2004.",
+   "ka": "მშენებლობა დაახლოებით 575 წელს დაიწყო და 639 წელს დასრულდა (გადმოცემით იდეა ვახტანგ გორგასალს ეკუთვნის, V ს.). დავით აღმაშენებელმა 1112 წელს მთლიანად ხელახლა ააგო; სამრეკლო 1812 წლისაა. 2004 წლამდე კათოლიკოს-პატრიარქის რეზიდენცია იყო."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Tbilisi_Sioni_Cathedral"
+  ]
+ },
+ {
+  "id": "surb_gevorg",
+  "rel": "armenian",
+  "from": 1251,
+  "date": "1251",
+  "lat": 41.6892,
+  "lon": 44.8089,
+  "name": {
+   "ru": "Церковь Сурб Геворг (св. Георгия)",
+   "en": "Surb Gevorg (St George) church",
+   "ka": "სურბ გევორქის ეკლესია"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Завершена к 1251 году или раньше. Колокольня XV века; в 1795 выгорела изнутри; реставрация 2012-2015. Кафедральный собор Грузинской епархии Армянской апостольской церкви.",
+   "en": "Completed by 1251 or earlier. A 15th-century belfry; burnt out inside in 1795; restored in 2012-2015. The cathedral of the Georgian diocese of the Armenian Apostolic Church.",
+   "ka": "დასრულდა 1251 წლამდე ან უფრო ადრე. XV საუკუნის სამრეკლო; 1795 წელს შიგნიდან დაიწვა; რესტავრაცია 2012-2015 წლებში. სომხური სამოციქულო ეკლესიის საქართველოს ეპარქიის კათედრალი."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_Сурб_Геворг_(Тбилиси)",
+   "https://en.wikipedia.org/wiki/Saint_George%27s_Church,_Tbilisi"
+  ]
+ },
+ {
+  "id": "metekhi",
+  "rel": "orthodox",
+  "from": 1278,
+  "date": "1278-1289",
+  "lat": 41.69013,
+  "lon": 44.81118,
+  "name": {
+   "ru": "Церковь Метехи (Рождества Богородицы)",
+   "en": "Metekhi Church (Nativity of the Mother of God)",
+   "ka": "მეტეხის ღვთისმშობლის შობის ტაძარი"
+  },
+  "status": {
+   "ru": "действует (с 1988)",
+   "en": "in use (since 1988)",
+   "ka": "მოქმედია (1988 წლიდან)"
+  },
+  "note": {
+   "ru": "Построена в 1278-1289 при Деметре II. В советское время склад, лагерь НКВД (1921), молодёжный театр (1974); возвращена верующим в 1988.",
+   "en": "Built in 1278-1289 under Demetrius II. In Soviet times a store, an NKVD camp (1921), a youth theatre (1974); returned to worship in 1988.",
+   "ka": "აშენდა 1278-1289 წლებში დემეტრე II-ის დროს. საბჭოთა პერიოდში საწყობი, შსს-ს ბანაკი (1921), ახალგაზრდული თეატრი (1974); ბრუნდება მორწმუნეებს 1988 წელს."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Metekhi_Church"
+  ]
+ },
+ {
+  "id": "norashen",
+  "rel": "armenian",
+  "from": 1467,
+  "date": "1467",
+  "lat": 41.691,
+  "lon": 44.80654,
+  "name": {
+   "ru": "Церковь Норашен",
+   "en": "Norashen Church",
+   "ka": "ნორაშენის ეკლესია"
+  },
+  "status": {
+   "ru": "здание стоит, не действует; спорная церковь",
+   "en": "the building stands, not in use; a disputed church",
+   "ka": "შენობა დგას, არ მოქმედებს; სადავო ეკლესია"
+  },
+  "note": {
+   "ru": "Построена в 1467 (Сатат). Закрыта в советское время (1933 по en, 1934-1937 по ru). В 1995 освящена грузинским духовенством как православная; армяне протестовали, церковь закрыта. Реставрация 2015-2016.",
+   "en": "Built in 1467 (Satat). Shut in Soviet times (1933 per en, 1934-1937 per ru). In 1995 Georgian clergy re-consecrated it as an Orthodox church; the Armenians protested and it was closed. Restored in 2015-2016.",
+   "ka": "აშენდა 1467 წელს (სატატი). საბჭოთა პერიოდში დაკეტეს (1933 en-ის მიხედვით, 1934-1937 ru-ს მიხედვით). 1995 წელს ქართულმა სასულიერო პირებმა მართლმადიდებლურად აკურთხეს; სომხებმა გააპროტესტეს და ეკლესია დაიკეტა. რესტავრაცია 2015-2016 წლებში."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_Норашен_(Тбилиси)",
+   "https://en.wikipedia.org/wiki/Norashen_Church"
+  ]
+ },
+ {
+  "id": "vank",
+  "rel": "armenian",
+  "from": 1480,
+  "date": "1480",
+  "lat": 41.696328,
+  "lon": 44.806723,
+  "name": {
+   "ru": "Ванкский собор",
+   "en": "Vank Cathedral",
+   "ka": "ვანქის ტაძარი"
+  },
+  "status": {
+   "ru": "снесён; сохранилась колокольня (ул. Атонели, 3)",
+   "en": "demolished; the belfry survives (Atoneli Street 3)",
+   "ka": "დანგრეულია; შემორჩა სამრეკლო (ატონელის ქ. 3)"
+  },
+  "note": {
+   "ru": "Армянский кафедральный собор; построен или обновлён в 1480 (по ru также около 1720). Снесён по приказу Берии: 1930 (ru текст, en инфобокс) или 1938 (ru инфобокс, en текст).",
+   "en": "The Armenian cathedral; built or renovated in 1480 (about 1720 per ru as well). Demolished on Beria's orders: 1930 (ru text, en infobox) or 1938 (ru infobox, en text).",
+   "ka": "სომხური საკათედრო ტაძარი; აშენდა ან განახლდა 1480 წელს. დაანგრიეს ბერიას ბრძანებით: 1930 ან 1938 წელს (წყაროები განსხვავდება). შემორჩა სამრეკლო."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Ванкский_собор_(Тбилиси)",
+   "https://en.wikipedia.org/wiki/Vank_Monastery,_Tbilisi"
+  ],
+  "to": 1930
+ },
+ {
+  "id": "shia_mosque",
+  "rel": "muslim",
+  "from": 1522,
+  "date": "1522-1524",
+  "lat": 41.69033333,
+  "lon": 44.80946944,
+  "name": {
+   "ru": "Шиитская мечеть шаха Исмаила",
+   "en": "Shia mosque of Shah Ismail",
+   "ka": "შაჰ-ისმაილის მეჩეთი"
+  },
+  "status": {
+   "ru": "снесена в 1951 (по инфобоксу 1952)",
+   "en": "demolished in 1951 (1952 per the infobox)",
+   "ka": "დანგრეულია 1951 წელს (ინფობოქსში 1952)"
+  },
+  "note": {
+   "ru": "Построена в 1522-1524 при шахе Исмаиле I, расширена в 1606 при шахе Аббасе. Снесена при строительстве нового моста у Метехи.",
+   "en": "Built in 1522-1524 under Shah Ismail I, enlarged in 1606 under Shah Abbas. Demolished when the new bridge by Metekhi was built.",
+   "ka": "აშენდა 1522-1524 წლებში შაჰ ისმაილ I-ის დროს, გაფართოვდა 1606 წელს შაჰ აბასის დროს. დაანგრიეს მეტეხთან ახალი ხიდის მშენებლობისას."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Тбилисская_шиитская_мечеть",
+   "https://ka.wikipedia.org/wiki/თბილისის_შაჰ-ისმაილის_მეჩეთი"
+  ],
+  "to": 1951
+ },
+ {
+  "id": "khojivank",
+  "rel": "armenian",
+  "from": 1655,
+  "date": "1655",
+  "lat": 41.698333,
+  "lon": 44.818611,
+  "name": {
+   "ru": "Церковь Сурб Аствацацин (Ходживанк)",
+   "en": "Surb Astvatsatsin church (Khojivank)",
+   "ka": "სურბ ასტვაცაცინის ეკლესია (ხოჯივანქი)"
+  },
+  "status": {
+   "ru": "снесена; на месте Самеба, сохранился армянский пантеон (с 1962)",
+   "en": "destroyed; the site lies under Sameba, the Armenian Pantheon remains (opened 1962)",
+   "ka": "დანგრეულია; ადგილზე სამებაა, შემორჩა სომხური პანთეონი (1962 წლიდან)"
+  },
+  "note": {
+   "ru": "Построена в 1655 (армянская надпись 1104 года). Разрушение началось в 1934 по приказу Берии; кладбище разрушалось до 1938. Точка на карте: пантеон.",
+   "en": "Built in 1655 (an Armenian inscription of 1104 = 1655). The destruction began in 1934 on Beria's order; the cemetery was destroyed until 1938. The point on the map: the Pantheon.",
+   "ka": "აშენდა 1655 წელს. განადგურება დაიწყო 1934 წელს ბერიას ბრძანებით; სასაფლაო 1938 წლამდე ნადგურდებოდა. წერტილი რუკაზე: პანთეონი."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Khojivank_Pantheon_of_Tbilisi"
+  ],
+  "to": 1934
+ },
+ {
+  "id": "surb_nshan",
+  "rel": "armenian",
+  "from": 1703,
+  "date": "1703-1711",
+  "lat": 41.694309,
+  "lon": 44.804694,
+  "name": {
+   "ru": "Церковь Святого Знака (Сурб Ншан)",
+   "en": "Church of the Holy Sign (Surb Nshan)",
+   "ka": "სურბ ნიშანი (წმინდა ნიშნის ეკლესია)"
+  },
+  "status": {
+   "ru": "руины, не действует",
+   "en": "a dilapidated ruin, not in use",
+   "ka": "მდგომარეობა მძიმეა, არ მოქმედებს"
+  },
+  "note": {
+   "ru": "Построена в 1703-1711, перестроена в 1780. Пострадала в 1795; частично сгорела в 2002 и 2012 годах.",
+   "en": "Built in 1703-1711, rebuilt in 1780. Damaged in 1795; partly burnt in 2002 and 2012.",
+   "ka": "აშენდა 1703-1711 წლებში, გადაკეთდა 1780 წელს. დაზიანდა 1795 წელს; ნაწილობრივ დაიწვა 2002 და 2012 წლებში."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Сурб_Ншан_(Тбилиси)",
+   "https://en.wikipedia.org/wiki/Surb_Nshan_Church,_Tbilisi"
+  ]
+ },
+ {
+  "id": "karapet",
+  "rel": "armenian",
+  "from": 1705,
+  "date": "1705",
+  "lat": 41.69811111,
+  "lon": 44.81008333,
+  "name": {
+   "ru": "Церковь Святого Карапета",
+   "en": "Saint Karapet Church",
+   "ka": "წმინდა კარაპეტის ეკლესია"
+  },
+  "status": {
+   "ru": "действует (православная с 1995)",
+   "en": "in use (Georgian Orthodox since 1995)",
+   "ka": "მოქმედია (მართლმადიდებლური 1995 წლიდან)"
+  },
+  "note": {
+   "ru": "Даты основания расходятся: 1705 (по Нерсесу Аштаракеци), около 1400 (по Казазову, обновлена 1790). Колокольня снесена в 1995. Уцелела при разрушении армянских церквей в 1930-х.",
+   "en": "Founding dates differ: 1705 (per Nerses Ashtaraketsi) or about 1400 (per Kazazov, renovated 1790). The belfry was demolished in 1995. It survived the destruction of Armenian churches in the 1930s.",
+   "ka": "დაარსების თარიღები განსხვავდება: 1705 (ნერსეს აშტარაკეცის მიხედვით) ან დაახლოებით 1400 (კაზაზოვის მიხედვით, განახლდა 1790). სამრეკლო 1995 წელს დაანგრიეს."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_Святого_Карапета_(Тбилиси)",
+   "https://en.wikipedia.org/wiki/Saint_Karapet_Church,_Tbilisi"
+  ]
+ },
+ {
+  "id": "zemo_betlemi",
+  "rel": "armenian",
+  "from": 1727,
+  "date": "1727",
+  "lat": 41.688871,
+  "lon": 44.804599,
+  "name": {
+   "ru": "Церковь Земо Бетлеми (Рождества Богородицы)",
+   "en": "Zemo Betlemi church (Holy Mother of God of Bethlehem)",
+   "ka": "ზემო ბეთლემის ეკლესია"
+  },
+  "status": {
+   "ru": "действует (православная с 1994)",
+   "en": "in use (Georgian Orthodox since 1994)",
+   "ka": "მოქმედია (მართლმადიდებლური 1994 წლიდან)"
+  },
+  "note": {
+   "ru": "Завершена в 1727, перестроена в 1884; изначально армянская. В советское время использовалась заводами; в 1994 передана Грузинской православной церкви.",
+   "en": "Completed in 1727, rebuilt in 1884; originally Armenian. Used by factories in Soviet times; handed to the Georgian Orthodox Church in 1994.",
+   "ka": "დასრულდა 1727 წელს, გადაკეთდა 1884 წელს; თავდაპირველად სომხური. საბჭოთა პერიოდში ქარხნები იყენებდნენ; 1994 წელს გადაეცა ქართულ მართლმადიდებლურ ეკლესიას."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Земо_Бетлеми",
+   "https://en.wikipedia.org/wiki/Holy_Mother_of_God_Church_of_Bethlehem,_Tbilisi"
+  ]
+ },
+ {
+  "id": "kvemo_betlemi",
+  "rel": "armenian",
+  "from": 1727,
+  "date": "1727",
+  "lat": 41.68923,
+  "lon": 44.8040148,
+  "name": {
+   "ru": "Церковь Квемо Бетлеми (св. Стефаноса)",
+   "en": "Lower Bethlehemi Church (St Stepanos)",
+   "ka": "ქვემო ბეთლემის ეკლესია"
+  },
+  "status": {
+   "ru": "действует (православная с 1988)",
+   "en": "in use (Georgian Orthodox since 1988)",
+   "ka": "მოქმედია (მართლმადიდებლური 1988 წლიდან)"
+  },
+  "note": {
+   "ru": "Первое здание завершено в 1727; часовня перестраивалась в 1840-1875 (по en в 1868-1870). Изначально армянская.",
+   "en": "The first building was completed in 1727; rebuilt in the 19th century (1868-1870 per en, the chapel 1840-1875 per ru). Originally Armenian.",
+   "ka": "პირველი შენობა 1727 წელს დასრულდა; XIX საუკუნეში გადაკეთდა (1868-1870 en-ის მიხედვით). თავდაპირველად სომხური."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Квемо_Бетлеми",
+   "https://en.wikipedia.org/wiki/Lower_Bethlehemi_Church"
+  ]
+ },
+ {
+  "id": "kldisubani",
+  "rel": "armenian",
+  "from": 1753,
+  "date": "1753",
+  "lat": 41.6887,
+  "lon": 44.806642,
+  "name": {
+   "ru": "Церковь Карапи Святого Георгия (Клдисубани)",
+   "en": "Church of Saint George (Kldisubani)",
+   "ka": "კლდისუბნის წმინდა გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "действует (православная с 1991)",
+   "en": "in use (Georgian Orthodox since 1991)",
+   "ka": "მოქმედია (მართლმადიდებლური 1991 წლიდან)"
+  },
+  "note": {
+   "ru": "Построена в 1753 (по ru-календарю 1847 года - 1600). В советское время мастерская и голубятня; освящена 23 ноября 1991.",
+   "en": "Built in 1753 (an 1847 calendar gives 1600). A workshop and a pigeon loft in Soviet times; re-consecrated on 23 November 1991.",
+   "ka": "აშენდა 1753 წელს. საბჭოთა პერიოდში სახელოსნო და მტრედების საბუდარი; აკურთხეს 1991 წლის 23 ნოემბერს."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_Карапи_Святого_Георгия_(Клдисубани)",
+   "https://en.wikipedia.org/wiki/Church_of_Saint_George_(Kldisubani)"
+  ]
+ },
+ {
+  "id": "mughni",
+  "rel": "armenian",
+  "from": 1756,
+  "date": "1756",
+  "lat": 41.690259,
+  "lon": 44.804194,
+  "name": {
+   "ru": "Церковь Мугни Сурб Геворг",
+   "en": "Saint Gevorg of Mughni Church",
+   "ka": "მუღნის წმინდა გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "повреждена, купол обрушился в 2009",
+   "en": "damaged, the dome collapsed in 2009",
+   "ka": "დაზიანებულია, გუმბათი 2009 წელს ჩამოინგრა"
+  },
+  "note": {
+   "ru": "Полностью перестроена в 1756 (первая церковь по en XIII века, по ru 1356 или 1537). В советское время склад музея; в 1991 разрушен притвор, в 2009 обрушился купол.",
+   "en": "Entirely rebuilt in 1756 (the first church of the 13th century per en; 1356 or 1537 per ru). Museum storage in Soviet times; the vestibule was destroyed in 1991, the dome collapsed in 2009.",
+   "ka": "მთლიანად გადაკეთდა 1756 წელს (პირველი ეკლესია en-ის მიხედვით XIII ს., ru-ს მიხედვით 1356 ან 1537). 1991 წელს დაინგრა ეკლესიის კარიბჭე, 2009 წელს ჩამოინგრა გუმბათი."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_Мугни_Сурб_Геворг",
+   "https://en.wikipedia.org/wiki/Saint_Gevorg_of_Mughni_Church,_Tbilisi"
+  ]
+ },
+ {
+  "id": "catholic_cathedral",
+  "rel": "catholic",
+  "from": 1805,
+  "date": "1805-1808",
+  "lat": 41.69254,
+  "lon": 44.80353,
+  "name": {
+   "ru": "Католический собор Вознесения Богородицы",
+   "en": "Catholic Cathedral of the Assumption of the Virgin Mary",
+   "ka": "ღვთისმშობლის ამაღლების კათოლიკური ეკლესია"
+  },
+  "status": {
+   "ru": "действует (закрыт в 1937, вновь освящён в 1999)",
+   "en": "in use (closed in 1937, re-consecrated in 1999)",
+   "ka": "მოქმედია (1937 წელს დაიკეტა, 1999 წელს ხელახლა აკურთხეს)"
+  },
+  "note": {
+   "ru": "Заложен в 1805, завершён в 1808 монахом Филиппо Форанианом перед церковью Благовещения. Освящён заново во время визита Иоанна Павла II.",
+   "en": "Begun in 1805 and completed in 1808 by the monk Philipo Foranian in front of an earlier Church of the Annunciation. Re-consecrated during the visit of John Paul II.",
+   "ka": "დაიდო 1805 წელს, დასრულდა 1808 წელს ბერ ფილიპო ფორანიანის მიერ. ხელახლა აკურთხეს იოანე პავლე II-ის ვიზიტისას."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Католический_собор_Вознесения_Богородицы_Девы_Марии_(Тбилиси)",
+   "https://en.wikipedia.org/wiki/Cathedral_of_the_Assumption_of_the_Virgin,_Tbilisi"
+  ]
+ },
+ {
+  "id": "jvari_mama",
+  "rel": "orthodox",
+  "from": 1825,
+  "date": "1825",
+  "lat": 41.69068,
+  "lon": 44.806408,
+  "name": {
+   "ru": "Церковь Джварис Мама",
+   "en": "Jvari Mama church",
+   "ka": "ჯვარის მამის ეკლესია"
+  },
+  "status": {
+   "ru": "действует (с 1989)",
+   "en": "in use (since 1989)",
+   "ka": "მოქმედია (1989 წლიდან)"
+  },
+  "note": {
+   "ru": "По ru основана в V веке при Вахтанге Горгасали; современная постройка 1825 года. По ka сохранившееся здание относится к XVI веку; в 1825 перестроено.",
+   "en": "Per ru founded in the 5th century under Vakhtang Gorgasali; the present building is of 1825. Per ka the surviving building is of the 16th century and was rebuilt in 1825.",
+   "ka": "ru-ს მიხედვით დაარსებულია V საუკუნეში ვახტანგ გორგასლის დროს; დღევანდელი შენობა 1825 წლისაა. ka-ს მიხედვით შემორჩენილი შენობა XVI საუკუნისაა და 1825 წელს გადაკეთდა."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Джварис_Мама",
+   "https://ka.wikipedia.org/wiki/თბილისის_ჯვარის_მამის_ეკლესია"
+  ]
+ },
+ {
+  "id": "juma",
+  "rel": "muslim",
+  "from": 1851,
+  "date": "1851",
+  "lat": 41.68722222,
+  "lon": 44.81027778,
+  "name": {
+   "ru": "Мечеть Джума",
+   "en": "Juma Mosque",
+   "ka": "ჯუმა მეჩეთი"
+  },
+  "status": {
+   "ru": "действует (суннитско-шиитская)",
+   "en": "in use (shared Sunni and Shia)",
+   "ka": "მოქმედია (სუნიტურ-შიიტური)"
+  },
+  "note": {
+   "ru": "Первая мечеть XVIII века разрушена персидскими войсками в 1740-х; здание 1846-1851 (Джованни Скудьери); нынешнее кирпичное здание 1895 (на средства Тагиева); реставрация 1998. Единственная сохранившаяся мечеть Старого города.",
+   "en": "The first mosque of the 18th century was destroyed by Persian forces in the 1740s; the building of 1846-1851 (Giovanni Scudieri); the present brick building of 1895 (funded by Taghiyev); restored in 1998. The only surviving mosque in Old Town.",
+   "ka": "XVIII საუკუნის პირველი მეჩეთი სპარსელებმა 1740-იან წლებში დაანგრიეს; შენობა 1846-1851 (ჯოვანი სკუდიერი); დღევანდელი აგურის შენობა 1895 წლისაა (ტაღიევის დაფინანსებით); რესტავრაცია 1998 წელს."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Juma_Mosque,_Tbilisi"
+  ]
+ },
+ {
+  "id": "kashveti",
+  "rel": "orthodox",
+  "from": 1910,
+  "date": "1904-1910",
+  "lat": 41.697954,
+  "lon": 44.799324,
+  "name": {
+   "ru": "Церковь Кашвети (св. Георгия)",
+   "en": "Kashveti Church (St George)",
+   "ka": "ქაშვეთის წმინდა გიორგის ტაძარი"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Построена в 1904-1910 (Леопольд Бильфельдт) по образцу Самтависи; до неё на месте стояла кирпичная церковь 1753 года. Росписи Ладо Гудиашвили, 1947.",
+   "en": "Built in 1904-1910 (Leopold Bilfeldt) on the model of Samtavisi; an earlier brick church of 1753 stood on the site. Frescoes by Lado Gudiashvili, 1947.",
+   "ka": "აშენდა 1904-1910 წლებში (ლეოპოლდ ბილფელდტი) სამთავისის მიხედვით; ადგილზე 1753 წლის აგურის ეკლესია იდგა. ლადო გუდიაშვილის მოხატულობა, 1947."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Kashveti_Church"
+  ]
+ },
+ {
+  "id": "great_synagogue",
+  "rel": "jewish",
+  "from": 1911,
+  "date": "1904-1911",
+  "lat": 41.69,
+  "lon": 44.80727,
+  "name": {
+   "ru": "Большая синагога",
+   "en": "Great Synagogue",
+   "ka": "დიდი სინაგოგა"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Строительство 1904-1911 по en (по ru 1904-1913; год основания общины 1903). Прежняя домовая синагога 1877 года снесена к 1899.",
+   "en": "Built in 1904-1911 per en (1904-1913 per ru; the community was founded in 1903). The earlier house synagogue of 1877 was demolished by 1899.",
+   "ka": "მშენებლობა 1904-1911 წლებში en-ის მიხედვით (ru-ს მიხედვით 1904-1913). ადრინდელი საოჯახო სინაგოგა 1877 წლისა 1899 წლისთვის დაანგრიეს."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Большая_синагога_(Тбилиси)",
+   "https://en.wikipedia.org/wiki/Great_Synagogue_(Tbilisi)"
+  ]
+ },
+ {
+  "id": "sameba",
+  "rel": "orthodox",
+  "from": 2004,
+  "date": "1995-2004",
+  "lat": 41.6975,
+  "lon": 44.81666667,
+  "name": {
+   "ru": "Собор Святой Троицы (Самеба)",
+   "en": "Holy Trinity Cathedral (Sameba)",
+   "ka": "წმინდა სამების საკათედრო ტაძარი"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Заложен 23 ноября 1995, освящён 23 ноября 2004 (Илия II). Главный собор Грузинской православной церкви; частично построен на месте армянского кладбища Ходживанк.",
+   "en": "The foundation was laid on 23 November 1995, consecrated on 23 November 2004 (Ilia II). The main cathedral of the Georgian Orthodox Church; partly built over the Khojivank Armenian cemetery.",
+   "ka": "საძირკველი ჩაეყარა 1995 წლის 23 ნოემბერს, აკურთხეს 2004 წლის 23 ნოემბერს (ილია II). ქართული მართლმადიდებელი ეკლესიის მთავარი ტაძარი; ნაწილობრივ ხოჯივანქის სომხური სასაფლაოს ადგილზეა აშენებული."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Holy_Trinity_Cathedral_of_Tbilisi"
+  ]
+ }
+]

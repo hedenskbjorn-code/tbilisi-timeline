@@ -1,8 +1,10 @@
 # Tbilisi through time
 
-A non-commercial hobby project: an interactive map of Tbilisi with a timeline slider (1800-2025).
+A non-commercial hobby project: an interactive map of Tbilisi with a timeline slider (364-2026; the early centuries are compressed, the scale can be zoomed).
 Moving the slider changes what is shown: objects of the national register of immovable cultural heritage appear by their
 (estimated) date of construction, and old city plans and traced city limits are shown for the years they cover.
+Along the scale: historical events with sources (invasions, floods, earthquakes, but also buildings, openings and the oldest surviving buildings),
+a "Views" panel with historical and recent photographs of the period, and a search over objects, events and years.
 The page is available in Georgian, English and Russian.
 
 ## Live site
@@ -24,7 +26,8 @@ Published with GitHub Pages from the `site/` folder (see `.github/workflows/page
 - An older city boundary shown for 1999-2005 comes from geoBoundaries ADM2 (metadata: 2007, public domain); its date is not confirmed.
 - Tbilisi Sea outline: (c) OpenStreetMap contributors, ODbL; the earlier salt lakes are traced from a topographic sheet of the Tiflis environs of c.1911 (Wikimedia Commons, public domain).
 - City area figures: N. Kharebava, PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024.
-- Photos: Wikimedia Commons, shown with author and licence; they are matched to objects by coordinates only and may show a neighbouring building.
+- Photos on objects: Wikimedia Commons, shown with author and licence; they are matched to objects by coordinates and checked against the file title and the address, but a few may still show a neighbouring building. The 'Views' panel shows photographs of the periods (Wikimedia Commons: public domain or CC BY / CC BY-SA, with author and link; photographs of the project owner and of G. Chubinidze, published with their permission).
+- Historical events: each is checked against the cited Wikipedia pages or books (see `site/data/history_events.json`, field `src`).
 - Built-up outlines since 1972: GUSV, Zenodo doi:10.5281/zenodo.14523232, CC BY 4.0 (smoothed and simplified). 1954 outline: U.S. Army Map Service sheet NK 38-8, public domain.
 - Base map: [OpenFreeMap](https://openfreemap.org) vector tiles, (c) OpenMapTiles, data (c) OpenStreetMap contributors.
 - The code in this repository is provided as is, without warranty.
