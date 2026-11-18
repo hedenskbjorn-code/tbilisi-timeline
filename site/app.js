@@ -135,6 +135,11 @@
       popTitle: "Население города",
       popNote: "Город в границах разных лет, данные и методики разные: ряд ориентировочный. Тёмные точки: переписи и статистика, светлые: оценки (не подтверждены).",
       popBefore: "Данных о населении на этот год нет (самая ранняя оценка: 1803).",
+      show94: "Объекты 1894 года по описанию иранского путешественника (гостиницы, театры, баня, музеи)",
+      c94Title: "Из описания Тбилиси 1894 года",
+      c94Pos: "Положение",
+      c94Conf: { high: "уверенность высокая", medium: "уверенность средняя (около 100-150 м)", low: "уверенность низкая (200 м и больше)" },
+      c94Src: "Источник",
       btnInfo: "Справка", btnFilters: "Фильтры", filtersTitle: "Фильтры и слои",
       stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
       stNow: "сейчас",
@@ -276,6 +281,11 @@
       popTitle: "Population of the city",
       popNote: "The city within its borders of each year; sources and methods differ, so the series is approximate. Dark dots: censuses and statistics, hollow dots: estimates (not confirmed).",
       popBefore: "No population figure for this year (the earliest estimate is 1803).",
+      show94: "Objects of 1894 from the Persian traveller's description (hotels, theatres, bath, museums)",
+      c94Title: "From the 1894 description of Tbilisi",
+      c94Pos: "Position",
+      c94Conf: { high: "high confidence", medium: "medium confidence (about 100-150 m)", low: "low confidence (200 m or more)" },
+      c94Src: "Source",
       btnInfo: "Info", btnFilters: "Filters", filtersTitle: "Filters and layers",
       stTitle: "Street names in this year (checked against Wikipedia)",
       stNow: "today",
@@ -416,6 +426,11 @@
       popTitle: "ქალაქის მოსახლეობა",
       popNote: "ქალაქი თითოეული წლის საზღვრებში; წყაროები და მეთოდები განსხვავდება, ამიტომ რიგი მიახლოებითია. მუქი წერტილები: აღწერები და სტატისტიკა, ღია წერტილები: შეფასებები (დაუდასტურებელი).",
       popBefore: "ამ წლის მოსახლეობის მონაცემი არ არის (უადრესი შეფასება: 1803).",
+      show94: "1894 წლის ობიექტები ირანელი მოგზაურის აღწერის მიხედვით (სასტუმროები, თეატრები, აბანო, მუზეუმები)",
+      c94Title: "თბილისის 1894 წლის აღწერიდან",
+      c94Pos: "მდებარეობა",
+      c94Conf: { high: "მაღალი სიზუსტე", medium: "საშუალო სიზუსტე (დაახლოებით 100-150 მ)", low: "დაბალი სიზუსტე (200 მ და მეტი)" },
+      c94Src: "წყარო",
       btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
@@ -702,6 +717,7 @@
     updateTopo();
     updateStNames();
     updatePop();
+    updateC94();
     updateStreets();
     updateViews();
     updateSwipe();
@@ -822,6 +838,54 @@
 
   // historical events (invasions, earthquakes, floods, changes of power): icons above the slider; every event has a source (data/history_events.json)
   let histEvents = [];
+  // objects named in the 1894 description of Tbilisi (Majd-os-Saltaneh): a small layer, shown 1894-1899
+  let c94 = null;
+  function updateC94() {
+    if (!c94 || !map.getLayer("c94-pt")) return;
+    const on = $("show94").checked && year >= c94.y0 && year < c94.y1;
+    for (const id of ["c94-pt", "c94-lb"]) map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+  }
+  function addC94() {
+    if (!c94 || map.getSource("c94")) return;
+    map.addSource("c94", { type: "geojson", data: c94 });
+    map.addLayer({ id: "c94-pt", type: "circle", source: "c94", layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 5, 17, 10], "circle-color": "#0b7285", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: "c94-lb", type: "symbol", source: "c94", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#0b4a56", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    for (const f of c94.features) f.properties.short = (f.properties.name[lang] || f.properties.name.en).split(":")[0];
+    map.getSource("c94").setData(c94);
+    map.on("click", "c94-pt", (e) => { if (e.features && e.features[0]) popupC94(e.features[0].properties, e.lngLat); });
+    map.on("mouseenter", "c94-pt", () => { map.getCanvas().style.cursor = "pointer"; });
+    map.on("mouseleave", "c94-pt", () => { map.getCanvas().style.cursor = ""; });
+    updateC94();
+  }
+  function popupC94(p, lngLat) {
+    const L = t();
+    const el = document.createElement("div");
+    el.className = "pop";
+    const nm = typeof p.name === "string" ? JSON.parse(p.name) : p.name;
+    const h3 = document.createElement("h3");
+    h3.textContent = nm[lang] || nm.en;
+    el.appendChild(h3);
+    const k = document.createElement("div");
+    k.className = "k";
+    k.textContent = L.c94Title;
+    el.appendChild(k);
+    const w = document.createElement("div");
+    w.textContent = p.what;
+    el.appendChild(w);
+    if (p.note && p.note !== "null") { const n = document.createElement("div"); n.className = "small"; n.textContent = p.note; el.appendChild(n); }
+    const ps = document.createElement("div");
+    ps.className = "small";
+    ps.textContent = L.c94Pos + ": " + p.pos + " (" + (L.c94Conf[p.conf] || p.conf) + ")";
+    el.appendChild(ps);
+    const sr = document.createElement("div");
+    sr.className = "small";
+    const a = document.createElement("a");
+    a.href = c94.src_url; a.target = "_blank"; a.rel = "noopener"; a.textContent = c94.source.ru + ", " + p.page;
+    sr.appendChild(document.createTextNode(L.c94Src + ": "));
+    sr.appendChild(a);
+    el.appendChild(sr);
+    showPopup("320px", lngLat, el);
+  }
   let popData = null;
   function updatePop() {
     const box = $("popbox");
@@ -1540,7 +1604,7 @@
     try {                                            // building density today (OSM footprints), shown only for recent years
       const dm = await getJSON("data/density.json", 1);
       map.addSource("density", { type: "image", url: "data/density.png", coordinates: dm.coordinates });
-      map.addLayer({ id: "density-img", type: "raster", source: "density", layout: { visibility: "none" }, paint: { "raster-opacity": 0.8, "raster-fade-duration": 0 } });
+      map.addLayer({ id: "density-img", type: "raster", source: "density", layout: { visibility: "none" }, paint: { "raster-opacity": 0.45, "raster-fade-duration": 0 } });
     } catch (e) { /* no density layer */ }
     try {                                            // transport: metro, railway, funicular, avenues, bridges (dates from Wikipedia, see sources)
       const tr = await getJSON("data/transport.json", 2);
@@ -1562,6 +1626,7 @@
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
+    try { c94 = await getJSON("data/city1894.json", 2); addC94(); } catch (e) { console.error("c94", e && e.message); c94 = null; }
     try { stNames = (await getJSON("data/street_names.json", 2)).streets; stGeom = await getJSON("data/street_geom.json", 2); addStLabelsLayer(); updateStNames(); } catch (e) { stNames = []; }
     let admin = { type: "FeatureCollection", features: [] };
     try { admin = await getJSON("data/admin.json"); } catch (e) {}
@@ -1635,6 +1700,7 @@
     map.on("mouseenter", "mon", () => { map.getCanvas().style.cursor = "pointer"; });
     map.on("mouseleave", "mon", () => { map.getCanvas().style.cursor = ""; });
 
+    for (const id of ["stl-line", "stl-pt", "c94-pt", "c94-lb"]) if (map.getLayer(id)) map.moveLayer(id);   // overlays (old street names, 1894 objects) above the old plans
     buildTicks();
     applyLang();
     try {                                              // a link with ?o=<id> opens that object card
@@ -1650,7 +1716,7 @@
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
