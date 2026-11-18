@@ -29,6 +29,18 @@ html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:1
 #play { width:44px; height:36px; padding:0; flex:none; }
 #speed { width:40px; height:36px; padding:0; flex:none; }
 #btnSearch { padding:6px 10px; }
+#ruleline { margin-top:8px; font-size:13px; }
+#ruleline .k { color:var(--muted); }
+#rulers { position:absolute; left:0; right:0; top:60px; pointer-events:none; }
+#rulers[hidden] { display:none; }
+#rulers .rrow { position:relative; margin-top:2px; }
+.rseg { position:absolute; height:12px; padding:0 3px; border:0; border-radius:3px; font:inherit; font-size:9.5px; line-height:12px; color:#fff; text-align:left; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; cursor:pointer; pointer-events:auto; opacity:.92; box-shadow:inset 0 0 0 1px #ffffff88; background:var(--rc,#777); }
+.rseg:hover { opacity:1; box-shadow:inset 0 0 0 2px #fff; }
+.rseg.approx { background-image:repeating-linear-gradient(45deg, #ffffff30 0 4px, transparent 4px 8px); }
+body.rulers-on #bottom { padding-bottom:98px; }
+body.rulers-on #side { max-height:calc(100% - 56px - 210px); }
+.rk-monarchy { --rc:#9c7410; } .rk-emirate { --rc:#2b8a3e; } .rk-overlord { --rc:#6c757d; } .rk-empire { --rc:#7048e8; } .rk-republic { --rc:#1971c2; } .rk-soviet { --rc:#c92a2a; } .rk-transition { --rc:#868e96; }
+.rg-emir { --rc:#2f9e44; } .rg-king { --rc:#b8860b; } .rg-wali { --rc:#8a6a10; } .rg-emperor { --rc:#7048e8; } .rg-viceroy { --rc:#9775fa; } .rg-head { --rc:#1c7ed6; } .rg-secretary { --rc:#e03131; } .rg-president { --rc:#1971c2; }
 .rellegend { display:flex; flex-wrap:wrap; gap:2px 12px; margin:2px 0 0 22px; }
 .rellegend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:5px; background:var(--c); vertical-align:-1px; border:1.5px solid #fff; box-shadow:0 0 0 1px #0004; }
 #search { position:absolute; top:56px; left:16px; width:min(460px, calc(100% - 32px)); z-index:9; background:var(--panel); color:var(--fg); border:1px solid var(--line); border-radius:10px; padding:8px; box-shadow:0 2px 14px #0005; }
