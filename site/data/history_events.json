@@ -199,7 +199,15 @@
    "src": [
     "https://en.wikipedia.org/wiki/April_9_tragedy"
    ],
-   "note": "Статья называет 21 погибшего в карточке, 19-20 в тексте."
+   "note": "Статья называет 21 погибшего в карточке, 19-20 в тексте.",
+   "place": {
+    "lng": 44.79801,
+    "lat": 41.69669,
+    "zoom": 16.2,
+    "ru": "Проспект Руставели, у здания Парламента",
+    "en": "Rustaveli Avenue, by the Parliament building",
+    "src": "coordinates of the Parliament building from the heritage register (id 4845); the page names Rustaveli Avenue and the House of Government"
+   }
   },
   {
    "year": 2002,
@@ -221,7 +229,15 @@
     "https://en.wikipedia.org/wiki/2015_Tbilisi_flood",
     "https://en.wikipedia.org/wiki/Tbilisi"
    ],
-   "note": "В той же статье сказано, что значительные наводнения реки Вере были также в 1960, 1963, 1972 (несколько погибших) и 1995 годах; отдельных статей и подробностей о них нет, поэтому отметок для них нет."
+   "note": "В той же статье сказано, что значительные наводнения реки Вере были также в 1960, 1963, 1972 (несколько погибших) и 1995 годах; отдельных статей и подробностей о них нет, поэтому отметок для них нет.",
+   "place": {
+    "lng": 44.78248,
+    "lat": 41.71317,
+    "zoom": 15.2,
+    "ru": "Долина реки Вере: площадь Героев, зоопарк",
+    "en": "Vere River valley: Heroes' Square, the zoo",
+    "src": "centre of Heroes' Square from OpenStreetMap; the page names the Vere valley, the zoo and Heroes' Square"
+   }
   }
  ]
 }

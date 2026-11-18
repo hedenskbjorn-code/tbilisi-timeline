@@ -1,9 +1,9 @@
 (() => {
   "use strict";
   // The timeline starts at the earliest written evidence of the fortress (about 364, see "About"); the long early period is
-  // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-90, 1000-1700 -> 90-200, 1700-2025 -> 200-1000)
-  const MIN = 364, MAX = 2025, NEW_YEARS = 25;
-  const KNOTS = [[364, 0], [1000, 90], [1700, 200], [2025, 1000]];
+  // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-90, 1000-1700 -> 90-200, 1700-2026 -> 200-1000)
+  const MIN = 364, MAX = 2026, NEW_YEARS = 25;
+  const KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
   const y2v = (y) => { for (let i = 1; i < KNOTS.length; i++) if (y <= KNOTS[i][0]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return v0 + ((y - y0) / (y1 - y0)) * (v1 - v0); } return 1000; };
   const v2y = (v) => { for (let i = 1; i < KNOTS.length; i++) if (v <= KNOTS[i][1]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return Math.round(y0 + ((v - v0) / (v1 - v0)) * (y1 - y0)); } return MAX; };
   const PLAN_AFTER = 10; // the last plan is shown at most this many years after its date
@@ -37,13 +37,16 @@
         "Планы Тифлиса 1735 (Вахушти, схематичный), 1785 (Пищевич), 1800 (Чуйко), 1821 (Швецов), 1844 (Военно-топографическое депо), 1850 (Генеральный штаб), 1887 (А. Ильин) 1911 (топографический лист окрестностей) и 1913 (землемерный отдел городской управы): сканы Wikimedia Commons, общественное достояние. Планы привязаны к современной карте по контрольным точкам (точность около 50 м, у плана 1735 года около 150 м), границы застройки обведены по ним вручную.",
         "Исторические виды Тифлиса (1578–1910-е): миниатюра «Нусрет-наме» (British Library), гравюры по рисункам Шардена и Турнефора, картины Чернецова, Лермонтова, Франкена и Айвазовского, фотографии Ермакова и Прокудина-Горского; файлы Wikimedia Commons, общественное достояние; уменьшенные копии. Это рисунки и снимки с одной точки, к карте они не привязаны.",
         "Топографические карты (слой «Топокарта Генштаба»): серии 1:10 000–1:100 000 издания 1952–2007 годов, открытые тайлы Национального агентства публичного реестра Грузии (maps.gov.ge, район Тбилиси, плюс городской план 1:2 000); тайлы района Тбилиси скачаны в ноябре 2026 года и лежат на этом сайте; карты принадлежат агентству.",
+        "Транспорт: линии метро, железной дороги, фуникулёра, подвесных дорог, проспектов и мостов; геометрия © участники OpenStreetMap (ODbL), годы по страницам Википедии и Wikidata (источники в окнах событий и в карточках линий). Трамвай: конка 1883–1910 и улицы маршрутов 1962–2006 по спискам грузинской Википедии; улица рисуется целиком, поэтому линия длиннее настоящей колеи, а у некоторых маршрутов есть разрывы.",
+        "События на ползунке и названия улиц по годам: только то, что подтверждено открытой страницей Википедии (ссылка показана в окне события и рядом со строкой улицы). Черновики и поиск готовил ИИ (Gemini), затем каждое утверждение проверялось по странице; неподтверждённое отброшено. Годы переименований в разных статьях иногда расходятся, это указано в примечаниях.",
+        "Старые фотографии в «Исторических видах» (Ермаков, Энгель и др.): Wikimedia Commons, общественное достояние; подпись и год по описанию на Commons; к карте не привязаны.",
         "Приватность: страница не использует cookie и аналитику; в браузере хранится только выбранный язык и состояние панелей. При открытии браузер обращается к tiles.openfreemap.org (подложка карты) и к wikimedia.org (превью фотографий), поэтому им виден адрес посетителя. Форма обратной связи через GitHub создаёт публичный Issue.",
         "Плотность застройки: доля площади, занятая контурами зданий OpenStreetMap (© участники OpenStreetMap, ODbL), в ячейках около 100×100 м; это состояние на момент выгрузки (ноябрь 2026), у зданий в OSM нет годов постройки, поэтому слой показывается только для современных лет.",
         "Административная граница Тбилиси (2019): OCHA COD-AB Georgia (HDX), источник — Национальная статистическая служба Грузии, лицензия CC BY-IGO. Площадь 502,5 км² совпадает с данными диссертации для периода после 2006 года.",
         "Границы районов и их названия: © участники OpenStreetMap, лицензия ODbL (этот набор данных — производная база; при повторном использовании сохраняйте ту же лицензию и атрибуцию). Показано современное деление на 10 районов.",
         "Серая пунктирная линия 1973–2005 годов — граница из geoBoundaries (ADM2, метаданные: 2007). Проверка по положению посёлков: присоединённые в 2006 году (Цхнети, Цавкиси, Окрокана, Кикети, Бетания, Диди Дигоми, Загэси) лежат вне неё, присоединённые раньше (Поничала, Орхеви, Глдани, Варкетили) внутри, то есть она соответствует границе до реформы 2006 года. Её площадь ≈ 330 км² меньше 354 км² из диссертации, причина не установлена. Деление на районы и их названия по периодам (без границ) пересказаны ИИ по вторичным источникам и не проверены по первоисточникам.",
         "Площадь города: Н. Харебава, диссертация, Тбилисский государственный университет им. Ив. Джавахишвили, 2024.",
-        "Фото: Wikimedia Commons, с указанием автора и лицензии; подбираются по координатам и могут показывать соседнее здание.",
+        "Фото: Wikimedia Commons, с указанием автора и лицензии; подбираются по координатам (не дальше 30 м, более дальние только после проверки) и всё же могут показывать соседнее здание.",
         "Шкала времени начинается с IV века: по общим обзорам (Википедия, не проверено по первоисточникам), самые ранние письменные сведения о крепости на месте города относятся к середине–второй половине IV века (около 364 г.), а традиционная дата основания города по грузинским летописям — 458 г. (Вахтанг Горгасали). До 1700 года шкала сжата, до 1735 года планов и границ нет, показаны только объекты реестра.",
         "Утраченные здания: список составлен ИИ (Gemini) по Wikidata, Википедии (ka, ru, en) и легендам исторических планов; даты и положение приблизительны, значок показывает, найден ли год утраты на странице источника. Не является официальным реестром.",
         "Границы застройки с 1972 года: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), лицензия CC BY 4.0; сглажены и упрощены проектом. Контур 1954 года: заливка застройки на листе NK 38-8 Army Map Service (США, 1:250 000), общественное достояние; положение приблизительное.",
@@ -117,6 +120,17 @@
       showTopo: "Топокарта Генштаба (НАПР, Грузия) поверх карты",
       topoNote: "Советские топокарты разных изданий (издания указаны в списке); открытые тайлы maps.gov.ge (район Тбилиси). Участки листов могут быть разных лет.",
       swLeft: "старый план (слева от полосы)", swRight: "современная карта (справа)",
+      autoTopo: "С 1953 по 2005 год показывать топокарту вместо плана",
+      topoLine: (name) => "Топокарта Генштаба (НАПР): " + name + ". Листы разных изданий, участки могут быть разных лет.",
+      showStLabels: "Названия улиц того года на карте (по проверенным данным)",
+      howTitle: "Как пользоваться",
+      how: [
+        "Ползунок внизу задаёт год; ▶ запускает анимацию. Значки над ползунком отмечают исторические события: нажмите, чтобы перейти к году и прочитать источник.",
+        "Нажмите на точку объекта, чтобы открыть карточку. Адрес страницы запоминает объект, год и место на карте: ссылкой можно поделиться.",
+        "Окно «Фильтры» справа включает слои: старый план, топокарту (с 1953 года она заменяет план), транспорт, названия улиц того года.",
+        "«Шторка»: слева от белой полосы старый план или топокарта, справа сегодняшняя карта. «Что было здесь»: клик по карте показывает эту точку на всех старых планах.",
+        "Окна «Справка» и «Фильтры» можно скрыть кнопками вверху.",
+      ],
       btnInfo: "Справка", btnFilters: "Фильтры", filtersTitle: "Фильтры и слои",
       stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
       stNow: "сейчас",
@@ -160,13 +174,16 @@
         "Plans of Tiflis, 1735 (Vakhushti, schematic), 1785 (Pishchevich), 1800 (Chuiko), 1821 (Shvetsov), 1844 (Military Topographic Depot), 1850 (General Staff), 1887 (A. Ilyin) 1911 (topographic sheet of the environs) and 1913 (city survey department): scans from Wikimedia Commons, public domain. The plans are registered to the modern map with control points (accuracy about 50 m, about 150 m for 1735) and the built-up outlines are traced by hand from them.",
         "Historical views of Tiflis (1578 to the 1910s): a miniature from the Nusretname (British Library), engravings after drawings by Chardin and Tournefort, paintings by Chernetsov, Lermontov, Franken and Aivazovsky, photographs by Yermakov and Prokudin-Gorsky; Wikimedia Commons files, public domain; reduced copies. They are drawings and photographs from a single viewpoint and are not tied to the map.",
         "Topographic maps (the General Staff topo layer): 1:10 000 to 1:100 000 series, editions 1952-2007, open tiles of the National Agency of Public Registry of Georgia (maps.gov.ge); tiles of the Tbilisi area were downloaded in November 2026 and are served from this site; the maps belong to the agency.",
+        "Transport: metro, railway, funicular, cable car, avenue and bridge lines; geometry (c) OpenStreetMap contributors (ODbL), years from Wikipedia and Wikidata pages (sources in the event windows and on the line cards). Tram: the horse tram of 1883-1910 and the streets of the routes of 1962-2006 from the Georgian Wikipedia lists; a street is drawn over its whole length, so the line is longer than the real track and some routes have gaps.",
+        "Events on the slider and street names by year: only what an open Wikipedia page confirms (the link is shown in the event window and next to the street line). Drafts and searches were prepared by an AI (Gemini), then every statement was checked against the page; unconfirmed items were dropped. The years of renaming sometimes differ between articles; this is noted.",
+        "Old photographs in the Historical views (Yermakov, Engel and others): Wikimedia Commons, public domain; the caption and the year are as given on Commons; not tied to the map.",
         "Privacy: the page uses no cookies or analytics; only the chosen language and the state of the panels are stored in the browser. On loading, the browser contacts tiles.openfreemap.org (basemap) and wikimedia.org (photo previews), so these services can see the visitor's address. The feedback form through GitHub creates a public Issue.",
         "Building density: the share of ground covered by OpenStreetMap building footprints (© OpenStreetMap contributors, ODbL) in cells of about 100×100 m; it shows the state at the time of export (November 2026); OSM buildings have no construction years, so the layer is shown only for recent years.",
         "Administrative boundary of Tbilisi (2019): OCHA COD-AB Georgia (HDX), source: National Statistics Office of Georgia, licence CC BY-IGO. Its area of 502.5 km² matches the thesis figure for the period after 2006.",
         "District boundaries and names: © OpenStreetMap contributors, ODbL (this dataset is a derived database; keep the same licence and attribution if you reuse it). The current division into 10 districts is shown.",
         "The grey dashed line for 1973–2005 is a boundary from geoBoundaries (ADM2, metadata: 2007). Checked by the position of settlements: those annexed in 2006 (Tskneti, Tsavkisi, Okrokana, Kiketi, Betania, Didi Dighomi, Zahesi) lie outside it, those annexed earlier (Ponichala, Orkhevi, Gldani, Varketili) inside, so it matches the pre-2006 limit. Its area of about 330 km² is smaller than the 354 km² in the thesis, the reason is not established. The district divisions and names by period (without boundaries) were relayed by an AI from secondary sources and are not checked against the originals.",
         "City area: N. Kharebava, PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024.",
-        "Photos: Wikimedia Commons, shown with author and licence; matched by coordinates and may show a neighbouring building.",
+        "Photos: Wikimedia Commons, shown with author and licence; matched by coordinates (not farther than 30 m; farther ones only after a check) and may still show a neighbouring building.",
         "The timeline starts in the 4th century: according to general surveys (Wikipedia, not checked against the primary sources), the earliest written evidence of a fortress at the site dates to the mid to late 4th century (about 364), and the traditional date of the city’s foundation in the Georgian chronicles is 458 (Vakhtang Gorgasali). The scale is compressed before 1700; there are no plans or outlines before 1735, only register objects are shown.",
         "Lost buildings: the list was compiled by an AI (Gemini) from Wikidata, Wikipedia (ka, ru, en) and the legends of historical plans; dates and positions are approximate, and the popup says whether the year of loss was found on a source page. It is not an official register.",
         "Built-up outlines since 1972: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), licence CC BY 4.0; smoothed and simplified by the project. The 1954 outline: built-up fill on sheet NK 38-8 of the U.S. Army Map Service (1:250 000), public domain; position is approximate.",
@@ -240,6 +257,17 @@
       showTopo: "General Staff topographic map (NAPR, Georgia) over the map",
       topoNote: "Soviet topographic maps of various editions (the editions are in the list); open tiles of maps.gov.ge (Tbilisi area). Parts of a sheet can be from different years.",
       swLeft: "old plan (left of the bar)", swRight: "today's map (right)",
+      autoTopo: "From 1953 to 2005 show the topographic map instead of a plan",
+      topoLine: (name) => "General Staff topographic map (NAPR): " + name + ". Sheets of various editions; parts can be from different years.",
+      showStLabels: "Street names of that year on the map (checked data only)",
+      howTitle: "How to use",
+      how: [
+        "The slider at the bottom sets the year; ▶ plays the animation. The icons above it mark historical events: click one to jump to that year and read the source.",
+        "Click an object dot to open its card. The address of the page remembers the object, the year and the place on the map, so the link can be shared.",
+        "The Filters window on the right switches layers: old plan, topographic map (from 1953 it replaces the plan), transport, street names of that year.",
+        "Swipe: left of the white bar is the old plan or topographic map, right of it today's map. What was here: a click on the map shows that point on every old plan.",
+        "The Info and Filters windows can be hidden with the buttons at the top.",
+      ],
       btnInfo: "Info", btnFilters: "Filters", filtersTitle: "Filters and layers",
       stTitle: "Street names in this year (checked against Wikipedia)",
       stNow: "today",
@@ -284,6 +312,9 @@
         "ტფილისის გეგმები, 1735 (ვახუშტი, სქემატური), 1785 (პიშჩევიჩი), 1800 (ჩუიკო), 1821 (შვეცოვი), 1844 (სამხედრო-ტოპოგრაფიული დეპო), 1850 (გენშტაბი), 1887 (ა. ილინი) 1911 (შემოგარენის ტოპოგრაფიული ფურცელი) და 1913 (საქალაქო სამმართველოს მიწისმზომელთა განყოფილება): Wikimedia Commons-ის სკანები, საჯარო სივრცე. გეგმები თანამედროვე რუკაზე მიბმულია საკონტროლო წერტილებით (სიზუსტე დაახლოებით 50 მ, 1735 წლის გეგმისთვის დაახლოებით 150 მ), განაშენიანების საზღვრები მათ მიხედვით ხელით არის დატანილი.",
         "ტფილისის ისტორიული ხედები (1578–1910-იანი წლები): „ნუსრეთნამეს“ მინიატურა (British Library), გრავიურები შარდენისა და ტურნეფორის ნახატებით, ჩერნეცოვის, ლერმონტოვის, ფრანკენისა და აივაზოვსკის ნახატები, ერმაკოვისა და პროკუდინ-გორსკის ფოტოები; Wikimedia Commons-ის ფაილები, საჯარო სივრცე; შემცირებული ასლები. ესენი ერთი წერტილიდან შესრულებული ნახატები და ფოტოებია და რუკას არ უკავშირდება.",
         "ტოპოგრაფიული რუკები (გენშტაბის ტოპორუკის ფენა): 1:10 000–1:100 000 სერიები, 1952–2007 წლების გამოცემები, საჯარო ტაილები საქართველოს საჯარო რეესტრის ეროვნული სააგენტოსგან (maps.gov.ge); თბილისის ტერიტორიის ტაილები გადმოწერილია 2026 წლის ნოემბერში და ინახება ამ საიტზე; რუკები სააგენტოს ეკუთვნის.",
+        "ტრანსპორტი: მეტროს, რკინიგზის, ფუნიკულიორის, საბაგიროს, გამზირებისა და ხიდების ხაზები; გეომეტრია (c) OpenStreetMap-ის მონაწილეები (ODbL), წლები ვიკიპედიისა და Wikidata-ს გვერდებიდან (წყაროები მოვლენების ფანჯრებსა და ხაზის ბარათებშია). ტრამვაი: 1883-1910 წლების კონკა და 1962-2006 წლების მარშრუტების ქუჩები ქართული ვიკიპედიის სიებიდან; ქუჩა მთლიანადაა დახატული, ამიტომ ხაზი რეალურ ლიანდაგზე გრძელია და ზოგ მარშრუტს წყვეტები აქვს.",
+        "მოვლენები სლაიდერზე და ქუჩების სახელები წლების მიხედვით: მხოლოდ ის, რასაც ვიკიპედიის ღია გვერდი ადასტურებს (ბმული ნაჩვენებია მოვლენის ფანჯარასა და ქუჩის სტრიქონთან). ნახაზებსა და ძიებას ხელოვნური ინტელექტი (Gemini) ამზადებდა, შემდეგ თითოეული დებულება გვერდის მიხედვით მოწმდებოდა; დაუდასტურებელი ამოვარდა. გადარქმევის წლები სტატიებს შორის ზოგჯერ განსხვავდება; ეს აღნიშნულია.",
+        "ძველი ფოტოები «ისტორიულ ხედებში» (ერმაკოვი, ენგელი და სხვ.): Wikimedia Commons, საჯარო სივრცე; წარწერა და წელი Commons-ის აღწერის მიხედვით; რუკას არ უკავშირდება.",
         "კონფიდენციალურობა: გვერდი არ იყენებს cookie-ს და ანალიტიკას; ბრაუზერში მხოლოდ არჩეული ენა და პანელების მდგომარეობა ინახება. ჩატვირთვისას ბრაუზერი მიმართავს tiles.openfreemap.org-ს (რუკის ფონი) და wikimedia.org-ს (ფოტოების გადახედვა), ამიტომ ამ სერვისებს ეხილვებათ სტუმრის მისამართი. GitHub-ით გაგზავნილი უკუკავშირი საჯარო Issue-ს ქმნის.",
         "განაშენიანების სიმჭიდროვე: OpenStreetMap-ის შენობების კონტურებით დაკავებული ფართობის წილი (© OpenStreetMap contributors, ODbL), დაახლოებით 100×100 მ უჯრედებში; ნაჩვენებია ექსპორტის მომენტის მდგომარეობა (2026 წლის ნოემბერი); OSM-ის შენობებს აგების წლები არ აქვს, ამიტომ ფენა მხოლოდ თანამედროვე წლებისთვის ჩანს.",
         "თბილისის ადმინისტრაციული საზღვარი (2019): OCHA COD-AB Georgia (HDX), წყარო — საქართველოს სტატისტიკის ეროვნული სამსახური, ლიცენზია CC BY-IGO. ფართობი 502,5 კმ² ემთხვევა დისერტაციის მონაცემს 2006 წლის შემდგომი პერიოდისთვის.",
@@ -362,6 +393,17 @@
       showTopo: "გენშტაბის ტოპოგრაფიული რუკა (სსიპ, საქართველო) რუკის თავზე",
       topoNote: "საბჭოთა ტოპორუკები სხვადასხვა გამოცემისა (გამოცემები სიაშია); maps.gov.ge-ს საჯარო ტაილები (თბილისის რაიონი). ფურცლის ნაწილები შეიძლება სხვადასხვა წლისა იყოს.",
       swLeft: "ძველი გეგმა (ზოლის მარცხნივ)", swRight: "თანამედროვე რუკა (მარჯვნივ)",
+      autoTopo: "1953-2005 წლებში გეგმის ნაცვლად ტოპორუკის ჩვენება",
+      topoLine: (name) => "გენშტაბის ტოპოგრაფიული რუკა (სსიპ): " + name + ". სხვადასხვა გამოცემის ფურცლები, ნაწილები შეიძლება სხვადასხვა წლისა იყოს.",
+      showStLabels: "ქუჩების იმ წლის სახელები რუკაზე (შემოწმებული მონაცემები)",
+      howTitle: "როგორ გამოვიყენოთ",
+      how: [
+        "ქვედა ბოლოში სლაიდერი წელს არჩევს; ▶ ანიმაციას ჩართავს. სლაიდერის ზემოთ ხატები ისტორიულ მოვლენებს აღნიშნავს: დააწკაპუნეთ, რომ წელზე გადახვიდეთ და წყარო წაიკითხოთ.",
+        "ობიექტის წერტილზე დაწკაპუნებით იხსნება ბარათი. გვერდის მისამართი ობიექტს, წელს და ადგილს იმახსოვრებს, ამიტომ ბმულის გაზიარება შეიძლება.",
+        "მარჯვენა ფანჯარა «ფილტრები და ფენები» ფენებს რთავს: ძველი გეგმა, ტოპორუკა (1953 წლიდან გეგმის ნაცვლადაა), ტრანსპორტი, იმ წლის ქუჩების სახელები.",
+        "შედარება: თეთრი ზოლის მარცხნივ ძველი გეგმა ან ტოპორუკაა, მარჯვნივ დღევანდელი რუკა. «რა იყო აქ»: რუკაზე დაწკაპუნება ამ წერტილს ყველა ძველ გეგმაზე აჩვენებს.",
+        "«ცნობა» და «ფილტრები» ფანჯრების დამალვა ზედა ღილაკებით შეიძლება.",
+      ],
       btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
@@ -502,8 +544,13 @@
   };
   const TOPO_BOUNDS = [44.60, 41.55, 45.05, 41.88];
   let topoShown = null;
+  const TOPO_FROM = 1953, TOPO_TO = 2005;
+  // the topographic map takes the place of the old plan from 1953 (the last plan is of 1913), or whenever the owner switches it on
+  const autoTopoOn = () => $("autoTopo").checked && year >= TOPO_FROM && year <= TOPO_TO && !currentPlan(year);
+  const topoWanted = () => $("showTopo").checked || autoTopoOn();
+  const topoOpacity = () => ($("showSwipe").checked ? 1 : $("topoOp").value / 100);
   function updateTopo() {
-    const on = $("showTopo").checked, key = $("topoSel").value;
+    const on = topoWanted(), key = $("topoSel").value;
     $("topobox").hidden = !on;
     if (topoShown && (!on || topoShown !== key)) {
       if (map.getLayer("topo")) map.removeLayer("topo");
@@ -514,12 +561,12 @@
     if (!topoShown) {
       const c = TOPO[key], base = new URL("topo/" + key + "/", document.baseURI).href;
       map.addSource("topo", { type: "raster", tiles: [base + "{z}/{x}/{y}.webp"], tileSize: 256, minzoom: 11, maxzoom: c.max, bounds: TOPO_BOUNDS, attribution: "\u00A9 NAPR (maps.gov.ge)" });
-      map.addLayer({ id: "topo", type: "raster", source: "topo", paint: { "raster-opacity": $("topoOp").value / 100, "raster-fade-duration": 0 } }, "admin-line");
+      map.addLayer({ id: "topo", type: "raster", source: "topo", paint: { "raster-opacity": topoOpacity(), "raster-fade-duration": 0 } }, "admin-line");
       topoShown = key;
     }
-    map.setPaintProperty("topo", "raster-opacity", $("topoOp").value / 100);
+    map.setPaintProperty("topo", "raster-opacity", topoOpacity());
   }
-  for (const id of ["showTopo", "topoSel", "topoOp"]) $(id).addEventListener("input", updateTopo);
+  for (const id of ["showTopo", "topoSel", "topoOp"]) $(id).addEventListener("input", () => { updateTopo(); updatePlanLine(); });
 
   // ---- swipe comparison: a second, non-interactive map with today's basemap only lies over the first one, clipped from the bar to the right edge
   let map2 = null, swipeFrac = 0.5;
@@ -640,6 +687,7 @@
     updateWater();
     updateDensity();
     updateTransport();
+    updateTopo();
     updateStNames();
     updateStreets();
     updateViews();
@@ -655,8 +703,13 @@
     for (const x of areas) if (x.year <= year) ar = x;
     $("arealine").textContent = (ar ? t().area(ar.km2, ar.year, ar.src) : "") + ($("showAdmin").checked && year >= 1973 && year <= 2005 ? " · " + t().oldAdmin : "");
     updateDistInfo();
-    $("planline").textContent = pl ? t().plan(pl.year, pl.accuracy_m) : t().noPlan(plans[0].year, plans[plans.length - 1].year, year);
+    updatePlanLine();
     $("bndline").textContent = bndText;
+  }
+
+  function updatePlanLine() {
+    const pl = currentPlan(year), sel = $("topoSel");
+    $("planline").textContent = pl ? t().plan(pl.year, pl.accuracy_m) : topoWanted() ? t().topoLine(sel.options[sel.selectedIndex].text) : t().noPlan(plans[0].year, plans[plans.length - 1].year, year);
   }
 
   function applyLang() {
@@ -669,7 +722,26 @@
     $("note").textContent = t().note(undated);
     buildTypes();
     buildAbout();
+    buildHow();
     update();
+  }
+
+  function buildHow() {
+    const box = $("howtext");
+    if (!box) return;
+    box.textContent = "";
+    for (const para of t().how) {
+      const p = document.createElement("p");
+      p.className = "small";
+      p.textContent = para;
+      box.appendChild(p);
+    }
+    let seen = false;
+    try { seen = localStorage.getItem("howSeen") === "1"; } catch (e) {}
+    if (!seen) {                                          // opened once on the first visit
+      $("how").open = true;
+      try { localStorage.setItem("howSeen", "1"); } catch (e) {}
+    }
   }
 
   function buildAbout() {
@@ -737,8 +809,30 @@
 
   // historical events (invasions, earthquakes, floods, changes of power): icons above the slider; every event has a source (data/history_events.json)
   let histEvents = [];
-  let stNames = [];
+  let stNames = [], stGeom = {};
+  function updateStLabelsLayer() {
+    const src = map.getSource("stlabels");
+    if (!src) return;
+    const feats = [];
+    if ($("showStLabels").checked) {
+      for (const st of stNames) {
+        const g = stGeom[st.now.en], iv = st.iv.find((x) => year >= x[0] && year < x[1] && x[2]);
+        if (g && iv) feats.push({ type: "Feature", geometry: g, properties: { t: iv[2] } });
+      }
+    }
+    src.setData({ type: "FeatureCollection", features: feats });
+  }
+  function addStLabelsLayer() {
+    if (map.getSource("stlabels")) return;
+    map.addSource("stlabels", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+    const paint = { "text-color": "#8b0a0a", "text-halo-color": "#fffffff2", "text-halo-width": 2.6 };
+    map.addLayer({ id: "stl-line", type: "symbol", source: "stlabels", filter: ["!=", ["geometry-type"], "Point"],
+                   layout: { "symbol-placement": "line", "text-field": ["get", "t"], "text-font": ["Noto Sans Regular"], "text-size": 14, "text-letter-spacing": 0.05, "text-max-angle": 40, "symbol-spacing": 350, "text-allow-overlap": true, "text-ignore-placement": true }, paint });
+    map.addLayer({ id: "stl-pt", type: "symbol", source: "stlabels", filter: ["==", ["geometry-type"], "Point"],
+                   layout: { "text-field": ["get", "t"], "text-font": ["Noto Sans Regular"], "text-size": 13, "text-anchor": "center", "text-allow-overlap": true, "text-ignore-placement": true }, paint });
+  }
   function updateStNames() {
+    updateStLabelsLayer();
     const box = $("stnames");
     if (!box) return;
     const L = t(), rows = [];
@@ -784,12 +878,23 @@
       box.appendChild(b);
     }
   }
+  let evMarker = null;
+  function showEventPlace(ev) {
+    if (evMarker) { evMarker.remove(); evMarker = null; }
+    if (!ev.place) return;
+    const dot = document.createElement("div");
+    dot.className = "evpulse";
+    evMarker = new maplibregl.Marker({ element: dot }).setLngLat([ev.place.lng, ev.place.lat]).addTo(map);
+    map.flyTo({ center: [ev.place.lng, ev.place.lat], zoom: ev.place.zoom || 15, duration: 1200 });
+  }
   function showHistEvent(ev) {
     const L = t();
+    showEventPlace(ev);
     openInfo((body) => {
       infoLine(body, ev.date + " \u00B7 " + (L.evCats[ev.cat] || ""), "small");
       infoLine(body, ev[lang] || ev.en, "");
       if (ev.note) infoLine(body, ev.note);
+      if (ev.place) infoLine(body, "\uD83D\uDCCD " + (ev.place[lang] || ev.place.en));
       infoLine(body, L.evNote);
       infoLine(body, L.evSrc + ":");
       for (const u of ev.src) {
@@ -814,7 +919,7 @@
     build(body);
     $("infoModal").hidden = false;
   }
-  function closeInfo() { $("infoModal").hidden = true; }
+  function closeInfo() { $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } }
   $("imClose").addEventListener("click", closeInfo);
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
@@ -1233,6 +1338,19 @@
     return pop;
   }
 
+  // the address bar follows the open object card (?o=<register id>): the link can be sent, and opens the same card
+  function setObjParam(id, pop) {
+    try {
+      const u = new URL(location.href);
+      u.searchParams.set("o", id);
+      history.replaceState(null, "", u.pathname + u.search + u.hash);
+      pop.on("close", () => {
+        const v = new URL(location.href);
+        if (v.searchParams.get("o") === String(id)) { v.searchParams.delete("o"); history.replaceState(null, "", v.pathname + v.search + v.hash); }
+      });
+    } catch (e) {}
+  }
+
   function popup(p, lngLat) {
     const L = t();
     const el = document.createElement("div");
@@ -1274,7 +1392,7 @@
       if (lang !== "ka" && nmInfo.src === "ai" && L.trNote) infoLine(body, L.trNote);
       photoCredits(body, p);
     }), { id: p.id, name: p.name, reg: p.reg });
-    showPopup("300px", lngLat, el);
+    setObjParam(p.id, showPopup("300px", lngLat, el));
   }
 
   // JSON loader with retries (a dropped connection must not leave a layer silently empty)
@@ -1357,7 +1475,7 @@
     } catch (e) { /* no transport layer */ }
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
-    try { stNames = (await getJSON("data/street_names.json", 2)).streets; updateStNames(); } catch (e) { stNames = []; }
+    try { stNames = (await getJSON("data/street_names.json", 2)).streets; stGeom = await getJSON("data/street_geom.json", 2); addStLabelsLayer(); updateStNames(); } catch (e) { stNames = []; }
     let admin = { type: "FeatureCollection", features: [] };
     try { admin = await getJSON("data/admin.json"); } catch (e) {}
     map.addSource("admin", { type: "geojson", data: admin });
@@ -1432,10 +1550,20 @@
 
     buildTicks();
     applyLang();
+    try {                                              // a link with ?o=<id> opens that object card
+      const oid = new URL(location.href).searchParams.get("o");
+      const f = oid && monuments.features.find((x) => String(x.properties.id) === oid);
+      if (f) {
+        year = Math.max(year, f.properties.ye);
+        update();
+        map.jumpTo({ center: f.geometry.coordinates, zoom: 17 });
+        popup(f.properties, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] });
+      }
+    } catch (e) {}
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
