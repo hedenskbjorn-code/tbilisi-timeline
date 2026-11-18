@@ -131,6 +131,7 @@
 
 <footer id="bottom">
   <button id="play" class="chip" aria-label="play">▶</button>
+  <button id="speed" class="chip" aria-label="speed">×2</button>
   <div id="sliderwrap">
     <input type="range" id="slider" min="0" max="1000" step="1" value="850">
     <div id="ticks"></div>
@@ -164,7 +165,12 @@
 <div id="viewModal" class="modal" hidden>
   <div class="modalbox viewbox">
     <h2 id="vmTitle"></h2>
-    <img id="vmImg" alt="">
+    <div id="vmCount" class="small"></div>
+    <div class="vmwrap">
+      <button type="button" id="vmPrev" class="vmnav" hidden>&#8249;</button>
+      <img id="vmImg" alt="">
+      <button type="button" id="vmNext" class="vmnav" hidden>&#8250;</button>
+    </div>
     <div id="vmAuthor" class="small"></div>
     <div id="vmNote" class="small"></div>
     <div id="vmSrc" class="small"></div>

@@ -98,6 +98,8 @@
       waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
       viewsTitle: "Исторические виды (рисунки, не планы)",
       viewClose: "Закрыть",
+      viewPrev: "Предыдущее фото",
+      viewNext: "Следующее фото",
       viewLicense: "лицензия",
       viewSource: "источник",
       trNote: "Название и улицы переведены автоматически (ИИ) с грузинского оригинала из реестра и могут быть неточными.",
@@ -245,6 +247,8 @@
       waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); topographic sheet of c.1911 (lakes).",
       viewsTitle: "Historical views (drawings, not plans)",
       viewClose: "Close",
+      viewPrev: "Previous photo",
+      viewNext: "Next photo",
       viewLicense: "licence",
       viewSource: "source",
       trNote: "The name and streets were translated automatically (AI) from the Georgian original in the register and may be inexact.",
@@ -393,6 +397,8 @@
       waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); ტოპოგრაფიული ფურცელი დაახლოებით 1911 წლიდან (ტბები).",
       viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
       viewClose: "დახურვა",
+      viewPrev: "წინა ფოტო",
+      viewNext: "შემდეგი ფოტო",
       viewLicense: "ლიცენზია",
       viewSource: "წყარო",
       fbContactWarn: "ყურადღება: GitHub-ის გავლით გაგზავნისას კონტაქტი საჯარო Issue-ში მოხვდება და ყველას დაენახება. თუ არ გსურთ, ნუ მიუთითებთ.",
@@ -1308,6 +1314,10 @@
   }
 
   let views = [];
+  let viewsSig = "";
+  let shownViews = [];                           // the photos offered now (the arrows of the viewer go through them)
+  let curView = null;
+  const viewTiles = new Map();
   const VIEW_WINDOW = 150;                       // a view is offered for 150 years after its date
 
   function updateViews() {
@@ -1315,35 +1325,52 @@
     if (!box || $("views").hidden) return;                       // tiles (and their images) are built only while the panel is open
     const all = $("viewsAll").checked;
     const list = all ? views : views.filter((v) => year >= (v.from !== undefined ? v.from : v.year) && year < v.year + (v.window || VIEW_WINDOW));   // "from": the start of the five-year period of the later photographs
-    box.textContent = "";
+    shownViews = list;
+    const sig = lang + "|" + (list.length ? list.map((v) => v.id).join(",") : "-");
+    if (sig === viewsSig && box.childNodes.length) return;       // the same set of tiles: leave the DOM alone, so the pictures do not flicker while the slider moves
+    viewsSig = sig;
     if (!list.length) {
       const m = document.createElement("div");
       m.className = "vnone";
       m.textContent = t().viewsNone;
-      box.appendChild(m);
+      box.replaceChildren(m);
       return;
     }
+    const tiles = [];
     for (const v of list) {
-      const b = document.createElement("button");
-      b.type = "button";
-      const im = document.createElement("img");
-      im.src = v.image; im.loading = "lazy"; im.alt = "";
-      const cap = document.createElement("span");
-      cap.className = "vcap";
-      const yr = document.createElement("span");
-      yr.className = "vyear";
-      yr.textContent = v.year + " · ";
-      cap.appendChild(yr);
-      cap.appendChild(document.createTextNode(v.title[lang] || v.title.en));
-      b.appendChild(im); b.appendChild(cap);
-      b.addEventListener("click", () => openView(v));
-      box.appendChild(b);
+      let tile = viewTiles.get(v.id);                              // a tile (with its loaded image) is built once and then reused
+      if (!tile) {
+        const b = document.createElement("button");
+        b.type = "button";
+        const im = document.createElement("img");
+        im.src = v.image; im.loading = "lazy"; im.alt = "";
+        const cap = document.createElement("span");
+        cap.className = "vcap";
+        const yr = document.createElement("span");
+        yr.className = "vyear";
+        yr.textContent = v.year + " · ";
+        const txt = document.createTextNode("");
+        cap.appendChild(yr); cap.appendChild(txt);
+        b.appendChild(im); b.appendChild(cap);
+        b.addEventListener("click", () => openView(v));
+        tile = { b, txt };
+        viewTiles.set(v.id, tile);
+      }
+      tile.txt.nodeValue = v.title[lang] || v.title.en;
+      tiles.push(tile.b);
     }
+    box.replaceChildren(...tiles);
   }
   $("viewsAll").addEventListener("change", updateViews);
 
   function openView(v) {
     const L = t();
+    curView = v;
+    const idx = shownViews.indexOf(v), many = idx >= 0 && shownViews.length > 1;
+    $("vmPrev").hidden = $("vmNext").hidden = !many;
+    $("vmPrev").setAttribute("aria-label", L.viewPrev); $("vmPrev").title = L.viewPrev;
+    $("vmNext").setAttribute("aria-label", L.viewNext); $("vmNext").title = L.viewNext;
+    $("vmCount").textContent = many ? (idx + 1) + " / " + shownViews.length : "";
     $("vmTitle").textContent = v.title[lang] || v.title.en;
     const img = $("vmImg");
     img.src = v.image;
@@ -1363,7 +1390,26 @@
   function closeView() { $("viewModal").hidden = true; }
   $("vmClose").addEventListener("click", closeView);
   $("viewModal").addEventListener("click", (e) => { if (e.target === $("viewModal")) closeView(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("viewModal").hidden) closeView(); });
+  function stepView(d) {
+    const n = shownViews.length, i = shownViews.indexOf(curView);
+    if (n < 2 || i < 0) return;
+    openView(shownViews[(i + d + n) % n]);
+  }
+  $("vmPrev").addEventListener("click", () => stepView(-1));
+  $("vmNext").addEventListener("click", () => stepView(1));
+  document.addEventListener("keydown", (e) => {
+    if ($("viewModal").hidden) return;
+    if (e.key === "Escape") closeView();
+    else if (e.key === "ArrowLeft") { e.preventDefault(); e.stopPropagation(); stepView(-1); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); e.stopPropagation(); stepView(1); }
+  }, true);
+  let swipeX = null;                                   // a swipe on the picture turns it on a touch screen
+  $("vmImg").addEventListener("touchstart", (e) => { swipeX = e.changedTouches[0].clientX; }, { passive: true });
+  $("vmImg").addEventListener("touchend", (e) => {
+    if (swipeX === null) return;
+    const dx = e.changedTouches[0].clientX - swipeX; swipeX = null;
+    if (Math.abs(dx) > 50) stepView(dx < 0 ? 1 : -1);
+  }, { passive: true });
 
   function updateDensity() {
     if (map.getLayer("density-img")) map.setLayoutProperty("density-img", "visibility", $("showDensity").checked && year >= 2015 ? "visible" : "none");
@@ -1820,15 +1866,30 @@
   });
 
   let timer = null;
-  $("play").addEventListener("click", () => {
-    if (timer) { clearInterval(timer); timer = null; $("play").textContent = "▶"; return; }
-    if (year >= MAX) year = MIN;
-    $("play").textContent = "❚❚";
+  const SPEEDS = [[1, 240], [2, 120], [3, 80]];          // playback speed: x1 (4 years/s after 1700), x2 (8), x3 (12, the original speed)
+  let speedIx = 1;
+  try { const k = parseInt(localStorage.getItem("speed"), 10); if (k >= 0 && k < SPEEDS.length) speedIx = k; } catch (e) {}
+  $("speed").textContent = "×" + SPEEDS[speedIx][0];
+  function stopPlay() { clearInterval(timer); timer = null; $("play").textContent = "▶"; }
+  function startPlay() {
+    clearInterval(timer);
     timer = setInterval(() => {
       year = Math.min(MAX, year + (year < 1000 ? 25 : year < 1700 ? 10 : 1));
       update();
-      if (year >= MAX) { clearInterval(timer); timer = null; $("play").textContent = "▶"; }
-    }, 240);                                          // slower playback: about 4 years per second after 1700 (was 12)
+      if (year >= MAX) stopPlay();
+    }, SPEEDS[speedIx][1]);
+  }
+  $("play").addEventListener("click", () => {
+    if (timer) { stopPlay(); return; }
+    if (year >= MAX) year = MIN;
+    $("play").textContent = "❚❚";
+    startPlay();
+  });
+  $("speed").addEventListener("click", () => {
+    speedIx = (speedIx + 1) % SPEEDS.length;
+    $("speed").textContent = "×" + SPEEDS[speedIx][0];
+    try { localStorage.setItem("speed", String(speedIx)); } catch (e) {}
+    if (timer) startPlay();
   });
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", update);
