@@ -3,8 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tbilisi through time</title>
-<meta name="robots" content="noindex">
+<title>Тбилиси во времени: интерактивная карта, 364–2026 (Tbilisi through time)</title>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Интерактивная карта Тбилиси со шкалой времени (364–2026): старые планы, границы города, объекты реестра культурного наследия, события, правители, фотографии разных эпох. Некоммерческий любительский проект на открытых данных, не официальный сайт.">
+<link rel="canonical" href="https://hedenskbjorn-code.github.io/tbilisi-timeline/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Тбилиси во времени">
+<meta property="og:title" content="Тбилиси во времени: интерактивная карта, 364–2026">
+<meta property="og:description" content="Интерактивная карта Тбилиси со шкалой времени (364–2026): старые планы, границы города, объекты реестра культурного наследия, события, правители, фотографии разных эпох. Некоммерческий любительский проект на открытых данных, не официальный сайт.">
+<meta property="og:url" content="https://hedenskbjorn-code.github.io/tbilisi-timeline/">
+<meta property="og:image" content="https://hedenskbjorn-code.github.io/tbilisi-timeline/img/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Карта Тбилиси с планом 1913 года, объектами реестра и шкалой времени">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ka_GE">
+<meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org; font-src 'self' data: https://tiles.openfreemap.org; connect-src 'self' https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org https://cloudflareinsights.com; worker-src blob:; child-src blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
@@ -24,7 +39,6 @@
   <button id="btnFilters" class="chip" data-i="btnFilters" aria-pressed="true"></button>
   <button id="btnViews" class="chip" data-i="btnViews" aria-pressed="false"></button>
   <button id="btnSearch" class="chip" type="button" aria-expanded="false">&#128269;</button>
-  <img id="coa" src="img/tbilisi-seal.svg" width="38" height="38" alt="">
   <h1 id="title"></h1>
   <div class="spacer"></div>
   <button id="fbOpen" class="chip" data-i="fbBtn"></button>
