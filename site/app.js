@@ -1353,9 +1353,11 @@
     const src = $("vmSrc");
     const lic = typeof v.license === "object" ? (v.license[lang] || v.license.en) : v.license;
     src.textContent = L.viewLicense + ": " + lic + " · " + L.viewSource + ": ";
-    const a = document.createElement("a");
-    a.href = v.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = v.page_label ? (v.page_label[lang] || v.page_label.en) : "Wikimedia Commons";
-    src.appendChild(a);
+    if (v.page) {
+      const a = document.createElement("a");
+      a.href = v.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = v.page_label ? (v.page_label[lang] || v.page_label.en) : "Wikimedia Commons";
+      src.appendChild(a);
+    } else src.textContent = L.viewLicense + ": " + lic;
     $("viewModal").hidden = false;
   }
   function closeView() { $("viewModal").hidden = true; }
@@ -1826,7 +1828,7 @@
       year = Math.min(MAX, year + (year < 1000 ? 25 : year < 1700 ? 10 : 1));
       update();
       if (year >= MAX) { clearInterval(timer); timer = null; $("play").textContent = "▶"; }
-    }, 80);
+    }, 240);                                          // slower playback: about 4 years per second after 1700 (was 12)
   });
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", update);
