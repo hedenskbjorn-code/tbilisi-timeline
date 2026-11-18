@@ -128,6 +128,13 @@ far_ok = {}
 _fa = os.path.join(ROOT, "data", "photos_far_approved.json")
 if os.path.exists(_fa):
     far_ok = json.load(open(_fa, encoding="utf-8"))["approved"]
+# photos chosen by hand for an object (data/photos_object_override.json: {"objects": {"object id": ["File:..."]}}): they replace the photos
+# found by coordinates for that object and are not shown on other objects (found out 2026-11-18: the Atashgah showed pictures of the street)
+override = {}
+_ov = os.path.join(ROOT, "data", "photos_object_override.json")
+if os.path.exists(_ov):
+    override = json.load(open(_ov, encoding="utf-8"))["objects"]
+override_titles = {t for ts in override.values() for t in ts}
 used = {}
 
 feats, unknown = [], set()
@@ -144,7 +151,9 @@ for f in src["features"]:
     ye_show = p.get("year_to") if (ye_mid is not None and p.get("date_precision") != "exact" and p.get("year_to")) else ye_mid
     orig_fn = func_orig(p)
     cur_fn = func_current(p, orig_fn)
-    ph = [t for t, d in photo_hits.get(str(p["id"]), []) if (d <= PHOTO_NEAR_M or t in far_ok.get(str(p["id"]), [])) and photo_info.get(t, {}).get("thumb") and photo_info[t].get("license") and not people.get(t, {}).get("reject") and t not in manual_reject]
+    ph = [t for t, d in photo_hits.get(str(p["id"]), []) if (d <= PHOTO_NEAR_M or t in far_ok.get(str(p["id"]), [])) and photo_info.get(t, {}).get("thumb") and photo_info[t].get("license") and not people.get(t, {}).get("reject") and t not in manual_reject and t not in override_titles]
+    if str(p["id"]) in override:
+        ph = [t for t in override[str(p["id"])] if photo_info.get(t, {}).get("thumb") and photo_info[t].get("license")]
     for t in ph:
         used[t] = photo_info[t]
     feats.append({

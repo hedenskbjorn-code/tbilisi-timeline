@@ -3,7 +3,10 @@
   // The timeline starts at the earliest written evidence of the fortress (about 364, see "About"); the long early period is
   // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-90, 1000-1700 -> 90-200, 1700-2026 -> 200-1000)
   const MIN = 364, MAX = 2026, NEW_YEARS = 25;
-  const KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
+  const FULL_KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
+  const ZOOM_STEPS = [364, 1700, 1800, 1850, 1900, 1950, 1980, 2000];   // the scale can start from any of these years (zoom)
+  let zoomIx = 0;
+  let KNOTS = FULL_KNOTS;                         // zoomed scale: one linear piece from the chosen year to MAX (see setZoom)
   const y2v = (y) => { for (let i = 1; i < KNOTS.length; i++) if (y <= KNOTS[i][0]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return v0 + ((y - y0) / (y1 - y0)) * (v1 - v0); } return 1000; };
   const v2y = (v) => { for (let i = 1; i < KNOTS.length; i++) if (v <= KNOTS[i][1]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return Math.round(y0 + ((v - v0) / (v1 - v0)) * (y1 - y0)); } return MAX; };
   const PLAN_AFTER = 10; // the last plan is shown at most this many years after its date
@@ -98,6 +101,7 @@
       waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
       viewsTitle: "Исторические виды (рисунки, не планы)",
       viewClose: "Закрыть",
+      zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
       viewPrev: "Предыдущее фото",
       viewNext: "Следующее фото",
       viewLicense: "лицензия",
@@ -247,6 +251,7 @@
       waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); topographic sheet of c.1911 (lakes).",
       viewsTitle: "Historical views (drawings, not plans)",
       viewClose: "Close",
+      zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
       viewPrev: "Previous photo",
       viewNext: "Next photo",
       viewLicense: "licence",
@@ -397,6 +402,7 @@
       waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); ტოპოგრაფიული ფურცელი დაახლოებით 1911 წლიდან (ტბები).",
       viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
       viewClose: "დახურვა",
+      zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
       viewPrev: "წინა ფოტო",
       viewNext: "შემდეგი ფოტო",
       viewLicense: "ლიცენზია",
@@ -767,6 +773,7 @@
     $("lang").value = lang;
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
+    updateZoomUi();
     $("note").textContent = t().note(undated);
     buildTypes();
     buildAbout();
@@ -831,12 +838,18 @@
       box.appendChild(s);
     };
     // every year that has a data snapshot (built-up outline or old plan) is marked and clickable; round years fill gaps
-    const marked = [...new Set([...urbanSnaps, ...plans.map((p) => p.year), ...views.map((v) => v.year)])].sort((a, b) => a - b);
+    const lo = KNOTS[0][0], zoomed = KNOTS !== FULL_KNOTS;
+    const marked = [...new Set([...urbanSnaps, ...plans.map((p) => p.year), ...views.map((v) => v.year)])].filter((y) => y >= lo && y <= MAX).sort((a, b) => a - b);
     const round = [];
-    for (let y = 400; y < 1700; y += 200) round.push(y);                  // the compressed early period: every 200 years
-    for (let y = 1750; y <= MAX; y += 50) if (!marked.some((p) => Math.abs(p - y) < 12)) round.push(y);
+    if (!zoomed) {
+      for (let y = 400; y < 1700; y += 200) round.push(y);                  // the compressed early period: every 200 years
+      for (let y = 1750; y <= MAX; y += 50) if (!marked.some((p) => Math.abs(p - y) < 12)) round.push(y);
+    } else {
+      const st = lo >= 1980 ? 5 : lo >= 1900 ? 10 : 25;                      // zoomed: round years with a finer step
+      for (let y = Math.ceil(lo / st) * st; y <= MAX; y += st) if (!marked.some((p) => Math.abs(p - y) < st / 2)) round.push(y);
+    }
     if (!marked.some((p) => Math.abs(p - MAX) < 12)) round.push(MAX);
-    round.unshift(MIN);
+    round.unshift(lo);
     const width = Math.max(box.clientWidth - 16, 300);
     const rows = [[], []];                                   // x positions of labels already placed on each of two rows
     const fits = (r, x) => rows[r].every((q) => Math.abs(q - x) >= 34);
@@ -1043,7 +1056,7 @@
     box.textContent = "";
     // markers that would overlap on the scale are merged into one marker with a count; a click on it lists the events
     const W = Math.max(0, box.clientWidth - 16), GAP = 19;
-    const items = histEvents.map((ev) => ({ ev, x: 8 + W * (y2v(ev.year) / 1000) })).sort((a, b) => a.x - b.x || a.ev.year - b.ev.year);
+    const items = histEvents.filter((ev) => ev.year >= KNOTS[0][0]).map((ev) => ({ ev, x: 8 + W * (y2v(ev.year) / 1000) })).sort((a, b) => a.x - b.x || a.ev.year - b.ev.year);
     const groups = [];
     for (const it of items) {
       const g = groups[groups.length - 1];
@@ -1891,6 +1904,35 @@
     try { localStorage.setItem("speed", String(speedIx)); } catch (e) {}
     if (timer) startPlay();
   });
+
+  // zoom of the time scale: the slider shows only the years from ZOOM_STEPS[zoomIx] to MAX, so that the recent decades can be set exactly
+  function updateZoomUi() {
+    const lo = ZOOM_STEPS[zoomIx];
+    $("zoomLbl").textContent = zoomIx === 0 ? t().zoomAll : lo + "–" + MAX;
+    $("zoomIn").setAttribute("aria-label", t().zoomIn); $("zoomIn").title = t().zoomIn;
+    $("zoomOut").setAttribute("aria-label", t().zoomOut); $("zoomOut").title = t().zoomOut;
+    $("zoomOut").disabled = zoomIx === 0;
+  }
+  function setZoom(ix) {
+    zoomIx = ix;
+    KNOTS = ix === 0 ? FULL_KNOTS : [[ZOOM_STEPS[ix], 0], [MAX, 1000]];
+    if (year < ZOOM_STEPS[ix]) year = ZOOM_STEPS[ix];
+    $("slider").value = Math.round(y2v(year));
+    buildTicks(); buildEvMarks();
+    update();
+    updateZoomUi();
+  }
+  function zoomBy(d) {
+    let ix = zoomIx + d;
+    if (ix < 0) return;
+    while (d > 0 && ix < ZOOM_STEPS.length && ZOOM_STEPS[ix] > year) ix = ZOOM_STEPS.length;   // zoom in only as far as the chosen year allows
+    if (ix >= ZOOM_STEPS.length || ix === zoomIx) return;
+    setZoom(ix);
+  }
+  $("zoomIn").addEventListener("click", () => zoomBy(1));
+  $("zoomOut").addEventListener("click", () => zoomBy(-1));
+  $("sliderwrap").addEventListener("wheel", (e) => { e.preventDefault(); zoomBy(e.deltaY < 0 ? 1 : -1); }, { passive: false });
+  updateZoomUi();
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", update);
   window.addEventListener("resize", () => { if (urbanSnaps.length || plans.length) buildTicks(); });
