@@ -206,3 +206,8 @@ body.panel-open #yearchip { display:none; }
 
 #how { margin-top:10px; font-size:12px; color:var(--muted); }
 #how summary { cursor:pointer; }
+
+#popbox { margin:8px 0 2px; color:var(--muted); }
+#popbox b { color:var(--fg); }
+#popbox svg { display:block; width:100%; height:auto; margin-top:4px; }
+#popbox .src { color:var(--muted); font-size:11px; }
