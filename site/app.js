@@ -144,6 +144,7 @@
       stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
       stNow: "сейчас",
       stMore: "Названия по годам известны не для всех улиц.",
+      baseOff: "Подложка карты (OpenFreeMap) недоступна из вашей сети, показан упрощённый фон без улиц и зданий. Исторические слои, планы и названия работают.",
       showStreets: "Улицы по плану 1913 г. (проба, автоматическая обводка)",
       showSwipe: "Шторка: слева старый план, справа современная карта (двигай полосу)",
       showHere: "Что было здесь: клик по карте показывает эту точку на всех планах",
@@ -289,7 +290,8 @@
       btnInfo: "Info", btnFilters: "Filters", filtersTitle: "Filters and layers",
       stTitle: "Street names in this year (checked against Wikipedia)",
       stNow: "today",
-      stMore: "Names by year are known only for some streets (historic names are given in Russian as in the sources).",
+      stMore: "Names by year are known only for some streets.",
+      baseOff: "The basemap (OpenFreeMap) is not reachable from your network, so a simplified background without streets and buildings is shown. The historical layers, plans and names work.",
       showStreets: "Streets on the 1913 plan (experiment, automatic trace)",
       showSwipe: "Swipe: old plan on the left, today's map on the right (drag the bar)",
       showHere: "What was here: click the map to see that point on every plan",
@@ -434,7 +436,8 @@
       btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
-      stMore: "სახელები წლების მიხედვით ცნობილია არა ყველა ქუჩისთვის (ისტორიული სახელები რუსულადაა, წყაროების მიხედვით).",
+      stMore: "სახელები წლების მიხედვით ცნობილია არა ყველა ქუჩისთვის.",
+      baseOff: "რუკის ფონი (OpenFreeMap) თქვენი ქსელიდან მიუწვდომელია, ნაჩვენებია გამარტივებული ფონი ქუჩებისა და შენობების გარეშე. ისტორიული ფენები, გეგმები და სახელები მუშაობს.",
       showStreets: "ქუჩები 1913 წლის გეგმით (ექსპერიმენტი, ავტომატური გადახაზვა)",
       showSwipe: "შედარება: მარცხნივ ძველი გეგმა, მარჯვნივ თანამედროვე რუკა (გადაადგილეთ ზოლი)",
       showHere: "რა იყო აქ: დააწკაპუნეთ რუკაზე, რომ ნახოთ ეს წერტილი ყველა გეგმაზე",
@@ -467,11 +470,21 @@
   const h = parseInt((location.hash || "").slice(1), 10);
   if (h >= MIN && h <= MAX) year = h;
 
+  // Basemap: OpenFreeMap. If it cannot be loaded (blocked or throttled in some countries), the map falls back to a plain background
+  // with our own glyphs, so that all historical layers still work. ?base=off forces the fallback, ?base=bad simulates an unreachable basemap.
+  const BASE_STYLE_URL = "https://tiles.openfreemap.org/styles/liberty";
+  const baseParam = new URLSearchParams(location.search).get("base");
+  function offlineStyle() {
+    return { version: 8, glyphs: location.origin + location.pathname.replace(/[^/]*$/, "") + "fonts/{fontstack}/{range}.pbf", sources: {},
+             layers: [{ id: "bg-offline", type: "background", paint: { "background-color": "#ece9df" } }] };
+  }
+  let baseStyle = baseParam === "off" ? offlineStyle() : baseParam === "bad" ? "https://tiles.invalid/styles/liberty" : BASE_STYLE_URL;
+  let baseOffline = baseParam === "off", mapLoaded = false;
   const map = new maplibregl.Map({
     container: "map",
     // OpenFreeMap vector tiles (free, no key; data © OpenStreetMap contributors, © OpenMapTiles; attribution added by MapLibre)
     // OpenFreeMap "liberty" style, same in light and dark system themes (free, no key; attribution is added by MapLibre)
-    style: "https://tiles.openfreemap.org/styles/liberty",
+    style: baseStyle,
     center: (() => { const c = (new URLSearchParams(location.search).get("c") || "").split(",").map(Number); return c.length >= 2 && c.every(isFinite) ? [c[0], c[1]] : [44.8085, 41.6955]; })(),
     zoom: (() => { const c = (new URLSearchParams(location.search).get("c") || "").split(",").map(Number); return c.length >= 3 && isFinite(c[2]) ? c[2] : 13.2; })(), minZoom: 9, maxZoom: 19, hash: false,
   });
@@ -597,7 +610,6 @@
 
   // ---- swipe comparison: a second, non-interactive map with today's basemap only lies over the first one, clipped from the bar to the right edge
   let map2 = null, swipeFrac = 0.5;
-  const BASE_STYLE = "https://tiles.openfreemap.org/styles/liberty";
   function planOpacity() { return $("showSwipe").checked ? 1 : $("op").value / 100; }
   function syncMap2() { if (map2) map2.jumpTo({ center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() }); }
   function layoutSwipe() {
@@ -614,7 +626,7 @@
   }
   function updateSwipe() {
     if ($("showSwipe").checked && !map2) {
-      map2 = new maplibregl.Map({ container: "map2", style: BASE_STYLE, center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch(),
+      map2 = new maplibregl.Map({ container: "map2", style: baseStyle, center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch(),
                                   interactive: false, attributionControl: false, minZoom: 9, maxZoom: 19, fadeDuration: 0 });
     }
     layoutSwipe();
@@ -870,17 +882,17 @@
     k.textContent = L.c94Title;
     el.appendChild(k);
     const w = document.createElement("div");
-    w.textContent = p.what;
+    w.textContent = pickName(p.what);
     el.appendChild(w);
-    if (p.note && p.note !== "null") { const n = document.createElement("div"); n.className = "small"; n.textContent = p.note; el.appendChild(n); }
+    if (p.note && p.note !== "null") { const n = document.createElement("div"); n.className = "small"; n.textContent = pickName(p.note); el.appendChild(n); }
     const ps = document.createElement("div");
     ps.className = "small";
-    ps.textContent = L.c94Pos + ": " + p.pos + " (" + (L.c94Conf[p.conf] || p.conf) + ")";
+    ps.textContent = L.c94Pos + ": " + pickName(p.pos) + " (" + (L.c94Conf[p.conf] || p.conf) + ")";
     el.appendChild(ps);
     const sr = document.createElement("div");
     sr.className = "small";
     const a = document.createElement("a");
-    a.href = c94.src_url; a.target = "_blank"; a.rel = "noopener"; a.textContent = c94.source.ru + ", " + p.page;
+    a.href = c94.src_url; a.target = "_blank"; a.rel = "noopener"; a.textContent = pickName(c94.source) + ", " + pickName(p.page);
     sr.appendChild(document.createTextNode(L.c94Src + ": "));
     sr.appendChild(a);
     el.appendChild(sr);
@@ -907,7 +919,7 @@
     d.className = "src";
     const a = document.createElement("a");
     a.href = ssrc.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = "[src]";
-    d.appendChild(document.createTextNode((cur.u && (cur.u[lang] || cur.u.ru) || (cur.ref && (cur.ref[lang] || cur.ref.ru)) || "") + " "));
+    d.appendChild(document.createTextNode((cur.u && pickName(cur.u) || (cur.ref && pickName(cur.ref)) || "") + " "));
     d.appendChild(a);
     box.appendChild(d);
     // chart: linear years 1800-2026, population in thousands
@@ -941,6 +953,11 @@
     n.textContent = L.popNote;
     box.appendChild(n);
   }
+  // a text that may be a plain string, a {ru,en,ka} object, or such an object as a JSON string (MapLibre stringifies nested feature properties)
+  const pickName = (o) => {
+    if (typeof o === "string") { if (o[0] !== "{") return o; try { o = JSON.parse(o); } catch (e) { return o; } }
+    return o ? o[lang] || o.en || o.ru || "" : "";
+  };
   let stNames = [], stGeom = {};
   function updateStLabelsLayer() {
     const src = map.getSource("stlabels");
@@ -949,7 +966,7 @@
     if ($("showStLabels").checked) {
       for (const st of stNames) {
         const g = stGeom[st.now.en], iv = st.iv.find((x) => year >= x[0] && year < x[1] && x[2]);
-        if (g && iv) feats.push({ type: "Feature", geometry: g, properties: { t: iv[2] } });
+        if (g && iv) feats.push({ type: "Feature", geometry: g, properties: { t: pickName(iv[2]) } });
       }
     }
     src.setData({ type: "FeatureCollection", features: feats });
@@ -988,7 +1005,7 @@
     const L = t(), rows = [];
     for (const s of stNames) {
       const iv = s.iv.find((x) => year >= x[0] && year < x[1] && x[2]);
-      if (iv) rows.push([iv[2], s.now[lang] || s.now.en, s.src]);
+      if (iv) rows.push([pickName(iv[2]), s.now[lang] || s.now.en, s.src]);
     }
     box.textContent = "";
     box.hidden = !rows.length;
@@ -1043,7 +1060,7 @@
     openInfo((body) => {
       infoLine(body, ev.date + " \u00B7 " + (L.evCats[ev.cat] || ""), "small");
       infoLine(body, ev[lang] || ev.en, "");
-      if (ev.note) infoLine(body, ev.note);
+      if (ev.note) infoLine(body, pickName(ev.note));
       if (ev.place) infoLine(body, "\uD83D\uDCCD " + (ev.place[lang] || ev.place.en));
       if (ev.src.some((u) => /wikipedia/i.test(typeof u === "string" ? u : u.url))) infoLine(body, L.evNote);
       infoLine(body, L.evSrc + ":");
@@ -1559,7 +1576,26 @@
     }
   }
 
+  function goOffline() {
+    if (baseOffline) return;
+    baseOffline = true;
+    baseStyle = offlineStyle();
+    map.setStyle(baseStyle);
+    const n = document.createElement("div");
+    n.id = "basenote";
+    n.textContent = t().baseOff;
+    document.getElementById("map").parentNode.appendChild(n);
+  }
+  setTimeout(() => { if (!mapLoaded && typeof baseStyle !== "object") goOffline(); }, 8000);
+  map.on("error", (e) => { if (!mapLoaded && !e.sourceId && typeof baseStyle !== "object") goOffline(); });
   map.on("load", async () => {
+    mapLoaded = true;
+    if (baseOffline && !document.getElementById("basenote")) {
+      const n = document.createElement("div");
+      n.id = "basenote";
+      n.textContent = t().baseOff;
+      document.getElementById("map").parentNode.appendChild(n);
+    }
     const [pl, mon] = await Promise.all([
       getJSON("data/plans.json"),
       getJSON("data/monuments.json"),
