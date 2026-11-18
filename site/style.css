@@ -28,6 +28,9 @@ html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:1
 #bottom { position:absolute; left:16px; right:16px; bottom:30px; display:flex; gap:12px; align-items:center; z-index:5; background:var(--panel); padding:10px 16px 36px; border-radius:10px; box-shadow:0 1px 8px #0003; }
 #play { width:44px; height:36px; padding:0; flex:none; }
 #speed { width:40px; height:36px; padding:0; flex:none; }
+#zoombox { position:relative; display:flex; gap:4px; flex:none; }
+#zoombox .chip { width:32px; height:36px; padding:0; font-size:18px; line-height:1; }
+#zoomLbl { position:absolute; left:-8px; right:-8px; top:40px; text-align:center; font-size:11px; color:var(--muted); white-space:nowrap; pointer-events:none; }
 #sliderwrap { position:relative; flex:1; }
 #slider { width:100%; margin:0; }
 #ticks { position:absolute; left:0; right:0; top:22px; height:32px; font-size:11px; color:var(--muted); pointer-events:none; }
