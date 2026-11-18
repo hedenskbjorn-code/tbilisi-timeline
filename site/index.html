@@ -22,6 +22,7 @@
 <header id="top">
   <button id="btnInfo" class="chip" data-i="btnInfo" aria-pressed="true"></button>
   <button id="btnFilters" class="chip" data-i="btnFilters" aria-pressed="true"></button>
+  <button id="btnViews" class="chip" data-i="btnViews" aria-pressed="false"></button>
   <h1 id="title"></h1>
   <div class="spacer"></div>
   <button id="fbOpen" class="chip" data-i="fbBtn"></button>
@@ -40,12 +41,16 @@
   <div id="popbox" class="small" hidden></div>
   <div id="trevents" class="small" hidden></div>
   <div id="stnames" class="small" hidden></div>
-  <div id="viewsline" hidden></div>
   <details id="distinfo"><summary id="distsum"></summary><div id="distbody"></div></details>
 
   <details id="how"><summary data-i="howTitle"></summary><div id="howtext"></div></details>
   <p id="note" class="small"></p>
   <details id="about"><summary data-i="aboutTitle"></summary><div id="abouttext"></div></details>
+</aside>
+<aside id="views" hidden>
+  <div class="phead"><span data-i="viewsTitle"></span><button class="pclose" data-panel="views" aria-label="close">×</button></div>
+  <label class="row"><input type="checkbox" id="viewsAll"> <span data-i="viewsAll"></span></label>
+  <div id="vgrid"></div>
 </aside>
 <aside id="filters">
   <div class="phead"><span data-i="filtersTitle"></span><button class="pclose" data-panel="filters" aria-label="close">×</button></div>
