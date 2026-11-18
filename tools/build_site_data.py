@@ -135,6 +135,12 @@ _ov = os.path.join(ROOT, "data", "photos_object_override.json")
 if os.path.exists(_ov):
     override = json.load(open(_ov, encoding="utf-8"))["objects"]
 override_titles = {t for ts in override.values() for t in ts}
+# photo-object pairs left out (data/photos_pair_reject.json: {"objects": {"object id": ["File:..."]}}), found by checking the Commons title against the
+# object's address and by looking at the pictures (2026-11-18, see the note in that file)
+pair_reject = {}
+_pr = os.path.join(ROOT, "data", "photos_pair_reject.json")
+if os.path.exists(_pr):
+    pair_reject = json.load(open(_pr, encoding="utf-8"))["objects"]
 used = {}
 
 feats, unknown = [], set()
@@ -151,7 +157,7 @@ for f in src["features"]:
     ye_show = p.get("year_to") if (ye_mid is not None and p.get("date_precision") != "exact" and p.get("year_to")) else ye_mid
     orig_fn = func_orig(p)
     cur_fn = func_current(p, orig_fn)
-    ph = [t for t, d in photo_hits.get(str(p["id"]), []) if (d <= PHOTO_NEAR_M or t in far_ok.get(str(p["id"]), [])) and photo_info.get(t, {}).get("thumb") and photo_info[t].get("license") and not people.get(t, {}).get("reject") and t not in manual_reject and t not in override_titles]
+    ph = [t for t, d in photo_hits.get(str(p["id"]), []) if (d <= PHOTO_NEAR_M or t in far_ok.get(str(p["id"]), [])) and photo_info.get(t, {}).get("thumb") and photo_info[t].get("license") and not people.get(t, {}).get("reject") and t not in manual_reject and t not in override_titles and t not in pair_reject.get(str(p["id"]), [])]
     if str(p["id"]) in override:
         ph = [t for t in override[str(p["id"])] if photo_info.get(t, {}).get("thumb") and photo_info[t].get("license")]
     for t in ph:

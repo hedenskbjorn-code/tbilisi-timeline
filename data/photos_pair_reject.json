@@ -1,0 +1,3683 @@
+{
+"note": "Photo-object pairs left out of the site (2026-11-18, owner: many photos show another object). Rules applied to the Commons title, address and distance (tools: see sources.md): (1) the title names a house number that is not the object's -> dropped; (2) the title names a street, a view, a panorama or a detail -> dropped; (3) one file near several objects and nothing ties it to this one (no house number in the title, not clearly the nearest) -> dropped; (4) the remaining single photos without a building word in the title were looked through one by one and street scenes, views, interiors of shops, Mapillary 360 frames, signs and the like were dropped. Kept: house number matches the address; a building word in the title; the nearest object; looked through and fitting. Pairs approved earlier by hand (photos_far_approved.json) are not touched.",
+"objects": {
+"2669": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 02.jpg"
+],
+"2671": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (111).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (112).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (115).jpg"
+],
+"2673": [
+"File:2025-03-26 24 Davit Aghmashenebeli Avenue, 4 Rome Street.jpg",
+"File:2025-03-26 Restored ghost sign at 29 Davit Aghmashenebeli Avenue.jpg"
+],
+"2678": [
+"File:Old balconies at 23 & 21 Aghmashenebeli Avenue in Tbilisi.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 09 (18529551089) (2).jpg"
+],
+"2679": [
+"File:GPC Pharmacy Aghmashenebeli.jpg"
+],
+"2681": [
+"File:2025-04-19 Mose Gogiberidze Street, Tbilisi 2.jpg",
+"File:2025-04-19 Mose Gogiberidze Street, Tbilisi 1.jpg"
+],
+"2683": [
+"File:Autumn season in Butanic Garden فصل پاییز در باغ بوتانیکال تفلیس 29.jpg",
+"File:Autumn season in Butanic Garden فصل پاییز در باغ بوتانیکال تفلیس 28.jpg",
+"File:Tree in Tbilisi.jpg"
+],
+"2684": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 04.jpg",
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 05.jpg"
+],
+"2687": [
+"File:Autumn season in Butanic Garden فصل پاییز در باغ بوتانیکال تفلیس 29.jpg",
+"File:Autumn season in Butanic Garden فصل پاییز در باغ بوتانیکال تفلیس 28.jpg",
+"File:Tree in Tbilisi.jpg"
+],
+"2688": [
+"File:2014 Tbilisi, Budynek, Ulica Elene Akhvelediani Rise 10 (02).jpg"
+],
+"2689": [
+"File:Tbilisi - 2026-10 - p53.jpg",
+"File:Tbilisi - 2026-10 - p54.jpg",
+"File:Tbilisi - 2026-10 - p52.jpg"
+],
+"2697": [
+"File:Old balconies at 23 & 21 Aghmashenebeli Avenue in Tbilisi.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 09 (18529551089) (2).jpg"
+],
+"2700": [
+"File:8 Tamar Skhiltladze Street, Tbilisi.jpg"
+],
+"2704": [
+"File:Old Tbilisi, June, 2018-4.jpg"
+],
+"2705": [
+"File:2025-03-26 Main entrance of the house of Erast Chavchanidze.jpg",
+"File:2025-03-26 Plaque to Erast Chavchanidze.jpg",
+"File:2025-03-26 Plaque to Mikheil and Konstantine Chavchanidze.jpg"
+],
+"2708": [
+"File:Terenti Graneli plaque in Tbilisi.jpg",
+"File:Tiflis Straßenszene 6.jpg",
+"File:Tiflis Straßenszene 7.jpg"
+],
+"2716": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 09 (18529551089) (2).jpg"
+],
+"2721": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (115).jpg"
+],
+"2723": [
+"File:Museum of Ilia Chavchavadze 04.jpg",
+"File:Museum of Ilia Chavchavadze 03.jpg"
+],
+"2724": [
+"File:2025-03-26 Main entrance of the house of Erast Chavchanidze.jpg",
+"File:2025-03-26 Plaque to Mikheil and Konstantine Chavchanidze.jpg"
+],
+"2731": [
+"File:Old balconies at 23 & 21 Aghmashenebeli Avenue in Tbilisi.jpg"
+],
+"2732": [
+"File:Kolaus Nadiradze Street in Tbilisi 2023-07-10.jpg"
+],
+"2743": [
+"File:GPC Pharmacy Aghmashenebeli.jpg"
+],
+"2749": [
+"File:2025-03-26 27 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-03-26 Entrance to 27 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-03-26 4 Rome Street (3).jpg"
+],
+"2750": [
+"File:2025-03-26 Main entrance of the house of Erast Chavchanidze.jpg",
+"File:2025-03-26 Plaque to Mikheil and Konstantine Chavchanidze.jpg"
+],
+"2753": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 01.jpg"
+],
+"2761": [
+"File:Plaque to Josef Navrátil, Tbilisi.jpg",
+"File:Josef Navratil plaque.jpg"
+],
+"2771": [
+"File:2025-04-19 Maksim Gorki Street, Tbilisi 1.jpg",
+"File:2025-04-19 Alexandre Natishvili street, Tbilisi.jpg"
+],
+"2772": [
+"File:2025-03-26 4 Rome Street (1).jpg",
+"File:2025-03-26 4 Rome Street (2).jpg"
+],
+"2773": [
+"File:სასტუმრო პრესტიჟი.jpg"
+],
+"2775": [
+"File:2025-01-01 Kote and Soso Tsereteli Street.jpg"
+],
+"2776": [
+"File:Plaque to Josef Navrátil, Tbilisi.jpg",
+"File:Josef Navratil plaque.jpg",
+"File:Kyiv Street 2 plate.jpg"
+],
+"2780": [
+"File:Museum of Ilia Chavchavadze 04.jpg",
+"File:Museum of Ilia Chavchavadze 03.jpg"
+],
+"2786": [
+"File:Nodar Jorjikia memorial plaque.jpg"
+],
+"2789": [
+"File:Polio Abramia memorial plaque.jpg",
+"File:Parmen Jikia memorial plaque.jpg"
+],
+"2791": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (112).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (113).jpg"
+],
+"2793": [
+"File:Old wooden architecture in Giorgi Mazniashvili Street, Tbilisi.jpg"
+],
+"2795": [
+"File:2025-03-26 65 Davit Aghmashenebeli Avenue (southern).jpg"
+],
+"2803": [
+"File:Ori Nabiji Marjanishvili.jpg"
+],
+"2812": [
+"File:2025-03-26 Plaque to Erast Chavchanidze.jpg",
+"File:2025-03-26 Plaque to Mikheil and Konstantine Chavchanidze.jpg",
+"File:Tbilisi - David Agmashenebeli Ave 36 - Anfent.jpg"
+],
+"2820": [
+"File:2025-04-19 Ivane Javakhishvili Street, Tbilisi.jpg"
+],
+"2821": [
+"File:Old balconies at 23 & 21 Aghmashenebeli Avenue in Tbilisi.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 09 (18529551089) (2).jpg"
+],
+"2828": [
+"File:2025-04-19 Mose Gogiberidze Street, Tbilisi 2.jpg",
+"File:2025-04-19 Mose Gogiberidze Street, Tbilisi 1.jpg",
+"File:Tbilisi - 2026-10 - p55.jpg"
+],
+"2831": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 01.jpg"
+],
+"2838": [
+"File:2025-03-26 Plaque to Zakaria & Nadezhda Kurdiani.jpg",
+"File:2025-03-26 2-8 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-01-01 Plaque to Givi Kartozia.jpg"
+],
+"2841": [
+"File:Tiflis Straßenszene 2.jpg"
+],
+"2844": [
+"File:Giorgi Tumanishvili memorial plaque.jpg"
+],
+"2846": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 07.jpg"
+],
+"2848": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 03.jpg"
+],
+"2852": [
+"File:Tbilisi - 2026-10 - p53.jpg",
+"File:Tbilisi - 2026-10 - p54.jpg"
+],
+"2853": [
+"File:Ori Nabiji Marjanishvili.jpg"
+],
+"2863": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 09 (18529551089) (2).jpg"
+],
+"2864": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 02.jpg"
+],
+"2868": [
+"File:Polio Abramia memorial plaque.jpg"
+],
+"2874": [
+"File:Terenti Graneli plaque in Tbilisi.jpg",
+"File:Citizen of old Tbilisi-3.jpg"
+],
+"2875": [
+"File:2025-03-26 Plaque to Zakaria & Nadezhda Kurdiani.jpg",
+"File:2025-01-01 Plaque to Givi Kartozia.jpg"
+],
+"2877": [
+"File:2025-03-26 Backyard of 1 Rome Street.jpg",
+"File:2025-03-26 4 Rome Street (1).jpg",
+"File:2025-03-26 4 Rome Street (2).jpg"
+],
+"2878": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 09 (18529551089) (2).jpg"
+],
+"2879": [
+"File:Old balconies at 23 & 21 Aghmashenebeli Avenue in Tbilisi.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 09 (18529551089) (2).jpg"
+],
+"2885": [
+"File:Nikora Marjanishvili.jpg"
+],
+"2886": [
+"File:2025-03-26 24 Davit Aghmashenebeli Avenue, 4 Rome Street.jpg",
+"File:2025-03-26 27 Davit Aghmashenebeli Avenue.jpg"
+],
+"2889": [
+"File:Tbilisi - 2026-10 - p52.jpg",
+"File:Old Tbilisi, June, 2018-3.jpg",
+"File:Tbilisi - 2026-10 - p51.jpg"
+],
+"2890": [
+"File:2025-03-26 Main entrance of the house of Erast Chavchanidze.jpg",
+"File:2025-03-26 Plaque to Erast Chavchanidze.jpg",
+"File:2025-03-26 Plaque to Mikheil and Konstantine Chavchanidze.jpg"
+],
+"2904": [
+"File:Ushangi Khumarashvili memorial plaque.jpg"
+],
+"2905": [
+"File:Citizen of old Tbilisi-3.jpg"
+],
+"2906": [
+"File:2025-03-26 Plaque to Davit Tsitsishvili.jpg"
+],
+"2907": [
+"File:2025-04-19 Maksim Gorki Street, Tbilisi 2.jpg"
+],
+"2908": [
+"File:Tbilisi - 2026-10 - p50.jpg"
+],
+"2910": [
+"File:Ushangi Khumarashvili memorial plaque.jpg"
+],
+"2914": [
+"File:Tbilisi - 2026-10 - p47.jpg"
+],
+"2918": [
+"File:2025-03-26 65 Davit Aghmashenebeli Avenue (southern).jpg"
+],
+"2922": [
+"File:109 Agmashenebeli.jpg"
+],
+"2931": [
+"File:Memorial board of the Lithuanian consulate.jpg"
+],
+"2933": [
+"File:Zurab Gvenetadze memorial plaque.jpg"
+],
+"2934": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 05.jpg"
+],
+"2939": [
+"File:Tbilisi127 (45596047981).jpg",
+"File:Tbilisi128 (45596047611).jpg",
+"File:Tbilisi129 (45596047371).jpg"
+],
+"2941": [
+"File:David El Constructor.jpg"
+],
+"2946": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 07.jpg"
+],
+"2950": [
+"File:Zurab Gvenetadze memorial plaque.jpg"
+],
+"2951": [
+"File:Davit Buleishvili memorial plaque.jpg"
+],
+"2953": [
+"File:Old Tbilisi, June, 2018-4.jpg"
+],
+"2954": [
+"File:Old wooden architecture in Giorgi Mazniashvili Street, Tbilisi.jpg"
+],
+"2955": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 01.jpg"
+],
+"2959": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 03.jpg",
+"File:Tbilisi - David Agmashenebeli Ave 61 - 2025-10.jpg"
+],
+"2960": [
+"File:Ori Nabiji Marjanishvili.jpg"
+],
+"2964": [
+"File:Suttner's house (Tbilissi).jpg",
+"File:2024-01-28 Bertha von Suttner & Arthur Gundaccar von Suttner's plaque in Tbilisi.jpg"
+],
+"2972": [
+"File:2025-03-26 Plaque to Zakaria & Nadezhda Kurdiani.jpg",
+"File:2025-03-26 2-8 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-01-01 Plaque to Givi Kartozia.jpg"
+],
+"2984": [
+"File:GPC Pharmacy Aghmashenebeli.jpg"
+],
+"2987": [
+"File:93 Uznadze plaque.jpg",
+"File:Dimitri Uznadze memorial plaque.jpg",
+"File:95 Dimitri Uznadze St, Tbilisi.jpg"
+],
+"2989": [
+"File:2025-03-26 Plaque to Zakaria & Nadezhda Kurdiani.jpg",
+"File:2025-03-26 2-8 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-01-01 Plaque to Givi Kartozia.jpg"
+],
+"2993": [
+"File:Tiflis Straßenszene 4.jpg"
+],
+"2994": [
+"File:Old balconies at 23 & 21 Aghmashenebeli Avenue in Tbilisi.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 09 (18529551089) (2).jpg"
+],
+"2999": [
+"File:2025-04-19 Mose Gogiberidze Street, Tbilisi 2.jpg",
+"File:2025-04-19 Mose Gogiberidze Street, Tbilisi 1.jpg",
+"File:Tbilisi - 2026-10 - p55.jpg"
+],
+"3000": [
+"File:Mutant Radio (Tbilisi) 2023 06 53 07 882000.jpg"
+],
+"3001": [
+"File:2025-03-26 Plaque to Davit Tsitsishvili.jpg"
+],
+"3002": [
+"File:2025-03-26 Plaque to Shota Iamanidze.jpg",
+"File:2025-01-01 4 Rome Street.jpg"
+],
+"3020": [
+"File:St. Peter & Paul cathedral, Tbilisi (B).jpg",
+"File:St. Peter & Paul cathedral, Tbilisi (A).jpg"
+],
+"3026": [
+"File:2025-03-26 27 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-03-26 Entrance to 27 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-03-26 4 Rome Street (3).jpg"
+],
+"3049": [
+"File:Memorial board of the Lithuanian consulate.jpg"
+],
+"3058": [
+"File:Plaque to the first diplomatic mission of Lithuania in Transcausasia.jpg",
+"File:Council of Lithuanians of the Caucasus plaque.jpg"
+],
+"3083": [
+"File:2025-03-26 Plaque to Shota Iamanidze.jpg"
+],
+"3084": [
+"File:2025-03-26 Plaque to Shota Iamanidze.jpg"
+],
+"3096": [
+"File:Solomon Cholokoshvili plaque.jpg"
+],
+"3103": [
+"File:Renovated Modernist buildings in David Aghmashenebeli Avenue, Tbilisi, Georgia 07.jpg",
+"File:Marjanishvili Square, Tbilisi, Georgia. 2015.jpg",
+"File:Marjanishvili Square, Tbilisi 2015.jpg"
+],
+"3105": [
+"File:დავით აღმაშენებლის გამზირი 03.jpg"
+],
+"3107": [
+"File:Vazha Gelashvili memorial plaque.jpg",
+"File:Robert Kupcis memorial plaque.jpg"
+],
+"3108": [
+"File:კომპოზიტორთა კავშირი.jpg"
+],
+"3118": [
+"File:Polio Abramia memorial plaque.jpg"
+],
+"3121": [
+"File:109 Agmashenebeli.jpg"
+],
+"3123": [
+"File:2025-03-26 Backyard of 1 Rome Street.jpg"
+],
+"3126": [
+"File:Ninidze apartments in Tbilisi.jpg"
+],
+"3128": [
+"File:Nodar Jorjikia memorial plaque.jpg",
+"File:მიხეილ წინამძღვრიშვილი.jpg"
+],
+"3129": [
+"File:Marjanishvili - panoramio.jpg"
+],
+"3131": [
+"File:2025-03-26 2-8 Davit Aghmashenebeli Avenue.jpg"
+],
+"3132": [
+"File:2025-03-26 4 Rome Street (3).jpg",
+"File:2025-03-26 Backyard of 1 Rome Street.jpg",
+"File:2025-03-26 4 Rome Street (1).jpg"
+],
+"3133": [
+"File:2025-03-26 27 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-03-26 Entrance to 27 Davit Aghmashenebeli Avenue.jpg"
+],
+"3143": [
+"File:Porfile Chanchibadze memorial plaque.jpg"
+],
+"3149": [
+"File:Porfile Chanchibadze memorial plaque.jpg"
+],
+"3150": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (200).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (196).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (192).jpg"
+],
+"3156": [
+"File:Giorgi Tumanishvili memorial plaque.jpg"
+],
+"3160": [
+"File:Old balconies at 23 & 21 Aghmashenebeli Avenue in Tbilisi.jpg"
+],
+"3161": [
+"File:2025-03-26 27 Davit Aghmashenebeli Avenue.jpg",
+"File:2025-03-26 Entrance to 27 Davit Aghmashenebeli Avenue.jpg"
+],
+"3169": [
+"File:სათნოების სახლი.jpg"
+],
+"3176": [
+"File:Suttner's house (Tbilissi).jpg",
+"File:2024-01-28 Bertha von Suttner & Arthur Gundaccar von Suttner's plaque in Tbilisi.jpg"
+],
+"3181": [
+"File:Tovstonogov apartments in Tbilisi.jpg"
+],
+"3182": [
+"File:სათნოების სახლი.jpg"
+],
+"3184": [
+"File:93 Uznadze plaque.jpg",
+"File:Dimitri Uznadze memorial plaque.jpg"
+],
+"3200": [
+"File:Merab Maisuradze memorial plaque.jpg"
+],
+"3209": [
+"File:Solomon Cholokoshvili plaque.jpg"
+],
+"3212": [
+"File:Jūlijs Straume memorial plaque.jpg"
+],
+"3215": [
+"File:95 Dimitri Uznadze St, Tbilisi.jpg"
+],
+"3222": [
+"File:Vazha Gelashvili memorial plaque.jpg",
+"File:Robert Kupcis memorial plaque.jpg",
+"File:Merab Maisuradze memorial plaque.jpg"
+],
+"3231": [
+"File:Derelict mosaic roofs.jpg"
+],
+"3240": [
+"File:Ninidze apartments in Tbilisi.jpg"
+],
+"3248": [
+"File:2023-10-17 Sunset over Sameba Cathedral.jpg"
+],
+"3251": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (321).jpg"
+],
+"3252": [
+"File:Davit Buleishvili memorial plaque.jpg"
+],
+"3253": [
+"File:2023-10-15 Elene Akhvelediani Rise Street, Tbilisi.jpg",
+"File:Orkhevi I Lane.jpg"
+],
+"3254": [
+"File:2023-10-15 Elene Akhvelediani Rise Street, Tbilisi.jpg",
+"File:Orkhevi I Lane.jpg",
+"File:Citizen of old Tbilisi-4.jpg"
+],
+"3255": [
+"File:Tbilisi127 (45596047981).jpg",
+"File:Tbilisi128 (45596047611).jpg",
+"File:Tbilisi129 (45596047371).jpg"
+],
+"3258": [
+"File:სამედ. პარაზ. და ტროპ. მედიც. სამეცნ. კვლევითი ინსტ.jpg"
+],
+"3261": [
+"File:Citizen of Avlabari, June, 2018.jpg"
+],
+"3262": [
+"File:93 Uznadze plaque.jpg",
+"File:Dimitri Uznadze memorial plaque.jpg",
+"File:Prokopi Japaridze memorial plaque.jpg"
+],
+"3264": [
+"File:Porfile Chanchibadze memorial plaque.jpg"
+],
+"3265": [
+"File:Solomon Cholokoshvili plaque.jpg"
+],
+"3272": [
+"File:Jūlijs Straume memorial plaque.jpg"
+],
+"3280": [
+"File:Porfile Chanchibadze memorial plaque.jpg",
+"File:Tovstonogov apartments in Tbilisi.jpg"
+],
+"3281": [
+"File:Tovstonogov apartments in Tbilisi.jpg"
+],
+"3288": [
+"File:Ninidze apartments in Tbilisi.jpg"
+],
+"3293": [
+"File:Suttner's house (Tbilissi).jpg",
+"File:2024-01-28 Bertha von Suttner & Arthur Gundaccar von Suttner's plaque in Tbilisi.jpg"
+],
+"3317": [
+"File:Sunset in Tbilisi (2010).jpg"
+],
+"3321": [
+"File:სამედ. პარაზ. და ტროპ. მედიც. სამეცნ. კვლევითი ინსტ.jpg"
+],
+"3326": [
+"File:Tbilisi - Vikt'or Jorbenadzes kucha.jpg"
+],
+"3327": [
+"File:Citizen of old Tbilisi-4.jpg"
+],
+"3328": [
+"File:Tbilisi129 (45596047371).jpg"
+],
+"3332": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (286).jpg"
+],
+"3337": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (24).jpg",
+"File:Tbilisi117 (44690778531).jpg",
+"File:Au pied des \"remparts\" - panoramio.jpg"
+],
+"3339": [
+"File:Cityscapes of Tbilisi HDR photo شهر تفلیس پایتخت گرجستان თბილისი 26.jpg",
+"File:Cityscapes of Tbilisi HDR photo شهر تفلیس پایتخت گرجستان თბილისი 25.jpg"
+],
+"3340": [
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G13 Lg) گرافیتی ها در تفلیس گرجستان.jpg"
+],
+"3343": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (200).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (196).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (204).jpg"
+],
+"3345": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (180).jpg"
+],
+"3347": [
+"File:Tbilisi - Vikt'or Jorbenadzes kucha.jpg"
+],
+"3350": [
+"File:Tbilisi127 (45596047981).jpg",
+"File:Tbilisi129 (45596047371).jpg"
+],
+"3352": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (25).jpg",
+"File:2022-10-29 Balcony at 2 Isani Street.jpg"
+],
+"3353": [
+"File:Tbilisi127 (45596047981).jpg",
+"File:Tbilisi128 (45596047611).jpg"
+],
+"3354": [
+"File:Geno Kalandia memorial plaque.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (209).jpg"
+],
+"3357": [
+"File:Tbilisi129 (45596047371).jpg",
+"File:Tbilisi130 (45596047191).jpg"
+],
+"3358": [
+"File:Balconies in Old Tbilisi at night.jpg"
+],
+"3361": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (196).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (192).jpg"
+],
+"3362": [
+"File:Ejmiatsin Armenian Cathedral, Avlabari, Old Tbilisi, Georgia.jpg"
+],
+"3363": [
+"File:Gloomy economic situation ? (48219269106).jpg"
+],
+"3367": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (67).jpg"
+],
+"3369": [
+"File:Cityscapes of Tbilisi HDR photo شهر تفلیس پایتخت گرجستان თბილისი 26.jpg",
+"File:Cityscapes of Tbilisi HDR photo شهر تفلیس پایتخت گرجستان თბილისი 25.jpg"
+],
+"3370": [
+"File:Tbilisi117 (44690778531).jpg",
+"File:Cityscapes of Tbilisi HDR photo شهر تفلیس پایتخت گرجستان თბილისი 25.jpg",
+"File:Old Town, Tbilisi, Georgia (48808680556).jpg"
+],
+"3372": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (26).jpg",
+"File:Gare du téléphérique - panoramio.jpg"
+],
+"3376": [
+"File:Geno Kalandia memorial plaque.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (209).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (213).jpg"
+],
+"3377": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (217).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (216).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (222).jpg"
+],
+"3380": [
+"File:Saint Gevorg Armenian Church, Old Tbilisi - Սուրբ Գևորգ հայկական եկեղեցի, Հին Թբիլիսի.jpg",
+"File:Panoramic view of Old Tbilisi, Georgia.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (298).jpg"
+],
+"3381": [
+"File:Qarapi Saint Gevorg church, Old Tbilisi1.png"
+],
+"3382": [
+"File:Unnamed2 - panoramio (2160).jpg"
+],
+"3388": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (181).jpg"
+],
+"3391": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (26).jpg",
+"File:Tbilisi panorama from left bank.jpg"
+],
+"3398": [
+"File:Au pied des \"remparts\" - panoramio.jpg",
+"File:Cityscapes of Tbilisi HDR photo شهر تفلیس پایتخت گرجستان თბილისი 26.jpg",
+"File:Cityscapes of Tbilisi HDR photo شهر تفلیس پایتخت گرجستان თბილისი 25.jpg"
+],
+"3400": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (26).jpg"
+],
+"3402": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (200).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (196).jpg"
+],
+"3404": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (204).jpg"
+],
+"3405": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (180).jpg"
+],
+"3408": [
+"File:Churchkhela in Georgia.jpg"
+],
+"3409": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (24).jpg",
+"File:Tbilisi117 (44690778531).jpg",
+"File:Old Town, Tbilisi, Georgia (48808680556).jpg"
+],
+"3411": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (56).jpg"
+],
+"3412": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (25).jpg"
+],
+"3414": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (217).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (216).jpg",
+"File:Tyflis - Tbilisi - Sept.1988 - panoramio.jpg"
+],
+"3417": [
+"File:23 Baratashvili Street - 2002 (15801373735).jpg"
+],
+"3418": [
+"File:Alleys in Tbilisi HDR Photos کوچه ها در تفلیس 12.jpg"
+],
+"3419": [
+"File:National Botanical Garden of Georgia باغ های بوتانیکال در شهر تفلیس گرجستان 23.jpg"
+],
+"3423": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (204).jpg"
+],
+"3424": [
+"File:Citizen of old Tbilisi-4.jpg",
+"File:Churchkhela in Georgia.jpg"
+],
+"3425": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 01 (18653980186) (2).jpg",
+"File:Tbilisi Bath Quater Christan Balcony.jpg",
+"File:Tbilisi Bath Quater Muslim Balcony.jpg"
+],
+"3432": [
+"File:View of Old Tbilisi.jpg"
+],
+"3436": [
+"File:2025-06-17 Plaque to Bidzina Kvernadze.jpg"
+],
+"3437": [
+"File:Unnamed2 - panoramio (2172).jpg",
+"File:Unnamed2 - panoramio (2171).jpg",
+"File:Porch Houses on Stone Wall - panoramio.jpg"
+],
+"3438": [
+"File:Porch Houses on Stone Wall - panoramio.jpg",
+"File:Unnamed2 - panoramio (2173).jpg"
+],
+"3441": [
+"File:საქართველოს პრეზიდენტის სასახლე6.jpg",
+"File:საქართველოს პრეზიდენტის სასახლე4.jpg"
+],
+"3443": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (132).jpg",
+"File:Signpost in Tbilisi April 2007.jpg"
+],
+"3445": [
+"File:Unnamed2 - panoramio (2169).jpg",
+"File:Unnamed2 - panoramio (2170).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio.jpg"
+],
+"3446": [
+"File:049A Tbilissi Vieille ville cour intérieure avec balcons de bois.JPG"
+],
+"3447": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (126).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (123).jpg"
+],
+"3448": [
+"File:Orkhevi I Lane.jpg"
+],
+"3449": [
+"File:Churchkhela in Georgia.jpg"
+],
+"3451": [
+"File:Qarapi Saint Gevorg church, Old Tbilisi1.png"
+],
+"3452": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (132).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (129).jpg"
+],
+"3453": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (132).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (129).jpg"
+],
+"3456": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (132).jpg"
+],
+"3458": [
+"File:Old Tbilisi (1a).jpg",
+"File:2024-05-02 Plaque to Gia Abesadze.jpg",
+"File:სამეფო უბნის თეატრის შესასვლელი ფასადი. გ.აბესაძის ქუჩა.jpg"
+],
+"3464": [
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G12 Lg) گرافیتی ها در تفلیس گرجستان.jpg"
+],
+"3465": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 04 (18680229485) (2).jpg",
+"File:Irgvlivi Lane, Tbilisi (50502280712).jpg",
+"File:Tbilisi თბილისი تفلیس 03.jpg"
+],
+"3466": [
+"File:National Botanical Garden of Georgia (HDR Photo, Lg G41) باغ بوتانیکال، شهر تفلیس.jpg"
+],
+"3469": [
+"File:Tbilisi Old Town Clock - panoramio.jpg",
+"File:Tbilisi IMG 8932 1920.jpg",
+"File:President Saakashvili Residence - panoramio.jpg"
+],
+"3470": [
+"File:Unnamed2 - panoramio (2150).jpg",
+"File:Unnamed2 - panoramio (2151).jpg",
+"File:Tiflis 14 33 15 578000.jpeg"
+],
+"3471": [
+"File:2025-03-27 Citizen of Beth Lekhem Quarter 2.jpg",
+"File:2025-03-27 Citizen of Beth Lekhem Quarter 1.jpg",
+"File:ეკლესია „ქვედა ბეთლემი“, ბეთლემის აღმართი 3.jpg"
+],
+"3473": [
+"File:Tiflis 14 33 00 116000.jpeg",
+"File:2024-04-23 Water conservation sign inside 26 Lado Asatiani Street.jpg",
+"File:2024-04-23 Interior decoration in 26 Lado Asatiani Street.jpg"
+],
+"3474": [
+"File:Tbilisi Old Town Clock - panoramio.jpg",
+"File:Tbilisi Old Town - panoramio (1).jpg",
+"File:Rezo Gabriadze Marionette Theater tower 01.jpg"
+],
+"3476": [
+"File:Tiflis 14 33 25 412000.jpeg"
+],
+"3477": [
+"File:Tbilisi at night, Old town, Georgia.jpg",
+"File:Old Tbilisi, June, 2018-1.jpg",
+"File:Old Tbilisi, June, 2018-2.jpg"
+],
+"3479": [
+"File:Unnamed2 - panoramio (2169).jpg",
+"File:Unnamed2 - panoramio (2170).jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 07 (18711013992) (2).jpg"
+],
+"3480": [
+"File:Unnamed2 - panoramio (2172).jpg",
+"File:Unnamed2 - panoramio (2171).jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 07 (18711013992) (2).jpg"
+],
+"3481": [
+"File:Hovhannes Tumanan Street sign, Tbilisi, Georgia.jpg",
+"File:Tbilisi - Ovanes Tumaniani street 5 - 2025-01 - p04.jpg"
+],
+"3483": [
+"File:ღვთისმშობლის ამაღლების კათოლიკური ეკლესი, აბესაძე გიას ქუჩა 4.jpg",
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi-interior (2).jpg",
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi-interior (1).jpg"
+],
+"3484": [
+"File:2024-05-02 Plaque to Nikoloz Jandieri.jpg"
+],
+"3485": [
+"File:Straße in Tiflis 6.jpg"
+],
+"3486": [
+"File:Cathedral of the Assumption of the Virgin in Tbilisi.jpg"
+],
+"3487": [
+"File:Raffikojian-gevorg mughni-181328483.jpg",
+"File:Raffikojian-gevorg mughni-181330033.jpg"
+],
+"3488": [
+"File:Raffikojian-gevorg mughni-181328483.jpg",
+"File:Raffikojian-gevorg mughni-181330033.jpg"
+],
+"3489": [
+"File:Tbilisi221 (43778306660).jpg"
+],
+"3490": [
+"File:Tiflis 14 44 19 842000.jpeg",
+"File:Stairs at 22-24 Shavteli Street in Tbilisi.jpg"
+],
+"3491": [
+"File:Tbilisi077 (44642308982).jpg",
+"File:Spilopelia senegalensis in Tbilisi, May, 2018.jpg"
+],
+"3492": [
+"File:აბაკელია თამარის ქუჩა 7.jpg"
+],
+"3493": [
+"File:Tbilisi - view 2.jpg",
+"File:Gomi Street in Tbilisi, May, 2022.jpg"
+],
+"3495": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Signpost in Tbilisi April 2007.jpg",
+"File:Minimalism - panoramio.jpg"
+],
+"3496": [
+"File:Tiflis 14 35 31 281000.jpeg",
+"File:A courtyard on Ierusalimi Street in Tbilisi.jpg",
+"File:Tiflis 14 35 23 292000.jpeg"
+],
+"3497": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (132).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (131).jpg"
+],
+"3499": [
+"File:Tiflis 14 35 13 152000.jpeg",
+"File:Tiflis 14 35 01 269000.jpeg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (38).jpg"
+],
+"3500": [
+"File:Old Tbilisi, Georgia.jpg",
+"File:მოღნისის წმინდა გიორგის ეკლესია (4).jpg",
+"File:მოღნისის წმინდა გიორგის ეკლესია (6).jpg"
+],
+"3501": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (247).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (293).jpg"
+],
+"3502": [
+"File:Tbilisi - Khachatur Aboviani street 10 - 2025-10 - p02.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (121).jpg"
+],
+"3503": [
+"File:Blue House on corner Guliashvili Square.jpg",
+"File:Tiflis 14 43 08 560000.jpeg",
+"File:Gudiashvili Square - West side (2021).jpg"
+],
+"3504": [
+"File:2025-05-27 View of Tbilisi from Gomi Street 2.jpg",
+"File:2025-05-27 Old Tbilisi.jpg",
+"File:2025-05-27 View of Tbilisi from Gomi Street 3.jpg"
+],
+"3505": [
+"File:Public bath in Tbilisi.jpg"
+],
+"3506": [
+"File:Giorgi Atoneli street 11.jpg",
+"File:Giorgi Atoneli street 11 (2).jpg"
+],
+"3507": [
+"File:Giorgi Atoneli street 18 - Anton Purtseladze street 22 (4).jpg",
+"File:Giorgi Atoneli street 18 - Anton Purtseladze street 22 (2).jpg",
+"File:Giorgi Atoneli street 18 - Anton Purtseladze street 22 (3).jpg"
+],
+"3508": [
+"File:Tbilisi Old Town - panoramio.jpg",
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G14 Lg) گرافیتی ها در تفلیس گرجستان.jpg"
+],
+"3509": [
+"File:Tbilisi - Aleksandre Shimkevich Street 6-8 - 2025-10.jpg",
+"File:Tbilisi - Aleksandre Shimkevich Street 10 - 2025-10.jpg"
+],
+"3511": [
+"File:Unnamed2 - panoramio (2172).jpg",
+"File:Unnamed2 - panoramio (2171).jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 07 (18711013992) (2).jpg"
+],
+"3513": [
+"File:Tbilisi - Ibrahim Isfahanli Street 7 - 2025-10.jpg",
+"File:Tbilisi - Ibrahim Isfahanli Street 9 - 2025-10.jpg",
+"File:Tbilisi - Ibrahim Isfahanli Street - 2025-10.jpg"
+],
+"3516": [
+"File:View of Tbilisi by night from Orbiri Street 2023-10-01-2.jpg",
+"File:View of Tbilisi by night from Orbiri Street 2023-10-01-1.jpg"
+],
+"3517": [
+"File:Stadtansicht Tiflis 59.jpg"
+],
+"3518": [
+"File:Courtyard Scene - Old Town - Tbilisi - Georgia - 01 (18675445982) (2).jpg"
+],
+"3520": [
+"File:2025-06-17 Plaque to Bidzina Kvernadze.jpg"
+],
+"3521": [
+"File:2023-12-24 Botanikuri Street, Tbilisi.jpg",
+"File:2024-10-06. Tbilisoba 2024. Abanotubani.jpg"
+],
+"3522": [
+"File:2025-06-17 Plaque to Bidzina Kvernadze.jpg",
+"File:Juma masjid Tbilisi.jpg"
+],
+"3523": [
+"File:Old Tbilisi (2a).jpg"
+],
+"3524": [
+"File:Minimalism - panoramio.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (234).jpg",
+"File:სტელა არტუა (4).jpg"
+],
+"3525": [
+"File:Old Tbilisi (7).jpg",
+"File:Old Tbilisi (8).jpg",
+"File:Old Tbilisi (9).jpg"
+],
+"3527": [
+"File:Stadtansicht Tiflis 61.jpg",
+"File:Stadtansicht Tiflis 60.jpg"
+],
+"3528": [
+"File:Tbilisi - Aleksandre Shimkevich Street 10 - 2025-10.jpg",
+"File:Tbilisi - Vakhtang Gorgasali Street 25 - 2025-10.jpg"
+],
+"3530": [
+"File:2018-05-31 Old Tbilisi.jpg"
+],
+"3531": [
+"File:2022-10-29 Gerzel Baazov Street.jpg"
+],
+"3532": [
+"File:Tbilisi - Khachtur Aboviani Street 12 - 2025-10 - p01.jpg",
+"File:Raffi kojian-Abovyan-130257380.jpg",
+"File:ასათიანის ქუჩა 58.jpg"
+],
+"3533": [
+"File:Ninidze apartments in Tbilisi.jpg",
+"File:J. Kakhidze st. 13.jpg"
+],
+"3534": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (290).jpg",
+"File:Abanotubani, Tbilisi 20230921.jpg"
+],
+"3536": [
+"File:Tiflis 14 33 25 412000.jpeg",
+"File:Tbilisi - Gudiashvili Square - ruins behind glass - 2025-10 - p05.jpg",
+"File:Street in Tbilisi Old Town.jpg"
+],
+"3538": [
+"File:Opuštěné noční staré město - panoramio.jpg",
+"File:Old Town, Tbilisi, Georgia (48808791792).jpg"
+],
+"3539": [
+"File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (03).jpg",
+"File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (02).jpg"
+],
+"3541": [
+"File:Saint Gevorg Armenian Church, Old Tbilisi - Սուրբ Գևորգ հայկական եկեղեցի, Հին Թբիլիսի.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (298).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (302).jpg"
+],
+"3542": [
+"File:عکس از گلها و گیاهان باغ بوتانیکال تفلیس - گرجستان 12.jpg"
+],
+"3543": [
+"File:Interior of the Juma Mosues.jpg",
+"File:Old Furance of the Juma Mosque in Tbilisi.jpg"
+],
+"3546": [
+"File:Old Tbilisi, June, 2018-1.jpg",
+"File:Old Tbilisi, June, 2018-2.jpg",
+"File:Citizen of old Tbilisi-1.jpg"
+],
+"3548": [
+"File:The door at Ietim Gurji street, Tbilisi.jpg",
+"File:Unnamed2 - panoramio (2168).jpg",
+"File:Unnamed2 - panoramio (2164).jpg"
+],
+"3549": [
+"File:Tiflis 14 33 35 959000.jpeg",
+"File:Tbilisi - Anton Katalikosi Street 4 - 2025-10 - p06.jpg",
+"File:Tbilisi - Anton Katalikosi Street 4 - 2025-10 - p07.jpg"
+],
+"3550": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (244).jpg",
+"File:Tbilisi IMG 8925 1920.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (239).jpg"
+],
+"3552": [
+"File:2024-05-02 Plaque to Nikoloz Jandieri.jpg"
+],
+"3558": [
+"File:Unnamed2 - panoramio (2173).jpg",
+"File:Mapillary (1430813027552619, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H06M03S285.jpg"
+],
+"3560": [
+"File:Tiflis 14 36 26 994000.jpeg",
+"File:2025-03-27 Citizen of Beth Lekhem Quarter 3.jpg",
+"File:In the old town of Tbilissi.jpg"
+],
+"3563": [
+"File:Unnamed2 - panoramio (2167).jpg",
+"File:Unnamed2 - panoramio (2166).jpg",
+"File:Citizen of old Tbilisi-2.jpg"
+],
+"3572": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 06 (18715912735) (2).jpg"
+],
+"3574": [
+"File:Old Tbilisi (4a).jpg"
+],
+"3575": [
+"File:Tbilisi - Ovanes Tumaniani Street 14 - 2025-10 - p05.jpg"
+],
+"3576": [
+"File:2024-04-23 Water conservation sign inside 26 Lado Asatiani Street.jpg",
+"File:2024-04-23 Dilapidated stairwell in 26 Lado Asatiani Street.jpg"
+],
+"3577": [
+"File:2018-05-31 Old Tbilisi.jpg",
+"File:Tbilisi - Chakhrukhadze street 6 - 2025-10 - p14.jpg",
+"File:2024-04-14 Chakhrukhadze Street, Tbilisi.jpg"
+],
+"3578": [
+"File:Raffi kojian-Surb Nshan-124915605.jpg"
+],
+"3579": [
+"File:Tiflis 14 37 06 625000.jpeg"
+],
+"3582": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (305).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (299).jpg",
+"File:Panorama of Tbilisi 2015-03-23 (1).JPG"
+],
+"3584": [
+"File:Tbilisi - Vakhtang Gorgasali Street 25 - 2025-10.jpg"
+],
+"3585": [
+"File:Tiflis 14 33 25 412000.jpeg",
+"File:Tbilisi - Gudiashvili Square - ruins behind glass - 2025-10 - p05.jpg",
+"File:Lado Gudiashvili Square.jpg"
+],
+"3586": [
+"File:Night at Tbilisi - panoramio.jpg",
+"File:Tiflis (18896254491).jpg"
+],
+"3587": [
+"File:Tiflis 14 44 11 649000.jpeg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (292).jpg",
+"File:Unnamed2 - panoramio (2158).jpg"
+],
+"3588": [
+"File:2024-04-14 Chakhrukhadze Street, Tbilisi.jpg",
+"File:2024-04-14 Spring in Tbilisi.jpg"
+],
+"3589": [
+"File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (02).jpg"
+],
+"3591": [
+"File:Raffi kojian-Surb Nshan-124837651.jpg"
+],
+"3594": [
+"File:93 Uznadze plaque.jpg"
+],
+"3596": [
+"File:Historical house in Old Tbilisi.jpg",
+"File:Orbeliani baths 05.jpg"
+],
+"3598": [
+"File:2026-09-17 Eastern part of 7 Gizo Nishnianidze Street facade, Tbilisi.jpg"
+],
+"3599": [
+"File:2024-03-24 Plaque to Platon Shushania.jpg",
+"File:Walter Siemens commemorative plaque.jpg"
+],
+"3600": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 06 (18715912735) (2).jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 05 (18689644566) (2).jpg",
+"File:Cats of Tbilisi 2023-10-01.jpg"
+],
+"3601": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 06 (18715912735) (2).jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 05 (18689644566) (2).jpg"
+],
+"3602": [
+"File:2023-12-16 A street in Old Tbilisi 1.jpg"
+],
+"3603": [
+"File:2024-04-23 Water conservation sign inside 26 Lado Asatiani Street.jpg",
+"File:2024-04-23 Interior decoration in 26 Lado Asatiani Street.jpg",
+"File:2023-06-29 Interior decorations of Shalimov House.jpg"
+],
+"3605": [
+"File:Unnamed2 - panoramio (2160).jpg"
+],
+"3606": [
+"File:Tiflis 14 36 26 994000.jpeg",
+"File:In the old town of Tbilissi.jpg",
+"File:Old Tbilisi (4a).jpg"
+],
+"3607": [
+"File:049A Tbilissi Vieille ville cour intérieure avec balcons de bois.JPG"
+],
+"3608": [
+"File:Courtyard Scene - Old Town - Tbilisi - Georgia - 01 (18675445982) (2).jpg",
+"File:Tbilisi - Vakhtang Gorgasali Street 23 - 2025-10.jpg"
+],
+"3609": [
+"File:Tbilisi - Ovanes Tumaniani street 2 - 2025-01 - p05.jpg",
+"File:Tbilisi - Jerusalem Square 5 - 2025-10 - p04.jpg",
+"File:Tbilisi - Jerusalem Square 5 - 2025-10 - p01.jpg"
+],
+"3610": [
+"File:Gardens and parks in Tbilisi پارک ها و مبلمان شهری در تفلیس 06.jpg"
+],
+"3611": [
+"File:Old Tbilisi, June, 2018-1.jpg",
+"File:Old Tbilisi, June, 2018-2.jpg",
+"File:Citizen of old Tbilisi-1.jpg"
+],
+"3613": [
+"File:2023-12-16 A street in Old Tbilisi 2.jpg"
+],
+"3615": [
+"File:Old Tbilisi (4a).jpg",
+"File:Unnamed2 - panoramio (2153).jpg",
+"File:Unnamed2 - panoramio (2148).jpg"
+],
+"3616": [
+"File:2014 Tbilisi, Widoki z Twierdzy Narikala (15).jpg",
+"File:2014 Tbilisi, Widoki z Twierdzy Narikala (14).jpg"
+],
+"3619": [
+"File:Old Tbilisi (1a).jpg",
+"File:2024-05-02 Plaque to Gia Abesadze.jpg",
+"File:Cathedral of the Assumption of the Virgin in Tbilisi.jpg"
+],
+"3620": [
+"File:View of Tbilisi. August 2022 25.jpg"
+],
+"3622": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 04 (18680229485) (2).jpg",
+"File:Tbilisi თბილისი تفلیس 03.jpg"
+],
+"3623": [
+"File:Irgvlivi Lane, Tbilisi (50502280712).jpg",
+"File:The Forty Martyrs of Sebastian Monastery (Tbilisi) 02.jpg",
+"File:The Forty Martyrs of Sebastian Monastery (Tbilisi) 01.jpg"
+],
+"3624": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (91).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (92).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (86).jpg"
+],
+"3626": [
+"File:Qarapi Saint Gevorg church, Old Tbilisi1.png",
+"File:Tbilisi seen from Sololaki Range (2).jpg"
+],
+"3627": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Signpost in Tbilisi April 2007.jpg"
+],
+"3628": [
+"File:ასათიანის ქუჩა 58.jpg",
+"File:Tbilisi - Khachatur Aboviani street - 2025-10 - p03.jpg"
+],
+"3629": [
+"File:Tbilisi - Khachatur Aboviani street - 2025-10 - p03.jpg"
+],
+"3632": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (91).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (92).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (86).jpg"
+],
+"3633": [
+"File:Unnamed2 - panoramio (2172).jpg",
+"File:Unnamed2 - panoramio (2171).jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 07 (18711013992) (2).jpg"
+],
+"3635": [
+"File:Old Town, Tbilisi, Georgia (48808306048).jpg",
+"File:Street Scene - Old Town - Tbilisi - Georgia - 07 (18713873825) (2).jpg",
+"File:Old Town, Tbilisi, Georgia (48808800102).jpg"
+],
+"3637": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (171).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (174).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (172).jpg"
+],
+"3640": [
+"File:National Botanical Garden of Georgia (HDR Photo, Lg G7) باغ بوتانیکال، شهر تفلیس.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 02 (18492519238) (2).jpg",
+"File:National Botanical Garden of Georgia (HDR Photo, Lg G6) باغ بوتانیکال، شهر تفلیس.jpg"
+],
+"3641": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (132).jpg",
+"File:Signpost in Tbilisi April 2007.jpg"
+],
+"3642": [
+"File:Tbilisi077 (44642308982).jpg"
+],
+"3643": [
+"File:Blue House on corner Guliashvili Square.jpg"
+],
+"3644": [
+"File:Old Tbilisi (7).jpg",
+"File:Old Tbilisi (8).jpg",
+"File:Old Tbilisi (9).jpg"
+],
+"3645": [
+"File:2025-05-27 View of Tbilisi from Gomi Street 2.jpg",
+"File:2025-05-27 Old Tbilisi.jpg",
+"File:2025-05-27 View of Tbilisi from Gomi Street 3.jpg"
+],
+"3646": [
+"File:Beth Lekhem Quarter in May 2022.jpg",
+"File:View of Tbilisi (1).jpg"
+],
+"3652": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (83).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (150).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (166).jpg"
+],
+"3654": [
+"File:2023-12-16 Abo Tbileli street, Tbilisi.jpg"
+],
+"3655": [
+"File:2023-01-21 Entrance to 8 Abo Tbilieli Street.jpg",
+"File:Tbilisi - Abo Tbileli Street 8 - 2025-10 - p04.jpg",
+"File:2023-12-16 Abo Tbileli street, Tbilisi.jpg"
+],
+"3656": [
+"File:Tiflis 14 35 38 959000.jpeg",
+"File:David Baazov memory board (Tbilisi).jpg"
+],
+"3657": [
+"File:Tbilisi - Leghvtakhevi Gorge - 2025-10 - p02.jpg",
+"File:Tbilisi - Leghvtakhevi Gorge - 2025-10 - p03.jpg"
+],
+"3660": [
+"File:Tbilissi old town (48222738217).jpg"
+],
+"3661": [
+"File:Tiflis 14 33 00 116000.jpeg"
+],
+"3662": [
+"File:23 Baratashvili Street - 2002 (15801373735).jpg",
+"File:Tbilisi Old Town - panoramio (1).jpg"
+],
+"3663": [
+"File:Tbilisi - Park of Heraclius II - 2025-10 - p01.jpg",
+"File:Tbilisi - Erekle II Square 9 - 2025-10 - p15.jpg"
+],
+"3664": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (239).jpg",
+"File:Tbilisi (242436351).jpeg",
+"File:2014 Tbilisi, Ulica Ioane Szawteli (01).jpg"
+],
+"3665": [
+"File:Old Town, Tbilisi, Georgia (48808800102).jpg",
+"File:Tiflis 14 43 37 748000.jpeg"
+],
+"3666": [
+"File:Old Town, Tbilisi, Georgia (48808800102).jpg",
+"File:Tiflis 14 43 37 748000.jpeg"
+],
+"3667": [
+"File:Unnamed2 - panoramio (2173).jpg"
+],
+"3668": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (292).jpg",
+"File:Unnamed2 - panoramio (2158).jpg",
+"File:Tbilisi - Shota Kavlashvili 10 - 2025-10 - p16.jpg"
+],
+"3669": [
+"File:2014 Tbilisi, Plakaty wyborcze partii Gruzińskie Marzenie.jpg"
+],
+"3671": [
+"File:Giorgi Atoneli street 18 - Anton Purtseladze street 22 (2).jpg",
+"File:Giorgi Atoneli street 18 - Anton Purtseladze street 22 (3).jpg",
+"File:Giorgi Atoneli street 18 - Anton Purtseladze street 22.jpg"
+],
+"3672": [
+"File:Tbilisi - Ovanes Tumaniani Street 14 - 2025-10 - p05.jpg",
+"File:Tbilisi - Ovanes Tumaniani Turn - 2025-10 - p04.jpg"
+],
+"3674": [
+"File:2025-06-17 Plaque to Bidzina Kvernadze.jpg"
+],
+"3675": [
+"File:ათეშგა.jpg",
+"File:Tiflis 22 17 56 870000.jpeg",
+"File:Unnamed2 - panoramio (2155).jpg"
+],
+"3676": [
+"File:Tiflis 14 35 58 828000.jpeg",
+"File:Tiflis 14 35 46 232000.jpeg",
+"File:Lado Asatiani Street in Tbilisi.jpg"
+],
+"3678": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (298).jpg",
+"File:Etchmiadzin Cathedral fresco St George church, Tbilisi.jpg"
+],
+"3679": [
+"File:Tbilisi - Jerusalem Square 6 - 2025-10 - p05.jpg",
+"File:19 Grigol Khandzteli Street, Georgia - panoramio.jpg"
+],
+"3680": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (132).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (129).jpg"
+],
+"3681": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Signpost in Tbilisi April 2007.jpg",
+"File:Minimalism - panoramio.jpg"
+],
+"3682": [
+"File:Courtyard Scene - Old Town - Tbilisi - Georgia - 01 (18675445982) (2).jpg",
+"File:Tbilisi - Vakhtang Gorgasali Street 25 - 2025-10.jpg"
+],
+"3683": [
+"File:ათეშგა.jpg",
+"File:Tiflis 22 17 56 870000.jpeg",
+"File:Unnamed2 - panoramio (2155).jpg"
+],
+"3684": [
+"File:Tbilisi 28 (15771707586).jpg"
+],
+"3685": [
+"File:Tbilisi - Shota Kavlashvili 10 - 2025-10 - p16.jpg"
+],
+"3686": [
+"File:Tiflis 22 17 56 870000.jpeg",
+"File:Tbilisi, Old town, Georgia.jpg",
+"File:2025-06-02 Citizen of Tbilisi Old Town.jpg"
+],
+"3687": [
+"File:2023-06-29 Housing office sign at Shalimov House.jpg"
+],
+"3689": [
+"File:Raffi kojian-Surb Nshan-124837651.jpg"
+],
+"3690": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (129).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (131).jpg",
+"File:Mantashov's rows Tbilisi.jpg"
+],
+"3691": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Signpost in Tbilisi April 2007.jpg",
+"File:Minimalism - panoramio.jpg"
+],
+"3693": [
+"File:Street in Tbilisi Old Town.jpg"
+],
+"3694": [
+"File:Gudiashvili Square - West side (2021).jpg",
+"File:Gudiashvili Square - renovated (2021).jpg",
+"File:2023-12-16 Traditional house in Tbilisi at Gudiashvili Square.jpg"
+],
+"3696": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Minimalism - panoramio.jpg",
+"File:Guinness reaches Tbilisi (154862467).jpg"
+],
+"3697": [
+"File:Tiflis 14 35 38 959000.jpeg",
+"File:David Baazov memory board (Tbilisi).jpg",
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G4 Lg) گرافیتی ها در تفلیس گرجستان.jpg"
+],
+"3698": [
+"File:Blue House on corner Guliashvili Square.jpg",
+"File:Gudiashvili Square - West side (2021).jpg",
+"File:Gudiashvili Square - renovated (2021).jpg"
+],
+"3699": [
+"File:Interior of the Juma Mosues.jpg",
+"File:Old Furance of the Juma Mosque in Tbilisi.jpg"
+],
+"3703": [
+"File:Tbilisi127 (45596047981).jpg",
+"File:Tbilisi128 (45596047611).jpg",
+"File:Tbilisi129 (45596047371).jpg"
+],
+"3704": [
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G4 Lg) گرافیتی ها در تفلیس گرجستان.jpg",
+"File:Alleys in Tbilisi HDR Photos کوچه ها در تفلیس 07.jpg",
+"File:Alleys in Tbilisi HDR Photos کوچه ها در تفلیس 06.jpg"
+],
+"3705": [
+"File:Irgvlivi Lane, Tbilisi (50502280712).jpg"
+],
+"3707": [
+"File:Old Town, Tbilisi, Georgia (48808306048).jpg",
+"File:Old Town, Tbilisi, Georgia (48808800102).jpg",
+"File:Tiflis 14 43 37 748000.jpeg"
+],
+"3708": [
+"File:Giorgi Atoneli street 25 (2).jpg",
+"File:Giorgi Atoneli street 25 (3).jpg",
+"File:Giorgi Atoneli street 27 (2).jpg"
+],
+"3710": [
+"File:Giorgi Atoneli street 23 (2).jpg",
+"File:Tbilisi - 2026-10 - p05.jpg"
+],
+"3713": [
+"File:Tbilisi - 2026-10 - p10.jpg",
+"File:Tbilisi - 2026-10 - p11.jpg"
+],
+"3714": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (155).jpg"
+],
+"3715": [
+"File:Unnamed2 - panoramio (2169).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio.jpg",
+"File:Tbilisi old city walls 01.jpg"
+],
+"3716": [
+"File:Tiflis 14 35 38 959000.jpeg",
+"File:David Baazov memory board (Tbilisi).jpg",
+"File:Betlemi Street from Puri Square, Tbilisi (50499300536).jpg"
+],
+"3717": [
+"File:View to Tbilisi from Betlemi Rise Viewpoint-3, May, 2022.jpg",
+"File:View to Tbilisi from Betlemi Rise Viewpoint-2, May, 2022.jpg",
+"File:View to Tbilisi from Betlemi Rise Viewpoint-4, May, 2022.jpg"
+],
+"3718": [
+"File:Unnamed2 - panoramio (2157).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (77).jpg",
+"File:Тбилиси советских времен - panoramio.jpg"
+],
+"3720": [
+"File:Minimalism - panoramio.jpg",
+"File:Guinness reaches Tbilisi (154862467).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (44).jpg"
+],
+"3721": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Minimalism - panoramio.jpg",
+"File:Guinness reaches Tbilisi (154862467).jpg"
+],
+"3723": [
+"File:Центр тбилиси - panoramio.jpg"
+],
+"3724": [
+"File:Tiflis 14 33 35 959000.jpeg",
+"File:Tbilisi086 (43973002864).jpg"
+],
+"3725": [
+"File:Tbilisi old city walls 01.jpg"
+],
+"3728": [
+"File:Tbilisi - Public School №75 - 2025-10 p02.jpg"
+],
+"3731": [
+"File:Tbilisi 2023 06 49 40 914000.jpeg",
+"File:Haidar Abashidze plaque, Tbilisi.jpg",
+"File:Ekvtime Taqaishvili plaque, Tbilisi.jpg"
+],
+"3732": [
+"File:View of Tbilisi from Sololaki at night 2023-07-11-1.jpg",
+"File:View of Tbilisi from Sololaki 2023-07-11-3.jpg",
+"File:View of Tbilisi from Sololaki 2023-07-11-1.jpg"
+],
+"3733": [
+"File:Tbilisi - Public School №75 - 2025-10 p02.jpg"
+],
+"3734": [
+"File:ათეშგა.jpg",
+"File:Tiflis 22 17 56 870000.jpeg",
+"File:Тбилиси советских времен - panoramio.jpg"
+],
+"3739": [
+"File:Tiflis 14 36 26 994000.jpeg",
+"File:View of Tbilisi (1).jpg"
+],
+"3740": [
+"File:Leghvtakhevi Gorge - 2026-10 - p01.jpg"
+],
+"3743": [
+"File:Mantashov's rows Tbilisi.jpg",
+"File:2024-10-06. Tbilisoba 2024. Bridge of Peace.jpg"
+],
+"3744": [
+"File:ასათიანის ქუჩა 58.jpg",
+"File:Tbilisi - Khachatur Aboviani street - 2025-10 - p03.jpg",
+"File:Tbilisi - Abo Tbileli Street 8 - 2025-10 - p04.jpg"
+],
+"3746": [
+"File:Old Tbilisi (4a).jpg",
+"File:Tiflis 14 35 58 828000.jpeg",
+"File:Tiflis 14 35 46 232000.jpeg"
+],
+"3748": [
+"File:Tbilisi View from the Top.jpg"
+],
+"3750": [
+"File:Unnamed2 - panoramio (2172).jpg",
+"File:Unnamed2 - panoramio (2171).jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 07 (18711013992) (2).jpg"
+],
+"3751": [
+"File:Tbilisi, Altars in Kashueti Church of St. George, Georgia.jpg",
+"File:Tbilisi near the Book Bazar.jpg"
+],
+"3752": [
+"File:Botanikuri Street, Tbilisi.jpg",
+"File:Tbilisi - Leghvtakhevi Gorge - 2025-10 - p08.jpg"
+],
+"3753": [
+"File:Unnamed2 - panoramio (2157).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (77).jpg",
+"File:Тбилиси советских времен - panoramio.jpg"
+],
+"3754": [
+"File:Saint Nshan Armenian church, Old Tbilisi 30.jpg"
+],
+"3755": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (239).jpg",
+"File:2014 Tbilisi, Ulica Ioane Szawteli (01).jpg",
+"File:Old Town, Tbilisi, Georgia (48808646896).jpg"
+],
+"3756": [
+"File:Tbilisi - Abanotubani - 2025-10 - p04.jpg",
+"File:2014 Tbilisi, Łaźnie siarkowe w Abanotubani (02).jpg",
+"File:View of Nariqala Fortress from Old Town - Tbilisi - Georgia (18713511675) (2).jpg"
+],
+"3757": [
+"File:St Gevorg Church inside.jpg"
+],
+"3759": [
+"File:Bridge of love in Abanotubani, Tbilisi.jpg",
+"File:Abanotubani, Tbilisi 2.jpg",
+"File:Abanotubani, Tbilisi 3.jpg"
+],
+"3760": [
+"File:უზენაესი სასამართლო.jpg"
+],
+"3761": [
+"File:Tafel zu einem Gebäude in Tiflis.jpg",
+"File:Gebäude in Tiflis 1.jpg"
+],
+"3764": [
+"File:Stadtansicht Tiflis 59.jpg",
+"File:Graffiti in Tbilisi (19).jpg"
+],
+"3767": [
+"File:St. Nicolas Church in Narikala 01.jpg"
+],
+"3769": [
+"File:Orkhevi I Lane.jpg"
+],
+"3770": [
+"File:Orkhevi I Lane.jpg",
+"File:Churchkhela in Georgia.jpg"
+],
+"3771": [
+"File:Tbilisi117 (44690778531).jpg",
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G13 Lg) گرافیتی ها در تفلیس گرجستان.jpg",
+"File:Old Town, Tbilisi, Georgia (48808680556).jpg"
+],
+"3772": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (224).jpg",
+"File:Europe Square as viewed from the Metekhi church premises, Tbilisi, Georgia. July 2023.jpg"
+],
+"3773": [
+"File:Old Tbilisi, Avlabari, Georgia.jpg"
+],
+"3774": [
+"File:Old Town, Tbilisi, Georgia (48808791792).jpg",
+"File:Old Town, Tbilisi, Georgia (48808646896).jpg"
+],
+"3778": [
+"File:Tbilisi127 (45596047981).jpg",
+"File:Tbilisi128 (45596047611).jpg"
+],
+"3779": [
+"File:Tbilisi - Jerusalem Square 6 - 2025-10 - p05.jpg",
+"File:19 Grigol Khandzteli Street, Georgia - panoramio.jpg"
+],
+"3781": [
+"File:2023-12-16 Old Tbilisi.jpg",
+"File:Citizen of old Tbilisi-6.jpg"
+],
+"3783": [
+"File:Tbilisi - Shota Kavlashvili 10 - 2025-10 - p16.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 21 (18902084821) (2).jpg"
+],
+"3785": [
+"File:Panoramic view of Old Tbilisi, Georgia.jpg",
+"File:Kote Afkhazi Street.jpg"
+],
+"3786": [
+"File:Old Tbilisi (4a).jpg",
+"File:Unnamed2 - panoramio (2153).jpg",
+"File:Old Tbilisi (3a).jpg"
+],
+"3787": [
+"File:Tbilisi, Altars in Kashueti Church of St. George, Georgia.jpg",
+"File:Tbilisi near the Book Bazar.jpg",
+"File:Basílica Antxískhati.jpg"
+],
+"3788": [
+"File:Bridge of love in Abanotubani, Tbilisi.jpg",
+"File:Abanotubani, Tbilisi 2.jpg",
+"File:Abanotubani, Tbilisi 3.jpg"
+],
+"3790": [
+"File:Tbilisi086 (43973002864).jpg"
+],
+"3791": [
+"File:IETIM GURJI (1875-1940), the national poet. - panoramio.jpg"
+],
+"3792": [
+"File:Straße in Tiflis 6.jpg",
+"File:Autumn in Tbilisi (HDR Mobile Photography) پاییز در تفلیس 01.jpg"
+],
+"3793": [
+"File:Tbilisi - Jerusalem Square 5 - 2025-10 - p01.jpg",
+"File:Red Sky - panoramio (1).jpg",
+"File:Tbilisi თბილისი تفلیس 07.jpg"
+],
+"3795": [
+"File:Graffiti in Tbilisi (19).jpg"
+],
+"3798": [
+"File:ეკლესია „ქვედა ბეთლემი“, ბეთლემის აღმართი 3.jpg",
+"File:2023-12-15 View of Tbilisi.jpg"
+],
+"3799": [
+"File:2024-05-02 Plaque to Nikoloz Jandieri.jpg"
+],
+"3800": [
+"File:تفلیس Tbilisi თბილისი 49.jpg",
+"File:Kura (Caspian Sea) Tbilisi, Georgia رودخانه متکواری یا کورا در شهر تفلیس گرجستان 01.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (170).jpg"
+],
+"3801": [
+"File:Saint Nshan Armenian church, Old Tbilisi 30.jpg",
+"File:Raffi kojian-Surb Nshan-125250608.jpg",
+"File:Saint Nshan Armenian church, Old Tbilisi (08.06,2007).jpg"
+],
+"3802": [
+"File:Giorgi Atoneli street 23 (2).jpg",
+"File:Tbilisi - 2026-10 - p05.jpg",
+"File:Giorgi Atoneli street 21 (3).jpg"
+],
+"3804": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (66).jpg"
+],
+"3805": [
+"File:ქართველ ებრაელთა ეთოგრაფიულ-ისტორიული მუზეუმი, ანტონ კათალიკოსის ქუჩა 3.jpg"
+],
+"3806": [
+"File:ქართველ ებრაელთა ეთოგრაფიულ-ისტორიული მუზეუმი, ანტონ კათალიკოსის ქუჩა 3.jpg",
+"File:Tbilisi086 (43973002864).jpg"
+],
+"3807": [
+"File:View to Tbilisi from Betlemi Rise Viewpoint-3, May, 2022.jpg",
+"File:Betlemi Rise Viewpoint in May 2022.jpg"
+],
+"3808": [
+"File:Unnamed2 - panoramio (2150).jpg",
+"File:Unnamed2 - panoramio (2151).jpg",
+"File:Tiflis 14 33 15 578000.jpeg"
+],
+"3809": [
+"File:Tbilisi - Khachatur Aboviani street - 2025-10 - p03.jpg",
+"File:Tbilisi - Abo Tbileli Street 8 - 2025-10 - p04.jpg",
+"File:2023-12-16 Abo Tbileli street, Tbilisi.jpg"
+],
+"3816": [
+"File:Vazha Gelashvili memorial plaque.jpg"
+],
+"3819": [
+"File:Public bath in Tbilisi.jpg"
+],
+"3821": [
+"File:Tbilisi - Soviet Clocks - p05.jpg",
+"File:Tbilisi - Soviet Clocks - p01.jpg"
+],
+"3824": [
+"File:Wall Houses - panoramio.jpg",
+"File:Historic Architecture - panoramio.jpg"
+],
+"3825": [
+"File:Stadtansicht Tiflis 58.jpg"
+],
+"3826": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (244).jpg",
+"File:Tbilisi IMG 8925 1920.jpg",
+"File:St Nino cross 8680.jpg"
+],
+"3828": [
+"File:Old Tbilisi, June, 2018-1.jpg",
+"File:Old Tbilisi, June, 2018-2.jpg",
+"File:Spilopelia senegalensis in Tbilisi, May, 2018.jpg"
+],
+"3829": [
+"File:KGB v Tbilisi - panoramio.jpg",
+"File:2014 Tbilisi, Ulica Erekle II (04).jpg",
+"File:Erekle II street.jpg"
+],
+"3830": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (215).jpg"
+],
+"3832": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (292).jpg",
+"File:Unnamed2 - panoramio (2158).jpg",
+"File:Tbilisi - Shota Kavlashvili 10 - 2025-10 - p16.jpg"
+],
+"3834": [
+"File:Tbilisi Old Town - panoramio (1).jpg"
+],
+"3835": [
+"File:Balconies in Old Tbilisi at night.jpg"
+],
+"3836": [
+"File:Ejmiatsin Armenian Church (66303).jpg",
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G13 Lg) گرافیتی ها در تفلیس گرجستان.jpg"
+],
+"3837": [
+"File:Moorish fortress above Tiflis Palace Park in Tbilisi, Georgia - panoramio.jpg",
+"File:Tbilisi3325.jpg",
+"File:Tbilisi - Abanotubani - 2025-10 - p03.jpg"
+],
+"3838": [
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi-interior (1).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (120).jpg",
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi.jpg"
+],
+"3839": [
+"File:A courtyard on Ierusalimi Street in Tbilisi.jpg",
+"File:Tiflis 14 35 23 292000.jpeg",
+"File:Betlemi Street from Puri Square, Tbilisi (50499300536).jpg"
+],
+"3840": [
+"File:Old Tbilisi (7).jpg",
+"File:Old Tbilisi (8).jpg",
+"File:Old Tbilisi (9).jpg"
+],
+"3842": [
+"File:Sunset in Tbilisi (2010).jpg",
+"File:Tyflis - Tbilisi - Sept.1988 - panoramio.jpg"
+],
+"3845": [
+"File:Anton Purtseladze street 13 (2).jpg",
+"File:Anton Purtseladze street 13.jpg"
+],
+"3846": [
+"File:2024-05-02 Plaque to Nikoloz Jandieri.jpg"
+],
+"3847": [
+"File:Patio hotelu Villa Mtiebi - panoramio.jpg"
+],
+"3850": [
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi-interior (2).jpg",
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi-interior (1).jpg",
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi.jpg"
+],
+"3851": [
+"File:Banys a Abanotubani.jpg",
+"File:2014 Tbilisi, Łaźnie siarkowe w Abanotubani (07).jpg"
+],
+"3852": [
+"File:Unnamed2 - panoramio (2160).jpg",
+"File:Raffi kojian-Surb Nshan-124837651.jpg",
+"File:Unnamed2 - panoramio (2163).jpg"
+],
+"3854": [
+"File:2026-09-17 18 Amaghleba Street, Tbilisi - side facade.jpg"
+],
+"3857": [
+"File:Stairs at 21 Tamar Chovelidze Street in Tbilisi.jpg"
+],
+"3859": [
+"File:საქართველოს პრეზიდენტის სასახლე6.jpg",
+"File:საქართველოს პრეზიდენტის სასახლე4.jpg"
+],
+"3860": [
+"File:Tiflis 14 33 35 959000.jpeg",
+"File:Tbilisi - Anton Katalikosi Street 4 - 2025-10 - p06.jpg",
+"File:Tbilisi - Anton Katalikosi Street 4 - 2025-10 - p07.jpg"
+],
+"3863": [
+"File:Tbilisi History Museum HDR Photos თბილისის ისტორიის მუზეუმი 23.jpg",
+"File:Tbilisi History Museum HDR Photos თბილისის ისტორიის მუზეუმი 20.jpg",
+"File:Tbilisi History Museum HDR Photos თბილისის ისტორიის მუზეუმი 19.jpg"
+],
+"3864": [
+"File:Architecural Detail - Sioni Cathedral - Old Town - Tbilisi - Georgia - 02 (18893891772).jpg"
+],
+"3866": [
+"File:Tbilisi - Park of Heraclius II - 2025-10 - p01.jpg"
+],
+"3869": [
+"File:2026-03-01 Plaque to Petre Otskheli.jpg"
+],
+"3871": [
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G12 Lg) گرافیتی ها در تفلیس گرجستان.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 06 (18715912735) (2).jpg",
+"File:Konstantine Leselidze bust in Tbilisi.jpg"
+],
+"3874": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (239).jpg",
+"File:Tbilisi (242436351).jpeg",
+"File:2014 Tbilisi, Ulica Ioane Szawteli (01).jpg"
+],
+"3881": [
+"File:Orbeliani baths 05.jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 01 (18653980186) (2).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (46).jpg"
+],
+"3882": [
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G12 Lg) گرافیتی ها در تفلیس گرجستان.jpg",
+"File:Side streets in Old Tbilisi - panoramio.jpg"
+],
+"3883": [
+"File:Giorgi Atoneli street 4.jpg",
+"File:Giorgi Atoneli street 4 (2).jpg"
+],
+"3884": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (83).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (166).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (169).jpg"
+],
+"3885": [
+"File:Old Tbilisi, Georgia.jpg",
+"File:მოღნისის წმინდა გიორგის ეკლესია (4).jpg",
+"File:მოღნისის წმინდა გიორგის ეკლესია (6).jpg"
+],
+"3886": [
+"File:2023-12-16 A graffiti of cat in Old Tbilisi.jpg"
+],
+"3887": [
+"File:Tiflis 14 43 08 560000.jpeg",
+"File:Boris Kuftin St.jpg"
+],
+"3888": [
+"File:IETIM GURJI (1875-1940), the national poet. - panoramio.jpg"
+],
+"3890": [
+"File:View of Tbilisi. August 2022 25.jpg"
+],
+"3891": [
+"File:Tbilisi - Ovanes Tumaniani street 2 - 2025-01 - p05.jpg",
+"File:Tbilisi - Jerusalem Square 5 - 2025-10 - p01.jpg",
+"File:Red Sky - panoramio (1).jpg"
+],
+"3892": [
+"File:Opuštěné noční staré město - panoramio.jpg"
+],
+"3893": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (169).jpg"
+],
+"3894": [
+"File:Tbilisi, Alexander Duma tänav - panoramio.jpg",
+"File:Tbilisi, Alexander Duma tänav - panoramio - toomas.liivamagi.jpg",
+"File:2023-12-16 A street in Old Tbilisi 3.jpg"
+],
+"3895": [
+"File:2026-09-17 Entrance portal at 20 Amaghleba Street - 1 Rostom Muskhelishvili Street, Tbilisi.jpg",
+"File:2026-09-17 20 Amaghleba Street - 1 Rostom Muskhelishvili Street, Tbilisi - side view.jpg"
+],
+"3896": [
+"File:عکس از گلها و گیاهان باغ بوتانیکال تفلیس - گرجستان 12.jpg"
+],
+"3897": [
+"File:Ბოტანიკურის ქუჩა گرجستان، تفلیس، مسجد جمعه، تنها مسجد دایر مسلمانان گرجستان، عکاس مصطفی معراجی 02.jpg"
+],
+"3898": [
+"File:Dilapidated building, 4 Alexandre Chikvadze St., Tbilisi.jpg",
+"File:Tbilisi085 (30820855598).jpg",
+"File:Doors at Alexander Chavchavadze street.jpg"
+],
+"3899": [
+"File:Street Scene - Old Town - Tbilisi - Georgia - 07 (18713873825) (2).jpg",
+"File:I bagni sulfurei - Abanotubani.jpg",
+"File:KGB - Still Watching You.jpg"
+],
+"3901": [
+"File:Unnamed2 - panoramio (2158).jpg",
+"File:Tbilisi - Shota Kavlashvili 10 - 2025-10 - p16.jpg"
+],
+"3903": [
+"File:Tiflis 14 33 25 412000.jpeg",
+"File:Tbilisi - Gudiashvili Square - ruins behind glass - 2025-10 - p05.jpg",
+"File:Lado Gudiashvili Square.jpg"
+],
+"3906": [
+"File:Tiflis 14 43 37 748000.jpeg"
+],
+"3907": [
+"File:Tiflis 14 44 11 649000.jpeg",
+"File:Tbilisi - Shota Kavlashvili 10 - 2025-10 - p16.jpg"
+],
+"3908": [
+"File:Tiflis 14 34 13 546000.jpeg"
+],
+"3909": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (135).jpg",
+"File:სამეფო უბნის თეატრი, ანტონ კათალიკოსის ქუჩა 8.jpg"
+],
+"3912": [
+"File:Old Town, Tbilisi, Georgia (48808646896).jpg",
+"File:Patio hotelu Villa Mtiebi - panoramio.jpg"
+],
+"3913": [
+"File:Tiflis 22 17 56 870000.jpeg",
+"File:Unnamed2 - panoramio (2155).jpg",
+"File:2025-06-02 Citizen of Tbilisi Old Town.jpg"
+],
+"3914": [
+"File:Basílica Antxískhati.jpg",
+"File:St Nino cross 8680.jpg"
+],
+"3915": [
+"File:Tbilisi - Abanotubani - 2025-10 - p03.jpg",
+"File:Tbilisi - Abanotubani - 2025-10 - p02.jpg",
+"File:Leghvtakhevi or Abanotubani, Tbilisi ლეღვთახევი 10.jpg"
+],
+"3918": [
+"File:2025-03-27 Citizen of Beth Lekhem Quarter 3.jpg",
+"File:In the old town of Tbilissi.jpg"
+],
+"3919": [
+"File:2024-10-06. Tbilisoba 2024. Abanotubani.jpg",
+"File:Tbilisi 28 (15771707586).jpg"
+],
+"3920": [
+"File:Tbilisi, Old Tbilisi, Georgia.jpg",
+"File:Tbilisi, Old Tbilisi 2, Georgia.jpg"
+],
+"3925": [
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G14 Lg) گرافیتی ها در تفلیس گرجستان.jpg",
+"File:Tbilisi - Anton Catholicos street - 2025-10 - p09.jpg",
+"File:დარბაზის ზედხედი სპექტაკლის მსვლელობის დროს.jpg"
+],
+"3926": [
+"File:Stadtansicht Tiflis 61.jpg",
+"File:Stadtansicht Tiflis 60.jpg",
+"File:Stadtansicht Tiflis 62.jpg"
+],
+"3929": [
+"File:Tbilisi at night, Old town, Georgia.jpg",
+"File:Old Tbilisi, June, 2018-1.jpg",
+"File:Old Tbilisi, June, 2018-2.jpg"
+],
+"3930": [
+"File:ათეშგა.jpg",
+"File:Tiflis 22 17 56 870000.jpeg",
+"File:Тбилиси советских времен - panoramio.jpg"
+],
+"3942": [
+"File:The Forty Martyrs of Sebastian Monastery (Tbilisi) 02.jpg",
+"File:The Forty Martyrs of Sebastian Monastery (Tbilisi) 01.jpg",
+"File:Stadtansicht Tiflis 23.jpg"
+],
+"3943": [
+"File:049A Tbilissi Vieille ville cour intérieure avec balcons de bois.JPG",
+"File:Tiflis 14 33 52 653000.jpeg",
+"File:2014 Tbilisi, Ulica Erekle II (03).jpg"
+],
+"3944": [
+"File:2025-03-30 Erekle II Square, Tbilisi.jpg"
+],
+"3945": [
+"File:Street in Tbilisi Old Town.jpg"
+],
+"3946": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 10 (18095026463) (2).jpg",
+"File:Tbilisi, საქართველო (Georgia) - Flickr - -ErWin.jpg"
+],
+"3950": [
+"File:Tbilisi - 2026-10 - p14.jpg",
+"File:Rustaveli monument National Library of Georgia.jpg",
+"File:Tbilisi - 2026-10 - p13.jpg"
+],
+"3951": [
+"File:2026-09-17 Entrance to Kindergarten No. 144 at 4a Gizo Nishnianidze Street, Tbilisi.jpg"
+],
+"3954": [
+"File:Tbilisi - Khachtur Aboviani Street 12 - 2025-10 - p01.jpg",
+"File:Raffi kojian-Abovyan-130257380.jpg",
+"File:ასათიანის ქუჩა 58.jpg"
+],
+"3955": [
+"File:Tbilisi - Khachatur Aboviani street 10 - 2025-10 - p02.jpg",
+"File:Tbilisi - Khachtur Aboviani Street 12 - 2025-10 - p01.jpg",
+"File:Raffi kojian-Abovyan-130257380.jpg"
+],
+"3957": [
+"File:2025-03-30 Vank Armenian Cathedral Belltower, Tbilisi 1.jpg"
+],
+"3959": [
+"File:2014 Tbilisi, Widok z okna na budynki i górę Mtacminda (02).jpg",
+"File:2014 Tbilisi, Widok z okna na budynki i górę Mtacminda (03).jpg",
+"File:2014 Tbilisi, Widok z okna na budynki i górę Mtacminda (01).jpg"
+],
+"3964": [
+"File:Raffi kojian-Tumanyan-111405922.jpg",
+"File:Raffi kojian-Tumanyan-111421345.jpg",
+"File:Tbilisi Tumanyan house.jpg"
+],
+"3966": [
+"File:Tiflis 14 44 11 649000.jpeg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (292).jpg",
+"File:Unnamed2 - panoramio (2158).jpg"
+],
+"3968": [
+"File:2023-12-16 A street in Old Tbilisi 2.jpg",
+"File:Tbilisi - Anton Katalikosi Dead End 10 - 2025-10 - p08.jpg"
+],
+"3971": [
+"File:სამეფო უბნის თეატრის შესასვლელი ფასადი. გ.აბესაძის ქუჩა.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (135).jpg"
+],
+"3972": [
+"File:Stadtansicht Tiflis 61.jpg",
+"File:Stadtansicht Tiflis 60.jpg",
+"File:Stadtansicht Tiflis 62.jpg"
+],
+"3974": [
+"File:Tbilisi თბილისი تفلیس 07.jpg",
+"File:Architectural Detail -= Old Town - Tbilisi - Georgia - 20 (18276611474) (2).jpg",
+"File:Street Scene - Old Town - Tbilisi - Georgia - 04 (18674593562) (2).jpg"
+],
+"3975": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (44).jpg"
+],
+"3977": [
+"File:Tbilisi236 (45545602262).jpg",
+"File:Signpost in Tbilisi April 2007.jpg",
+"File:Minimalism - panoramio.jpg"
+],
+"3978": [
+"File:Architectural Detail -= Old Town - Tbilisi - Georgia - 20 (18276611474) (2).jpg",
+"File:Street Scene - Old Town - Tbilisi - Georgia - 04 (18674593562) (2).jpg",
+"File:2014 Tbilisi, Budynek, Ulica Sioni.jpg"
+],
+"3979": [
+"File:Graffiti in Tbilisi Georgia (HDR Photos-G4 Lg) گرافیتی ها در تفلیس گرجستان.jpg",
+"File:Alleys in Tbilisi HDR Photos کوچه ها در تفلیس 07.jpg",
+"File:Alleys in Tbilisi HDR Photos کوچه ها در تفلیس 06.jpg"
+],
+"3980": [
+"File:Raffi kojian-Abovyan-130257380.jpg",
+"File:ასათიანის ქუჩა 58.jpg",
+"File:Tbilisi - Khachatur Aboviani street - 2025-10 - p03.jpg"
+],
+"3981": [
+"File:სამეფო უბნის თეატრი, ანტონ კათალიკოსის ქუჩა 8.jpg"
+],
+"3982": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (236).jpg",
+"File:Sign in Tbilisi (photo by Tony Bowden, 2010).jpg"
+],
+"3984": [
+"File:სამეფო უბნის თეატრის შესასვლელი ფასადი. გ.აბესაძის ქუჩა.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (135).jpg"
+],
+"3985": [
+"File:049A Tbilissi Vieille ville cour intérieure avec balcons de bois.JPG",
+"File:Tiflis 14 33 52 653000.jpeg",
+"File:2014 Tbilisi, Ulica Erekle II (03).jpg"
+],
+"3986": [
+"File:049A Tbilissi Vieille ville cour intérieure avec balcons de bois.JPG"
+],
+"3987": [
+"File:KGB v Tbilisi - panoramio.jpg",
+"File:Tiflis 14 33 45 178000.jpeg"
+],
+"3988": [
+"File:Straße in Tiflis 2.jpg"
+],
+"3989": [
+"File:Raffi kojian-Tigranyan-111849900.jpg"
+],
+"3991": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 21 (18902084821) (2).jpg"
+],
+"3992": [
+"File:Give way and No Vehicles to the right signs at night, Pavle Ingorokva Street, Tbilisi.jpg"
+],
+"3993": [
+"File:Unnamed2 - panoramio (2172).jpg",
+"File:Unnamed2 - panoramio (2170).jpg",
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 07 (18711013992) (2).jpg"
+],
+"3994": [
+"File:Stadtansicht Tiflis 61.jpg",
+"File:Stadtansicht Tiflis 60.jpg",
+"File:Stadtansicht Tiflis 62.jpg"
+],
+"3995": [
+"File:Hovhannes Tumanan Street sign, Tbilisi, Georgia.jpg"
+],
+"3996": [
+"File:Tbilissi old town (48222738217).jpg",
+"File:Betlemi Street from Puri Square, Tbilisi (50499300536).jpg"
+],
+"3997": [
+"File:2023-06-29 Interior decorations of Shalimov House.jpg",
+"File:2023-06-29 Housing office sign at Shalimov House.jpg"
+],
+"4001": [
+"File:Tbilisi085 (30820855598).jpg"
+],
+"4002": [
+"File:Raffi kojian-Surb Nshan-125250608.jpg",
+"File:Tbilisi085 (30820855598).jpg"
+],
+"4003": [
+"File:Raffi kojian-Surb Nshan-124915605.jpg"
+],
+"4004": [
+"File:Unnamed2 - panoramio (2160).jpg",
+"File:Raffi kojian-Surb Nshan-124837651.jpg"
+],
+"4005": [
+"File:I bagni sulfurei - Abanotubani.jpg",
+"File:KGB - Still Watching You.jpg",
+"File:Balconi in stile, Tbilisi.jpg"
+],
+"4006": [
+"File:Opuštěné noční staré město - panoramio.jpg",
+"File:Old Town, Tbilisi, Georgia (48808791792).jpg",
+"File:Patio hotelu Villa Mtiebi - panoramio.jpg"
+],
+"4011": [
+"File:Albert Salzmann memorial plaque.jpg",
+"File:2025-01-25 Plaque to Natalya Burmistrova.jpg"
+],
+"4017": [
+"File:Tbilisi - 2026-10 - p14.jpg",
+"File:Rustaveli monument National Library of Georgia.jpg"
+],
+"4019": [
+"File:Tbilisi - Soviet Clocks - p02.jpg",
+"File:Tbilisi - Soviet Clocks - p08.jpg",
+"File:Tbilisi - Soviet Clocks - p03.jpg"
+],
+"4021": [
+"File:Giorgi Atoneli street 25 (2).jpg",
+"File:Giorgi Atoneli street 25 (3).jpg",
+"File:Giorgi Atoneli street 27 (2).jpg"
+],
+"4023": [
+"File:Tbilisi - 2026-10 - p16.jpg"
+],
+"4025": [
+"File:ეკლესია „ქვედა ბეთლემი“, ბეთლემის აღმართი 3.jpg",
+"File:Tiflis 14 36 26 994000.jpeg",
+"File:2025-03-27 Citizen of Beth Lekhem Quarter 3.jpg"
+],
+"4026": [
+"File:ათეშგა.jpg",
+"File:Tiflis 22 17 56 870000.jpeg",
+"File:Тбилиси советских времен - panoramio.jpg"
+],
+"4030": [
+"File:Unnamed2 - panoramio (2114).jpg"
+],
+"4031": [
+"File:New Year decorations at Rustaveli Avenue, Tbilisi.jpg",
+"File:Liberty Square, Tbilisi metro, escalators.jpg"
+],
+"4033": [
+"File:Stadtansicht Tiflis 58.jpg"
+],
+"4035": [
+"File:Tbilissi old town (48222738217).jpg"
+],
+"4036": [
+"File:Old Tbilisi (4a).jpg",
+"File:Tiflis 14 35 46 232000.jpeg",
+"File:Tiflis 14 36 10 300000.jpeg"
+],
+"4037": [
+"File:Georgia shadow (9168975576).jpg",
+"File:Memorial plaque for the Consulate of the Republic of Estonia in Tbilisi.jpg"
+],
+"4039": [
+"File:Red Sky - panoramio (1).jpg",
+"File:Tbilisi თბილისი تفلیس 07.jpg"
+],
+"4040": [
+"File:Tbilisi - Ovanes Tumaniani Street 14 - 2025-10 - p05.jpg"
+],
+"4050": [
+"File:2023-01-21 Spiral stairs at 7 Ivane Machabeli Street.jpg",
+"File:2024-05-18 Citizen of Tbilisi.jpg"
+],
+"4051": [
+"File:2023-01-21 Galleries at Daniel Chonkadze Street.jpg"
+],
+"4053": [
+"File:გრიბოედოვის ქუჩა 8-10.jpg"
+],
+"4058": [
+"File:12 Paolo Iashvili Street, Tbilisi.jpg"
+],
+"4059": [
+"File:2024-07-20 Plaque to Shalva Isakadze.jpg",
+"File:2024-07-20 Plaque to Aleksi Miminoshvili.jpg",
+"File:2024-07-20 Plaque to Shalva Chikovani.jpg"
+],
+"4060": [
+"File:2024-07-20 Plaques at 24 Leo Kiacheli Street.jpg",
+"File:2024-07-20 Plaque to the Consulate General of the Republic of Poland in Tbilisi.jpg",
+"File:2024-07-20 Plaque to Grigol Mukhadze.jpg"
+],
+"4061": [
+"File:Tbilisi თბილისი تفلیس 03.jpg",
+"File:Tbilisi, საქართველო (Georgia) - Flickr - -ErWin (1).jpg"
+],
+"4063": [
+"File:Juma masjid Tbilisi.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (46).jpg"
+],
+"4070": [
+"File:Ilia Chavchavadze's tomb.jpg",
+"File:Mamadaviti141.jpg",
+"File:Mamadaviti452.jpg"
+],
+"4071": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (261).jpg"
+],
+"4072": [
+"File:32 - Tbilisi - 1976.jpg"
+],
+"4073": [
+"File:Tbilisi - 2026-10 - p14.jpg",
+"File:Tbilisi - 2026-10 - p13.jpg"
+],
+"4076": [
+"File:2025-01-25 Plaque to Natalya Burmistrova.jpg"
+],
+"4078": [
+"File:2024-03-24 Plaque to Platon Shushania.jpg",
+"File:Walter Siemens commemorative plaque.jpg"
+],
+"4081": [
+"File:Commemorative plaque to Meliton Balanchivadze in Giorgi Akhvlediani street, Tbilisi.jpg"
+],
+"4084": [
+"File:ზაალ ქიქოძის ქუჩის აბრა.jpg"
+],
+"4092": [
+"File:Tbilisi old city walls 09.jpg"
+],
+"4093": [
+"File:Mapillary (504670058955592, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H05M49S714.jpg",
+"File:Mapillary (1939534563176765, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H05M50S143.jpg",
+"File:Mapillary (1512437596048879, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H05M49S285.jpg"
+],
+"4097": [
+"File:2024-03-24 Plaque to Valerian Kashakashvili.jpg"
+],
+"4100": [
+"File:Raffi kojian-Victor-185440836.jpg"
+],
+"4101": [
+"File:Portal of Church of St. David, Tbilisi.jpg"
+],
+"4110": [
+"File:Tbilisi - 2026-10 - p45.jpg",
+"File:Tbilisi - 2026-10 - p44.jpg"
+],
+"4113": [
+"File:Tbilisi (242549029).jpeg"
+],
+"4116": [
+"File:ვიკიპედია1.jpg",
+"File:ვიკიპედია.jpg"
+],
+"4118": [
+"File:Commemorative plaque to Akaki Chkhenkeli.jpg",
+"File:გრიბოედოვის 14 ინტ დამუშავებული.jpg",
+"File:გრიბოედოვის 14 ინტ.jpg"
+],
+"4134": [
+"File:Georgian typewriter (crop).jpg",
+"File:Georgian typewriter.jpg"
+],
+"4144": [
+"File:2026-09-17 Facade at 66 Lado Asatiani Street, Tbilisi.jpg",
+"File:2026-09-17 Memorial plaque to Omar Tamazashvili at 66 Lado Asatiani Street, Tbilisi.jpg",
+"File:2026-09-17 Courtyard building at 2-2a Gizo Nishnianidze Street, Tbilisi.jpg"
+],
+"4146": [
+"File:Anton Purtseladze street 15.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (263).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (271).jpg"
+],
+"4147": [
+"File:Tbilisi, Ivane Machabeli St.jpg",
+"File:Raffi kojian-Aramiants-191037175.jpg"
+],
+"4149": [
+"File:Koka Ignatov memorial plaque.jpg"
+],
+"4155": [
+"File:2026-09-17 Georgian-language memorial plaque to Sergei Yesenin at 15-3 Gizo Nishnianidze Street, Tbilisi.jpg",
+"File:2026-09-17 Architectural details of 10 Gizo Nishnianidze Street, Tbilisi.jpg",
+"File:2026-09-17 Entrance to 15-3 Gizo Nishnianidze Street, Tbilisi.jpg"
+],
+"4157": [
+"File:Georgian National Museum HDR Photos (LG G23) موزه ملی گرجستان، تفلیس.jpg",
+"File:Georgian National Museum HDR Photos (LG G19) موزه ملی گرجستان، تفلیس.jpg",
+"File:Georgian National Museum HDR Photos (LG G20) موزه ملی گرجستان، تفلیس.jpg"
+],
+"4159": [
+"File:Tafel zu einem Gebäude in Tiflis.jpg",
+"File:Gebäude in Tiflis 1.jpg",
+"File:Gebäude in Tiflis 2.jpg"
+],
+"4160": [
+"File:Tbilisi - P'etre Ch'aik'ovk'is kucha.jpg"
+],
+"4164": [
+"File:House, Machabeli St. 10.jpg"
+],
+"4169": [
+"File:Tbilisi, Georgia (27786049454).jpg"
+],
+"4170": [
+"File:Tbilisi, Georgia (27786049454).jpg",
+"File:44 Lado Asatiani St, Tbilisi.jpg"
+],
+"4171": [
+"File:გრიბოედოვის ქ. 13.jpg",
+"File:გრიბოედოვი ქუჩა 15.jpg"
+],
+"4173": [
+"File:Giorgi Atoneli street 21 (2).jpg",
+"File:Giorgi Atoneli street 21.jpg",
+"File:Giorgi Atoneli street 23.jpg"
+],
+"4174": [
+"File:ზაალ ქიქოძის ქუჩის აბრა.jpg"
+],
+"4181": [
+"File:Revaz Manjgaladze and Natela Tavberidze-Manjgaladze memorial plaque.jpg"
+],
+"4186": [
+"File:Rustaveli monument National Library of Georgia.jpg"
+],
+"4194": [
+"File:Noe Ramishvili Plaque.jpg",
+"File:Monument of Sandro Akhmeteli (Machabeli St.).jpg"
+],
+"4197": [
+"File:2024-04-23 Plaque to Amiran Chachava.jpg"
+],
+"4207": [
+"File:Raffi kojian-Victor-185440836.jpg"
+],
+"4209": [
+"File:House of Melik-Azaryants in 37 Rustaveli Avenue, Tbilisi.jpg"
+],
+"4210": [
+"File:32 - Tbilisi - 1976.jpg"
+],
+"4212": [
+"File:Tbilisi - 2026-10 - p14.jpg"
+],
+"4215": [
+"File:2024-03-24 Plaque to Niko Nikoladze.jpg",
+"File:2024-03-24 Plaque to Rusudan Nikoladze & Mikhail Polievktov.jpg",
+"File:გალაკტიონის ქუჩა 13.jpg"
+],
+"4217": [
+"File:Revaz Tabukashvili street 17 (2).jpg"
+],
+"4218": [
+"File:Tiflis 14 42 11 684000.jpeg"
+],
+"4221": [
+"File:Abkhazian alphabet 1938.jpg",
+"File:Газета Советская Абхазия.jpg",
+"File:3-я сесия ЦИК ССР Абхазии V-го созыва.jpg"
+],
+"4227": [
+"File:2023-10-22 Entrance to 5 Sulkhan-Saba Street.jpg",
+"File:2023-10-22 Plaque to Natalya Orlovskaya.jpg",
+"File:2023-10-22 Plaque to Ilia Chavchavadze & Iveria newspaper at 5 Sulkhan-Saba Street.jpg"
+],
+"4235": [
+"File:Tbilisi 2023 06 50 34 051000.jpeg",
+"File:Tbilisi 2023 06 50 22 484000.jpeg"
+],
+"4242": [
+"File:Ilia Chavchavadze's tomb.jpg",
+"File:Mamadaviti141.jpg",
+"File:Mamadaviti452.jpg"
+],
+"4245": [
+"File:დიდი დარბაზი.jpg"
+],
+"4251": [
+"File:Straße in Tiflis 2.jpg"
+],
+"4252": [
+"File:Raffi kojian-Tumanyan-111405922.jpg",
+"File:Raffi kojian-Tumanyan-111421345.jpg",
+"File:Tbilisi Tumanyan house.jpg"
+],
+"4254": [
+"File:Vladimer Asatiani memorial plaque.jpg"
+],
+"4255": [
+"File:44 Lado Asatiani St, Tbilisi.jpg"
+],
+"4260": [
+"File:2024-03-24 Plaque to Valerian Kashakashvili.jpg",
+"File:2024-03-24 Plaque to Niko Nikoladze.jpg",
+"File:2024-03-24 Plaque to Rusudan Nikoladze & Mikhail Polievktov.jpg"
+],
+"4266": [
+"File:Tbilisi - 2026-10 - p18.jpg"
+],
+"4269": [
+"File:Anna Madatova House 2023-07-13-1.jpg",
+"File:Daniel Chonqadze Street.jpg"
+],
+"4271": [
+"File:Embassy of Brazil in Georgia 2.jpg",
+"File:Embassy of Brazil in Georgia.jpg",
+"File:Tbilisi, Georgia (29095531244).jpg"
+],
+"4273": [
+"File:Embassy of Brazil in Georgia 2.jpg",
+"File:Embassy of Brazil in Georgia.jpg"
+],
+"4274": [
+"File:Tbilisi, Georgia (29095531244).jpg"
+],
+"4276": [
+"File:Italian Courtyards, Tbilisi (50496734683).jpg"
+],
+"4277": [
+"File:2024-10-05. Tbilisoba 2024. Giorgi Leonidze Park. 01.jpg"
+],
+"4280": [
+"File:გრიბოედოვის ქუჩა 6.jpg"
+],
+"4285": [
+"File:აბაკელია თამარის 3ა.jpg",
+"File:აბაკელიას 5ა სადარბაზო.jpg"
+],
+"4287": [
+"File:2023-10-22 Entrance to 5 Sulkhan-Saba Street.jpg",
+"File:2023-10-22 Plaque to Natalya Orlovskaya.jpg"
+],
+"4289": [
+"File:Albert Salzmann memorial plaque.jpg",
+"File:2023-10-22 Plaque to Lado Kotetishvili.jpg",
+"File:2023-10-22 Entrance to 1 Sulkhan-Saba Street.jpg"
+],
+"4290": [
+"File:Tbilisi - P'etre Ch'aik'ovk'is kucha.jpg"
+],
+"4294": [
+"File:Tbilisi, Georgia (27786049454).jpg"
+],
+"4306": [
+"File:Funicular0941.jpg"
+],
+"4308": [
+"File:Tamar Shaverzashvili memorial plaque.jpg"
+],
+"4314": [
+"File:ზაალ ქიქოძის ქუჩის აბრა.jpg"
+],
+"4315": [
+"File:Atoneli street, Tbilisi, Georgia. Feb 2024 04.jpg",
+"File:Giorgi Atoneli street 17.jpg",
+"File:Giorgi Atoneli street 17 (2).jpg"
+],
+"4318": [
+"File:Tbilisi, Georgia (29095531244).jpg"
+],
+"4319": [
+"File:Dato Kipiani memorial plaque.jpg",
+"File:Jumber and Dato Medzmariashvili memorial plaque.jpg"
+],
+"4320": [
+"File:აბაკელია თამარის ქუჩა 7.jpg",
+"File:აბაკელია თამარის ქუჩა 5.jpg"
+],
+"4321": [
+"File:2023-12-16 A feral cat in Tbilisi.jpg",
+"File:Wooden Balcony on Amagleba Turn in Tbilisi.jpg",
+"File:Amaghleba Turn, Tbilisi.jpg"
+],
+"4327": [
+"File:Raffi kojian-Tumanyan-111405922.jpg",
+"File:Raffi kojian-Tumanyan-111421345.jpg"
+],
+"4332": [
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-1.jpg",
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-2.jpg",
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-4.jpg"
+],
+"4336": [
+"File:Stairs at 21 Tamar Chovelidze Street in Tbilisi.jpg"
+],
+"4338": [
+"File:გრიბოედოვის ქ. 23.jpg",
+"File:გრიბოედოვის ქ. 27.jpg"
+],
+"4339": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (144).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (141).jpg"
+],
+"4342": [
+"File:გრიბოედოვის ქ. 13.jpg"
+],
+"4344": [
+"File:Tbilisi - 2026-10 - p14.jpg",
+"File:Tbilisi - 2026-10 - p13.jpg"
+],
+"4347": [
+"File:2023-12-26 Plaque to Lalioni.jpg",
+"File:2023-12-26 Plaque to Germane Gogitidze.jpg"
+],
+"4351": [
+"File:რუსთაველის გამზირი 22.jpg"
+],
+"4360": [
+"File:ზაალ ქიქოძის ქუჩის აბრა.jpg"
+],
+"4361": [
+"File:2023-10-22 Plaque to Lado Kotetishvili.jpg"
+],
+"4362": [
+"File:2024-04-23 Plaque to Amiran Chachava.jpg"
+],
+"4367": [
+"File:Tbilisi3331.jpg"
+],
+"4370": [
+"File:View of Tbilisi from Chonkadze street, 5.jpg",
+"File:2023-10-04 Sunrise in Tbilisi in December 03.jpg",
+"File:2023-10-04 Sunrise in Tbilisi in December 01.jpg"
+],
+"4377": [
+"File:2023-12-16 A feral cat in Tbilisi.jpg",
+"File:Wooden Balcony on Amagleba Turn in Tbilisi.jpg",
+"File:Amaghleba Turn, Tbilisi.jpg"
+],
+"4378": [
+"File:Vilnius loves you, in Tbilisi.jpg"
+],
+"4379": [
+"File:Vilnius loves you, in Tbilisi.jpg"
+],
+"4381": [
+"File:Commemorative plaque to Meliton Balanchivadze in Giorgi Akhvlediani street, Tbilisi.jpg",
+"File:Shalva Radiani memorial plaque in Tbilisi.jpg"
+],
+"4389": [
+"File:2025-01-25 Plaque to Natalya Burmistrova.jpg",
+"File:Public transport info screen at night, Tbilisi.jpg"
+],
+"4394": [
+"File:Koka Ignatov memorial plaque.jpg"
+],
+"4397": [
+"File:Dato Kipiani memorial plaque.jpg",
+"File:Jumber and Dato Medzmariashvili memorial plaque.jpg",
+"File:Citizen of Zandukeli street.jpg"
+],
+"4401": [
+"File:44 Lado Asatiani St, Tbilisi.jpg"
+],
+"4402": [
+"File:აბაკელია თამარის ქუჩა 9.jpg",
+"File:აბაკელია თამარის ქუჩა 5.jpg"
+],
+"4410": [
+"File:David Vachnadze memorial plaque.jpg",
+"File:Vano Sarajishvili memorial plaque.jpg"
+],
+"4412": [
+"File:ზაალ ქიქოძის ქუჩის აბრა.jpg"
+],
+"4415": [
+"File:Unnamed2 - panoramio (333).jpg"
+],
+"4423": [
+"File:David Vachnadze memorial plaque.jpg",
+"File:Vano Sarajishvili memorial plaque.jpg"
+],
+"4424": [
+"File:Never back to USSR (cropped).jpg",
+"File:Never back to USSR.jpg"
+],
+"4425": [
+"File:გრიბოედოვის 14 ინტ დამუშავებული.jpg",
+"File:გრიბოედოვის 14 ინტ.jpg"
+],
+"4428": [
+"File:2023-10-22 Entrance to 6 Sulkhan-Saba Street.jpg"
+],
+"4429": [
+"File:Leo Kiacheli St. (Tbilisi).jpg",
+"File:ქიაჩელი ლეოს ქუჩა 20.jpg"
+],
+"4432": [
+"File:2024-07-20 Entrance to 5-7 Leo Kiacheli Street.jpg",
+"File:2024-07-20 5-7 Leo Kiacheli Street.jpg"
+],
+"4434": [
+"File:Hall of Elene Akhvlediani House Museum.jpg",
+"File:Tbilisi - 2026-10 - p45.jpg",
+"File:Tbilisi - 2026-10 - p44.jpg"
+],
+"4435": [
+"File:Tbilisi - 2026-10 - p10.jpg",
+"File:Tbilisi - 2026-10 - p12.jpg"
+],
+"4437": [
+"File:Raffi kojian-Aramiants-191037175.jpg",
+"File:Noe Ramishvili Plaque.jpg"
+],
+"4441": [
+"File:Mapillary (539657475289327, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H06M05S857.jpg"
+],
+"4442": [
+"File:Memorial plaque for the Consulate of the Republic of Estonia in Tbilisi.jpg"
+],
+"4443": [
+"File:2023-01-21 Galleries at 1 Giga Lortkipanidze Street.jpg",
+"File:2023-01-21 Spiral stairs at 7 Ivane Machabeli Street.jpg",
+"File:2024-05-18 Citizen of Tbilisi.jpg"
+],
+"4444": [
+"File:Tbilisi - Gergetis kucha.jpg"
+],
+"4452": [
+"File:Tbilisi, Lermontovi St.jpg"
+],
+"4456": [
+"File:Straße in Tiflis 2.jpg"
+],
+"4460": [
+"File:Erekle Tatishvili St, Tbilisi.jpg"
+],
+"4461": [
+"File:2025-04-26 Plaque to Ivane Sikharulidze.jpg",
+"File:Niko Avalishvili memorial plaque.jpg"
+],
+"4463": [
+"File:რუსთაველის გამზირი \"მარიოტი\".jpg",
+"File:მერიოტი.jpg"
+],
+"4468": [
+"File:2024-03-24 Plaque to Valerian Kashakashvili.jpg",
+"File:ვიკიპედია.jpg"
+],
+"4470": [
+"File:Giorgi Atoneli street 21 (2).jpg",
+"File:Tbilisi - 2026-10 - p05.jpg",
+"File:Giorgi Atoneli street 21 (3).jpg"
+],
+"4472": [
+"File:Raffi kojian-Parajanov-103631828.jpg"
+],
+"4473": [
+"File:Tbilisi, Rustaveli Avenue 2021-12-09-1.jpg"
+],
+"4477": [
+"File:32 - Tbilisi - 1976.jpg"
+],
+"4478": [
+"File:Tbilisi, Rustaveli Avenue, Georgian National Academy of Sciences, Georgia.jpg"
+],
+"4479": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (107).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (109).jpg"
+],
+"4485": [
+"File:ქიაჩელი ლეოს ქუჩა 12.jpg"
+],
+"4490": [
+"File:Tbilisi clasicism and art-nouveau houses - panoramio.jpg"
+],
+"4491": [
+"File:Tbilisi old city walls 09.jpg",
+"File:Tbilisi old city walls 11.jpg",
+"File:Tbilisi old city walls 12.jpg"
+],
+"4492": [
+"File:Isidore Gvarjaladze memorial plaque.jpg"
+],
+"4501": [
+"File:დიდი დარბაზი.jpg"
+],
+"4502": [
+"File:Tbilisi - 2026-10 - p27.jpg",
+"File:Tbilisi - 2026-10 - p28.jpg",
+"File:Tbilisi - 2026-10 - p29.jpg"
+],
+"4503": [
+"File:Rustaveli monument National Library of Georgia.jpg"
+],
+"4504": [
+"File:გრიბოედოვის ქუჩა 22.jpg"
+],
+"4515": [
+"File:Tiflis Straßenszene 13.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (274).jpg"
+],
+"4517": [
+"File:Revaz Tabukashvili street 15 - Revaz Tabukashvili dead end 2 (2).jpg",
+"File:Revaz Tabukashvili street 15 - Revaz Tabukashvili dead end 2.jpg"
+],
+"4523": [
+"File:2024-10-13 Plaque to Guram Panjikidze.jpg"
+],
+"4524": [
+"File:2024-07-20 Entrances to 41 Revaz Tabukashvili Street.jpg",
+"File:2024-07-20 Plaque to Grigori Grigorashvili.jpg"
+],
+"4526": [
+"File:2023-12-24 View of Tbilisi from Solomon Zaldastanishvili Street in December 2.jpg",
+"File:2023-12-24 View of Tbilisi from Solomon Zaldastanishvili Street in December 1.jpg"
+],
+"4528": [
+"File:Tbilisi - 2026-10 - p16.jpg"
+],
+"4532": [
+"File:Graffiti in Tbilisi (19).jpg"
+],
+"4540": [
+"File:საქართველოს მეცნიერებათა აკადემიის პრეზიდიუმი 16.jpg"
+],
+"4544": [
+"File:Iuri Malashkhia memorial plaque.jpg"
+],
+"4548": [
+"File:Tbilisi - 2026-10 - p30.jpg",
+"File:Tbilisi - 2026-10 - p31.jpg"
+],
+"4555": [
+"File:Raffi kojian-Parajanov-103631828.jpg"
+],
+"4561": [
+"File:Never back to USSR (cropped).jpg",
+"File:Never back to USSR.jpg"
+],
+"4570": [
+"File:Commemorative plaque to Akaki Chkhenkeli.jpg",
+"File:გრიბოედოვის 15 სადარბაზო.jpg"
+],
+"4571": [
+"File:Tbilisi - 2026-10 - p32.jpg"
+],
+"4577": [
+"File:Address and information plaques at 1 Gizo Nishnianidze Street, Tbilisi.jpg"
+],
+"4586": [
+"File:Bukhuti Zakariadze memorial plaque.jpg"
+],
+"4589": [
+"File:Raffi kojian-Parajanov-103631828.jpg"
+],
+"4590": [
+"File:Tbilisi - 2026-10 - p14.jpg",
+"File:Rustaveli monument National Library of Georgia.jpg",
+"File:Tbilisi - 2026-10 - p13.jpg"
+],
+"4597": [
+"File:Kote and Maro Makashvili memorial plaque.jpg"
+],
+"4605": [
+"File:Rustaveli monument National Library of Georgia.jpg"
+],
+"4610": [
+"File:2014 Tbilisi, Widok z okna na budynki i górę Mtacminda (02).jpg",
+"File:2014 Tbilisi, Widok z okna na budynki i górę Mtacminda (03).jpg"
+],
+"4611": [
+"File:Tbilisi old city walls 11.jpg"
+],
+"4614": [
+"File:2024-05-20 A view of Tbilisi from a building on Pier Kobakhidze street 2.jpg",
+"File:2024-05-21 Sunset in Tbilisi 2.jpg"
+],
+"4615": [
+"File:Pavle Shengelia memorial plaque.jpg"
+],
+"4626": [
+"File:9 Akaki Khorava St, Tbilisi.jpg",
+"File:2025-04-26 Gates at 12 Akaki Khorava Street.jpg"
+],
+"4628": [
+"File:ზაალ ქიქოძის ქუჩის აბრა.jpg"
+],
+"4633": [
+"File:Revaz Tabukashvili street 17.jpg"
+],
+"4635": [
+"File:Vladimer Asatiani memorial plaque.jpg"
+],
+"4636": [
+"File:Leo Kiacheli St. (Tbilisi).jpg",
+"File:ქიაჩელი ლეოს ქუჩა 20.jpg"
+],
+"4638": [
+"File:Kote and Maro Makashvili memorial plaque.jpg"
+],
+"4661": [
+"File:2023-10-22 Entrance to 5 Sulkhan-Saba Street.jpg",
+"File:2023-10-22 Plaque to Ilia Chavchavadze & Iveria newspaper at 5 Sulkhan-Saba Street.jpg",
+"File:2023-10-22 Entrance to 6 Sulkhan-Saba Street.jpg"
+],
+"4664": [
+"File:Tbilisi inner sport yard 2023 06 45 23 385000.jpg"
+],
+"4668": [
+"File:Tbilisi, Sulkhan-Saba St.jpg",
+"File:24 Shota Rustaveli Ave, T'bilisi.jpg"
+],
+"4669": [
+"File:Anton Purtseladze street 15.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (257).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (258).jpg"
+],
+"4670": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (257).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (258).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (259).jpg"
+],
+"4673": [
+"File:2025-04-26 Cat on a shelf outside 43 Vasil Barnovi Street.jpg"
+],
+"4674": [
+"File:Anton Purtseladze street 15 (2).jpg"
+],
+"4677": [
+"File:Zakaria paliashvili museum 23.jpg"
+],
+"4678": [
+"File:2025-04-26 Plaque to Bezhan Palavandishvili.jpg"
+],
+"4682": [
+"File:Shalva Chkhetia memorial plaque.jpg"
+],
+"4684": [
+"File:Revaz Tabukashvili street 17.jpg"
+],
+"4685": [
+"File:2024-07-20 Plaque to Grigori Grigorashvili.jpg",
+"File:Millennium (28466088586).jpg"
+],
+"4693": [
+"File:2026-09-17 15-3 Gizo Nishnianidze Street, Tbilisi - facade from Rostom Muskhelishvili Dead-end.jpg",
+"File:2026-09-17 3 Rostom Muskhelishvili Dead End, Tbilisi - building.jpg",
+"File:2026-09-17 Rostom Muskhelishvili Dead End, Tbilisi.jpg"
+],
+"4694": [
+"File:Solomon zaldastanishvilis qucha.jpg"
+],
+"4695": [
+"File:Good Times - panoramio.jpg",
+"File:Tbilisi View from the Bridge.jpg",
+"File:Tbilisi17.jpg"
+],
+"4696": [
+"File:Stalin's Neoclasics, Tbilisi - panoramio.jpg"
+],
+"4699": [
+"File:Ilia Agladze Commemorative plaque.jpg"
+],
+"4701": [
+"File:Shalva Chkhetia memorial plaque.jpg"
+],
+"4706": [
+"File:აბაკელია თამარის ქუჩა 3ა.jpg",
+"File:აბაკელია თამარის 3ა.jpg"
+],
+"4711": [
+"File:View from Gori.jpg",
+"File:Tbilisi Georgia 07.jpg",
+"File:Tbilisi legislative building, view from rustaveli avenue.jpg"
+],
+"4713": [
+"File:Zakaria paliashvili museum 23.jpg"
+],
+"4742": [
+"File:Commemorative plaque to Meliton Balanchivadze in Giorgi Akhvlediani street, Tbilisi.jpg"
+],
+"4746": [
+"File:გრიბოედოვის ქ. 25.jpg"
+],
+"4748": [
+"File:Revaz Manjgaladze and Natela Tavberidze-Manjgaladze memorial plaque.jpg"
+],
+"4749": [
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-2.jpg",
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-4.jpg",
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-3.jpg"
+],
+"4758": [
+"File:გრიბოედოვის ქუჩა 5.jpg"
+],
+"4759": [
+"File:რუსთაველის 19.jpg"
+],
+"4762": [
+"File:2023-10-22 Entrance to 6 Sulkhan-Saba Street.jpg"
+],
+"4771": [
+"File:Raffi kojian-Tigranyan-111849900.jpg"
+],
+"4772": [
+"File:2025-04-26 Plaque to Ivane Sikharulidze.jpg"
+],
+"4773": [
+"File:2026-09-17 Facade of 3 Gizo Nishnianidze Street, Tbilisi.jpg"
+],
+"4775": [
+"File:Commemorative plaque to Meliton Balanchivadze in Giorgi Akhvlediani street, Tbilisi.jpg"
+],
+"4778": [
+"File:Revaz Manjgaladze and Natela Tavberidze-Manjgaladze memorial plaque.jpg"
+],
+"4780": [
+"File:Revaz Tabukashvili street 42 (2).jpg"
+],
+"4781": [
+"File:Yovel Kutateladze memorial plaque.jpg"
+],
+"4786": [
+"File:რუსთაველის გამზირი 22.jpg"
+],
+"4787": [
+"File:გრიბოედოვის 14 ინტ დამუშავებული.jpg",
+"File:გრიბოედოვის 15 სადარბაზო.jpg"
+],
+"4788": [
+"File:9 Akaki Khorava St, Tbilisi.jpg",
+"File:2025-04-26 Plaque to Vazha-Pshavela.jpg"
+],
+"4789": [
+"File:32 - Tbilisi - 1976.jpg"
+],
+"4790": [
+"File:გრიბოედოვი ქუჩა 15.jpg"
+],
+"4796": [
+"File:Stalin's Neoclasics, Tbilisi - panoramio.jpg"
+],
+"4801": [
+"File:Koka Ignatov memorial plaque.jpg",
+"File:Temur Akhobadze memorial plaque.jpg"
+],
+"4803": [
+"File:Lado Aleksi-Meskhishvili memorial plaque.jpg"
+],
+"4809": [
+"File:2025-04-26 Plaque to Bezhan Palavandishvili.jpg"
+],
+"4812": [
+"File:Tbilisi, Georgia; December, 2009 (6).jpg"
+],
+"4815": [
+"File:გრიბოედოვის ქ. 23.jpg",
+"File:გრიბოედოვის ქ. 25.jpg"
+],
+"4818": [
+"File:Kote and Maro Makashvili memorial plaque.jpg",
+"File:Vasil Barnovi memorial plaque.jpg"
+],
+"4819": [
+"File:აბაკელია თამარის ქუჩა 3ა.jpg",
+"File:აბაკელია თამარის 3ა.jpg",
+"File:აბაკელიას 5ა სადარბაზო.jpg"
+],
+"4822": [
+"File:Vasil Varazi memorial plaque in Tbilisi.jpg",
+"File:Avto Varazi memorial plaque in Tbilisi.jpg"
+],
+"4826": [
+"File:Vasil Varazi memorial plaque in Tbilisi.jpg",
+"File:Avto Varazi memorial plaque in Tbilisi.jpg",
+"File:Giorgi Akhvlediani memorial plaque in Tbilisi.jpg"
+],
+"4827": [
+"File:View of City of Tbilisi.jpg",
+"File:Kura, Tbilisi.jpg"
+],
+"4830": [
+"File:Lado Aleksi-Meskhishvili memorial plaque.jpg"
+],
+"4831": [
+"File:Vasil Barnovi memorial plaque.jpg"
+],
+"4836": [
+"File:Niko Avalishvili memorial plaque.jpg"
+],
+"4843": [
+"File:Commemorative plaque to Otia Pachkoria in Tbilisi.jpg"
+],
+"4847": [
+"File:Never back to USSR (cropped).jpg",
+"File:Never back to USSR.jpg"
+],
+"4853": [
+"File:Ilia Agladze Commemorative plaque.jpg",
+"File:საცხოვრებელი სახლი. ლადო ალექსი-მესხიშვილის ქუჩა 14.jpg"
+],
+"4858": [
+"File:2025-04-26 Plaque to Ivane Sikharulidze.jpg"
+],
+"4859": [
+"File:2025-04-26 Gates at 12 Akaki Khorava Street.jpg",
+"File:2025-04-26 Plaque to Vazha-Pshavela.jpg"
+],
+"4860": [
+"File:2025-04-26 Plaque to Davit Chkheidze.jpg"
+],
+"4866": [
+"File:Tbilisi bridge.jpg",
+"File:Four Seasons Restaurant.jpg"
+],
+"4869": [
+"File:Rustaveli - Mtatsminda cable car ground station, staircase.jpg"
+],
+"4873": [
+"File:Yovel Kutateladze memorial plaque.jpg",
+"File:Commemorative plaque to Otia Pachkoria in Tbilisi.jpg"
+],
+"4874": [
+"File:32 - Tbilisi - 1976.jpg"
+],
+"4875": [
+"File:Tbilisi - 2026-10 - p14.jpg",
+"File:Tbilisi - 2026-10 - p13.jpg"
+],
+"4878": [
+"File:2024-07-20 1 Niko Nikoladze Street, Tbilisi.jpg",
+"File:2024-07-20 House number at 1 Niko Nikoladze Street, Tbilisi.jpg"
+],
+"4884": [
+"File:2026-03-01 Plaque to Petre Otskheli.jpg"
+],
+"4885": [
+"File:Tiflis 14 42 11 684000.jpeg",
+"File:დიდი დარბაზი.jpg"
+],
+"4886": [
+"File:დიდი დარბაზი.jpg"
+],
+"4889": [
+"File:Tamar Shaverzashvili memorial plaque.jpg"
+],
+"4891": [
+"File:David Vachnadze memorial plaque.jpg",
+"File:Vano Sarajishvili memorial plaque.jpg"
+],
+"4892": [
+"File:City under siege, waiting for the new year.jpg",
+"File:Rain of fire - Flickr - shioshvili.jpg"
+],
+"4893": [
+"File:Tbilisi, view from Galaktioni Bridge 2021-12-09.jpg",
+"File:Tbilisi, view from Galaktioni Bridge 2021-12-09-1.jpg",
+"File:Right Kura Embankment, Tbilisi, at night. 2022.jpg"
+],
+"4897": [
+"File:Tbilisi - 2026-10 - p30.jpg",
+"File:Tbilisi - 2026-10 - p31.jpg"
+],
+"4898": [
+"File:2024-10-13 Plaque to Guram Panjikidze.jpg",
+"File:2024-10-13 Plaque to Simon Skhirtladze.jpg"
+],
+"4899": [
+"File:Anton Purtseladze street 13 (2).jpg",
+"File:Anton Purtseladze street 13.jpg",
+"File:Anton Purtseladze street 15 (2).jpg"
+],
+"4902": [
+"File:2024-07-20 Graves by the Saint John the Evangelist church in Tbilisi.jpg",
+"File:იოანე ღვთისმეტყველის ეკლესია, ქიაჩელი ლეოს ქუჩა 21.jpg"
+],
+"4904": [
+"File:2024-07-20 Plaque to Shalva Isakadze.jpg",
+"File:2024-07-20 Plaque to Aleksi Miminoshvili.jpg",
+"File:2024-07-20 Plaque to Shalva Chikovani.jpg"
+],
+"4909": [
+"File:Isidore Gvarjaladze memorial plaque.jpg",
+"File:2024-03-02 Memorial plaque to 11 Mikheil Zandukeli Street.jpg",
+"File:2024-03-02 Memorial plaque to Filipe Gogichaishvili.jpg"
+],
+"4911": [
+"File:Haidar Abashidze plaque, Tbilisi.jpg",
+"File:Ekvtime Taqaishvili plaque, Tbilisi.jpg"
+],
+"4912": [
+"File:2025-04-26 Gates at 12 Akaki Khorava Street.jpg"
+],
+"4914": [
+"File:იოანე ღვთისმეტყველის ეკლესია, ქიაჩელი ლეოს ქუჩა 21.jpg"
+],
+"4924": [
+"File:Iuri Malashkhia memorial plaque.jpg",
+"File:2025-04-26 Cat on a shelf outside 43 Vasil Barnovi Street.jpg"
+],
+"4925": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (261).jpg"
+],
+"4926": [
+"File:2025-04-26 Plaque to Ivane Sikharulidze.jpg"
+],
+"4927": [
+"File:2024-07-20 Plaque to the Consulate General of the Republic of Poland in Tbilisi.jpg",
+"File:2024-07-20 Plaque to Grigol Mukhadze.jpg",
+"File:2024-07-20 Plaque to Davit Mamamtavrishvili.jpg"
+],
+"4928": [
+"File:2023-12-16 A feral cat in Tbilisi.jpg"
+],
+"4934": [
+"File:Rustaveli - Mtatsminda cable car ground station, staircase.jpg"
+],
+"4935": [
+"File:Tiflis Straßenszene 16.jpg"
+],
+"4941": [
+"File:Vasil Barnovi memorial plaque.jpg"
+],
+"4952": [
+"File:2025-04-26 Plaque to Davit Chkheidze.jpg"
+],
+"4955": [
+"File:Pavle Shengelia memorial plaque.jpg"
+],
+"4956": [
+"File:Tbilisi - 2026-10 - p14.jpg",
+"File:Tbilisi - 2026-10 - p13.jpg"
+],
+"4961": [
+"File:Mitsuoka Viewt and Modellista PX12 Napoli (51526579211).jpg"
+],
+"4967": [
+"File:Bukhuti Zakariadze memorial plaque.jpg"
+],
+"4968": [
+"File:Mitsuoka Viewt and Modellista PX12 Napoli (51526579211).jpg"
+],
+"4970": [
+"File:9 Akaki Khorava St, Tbilisi.jpg",
+"File:2025-04-26 Plaque to Vazha-Pshavela.jpg"
+],
+"4971": [
+"File:2024-07-20 1 Niko Nikoladze Street, Tbilisi.jpg",
+"File:2024-07-20 House number at 1 Niko Nikoladze Street, Tbilisi.jpg"
+],
+"4973": [
+"File:Leo Kiacheli St. (Tbilisi).jpg",
+"File:2024-07-20 Plaque to Davit Mamamtavrishvili.jpg"
+],
+"4975": [
+"File:Unnamed2 - panoramio (332).jpg",
+"File:Tbilisi - 2026-10 - p17.jpg"
+],
+"4982": [
+"File:Tbilisi - Shkhefis kucha.jpg"
+],
+"4983": [
+"File:Tbilisi old city walls 12.jpg",
+"File:Mapillary (1315105826138527, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H05M56S143.jpg",
+"File:Mapillary (1042355407673143, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H05M55S571.jpg"
+],
+"4984": [
+"File:2026-09-17 Courtyard building at 2-2a Gizo Nishnianidze Street, Tbilisi.jpg"
+],
+"4985": [
+"File:Vano Sarajishvili memorial plaque.jpg"
+],
+"4987": [
+"File:Building with stucco and wrought iron balcony at 24 Galaktion Tabidze St, Tbilisi.jpg",
+"File:2024-04-23 Memorial plaque to 20 Galaktion Tabidze Street.jpg"
+],
+"4988": [
+"File:Mtawminda.jpg"
+],
+"4989": [
+"File:2024-10-13 Plaque to Guram Panjikidze.jpg",
+"File:2024-10-13 Plaque to Simon Skhirtladze.jpg"
+],
+"4991": [
+"File:2014 Tbilisi, Widok z okna na budynki i górę Mtacminda (02).jpg",
+"File:The Buildings on Alexander Griboedov Street, Tbilisi 09.23.jpg",
+"File:The Buildings on Alexander Griboedov Street, Tbilisi 09.23 (2).jpg"
+],
+"4992": [
+"File:2026-09-17 11 Gizo Nishnianidze Street - 4 Rostom Muskhelishvili Street, Tbilisi - entrance facade.jpg",
+"File:2026-09-17 11 Gizo Nishnianidze Street - 4 Rostom Muskhelishvili Street, Tbilisi - entrances from Muskhelishvili Street.jpg"
+],
+"4996": [
+"File:Anna Madatova House 2023-07-13-1.jpg",
+"File:Daniel Chonqadze Street.jpg"
+],
+"4999": [
+"File:2025-06-11 Backyard façade of 100-Flat Building in Tbilisi (1).jpg",
+"File:Tbilisi. The Square of Heroes. Foto by Victor Belousov. - panoramio - Victor Belousov.jpg"
+],
+"5000": [
+"File:Sports Palace in Tbilisi - panoramio.jpg"
+],
+"5006": [
+"File:Detail of Building of Silk Museum of Tbilisi.jpg"
+],
+"5054": [
+"File:Tbilisi 2023 06 49 40 914000.jpeg",
+"File:SUCCESS Bar in Tbilisi 2023 06 52 38 368000.jpg"
+],
+"5055": [
+"File:Unnamed2 - panoramio (2114).jpg",
+"File:Freedom square structure.jpg"
+],
+"6506": [
+"File:Kura-Caspian Sea-Hdr Photography მტკვარი رودخانه متکواری در مرکز شهر تفلیس 10.jpg",
+"File:Cityscapes of Tbilisi HDR photo شهر تفلیس پایتخت گرجستان თბილისი 23.jpg"
+],
+"6659": [
+"File:Betania Monastery of the Nativity of the Mother of God.Gate.jpg",
+"File:Betania church3.jpg"
+],
+"6661": [
+"File:Betania Monastery of the Nativity of the Mother of God.Gate.jpg",
+"File:Betania church3.jpg",
+"File:Betania church2.jpg"
+],
+"6855": [
+"File:A view from Azeula Fortress 2023-06-25-1.jpg"
+],
+"7645": [
+"File:Telovani St Nino Church 1.JPG"
+],
+"7942": [
+"File:Georgian Church at night.jpg",
+"File:Protal of the Church of St. Nicholas, Tbilisi.jpg"
+],
+"7981": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (188).jpg"
+],
+"7982": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (261).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (269).jpg"
+],
+"8066": [
+"File:View of Tbilisi from Tabori Church 2023-10-08-3.jpg",
+"File:View of Tbilisi from Tabori Church 2023-10-08-4.jpg",
+"File:Makhata.JPG"
+],
+"10830": [
+"File:Tbilisi Open Air Museum of Ethnography 02.jpg"
+],
+"13491": [
+"File:Old Street Sign in Tbilisi, Georgia.jpg"
+],
+"13494": [
+"File:Old Street Sign in Tbilisi, Georgia.jpg"
+],
+"15636": [
+"File:National Botanical Garden of Georgia باغ های بوتانیکال در شهر تفلیس گرجستان 29.jpg"
+],
+"15997": [
+"File:სამედ. პარაზ. და ტროპ. მედიც. სამეცნ. კვლევითი ინსტ.jpg"
+],
+"15999": [
+"File:J. Kakhidze st. 13.jpg"
+],
+"16004": [
+"File:Prokopi Japaridze memorial plaque.jpg"
+],
+"16021": [
+"File:Plaque to the first diplomatic mission of Lithuania in Transcausasia.jpg",
+"File:Council of Lithuanians of the Caucasus plaque.jpg"
+],
+"16027": [
+"File:Giorgi Akhvlediani memorial plaque in Tbilisi.jpg"
+],
+"16030": [
+"File:Tbilisi - 2026-10 - p03.jpg",
+"File:Zurab Tsereteli Museum Of Modern Art 3.jpg",
+"File:IMEL building at night, Tbilisi.jpg"
+],
+"16031": [
+"File:Mitsuoka Viewt and Modellista PX12 Napoli (51526579211).jpg"
+],
+"16032": [
+"File:2024-10-13 Plaque to Simon Skhirtladze.jpg"
+],
+"16038": [
+"File:Old Tbilisi, June, 2018-3.jpg"
+],
+"16039": [
+"File:Giorgi Atoneli street 4.jpg",
+"File:Giorgi Atoneli street 4 (2).jpg",
+"File:2025-03-30 Vank Armenian Cathedral Belltower, Tbilisi 1.jpg"
+],
+"16043": [
+"File:Unnamed2 - panoramio (332).jpg",
+"File:Tbilisi - 2026-10 - p17.jpg"
+],
+"16044": [
+"File:2025-02-02 Former Lisi Lake cable car lower station, view from NNW.jpg",
+"File:2025-02-02 Former Lisi Lake cable car lower station, view from SSE.jpg",
+"File:2025-02-02 Former Lisi Lake cable car lower station, view from ESE.jpg"
+],
+"16045": [
+"File:Tbilisi - Khachtur Aboviani Street 12 - 2025-10 - p01.jpg",
+"File:Raffi kojian-Abovyan-130257380.jpg",
+"File:ასათიანის ქუჩა 58.jpg"
+],
+"16046": [
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi-interior (2).jpg",
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi-interior (1).jpg",
+"File:Catholic Cathedral of the Assumption of the Holy Virgin Mary, Tbilisi.jpg"
+],
+"16047": [
+"File:2024-05-02 Plaque to Nikoloz Jandieri.jpg",
+"File:Georgisches Gebäck.jpg"
+],
+"16049": [
+"File:Tbilisi Old Town Clock - panoramio.jpg",
+"File:Hospůdky ve starém městě - panoramio.jpg"
+],
+"16050": [
+"File:Tbilisi - Park of Heraclius II - 2025-10 - p03.jpg",
+"File:Tbilisi - Park of Heraclius II - 2025-10 - p02.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (242).jpg"
+],
+"16051": [
+"File:Mapillary (1028790198736610, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H06M05S428.jpg",
+"File:Gigo Gabashvili. Bazaar in Samarkand.jpg"
+],
+"16565": [
+"File:109 Agmashenebeli.jpg"
+],
+"16602": [
+"File:2025-04-19 Maksim Gorki Street, Tbilisi 2.jpg"
+],
+"16935": [
+"File:Mapillary (316599541509974, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H06M05S000.jpg",
+"File:Mapillary (1244836579972177, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H06M04S571.jpg",
+"File:Mapillary (1028790198736610, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H06M05S428.jpg"
+],
+"16936": [
+"File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (03).jpg"
+],
+"16937": [
+"File:Hospůdky ve starém městě - panoramio.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (251).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (246).jpg"
+],
+"17027": [
+"File:GPC Pharmacy Aghmashenebeli.jpg",
+"File:2025-04-19 Saarbrücken Square, Tbilisi.jpg"
+],
+"17028": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (130).jpg",
+"File:Old Quarter of Tbilisi.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (136).jpg"
+],
+"17030": [
+"File:Tiflis 14 35 31 281000.jpeg",
+"File:Tiflis 14 35 38 959000.jpeg",
+"File:David Baazov memory board (Tbilisi).jpg"
+],
+"17033": [
+"File:Freedom Square - panoramio.jpg"
+],
+"17034": [
+"File:Europe Square, Tbilisi, Georgia. November 2022.jpg",
+"File:Em1017 a071941.jpg"
+],
+"17044": [
+"File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (03).jpg",
+"File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (02).jpg"
+],
+"17121": [
+"File:Tbilisi 2023 06 43 19 873000.jpeg",
+"File:Академия наук Грузии.jpg"
+],
+"17183": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (321).jpg"
+],
+"17461": [
+"File:Open air museum of etnography - panoramio.jpg"
+],
+"17517": [
+"File:Tbilisi - 2026-10 - p41.jpg",
+"File:Tbilisi 2023 06 50 01 727000.jpeg",
+"File:Tbilisi 2023 06 50 08 261000.jpeg"
+],
+"17876": [
+"File:Architectural Detail - Old Town - Tbilisi - Georgia - 06 (18715912735) (2).jpg"
+],
+"17884": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (127).jpg",
+"File:Tbilisi - Freedom Square - 2025-10 - p17.jpg"
+],
+"18006": [
+"File:2014 Tbilisi, Łaźnie siarkowe w Abanotubani (03).jpg",
+"File:2014 Tbilisi, Łaźnie siarkowe w Abanotubani (04).jpg",
+"File:2014 Tbilisi, Łaźnie siarkowe w Abanotubani (01).jpg"
+],
+"18009": [
+"File:Tombstone of Armenian poet Hovhannes Tumanyan in Tbilisi.jpg",
+"File:Raffi Gravestone.jpg",
+"File:Armenian Pantheon of Tbilisi with Sameba Cathedral.JPG"
+],
+"18545": [
+"File:The Forty Martyrs of Sebastian Monastery (Tbilisi) 02.jpg",
+"File:The Forty Martyrs of Sebastian Monastery (Tbilisi) 01.jpg",
+"File:Stadtansicht Tiflis 23.jpg"
+],
+"20087": [
+"File:St. Virgin's church (Gldani village).jpg"
+],
+"23109": [
+"File:Tbilisi Open Air Museum of Ethnography 02.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 13.jpg"
+],
+"23264": [
+"File:Haidar Abashidze plaque, Tbilisi.jpg",
+"File:Vasil Varazi memorial plaque in Tbilisi.jpg",
+"File:Avto Varazi memorial plaque in Tbilisi.jpg"
+],
+"24311": [
+"File:Tbilisi117 (44690778531).jpg"
+],
+"24316": [
+"File:2025-03-26 Plaque at Vladimer Vekua Street.jpg"
+],
+"24370": [
+"File:Tombstone of Armenian poet Hovhannes Tumanyan in Tbilisi.jpg",
+"File:Raffi Gravestone.jpg",
+"File:Armenian Pantheon of Tbilisi with Sameba Cathedral.JPG"
+],
+"24371": [
+"File:Armenian Pantheon of Tbilisi with Sameba Cathedral.JPG"
+],
+"24378": [
+"File:Tbilisi - 2026-10 - p03.jpg",
+"File:Zurab Tsereteli Museum Of Modern Art 3.jpg"
+],
+"24452": [
+"File:City skyline, Tbilisi - panoramio.jpg",
+"File:Tbilisi - panoramio.jpg"
+],
+"24722": [
+"File:Tiflis Straßenszene 23.jpg",
+"File:Tbilisi - 2026-10 - p02.jpg",
+"File:Tbilisi - 2026-10 - p01.jpg"
+],
+"24762": [
+"File:Dome of the Church of the Holy Virgin of Iveria of Tbilisi.jpg"
+],
+"24768": [
+"File:Tbilisi - Grishashvili street 11 - sulfur bath - 2025-10 - p1.jpg",
+"File:Tbilisi - Grishashvili street 11 - sulfur bath - 2025-10 - p2.jpg",
+"File:11 Ioseb Grishashvili Street (Tbilisi, Georgia).jpg"
+],
+"24775": [
+"File:13 Korneli Kekelidze St, Tbilisi.jpg"
+],
+"24776": [
+"File:Tbilisi graffiti 2.jpg"
+],
+"24777": [
+"File:Dome of the Church of the Holy Virgin of Iveria of Tbilisi.jpg"
+],
+"25017": [
+"File:Narikala fortress view.jpg",
+"File:View of Tbilisi.jpg",
+"File:Panorama of Tbilisi 2015-03-23 (3).JPG"
+],
+"25044": [
+"File:Mapillary (517658254190322, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H05M20S143.jpg",
+"File:Mapillary (1085477786471672, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H05M20S428.jpg",
+"File:Mapillary (898601075649664, D3BU26hGbVvxF5cKsaQTZp) (bumbeishvili) 2024-09-14 08H05M19S857.jpg"
+],
+"25092": [
+"File:Building on Mtkvari River (Tbilisi, Georgia).jpg"
+],
+"25104": [
+"File:Kura-Caspian Sea-Hdr Photography მტკვარი رودخانه متکواری در مرکز شهر تفلیس 10.jpg",
+"File:Stadtansicht Tiflis 39.jpg",
+"File:Stadtansicht Tiflis 43.jpg"
+],
+"25106": [
+"File:Night at Tbilisi - panoramio.jpg",
+"File:Botanical garden view.jpg",
+"File:Tbilisi - view 5.jpg"
+],
+"25111": [
+"File:Tbilisi - panoramio (1).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (1).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (10).jpg"
+],
+"26434": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (75).jpg"
+],
+"26449": [
+"File:The Forty Martyrs of Sebastian Monastery (Tbilisi) 02.jpg",
+"File:Tbilisi Love You- Urban Photos, Canon Photos, Creative Commons, Mostafa Meraji 07.jpg",
+"File:Tbilisi - Gorgasali Street 3 - 2025-10 - p5.jpg"
+],
+"26551": [
+"File:Unnamed2 - panoramio (2148).jpg",
+"File:Tiflis 14 36 10 300000.jpeg",
+"File:9 Asatiani Street - 8 Akhospireli Street in Tbilisi.jpg"
+],
+"26573": [
+"File:3 Pushkini Street, Tbilisi.jpg"
+],
+"26684": [
+"File:Mt Didgori (view from Dighomi Village).jpg"
+],
+"26716": [
+"File:عکس از گلها و گیاهان باغ بوتانیکال تفلیس - گرجستان 10.jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (310).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (311).jpg"
+],
+"26717": [
+"File:National Botanical Garden of Georgia (HDR Photo, Lg G5) باغ بوتانیکال، شهر تفلیس.jpg",
+"File:National Botanical Garden of Georgia (HDR Photo, Lg G11) باغ بوتانیکال، شهر تفلیس.jpg",
+"File:National Botanical Garden of Georgia (HDR Photo, Lg G8) باغ بوتانیکال، شهر تفلیس.jpg"
+],
+"26725": [
+"File:Tiflis 14 43 08 560000.jpeg",
+"File:Boris Kuftin St.jpg"
+],
+"26726": [
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-1.jpg",
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-2.jpg",
+"File:View to Tbilisi from appartment building on Pier Kobakhidze St 2021-12-09-4.jpg"
+],
+"39244": [
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (91).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (92).jpg",
+"File:Dzveli Tbilisi, Tbilisi, Georgia - panoramio (86).jpg"
+],
+"41558": [
+"File:Tbilisi Open Air Museum of Ethnography 07.jpg"
+],
+"41560": [
+"File:Open air museum of etnography - panoramio.jpg"
+],
+"41562": [
+"File:Open air museum of etnography - panoramio.jpg"
+],
+"41568": [
+"File:Open air museum of etnography - panoramio.jpg"
+],
+"41575": [
+"File:Tbilisi Open Air Museum of Ethnography 02.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 13.jpg"
+],
+"41580": [
+"File:Tbilisi Open Air Museum of Ethnography 02.jpg"
+],
+"41581": [
+"File:Tbilisi Open Air Museum of Ethnography 13.jpg"
+],
+"41582": [
+"File:Tbilisi Open Air Museum of Ethnography 02.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 13.jpg"
+],
+"41583": [
+"File:Tbilisi Open Air Museum of Ethnography 01.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 24.jpg"
+],
+"41584": [
+"File:Tbilisi Open Air Museum of Ethnography 07.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 01.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 24.jpg"
+],
+"41585": [
+"File:Tbilisi Open Air Museum of Ethnography 01.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 24.jpg"
+],
+"42618": [
+"File:Tbilisi Open Air Museum of Ethnography 18.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 27.jpg"
+],
+"42619": [
+"File:Tbilisi Open Air Museum of Ethnography 03.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 27.jpg",
+"File:Tbilisi Open Air Museum of Ethnography 33.jpg"
+],
+"49958": [
+"File:TTC-525 (39443255980).jpg",
+"File:2023-12-31 New Year's Illumination on Rustaveli Avenue in Tbilisi 2.jpg",
+"File:2023-12-31 New Year's Illumination on Rustaveli Avenue in Tbilisi 1.jpg"
+]
+}
+}
