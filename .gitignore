@@ -22,3 +22,6 @@ data/boundaries/tram_1913.geojson
 # local helper page for tracing
 site/dev_trace.html
 site/dev_trace.js
+
+# OCR of scanned books (large, regenerable) and language data
+data/cache/

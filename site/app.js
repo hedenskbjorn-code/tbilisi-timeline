@@ -132,6 +132,9 @@
         "Окна «Справка» и «Фильтры» можно скрыть кнопками вверху.",
       ],
       roadLabels: "Названия современных улиц поверх старого плана",
+      popTitle: "Население города",
+      popNote: "Город в границах разных лет, данные и методики разные: ряд ориентировочный. Тёмные точки: переписи и статистика, светлые: оценки (не подтверждены).",
+      popBefore: "Данных о населении на этот год нет (самая ранняя оценка: 1803).",
       btnInfo: "Справка", btnFilters: "Фильтры", filtersTitle: "Фильтры и слои",
       stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
       stNow: "сейчас",
@@ -270,6 +273,9 @@
         "The Info and Filters windows can be hidden with the buttons at the top.",
       ],
       roadLabels: "Names of present-day streets over the old plan",
+      popTitle: "Population of the city",
+      popNote: "The city within its borders of each year; sources and methods differ, so the series is approximate. Dark dots: censuses and statistics, hollow dots: estimates (not confirmed).",
+      popBefore: "No population figure for this year (the earliest estimate is 1803).",
       btnInfo: "Info", btnFilters: "Filters", filtersTitle: "Filters and layers",
       stTitle: "Street names in this year (checked against Wikipedia)",
       stNow: "today",
@@ -407,6 +413,9 @@
         "«ცნობა» და «ფილტრები» ფანჯრების დამალვა ზედა ღილაკებით შეიძლება.",
       ],
       roadLabels: "დღევანდელი ქუჩების სახელები ძველი გეგმის თავზე",
+      popTitle: "ქალაქის მოსახლეობა",
+      popNote: "ქალაქი თითოეული წლის საზღვრებში; წყაროები და მეთოდები განსხვავდება, ამიტომ რიგი მიახლოებითია. მუქი წერტილები: აღწერები და სტატისტიკა, ღია წერტილები: შეფასებები (დაუდასტურებელი).",
+      popBefore: "ამ წლის მოსახლეობის მონაცემი არ არის (უადრესი შეფასება: 1803).",
       btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
@@ -692,6 +701,7 @@
     updateTransport();
     updateTopo();
     updateStNames();
+    updatePop();
     updateStreets();
     updateViews();
     updateSwipe();
@@ -812,6 +822,61 @@
 
   // historical events (invasions, earthquakes, floods, changes of power): icons above the slider; every event has a source (data/history_events.json)
   let histEvents = [];
+  let popData = null;
+  function updatePop() {
+    const box = $("popbox");
+    if (!box || !popData) return;
+    const L = t(), P = popData.points;
+    box.textContent = "";
+    const prev = P.filter((p) => p.y <= year);
+    if (!prev.length) { box.hidden = true; return; }
+    box.hidden = false;
+    const cur = prev[prev.length - 1];
+    const h = document.createElement("div");
+    const b = document.createElement("b");
+    b.textContent = L.popTitle + ": ";
+    h.appendChild(b);
+    h.appendChild(document.createTextNode("~" + cur.v.toLocaleString(lang === "ru" ? "ru-RU" : lang === "ka" ? "ka-GE" : "en-US") + " (" + cur.y + ")"));
+    box.appendChild(h);
+    const ssrc = popData.sources[cur.s];
+    const d = document.createElement("div");
+    d.className = "src";
+    const a = document.createElement("a");
+    a.href = ssrc.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = "[src]";
+    d.appendChild(document.createTextNode((cur.u && (cur.u[lang] || cur.u.ru) || (cur.ref && (cur.ref[lang] || cur.ref.ru)) || "") + " "));
+    d.appendChild(a);
+    box.appendChild(d);
+    // chart: linear years 1800-2026, population in thousands
+    const W = 260, H = 70, x0 = 4, x1 = W - 4, ymax = 1400000, Y0 = 1800, Y1 = 2026;
+    const X = (y) => x0 + ((y - Y0) / (Y1 - Y0)) * (x1 - x0), Yv = (v) => H - 4 - (v / ymax) * (H - 10);
+    const ns = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    const sol = P.filter((p) => p.q !== "outlier" && p.q !== "uncertain");
+    const pl = document.createElementNS(ns, "polyline");
+    pl.setAttribute("points", sol.map((p) => X(p.y).toFixed(1) + "," + Yv(p.v).toFixed(1)).join(" "));
+    pl.setAttribute("fill", "none"); pl.setAttribute("stroke", getCss("--old")); pl.setAttribute("stroke-width", "1.5");
+    svg.appendChild(pl);
+    for (const p of P) {
+      const c = document.createElementNS(ns, "circle");
+      c.setAttribute("cx", X(p.y)); c.setAttribute("cy", Yv(p.v)); c.setAttribute("r", p === cur ? 4 : 2.4);
+      const hollow = p.q === "outlier" || p.q === "uncertain";
+      c.setAttribute("fill", hollow ? "none" : p === cur ? getCss("--accent") : getCss("--old"));
+      c.setAttribute("stroke", p === cur ? getCss("--accent") : getCss("--old")); c.setAttribute("stroke-width", "1.2");
+      svg.appendChild(c);
+    }
+    if (year >= Y0 && year <= Y1) {
+      const ln = document.createElementNS(ns, "line");
+      ln.setAttribute("x1", X(year)); ln.setAttribute("x2", X(year)); ln.setAttribute("y1", 2); ln.setAttribute("y2", H - 2);
+      ln.setAttribute("stroke", getCss("--accent")); ln.setAttribute("stroke-dasharray", "2 2");
+      svg.appendChild(ln);
+    }
+    box.appendChild(svg);
+    const n = document.createElement("div");
+    n.className = "src";
+    n.textContent = L.popNote;
+    box.appendChild(n);
+  }
   let stNames = [], stGeom = {};
   function updateStLabelsLayer() {
     const src = map.getSource("stlabels");
@@ -1496,6 +1561,7 @@
     } catch (e) { /* no transport layer */ }
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
+    try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
     try { stNames = (await getJSON("data/street_names.json", 2)).streets; stGeom = await getJSON("data/street_geom.json", 2); addStLabelsLayer(); updateStNames(); } catch (e) { stNames = []; }
     let admin = { type: "FeatureCollection", features: [] };
     try { admin = await getJSON("data/admin.json"); } catch (e) {}
