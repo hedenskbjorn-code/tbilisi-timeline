@@ -121,6 +121,13 @@ manual_reject = set()
 _mr = os.path.join(ROOT, "data", "photos_manual_reject.json")
 if os.path.exists(_mr):
     manual_reject = set(json.load(open(_mr, encoding="utf-8"))["titles"])
+# photos found 30-60 m from an object are shown only if they were approved after a look at the picture (data/photos_far_approved.json:
+# {"object id": ["File:..."]}); closer photos (<= 30 m) are shown as before. Found out 2026-11-18: a far photo can show another house.
+PHOTO_NEAR_M = 30
+far_ok = {}
+_fa = os.path.join(ROOT, "data", "photos_far_approved.json")
+if os.path.exists(_fa):
+    far_ok = json.load(open(_fa, encoding="utf-8"))["approved"]
 used = {}
 
 feats, unknown = [], set()
@@ -137,7 +144,7 @@ for f in src["features"]:
     ye_show = p.get("year_to") if (ye_mid is not None and p.get("date_precision") != "exact" and p.get("year_to")) else ye_mid
     orig_fn = func_orig(p)
     cur_fn = func_current(p, orig_fn)
-    ph = [t for t, _ in photo_hits.get(str(p["id"]), []) if photo_info.get(t, {}).get("thumb") and photo_info[t].get("license") and not people.get(t, {}).get("reject") and t not in manual_reject]
+    ph = [t for t, d in photo_hits.get(str(p["id"]), []) if (d <= PHOTO_NEAR_M or t in far_ok.get(str(p["id"]), [])) and photo_info.get(t, {}).get("thumb") and photo_info[t].get("license") and not people.get(t, {}).get("reject") and t not in manual_reject]
     for t in ph:
         used[t] = photo_info[t]
     feats.append({

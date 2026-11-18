@@ -27,6 +27,12 @@ def px_to_lonlat(pid, x, y):
     return w0 + x / W * (w1 - w0), imy(my(n0) + y / H * (my(s0) - my(n0)))
 
 
+# Saburtalo: first the village label of the 1911 sheet (44.7618, 41.7260); the owner, a native of Saburtalo, asked to move it further to
+# 26 May Square (OSM way "26 May Square", Nominatim). Chugureti: the OSM neighbourhood node "Chughureti" (the district node was too far north).
+MANUAL = {"Saburtalo": [44.7781, 41.7179, "26 May Square (OSM), by the owner's request"],
+          "Chugureti": [44.79943, 41.71116, "OSM neighbourhood node 'Chughureti'"]}
+
+
 def main():
     els = json.load(open(os.path.join(ROOT, "data", "raw", "admin", "osm_places.json"), encoding="utf-8"))
     els = els.get("elements", els) if isinstance(els, dict) else els
@@ -36,9 +42,8 @@ def main():
         by.setdefault(t.get("name:en") or t.get("name"), []).append((t.get("place"), e["lon"], e["lat"]))
     out = {}
     for d in ["Mtatsminda", "Vake", "Didube", "Chugureti", "Isani", "Nadzaladevi", "Gldani", "Samgori", "Krtsanisi", "Saburtalo"]:
-        if d == "Saburtalo":
-            lon, lat = px_to_lonlat("tiflis_1911", 1430, 1686)         # "М. САБУРТАЛО" on the 1911 sheet
-            out[d] = [round(lon, 5), round(lat, 5), "label of the village on the 1911 sheet"]
+        if d in MANUAL:                                                # set by hand after the owner's remarks
+            out[d] = MANUAL[d]
             continue
         hood = [x for x in by.get(d, []) if x[0] == "neighbourhood"]
         sub = [x for x in by.get(d + " District", []) if x[0] == "suburb"]

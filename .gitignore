@@ -10,3 +10,8 @@ for_gemini/
 *.part
 __pycache__/
 *.bak*
+
+# street trace experiment: regenerable
+data/boundaries/streets_*_auto.geojson
+data/boundaries/streets_*_debug.png
+sk_*.npy
