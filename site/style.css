@@ -27,6 +27,7 @@ html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:1
 .small { font-size:12px; color:var(--muted); margin:10px 0 0; }
 #bottom { position:absolute; left:16px; right:16px; bottom:30px; display:flex; gap:12px; align-items:center; z-index:5; background:var(--panel); padding:10px 16px 36px; border-radius:10px; box-shadow:0 1px 8px #0003; }
 #play { width:44px; height:36px; padding:0; flex:none; }
+#speed { width:40px; height:36px; padding:0; flex:none; }
 #sliderwrap { position:relative; flex:1; }
 #slider { width:100%; margin:0; }
 #ticks { position:absolute; left:0; right:0; top:22px; height:32px; font-size:11px; color:var(--muted); pointer-events:none; }
@@ -138,6 +139,13 @@ body.panel-open #yearchip { display:none; }
 .viewbox { width:min(900px,100%); }
 .viewbox img { display:block; width:100%; max-height:62vh; object-fit:contain; background:#0002; border-radius:6px; margin:6px 0; }
 .viewbox .small { margin-top:3px; }
+.vmwrap { position:relative; }
+.vmnav { position:absolute; top:50%; transform:translateY(-50%); width:40px; height:60px; padding:0; border:0; border-radius:8px; background:#000a; color:#fff; font-size:34px; line-height:1; cursor:pointer; }
+.vmnav:hover { background:#000d; }
+.vmnav[hidden] { display:none; }
+#vmPrev { left:6px; }
+#vmNext { right:6px; }
+@media (max-width:600px) { .vmnav { width:34px; height:52px; } }
 .viewbox a { color:var(--accent); }
 
 .pop .actions { display:flex; gap:14px; margin-top:8px; font-size:12px; }
