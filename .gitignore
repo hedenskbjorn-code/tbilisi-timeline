@@ -15,3 +15,6 @@ __pycache__/
 data/boundaries/streets_*_auto.geojson
 data/boundaries/streets_*_debug.png
 sk_*.npy
+
+# tram lines of the 1913 plan: unfinished experiment
+data/boundaries/tram_1913.geojson
