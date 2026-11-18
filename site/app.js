@@ -916,7 +916,7 @@
       infoLine(body, ev[lang] || ev.en, "");
       if (ev.note) infoLine(body, ev.note);
       if (ev.place) infoLine(body, "\uD83D\uDCCD " + (ev.place[lang] || ev.place.en));
-      infoLine(body, L.evNote);
+      if (ev.src.some((u) => /wikipedia/i.test(typeof u === "string" ? u : u.url))) infoLine(body, L.evNote);
       infoLine(body, L.evSrc + ":");
       for (const u of ev.src) {
         const d = document.createElement("div");
@@ -1481,7 +1481,7 @@
       const tr = await getJSON("data/transport.json", 2);
       map.addSource("transport", { type: "geojson", data: tr });
       const metroColor = ["match", ["get", "line"], "2", "#2f9e44", "#e03131"];     // line 1 (Akhmeteli-Varketili) red, line 2 (Saburtalo) green
-      const kindColor = ["match", ["get", "kind"], "metro_line", metroColor, "railway", "#868e96", "avenue", "#f08c00", "bridge", "#1c7ed6", "tram", "#8d5524", "#495057"];
+      const kindColor = ["match", ["get", "kind"], "metro_line", metroColor, "railway", "#868e96", "avenue", "#f08c00", "bridge", "#1c7ed6", "tram", "#5a2d0c", "#495057"];
       map.addLayer({ id: "tr-line", type: "line", source: "transport", filter: ["!=", ["geometry-type"], "Point"], layout: { visibility: "none", "line-cap": "round" },
                      paint: { "line-color": kindColor, "line-width": ["match", ["get", "kind"], "railway", 2, "avenue", 3, 3.5], "line-offset": ["match", ["get", "kind"], "tram", 4, 0], "line-opacity": 0.9 } });
       map.addLayer({ id: "tr-pt", type: "circle", source: "transport", filter: ["==", ["geometry-type"], "Point"], layout: { visibility: "none" },
