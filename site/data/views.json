@@ -2346,6 +2346,246 @@
   "from": 1995
  },
  {
+  "id": "c2002_narikala",
+  "year": 2002,
+  "from": 2000,
+  "window": 3,
+  "image": "data/views/c2002_narikala.webp",
+  "title": {
+   "ru": "Нарикала, лето 2002",
+   "en": "Narikala, summer 2002",
+   "ka": "ნარიყალა, 2002 წლის ზაფხული"
+  },
+  "author": {
+   "ru": "lelebella",
+   "en": "lelebella",
+   "ka": "lelebella"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и дата по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the date are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და თარიღი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Narikala_-_2002.jpg"
+ },
+ {
+  "id": "c2002_metekhi_view",
+  "year": 2002,
+  "from": 2000,
+  "window": 3,
+  "image": "data/views/c2002_metekhi_view.webp",
+  "title": {
+   "ru": "Вид на Тбилиси от церкви Метехи, лето 2002",
+   "en": "A view of Tbilisi from Metekhi Church, summer 2002",
+   "ka": "თბილისის ხედი მეტეხის ეკლესიიდან, 2002 წლის ზაფხული"
+  },
+  "author": {
+   "ru": "lelebella",
+   "en": "lelebella",
+   "ka": "lelebella"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и дата по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the date are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და თარიღი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:View_of_Tbilisi_from_Metekhi_Church_-_2002_(15616305220).jpg"
+ },
+ {
+  "id": "c2002_trolleybuses",
+  "year": 2002,
+  "from": 2000,
+  "window": 3,
+  "image": "data/views/c2002_trolleybuses.webp",
+  "title": {
+   "ru": "Троллейбусы на проспекте Чавчавадзе, лето 2002",
+   "en": "Trolleybuses on Chavchavadze Avenue, summer 2002",
+   "ka": "ტროლეიბუსები ჭავჭავაძის გამზირზე, 2002 წლის ზაფხული"
+  },
+  "author": {
+   "ru": "lelebella",
+   "en": "lelebella",
+   "ka": "lelebella"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и дата по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the date are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და თარიღი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Trolleybuses_on_Chavchavadze_Avenue_-_2002_(15777424096).jpg"
+ },
+ {
+  "id": "c2003_chavchavadze",
+  "year": 2003,
+  "from": 2000,
+  "window": 2,
+  "image": "data/views/c2003_chavchavadze.webp",
+  "title": {
+   "ru": "Проспект Чавчавадзе, 2003",
+   "en": "Chavchavadze Avenue, 2003",
+   "ka": "ჭავჭავაძის გამზირი, 2003"
+  },
+  "author": {
+   "ru": "D.Papuashvili",
+   "en": "D.Papuashvili",
+   "ka": "D.Papuashvili"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и дата по описанию на Commons; копия уменьшена. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the date are as given on Commons; the copy is reduced in size. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და თარიღი Commons-ის აღწერის მიხედვით; ასლი შემცირებულია. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Chavchavadze_Ave..jpg"
+ },
+ {
+  "id": "c2004_orbeliani_baths",
+  "year": 2004,
+  "from": 2000,
+  "window": 1,
+  "image": "data/views/c2004_orbeliani_baths.webp",
+  "title": {
+   "ru": "Бани Орбелиани в Абанотубани, июль 2004",
+   "en": "The Orbeliani Baths in Abanotubani, July 2004",
+   "ka": "ორბელიანების აბანო აბანოთუბანში, 2004 წლის ივლისი"
+  },
+  "author": {
+   "ru": "Henri Bergius",
+   "en": "Henri Bergius",
+   "ka": "Henri Bergius"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY-SA 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и дата по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY-SA 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the date are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY-SA 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და თარიღი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:19th_century_health_baths.jpg"
+ },
+ {
+  "id": "c2005_freedom_square",
+  "year": 2005,
+  "from": 2005,
+  "window": 5,
+  "image": "data/views/c2005_freedom_square.webp",
+  "title": {
+   "ru": "Площадь Свободы в стройке, ноябрь 2005",
+   "en": "Freedom Square under construction, November 2005",
+   "ka": "თავისუფლების მოედანი მშენებლობისას, 2005 წლის ნოემბერი"
+  },
+  "author": {
+   "ru": "D.Papuashvili",
+   "en": "D.Papuashvili",
+   "ka": "D.Papuashvili"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и дата по описанию на Commons; копия уменьшена. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the date are as given on Commons; the copy is reduced in size. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და თარიღი Commons-ის აღწერის მიხედვით; ასლი შემცირებულია. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_008.jpg"
+ },
+ {
+  "id": "c2006_chardin",
+  "year": 2006,
+  "from": 2005,
+  "window": 4,
+  "image": "data/views/c2006_chardin.webp",
+  "title": {
+   "ru": "Улица Шардени в Старом Тбилиси, октябрь 2006",
+   "en": "Chardin Street in Old Tbilisi, October 2006",
+   "ka": "შარდენის ქუჩა ძველ თბილისში, 2006 წლის ოქტომბერი"
+  },
+  "author": {
+   "ru": "Kober",
+   "en": "Kober",
+   "ka": "Kober"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и дата по описанию на Commons; копия уменьшена. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the date are as given on Commons; the copy is reduced in size. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და თარიღი Commons-ის აღწერის მიხედვით; ასლი შემცირებულია. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Chardin_Street,_Tbilisi.JPG"
+ },
+ {
+  "id": "c2007_kura",
+  "year": 2007,
+  "from": 2005,
+  "window": 3,
+  "image": "data/views/c2007_kura.webp",
+  "title": {
+   "ru": "Кура в центре Тбилиси, вид с Нарикала, сентябрь 2007",
+   "en": "The Kura in central Tbilisi, seen from Narikala, September 2007",
+   "ka": "მტკვარი თბილისის ცენტრში, ხედი ნარიყალადან, 2007 წლის სექტემბერი"
+  },
+  "author": {
+   "ru": "EvgenyGenkin",
+   "en": "EvgenyGenkin",
+   "ka": "EvgenyGenkin"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.5: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и дата по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.5: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the date are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.5: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და თარიღი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.5",
+  "page": "https://commons.wikimedia.org/wiki/File:Kura_River_in_the_central_part_of_Tbilisi,_2007-09-28.jpg"
+ },
+ {
+  "id": "c2008_marjanishvili",
+  "year": 2008,
+  "from": 2005,
+  "window": 2,
+  "image": "data/views/c2008_marjanishvili.webp",
+  "title": {
+   "ru": "Площадь Марджанишвили, июнь 2008",
+   "en": "Marjanishvili Square, June 2008",
+   "ka": "მარჯანიშვილის მოედანი, 2008 წლის ივნისი"
+  },
+  "author": {
+   "ru": "Kober",
+   "en": "Kober",
+   "ka": "Kober"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и дата по описанию на Commons; копия уменьшена. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the date are as given on Commons; the copy is reduced in size. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და თარიღი Commons-ის აღწერის მიხედვით; ასლი შემცირებულია. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Marjanishvili_Square,_Tbilisi.jpg"
+ },
+ {
+  "id": "c2009_old_tbilisi",
+  "year": 2009,
+  "from": 2005,
+  "window": 1,
+  "image": "data/views/c2009_old_tbilisi.webp",
+  "title": {
+   "ru": "Старый Тбилиси, вид с Нарикала, май 2009",
+   "en": "Old Tbilisi, a view from Narikala, May 2009",
+   "ka": "ძველი თბილისი, ხედი ნარიყალადან, 2009 წლის მაისი"
+  },
+  "author": {
+   "ru": "mischvalente",
+   "en": "mischvalente",
+   "ka": "mischvalente"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons, лицензия CC BY 2.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и дата по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons, licence CC BY 2.0: the credit to the author and the link to the file page are required; the copy is reduced in size. The caption and the date are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან, ლიცენზია CC BY 2.0: ავტორის მითითება და ფაილის გვერდის ბმული სავალდებულოა; ასლი შემცირებულია. წარწერა და თარიღი Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Old_Tbilisi_(May_2009).jpg"
+ },
+ {
   "id": "vk2010_peace_bridge_aerial",
   "year": 2010,
   "from": 2010,
