@@ -1,5 +1,5 @@
 {
- "note": "Verified 2026-11-18 by reading the cited Wikipedia pages (Gemini draft of 23 events was checked; events not confirmed by any page were dropped: 1723, 1735, 1830, 1844, Gori earthquake 1920 felt in Tbilisi, flood 1956, independence declaration 9.04.1991; the 4 January 1900 earthquake with >1000 deaths in the list of earthquakes in Georgia rests on newspaper footnotes only and was not used). Removed after the owner's check: separate marks for Vere floods 1960, 1963, 1972, 1995 (they rested on one sentence of the 2015 flood article, and the link led to an article about 2015); the sentence is kept in the note of the 2015 event.",
+ "note": "Verified 2026-11-18 by reading the cited Wikipedia pages (Gemini draft of 23 events was checked; events not confirmed by any page were dropped: 1723, 1735, 1830, 1844, Gori earthquake 1920 felt in Tbilisi, flood 1956, independence declaration 9.04.1991; the 4 January 1900 earthquake with >1000 deaths in the list of earthquakes in Georgia rests on newspaper footnotes only and was not used). Removed after the owner's check: separate marks for Vere floods 1960, 1963, 1972, 1995 (they rested on one sentence of the 2015 flood article, and the link led to an article about 2015); the sentence is kept in the note of the 2015 event. 2026-11-18: earthquakes of 1682, 1803, 1804, 1819, 1894 and the full entry for 1896 added from the monograph of Varazanashvili, Tsereteli, Tsereteli (2011), which the owner found (PDF read in full).",
  "events": [
   {
    "year": 627,
@@ -13,16 +13,6 @@
    ]
   },
   {
-   "year": 764,
-   "date": "764",
-   "cat": "invasion",
-   "ru": "Тбилиси разграблен хазарами",
-   "en": "Tbilisi sacked by the Khazars",
-   "src": [
-    "https://en.wikipedia.org/wiki/History_of_Tbilisi"
-   ]
-  },
-  {
    "year": 737,
    "date": "736-738",
    "cat": "power",
@@ -33,6 +23,16 @@
     "https://en.wikipedia.org/wiki/Tbilisi"
    ],
    "note": "Страница Tbilisi даёт 736-738, History of Tbilisi: около 737."
+  },
+  {
+   "year": 764,
+   "date": "764",
+   "cat": "invasion",
+   "ru": "Тбилиси разграблен хазарами",
+   "en": "Tbilisi sacked by the Khazars",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi"
+   ]
   },
   {
    "year": 853,
@@ -123,6 +123,20 @@
    ]
   },
   {
+   "year": 1682,
+   "date": "13.06.1682",
+   "cat": "earthquake",
+   "ru": "Землетрясение в Тбилиси: во время свадьбы при дворе царя Георгия ночью дрожали дома, уцелели только нижние (по итальянскому путешественнику Фарли)",
+   "en": "Earthquake in Tbilisi: during a wedding at the court of King Giorgi the houses shook at night, only the lower ones were not damaged (the traveller Farli)",
+   "src": [
+    {
+     "url": "https://openlibrary.ge/handle/123456789/10036",
+     "label": "О. Варазанашвили, Н. Церетели, Э. Церетели, «Historical Earthquakes in Georgia (up to 1900)», Тбилиси 2011 (PDF прочитан целиком; таблица 2, с. 19-20, и раздел 7)"
+    }
+   ],
+   "note": "В таблице каталога 13 июня (22:30), в цитате путешественника 13 июля. Оценка авторов: MS 4,2, интенсивность 6-7 (с. 48-49). Параметры (магнитуда, интенсивность, глубина) рассчитаны авторами по макросейсмическим описаниям, они оценочные."
+  },
+  {
    "year": 1795,
    "date": "1795",
    "cat": "invasion",
@@ -146,6 +160,48 @@
    ]
   },
   {
+   "year": 1803,
+   "date": "29.10.1803",
+   "cat": "earthquake",
+   "ru": "Землетрясение в Тбилиси: в стенах домов появились трещины",
+   "en": "Earthquake in Tbilisi: cracks in the walls of houses",
+   "src": [
+    {
+     "url": "https://openlibrary.ge/handle/123456789/10036",
+     "label": "О. Варазанашвили, Н. Церетели, Э. Церетели, «Historical Earthquakes in Georgia (up to 1900)», Тбилиси 2011 (PDF прочитан целиком; таблица 2, с. 19-20, и раздел 7)"
+    }
+   ],
+   "note": "Описание из Бьюса (1948), одна фраза. Оценка авторов: MS 3,8, интенсивность 6 (с. 58). Параметры (магнитуда, интенсивность, глубина) рассчитаны авторами по макросейсмическим описаниям, они оценочные."
+  },
+  {
+   "year": 1804,
+   "date": "11.10.1804",
+   "cat": "earthquake",
+   "ru": "Колебания почвы в Тбилиси ночью; в предместье Авлабар обрушилась древняя стена и рухнул старый нежилой дом",
+   "en": "Ground undulation in Tbilisi at night; in the Avlabari suburb an ancient wall collapsed and an old uninhabited house fell",
+   "src": [
+    {
+     "url": "https://openlibrary.ge/handle/123456789/10036",
+     "label": "О. Варазанашвили, Н. Церетели, Э. Церетели, «Historical Earthquakes in Georgia (up to 1900)», Тбилиси 2011 (PDF прочитан целиком; таблица 2, с. 19-20, и раздел 7)"
+    }
+   ],
+   "note": "Оценка авторов: MS 3,8, интенсивность 5-6 (с. 59). Параметры (магнитуда, интенсивность, глубина) рассчитаны авторами по макросейсмическим описаниям, они оценочные."
+  },
+  {
+   "year": 1819,
+   "date": "28.02.1819",
+   "cat": "earthquake",
+   "ru": "Многократные подземные толчки в Тбилиси с гулом: население испугалось, часть домов пострадала",
+   "en": "Repeated underground shocks with a rumble in Tbilisi: people were frightened, some houses were damaged",
+   "src": [
+    {
+     "url": "https://openlibrary.ge/handle/123456789/10036",
+     "label": "О. Варазанашвили, Н. Церетели, Э. Церетели, «Historical Earthquakes in Georgia (up to 1900)», Тбилиси 2011 (PDF прочитан целиком; таблица 2, с. 19-20, и раздел 7)"
+    }
+   ],
+   "note": "В описании 29 января (Бьюс), в оценке авторов 28 февраля. Оценка: MS 4,5, интенсивность 7 (с. 62-63). Параметры (магнитуда, интенсивность, глубина) рассчитаны авторами по макросейсмическим описаниям, они оценочные."
+  },
+  {
    "year": 1872,
    "date": "1872",
    "cat": "other",
@@ -156,18 +212,40 @@
    ]
   },
   {
-   "year": 1896,
-   "date": "1896",
+   "year": 1894,
+   "date": "29.11.1894",
    "cat": "earthquake",
-   "ru": "Землетрясение интенсивностью VII (MSK): сильнейшее из известных в Тбилиси в историческое время",
-   "en": "Earthquake of intensity VII (MSK): the strongest known to have affected Tbilisi in historical times",
+   "ru": "Два подземных толчка в Тбилиси подряд; в некоторых домах появились трещины (эпицентр в районе Мцхеты, MS 5,0)",
+   "en": "Two underground shocks in a row in Tbilisi; some houses cracked (epicentre in the Mtskheta area, MS 5.0)",
    "src": [
     {
-     "url": "https://en.wikipedia.org/wiki/2002_Tbilisi_earthquake",
-     "label": "Wikipedia: статья о землетрясении 2002 года (раздел о прошлых землетрясениях Тбилиси)"
+     "url": "https://openlibrary.ge/handle/123456789/10036",
+     "label": "О. Варазанашвили, Н. Церетели, Э. Церетели, «Historical Earthquakes in Georgia (up to 1900)», Тбилиси 2011 (PDF прочитан целиком; таблица 2, с. 19-20, и раздел 7)"
     }
    ],
-   "note": "Отдельной статьи про это землетрясение нет: сведение стоит одной фразой в статье про землетрясение 2002 года. Магнитуда, число жертв и ущерб в источнике не названы."
+   "note": "Эпицентр по оценке авторов в районе Мцхеты (41,90 с.ш., 44,60 в.д.), в Тбилиси интенсивность ниже (с. 79-80). Параметры (магнитуда, интенсивность, глубина) рассчитаны авторами по макросейсмическим описаниям, они оценочные."
+  },
+  {
+   "year": 1896,
+   "date": "22.09.1896",
+   "cat": "earthquake",
+   "ru": "Сильное землетрясение к востоку от Тбилиси (MS 6,3): в Тбилиси три сильных толчка, осыпалась штукатурка, падали трубы, паника; в Коджори потрескались стены домов",
+   "en": "A strong earthquake east of Tbilisi (MS 6.3): three strong shocks in Tbilisi, plaster fell, chimneys crumbled, panic; in Kojori the walls of houses cracked",
+   "src": [
+    {
+     "url": "https://openlibrary.ge/handle/123456789/10036",
+     "label": "О. Варазанашвили, Н. Церетели, Э. Церетели, «Historical Earthquakes in Georgia (up to 1900)», Тбилиси 2011 (PDF прочитан целиком; таблица 2, с. 19-20, и раздел 7)"
+    }
+   ],
+   "note": "Время 03:53 (по оценке авторов; в описании 05:30). Эпицентр 41,65 с.ш., 45,00 в.д., глубина 25 км, интенсивность в эпицентре 7,5 (с. 80-81). Шебалин и Татевосян (1997) дают те же MS 6,3 и 7,5; в каталоге 1982 года MS 5,2 и 7. Параметры (магнитуда, интенсивность, глубина) рассчитаны авторами по макросейсмическим описаниям, они оценочные.",
+   "place": {
+    "lng": 45.0,
+    "lat": 41.65,
+    "zoom": 9.5,
+    "ru": "Эпицентр по оценке авторов (погрешность около 0,2°, то есть около 20 км)",
+    "en": "Epicentre as estimated by the authors (error about 0.2 degrees, about 20 km)",
+    "src": "the monograph, section on the 1896 Tbilisi area earthquake"
+   }
   },
   {
    "year": 1918,
@@ -217,7 +295,8 @@
    "en": "Tbilisi earthquake (4.8 mb): epicentre inside the city, 5-7 dead, 18,000 households badly affected",
    "src": [
     "https://en.wikipedia.org/wiki/2002_Tbilisi_earthquake"
-   ]
+   ],
+   "note": " Монография 2011 года называет MS 4,6 и интенсивность 7-8 по шкале MSK."
   },
   {
    "year": 2015,

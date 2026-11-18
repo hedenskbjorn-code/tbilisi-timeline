@@ -222,6 +222,26 @@ def main():
                                   note="SCHEMATIC. The street is drawn over its whole length in OpenStreetMap; the tram did not necessarily run along all of it. Years: the route lists of 1962 and 1986 (ka.wikipedia) and the lists of routes of 2000 (8 routes), 2003 (4 routes), 2005 (route 12) and the closing on 4 December 2006 (ru.wikipedia): between the lists the state is not known. Several streets of the routes are missing (no matching way in OSM).",
                                   src=["https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A0%E1%83%90%E1%83%9B%E1%83%95%E1%83%90%E1%83%98", "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D1%80%D0%B0%D0%BC%D0%B2%D0%B0%D0%B9"]))
     print("tram network streets:", len(tram_iv), "missing in OSM:", miss)
+    # ---------------- tram lines drawn on the 1913 plan (read by Gemini from gridded tiles, snapped to the red line by tools/snap_tram_1913.py); shown with the plan of 1913
+    sp = os.path.join(ROOT, "data", "boundaries", "tram_1913_snapped.json")
+    if os.path.exists(sp):
+        meta = json.load(open(os.path.join(ROOT, "data", "warped", "tbilisi_1913.json"), encoding="utf-8"))
+        (lon0, lat0), (lon1, _), (_, lat1) = meta["corners"][0], meta["corners"][1], meta["corners"][2]
+        sw, sh = meta["size"]
+        import math
+        my = lambda la: math.log(math.tan(math.pi / 4 + math.radians(la) / 2))
+        def pll(x, y):
+            return [round(lon0 + (lon1 - lon0) * x / sw, 5), round(math.degrees(2 * math.atan(math.exp(my(lat0) + (my(lat1) - my(lat0)) * y / sh)) - math.pi / 2), 5)]
+        nline = 0
+        for o in json.load(open(sp, encoding="utf-8")):
+            if len(o["path"]) < 4:
+                continue
+            nline += 1
+            feats.append(feat({"type": "LineString", "coordinates": [pll(x, y) for x, y in o["path"]]}, id="tram1913_" + o["id"], kind="tram", y0=1913, y1=1923,
+                              name_en="Tram line on the plan of 1913", name_ru="Трамвайная линия на плане 1913 года", name_ka="ტრამვაის ხაზი 1913 წლის გეგმაზე",
+                              note="DRAWN ON THE 1913 PLAN (legend: 'line of the tram'). The points were read from the plan by an AI (Gemini) and snapped to the printed red line by a program, then checked by eye; the line can deviate by tens of metres and some stretches (for example in Avlabari and along the river) are uncertain. Streets as printed on the plan: " + "; ".join(o.get("streets") or []) + ". Years: the plan is of 1913; the lines are shown while the plan is shown (1913-1922).",
+                              src=["https://commons.wikimedia.org/wiki/File:Map_of_Tbilisi_1913.jpg"]))
+        print("tram lines of the 1913 plan:", nline)
     # ---------------- other Kura bridges (years from ru.wikipedia articles, read 2026-11-18; the position is the present bridge, older bridges stood close by)
     br_ways = {}
     for fn in ("bridges", "bridges_all"):
