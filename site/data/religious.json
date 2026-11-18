@@ -78,6 +78,33 @@
   ]
  },
  {
+  "id": "lurji",
+  "rel": "orthodox",
+  "from": 1180,
+  "date": "1180s",
+  "lat": 41.70792,
+  "lon": 44.78899,
+  "name": {
+   "ru": "Лурджи монастырь (Синий монастырь)",
+   "en": "Lurji Monastery (Blue Monastery)",
+   "ka": "ლურჯი მონასტერი"
+  },
+  "status": {
+   "ru": "действует (возвращён Церкви в 1990)",
+   "en": "in use (returned to the Church in 1990)",
+   "ka": "მოქმედია (ეკლესიას დაუბრუნდა 1990 წელს)"
+  },
+  "note": {
+   "ru": "Построен в 1180-х (при царице Тамар); в XVII веке восстановлен как безкупольная базилика; 1873 перестройка с новым круглым куполом; церковь Иоанна Богослова 1898-1901. От здания XII века сохранились апсида и части стен. В советское время фабрика, склад, музей.",
+   "en": "Built in the 1180s (under Queen Tamar); restored as a domeless basilica in the 17th century; rebuilt in 1873 with a new round dome; the church of St John the Theologian dates from 1898-1901. Only the apse and parts of the walls survive from the 12th-century building. A factory, a warehouse and a museum in Soviet times.",
+   "ka": "აშენდა 1180-იან წლებში (თამარ მეფის დროს); XVII საუკუნეში აღდგა უგუმბათო ბაზილიკად; 1873 წელს გადაკეთდა ახალი მრგვალი გუმბათით; იოანე ღვთისმეტყველის ეკლესია 1898-1901 წლებისაა. XII საუკუნის შენობიდან შემორჩა აფსიდა და კედლების ნაწილები."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Lurji_Monastery",
+   "https://ru.wikipedia.org/wiki/Лурджи_(Синий)_монастырь"
+  ]
+ },
+ {
   "id": "surb_gevorg",
   "rel": "armenian",
   "from": 1251,
@@ -212,6 +239,32 @@
    "https://ka.wikipedia.org/wiki/თბილისის_შაჰ-ისმაილის_მეჩეთი"
   ],
   "to": 1951
+ },
+ {
+  "id": "kari",
+  "rel": "orthodox",
+  "from": 1640,
+  "date": "1640",
+  "lat": 41.694669,
+  "lon": 44.806507,
+  "name": {
+   "ru": "Церковь Святого Георгия Кари",
+   "en": "Church of St George Kari",
+   "ka": "წმინდა გიორგის კარის ეკლესია"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Первая церковь, по преданию, V века (Вахтанг Горгасали); восстановлена около 1640 при царе Ростоме, ремонт 1710, реставрация 1991-1992. Ул. Шавтели, 4.",
+   "en": "The first church dates, by tradition, from the 5th century (Vakhtang Gorgasali); re-established about 1640 under King Rostom, repaired in 1710, restored in 1991-1992. Shavteli Street 4.",
+   "ka": "პირველი ეკლესია, გადმოცემით, V საუკუნისაა (ვახტანგ გორგასალი); აღდგა დაახლოებით 1640 წელს როსტომ მეფის დროს, შეკეთდა 1710 წელს, რესტავრაცია 1991-1992 წლებში. შავთელის ქ. 4."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_Святого_Георгия_Кари"
+  ]
  },
  {
   "id": "khojivank",
@@ -457,6 +510,32 @@
   ]
  },
  {
+  "id": "nino",
+  "rel": "orthodox",
+  "from": 1850,
+  "date": "1850",
+  "lat": 41.695116,
+  "lon": 44.794669,
+  "name": {
+   "ru": "Церковь равноапостольной Нины",
+   "en": "Church of St Nino",
+   "ka": "წმინდა ნინოს ეკლესია"
+  },
+  "status": {
+   "ru": "действует (службы возобновлены 26 мая 1999)",
+   "en": "in use (services resumed on 26 May 1999)",
+   "ka": "მოქმედია (მსახურება განახლდა 1999 წლის 26 მაისს)"
+  },
+  "note": {
+   "ru": "Ул. Шио Читадзе, 9. По тексту построена около 1850 для женского института (архитектор Альберт Зальцман); в инфобоксе указан 1884. Закрыта в советское время.",
+   "en": "Shio Chitadze Street 9. The text says it was built about 1850 for a women's institute (architect Albert Zaltsman); the infobox gives 1884. Closed in Soviet times.",
+   "ka": "შიო ჩიტაძის ქ. 9. ტექსტის მიხედვით აშენდა დაახლოებით 1850 წელს ქალთა ინსტიტუტისთვის (არქიტექტორი ალბერტ ზალცმანი); ინფობოქსში მითითებულია 1884. საბჭოთა პერიოდში დაიკეტა."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_равноапостольной_Нины_(Тбилиси)"
+  ]
+ },
+ {
   "id": "juma",
   "rel": "muslim",
   "from": 1851,
@@ -481,6 +560,113 @@
   "src": [
    "https://en.wikipedia.org/wiki/Juma_Mosque,_Tbilisi"
   ]
+ },
+ {
+  "id": "old_trinity",
+  "rel": "orthodox",
+  "from": 1863,
+  "date": "1863",
+  "lat": 41.69664,
+  "lon": 44.80184,
+  "name": {
+   "ru": "Старая Троицкая церковь (Калоубани)",
+   "en": "Old Trinity Church (Kaloubani)",
+   "ka": "ძველი სამების ეკლესია"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Первое упоминание 1790, освящена в 1863. Ул. Эроши Манджгаладзе, 6.",
+   "en": "First mentioned in 1790, consecrated in 1863. Eroshi Manjgaladze Street 6.",
+   "ka": "პირველად მოხსენიებულია 1790 წელს, აკურთხეს 1863 წელს. ეროში მანჯგალაძის ქ. 6."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Старая_Троицкая_церковь_(Тбилиси)"
+  ]
+ },
+ {
+  "id": "mamadaviti",
+  "rel": "orthodox",
+  "from": 1871,
+  "date": "1859-1871",
+  "lat": 41.695833,
+  "lon": 44.788889,
+  "name": {
+   "ru": "Церковь Святого Давида (Мамадавити)",
+   "en": "St David's Church (Mamadaviti)",
+   "ka": "მთაწმინდის მამადავითის ეკლესია"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Нынешняя церковь построена в 1859-1871 и освящена во имя св. Давида Гареджийского; прежняя церковь на этом месте снесена в 1809, новая поставлена на её фундаменте. Рядом Мтацминдский пантеон (открыт в 1929).",
+   "en": "The present church was built in 1859-1871 and dedicated to St David of Gareja; an older church on the site was demolished in 1809 and a new one built on its foundations. Next to it, the Mtatsminda Pantheon (opened in 1929).",
+   "ka": "დღევანდელი ეკლესია აშენდა 1859-1871 წლებში და წმინდა დავით გარეჯელის სახელზეა აკურთხებული; ადგილზე არსებული უფრო ძველი ეკლესია 1809 წელს დაანგრიეს და მის საძირკველზე ახალი ააგეს. გვერდითაა მთაწმინდის პანთეონი (გაიხსნა 1929 წელს)."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_Святого_Давида_(Тбилиси)",
+   "https://en.wikipedia.org/wiki/Mtatsminda_Pantheon"
+  ]
+ },
+ {
+  "id": "peter_paul_catholic",
+  "rel": "catholic",
+  "from": 1877,
+  "date": "1870-1877",
+  "lat": 41.7097,
+  "lon": 44.8017,
+  "name": {
+   "ru": "Католическая церковь Святых Петра и Павла",
+   "en": "St Peter and St Paul's Catholic Church",
+   "ka": "წმინდა პეტრესა და პავლეს კათოლიკური ეკლესია"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Построена в 1870-1877 (освящена 16 октября 1877; архитектор Альберт Зальцман); купол добавлен в 1898. В 1999 здесь служил мессу Иоанн Павел II.",
+   "en": "Built in 1870-1877 (consecrated on 16 October 1877; architect Albert Zaltsman); the dome was added in 1898. Pope John Paul II celebrated Mass here in 1999.",
+   "ka": "აშენდა 1870-1877 წლებში (აკურთხეს 1877 წლის 16 ოქტომბერს; არქიტექტორი ალბერტ ზალცმანი); გუმბათი 1898 წელს დაემატა. 1999 წელს აქ წირვა აღავლინა იოანე პავლე II-მ."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/St._Peter_and_St._Paul%27s_Church,_Tbilisi",
+   "https://ru.wikipedia.org/wiki/Католическая_церковь_Святых_Петра_и_Павла_(Тбилиси)"
+  ]
+ },
+ {
+  "id": "lutheran_pp",
+  "rel": "lutheran",
+  "from": 1897,
+  "date": "1894-1897",
+  "lat": 41.7094,
+  "lon": 44.7973,
+  "name": {
+   "ru": "Лютеранская церковь Святых Петра и Павла",
+   "en": "Lutheran Church of St Peter and St Paul",
+   "ka": "წმინდა პეტრესა და პავლეს ლუთერანული ეკლესია"
+  },
+  "status": {
+   "ru": "снесена (закрыта в 1930-х, снесена около 1940)",
+   "en": "demolished (closed in the 1930s, pulled down about 1940)",
+   "ka": "დანგრეულია (1930-იან წლებში დაიკეტა, დაახლოებით 1940 წელს დაანგრიეს)"
+  },
+  "note": {
+   "ru": "Неоготическая кирха, построена в 1894-1897 (архитектор Леопольд Бильфельдт). По инфобоксу снесена в 1940, по тексту закрыта в 1930-х и снесена в 1940-х. Новая лютеранская церковь «Примирение» освящена 26 октября 1997.",
+   "en": "A neo-Gothic church built in 1894-1897 (architect Leopold Bilfeldt). Demolished in 1940 per the infobox; the text says it was closed in the 1930s and pulled down in the 1940s. A new Lutheran church, 'Reconciliation', was consecrated on 26 October 1997.",
+   "ka": "ნეოგოთიკური ეკლესია, აშენდა 1894-1897 წლებში (არქიტექტორი ლეოპოლდ ბილფელდტი). ინფობოქსის მიხედვით 1940 წელს დაანგრიეს, ტექსტის მიხედვით 1930-იან წლებში დაიკეტა, 1940-იან წლებში კი დაანგრიეს. ახალი ლუთერანული ეკლესია „შერიგება“ აკურთხეს 1997 წლის 26 ოქტომბერს."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Лютеранская_церковь_Святых_Петра_и_Павла_(Тбилиси)"
+  ],
+  "to": 1940
  },
  {
   "id": "alexander_nevsky",
@@ -566,6 +752,32 @@
   ]
  },
  {
+  "id": "michael_tver",
+  "rel": "russian",
+  "from": 1913,
+  "date": "1911-1913",
+  "lat": 41.70055556,
+  "lon": 44.78888889,
+  "name": {
+   "ru": "Церковь Михаила Тверского",
+   "en": "Church of St Michael of Tver",
+   "ka": "წმინდა მიხეილ ტვერელის ეკლესია"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Русская православная церковь на ул. Залдастанишвили, 36; построена в 1911-1913 (архитектор Иоганн Дитцман).",
+   "en": "A Russian Orthodox church on Zaldastanishvili Street 36; built in 1911-1913 (architect Johann Ditsman).",
+   "ka": "რუსული მართლმადიდებლური ეკლესია ზალდასტანიშვილის ქ. 36-ზე; აშენდა 1911-1913 წლებში (არქიტექტორი იოჰან დიცმანი)."
+  },
+  "src": [
+   "https://ru.wikipedia.org/wiki/Церковь_Михаила_Тверского_(Тбилиси)"
+  ]
+ },
+ {
   "id": "sameba",
   "rel": "orthodox",
   "from": 2004,
@@ -589,6 +801,32 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Holy_Trinity_Cathedral_of_Tbilisi"
+  ]
+ },
+ {
+  "id": "yazidi_temple",
+  "rel": "yazidi",
+  "from": 2015,
+  "date": "2015",
+  "lat": 41.70972222,
+  "lon": 44.87166667,
+  "name": {
+   "ru": "Храм Султана Езида",
+   "en": "Sultan Ezid Temple",
+   "ka": "სულთან ეზიდის ტაძარი"
+  },
+  "status": {
+   "ru": "действует",
+   "en": "in use",
+   "ka": "მოქმედია"
+  },
+  "note": {
+   "ru": "Езидский храм; открыт в июне 2015 (участок передан в 2009, проект начат в 2012, построен на частные средства).",
+   "en": "A Yazidi temple, opened in June 2015 (land donated in 2009, project started in 2012, privately financed).",
+   "ka": "ეზიდური ტაძარი, გაიხსნა 2015 წლის ივნისში (მიწა გადაეცა 2009 წელს, პროექტი დაიწყო 2012 წელს, აშენდა კერძო სახსრებით)."
+  },
+  "src": [
+   "https://en.wikipedia.org/wiki/Sultan_Ezid_Temple"
   ]
  }
 ]
