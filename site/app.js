@@ -107,7 +107,7 @@
       fbContactWarn: "Внимание: при отправке через GitHub контакт попадёт в публичный Issue и будет виден всем. Не указывайте то, что не хотите публиковать.",
       infoBtn: "Источники и подробности",
       infoTitle: "Источники и подробности",
-      evCats: { invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", other: "Событие" },
+      evCats: { oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", other: "Событие" },
       evSrc: "Источники",
       evNote: "Дата и подробности из статей Википедии (en, ru).",
       infoRegister: "Данные объекта: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство сохранения культурного наследия), сокращённая выжимка для некоммерческого использования. Условия и полный список источников: «О проекте и источниках» на боковой панели.",
@@ -142,7 +142,7 @@
       c94Pos: "Положение",
       c94Conf: { high: "уверенность высокая", medium: "уверенность средняя (около 100-150 м)", low: "уверенность низкая (200 м и больше)" },
       c94Src: "Источник",
-      btnInfo: "Справка", btnFilters: "Фильтры", evCluster: "События рядом на шкале (выберите)", btnViews: "Виды", viewsAll: "Все виды (не только к выбранному году)", viewsNone: "К этому году видов нет. Включите «Все виды».", filtersTitle: "Фильтры и слои",
+      btnInfo: "Справка", btnFilters: "Фильтры", evCluster: "События рядом на шкале (выберите)", btnViews: "Виды", viewsAll: "Все виды (не только к выбранному году)", viewsNone: "К этому году видов нет: для части лет свободных фото не нашлось. Включите «Все виды».", filtersTitle: "Фильтры и слои",
       stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
       stNow: "сейчас",
       stMore: "Названия по годам известны не для всех улиц.",
@@ -256,7 +256,7 @@
       fbContactWarn: "Note: when sent through GitHub, the contact goes into a public Issue and is visible to everyone. Leave it empty if you do not want that.",
       infoBtn: "Sources and details",
       infoTitle: "Sources and details",
-      evCats: { invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", other: "Event" },
+      evCats: { oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", other: "Event" },
       evSrc: "Sources",
       evNote: "Date and details from Wikipedia articles (en, ru).",
       infoRegister: "Object data: public records of the register of immovable cultural heritage monuments of Georgia (National Agency for Cultural Heritage Preservation), a reduced extract for non-commercial use. Terms and the full list of sources: “About and sources” in the side panel.",
@@ -291,7 +291,7 @@
       c94Pos: "Position",
       c94Conf: { high: "high confidence", medium: "medium confidence (about 100-150 m)", low: "low confidence (200 m or more)" },
       c94Src: "Source",
-      btnInfo: "Info", btnFilters: "Filters", evCluster: "Events close together on the scale (choose one)", btnViews: "Views", viewsAll: "All views (not only for the chosen year)", viewsNone: "No views for this year. Tick \"All views\".", filtersTitle: "Filters and layers",
+      btnInfo: "Info", btnFilters: "Filters", evCluster: "Events close together on the scale (choose one)", btnViews: "Views", viewsAll: "All views (not only for the chosen year)", viewsNone: "No views for this year: for some years no freely licensed photographs were found. Tick \"All views\".", filtersTitle: "Filters and layers",
       stTitle: "Street names in this year (checked against Wikipedia)",
       stNow: "today",
       stMore: "Names by year are known only for some streets.",
@@ -404,7 +404,7 @@
       fbContactWarn: "ყურადღება: GitHub-ის გავლით გაგზავნისას კონტაქტი საჯარო Issue-ში მოხვდება და ყველას დაენახება. თუ არ გსურთ, ნუ მიუთითებთ.",
       infoBtn: "წყაროები და დეტალები",
       infoTitle: "წყაროები და დეტალები",
-      evCats: { invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", other: "მოვლენა" },
+      evCats: { oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", other: "მოვლენა" },
       evSrc: "წყაროები",
       evNote: "თარიღი და დეტალები ვიკიპედიის სტატიებიდან (en, ru).",
       infoRegister: "ობიექტის მონაცემები: საქართველოს კულტურული მემკვიდრეობის უძრავი ძეგლების რეესტრის საჯარო ცნობები (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო), შემოკლებული ამონარიდი არაკომერციული გამოყენებისთვის. პირობები და წყაროების სრული სია: „პროექტის შესახებ და წყაროები“ გვერდით პანელში.",
@@ -439,7 +439,7 @@
       c94Pos: "მდებარეობა",
       c94Conf: { high: "მაღალი სიზუსტე", medium: "საშუალო სიზუსტე (დაახლოებით 100-150 მ)", low: "დაბალი სიზუსტე (200 მ და მეტი)" },
       c94Src: "წყარო",
-      btnInfo: "ცნობა", btnFilters: "ფილტრები", evCluster: "მოვლენები სკალაზე ახლოს (აირჩიეთ)", btnViews: "ხედები", viewsAll: "ყველა ხედი (არა მხოლოდ არჩეული წლისთვის)", viewsNone: "ამ წლისთვის ხედები არ არის. ჩართეთ „ყველა ხედი“.", filtersTitle: "ფილტრები და ფენები",
+      btnInfo: "ცნობა", btnFilters: "ფილტრები", evCluster: "მოვლენები სკალაზე ახლოს (აირჩიეთ)", btnViews: "ხედები", viewsAll: "ყველა ხედი (არა მხოლოდ არჩეული წლისთვის)", viewsNone: "ამ წლისთვის ხედები არ არის: ზოგი წლისთვის თავისუფალი ლიცენზიის ფოტო ვერ ვიპოვეთ. ჩართეთ „ყველა ხედი“.", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
       stMore: "სახელები წლების მიხედვით ცნობილია არა ყველა ქუჩისთვის.",
@@ -1036,7 +1036,7 @@
     m.textContent = L.stMore;
     box.appendChild(m);
   }
-  const EV_ICON = { invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
+  const EV_ICON = { oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
   function buildEvMarks() {
     const box = $("evmarks");
     if (!box) return;
