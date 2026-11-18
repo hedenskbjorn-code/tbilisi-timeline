@@ -2614,5 +2614,383 @@
    "en": "copyright of the author; published with his permission",
    "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
   }
+ },
+ {
+  "id": "mod_2018_kura",
+  "year": 2018,
+  "from": 2015,
+  "window": 2,
+  "image": "data/views/mod_2018_kura.webp",
+  "title": {
+   "ru": "Набережная Куры и Самеба вдали, октябрь 2018",
+   "en": "The Kura embankment with Sameba in the distance, October 2018",
+   "ka": "მტკვრის სანაპირო და შორს სამების ტაძარი, 2018 წლის ოქტომბერი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2019_balconies",
+  "year": 2019,
+  "from": 2015,
+  "window": 1,
+  "image": "data/views/mod_2019_balconies.webp",
+  "title": {
+   "ru": "Дом с кружевными деревянными балконами, июль 2019",
+   "en": "A house with lace-like wooden balconies, July 2019",
+   "ka": "სახლი ხის ჩუქურთმიანი აივნებით, 2019 წლის ივლისი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2019_panorama",
+  "year": 2019,
+  "from": 2015,
+  "window": 1,
+  "image": "data/views/mod_2019_panorama.webp",
+  "title": {
+   "ru": "Панорама Тбилиси с горы, июль 2019",
+   "en": "A panorama of Tbilisi from the hill, July 2019",
+   "ka": "თბილისის პანორამა მთიდან, 2019 წლის ივლისი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2019_evening",
+  "year": 2019,
+  "from": 2015,
+  "window": 1,
+  "image": "data/views/mod_2019_evening.webp",
+  "title": {
+   "ru": "Вечер над крышами города, май 2019",
+   "en": "Evening over the roofs of the city, May 2019",
+   "ka": "საღამო ქალაქის სახურავებზე, 2019 წლის მაისი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2020_narikala_view",
+  "year": 2020,
+  "from": 2020,
+  "window": 5,
+  "image": "data/views/mod_2020_narikala_view.webp",
+  "title": {
+   "ru": "Старый Тбилиси, Кура и мост Метехи, вид с Нарикала, февраль 2020",
+   "en": "Old Tbilisi, the Kura and the Metekhi bridge seen from Narikala, February 2020",
+   "ka": "ძველი თბილისი, მტკვარი და მეტეხის ხიდი ნარიყალადან, 2020 წლის თებერვალი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2020_peace_bridge",
+  "year": 2020,
+  "from": 2020,
+  "window": 5,
+  "image": "data/views/mod_2020_peace_bridge.webp",
+  "title": {
+   "ru": "Панорама Тбилиси с мостом Мира, февраль 2020",
+   "en": "A panorama of Tbilisi with the Bridge of Peace, February 2020",
+   "ka": "თბილისის პანორამა მშვიდობის ხიდით, 2020 წლის თებერვალი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2022_snow",
+  "year": 2022,
+  "from": 2020,
+  "window": 3,
+  "image": "data/views/mod_2022_snow.webp",
+  "title": {
+   "ru": "Заснеженные крыши и Самеба, март 2022",
+   "en": "Snow-covered roofs and Sameba, March 2022",
+   "ka": "თოვლიანი სახურავები და სამების ტაძარი, 2022 წლის მარტი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2023_gorgasali",
+  "year": 2023,
+  "from": 2020,
+  "window": 2,
+  "image": "data/views/mod_2023_gorgasali.webp",
+  "title": {
+   "ru": "Памятник Вахтангу Горгасали в сумерках, апрель 2023",
+   "en": "The monument to Vakhtang Gorgasali at dusk, April 2023",
+   "ka": "ვახტანგ გორგასლის ძეგლი ბინდისას, 2023 წლის აპრილი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2024_kura_narikala",
+  "year": 2024,
+  "from": 2020,
+  "window": 1,
+  "image": "data/views/mod_2024_kura_narikala.webp",
+  "title": {
+   "ru": "Набережная Куры и холм Нарикала, январь 2024",
+   "en": "The Kura embankment and the Narikala hill, January 2024",
+   "ka": "მტკვრის სანაპირო და ნარიყალას გორა, 2024 წლის იანვარი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2025_panorama",
+  "year": 2025,
+  "from": 2025,
+  "window": 5,
+  "image": "data/views/mod_2025_panorama.webp",
+  "title": {
+   "ru": "Панорама Тбилиси с горы, февраль 2025",
+   "en": "A panorama of Tbilisi from the hill, February 2025",
+   "ka": "თბილისის პანორამა მთიდან, 2025 წლის თებერვალი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2025_rocks",
+  "year": 2025,
+  "from": 2025,
+  "window": 5,
+  "image": "data/views/mod_2025_rocks.webp",
+  "title": {
+   "ru": "Скалы над Старым городом, апрель 2025",
+   "en": "Rocks above the Old Town, April 2025",
+   "ka": "კლდეები ძველი ქალაქის ზემოთ, 2025 წლის აპრილი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2025_kura_towers",
+  "year": 2025,
+  "from": 2025,
+  "window": 5,
+  "image": "data/views/mod_2025_kura_towers.webp",
+  "title": {
+   "ru": "Кура и башни нового города, октябрь 2025",
+   "en": "The Kura and the towers of the new city, October 2025",
+   "ka": "მტკვარი და ახალი ქალაქის კოშკები, 2025 წლის ოქტომბერი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2025_sunset",
+  "year": 2025,
+  "from": 2025,
+  "window": 5,
+  "image": "data/views/mod_2025_sunset.webp",
+  "title": {
+   "ru": "Закат над Тбилиси, октябрь 2025",
+   "en": "Sunset over Tbilisi, October 2025",
+   "ka": "მზის ჩასვლა თბილისზე, 2025 წლის ოქტომბერი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
+ },
+ {
+  "id": "mod_2025_sameba_night",
+  "year": 2025,
+  "from": 2025,
+  "window": 5,
+  "image": "data/views/mod_2025_sameba_night.webp",
+  "title": {
+   "ru": "Вечерний Тбилиси: подсвеченная Самеба, ноябрь 2025",
+   "en": "Tbilisi in the evening: the illuminated Sameba, November 2025",
+   "ka": "საღამოს თბილისი: განათებული სამების ტაძარი, 2025 წლის ნოემბერი"
+  },
+  "author": {
+   "ru": "Михаил Диденко",
+   "en": "Mikhail Didenko",
+   "ka": "მიხეილ დიდენკო"
+  },
+  "note": {
+   "ru": "Фото автора проекта. Подпись и дата по данным съёмки; к карте не привязано.",
+   "en": "A photograph by the author of the project. The caption and the date are from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. წარწერა და თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+  },
+  "license": {
+   "ru": "авторские права за автором; публикуется с его разрешения",
+   "en": "copyright of the author; published with his permission",
+   "ka": "საავტორო უფლებები ეკუთვნის ავტორს; ქვეყნდება მისი ნებართვით"
+  }
  }
 ]
