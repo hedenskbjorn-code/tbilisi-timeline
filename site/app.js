@@ -4,11 +4,11 @@
   // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-90, 1000-1700 -> 90-200, 1700-2026 -> 200-1000)
   const MIN = 364, MAX = 2026, NEW_YEARS = 25;
   const FULL_KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
-  const ZOOM_STEPS = [364, 1700, 1800, 1850, 1900, 1950, 1980, 2000];   // the scale can start from any of these years (zoom)
-  let zoomIx = 0;
+  const ZOOM_W = [0, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
+  let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
   let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
   let searchIndex = null, searchRows = [], searchSel = -1;      // search (see the block "search" below)
-  let KNOTS = FULL_KNOTS;                         // zoomed scale: one linear piece from the chosen year to MAX (see setZoom)
+  let KNOTS = FULL_KNOTS;                         // zoomed scale: one linear piece over the window zoomLo..zoomHi (see applyWindow)
   const y2v = (y) => { for (let i = 1; i < KNOTS.length; i++) if (y <= KNOTS[i][0]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return v0 + ((y - y0) / (y1 - y0)) * (v1 - v0); } return 1000; };
   const v2y = (v) => { for (let i = 1; i < KNOTS.length; i++) if (v <= KNOTS[i][1]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return Math.round(y0 + ((v - v0) / (v1 - v0)) * (y1 - y0)); } return MAX; };
   const PLAN_AFTER = 10; // the last plan is shown at most this many years after its date
@@ -103,8 +103,9 @@
       waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
       viewsTitle: "Исторические виды (рисунки, не планы)",
       viewClose: "Закрыть",
-      showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
+      showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", lutheran: "Лютеранская", yazidi: "Езидская", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
+      zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
       viewPrev: "Предыдущее фото",
       viewNext: "Следующее фото",
@@ -115,7 +116,7 @@
       fbContactWarn: "Внимание: при отправке через GitHub контакт попадёт в публичный Issue и будет виден всем. Не указывайте то, что не хотите публиковать.",
       infoBtn: "Источники и подробности",
       infoTitle: "Источники и подробности",
-      evCats: { oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", other: "Событие" },
+      evCats: { unrest: "Протест и насилие", oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", other: "Событие" },
       evSrc: "Источники",
       evNote: "Дата и подробности из статей Википедии (en, ru).",
       infoRegister: "Данные объекта: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство сохранения культурного наследия), сокращённая выжимка для некоммерческого использования. Условия и полный список источников: «О проекте и источниках» на боковой панели.",
@@ -255,8 +256,9 @@
       waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); topographic sheet of c.1911 (lakes).",
       viewsTitle: "Historical views (drawings, not plans)",
       viewClose: "Close",
-      showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
+      showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", lutheran: "Lutheran", yazidi: "Yazidi", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
+      zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
       viewPrev: "Previous photo",
       viewNext: "Next photo",
@@ -267,7 +269,7 @@
       fbContactWarn: "Note: when sent through GitHub, the contact goes into a public Issue and is visible to everyone. Leave it empty if you do not want that.",
       infoBtn: "Sources and details",
       infoTitle: "Sources and details",
-      evCats: { oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", other: "Event" },
+      evCats: { unrest: "Protest and violence", oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", other: "Event" },
       evSrc: "Sources",
       evNote: "Date and details from Wikipedia articles (en, ru).",
       infoRegister: "Object data: public records of the register of immovable cultural heritage monuments of Georgia (National Agency for Cultural Heritage Preservation), a reduced extract for non-commercial use. Terms and the full list of sources: “About and sources” in the side panel.",
@@ -408,8 +410,9 @@
       waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); ტოპოგრაფიული ფურცელი დაახლოებით 1911 წლიდან (ტბები).",
       viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
       viewClose: "დახურვა",
-      showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
+      showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", lutheran: "ლუთერანული", yazidi: "ეზიდური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
+      zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
       viewPrev: "წინა ფოტო",
       viewNext: "შემდეგი ფოტო",
@@ -418,7 +421,7 @@
       fbContactWarn: "ყურადღება: GitHub-ის გავლით გაგზავნისას კონტაქტი საჯარო Issue-ში მოხვდება და ყველას დაენახება. თუ არ გსურთ, ნუ მიუთითებთ.",
       infoBtn: "წყაროები და დეტალები",
       infoTitle: "წყაროები და დეტალები",
-      evCats: { oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", other: "მოვლენა" },
+      evCats: { unrest: "პროტესტი და ძალადობა", oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", other: "მოვლენა" },
       evSrc: "წყაროები",
       evNote: "თარიღი და დეტალები ვიკიპედიის სტატიებიდან (en, ru).",
       infoRegister: "ობიექტის მონაცემები: საქართველოს კულტურული მემკვიდრეობის უძრავი ძეგლების რეესტრის საჯარო ცნობები (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო), შემოკლებული ამონარიდი არაკომერციული გამოყენებისთვის. პირობები და წყაროების სრული სია: „პროექტის შესახებ და წყაროები“ გვერდით პანელში.",
@@ -722,6 +725,7 @@
   }
 
   function update() {
+    ensureInWindow();
     $("year").textContent = year;
     if ($("yearchip")) $("yearchip").textContent = year;
     $("slider").value = Math.round(y2v(year));
@@ -849,17 +853,19 @@
       box.appendChild(s);
     };
     // every year that has a data snapshot (built-up outline or old plan) is marked and clickable; round years fill gaps
-    const lo = KNOTS[0][0], zoomed = KNOTS !== FULL_KNOTS;
-    const marked = [...new Set([...urbanSnaps, ...plans.map((p) => p.year), ...views.map((v) => v.year)])].filter((y) => y >= lo && y <= MAX).sort((a, b) => a - b);
+    const lo = zoomLo, hi = zoomHi, zoomed = KNOTS !== FULL_KNOTS;
+    const marked = [...new Set([...urbanSnaps, ...plans.map((p) => p.year), ...views.map((v) => v.year)])].filter((y) => y >= lo && y <= hi).sort((a, b) => a - b);
     const round = [];
+    let last = MAX;
     if (!zoomed) {
       for (let y = 400; y < 1700; y += 200) round.push(y);                  // the compressed early period: every 200 years
       for (let y = 1750; y <= MAX; y += 50) if (!marked.some((p) => Math.abs(p - y) < 12)) round.push(y);
     } else {
-      const st = lo >= 1980 ? 5 : lo >= 1900 ? 10 : 25;                      // zoomed: round years with a finer step
-      for (let y = Math.ceil(lo / st) * st; y <= MAX; y += st) if (!marked.some((p) => Math.abs(p - y) < st / 2)) round.push(y);
+      const span = hi - lo, st = span <= 40 ? 2 : span <= 70 ? 5 : span <= 120 ? 10 : span <= 260 ? 25 : 50;   // zoomed: round years with a finer step
+      for (let y = Math.ceil(lo / st) * st; y <= hi; y += st) if (!marked.some((p) => Math.abs(p - y) < st / 2)) round.push(y);
+      last = hi;
     }
-    if (!marked.some((p) => Math.abs(p - MAX) < 12)) round.push(MAX);
+    if (!marked.some((p) => Math.abs(p - last) < 12)) round.push(last);
     round.unshift(lo);
     const width = Math.max(box.clientWidth - 16, 300);
     const rows = [[], []];                                   // x positions of labels already placed on each of two rows
@@ -1060,14 +1066,14 @@
     m.textContent = L.stMore;
     box.appendChild(m);
   }
-  const EV_ICON = { oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
+  const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
   function buildEvMarks() {
     const box = $("evmarks");
     if (!box) return;
     box.textContent = "";
     // markers that would overlap on the scale are merged into one marker with a count; a click on it lists the events
     const W = Math.max(0, box.clientWidth - 16), GAP = 19;
-    const items = histEvents.filter((ev) => ev.year >= KNOTS[0][0]).map((ev) => ({ ev, x: 8 + W * (y2v(ev.year) / 1000) })).sort((a, b) => a.x - b.x || a.ev.year - b.ev.year);
+    const items = histEvents.filter((ev) => ev.year >= zoomLo && ev.year <= zoomHi).map((ev) => ({ ev, x: 8 + W * (y2v(ev.year) / 1000) })).sort((a, b) => a.x - b.x || a.ev.year - b.ev.year);
     const groups = [];
     for (const it of items) {
       const g = groups[groups.length - 1];
@@ -1917,37 +1923,64 @@
     if (timer) startPlay();
   });
 
-  // zoom of the time scale: the slider shows only the years from ZOOM_STEPS[zoomIx] to MAX, so that the recent decades can be set exactly
+  // zoom of the time scale: the slider shows a window of years (ZOOM_W[zoomIx] wide) around the chosen year, so that a decade can be set exactly;
+  // the window is moved with the arrow buttons or Shift+wheel, and follows the year when it leaves the window (playback, search, a click on an event)
+  function applyWindow(lo) {
+    if (zoomIx === 0) { KNOTS = FULL_KNOTS; zoomLo = MIN; zoomHi = MAX; }
+    else {
+      const w = ZOOM_W[zoomIx];
+      lo = Math.round(lo);
+      if (lo < MIN) lo = MIN;
+      if (lo + w > MAX) lo = MAX - w;
+      zoomLo = lo; zoomHi = lo + w; KNOTS = [[zoomLo, 0], [zoomHi, 1000]];
+    }
+    $("slider").value = Math.round(y2v(year));
+    buildTicks(); buildEvMarks(); updateZoomUi();
+  }
+  function ensureInWindow() {
+    if (zoomIx === 0 || (year >= zoomLo && year <= zoomHi)) return;
+    applyWindow(year - ZOOM_W[zoomIx] / 2);
+  }
   function updateZoomUi() {
-    const lo = ZOOM_STEPS[zoomIx];
-    $("zoomLbl").textContent = zoomIx === 0 ? t().zoomAll : lo + "–" + MAX;
+    $("zoomLbl").textContent = zoomIx === 0 ? t().zoomAll : zoomLo + "\u2013" + zoomHi;
     $("zoomIn").setAttribute("aria-label", t().zoomIn); $("zoomIn").title = t().zoomIn;
     $("zoomOut").setAttribute("aria-label", t().zoomOut); $("zoomOut").title = t().zoomOut;
+    $("zoomL").setAttribute("aria-label", t().zoomL); $("zoomL").title = t().zoomL;
+    $("zoomR").setAttribute("aria-label", t().zoomR); $("zoomR").title = t().zoomR;
     $("zoomOut").disabled = zoomIx === 0;
+    $("zoomIn").disabled = zoomIx === ZOOM_W.length - 1;
+    $("zoomL").disabled = zoomIx === 0 || zoomLo <= MIN;
+    $("zoomR").disabled = zoomIx === 0 || zoomHi >= MAX;
   }
   function setZoom(ix) {
     zoomIx = ix;
-    KNOTS = ix === 0 ? FULL_KNOTS : [[ZOOM_STEPS[ix], 0], [MAX, 1000]];
-    if (year < ZOOM_STEPS[ix]) year = ZOOM_STEPS[ix];
-    $("slider").value = Math.round(y2v(year));
-    buildTicks(); buildEvMarks();
+    applyWindow(year - (ZOOM_W[ix] || 0) / 2);
     update();
-    updateZoomUi();
   }
   function zoomBy(d) {
-    let ix = zoomIx + d;
-    if (ix < 0) return;
-    while (d > 0 && ix < ZOOM_STEPS.length && ZOOM_STEPS[ix] > year) ix = ZOOM_STEPS.length;   // zoom in only as far as the chosen year allows
-    if (ix >= ZOOM_STEPS.length || ix === zoomIx) return;
+    const ix = zoomIx + d;
+    if (ix < 0 || ix >= ZOOM_W.length) return;
     setZoom(ix);
+  }
+  function panWindow(dir) {
+    if (zoomIx === 0) return;
+    applyWindow(zoomLo + dir * ZOOM_W[zoomIx] / 2);
+    if (year < zoomLo) year = zoomLo; else if (year > zoomHi) year = zoomHi;
+    update();
   }
   $("zoomIn").addEventListener("click", () => zoomBy(1));
   $("zoomOut").addEventListener("click", () => zoomBy(-1));
-  $("sliderwrap").addEventListener("wheel", (e) => { e.preventDefault(); zoomBy(e.deltaY < 0 ? 1 : -1); }, { passive: false });
+  $("zoomL").addEventListener("click", () => panWindow(-1));
+  $("zoomR").addEventListener("click", () => panWindow(1));
+  $("sliderwrap").addEventListener("wheel", (e) => {
+    e.preventDefault();
+    if (e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) panWindow((e.deltaX || e.deltaY) > 0 ? 1 : -1);
+    else zoomBy(e.deltaY < 0 ? 1 : -1);
+  }, { passive: false });
   updateZoomUi();
 
   // religious buildings of different religions: points that appear in the year of the building and disappear when it was destroyed
-  const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c" };
+  const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", lutheran: "#868e96", yazidi: "#74b816", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c" };
   function addReligious() {
     if (!religious.length || map.getSource("rel")) return;
     const feats = religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
@@ -2100,7 +2133,6 @@
     else if (r.kind === "e") target = r.ev.year;
     else if (r.kind === "r") target = (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
     else target = Math.max(year, r.f.properties.ye);
-    if (target < ZOOM_STEPS[zoomIx]) setZoom(0);             // the time scale is zoomed in past this year: show the whole scale
     year = target;
     update();
     if (r.kind === "e") { showHistEvent(r.ev); return; }
