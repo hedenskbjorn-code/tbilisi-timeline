@@ -143,9 +143,9 @@ NOTES_EN = {
 }
 
 # ------------------------------------------------------------------ states
-S("iberia", 455, 580, "monarchy", E("Иберийское царство (Картли)", "Kingdom of Iberia (Kartli)", "ივერიის სამეფო (ქართლი)"),
+S("iberia", 364, 580, "monarchy", E("Иберийское царство (Картли)", "Kingdom of Iberia (Kartli)", "ივერიის სამეფო (ქართლი)"),
   E("монархия; вассал Сасанидов в 363-482 и 502-523, прямое сасанидское правление 523-580", "a monarchy; a vassal of Sasanian Persia in 363-482 and 502-523, direct Sasanian rule 523-580", "მონარქია; სასანიანთა ვასალი 363-482 და 502-523, უშუალო სასანიანური მმართველობა 523-580"),
-  E("455 - год основания Тбилиси по инфобоксу «Tbilisi». Кто перенёс столицу в Тбилиси, страницы расходятся: Вахтанг I или Дачи (522-534).", "455 is the year of the founding in the Tbilisi infobox. Who moved the capital to Tbilisi differs between pages: Vakhtang I or Dachi (522-534).", "455 თბილისის დაარსების წელია. დედაქალაქის თბილისში გადატანა ვახტანგ I-ს ან დაჩის (522-534) მიეწერება."),
+  E("Отрезок начинается с начала шкалы (364: по странице Narikala крепость на месте будущего Тбилиси). 455 - год основания Тбилиси по инфобоксу «Tbilisi». Кто перенёс столицу в Тбилиси, страницы расходятся: Вахтанг I или Дачи (522-534).", "The segment starts at the beginning of the scale (364: per the Narikala page a fortress stood on the site of the future Tbilisi). 455 is the year of the founding in the Tbilisi infobox. Who moved the capital to Tbilisi differs between pages: Vakhtang I or Dachi (522-534).", "455 თბილისის დაარსების წელია. დედაქალაქის თბილისში გადატანა ვახტანგ I-ს ან დაჩის (522-534) მიეწერება."),
   [W + "Kingdom_of_Iberia", W + "Tbilisi"])
 S("transition", 580, 736, "transition", E("Смена владык: Сасаниды, Византия, хазары, арабы", "Changing masters: the Sasanians, Byzantium, the Khazars, the Arabs", "ხელისუფლებათა ცვლა: სასანიანები, ბიზანტია, ხაზარები, არაბები"),
   E("Иберия теряет царя (580), провинция Сасанидов (марзпанство); арабы в Картли с 645, твёрдый контроль с 735", "Iberia loses its king (580), a Sasanian province under a marzpan; the Arabs in Kartli from 645, firm control from 735", "ივერია კარგავს მეფეს (580), სასანიანთა პროვინცია; არაბები ქართლში 645 წლიდან, მტკიცე კონტროლი 735 წლიდან"),
@@ -237,6 +237,16 @@ R("council1", 1062, 1068, "emir", E("Городской совет", "City counc
 R("council2", 1080, 1122, "emir", E("Городской совет", "City council", "ქალაქის საბჭო"), E("До взятия Тбилиси Давидом IV (1122)", "Until David IV took Tbilisi (1122)"), [W + "Emirate_of_Tbilisi"], title=N("Самоуправление", "Self-government"))
 
 # kings of Iberia who held Tbilisi (the list of monarchs of Georgia; Tbilisi was founded in the 5th century by tradition)
+KI0 = [("aspacures2", 363, 365, "Аспагур II", "Aspacures II", "ასპაგურ II", ""), ("mihrdat3", 365, 380, "Мирдат III", "Mihrdat III", "მირდატ III", "В 370-378 соправительство (по списку: diarch 370-378)."),
+       ("aspacures3", 380, 394, "Аспагур III", "Aspacures III", "ასპაგურ III", ""), ("trdat", 394, 406, "Трдат", "Trdat", "თრდატ", ""), ("pharasmanes4", 406, 409, "Фарсман IV", "Pharasmanes IV", "ფარსმან IV", ""),
+       ("mihrdat4", 409, 411, "Мирдат IV", "Mihrdat IV", "მირდატ IV", ""), ("archil1", 411, 435, "Арчил I", "Archil I", "არჩილ I", ""), ("mihrdat5", 435, 447, "Мирдат V", "Mihrdat V", "მირდატ V", "")]
+for rid, a, b, ru, en, ka, nt in KI0:
+    nte = "A joint rule in 370-378 (the list: diarch 370-378)." if rid == "mihrdat3" else ""
+    R(rid, a, b, "king", E(ru, en, ka), E(nt, nte), [W + "List_of_monarchs_of_Georgia"], title=N("Царь Иберии", "King of Iberia", "ივერიის მეფე"))
+EARLY = E("Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.", "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.")
+for r in RULERS:
+    if r["id"] in [k[0] for k in KI0]:
+        r["note"] = {l: ((r["note"].get(l) + " ") if r["note"].get(l) else "") + EARLY[l] for l in ("ru", "en", "ka")}
 KI = [("vakhtang1", 447, 522, "Вахтанг I Горгасали", "Vakhtang I Gorgasali", "ვახტანგ I გორგასალი", "Годы по списку 447-522; по странице Kingdom of Iberia 447-502 (расхождение). По преданию основатель Тбилиси."),
       ("dachi", 522, 534, "Дачи", "Dachi", "დაჩი", "Правление c. 522-534; по Tbilisi перенёс столицу из Мцхеты."),
       ("bacurius2", 534, 547, "Бакур II", "Bacurius II", "ბაკური II", ""), ("pharasmanes5", 547, 561, "Фарсман V", "Pharasmanes V", "ფარსმან V", "")]
