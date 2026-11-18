@@ -167,6 +167,61 @@ def main():
         if nm == "Bridge of Peace":
             feats.append(feat({"type": "LineString", "coordinates": line(e["geometry"])}, id="br%d" % e["id"], kind="bridge", name_en="Bridge of Peace", name_ru="Мост Мира", name_ka="მშვიდობის ხიდი",
                               y0=2010, note="officially opened 6 May 2010", src=[WP + "Bridge_of_Peace"]))
+    # ---------------- tram network by street (route lists of 1962 and 1986 from ka.wikipedia, closures from the lists of routes of 2000, 2003, 2005 on ru.wikipedia; see data/tram_verified.json)
+    # Each street is drawn over its whole OSM length, so the drawn track is longer than the real one; streets not found in OSM under these names are missing (gaps).
+    TRAM_OSM = {
+        "dadiani": ["Tsotne Dadiani Street"], "eristavi": ["Tornike Eristavi Street"], "tsereteli": ["Akaki Tsereteli Avenue"], "tsabadze": ["Giorgi Tsabadze Street"],
+        "mghvdeli": ["Tevdore Mghvdeli Street"], "abastumani": ["Abastumani Street"], "tsinam": ["Mikheil Tsinamdzghvrishvili Street"], "khudadov": ["Nikoloz Khudadov Street"],
+        "tseronisi": ["Tseronisi Street"], "akhtala": ["Akhtala Street"], "kakhiani": ["Nikoloz Kakhiani Street"], "lotkini": ["Lotkini Mta Street"],
+        "guramishvili": ["David Guramishvili Avenue"], "sarajishvili": ["David Sarajishvili Street"], "libani": ["Libani Street"], "moscow": ["Moscow Avenue"],
+        "navtlughi": ["Navtlughi Street"], "salosi": ["Beri Gabriel Salosi Avenue"], "purtseladze": ["Anton Purtseladze Street"], "atoneli": ["Giorgi Atoneli Street"],
+        "gogiberidze": ["Mose Gogiberidze Street"], "javakhishvili": ["Ivane Javakhishvili Street"], "sheshelidze": ["Tengiz Sheshelidze Street"],
+        "khizanishvili": ["Omar Khizanishvili Street"], "beliashvili": ["Akaki Beliashvili Street"], "alley": ["David Aghmashenebeli Alley"], "pirosmani": ["Niko Pirosmani Street"],
+        "kostava": ["Merab Kostava Street"], "melikishvili": ["Petre Melikishvili Avenue"], "chavchavadze": ["Ilia Chavchavadze Avenue"], "tamar": ["Tamar Mepe Avenue"],
+        "khetagurov": ["Kosta Khetagurov Street"], "asc": ["Nikoloz Baratashvili Ascent"], "dedoplis": ["Tsminda Ketevan Dedoflis Avenue"], "barisakhos": ["Barisakho Street"],
+        "anapa": ["Anapis 414 Divizia Street"], "zghvi": ["Tbilisi Zghvi Street"],
+    }
+    R1986 = {1: "dadiani eristavi tsereteli tsabadze mghvdeli abastumani tsinam", 2: "dadiani khudadov tseronisi akhtala", 3: "tsereteli eristavi guramishvili zghvi anapa",
+             4: "dadiani guramishvili zghvi anapa", 5: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli", 6: "dadiani kakhiani lotkini",
+             7: "moscow dedoplis navtlughi salosi", 8: "eristavi guramishvili sheshelidze khizanishvili", 9: "tsereteli beliashvili alley",
+             10: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli beliashvili alley", 11: "dadiani guramishvili sarajishvili libani barisakhos",
+             12: "eristavi guramishvili sarajishvili libani barisakhos"}
+    R1962 = {1: "abastumani tsinam tamar kostava melikishvili chavchavadze", 3: "abastumani tsereteli eristavi guramishvili sarajishvili",
+             4: "purtseladze atoneli gogiberidze javakhishvili tsinam abastumani pirosmani dadiani kakhiani lotkini", 6: "abastumani pirosmani dadiani eristavi tsereteli",
+             7: "tamar tsinam javakhishvili khetagurov asc dedoplis navtlughi salosi", 8: "tamar tsinam javakhishvili khetagurov asc dedoplis moscow",
+             9: "asc dedoplis navtlughi salosi", 10: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli", 11: "abastumani pirosmani dadiani guramishvili sarajishvili",
+             12: "tsereteli tsinam tamar kostava melikishvili chavchavadze", 14: "abastumani pirosmani dadiani guramishvili", 15: "asc dedoplis moscow"}
+    END1986 = {12: 2007, 1: 2005, 7: 2005, 11: 2005, 2: 2003, 3: 2003, 4: 2003, 6: 2003, 5: 2000, 8: 2000, 9: 2000, 10: 2000}   # first year WITHOUT the route (lists of 2000, 2003, 2005; the end of 2006)
+    tram_iv = {}
+    for r, st in R1962.items():
+        for k in st.split():
+            tram_iv.setdefault(k, []).append((1962, 1986))
+    for r, st in R1986.items():
+        for k in st.split():
+            tram_iv.setdefault(k, []).append((1986, END1986[r]))
+    ways_tram = {}
+    for e in load("tram_streets"):
+        if "geometry" in e:
+            ways_tram.setdefault(e["tags"].get("name:en"), []).append(e)
+    miss = []
+    for k, ivs in tram_iv.items():
+        ivs = sorted(set(ivs))
+        merged = []
+        for a0, b0 in ivs:
+            if merged and a0 <= merged[-1][1]:
+                merged[-1][1] = max(merged[-1][1], b0)
+            else:
+                merged.append([a0, b0])
+        ws = [w for nm in TRAM_OSM[k] for w in ways_tram.get(nm, [])]
+        if not ws:
+            miss.append(k)
+        for w in ws:
+            for a0, b0 in merged:
+                feats.append(feat({"type": "LineString", "coordinates": line(w["geometry"])}, id="tramnet_%s_%d_%d" % (k, w["id"], a0), kind="tram", y0=a0, y1=b0,
+                                  name_en="Tram street (routes of the ka.wikipedia lists)", name_ru="Улица трамвайных маршрутов (по спискам ka.wikipedia)", name_ka="ტრამვაის მარშრუტების ქუჩა",
+                                  note="SCHEMATIC. The street is drawn over its whole length in OpenStreetMap; the tram did not necessarily run along all of it. Years: the route lists of 1962 and 1986 (ka.wikipedia) and the lists of routes of 2000 (8 routes), 2003 (4 routes), 2005 (route 12) and the closing on 4 December 2006 (ru.wikipedia): between the lists the state is not known. Several streets of the routes are missing (no matching way in OSM).",
+                                  src=["https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A0%E1%83%90%E1%83%9B%E1%83%95%E1%83%90%E1%83%98", "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D1%80%D0%B0%D0%BC%D0%B2%D0%B0%D0%B9"]))
+    print("tram network streets:", len(tram_iv), "missing in OSM:", miss)
     # ---------------- other Kura bridges (years from ru.wikipedia articles, read 2026-11-18; the position is the present bridge, older bridges stood close by)
     br_ways = {}
     for fn in ("bridges", "bridges_all"):
