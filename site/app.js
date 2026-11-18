@@ -6,6 +6,7 @@
   const FULL_KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
   const ZOOM_STEPS = [364, 1700, 1800, 1850, 1900, 1950, 1980, 2000];   // the scale can start from any of these years (zoom)
   let zoomIx = 0;
+  let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
   let searchIndex = null, searchRows = [], searchSel = -1;      // search (see the block "search" below)
   let KNOTS = FULL_KNOTS;                         // zoomed scale: one linear piece from the chosen year to MAX (see setZoom)
   const y2v = (y) => { for (let i = 1; i < KNOTS.length; i++) if (y <= KNOTS[i][0]) { const [y0, v0] = KNOTS[i - 1], [y1, v1] = KNOTS[i]; return v0 + ((y - y0) / (y1 - y0)) * (v1 - v0); } return 1000; };
@@ -102,6 +103,7 @@
       waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
       viewsTitle: "Исторические виды (рисунки, не планы)",
       viewClose: "Закрыть",
+      showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
       viewPrev: "Предыдущее фото",
@@ -253,6 +255,7 @@
       waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); topographic sheet of c.1911 (lakes).",
       viewsTitle: "Historical views (drawings, not plans)",
       viewClose: "Close",
+      showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
       viewPrev: "Previous photo",
@@ -405,6 +408,7 @@
       waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); ტოპოგრაფიული ფურცელი დაახლოებით 1911 წლიდან (ტბები).",
       viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
       viewClose: "დახურვა",
+      showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
       viewPrev: "წინა ფოტო",
@@ -746,6 +750,7 @@
     updateStNames();
     updatePop();
     updateC94();
+    updateReligious();
     updateStreets();
     updateViews();
     updateSwipe();
@@ -779,6 +784,7 @@
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
     updateZoomUi();
     updateSearchUi();
+    updateRelUi();
     $("note").textContent = t().note(undated);
     buildTypes();
     buildAbout();
@@ -1780,6 +1786,7 @@
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
+    try { religious = await getJSON("data/religious.json", 1); addReligious(); } catch (e) { console.error("religious", e && e.message); religious = []; }
     try { c94 = await getJSON("data/city1894.json", 2); addC94(); } catch (e) { console.error("c94", e && e.message); c94 = null; }
     try { stNames = (await getJSON("data/street_names.json", 2)).streets; stGeom = await getJSON("data/street_geom.json", 2); addStLabelsLayer(); updateStNames(); } catch (e) { stNames = []; }
     let admin = { type: "FeatureCollection", features: [] };
@@ -1870,7 +1877,7 @@
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
@@ -1939,6 +1946,67 @@
   $("sliderwrap").addEventListener("wheel", (e) => { e.preventDefault(); zoomBy(e.deltaY < 0 ? 1 : -1); }, { passive: false });
   updateZoomUi();
 
+  // religious buildings of different religions: points that appear in the year of the building and disappear when it was destroyed
+  const REL_COLOR = { orthodox: "#b8860b", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c" };
+  function addReligious() {
+    if (!religious.length || map.getSource("rel")) return;
+    const feats = religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
+      properties: { id: r.id, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", label: r.name[lang] || r.name.en } }));
+    map.addSource("rel", { type: "geojson", data: { type: "FeatureCollection", features: feats } });
+    map.addLayer({ id: "rel-pt", type: "circle", source: "rel", layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 5, 17, 10], "circle-color": ["get", "color"], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: "rel-lb", type: "symbol", source: "rel", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#222222", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    map.on("click", "rel-pt", (e) => {
+      const f = e.features && e.features[0], r = f && religious.find((x) => x.id === f.properties.id);
+      if (r) popupRel(r, e.lngLat);
+    });
+    map.on("mouseenter", "rel-pt", () => { map.getCanvas().style.cursor = "pointer"; });
+    map.on("mouseleave", "rel-pt", () => { map.getCanvas().style.cursor = ""; });
+    updateReligious();
+  }
+  function updateReligious() {
+    if (!map.getLayer("rel-pt")) return;
+    const on = $("showRel").checked;
+    for (const id of ["rel-pt", "rel-lb"]) {
+      map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+      map.setFilter(id, ["all", ["<=", ["get", "from"], year], [">", ["get", "to"], year]]);
+    }
+  }
+  function updateRelUi() {
+    const box = $("relLegend");
+    if (box) {
+      box.textContent = "";
+      for (const k of Object.keys(REL_COLOR)) { const s = document.createElement("span"); s.textContent = t().relNames[k]; s.style.setProperty("--c", REL_COLOR[k]); box.appendChild(s); }
+    }
+    const src = map && map.getSource && map.getSource("rel");
+    if (src) src.setData({ type: "FeatureCollection", features: religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
+      properties: { id: r.id, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", label: r.name[lang] || r.name.en } })) });
+  }
+  function popupRel(r, lngLat) {
+    const L = t(), el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = r.name[lang] || r.name.en;
+    el.appendChild(h3);
+    const row = (k, v) => { if (!v) return; const d = document.createElement("div"), kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; d.appendChild(kk); d.appendChild(document.createTextNode(v)); el.appendChild(d); };
+    const rr = document.createElement("div");
+    rr.className = "k";
+    rr.textContent = L.relNames[r.rel] || r.rel;
+    el.appendChild(rr);
+    row(L.relBuilt, r.date);
+    if (r.to !== undefined) row(L.relGone, String(r.to));
+    row(L.relStatus, r.status[lang] || r.status.en);
+    const n = document.createElement("div");
+    n.className = "small";
+    n.textContent = r.note[lang] || r.note.en;
+    el.appendChild(n);
+    const s = document.createElement("div");
+    s.className = "src";
+    s.appendChild(document.createTextNode(L.relSrc + ": "));
+    r.src.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u.replace("https://", "")).slice(0, 60); if (i) s.appendChild(document.createTextNode(" \u00B7 ")); s.appendChild(a); });
+    el.appendChild(s);
+    showPopup("320px", lngLat, el);
+  }
+
   // search: objects of the register (name and address in three languages), historical events and years
   const normQ = (s) => String(s || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
   function buildSearchIndex() {
@@ -1951,6 +2019,7 @@
       idx.push({ kind: "o", f, key: normQ(parts.join(" ")) });
     }
     for (const ev of histEvents) idx.push({ kind: "e", ev, key: normQ([ev.ru, ev.en, ev.ka, ev.date, ev.year].join(" ")) });
+    for (const r of religious) idx.push({ kind: "r", r, key: normQ([r.name.ru, r.name.en, r.name.ka, r.date, t().relNames[r.rel], T.en.relNames[r.rel]].join(" ")) });
     return idx;
   }
   function updateSearchUi() {
@@ -1993,6 +2062,7 @@
       const li = document.createElement("li"), a = document.createElement("div"), b = document.createElement("div");
       b.className = "st";
       if (r.kind === "y") { a.textContent = "\u23F1 " + L.searchYear + " " + r.year; }
+      else if (r.kind === "r") { a.textContent = "\u26EA " + (r.r.name[lang] || r.r.name.en); b.textContent = [L.relNames[r.r.rel], r.r.date, r.r.to ? L.relGone + " " + r.r.to : ""].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "e") { a.textContent = (EV_ICON[r.ev.cat] || EV_ICON.other) + " " + (r.ev[lang] || r.ev.en); b.textContent = r.ev.date + " \u00B7 " + (L.evCats[r.ev.cat] || ""); }
       else {
         const p = r.f.properties, tr = window.GeoTr;
@@ -2028,11 +2098,18 @@
     let target = year;
     if (r.kind === "y") target = r.year;
     else if (r.kind === "e") target = r.ev.year;
+    else if (r.kind === "r") target = (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
     else target = Math.max(year, r.f.properties.ye);
     if (target < ZOOM_STEPS[zoomIx]) setZoom(0);             // the time scale is zoomed in past this year: show the whole scale
     year = target;
     update();
     if (r.kind === "e") { showHistEvent(r.ev); return; }
+    if (r.kind === "r") {
+      $("showRel").checked = true; updateReligious();
+      map.flyTo({ center: [r.r.lon, r.r.lat], zoom: Math.max(map.getZoom(), 16.5), duration: 1200 });
+      popupRel(r.r, { lng: r.r.lon, lat: r.r.lat });
+      return;
+    }
     if (r.kind === "o") {
       const [lng, lat] = r.f.geometry.coordinates;
       map.flyTo({ center: [lng, lat], zoom: Math.max(map.getZoom(), 17), duration: 1200 });
