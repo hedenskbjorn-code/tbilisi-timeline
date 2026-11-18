@@ -140,7 +140,7 @@
       c94Pos: "Положение",
       c94Conf: { high: "уверенность высокая", medium: "уверенность средняя (около 100-150 м)", low: "уверенность низкая (200 м и больше)" },
       c94Src: "Источник",
-      btnInfo: "Справка", btnFilters: "Фильтры", filtersTitle: "Фильтры и слои",
+      btnInfo: "Справка", btnFilters: "Фильтры", btnViews: "Виды", viewsAll: "Все виды (не только к выбранному году)", viewsNone: "К этому году видов нет. Включите «Все виды».", filtersTitle: "Фильтры и слои",
       stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
       stNow: "сейчас",
       stMore: "Названия по годам известны не для всех улиц.",
@@ -287,7 +287,7 @@
       c94Pos: "Position",
       c94Conf: { high: "high confidence", medium: "medium confidence (about 100-150 m)", low: "low confidence (200 m or more)" },
       c94Src: "Source",
-      btnInfo: "Info", btnFilters: "Filters", filtersTitle: "Filters and layers",
+      btnInfo: "Info", btnFilters: "Filters", btnViews: "Views", viewsAll: "All views (not only for the chosen year)", viewsNone: "No views for this year. Tick \"All views\".", filtersTitle: "Filters and layers",
       stTitle: "Street names in this year (checked against Wikipedia)",
       stNow: "today",
       stMore: "Names by year are known only for some streets.",
@@ -433,7 +433,7 @@
       c94Pos: "მდებარეობა",
       c94Conf: { high: "მაღალი სიზუსტე", medium: "საშუალო სიზუსტე (დაახლოებით 100-150 მ)", low: "დაბალი სიზუსტე (200 მ და მეტი)" },
       c94Src: "წყარო",
-      btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფენები",
+      btnInfo: "ცნობა", btnFilters: "ფილტრები", btnViews: "ხედები", viewsAll: "ყველა ხედი (არა მხოლოდ არჩეული წლისთვის)", viewsNone: "ამ წლისთვის ხედები არ არის. ჩართეთ „ყველა ხედი“.", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
       stMore: "სახელები წლების მიხედვით ცნობილია არა ყველა ქუჩისთვის.",
@@ -760,6 +760,7 @@
     $("title").textContent = t().title;
     $("lang").value = lang;
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
+    $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
     $("note").textContent = t().note(undated);
     buildTypes();
     buildAbout();
@@ -1276,24 +1277,36 @@
   const VIEW_WINDOW = 150;                       // a view is offered for 150 years after its date
 
   function updateViews() {
-    const box = $("viewsline");
-    if (!box) return;
-    const list = views.filter((v) => year >= v.year && year < v.year + (v.window || VIEW_WINDOW));
+    const box = $("vgrid");
+    if (!box || $("views").hidden) return;                       // tiles (and their images) are built only while the panel is open
+    const all = $("viewsAll").checked;
+    const list = all ? views : views.filter((v) => year >= v.year && year < v.year + (v.window || VIEW_WINDOW));
     box.textContent = "";
-    box.hidden = !list.length;
-    if (!list.length) return;
-    const h = document.createElement("div");
-    h.className = "vl-h";
-    h.textContent = t().viewsTitle;
-    box.appendChild(h);
+    if (!list.length) {
+      const m = document.createElement("div");
+      m.className = "vnone";
+      m.textContent = t().viewsNone;
+      box.appendChild(m);
+      return;
+    }
     for (const v of list) {
       const b = document.createElement("button");
       b.type = "button";
-      b.textContent = v.year + " · " + (v.title[lang] || v.title.en);
+      const im = document.createElement("img");
+      im.src = v.image; im.loading = "lazy"; im.alt = "";
+      const cap = document.createElement("span");
+      cap.className = "vcap";
+      const yr = document.createElement("span");
+      yr.className = "vyear";
+      yr.textContent = v.year + " · ";
+      cap.appendChild(yr);
+      cap.appendChild(document.createTextNode(v.title[lang] || v.title.en));
+      b.appendChild(im); b.appendChild(cap);
       b.addEventListener("click", () => openView(v));
       box.appendChild(b);
     }
   }
+  $("viewsAll").addEventListener("change", updateViews);
 
   function openView(v) {
     const L = t();
@@ -1447,20 +1460,24 @@
   // two panels (history info, filters), each can be hidden; the choice is remembered on wide screens; on a phone only one is open at a time
   {
     const mq = window.matchMedia("(max-width:640px)");
-    const els = { info: $("side"), filters: $("filters") }, btns = { info: $("btnInfo"), filters: $("btnFilters") };
-    let st = { info: !mq.matches, filters: !mq.matches };
-    try { const s = JSON.parse(localStorage.getItem("panels") || "null"); if (s && !mq.matches) st = { info: s.info !== false, filters: s.filters !== false }; } catch (e) {}
+    const KEYS = ["info", "filters", "views"];
+    const els = { info: $("side"), filters: $("filters"), views: $("views") }, btns = { info: $("btnInfo"), filters: $("btnFilters"), views: $("btnViews") };
+    let st = { info: !mq.matches, filters: !mq.matches, views: false };
+    try { const s = JSON.parse(localStorage.getItem("panels") || "null"); if (s && !mq.matches) st = { info: s.info !== false, filters: s.filters !== false, views: s.views === true }; } catch (e) {}
     const apply = () => {
-      for (const k of ["info", "filters"]) { els[k].hidden = !st[k]; btns[k].setAttribute("aria-pressed", st[k] ? "true" : "false"); }
+      for (const k of KEYS) { els[k].hidden = !st[k]; btns[k].setAttribute("aria-pressed", st[k] ? "true" : "false"); }
+      document.body.classList.toggle("nofilters", !st.filters);
       if (!mq.matches) { try { localStorage.setItem("panels", JSON.stringify(st)); } catch (e) {} }
+      updateViews();
     };
     const toggle = (k, on) => {
       st[k] = on === undefined ? !st[k] : on;
-      if (mq.matches && st[k]) st[k === "info" ? "filters" : "info"] = false;
+      if (mq.matches && st[k]) for (const o of KEYS) if (o !== k) st[o] = false;
       apply();
     };
     btns.info.addEventListener("click", () => toggle("info"));
     btns.filters.addEventListener("click", () => toggle("filters"));
+    btns.views.addEventListener("click", () => toggle("views"));
     for (const b of document.querySelectorAll(".pclose")) b.addEventListener("click", () => toggle(b.dataset.panel, false));
     apply();
   }
@@ -1471,7 +1488,7 @@
     const W = window.innerWidth, H = window.innerHeight, m = 8;
     const r = { left: m, right: W - m, top: $("top").getBoundingClientRect().bottom + 4, bottom: $("bottom").getBoundingClientRect().top - m };
     const mobile = window.matchMedia("(max-width:640px)").matches;
-    for (const id of ["side", "filters"]) {
+    for (const id of ["side", "filters", "views"]) {
       const el = $(id);
       if (!el || el.hidden) continue;
       const b = el.getBoundingClientRect();
