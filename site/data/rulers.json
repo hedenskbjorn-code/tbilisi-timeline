@@ -80,7 +80,7 @@
 "states": [
 {
 "id": "iberia",
-"from": 455,
+"from": 364,
 "to": 580,
 "kind": "monarchy",
 "lane": 0,
@@ -95,8 +95,8 @@
 "ka": "მონარქია; სასანიანთა ვასალი 363-482 და 502-523, უშუალო სასანიანური მმართველობა 523-580"
 },
 "note": {
-"ru": "455 - год основания Тбилиси по инфобоксу «Tbilisi». Кто перенёс столицу в Тбилиси, страницы расходятся: Вахтанг I или Дачи (522-534).",
-"en": "455 is the year of the founding in the Tbilisi infobox. Who moved the capital to Tbilisi differs between pages: Vakhtang I or Dachi (522-534).",
+"ru": "Отрезок начинается с начала шкалы (364: по странице Narikala крепость на месте будущего Тбилиси). 455 - год основания Тбилиси по инфобоксу «Tbilisi». Кто перенёс столицу в Тбилиси, страницы расходятся: Вахтанг I или Дачи (522-534).",
+"en": "The segment starts at the beginning of the scale (364: per the Narikala page a fortress stood on the site of the future Tbilisi). 455 is the year of the founding in the Tbilisi infobox. Who moved the capital to Tbilisi differs between pages: Vakhtang I or Dachi (522-534).",
 "ka": "455 თბილისის დაარსების წელია. დედაქალაქის თბილისში გადატანა ვახტანგ I-ს ან დაჩის (522-534) მიეწერება."
 },
 "src": [
@@ -1140,6 +1140,206 @@
 "ru": "Самоуправление",
 "en": "Self-government",
 "ka": "Self-government"
+}
+},
+{
+"id": "aspacures2",
+"from": 363,
+"to": 365,
+"grp": "king",
+"name": {
+"ru": "Аспагур II",
+"en": "Aspacures II",
+"ka": "ასპაგურ II"
+},
+"note": {
+"ru": "Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.",
+"en": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.",
+"ka": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia"
+],
+"date": "",
+"title": {
+"ru": "Царь Иберии",
+"en": "King of Iberia",
+"ka": "ივერიის მეფე"
+}
+},
+{
+"id": "mihrdat3",
+"from": 365,
+"to": 380,
+"grp": "king",
+"name": {
+"ru": "Мирдат III",
+"en": "Mihrdat III",
+"ka": "მირდატ III"
+},
+"note": {
+"ru": "В 370-378 соправительство (по списку: diarch 370-378). Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.",
+"en": "A joint rule in 370-378 (the list: diarch 370-378). By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.",
+"ka": "A joint rule in 370-378 (the list: diarch 370-378). By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia"
+],
+"date": "",
+"title": {
+"ru": "Царь Иберии",
+"en": "King of Iberia",
+"ka": "ივერიის მეფე"
+}
+},
+{
+"id": "aspacures3",
+"from": 380,
+"to": 394,
+"grp": "king",
+"name": {
+"ru": "Аспагур III",
+"en": "Aspacures III",
+"ka": "ასპაგურ III"
+},
+"note": {
+"ru": "Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.",
+"en": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.",
+"ka": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia"
+],
+"date": "",
+"title": {
+"ru": "Царь Иберии",
+"en": "King of Iberia",
+"ka": "ივერიის მეფე"
+}
+},
+{
+"id": "trdat",
+"from": 394,
+"to": 406,
+"grp": "king",
+"name": {
+"ru": "Трдат",
+"en": "Trdat",
+"ka": "თრდატ"
+},
+"note": {
+"ru": "Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.",
+"en": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.",
+"ka": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia"
+],
+"date": "",
+"title": {
+"ru": "Царь Иберии",
+"en": "King of Iberia",
+"ka": "ივერიის მეფე"
+}
+},
+{
+"id": "pharasmanes4",
+"from": 406,
+"to": 409,
+"grp": "king",
+"name": {
+"ru": "Фарсман IV",
+"en": "Pharasmanes IV",
+"ka": "ფარსმან IV"
+},
+"note": {
+"ru": "Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.",
+"en": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.",
+"ka": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia"
+],
+"date": "",
+"title": {
+"ru": "Царь Иберии",
+"en": "King of Iberia",
+"ka": "ივერიის მეფე"
+}
+},
+{
+"id": "mihrdat4",
+"from": 409,
+"to": 411,
+"grp": "king",
+"name": {
+"ru": "Мирдат IV",
+"en": "Mihrdat IV",
+"ka": "მირდატ IV"
+},
+"note": {
+"ru": "Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.",
+"en": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.",
+"ka": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia"
+],
+"date": "",
+"title": {
+"ru": "Царь Иберии",
+"en": "King of Iberia",
+"ka": "ივერიის მეფე"
+}
+},
+{
+"id": "archil1",
+"from": 411,
+"to": 435,
+"grp": "king",
+"name": {
+"ru": "Арчил I",
+"en": "Archil I",
+"ka": "არჩილ I"
+},
+"note": {
+"ru": "Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.",
+"en": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.",
+"ka": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia"
+],
+"date": "",
+"title": {
+"ru": "Царь Иберии",
+"en": "King of Iberia",
+"ka": "ივერიის მეფე"
+}
+},
+{
+"id": "mihrdat5",
+"from": 435,
+"to": 447,
+"grp": "king",
+"name": {
+"ru": "Мирдат V",
+"en": "Mihrdat V",
+"ka": "მირდატ V"
+},
+"note": {
+"ru": "Тбилиси по преданию ещё не основан (455); эти цари правили землёй Картли, на которой он возник.",
+"en": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose.",
+"ka": "By tradition Tbilisi was not yet founded (455); these kings ruled the land of Kartli on which it arose."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia"
+],
+"date": "",
+"title": {
+"ru": "Царь Иберии",
+"en": "King of Iberia",
+"ka": "ივერიის მეფე"
 }
 },
 {
