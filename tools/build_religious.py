@@ -221,6 +221,20 @@ ITEMS = [
                 "Begun on 16 April 1871 (6 April per ru) on Gunib Square; suspended in 1877, resumed in 1890, new foundation in 1891; consecrated on 21 May 1897 (architect David Grimm). Demolished on Beria's order. Nearby in Alexander's Garden stood a small Alexander Nevsky chapel (founded in 1888; removed by 1925), see the ka.wikipedia article.",
                 "ჩაეყარა 1871 წლის 16 აპრილს ღუნიბის მოედანზე; 1877 წელს მშენებლობა შეჩერდა, 1890 წელს განახლდა, ახალი საძირკველი 1891 წელს; აკურთხეს 1897 წლის 21 მაისს (არქიტექტორი დავით გრიმი). დაანგრიეს ბერიას მითითებით. ახლოს ალექსანდრეს ბაღში იდგა ალექსანდრე ნეველის პატარა სამლოცველო (1888; 1925 წლისთვის მოხსნილია)."),
          src=[EN + "Alexander_Nevsky_Cathedral,_Tiflis", RU + "Собор_Александра_Невского_(Тифлис)", KA + "ტფილისის_სამხედრო_ტაძარი", KA + "თბილისის_წმინდა_ალექსანდრე_ნეველის_სამლოცველო"]),
+    dict(id="nevsky_chapel", rel="russian", frm=1888, to=1925, date="1888", lat=41.6985, lon=44.7996, approx=True,
+         name=N("Часовня Александра Невского (сад 9 апреля)", "Alexander Nevsky chapel (the garden of 9 April)", "წმინდა ალექსანდრე ნეველის სამლოცველო"),
+         status=N("не сохранилась (к 1925 снята)", "does not survive (removed by 1925)", "არ შემორჩა (1925 წლისთვის მოხსნილია)"),
+         note=N("Заложена в 1888 в Александровском саду в память о спасении императорской семьи при крушении поезда; для нижних чинов, на месте нынешнего памятника Георгию Леонидзе. По описанию 1925 года военная часовня в конце сада снята. Точка на карте приблизительная: координат нет, взят центр сада.",
+                "Founded in 1888 in Alexander's Garden to commemorate the survival of the imperial family in a railway accident; for the lower ranks, on the site of today's monument to Giorgi Leonidze. A description of 1925 says the military chapel at the end of the garden had been removed. The point on the map is approximate: no coordinates exist, the centre of the garden is used.",
+                "ჩაეყარა საძირკველი 1888 წელს ალექსანდრეს ბაღში საიმპერატორო ოჯახის მატარებლის კატასტროფისგან გადარჩენის აღსანიშნავად; დაბალი ჩინის სამხედროებისთვის, დღევანდელი გიორგი ლეონიძის ძეგლის ადგილზე. 1925 წლის აღწერით ბაღის ბოლოში მდებარე სამხედრო სამლოცველო მოხსნილია. წერტილი რუკაზე მიახლოებითია."),
+         src=[KA + "თბილისის_წმინდა_ალექსანდრე_ნეველის_სამლოცველო", RU + "Парк_9_апреля_(Тбилиси)"]),
+    dict(id="nicholas_military", rel="russian", frm=1848, to=1921, date="1848-1890", lat=41.6981, lon=44.7991, approx=True,
+         name=N("Военная церковь св. Николая (Александровский сад)", "St Nicholas military church (Alexander's Garden)", "წმინდა ნიკოლოზის სამხედრო ტაძარი (ალექსანდრეს ბაღი)"),
+         status=N("не сохранилась; на месте круглый театр", "does not survive; a round theatre stands on the site", "არ შემორჩა; ადგილზე მრგვალი თეატრია"),
+         note=N("Заложена в 1848 (сперва у нынешнего пересечения улиц Табукашвили и Собчака); после 1888 перенесена вглубь сада, фундамент освящён в 1889, здание в 1890 (архитектор Бульфруа). В 1921 приписана к Верийской церкви св. Николая (поэтому на карте до 1921); позднее на месте открытый кинотеатр, ныне круглый театр. Точка приблизительная.",
+                "Founded in 1848 (first at today's crossing of Tabukashvili and Sobchak streets); after 1888 moved deeper into the garden, the foundation consecrated in 1889 and the building in 1890 (architect Boulfroy). In 1921 it was assigned to the Vera church of St Nicholas (so it is shown until 1921); later an open-air cinema stood on the site, now a round theatre. The point is approximate.",
+                "საძირკველი ჩაეყარა 1848 წელს (თავდაპირველად დღევანდელი ტაბუკაშვილისა და სობჭაკის ქუჩების გადაკვეთაზე); 1888 წლის შემდეგ ბაღის სიღრმეში გადაიტანეს, საძირკველი 1889 წელს აკურთხეს, შენობა — 1890 წელს (არქიტექტორი ბულფრუა). 1921 წელს ვერის წმინდა ნიკოლოზის ეკლესიას მიეწერა; შემდგომ ადგილზე ღია კინოთეატრი იყო, დღეს მრგვალი თეატრია. წერტილი მიახლოებითია."),
+         src=[KA + "თბილისის_წმინდა_ალექსანდრე_ნეველის_სამლოცველო", RU + "Парк_9_апреля_(Тбილиси)".replace("Тбилиси", "Тбилиси")]),
     dict(id="kashveti", rel="orthodox", frm=1910, date="1904-1910", lat=41.697954, lon=44.799324,
          name=N("Церковь Кашвети (св. Георгия)", "Kashveti Church (St George)", "ქაშვეთის წმინდა გიორგის ტაძარი"),
          status=N("действует", "in use", "მოქმედია"),
@@ -245,6 +259,8 @@ def main():
              "name": it["name"], "status": it["status"], "note": it["note"], "src": it["src"]}
         if "to" in it:
             o["to"] = it["to"]
+        if it.get("approx"):
+            o["approx"] = True
         out.append(o)
     out.sort(key=lambda x: x["from"])
     p = os.path.join(ROOT, "site", "data", "religious.json")

@@ -62,6 +62,46 @@ def R(id, a, b, grp, name, note="", src=(), date="", title=None, lane=None):
 
 
 E = lambda ru, en, ka=None: N(ru, en, ka)
+KA_NAMES = {
+    "Karl von Knorring": "კარლ ფონ კნორინგი",
+    "Pavel Tsitsianov": "პავლე ციციანოვი (ციციშვილი)",
+    "Ivan Gudovich": "ივან გუდოვიჩი",
+    "Alexander Tormasov": "ალექსანდრე ტორმასოვი",
+    "Philip Paulucci": "ფილიპო პაულუჩი",
+    "Nikolay Rtishchev": "ნიკოლაი რტიშჩევი",
+    "Aleksey Yermolov": "ალექსეი ერმოლოვი",
+    "Ivan Paskevich": "ივან პასკევიჩი",
+    "Gregor von Rosen": "გრიგორი როზენი",
+    "Yevgeny Golovin": "ევგენი გოლოვინი",
+    "Aleksandr Neidgardt": "ალექსანდრე ნეიდგარდტი",
+    "Mikhail Vorontsov": "მიხეილ ვორონცოვი",
+    "Nikolay Muravyov-Karsky": "ნიკოლაი მურავიოვ-კარსკი",
+    "Aleksandr Baryatinsky": "ალექსანდრე ბარიატინსკი",
+    "Grigol Orbeliani (acting)": "გრიგოლ ორბელიანი (მოვალეობის შემსრულებელი)",
+    "Grand Duke Mikhail Nikolayevich": "დიდი მთავარი მიხეილ ნიკოლოზის ძე",
+    "Aleksandr Dondukov-Korsakov": "ალექსანდრე დონდუკოვ-კორსაკოვი",
+    "Sergei Sheremetyev": "სერგეი შერემეტევი",
+    "Grigory Golitsyn": "გრიგორი გოლიცინი",
+    "Yakov Malama (acting)": "იაკობ მალამა (მოვალეობის შემსრულებელი)",
+    "Illarion Vorontsov-Dashkov": "ილარიონ ვორონცოვ-დაშკოვი",
+    "Grand Duke Nikolay Nikolayevich": "დიდი მთავარი ნიკოლოზ ნიკოლოზის ძე",
+    "Isma'il b. Shuab": "ისმაილ იბნ შუაბი",
+    "Mohammed I b. Atab": "მუჰამედ I იბნ ატაბი",
+    "Ali I b. Shuab": "ალი I იბნ შუაბი",
+    "Ishaq b. Isma'il": "ისჰაკ იბნ ისმაილი",
+    "Muhammad II b. Khalil": "მუჰამედ II იბნ ხალილი",
+    "Isa b. al-Shaykh al-Shayban": "ისა იბნ ალ-შეიხ ალ-შაიბანი",
+    "Ibrahim": "იბრაჰიმი",
+    "Gabuloc": "გაბულოკი",
+    "Jafar I b. Ali": "ჯაფარ I იბნ ალი",
+    "Mansur I b. Jafar": "მანსურ I იბნ ჯაფარი",
+    "Jafar II b. Mansur": "ჯაფარ II იბნ მანსური",
+    "Ali II b. Jafar": "ალი II იბნ ჯაფარი",
+    "Jafar III b. Ali": "ჯაფარ III იბნ ალი",
+    "Mansur II b. Jafar": "მანსურ II იბნ ჯაფარი",
+    "Abu'l-Hayja b. Jafar": "აბუ-ლ-ჰეჯა იბნ ჯაფარი",
+    "Fadlun of Ganja": "ფადლუნ განჯელი",
+}
 
 NOTES_EN = {
     "david4": "Reigned from 1089; took Tbilisi in 1122; died on 24 January 1125.",
@@ -192,7 +232,7 @@ EM = [("Исмаил ибн Шуайб", "Isma'il b. Shuab", None, 736, 813), ("
 for i, (ru, en, ka, a, b) in enumerate(EM):
     nt = "Начало правления Исмаила в списке не указано (начало эмирата 736), конец «до 813»." if i == 0 else ("Назначен Алп-Арсланом." if a == 1068 else "")
     nte = "The list gives no start for Isma'il (the emirate began in 736), only 'until 813'." if i == 0 else ("Appointed by Alp Arslan." if a == 1068 else "")
-    R("emir%d" % i, a, b, "emir", E(ru, en, ka), E(nt, nte), [W + "Emirate_of_Tbilisi"])
+    R("emir%d" % i, a, b, "emir", E(ru, en, KA_NAMES.get(en)), E(nt, nte), [W + "Emirate_of_Tbilisi"])
 R("council1", 1062, 1068, "emir", E("Городской совет", "City council", "ქალაქის საბჭო"), E("Между эмирами (список эмиров)", "Between the emirs (the list of emirs)"), [W + "Emirate_of_Tbilisi"], title=N("Самоуправление", "Self-government"))
 R("council2", 1080, 1122, "emir", E("Городской совет", "City council", "ქალაქის საბჭო"), E("До взятия Тбилиси Давидом IV (1122)", "Until David IV took Tbilisi (1122)"), [W + "Emirate_of_Tbilisi"], title=N("Самоуправление", "Self-government"))
 
@@ -284,7 +324,7 @@ VR = [("Карл фон Кнорринг", "Karl von Knorring", 1801, 1802), ("�
       ("Григорий Голицын", "Grigory Golitsyn", 1896, 1904), ("Яков Малама (временно)", "Yakov Malama (acting)", 1904, 1904.5), ("Илларион Воронцов-Дашков", "Illarion Vorontsov-Dashkov", 1904.5, 1916),
       ("Великий князь Николай Николаевич", "Grand Duke Nikolay Nikolayevich", 1916, y(18, 3, 1917))]
 for i, (ru, en, a, b) in enumerate(VR):
-    R("viceroy%d" % i, a, b, "viceroy", E(ru, en), E("Годы по списку; месяцы внутри года страница не называет (для границ внутри 1862 и 1904 годы разделены условно).", "Years as in the list; the page gives no months (the limits inside 1862 and 1904 are conventional)."), [W + "Caucasus_Viceroyalty_(1801%E2%80%931917)"], title=N("Наместник на Кавказе", "Viceroy of the Caucasus", "კავკასიის მეფისნაცვალი"), lane=1)
+    R("viceroy%d" % i, a, b, "viceroy", E(ru, en, KA_NAMES.get(en)), E("Годы по списку; месяцы внутри года страница не называет (для границ внутри 1862 и 1904 годы разделены условно).", "Years as in the list; the page gives no months (the limits inside 1862 and 1904 are conventional)."), [W + "Caucasus_Viceroyalty_(1801%E2%80%931917)"], title=N("Наместник на Кавказе", "Viceroy of the Caucasus", "კავკასიის მეფისნაცვალი"), lane=1)
 
 # the Democratic Republic of Georgia, 1918-1921 (the table in "Prime Minister of Georgia")
 R("ramishvili", y(26, 5, 1918), y(24, 6, 1918), "head", E("Ной Рамишвили", "Noe Ramishvili", "ნოე რამიშვილი"), E("Председатель правительства.", "Chairman of the government."), [W + "Prime_Minister_of_Georgia"], title=N("Председатель правительства", "Chairman of the government", "მთავრობის თავმჯდომარე"))

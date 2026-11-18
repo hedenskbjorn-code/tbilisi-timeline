@@ -510,6 +510,35 @@
   ]
  },
  {
+  "id": "nicholas_military",
+  "rel": "russian",
+  "from": 1848,
+  "date": "1848-1890",
+  "lat": 41.6981,
+  "lon": 44.7991,
+  "name": {
+   "ru": "Военная церковь св. Николая (Александровский сад)",
+   "en": "St Nicholas military church (Alexander's Garden)",
+   "ka": "წმინდა ნიკოლოზის სამხედრო ტაძარი (ალექსანდრეს ბაღი)"
+  },
+  "status": {
+   "ru": "не сохранилась; на месте круглый театр",
+   "en": "does not survive; a round theatre stands on the site",
+   "ka": "არ შემორჩა; ადგილზე მრგვალი თეატრია"
+  },
+  "note": {
+   "ru": "Заложена в 1848 (сперва у нынешнего пересечения улиц Табукашвили и Собчака); после 1888 перенесена вглубь сада, фундамент освящён в 1889, здание в 1890 (архитектор Бульфруа). В 1921 приписана к Верийской церкви св. Николая (поэтому на карте до 1921); позднее на месте открытый кинотеатр, ныне круглый театр. Точка приблизительная.",
+   "en": "Founded in 1848 (first at today's crossing of Tabukashvili and Sobchak streets); after 1888 moved deeper into the garden, the foundation consecrated in 1889 and the building in 1890 (architect Boulfroy). In 1921 it was assigned to the Vera church of St Nicholas (so it is shown until 1921); later an open-air cinema stood on the site, now a round theatre. The point is approximate.",
+   "ka": "საძირკველი ჩაეყარა 1848 წელს (თავდაპირველად დღევანდელი ტაბუკაშვილისა და სობჭაკის ქუჩების გადაკვეთაზე); 1888 წლის შემდეგ ბაღის სიღრმეში გადაიტანეს, საძირკველი 1889 წელს აკურთხეს, შენობა — 1890 წელს (არქიტექტორი ბულფრუა). 1921 წელს ვერის წმინდა ნიკოლოზის ეკლესიას მიეწერა; შემდგომ ადგილზე ღია კინოთეატრი იყო, დღეს მრგვალი თეატრია. წერტილი მიახლოებითია."
+  },
+  "src": [
+   "https://ka.wikipedia.org/wiki/თბილისის_წმინდა_ალექსანდრე_ნეველის_სამლოცველო",
+   "https://ru.wikipedia.org/wiki/Парк_9_апреля_(Тбილиси)"
+  ],
+  "to": 1921,
+  "approx": true
+ },
+ {
   "id": "nino",
   "rel": "orthodox",
   "from": 1850,
@@ -640,6 +669,35 @@
    "https://en.wikipedia.org/wiki/St._Peter_and_St._Paul%27s_Church,_Tbilisi",
    "https://ru.wikipedia.org/wiki/Католическая_церковь_Святых_Петра_и_Павла_(Тбилиси)"
   ]
+ },
+ {
+  "id": "nevsky_chapel",
+  "rel": "russian",
+  "from": 1888,
+  "date": "1888",
+  "lat": 41.6985,
+  "lon": 44.7996,
+  "name": {
+   "ru": "Часовня Александра Невского (сад 9 апреля)",
+   "en": "Alexander Nevsky chapel (the garden of 9 April)",
+   "ka": "წმინდა ალექსანდრე ნეველის სამლოცველო"
+  },
+  "status": {
+   "ru": "не сохранилась (к 1925 снята)",
+   "en": "does not survive (removed by 1925)",
+   "ka": "არ შემორჩა (1925 წლისთვის მოხსნილია)"
+  },
+  "note": {
+   "ru": "Заложена в 1888 в Александровском саду в память о спасении императорской семьи при крушении поезда; для нижних чинов, на месте нынешнего памятника Георгию Леонидзе. По описанию 1925 года военная часовня в конце сада снята. Точка на карте приблизительная: координат нет, взят центр сада.",
+   "en": "Founded in 1888 in Alexander's Garden to commemorate the survival of the imperial family in a railway accident; for the lower ranks, on the site of today's monument to Giorgi Leonidze. A description of 1925 says the military chapel at the end of the garden had been removed. The point on the map is approximate: no coordinates exist, the centre of the garden is used.",
+   "ka": "ჩაეყარა საძირკველი 1888 წელს ალექსანდრეს ბაღში საიმპერატორო ოჯახის მატარებლის კატასტროფისგან გადარჩენის აღსანიშნავად; დაბალი ჩინის სამხედროებისთვის, დღევანდელი გიორგი ლეონიძის ძეგლის ადგილზე. 1925 წლის აღწერით ბაღის ბოლოში მდებარე სამხედრო სამლოცველო მოხსნილია. წერტილი რუკაზე მიახლოებითია."
+  },
+  "src": [
+   "https://ka.wikipedia.org/wiki/თბილისის_წმინდა_ალექსანდრე_ნეველის_სამლოცველო",
+   "https://ru.wikipedia.org/wiki/Парк_9_апреля_(Тбилиси)"
+  ],
+  "to": 1925,
+  "approx": true
  },
  {
   "id": "lutheran_pp",

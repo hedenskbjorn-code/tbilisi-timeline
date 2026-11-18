@@ -4,7 +4,7 @@
   // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-90, 1000-1700 -> 90-200, 1700-2026 -> 200-1000)
   const MIN = 364, MAX = 2026, NEW_YEARS = 25;
   const FULL_KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
-  const ZOOM_W = [0, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
+  const ZOOM_W = [0, 1000, 600, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
   let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
   let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
@@ -104,8 +104,8 @@
       waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
       viewsTitle: "Исторические виды (рисунки, не планы)",
       viewClose: "Закрыть",
-      showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", lutheran: "Лютеранская", yazidi: "Езидская", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
-      showRulers: "Правители и формы власти (полоса под шкалой)", ruleNow: "Кто правил", ruleState: "Государство", ruleOver: "Внешняя власть", ruleForm: "Форма власти", ruleYears: "Годы", ruleNoData: "нет данных",
+      showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", lutheran: "Лютеранская", yazidi: "Езидская", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relApprox: "точка на карте приблизительная", relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
+      showRulers: "Правители и формы власти (полоса под шкалой)", ruleNow: "Кто правил", ruleState: "Государство", ruleOver: "Внешняя власть", ruleAdmin: "Единица управления", ruleForm: "Форма власти", ruleYears: "Годы", ruleNoData: "нет данных",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -258,8 +258,8 @@
       waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); topographic sheet of c.1911 (lakes).",
       viewsTitle: "Historical views (drawings, not plans)",
       viewClose: "Close",
-      showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", lutheran: "Lutheran", yazidi: "Yazidi", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
-      showRulers: "Rulers and forms of government (a band under the scale)", ruleNow: "Who ruled", ruleState: "State", ruleOver: "Outside power", ruleForm: "Form of rule", ruleYears: "Years", ruleNoData: "no data",
+      showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", lutheran: "Lutheran", yazidi: "Yazidi", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relApprox: "the point on the map is approximate", relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
+      showRulers: "Rulers and forms of government (a band under the scale)", ruleNow: "Who ruled", ruleState: "State", ruleOver: "Outside power", ruleAdmin: "Administrative unit", ruleForm: "Form of rule", ruleYears: "Years", ruleNoData: "no data",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -413,8 +413,8 @@
       waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); ტოპოგრაფიული ფურცელი დაახლოებით 1911 წლიდან (ტბები).",
       viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
       viewClose: "დახურვა",
-      showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", lutheran: "ლუთერანული", yazidi: "ეზიდური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
-      showRulers: "მმართველები და მმართველობის ფორმები (ზოლი სკალის ქვეშ)", ruleNow: "ვინ მართავდა", ruleState: "სახელმწიფო", ruleOver: "გარე ძალა", ruleForm: "მმართველობის ფორმა", ruleYears: "წლები", ruleNoData: "მონაცემი არ არის",
+      showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", lutheran: "ლუთერანული", yazidi: "ეზიდური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relApprox: "წერტილი რუკაზე მიახლოებითია", relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
+      showRulers: "მმართველები და მმართველობის ფორმები (ზოლი სკალის ქვეშ)", ruleNow: "ვინ მართავდა", ruleState: "სახელმწიფო", ruleOver: "გარე ძალა", ruleAdmin: "ადმინისტრაციული ერთეული", ruleForm: "მმართველობის ფორმა", ruleYears: "წლები", ruleNoData: "მონაცემი არ არის",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -2047,7 +2047,7 @@
     if (!box) return;
     box.textContent = "";
     if (!rulersData || !$("showRulers").checked) return;
-    const L = t(), within = (it) => year >= it.from && year < it.to;
+    const L = t(), within = (it) => it.from < year + 1 && it.to > year;
     const add = (k, v) => { const d = document.createElement("div"); const kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; d.appendChild(kk); d.appendChild(document.createTextNode(v)); box.appendChild(d); };
     const st = rulersData.states.filter((s) => within(s) && !s.lane), ov = rulersData.states.filter((s) => within(s) && s.lane);
     const rl = rulersData.rulers.filter(within);
@@ -2056,7 +2056,7 @@
     head.textContent = L.ruleNow + " (" + year + ")";
     box.appendChild(head);
     add(L.ruleState, st.length ? st.map((s) => rText(s.name)).join("; ") : L.ruleNoData);
-    for (const s of ov) add(L.ruleOver, rText(s.name));
+    for (const s of ov) add(s.kind === "overlord" ? L.ruleOver : L.ruleAdmin, rText(s.name));
     for (const r of rl) add(rText(r.title) || rText(rulersData.groups[r.grp]), rText(r.name));
   }
   $("showRulers").addEventListener("change", () => { buildRulersBand(); updateRuleLine(); });
@@ -2109,6 +2109,7 @@
     rr.textContent = L.relNames[r.rel] || r.rel;
     el.appendChild(rr);
     row(L.relBuilt, r.date);
+    if (r.approx) row(L.relApprox, "≈");
     if (r.to !== undefined) row(L.relGone, String(r.to));
     row(L.relStatus, r.status[lang] || r.status.en);
     const n = document.createElement("div");
@@ -2135,6 +2136,7 @@
       idx.push({ kind: "o", f, key: normQ(parts.join(" ")) });
     }
     for (const ev of histEvents) idx.push({ kind: "e", ev, key: normQ([ev.ru, ev.en, ev.ka, ev.date, ev.year].join(" ")) });
+    if (rulersData) for (const u of rulersData.rulers.concat(rulersData.states)) idx.push({ kind: "u", u, key: normQ([u.name.ru, u.name.en, u.name.ka, u.title ? u.title.ru + " " + u.title.en : "", Math.floor(u.from), Math.floor(u.to)].join(" ")) });
     for (const r of religious) idx.push({ kind: "r", r, key: normQ([r.name.ru, r.name.en, r.name.ka, r.date, t().relNames[r.rel], T.en.relNames[r.rel]].join(" ")) });
     return idx;
   }
@@ -2178,6 +2180,7 @@
       const li = document.createElement("li"), a = document.createElement("div"), b = document.createElement("div");
       b.className = "st";
       if (r.kind === "y") { a.textContent = "\u23F1 " + L.searchYear + " " + r.year; }
+      else if (r.kind === "u") { a.textContent = "\uD83D\uDC51 " + rText(r.u.name); b.textContent = [rText(r.u.title) || rText(rulersData.groups[r.u.grp || r.u.kind]), Math.floor(r.u.from) + "–" + Math.floor(r.u.to)].filter(Boolean).join(" · "); }
       else if (r.kind === "r") { a.textContent = "\u26EA " + (r.r.name[lang] || r.r.name.en); b.textContent = [L.relNames[r.r.rel], r.r.date, r.r.to ? L.relGone + " " + r.r.to : ""].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "e") { a.textContent = (EV_ICON[r.ev.cat] || EV_ICON.other) + " " + (r.ev[lang] || r.ev.en); b.textContent = r.ev.date + " \u00B7 " + (L.evCats[r.ev.cat] || ""); }
       else {
@@ -2214,11 +2217,17 @@
     let target = year;
     if (r.kind === "y") target = r.year;
     else if (r.kind === "e") target = r.ev.year;
+    else if (r.kind === "u") target = (year >= r.u.from && year < r.u.to) ? year : Math.floor(r.u.from);
     else if (r.kind === "r") target = (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
     else target = Math.max(year, r.f.properties.ye);
     year = target;
     update();
     if (r.kind === "e") { showHistEvent(r.ev); return; }
+    if (r.kind === "u") {
+      $("showRulers").checked = true; buildRulersBand(); updateRuleLine();
+      showRulerCard(r.u);
+      return;
+    }
     if (r.kind === "r") {
       $("showRel").checked = true; updateReligious();
       map.flyTo({ center: [r.r.lon, r.r.lat], zoom: Math.max(map.getZoom(), 16.5), duration: 1200 });
