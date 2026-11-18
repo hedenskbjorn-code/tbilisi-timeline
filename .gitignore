@@ -18,3 +18,7 @@ sk_*.npy
 
 # tram lines of the 1913 plan: unfinished experiment
 data/boundaries/tram_1913.geojson
+
+# local helper page for tracing
+site/dev_trace.html
+site/dev_trace.js
