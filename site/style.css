@@ -199,3 +199,10 @@ body.panel-open #yearchip { display:none; }
 #swl { transform:translateX(calc(-100% - 14px)); }
 #swr { transform:translateX(14px); }
 .swlab[hidden] { display:none; }
+
+/* place of a historical event: a pulsing ring */
+.evpulse { width:22px; height:22px; border-radius:50%; border:3px solid #d6336c; background:#d6336c33; box-shadow:0 0 0 0 #d6336c88; animation:evp 1.6s infinite; pointer-events:none; }
+@keyframes evp { 0% { box-shadow:0 0 0 0 #d6336c88; } 100% { box-shadow:0 0 0 22px #d6336c00; } }
+
+#how { margin-top:10px; font-size:12px; color:var(--muted); }
+#how summary { cursor:pointer; }

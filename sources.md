@@ -309,3 +309,7 @@ Streets: ka.wikipedia articles gave names and years for 11 more streets (data/st
 
 ## 2026-11-18: object card inside the free screen area
 Cards (popups) used to open under the slider or under an open side panel. showPopup() in site/app.js measures the free area (below the top bar, above the slider, between the open panels), moves the map by the missing pixels, gives a tall card its own scrollbar and fits again when its photos finish loading (ResizeObserver). Georgian filter title restored to 'ფილტრები და ფენები' (owner).
+
+## 2026-11-18: batch "do everything" (local, not published yet)
+Done: (1) the topographic map takes the place of the old plan from 1953 to 2005 (checkbox 'autoTopo'), so the swipe compares the topo map with today's map; (2) historical street-name labels on the map (site/data/street_geom.json from OSM ways, built by tools/build_street_labels.py; only the 19 checked streets/squares, the name of the year as a red label along the street); (3) events 1989 and 2015 have a place (pulsing ring + fly-to; Parliament building from the register, Heroes' Square from OSM); (4) timeline ends in 2026 (was 2025); (5) object permalink ?o=<register id>; (6) 'How to use' block, open on the first visit; (7) About text extended (transport, events and street names with the role of the AI, old photos, the 30 m photo rule).
+Not done yet: electric tram 1904-1962, gaps of the tram network, more verified old photos, area chart, data download (register extract rights), offline mode, OpenHistoricalMap/Allmaps (licence check first).
