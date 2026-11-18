@@ -6,6 +6,7 @@
   const FULL_KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
   const ZOOM_W = [0, 1000, 600, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
   let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
+  let runData = null;                                                  // the run route and its sights (data/run_trc2026.json), see addRun
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
   let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
   let searchIndex = null, searchRows = [], searchSel = -1;      // search (see the block "search" below)
@@ -106,6 +107,8 @@
       viewClose: "Закрыть",
       showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", lutheran: "Лютеранская", yazidi: "Езидская", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relApprox: "точка на карте приблизительная", relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
       showRulers: "Правители и формы власти (полоса под шкалой)", ruleNow: "Кто правил", ruleState: "Государство", ruleOver: "Внешняя власть", ruleAdmin: "Единица управления", ruleForm: "Форма власти", ruleYears: "Годы", ruleNoData: "нет данных",
+      showRun: "Tbilisi Running Club: маршрут City Run 2026 и что увидеть по пути (сегодняшний город)", runStats: (r, n) => `${r.length_km} км, высота ${r.ele_min}-${r.ele_max} м, ${n} достопримечательностей`, runKm: "Километр", runDist: "От трассы", runYear: "Дата по реестру", runWiki: "Википедия", runStart: "Старт и финиш", runList: "По порядку вдоль маршрута", runNote: "В список входят объекты данных сайта, чья точка лежит не дальше 150 м от трассы: национального значения, со статьёй в Википедии, церкви, мосты, театры, музеи, стены и крепости. Расстояние считается от точки объекта до линии трассы, поэтому крупные здания могут быть ближе. Это не проверка видимости.", runSrc: "Маршрут (геометрия)",
+      coaTitle: "Герб Тбилиси", coaCredit: "Герб Тбилиси: официальный символ города (мэрия Тбилиси), файл Seal of Tbilisi, Georgia.svg на Wikimedia Commons (векторная версия: Nesnad); по закону Грузии об авторском праве официальные гербы не охраняются (метка PD-GE-exempt). Сайт не связан с мэрией и не является официальным.",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -260,6 +263,8 @@
       viewClose: "Close",
       showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", lutheran: "Lutheran", yazidi: "Yazidi", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relApprox: "the point on the map is approximate", relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
       showRulers: "Rulers and forms of government (a band under the scale)", ruleNow: "Who ruled", ruleState: "State", ruleOver: "Outside power", ruleAdmin: "Administrative unit", ruleForm: "Form of rule", ruleYears: "Years", ruleNoData: "no data",
+      showRun: "Tbilisi Running Club: the City Run 2026 route and what to see on the way (today's city)", runStats: (r, n) => `${r.length_km} km, elevation ${r.ele_min}-${r.ele_max} m, ${n} sights`, runKm: "Kilometre", runDist: "From the route", runYear: "Date in the register", runWiki: "Wikipedia", runStart: "Start and finish", runList: "In order along the route", runNote: "The list holds the objects of the data of this site whose point lies within 150 m of the track: of national significance, with a Wikipedia article, churches, bridges, theatres, museums, walls and fortresses. The distance is from the point of the object to the line of the track, so large buildings may be closer. This is not a check of visibility.", runSrc: "Route (geometry)",
+      coaTitle: "Coat of arms of Tbilisi", coaCredit: "Coat of arms of Tbilisi: the official symbol of the city (Tbilisi City Hall), the file Seal of Tbilisi, Georgia.svg on Wikimedia Commons (vector version: Nesnad); under the Georgian law on copyright official coats of arms are not protected (the tag PD-GE-exempt). This site is not connected with the city hall and is not official.",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -415,6 +420,8 @@
       viewClose: "დახურვა",
       showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", lutheran: "ლუთერანული", yazidi: "ეზიდური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relApprox: "წერტილი რუკაზე მიახლოებითია", relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
       showRulers: "მმართველები და მმართველობის ფორმები (ზოლი სკალის ქვეშ)", ruleNow: "ვინ მართავდა", ruleState: "სახელმწიფო", ruleOver: "გარე ძალა", ruleAdmin: "ადმინისტრაციული ერთეული", ruleForm: "მმართველობის ფორმა", ruleYears: "წლები", ruleNoData: "მონაცემი არ არის",
+      showRun: "Tbilisi Running Club: City Run 2026-ის მარშრუტი და რა ჩანს გზაზე (დღევანდელი ქალაქი)", runStats: (r, n) => `${r.length_km} კმ, სიმაღლე ${r.ele_min}-${r.ele_max} მ, ${n} ღირსშესანიშნაობა`, runKm: "კილომეტრი", runDist: "ტრასიდან", runYear: "თარიღი რეესტრში", runWiki: "ვიკიპედია", runStart: "სტარტი და ფინიში", runList: "მარშრუტის გასწვრივ თანმიმდევრობით", runNote: "სიაში შედის საიტის მონაცემთა ობიექტები, რომელთა წერტილი ტრასიდან 150 მ-ს არ აცილდება: ეროვნული მნიშვნელობის, ვიკიპედიის სტატიით, ეკლესიები, ხიდები, თეატრები, მუზეუმები, გალავნები და ციხეები. მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა. ეს ხილვადობის შემოწმება არ არის.", runSrc: "მარშრუტი (გეომეტრია)",
+      coaTitle: "თბილისის გერბი", coaCredit: "თბილისის გერბი: ქალაქის ოფიციალური სიმბოლო (თბილისის მერია), ფაილი Seal of Tbilisi, Georgia.svg Wikimedia Commons-ზე (ვექტორული ვერსია: Nesnad); საქართველოს საავტორო უფლებების კანონის მიხედვით ოფიციალური გერბები დაცული არ არის (PD-GE-exempt). საიტი მერიასთან დაკავშირებული არ არის და ოფიციალური არ არის.",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -788,6 +795,7 @@
     document.title = t().title;
     if (typeof feedbackRefreshCtx === "function") feedbackRefreshCtx();
     $("title").textContent = t().title;
+    $("coa").title = t().coaTitle; $("coa").alt = t().coaTitle;
     $("lang").value = lang;
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
@@ -795,6 +803,7 @@
     updateSearchUi();
     updateRelUi();
     buildRulersBand();
+    updateRunUi();
     $("note").textContent = t().note(undated);
     buildTypes();
     buildAbout();
@@ -823,7 +832,7 @@
   function buildAbout() {
     const box = $("abouttext");
     box.textContent = "";
-    for (const para of t().about) {
+    for (const para of t().about.concat(t().coaCredit)) {
       const p = document.createElement("p");
       p.className = "small";
       p.textContent = para;
@@ -1798,6 +1807,7 @@
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
+    try { runData = await getJSON("data/run_trc2026.json", 1); addRun(); } catch (e) { console.error("run", e && e.message); runData = null; }
     try { rulersData = await getJSON("data/rulers.json", 1); buildRulersBand(); updateRuleLine(); } catch (e) { console.error("rulers", e && e.message); rulersData = null; }
     try { religious = await getJSON("data/religious.json", 1); addReligious(); } catch (e) { console.error("religious", e && e.message); religious = []; }
     try { c94 = await getJSON("data/city1894.json", 2); addC94(); } catch (e) { console.error("c94", e && e.message); c94 = null; }
@@ -1890,7 +1900,7 @@
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showRulers", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
@@ -1985,6 +1995,89 @@
     else zoomBy(e.deltaY < 0 ? 1 : -1);
   }, { passive: false });
   updateZoomUi();
+
+  // the route of a run (TRC City Run 2026) and the architectural sights near it: a separate layer, independent of the year (the city of today)
+  const RUN_COLOR = "#d9480f";
+  function runGeo() {
+    const feats = [{ type: "Feature", geometry: { type: "LineString", coordinates: runData.route.coords }, properties: { k: "line" } }];
+    for (const s of runData.sights) feats.push({ type: "Feature", geometry: { type: "Point", coordinates: [s.lon, s.lat] }, properties: { k: "sight", n: s.n, label: s.name[lang] || s.name.en } });
+    feats.push({ type: "Feature", geometry: { type: "Point", coordinates: runData.route.coords[0] }, properties: { k: "start" } });
+    return { type: "FeatureCollection", features: feats };
+  }
+  function addRun() {
+    if (!runData || map.getSource("run")) return;
+    map.addSource("run", { type: "geojson", data: runGeo() });
+    const only = (k) => ["==", ["get", "k"], k];
+    map.addLayer({ id: "run-casing", type: "line", source: "run", filter: only("line"), layout: { visibility: "none", "line-join": "round", "line-cap": "round" }, paint: { "line-color": "#ffffff", "line-width": 8, "line-opacity": 0.85 } });
+    map.addLayer({ id: "run-line", type: "line", source: "run", filter: only("line"), layout: { visibility: "none", "line-join": "round", "line-cap": "round" }, paint: { "line-color": RUN_COLOR, "line-width": 4.5 } });
+    map.addLayer({ id: "run-start", type: "circle", source: "run", filter: only("start"), layout: { visibility: "none" }, paint: { "circle-radius": 9, "circle-color": "#2b8a3e", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2.5 } });
+    map.addLayer({ id: "run-pt", type: "circle", source: "run", filter: only("sight"), layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 9, 15, 11, 17, 14], "circle-color": RUN_COLOR, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: "run-num", type: "symbol", source: "run", filter: only("sight"), layout: { visibility: "none", "text-field": ["to-string", ["get", "n"]], "text-font": ["Noto Sans Bold"], "text-size": ["interpolate", ["linear"], ["zoom"], 12, 11, 17, 14], "text-allow-overlap": true, "text-ignore-placement": true }, paint: { "text-color": "#ffffff" } });
+    map.addLayer({ id: "run-lb", type: "symbol", source: "run", minzoom: 15.2, filter: only("sight"), layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 11.5, "text-offset": [0, 1.4], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#7a2e08", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    map.on("click", "run-pt", (e) => {
+      const f = e.features && e.features[0], s = f && runData.sights.find((x) => x.n === f.properties.n);
+      if (s) popupRunSight(s, e.lngLat);
+    });
+    map.on("click", "run-line", (e) => { if (!map.queryRenderedFeatures(e.point, { layers: ["run-pt"] }).length) showRunCard(); });
+    for (const id of ["run-pt", "run-line"]) {
+      map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
+      map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
+    }
+    updateRun(false);
+  }
+  function updateRun(fit) {
+    if (!map.getLayer("run-line")) return;
+    const on = $("showRun").checked;
+    for (const id of ["run-casing", "run-line", "run-start", "run-pt", "run-num", "run-lb"]) map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+    if (on) {                                        // above the dots of the register objects, but not above the other layers
+      const ids = ["run-casing", "run-line", "run-start", "run-pt", "run-num", "run-lb"], order = map.getStyle().layers.map((l) => l.id).filter((id) => !ids.includes(id));
+      const at = order.indexOf("mon"), before = at >= 0 ? order[at + 1] : undefined;
+      for (const id of ids) map.moveLayer(id, before);
+    }
+    if (on && fit) {
+      const c = runData.route.coords, b = new maplibregl.LngLatBounds(c[0], c[0]);
+      for (const p of c) b.extend(p);
+      map.fitBounds(b, { padding: { top: 90, bottom: 190, left: 330, right: 300 }, maxZoom: 15.6, duration: 900 });
+    }
+  }
+  function updateRunUi() {
+    const box = $("runLegend");
+    if (box) box.textContent = runData ? t().runStats(runData.route, runData.sights.length) : "";
+    const src = map && map.getSource && map.getSource("run");
+    if (src && runData) src.setData(runGeo());
+  }
+  function wikiLink(s) {
+    const l = s.wp[lang] ? lang : s.wp.en ? "en" : s.wp.ru ? "ru" : s.wp.ka ? "ka" : null;
+    return l ? "https://" + l + ".wikipedia.org/wiki/" + encodeURIComponent(s.wp[l].replace(/ /g, "_")) : null;
+  }
+  function popupRunSight(s, lngLat) {
+    const L = t(), el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = s.n + ". " + (s.name[lang] || s.name.en);
+    el.appendChild(h3);
+    const row = (k, v) => { if (v === null || v === undefined || v === "") return; const d = document.createElement("div"), kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; d.appendChild(kk); d.appendChild(document.createTextNode(v)); el.appendChild(d); };
+    row(L.runKm, String(s.km).replace(".", ","));
+    row(L.runDist, s.d + " " + (lang === "ru" ? "м" : lang === "ka" ? "მ" : "m"));
+    row(L.runYear, s.year ? "\u2248 " + s.year : "");
+    const u = wikiLink(s);
+    if (u) { const d = document.createElement("div"), a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = L.runWiki; d.appendChild(a); el.appendChild(d); }
+    showPopup("300px", lngLat, el);
+  }
+  function showRunCard() {
+    const L = t(), r = runData.route;
+    openInfo((body) => {
+      infoLine(body, "Tbilisi Running Club · TRC City Run 2026 \u00B7 " + L.runStats(r, runData.sights.length), "small");
+      infoLine(body, L.runList + ":", "");
+      for (const s of runData.sights) infoLine(body, s.n + ". " + String(s.km).replace(".", ",") + " " + (lang === "ru" ? "км" : lang === "ka" ? "კმ" : "km") + " \u00B7 " + (s.name[lang] || s.name.en) + " \u00B7 " + s.d + " " + (lang === "ru" ? "м" : lang === "ka" ? "მ" : "m"), "small");
+      infoLine(body, L.runNote);
+      infoLine(body, L.runSrc + ":");
+      const d = document.createElement("div"), a = document.createElement("a");
+      d.className = "small"; a.href = r.src; a.target = "_blank"; a.rel = "noopener"; a.textContent = r.src.replace("https://", "");
+      d.appendChild(a); body.appendChild(d);
+    });
+  }
+  $("showRun").addEventListener("change", () => updateRun($("showRun").checked));
 
   // forms of state and rulers over Tbilisi: a band under the time scale (two rows with up to two lanes each), a line "who ruled" in the side panel, a card on a click
   const RULE_LANE_H = 13;
