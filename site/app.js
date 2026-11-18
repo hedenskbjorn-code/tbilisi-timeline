@@ -131,6 +131,7 @@
         "«Шторка»: слева от белой полосы старый план или топокарта, справа сегодняшняя карта. «Что было здесь»: клик по карте показывает эту точку на всех старых планах.",
         "Окна «Справка» и «Фильтры» можно скрыть кнопками вверху.",
       ],
+      roadLabels: "Названия современных улиц поверх старого плана",
       btnInfo: "Справка", btnFilters: "Фильтры", filtersTitle: "Фильтры и слои",
       stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
       stNow: "сейчас",
@@ -268,6 +269,7 @@
         "Swipe: left of the white bar is the old plan or topographic map, right of it today's map. What was here: a click on the map shows that point on every old plan.",
         "The Info and Filters windows can be hidden with the buttons at the top.",
       ],
+      roadLabels: "Names of present-day streets over the old plan",
       btnInfo: "Info", btnFilters: "Filters", filtersTitle: "Filters and layers",
       stTitle: "Street names in this year (checked against Wikipedia)",
       stNow: "today",
@@ -404,6 +406,7 @@
         "შედარება: თეთრი ზოლის მარცხნივ ძველი გეგმა ან ტოპორუკაა, მარჯვნივ დღევანდელი რუკა. «რა იყო აქ»: რუკაზე დაწკაპუნება ამ წერტილს ყველა ძველ გეგმაზე აჩვენებს.",
         "«ცნობა» და «ფილტრები» ფანჯრების დამალვა ზედა ღილაკებით შეიძლება.",
       ],
+      roadLabels: "დღევანდელი ქუჩების სახელები ძველი გეგმის თავზე",
       btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფენები",
       stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
       stNow: "დღეს",
@@ -822,17 +825,35 @@
     }
     src.setData({ type: "FeatureCollection", features: feats });
   }
+  // the road-name labels of the basemap lie under the old plan; they can be lifted above it (below the object dots)
+  const ROAD_LABELS = ["highway-name-path", "highway-name-minor", "highway-name-major"];
+  let roadOrigin = null;
+  function updateRoadLabels() {
+    const ids = ROAD_LABELS.filter((id) => map.getLayer(id));
+    if (!ids.length) return;
+    if (!roadOrigin) {
+      const order = map.getStyle().layers.map((l) => l.id);
+      roadOrigin = ids.map((id) => [id, order[order.indexOf(id) + 1]]);
+    }
+    if ($("roadLabels").checked) {
+      const before = map.getLayer("mon") ? "mon" : undefined;
+      for (const id of ids) map.moveLayer(id, before);
+    } else {
+      for (const [id, next] of roadOrigin) if (map.getLayer(id)) map.moveLayer(id, next);
+    }
+  }
   function addStLabelsLayer() {
     if (map.getSource("stlabels")) return;
     map.addSource("stlabels", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-    const paint = { "text-color": "#8b0a0a", "text-halo-color": "#fffffff2", "text-halo-width": 2.6 };
+    const paint = { "text-color": "#8b0a0a", "text-halo-color": "#ffffff", "text-halo-width": 3.2 };
     map.addLayer({ id: "stl-line", type: "symbol", source: "stlabels", filter: ["!=", ["geometry-type"], "Point"],
-                   layout: { "symbol-placement": "line", "text-field": ["get", "t"], "text-font": ["Noto Sans Regular"], "text-size": 14, "text-letter-spacing": 0.05, "text-max-angle": 40, "symbol-spacing": 350, "text-allow-overlap": true, "text-ignore-placement": true }, paint });
+                   layout: { "symbol-placement": "line", "text-field": ["get", "t"], "text-font": ["Noto Sans Bold"], "text-size": 16, "text-letter-spacing": 0.04, "text-max-angle": 40, "symbol-spacing": 350, "text-allow-overlap": true, "text-ignore-placement": true }, paint });
     map.addLayer({ id: "stl-pt", type: "symbol", source: "stlabels", filter: ["==", ["geometry-type"], "Point"],
-                   layout: { "text-field": ["get", "t"], "text-font": ["Noto Sans Regular"], "text-size": 13, "text-anchor": "center", "text-allow-overlap": true, "text-ignore-placement": true }, paint });
+                   layout: { "text-field": ["get", "t"], "text-font": ["Noto Sans Bold"], "text-size": 15, "text-anchor": "center", "text-allow-overlap": true, "text-ignore-placement": true }, paint });
   }
   function updateStNames() {
     updateStLabelsLayer();
+    updateRoadLabels();
     const box = $("stnames");
     if (!box) return;
     const L = t(), rows = [];
@@ -1563,7 +1584,7 @@
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
