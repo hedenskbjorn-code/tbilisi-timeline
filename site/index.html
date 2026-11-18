@@ -14,10 +14,14 @@
 </head>
 <body>
 <div id="map"></div>
+<div id="map2" aria-hidden="true"></div>
+<div id="swipebar" hidden><div class="knob">⇄</div></div>
+<div id="swl" class="swlab" hidden></div><div id="swr" class="swlab" hidden></div>
 <div id="yearchip"></div>
 
 <header id="top">
-  <button id="menu" class="chip" aria-label="menu" aria-expanded="false">☰</button>
+  <button id="btnInfo" class="chip" data-i="btnInfo" aria-pressed="true"></button>
+  <button id="btnFilters" class="chip" data-i="btnFilters" aria-pressed="true"></button>
   <h1 id="title"></h1>
   <div class="spacer"></div>
   <button id="fbOpen" class="chip" data-i="fbBtn"></button>
@@ -25,6 +29,7 @@
 </header>
 
 <aside id="side">
+  <button class="pclose" data-panel="info" aria-label="close">×</button>
   <div id="yearbox">
     <div id="year">1887</div>
     <div id="count"></div>
@@ -32,20 +37,43 @@
   <div id="planline"></div>
   <div id="bndline"></div>
   <div id="arealine"></div>
+  <div id="trevents" class="small" hidden></div>
+  <div id="stnames" class="small" hidden></div>
   <div id="viewsline" hidden></div>
   <details id="distinfo"><summary id="distsum"></summary><div id="distbody"></div></details>
 
+  <p id="note" class="small"></p>
+  <details id="about"><summary data-i="aboutTitle"></summary><div id="abouttext"></div></details>
+</aside>
+<aside id="filters">
+  <div class="phead"><span data-i="filtersTitle"></span><button class="pclose" data-panel="filters" aria-label="close">×</button></div>
   <label class="row"><input type="checkbox" id="showPlan" checked> <span data-i="showPlan"></span></label>
   <label class="row col">
     <span data-i="planOpacity"></span> <output id="opv">65%</output>
     <input type="range" id="op" min="0" max="100" value="65">
   </label>
+  <label class="row"><input type="checkbox" id="showTopo"> <span data-i="showTopo"></span></label>
+  <div class="row col" id="topobox" hidden>
+    <select id="topoSel" class="chip" aria-label="topo">
+      <option value="t2">1:2 000 · городской план / city plan (z17)</option>
+      <option value="t10">1:10 000 · 1952–2007</option>
+      <option value="t25" selected>1:25 000 · 1953–2004</option>
+      <option value="t50">1:50 000 · 1973–1990</option>
+      <option value="t100">1:100 000 · 1978–1990</option>
+    </select>
+    <input type="range" id="topoOp" min="0" max="100" value="80" aria-label="opacity">
+    <div class="small" data-i="topoNote"></div>
+  </div>
   <label class="row"><input type="checkbox" id="showBnd" checked> <span data-i="showBnd"></span></label>
   <label class="row"><input type="checkbox" id="showAdmin" checked> <span data-i="showAdmin"></span></label>
   <label class="row"><input type="checkbox" id="showDistricts" checked> <span data-i="showDistricts"></span></label>
   <label class="row"><input type="checkbox" id="showSettle" checked> <span data-i="showSettle"></span></label>
   <label class="row"><input type="checkbox" id="showWater" checked> <span data-i="showWater"></span></label>
   <label class="row"><input type="checkbox" id="showDensity" checked> <span data-i="showDensity"></span></label>
+  <label class="row"><input type="checkbox" id="showTransport" checked> <span data-i="showTransport"></span></label>
+  <label class="row"><input type="checkbox" id="showStreets"> <span data-i="showStreets"></span></label>
+  <label class="row"><input type="checkbox" id="showSwipe"> <span data-i="showSwipe"></span></label>
+  <label class="row"><input type="checkbox" id="showHere"> <span data-i="showHere"></span></label>
   <label class="row"><input type="checkbox" id="showLost" checked> <span data-i="showLost"></span></label>
   <label class="row sub"><input type="checkbox" id="showGhost"> <span data-i="showGhost"></span></label>
   <div id="tiers"><div class="small tiers-title" data-i="showFilter"></div>
@@ -66,6 +94,7 @@
       <div><i class="dot coarse"></i><span data-i="legCoarse"></span></div>
       <div><i class="dot ruin"></i><span data-i="legRuin"></span></div>
       <div><i class="sw sw-density"></i><span data-i="legDensity"></span></div>
+      <div><i class="sw sw-transport"></i><span data-i="legTransport"></span></div>
       <div><i class="sw sw-water"></i><span data-i="legWater"></span></div>
       <div><i class="sw sw-lake"></i><span data-i="legLake"></span></div>
       <div><i class="dot lost-on"></i><span data-i="legLostOn"></span></div>
@@ -87,8 +116,6 @@
       <div><span class="lg-label lg-settle">Kojori</span><span data-i="legSetName"></span></div>
     </div>
   </details>
-  <p id="note" class="small"></p>
-  <details id="about"><summary data-i="aboutTitle"></summary><div id="abouttext"></div></details>
 </aside>
 
 <footer id="bottom">
@@ -96,6 +123,7 @@
   <div id="sliderwrap">
     <input type="range" id="slider" min="0" max="1000" step="1" value="850">
     <div id="ticks"></div>
+    <div id="evmarks"></div>
   </div>
 </footer>
 

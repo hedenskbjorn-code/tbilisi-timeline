@@ -36,7 +36,8 @@
         "Объекты: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство по сохранению культурного наследия). Письменной открытой лицензии на эти данные найти не удалось; в некоммерческих целях используется сокращённая выборка (название, адрес, координаты, даты, номер). Даты — оценка по записям реестра.",
         "Планы Тифлиса 1735 (Вахушти, схематичный), 1785 (Пищевич), 1800 (Чуйко), 1821 (Швецов), 1844 (Военно-топографическое депо), 1850 (Генеральный штаб), 1887 (А. Ильин) 1911 (топографический лист окрестностей) и 1913 (землемерный отдел городской управы): сканы Wikimedia Commons, общественное достояние. Планы привязаны к современной карте по контрольным точкам (точность около 50 м, у плана 1735 года около 150 м), границы застройки обведены по ним вручную.",
         "Исторические виды Тифлиса (1578–1910-е): миниатюра «Нусрет-наме» (British Library), гравюры по рисункам Шардена и Турнефора, картины Чернецова, Лермонтова, Франкена и Айвазовского, фотографии Ермакова и Прокудина-Горского; файлы Wikimedia Commons, общественное достояние; уменьшенные копии. Это рисунки и снимки с одной точки, к карте они не привязаны.",
-        "Приватность: страница не использует cookie и аналитику; в браузере хранится только выбранный язык. При открытии браузер обращается к tiles.openfreemap.org (подложка карты) и к wikimedia.org (превью фотографий), поэтому им виден адрес посетителя. Форма обратной связи через GitHub создаёт публичный Issue.",
+        "Топографические карты (слой «Топокарта Генштаба»): серии 1:10 000–1:100 000 издания 1952–2007 годов, открытые тайлы Национального агентства публичного реестра Грузии (maps.gov.ge, район Тбилиси, плюс городской план 1:2 000); тайлы района Тбилиси скачаны в ноябре 2026 года и лежат на этом сайте; карты принадлежат агентству.",
+        "Приватность: страница не использует cookie и аналитику; в браузере хранится только выбранный язык и состояние панелей. При открытии браузер обращается к tiles.openfreemap.org (подложка карты) и к wikimedia.org (превью фотографий), поэтому им виден адрес посетителя. Форма обратной связи через GitHub создаёт публичный Issue.",
         "Плотность застройки: доля площади, занятая контурами зданий OpenStreetMap (© участники OpenStreetMap, ODbL), в ячейках около 100×100 м; это состояние на момент выгрузки (ноябрь 2026), у зданий в OSM нет годов постройки, поэтому слой показывается только для современных лет.",
         "Административная граница Тбилиси (2019): OCHA COD-AB Georgia (HDX), источник — Национальная статистическая служба Грузии, лицензия CC BY-IGO. Площадь 502,5 км² совпадает с данными диссертации для периода после 2006 года.",
         "Границы районов и их названия: © участники OpenStreetMap, лицензия ODbL (этот набор данных — производная база; при повторном использовании сохраняйте ту же лицензию и атрибуцию). Показано современное деление на 10 районов.",
@@ -101,10 +102,33 @@
       fbContactWarn: "Внимание: при отправке через GitHub контакт попадёт в публичный Issue и будет виден всем. Не указывайте то, что не хотите публиковать.",
       infoBtn: "Источники и подробности",
       infoTitle: "Источники и подробности",
+      evCats: { invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", other: "Событие" },
+      evSrc: "Источники",
+      evNote: "Дата и подробности из статей Википедии (en, ru).",
       infoRegister: "Данные объекта: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство сохранения культурного наследия), сокращённая выжимка для некоммерческого использования. Условия и полный список источников: «О проекте и источниках» на боковой панели.",
       infoPhotos: "Фотографии",
       showDensity: "Плотность застройки (OSM, сейчас)",
       legDensity: "Плотность застройки по зданиям OSM (с 2015): светлее — реже, тёмно-красный — очень плотно",
+      showTransport: "Транспорт: метро, ж/д, фуникулёр, проспекты",
+      legTransport: "Транспорт по годам: метро (красная линия Ахметели — Варкетили, зелёная Сабурталинская), проспекты и мосты (оранжевый и синий), конка 1883–1910 (коричневая), железная дорога (серый), фуникулёр и канатная дорога (фиолетовый пунктир)",
+      trKinds: { metro_line: "линия метро", metro_station: "станция метро", railway: "железная дорога", funicular: "фуникулёр", cablecar: "канатная дорога", avenue: "проспект", bridge: "мост", tram: "конка (конный трамвай)" },
+      trPeriod: (a, b, c, d) => "с " + a + (b < 9999 ? " до " + b : "") + (c > 0 ? ", затем с " + c + (d < 9999 ? " до " + d : "") : ""),
+      trEvents: "Транспорт и дороги в эти годы",
+      showTopo: "Топокарта Генштаба (НАПР, Грузия) поверх карты",
+      topoNote: "Советские топокарты разных изданий (издания указаны в списке); открытые тайлы maps.gov.ge (район Тбилиси). Участки листов могут быть разных лет.",
+      swLeft: "старый план (слева от полосы)", swRight: "современная карта (справа)",
+      btnInfo: "Справка", btnFilters: "Фильтры", filtersTitle: "Фильтры и слои",
+      stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
+      stNow: "сейчас",
+      stMore: "Названия по годам известны не для всех улиц.",
+      showStreets: "Улицы по плану 1913 г. (проба, автоматическая обводка)",
+      showSwipe: "Шторка: слева старый план, справа современная карта (двигай полосу)",
+      showHere: "Что было здесь: клик по карте показывает эту точку на всех планах",
+      hereTitle: "Эта точка на старых планах",
+      hereLoad: "Планы загружаются по очереди…",
+      hereNone: "Эта точка за пределами всех планов.",
+      hereAcc: (m) => "точность привязки ±" + m + " м",
+      hereNote: "Окно около 260 м. Каждый план привязан к карте со своей погрешностью, поэтому сдвиг в десятки метров возможен.",
       typesTitle: "Назначение (сейчас — по названию, иначе по реестру)", func: "Современное назначение (по названию)", func0: "Первоначальное назначение (по реестру)", wiki: "Статья в Википедии",
       types: { residential: "Жилые дома", religious: "Религиозные", defense: "Оборонительные", culture: "Образование, наука, культура",
                public: "Общественные и торговые", transport: "Транспорт и инженерия", memorial: "Мемориалы и парки", rural: "Археология и сельское", other: "Прочие" },
@@ -135,7 +159,8 @@
         "Objects: public information from the register of immovable cultural heritage of Georgia (National Agency for Cultural Heritage Preservation). No written open licence for this data could be found; a reduced extract (name, address, coordinates, dates, number) is used for non-commercial purposes. Dates are estimated from register records.",
         "Plans of Tiflis, 1735 (Vakhushti, schematic), 1785 (Pishchevich), 1800 (Chuiko), 1821 (Shvetsov), 1844 (Military Topographic Depot), 1850 (General Staff), 1887 (A. Ilyin) 1911 (topographic sheet of the environs) and 1913 (city survey department): scans from Wikimedia Commons, public domain. The plans are registered to the modern map with control points (accuracy about 50 m, about 150 m for 1735) and the built-up outlines are traced by hand from them.",
         "Historical views of Tiflis (1578 to the 1910s): a miniature from the Nusretname (British Library), engravings after drawings by Chardin and Tournefort, paintings by Chernetsov, Lermontov, Franken and Aivazovsky, photographs by Yermakov and Prokudin-Gorsky; Wikimedia Commons files, public domain; reduced copies. They are drawings and photographs from a single viewpoint and are not tied to the map.",
-        "Privacy: the page uses no cookies or analytics; only the chosen language is stored in the browser. On loading, the browser contacts tiles.openfreemap.org (basemap) and wikimedia.org (photo previews), so these services can see the visitor's address. The feedback form through GitHub creates a public Issue.",
+        "Topographic maps (the General Staff topo layer): 1:10 000 to 1:100 000 series, editions 1952-2007, open tiles of the National Agency of Public Registry of Georgia (maps.gov.ge); tiles of the Tbilisi area were downloaded in November 2026 and are served from this site; the maps belong to the agency.",
+        "Privacy: the page uses no cookies or analytics; only the chosen language and the state of the panels are stored in the browser. On loading, the browser contacts tiles.openfreemap.org (basemap) and wikimedia.org (photo previews), so these services can see the visitor's address. The feedback form through GitHub creates a public Issue.",
         "Building density: the share of ground covered by OpenStreetMap building footprints (© OpenStreetMap contributors, ODbL) in cells of about 100×100 m; it shows the state at the time of export (November 2026); OSM buildings have no construction years, so the layer is shown only for recent years.",
         "Administrative boundary of Tbilisi (2019): OCHA COD-AB Georgia (HDX), source: National Statistics Office of Georgia, licence CC BY-IGO. Its area of 502.5 km² matches the thesis figure for the period after 2006.",
         "District boundaries and names: © OpenStreetMap contributors, ODbL (this dataset is a derived database; keep the same licence and attribution if you reuse it). The current division into 10 districts is shown.",
@@ -200,10 +225,33 @@
       fbContactWarn: "Note: when sent through GitHub, the contact goes into a public Issue and is visible to everyone. Leave it empty if you do not want that.",
       infoBtn: "Sources and details",
       infoTitle: "Sources and details",
+      evCats: { invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", other: "Event" },
+      evSrc: "Sources",
+      evNote: "Date and details from Wikipedia articles (en, ru).",
       infoRegister: "Object data: public records of the register of immovable cultural heritage monuments of Georgia (National Agency for Cultural Heritage Preservation), a reduced extract for non-commercial use. Terms and the full list of sources: “About and sources” in the side panel.",
       infoPhotos: "Photographs",
       showDensity: "Building density (OSM, today)",
       legDensity: "Building density from OSM footprints (from 2015): lighter is sparser, dark red is very dense",
+      showTransport: "Transport: metro, railway, funicular, avenues",
+      legTransport: "Transport by year: metro (red Akhmeteli-Varketili line, green Saburtalo line), avenues and bridges (orange and blue), horse tram 1883-1910 (brown), railway (grey), funicular and cable car (violet dashes)",
+      trKinds: { metro_line: "metro line", metro_station: "metro station", railway: "railway", funicular: "funicular", cablecar: "cable car", avenue: "avenue", bridge: "bridge", tram: "horse tram (konka)" },
+      trPeriod: (a, b, c, d) => "from " + a + (b < 9999 ? " until " + b : "") + (c > 0 ? ", then from " + c + (d < 9999 ? " until " + d : "") : ""),
+      trEvents: "Transport and roads in these years",
+      showTopo: "General Staff topographic map (NAPR, Georgia) over the map",
+      topoNote: "Soviet topographic maps of various editions (the editions are in the list); open tiles of maps.gov.ge (Tbilisi area). Parts of a sheet can be from different years.",
+      swLeft: "old plan (left of the bar)", swRight: "today's map (right)",
+      btnInfo: "Info", btnFilters: "Filters", filtersTitle: "Filters and layers",
+      stTitle: "Street names in this year (checked against Wikipedia)",
+      stNow: "today",
+      stMore: "Names by year are known only for some streets (historic names are given in Russian as in the sources).",
+      showStreets: "Streets on the 1913 plan (experiment, automatic trace)",
+      showSwipe: "Swipe: old plan on the left, today's map on the right (drag the bar)",
+      showHere: "What was here: click the map to see that point on every plan",
+      hereTitle: "This point on the old plans",
+      hereLoad: "Plans are loading one by one…",
+      hereNone: "This point is outside every plan.",
+      hereAcc: (m) => "georeferencing accuracy ±" + m + " m",
+      hereNote: "The window is about 260 m wide. Every plan is fitted to the map with its own error, so a shift of tens of metres is possible.",
       typesTitle: "Use (today — by name, otherwise per register)", func: "Present-day use (by name)", func0: "Original function (per register)", wiki: "Wikipedia article",
       types: { residential: "Residential houses", religious: "Religious", defense: "Defensive", culture: "Education, science, culture",
                public: "Public and commercial", transport: "Transport and engineering", memorial: "Memorials and parks", rural: "Archaeology and rural", other: "Other" },
@@ -235,7 +283,8 @@
         "ობიექტები: საქართველოს უძრავი კულტურული მემკვიდრეობის ძეგლთა რეესტრის საჯარო ინფორმაცია (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო). ამ მონაცემებისთვის წერილობითი ღია ლიცენზია ვერ მოიძებნა; არაკომერციული მიზნით გამოყენებულია შემოკლებული ამონარიდი (სახელწოდება, მისამართი, კოორდინატები, თარიღები, ნომერი). თარიღები რეესტრის ჩანაწერებზე დაფუძნებული შეფასებაა.",
         "ტფილისის გეგმები, 1735 (ვახუშტი, სქემატური), 1785 (პიშჩევიჩი), 1800 (ჩუიკო), 1821 (შვეცოვი), 1844 (სამხედრო-ტოპოგრაფიული დეპო), 1850 (გენშტაბი), 1887 (ა. ილინი) 1911 (შემოგარენის ტოპოგრაფიული ფურცელი) და 1913 (საქალაქო სამმართველოს მიწისმზომელთა განყოფილება): Wikimedia Commons-ის სკანები, საჯარო სივრცე. გეგმები თანამედროვე რუკაზე მიბმულია საკონტროლო წერტილებით (სიზუსტე დაახლოებით 50 მ, 1735 წლის გეგმისთვის დაახლოებით 150 მ), განაშენიანების საზღვრები მათ მიხედვით ხელით არის დატანილი.",
         "ტფილისის ისტორიული ხედები (1578–1910-იანი წლები): „ნუსრეთნამეს“ მინიატურა (British Library), გრავიურები შარდენისა და ტურნეფორის ნახატებით, ჩერნეცოვის, ლერმონტოვის, ფრანკენისა და აივაზოვსკის ნახატები, ერმაკოვისა და პროკუდინ-გორსკის ფოტოები; Wikimedia Commons-ის ფაილები, საჯარო სივრცე; შემცირებული ასლები. ესენი ერთი წერტილიდან შესრულებული ნახატები და ფოტოებია და რუკას არ უკავშირდება.",
-        "კონფიდენციალურობა: გვერდი არ იყენებს cookie-ს და ანალიტიკას; ბრაუზერში მხოლოდ არჩეული ენა ინახება. ჩატვირთვისას ბრაუზერი მიმართავს tiles.openfreemap.org-ს (რუკის ფონი) და wikimedia.org-ს (ფოტოების გადახედვა), ამიტომ ამ სერვისებს ეხილვებათ სტუმრის მისამართი. GitHub-ით გაგზავნილი უკუკავშირი საჯარო Issue-ს ქმნის.",
+        "ტოპოგრაფიული რუკები (გენშტაბის ტოპორუკის ფენა): 1:10 000–1:100 000 სერიები, 1952–2007 წლების გამოცემები, საჯარო ტაილები საქართველოს საჯარო რეესტრის ეროვნული სააგენტოსგან (maps.gov.ge); თბილისის ტერიტორიის ტაილები გადმოწერილია 2026 წლის ნოემბერში და ინახება ამ საიტზე; რუკები სააგენტოს ეკუთვნის.",
+        "კონფიდენციალურობა: გვერდი არ იყენებს cookie-ს და ანალიტიკას; ბრაუზერში მხოლოდ არჩეული ენა და პანელების მდგომარეობა ინახება. ჩატვირთვისას ბრაუზერი მიმართავს tiles.openfreemap.org-ს (რუკის ფონი) და wikimedia.org-ს (ფოტოების გადახედვა), ამიტომ ამ სერვისებს ეხილვებათ სტუმრის მისამართი. GitHub-ით გაგზავნილი უკუკავშირი საჯარო Issue-ს ქმნის.",
         "განაშენიანების სიმჭიდროვე: OpenStreetMap-ის შენობების კონტურებით დაკავებული ფართობის წილი (© OpenStreetMap contributors, ODbL), დაახლოებით 100×100 მ უჯრედებში; ნაჩვენებია ექსპორტის მომენტის მდგომარეობა (2026 წლის ნოემბერი); OSM-ის შენობებს აგების წლები არ აქვს, ამიტომ ფენა მხოლოდ თანამედროვე წლებისთვის ჩანს.",
         "თბილისის ადმინისტრაციული საზღვარი (2019): OCHA COD-AB Georgia (HDX), წყარო — საქართველოს სტატისტიკის ეროვნული სამსახური, ლიცენზია CC BY-IGO. ფართობი 502,5 კმ² ემთხვევა დისერტაციის მონაცემს 2006 წლის შემდგომი პერიოდისთვის.",
         "რაიონების საზღვრები და სახელები: © OpenStreetMap-ის მონაწილეები, ლიცენზია ODbL (ეს მონაცემთა ნაკრები წარმოებული ბაზაა; გამოყენებისას შეინარჩუნეთ იგივე ლიცენზია და ატრიბუცია). ნაჩვენებია 10 რაიონად დღევანდელი დაყოფა.",
@@ -298,10 +347,33 @@
       fbContactWarn: "ყურადღება: GitHub-ის გავლით გაგზავნისას კონტაქტი საჯარო Issue-ში მოხვდება და ყველას დაენახება. თუ არ გსურთ, ნუ მიუთითებთ.",
       infoBtn: "წყაროები და დეტალები",
       infoTitle: "წყაროები და დეტალები",
+      evCats: { invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", other: "მოვლენა" },
+      evSrc: "წყაროები",
+      evNote: "თარიღი და დეტალები ვიკიპედიის სტატიებიდან (en, ru).",
       infoRegister: "ობიექტის მონაცემები: საქართველოს კულტურული მემკვიდრეობის უძრავი ძეგლების რეესტრის საჯარო ცნობები (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო), შემოკლებული ამონარიდი არაკომერციული გამოყენებისთვის. პირობები და წყაროების სრული სია: „პროექტის შესახებ და წყაროები“ გვერდით პანელში.",
       infoPhotos: "ფოტოები",
       showDensity: "განაშენიანების სიმჭიდროვე (OSM, დღეს)",
       legDensity: "განაშენიანების სიმჭიდროვე OSM-ის შენობების მიხედვით (2015-დან): ღია — იშვიათი, მუქი წითელი — ძალიან მჭიდრო",
+      showTransport: "ტრანსპორტი: მეტრო, რკინიგზა, ფუნიკულიორი, გამზირები",
+      legTransport: "ტრანსპორტი წლების მიხედვით: მეტრო (წითელი ახმეტელი-ვარკეთილის ხაზი, მწვანე საბურთალოს ხაზი), გამზირები და ხიდები (ნარინჯისფერი და ლურჯი), კონკა 1883–1910 (ყავისფერი), რკინიგზა (ნაცრისფერი), ფუნიკულიორი და საბაგირო (იისფერი პუნქტირი)",
+      trKinds: { metro_line: "მეტროს ხაზი", metro_station: "მეტროს სადგური", railway: "რკინიგზა", funicular: "ფუნიკულიორი", cablecar: "საბაგირო", avenue: "გამზირი", bridge: "ხიდი", tram: "კონკა (ცხენის ტრამვაი)" },
+      trPeriod: (a, b, c, d) => a + "-დან" + (b < 9999 ? " " + b + "-მდე" : "") + (c > 0 ? ", შემდეგ " + c + "-დან" + (d < 9999 ? " " + d + "-მდე" : "") : ""),
+      trEvents: "ტრანსპორტი და გზები ამ წლებში",
+      showTopo: "გენშტაბის ტოპოგრაფიული რუკა (სსიპ, საქართველო) რუკის თავზე",
+      topoNote: "საბჭოთა ტოპორუკები სხვადასხვა გამოცემისა (გამოცემები სიაშია); maps.gov.ge-ს საჯარო ტაილები (თბილისის რაიონი). ფურცლის ნაწილები შეიძლება სხვადასხვა წლისა იყოს.",
+      swLeft: "ძველი გეგმა (ზოლის მარცხნივ)", swRight: "თანამედროვე რუკა (მარჯვნივ)",
+      btnInfo: "ცნობა", btnFilters: "ფილტრები", filtersTitle: "ფილტრები და ფენები",
+      stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
+      stNow: "დღეს",
+      stMore: "სახელები წლების მიხედვით ცნობილია არა ყველა ქუჩისთვის (ისტორიული სახელები რუსულადაა, წყაროების მიხედვით).",
+      showStreets: "ქუჩები 1913 წლის გეგმით (ექსპერიმენტი, ავტომატური გადახაზვა)",
+      showSwipe: "შედარება: მარცხნივ ძველი გეგმა, მარჯვნივ თანამედროვე რუკა (გადაადგილეთ ზოლი)",
+      showHere: "რა იყო აქ: დააწკაპუნეთ რუკაზე, რომ ნახოთ ეს წერტილი ყველა გეგმაზე",
+      hereTitle: "ეს წერტილი ძველ გეგმებზე",
+      hereLoad: "გეგმები იტვირთება თანმიმდევრულად…",
+      hereNone: "ეს წერტილი ყველა გეგმის გარეთაა.",
+      hereAcc: (m) => "მიბმის სიზუსტე ±" + m + " მ",
+      hereNote: "ფანჯარა დაახლოებით 260 მ-ია. თითოეული გეგმა რუკას საკუთარი ცდომილებით ერგება, ამიტომ ათეულობით მეტრით გადახრა შესაძლებელია.",
       typesTitle: "დანიშნულება (დღეს — სახელის მიხედვით, სხვა შემთხვევაში რეესტრით)", func: "დღევანდელი დანიშნულება (სახელის მიხედვით)", func0: "თავდაპირველი დანიშნულება (რეესტრის მიხედვით)", wiki: "სტატია ვიკიპედიაში",
       types: { residential: "საცხოვრებელი სახლები", religious: "რელიგიური", defense: "თავდაცვითი", culture: "განათლება, მეცნიერება, კულტურა",
                public: "საზოგადოებრივი და სავაჭრო", transport: "ტრანსპორტი და ინჟინერია", memorial: "მემორიალები და პარკები", rural: "არქეოლოგია და სოფლის", other: "სხვა" },
@@ -335,6 +407,13 @@
     zoom: (() => { const c = (new URLSearchParams(location.search).get("c") || "").split(",").map(Number); return c.length >= 3 && isFinite(c[2]) ? c[2] : 13.2; })(), minZoom: 9, maxZoom: 19, hash: false,
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+  map.on("moveend", () => {                       // permalink: ?c=lng,lat,zoom (the year stays in the hash)
+    try {
+      const u = new URL(location.href), c = map.getCenter();
+      u.searchParams.set("c", c.lng.toFixed(5) + "," + c.lat.toFixed(5) + "," + map.getZoom().toFixed(1));
+      history.replaceState(null, "", u.pathname + u.search + u.hash);
+    } catch (e) {}
+  });
 
   function currentPlan(y) {
     // a plan is shown from its own year until the next plan (or PLAN_AFTER years if it is the last one)
@@ -413,12 +492,127 @@
     if (per.items !== "modern") { const n = document.createElement("p"); n.className = "small"; n.textContent = t().distNote; body.appendChild(n); }
   }
 
+  // topographic maps of the National Agency of Public Registry of Georgia (maps.gov.ge): tiles of the Tbilisi area were downloaded (tools/fetch_napr_topo.py) and are served from site/topo
+  const TOPO = {
+    t2: { max: 17 },
+    t10: { max: 16 },
+    t25: { max: 16 },
+    t50: { max: 15 },
+    t100: { max: 14 },
+  };
+  const TOPO_BOUNDS = [44.60, 41.55, 45.05, 41.88];
+  let topoShown = null;
+  function updateTopo() {
+    const on = $("showTopo").checked, key = $("topoSel").value;
+    $("topobox").hidden = !on;
+    if (topoShown && (!on || topoShown !== key)) {
+      if (map.getLayer("topo")) map.removeLayer("topo");
+      if (map.getSource("topo")) map.removeSource("topo");
+      topoShown = null;
+    }
+    if (!on) return;
+    if (!topoShown) {
+      const c = TOPO[key], base = new URL("topo/" + key + "/", document.baseURI).href;
+      map.addSource("topo", { type: "raster", tiles: [base + "{z}/{x}/{y}.webp"], tileSize: 256, minzoom: 11, maxzoom: c.max, bounds: TOPO_BOUNDS, attribution: "\u00A9 NAPR (maps.gov.ge)" });
+      map.addLayer({ id: "topo", type: "raster", source: "topo", paint: { "raster-opacity": $("topoOp").value / 100, "raster-fade-duration": 0 } }, "admin-line");
+      topoShown = key;
+    }
+    map.setPaintProperty("topo", "raster-opacity", $("topoOp").value / 100);
+  }
+  for (const id of ["showTopo", "topoSel", "topoOp"]) $(id).addEventListener("input", updateTopo);
+
+  // ---- swipe comparison: a second, non-interactive map with today's basemap only lies over the first one, clipped from the bar to the right edge
+  let map2 = null, swipeFrac = 0.5;
+  const BASE_STYLE = "https://tiles.openfreemap.org/styles/liberty";
+  function planOpacity() { return $("showSwipe").checked ? 1 : $("op").value / 100; }
+  function syncMap2() { if (map2) map2.jumpTo({ center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() }); }
+  function layoutSwipe() {
+    const on = $("showSwipe").checked;
+    $("map2").style.display = on ? "block" : "none";
+    $("swipebar").hidden = !on;
+    $("swl").hidden = $("swr").hidden = !on;
+    if (!on) return;
+    const w = $("map").clientWidth, x = Math.round(w * swipeFrac);
+    $("swl").textContent = "← " + t().swLeft; $("swr").textContent = t().swRight + " →";
+    $("swl").style.left = $("swr").style.left = x + "px";
+    $("map2").style.clipPath = "inset(0 0 0 " + x + "px)";
+    $("swipebar").style.left = x + "px";
+  }
+  function updateSwipe() {
+    if ($("showSwipe").checked && !map2) {
+      map2 = new maplibregl.Map({ container: "map2", style: BASE_STYLE, center: map.getCenter(), zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch(),
+                                  interactive: false, attributionControl: false, minZoom: 9, maxZoom: 19, fadeDuration: 0 });
+    }
+    layoutSwipe();
+    if (map2) { map2.resize(); syncMap2(); }
+    for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
+  }
+  map.on("move", syncMap2);
+  window.addEventListener("resize", () => { layoutSwipe(); if (map2) map2.resize(); });
+  {
+    const bar = $("swipebar");
+    const move = (ev) => { const r = $("map").getBoundingClientRect(); swipeFrac = Math.min(0.97, Math.max(0.03, (ev.clientX - r.left) / r.width)); layoutSwipe(); };
+    bar.addEventListener("pointerdown", (ev) => { bar.setPointerCapture(ev.pointerId); move(ev); ev.preventDefault(); });
+    bar.addEventListener("pointermove", (ev) => { if (bar.hasPointerCapture(ev.pointerId)) move(ev); });
+  }
+
+  // ---- "what was here": a click shows the clicked point cut out of every plan that covers it (plans are loaded one by one, only on demand)
+  const HERE_M = 260, HERE_PX = 360;
+  const imgCache = {};
+  let hereToken = 0;
+  function loadImg(url) {
+    if (!imgCache[url]) imgCache[url] = new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = url; });
+    return imgCache[url];
+  }
+  const mercY = (lat) => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
+  async function showHere(ll) {
+    const L = t();
+    $("imTitle").textContent = L.hereTitle;
+    const body = $("imBody");
+    body.textContent = "";
+    body.className = "herebox";
+    infoLine(body, ll.lat.toFixed(5) + ", " + ll.lng.toFixed(5));
+    const cover = plans.filter((p) => {
+      const c = p.corners, lngs = [c[0][0], c[1][0]], lats = [c[3][1], c[0][1]];
+      return ll.lng >= Math.min(...lngs) && ll.lng <= Math.max(...lngs) && ll.lat >= Math.min(...lats) && ll.lat <= Math.max(...lats);
+    });
+    const wait = infoLine(body, cover.length ? L.hereLoad : L.hereNone);
+    $("infoModal").hidden = false;
+    const mine = ++hereToken;
+    for (const p of cover) {
+      let im;
+      try { im = await loadImg(p.image); } catch (e) { continue; }
+      if (mine !== hereToken || $("infoModal").hidden) return;
+      const c = p.corners, lng0 = c[0][0], lng1 = c[1][0], latT = c[0][1], latB = c[3][1];
+      const px = ((ll.lng - lng0) / (lng1 - lng0)) * im.naturalWidth;
+      const py = ((mercY(latT) - mercY(ll.lat)) / (mercY(latT) - mercY(latB))) * im.naturalHeight;
+      const mPerPx = ((lng1 - lng0) * 111320 * Math.cos((ll.lat * Math.PI) / 180)) / im.naturalWidth;
+      const side = HERE_M / mPerPx;
+      const cv = document.createElement("canvas");
+      cv.width = cv.height = HERE_PX;
+      const g = cv.getContext("2d");
+      g.fillStyle = "#ddd"; g.fillRect(0, 0, HERE_PX, HERE_PX);
+      g.drawImage(im, px - side / 2, py - side / 2, side, side, 0, 0, HERE_PX, HERE_PX);
+      g.strokeStyle = "#d6336c"; g.lineWidth = 2;
+      g.beginPath(); g.moveTo(HERE_PX / 2 - 12, HERE_PX / 2); g.lineTo(HERE_PX / 2 + 12, HERE_PX / 2); g.moveTo(HERE_PX / 2, HERE_PX / 2 - 12); g.lineTo(HERE_PX / 2, HERE_PX / 2 + 12); g.stroke();
+      const fig = document.createElement("figure");
+      fig.appendChild(cv);
+      const cap = document.createElement("figcaption");
+      cap.textContent = p.year + (p.accuracy_m ? " · " + L.hereAcc(p.accuracy_m) : "");
+      fig.appendChild(cap);
+      body.appendChild(fig);
+    }
+    if (mine === hereToken && cover.length) wait.textContent = L.hereNote;
+  }
+  map.on("click", (e) => { if ($("showHere").checked) showHere(e.lngLat); });
+  $("showHere").addEventListener("change", () => { $("map").classList.toggle("here", $("showHere").checked); });
+
   // plan rasters are added to the map only when a plan is first needed (keeps the first page load light)
   function ensurePlan(p) {
     if (map.getLayer("plan-" + p.id)) return;
     map.addSource("plan-" + p.id, { type: "image", url: p.image, coordinates: p.corners });
     map.addLayer({ id: "plan-" + p.id, type: "raster", source: "plan-" + p.id, layout: { visibility: "none" },
-                   paint: { "raster-opacity": $("op").value / 100, "raster-fade-duration": 0 } }, "admin-line");
+                   paint: { "raster-opacity": planOpacity(), "raster-fade-duration": 0 } }, "admin-line");
   }
 
   function update() {
@@ -445,7 +639,11 @@
     updateSettle();
     updateWater();
     updateDensity();
+    updateTransport();
+    updateStNames();
+    updateStreets();
     updateViews();
+    updateSwipe();
     updateLost();
     if (map.getLayer("admin-line")) map.setLayoutProperty("admin-line", "visibility", $("showAdmin").checked ? "visible" : "none");
     const oldOn = $("showAdmin").checked && year >= 1973 && year <= 2005;
@@ -537,12 +735,82 @@
     for (const it of items) add(it.y, (it.cls + (it.r === 1 ? " r2" : "") + (it.label ? "" : " nl")).trim());
   }
 
+  // historical events (invasions, earthquakes, floods, changes of power): icons above the slider; every event has a source (data/history_events.json)
+  let histEvents = [];
+  let stNames = [];
+  function updateStNames() {
+    const box = $("stnames");
+    if (!box) return;
+    const L = t(), rows = [];
+    for (const s of stNames) {
+      const iv = s.iv.find((x) => year >= x[0] && year < x[1] && x[2]);
+      if (iv) rows.push([iv[2], s.now[lang] || s.now.en, s.src]);
+    }
+    box.textContent = "";
+    box.hidden = !rows.length;
+    if (!rows.length) return;
+    const h = document.createElement("div");
+    h.textContent = L.stTitle;
+    box.appendChild(h);
+    for (const [old, now, src] of rows) {
+      const d = document.createElement("div");
+      const b = document.createElement("b");
+      b.textContent = old;
+      d.appendChild(b);
+      d.appendChild(document.createTextNode(" \u2192 " + L.stNow + ": " + now + " "));
+      const a = document.createElement("a");
+      a.href = src; a.target = "_blank"; a.rel = "noopener"; a.className = "src"; a.textContent = "[src]";
+      d.appendChild(a);
+      box.appendChild(d);
+    }
+    const m = document.createElement("div");
+    m.className = "src";
+    m.textContent = L.stMore;
+    box.appendChild(m);
+  }
+  const EV_ICON = { invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
+  function buildEvMarks() {
+    const box = $("evmarks");
+    if (!box) return;
+    box.textContent = "";
+    for (const ev of histEvents) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = EV_ICON[ev.cat] || EV_ICON.other;
+      b.title = ev.date + " \u00B7 " + (ev[lang] || ev.en);
+      b.setAttribute("aria-label", b.title);
+      b.style.left = `calc(8px + (100% - 16px) * ${y2v(ev.year) / 1000})`;
+      b.addEventListener("click", () => { year = ev.year; update(); showHistEvent(ev); });
+      box.appendChild(b);
+    }
+  }
+  function showHistEvent(ev) {
+    const L = t();
+    openInfo((body) => {
+      infoLine(body, ev.date + " \u00B7 " + (L.evCats[ev.cat] || ""), "small");
+      infoLine(body, ev[lang] || ev.en, "");
+      if (ev.note) infoLine(body, ev.note);
+      infoLine(body, L.evNote);
+      infoLine(body, L.evSrc + ":");
+      for (const u of ev.src) {
+        const d = document.createElement("div");
+        d.className = "small";
+        const a = document.createElement("a");
+        const url = typeof u === "string" ? u : u.url;
+        a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = typeof u === "string" ? decodeURI(u) : u.label + " \u2014 " + decodeURI(url);
+        d.appendChild(a);
+        body.appendChild(d);
+      }
+    });
+  }
+
   let photoInfo = null;
   // Details that do not belong on the card (licences, sources, register notes) live in a separate window opened by a button.
   function openInfo(build) {
     $("imTitle").textContent = t().infoTitle;
     const body = $("imBody");
     body.textContent = "";
+    body.className = "";
     build(body);
     $("infoModal").hidden = false;
   }
@@ -779,6 +1047,74 @@
     if (map.getLayer("density-img")) map.setLayoutProperty("density-img", "visibility", $("showDensity").checked && year >= 2015 ? "visible" : "none");
   }
 
+  let trEvents = [];
+  function trFilter() {
+    return ["any", ["all", [">=", year, ["get", "y0"]], ["<", year, ["get", "y1"]]], ["all", [">=", year, ["get", "y2"]], ["<", year, ["get", "y3"]]]];
+  }
+  function updateTransport() {
+    const on = $("showTransport").checked;
+    const AER = ["match", ["get", "kind"], ["funicular", "cablecar"], true, false];
+    for (const id of ["tr-line", "tr-pt", "tr-aerial"]) {
+      if (!map.getLayer(id)) continue;
+      map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+      const base = id === "tr-pt" ? ["==", ["geometry-type"], "Point"] : id === "tr-aerial" ? ["all", ["!=", ["geometry-type"], "Point"], AER] : ["all", ["!=", ["geometry-type"], "Point"], ["!", AER]];
+      map.setFilter(id, ["all", base, trFilter()]);
+    }
+    const box = $("trevents");
+    if (!box) return;
+    const list = on ? trEvents.filter((x) => x.year <= year && x.year > year - 12).slice(-4).reverse() : [];
+    box.textContent = "";
+    box.hidden = !list.length;
+    if (!list.length) return;
+    const h = document.createElement("div");
+    h.textContent = t().trEvents;
+    box.appendChild(h);
+    for (const x of list) {
+      const d = document.createElement("div");
+      const b = document.createElement("b");
+      b.textContent = x.date + " · ";
+      d.appendChild(b);
+      d.appendChild(document.createTextNode(x[lang] || x.en || x.ru));
+      box.appendChild(d);
+    }
+  }
+
+  function transportPopup(p, lngLat) {
+    const L = t();
+    const el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = p["name_" + lang] || p.name_en || p.name_ru || "—";
+    el.appendChild(h3);
+    const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); };
+    add((L.trKinds[p.kind] || p.kind) + " · " + L.trPeriod(+p.y0, +p.y1, +p.y2, +p.y3));
+    let srcs = [];
+    try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
+    actions(el, () => openInfo((body) => {
+      if (p.note) infoLine(body, p.note);
+      infoLine(body, "Wikipedia:");
+      srcs.forEach((u) => { const d = document.createElement("div"); d.className = "small"; const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u); d.appendChild(a); body.appendChild(d); });
+      infoLine(body, "OpenStreetMap contributors (ODbL): geometry");
+    }), { id: p.id, name: p.name_en, reg: "-" });
+    new maplibregl.Popup({ maxWidth: "300px" }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+  }
+
+  let streetsLoaded = false;
+  async function updateStreets() {
+    const on = $("showStreets").checked && year >= 1913 && year < 1954;
+    if (on && !streetsLoaded && map.isStyleLoaded()) {
+      streetsLoaded = true;
+      try {
+        const d = await getJSON("data/streets_1913.json", 2);
+        if (!map.getSource("streets1913")) {
+          map.addSource("streets1913", { type: "geojson", data: d });
+          map.addLayer({ id: "streets1913-line", type: "line", source: "streets1913", layout: { visibility: "none" }, paint: { "line-color": "#a0522d", "line-width": 1.4, "line-opacity": 0.85 } });
+        }
+      } catch (e) { streetsLoaded = false; }
+    }
+    if (map.getLayer("streets1913-line")) map.setLayoutProperty("streets1913-line", "visibility", on ? "visible" : "none");
+  }
+
   function updateSettle() {
     if (!map.getLayer("settle-dot")) return;
     const vis = $("showSettle").checked ? "visible" : "none";
@@ -836,11 +1172,26 @@
       $("fbStatus").textContent = t().fbOpened;
     }
   });
-  // mobile: collapsible panel
-  $("menu").addEventListener("click", () => {
-    const open = document.body.classList.toggle("panel-open");
-    $("menu").setAttribute("aria-expanded", open ? "true" : "false");
-  });
+  // two panels (history info, filters), each can be hidden; the choice is remembered on wide screens; on a phone only one is open at a time
+  {
+    const mq = window.matchMedia("(max-width:640px)");
+    const els = { info: $("side"), filters: $("filters") }, btns = { info: $("btnInfo"), filters: $("btnFilters") };
+    let st = { info: !mq.matches, filters: !mq.matches };
+    try { const s = JSON.parse(localStorage.getItem("panels") || "null"); if (s && !mq.matches) st = { info: s.info !== false, filters: s.filters !== false }; } catch (e) {}
+    const apply = () => {
+      for (const k of ["info", "filters"]) { els[k].hidden = !st[k]; btns[k].setAttribute("aria-pressed", st[k] ? "true" : "false"); }
+      if (!mq.matches) { try { localStorage.setItem("panels", JSON.stringify(st)); } catch (e) {} }
+    };
+    const toggle = (k, on) => {
+      st[k] = on === undefined ? !st[k] : on;
+      if (mq.matches && st[k]) st[k === "info" ? "filters" : "info"] = false;
+      apply();
+    };
+    btns.info.addEventListener("click", () => toggle("info"));
+    btns.filters.addEventListener("click", () => toggle("filters"));
+    for (const b of document.querySelectorAll(".pclose")) b.addEventListener("click", () => toggle(b.dataset.panel, false));
+    apply();
+  }
 
   function popup(p, lngLat) {
     const L = t();
@@ -947,6 +1298,26 @@
       map.addSource("density", { type: "image", url: "data/density.png", coordinates: dm.coordinates });
       map.addLayer({ id: "density-img", type: "raster", source: "density", layout: { visibility: "none" }, paint: { "raster-opacity": 0.8, "raster-fade-duration": 0 } });
     } catch (e) { /* no density layer */ }
+    try {                                            // transport: metro, railway, funicular, avenues, bridges (dates from Wikipedia, see sources)
+      const tr = await getJSON("data/transport.json", 2);
+      map.addSource("transport", { type: "geojson", data: tr });
+      const metroColor = ["match", ["get", "line"], "2", "#2f9e44", "#e03131"];     // line 1 (Akhmeteli-Varketili) red, line 2 (Saburtalo) green
+      const kindColor = ["match", ["get", "kind"], "metro_line", metroColor, "railway", "#868e96", "avenue", "#f08c00", "bridge", "#1c7ed6", "tram", "#8d5524", "#495057"];
+      map.addLayer({ id: "tr-line", type: "line", source: "transport", filter: ["!=", ["geometry-type"], "Point"], layout: { visibility: "none", "line-cap": "round" },
+                     paint: { "line-color": kindColor, "line-width": ["match", ["get", "kind"], "railway", 2, "avenue", 3, 3.5], "line-offset": ["match", ["get", "kind"], "tram", 4, 0], "line-opacity": 0.9 } });
+      map.addLayer({ id: "tr-pt", type: "circle", source: "transport", filter: ["==", ["geometry-type"], "Point"], layout: { visibility: "none" },
+                     paint: { "circle-radius": 5, "circle-color": "#fff", "circle-stroke-color": metroColor, "circle-stroke-width": 2.5 } });
+      map.addLayer({ id: "tr-aerial", type: "line", source: "transport", filter: ["!=", ["geometry-type"], "Point"], layout: { visibility: "none", "line-cap": "butt" },     // funicular and cable car: violet dashed (not confused with the green metro line)
+                     paint: { "line-color": "#7048e8", "line-width": 3.5, "line-dasharray": [1.6, 1.2] } });
+      for (const id of ["tr-line", "tr-pt", "tr-aerial"]) {
+        map.on("click", id, (e) => { if (e.features && e.features[0]) { e.originalEvent.__trHit = true; transportPopup(e.features[0].properties, e.lngLat); } });
+        map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
+        map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
+      }
+    } catch (e) { /* no transport layer */ }
+    try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
+    try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
+    try { stNames = (await getJSON("data/street_names.json", 2)).streets; updateStNames(); } catch (e) { stNames = []; }
     let admin = { type: "FeatureCollection", features: [] };
     try { admin = await getJSON("data/admin.json"); } catch (e) {}
     map.addSource("admin", { type: "geojson", data: admin });
@@ -1024,15 +1395,17 @@
   });
 
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
-    for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", e.target.value / 100);
+    for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
   });
   $("lang").addEventListener("change", (e) => {
     lang = e.target.value;
     try { localStorage.setItem("lang", lang); } catch (e) {}
     applyLang();
+    buildEvMarks();
+    layoutSwipe();
   });
 
   let timer = null;

@@ -1,0 +1,227 @@
+{
+ "note": "Verified 2026-11-18 by reading the cited Wikipedia pages (Gemini draft of 23 events was checked; events not confirmed by any page were dropped: 1723, 1735, 1830, 1844, Gori earthquake 1920 felt in Tbilisi, flood 1956, independence declaration 9.04.1991; the 4 January 1900 earthquake with >1000 deaths in the list of earthquakes in Georgia rests on newspaper footnotes only and was not used). Removed after the owner's check: separate marks for Vere floods 1960, 1963, 1972, 1995 (they rested on one sentence of the 2015 flood article, and the link led to an article about 2015); the sentence is kept in the note of the 2015 event.",
+ "events": [
+  {
+   "year": 627,
+   "date": "627",
+   "cat": "invasion",
+   "ru": "Тбилиси разграблен союзными армиями Византии и хазар",
+   "en": "Tbilisi sacked by the allied Byzantine and Khazar armies",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ]
+  },
+  {
+   "year": 764,
+   "date": "764",
+   "cat": "invasion",
+   "ru": "Тбилиси разграблен хазарами",
+   "en": "Tbilisi sacked by the Khazars",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi"
+   ]
+  },
+  {
+   "year": 737,
+   "date": "736-738",
+   "cat": "power",
+   "ru": "Арабские войска под командованием Марвана II входят в город; затем основан Тбилисский эмират",
+   "en": "Arab armies under Marwan II enter the town; the Emirate of Tbilisi is established afterwards",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "note": "Страница Tbilisi даёт 736-738, History of Tbilisi: около 737."
+  },
+  {
+   "year": 853,
+   "date": "853",
+   "cat": "invasion",
+   "ru": "Арабский полководец Буга аль-Туркий вторгается в Тбилиси",
+   "en": "Arab leader Bugha al-Turki invades Tbilisi",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "note": "Страница Tbilisi называет 852 год, History of Tbilisi: 853."
+  },
+  {
+   "year": 1068,
+   "date": "1068",
+   "cat": "invasion",
+   "ru": "Тбилиси разграблен сельджуками (Алп-Арслан)",
+   "en": "Tbilisi sacked by the Seljuk Turks (Alp Arslan)",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "note": "Страница Tbilisi: 1065, подчинение города Алп-Арсланом."
+  },
+  {
+   "year": 1122,
+   "date": "1122",
+   "cat": "power",
+   "ru": "Царь Давид Строитель берёт Тбилиси штурмом (осада началась в 1121 после битвы при Дидгори)",
+   "en": "King David the Builder storms Tbilisi (the siege began in 1121 after the Battle of Didgori)",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ]
+  },
+  {
+   "year": 1226,
+   "date": "1226",
+   "cat": "invasion",
+   "ru": "Тбилиси захвачен хорезмийским шахом Джелал ад-Дином, жителей-христиан убивают десятками тысяч",
+   "en": "Tbilisi captured by the Khwarezmian shah Jalal al-Din, tens of thousands of Christians killed",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ]
+  },
+  {
+   "year": 1386,
+   "date": "22.11.1386",
+   "cat": "invasion",
+   "ru": "Тбилиси разорён армией Тамерлана (Тимура)",
+   "en": "Tbilisi sacked by the armies of Timur (Tamerlane)",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi",
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi"
+   ]
+  },
+  {
+   "year": 1440,
+   "date": "1440",
+   "cat": "invasion",
+   "ru": "Джахан-шах вторгается в Тбилиси и грабит его",
+   "en": "Jahan Shah invades and loots Tbilisi",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi",
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi"
+   ],
+   "note": "Страница Tbilisi: 1440 (looted), History of Tbilisi: 1444 (destroyed)."
+  },
+  {
+   "year": 1536,
+   "date": "1536",
+   "cat": "fire",
+   "ru": "Иранская армия сжигает Тбилиси",
+   "en": "The Iranian army burns Tbilisi",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+   ]
+  },
+  {
+   "year": 1578,
+   "date": "21-24.08.1578",
+   "cat": "invasion",
+   "ru": "Тбилиси захвачен османами (Осман-паша и Мустафа-паша)",
+   "en": "Tbilisi captured by the Ottomans (Osman Pasha and Mustafa Pasha)",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ]
+  },
+  {
+   "year": 1795,
+   "date": "1795",
+   "cat": "invasion",
+   "ru": "Тбилиси захвачен и разорён иранским правителем Ага-Мохаммед-ханом Каджаром (Крцанисская битва)",
+   "en": "Tbilisi captured and devastated by the Iranian ruler Agha Mohammad Khan Qajar (Battle of Krtsanisi)",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "note": "Точная дата в прочитанных статьях не названа."
+  },
+  {
+   "year": 1801,
+   "date": "1801",
+   "cat": "power",
+   "ru": "Царство Картли-Кахетия присоединено к Российской империи; город называется Тифлис (1801-1917)",
+   "en": "The Kingdom of Kartli-Kakheti is annexed by the Russian Empire; the city is called Tiflis (1801-1917)",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Tbilisi",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ]
+  },
+  {
+   "year": 1872,
+   "date": "1872",
+   "cat": "other",
+   "ru": "Построен Тбилисский вокзал, открыто железнодорожное сообщение с Поти",
+   "en": "Tbilisi railway station built; trains run to the Black Sea port of Poti",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi_railway_station"
+   ]
+  },
+  {
+   "year": 1896,
+   "date": "1896",
+   "cat": "earthquake",
+   "ru": "Землетрясение интенсивностью VII (MSK): сильнейшее из известных в Тбилиси в историческое время",
+   "en": "Earthquake of intensity VII (MSK): the strongest known to have affected Tbilisi in historical times",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/2002_Tbilisi_earthquake",
+     "label": "Wikipedia: статья о землетрясении 2002 года (раздел о прошлых землетрясениях Тбилиси)"
+    }
+   ],
+   "note": "Отдельной статьи про это землетрясение нет: сведение стоит одной фразой в статье про землетрясение 2002 года. Магнитуда, число жертв и ущерб в источнике не названы."
+  },
+  {
+   "year": 1918,
+   "date": "26-28.05.1918",
+   "cat": "power",
+   "ru": "Провозглашена независимость Грузии, Тбилиси становится столицей Демократической Республики Грузия",
+   "en": "Georgia declares independence, Tbilisi becomes the capital of the Democratic Republic of Georgia",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "note": "В статье дата дана для Грузии, Армении и Азербайджана вместе: 26-28 мая."
+  },
+  {
+   "year": 1921,
+   "date": "25.02.1921",
+   "cat": "invasion",
+   "ru": "11-я Красная армия входит в Тбилиси",
+   "en": "The 11th Red Army enters Tbilisi",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ]
+  },
+  {
+   "year": 1989,
+   "date": "9.04.1989",
+   "cat": "power",
+   "ru": "Разгон мирной демонстрации на проспекте Руставели советскими войсками, около 20 погибших",
+   "en": "Soviet troops disperse a peaceful demonstration on Rustaveli Avenue, about 20 killed",
+   "src": [
+    "https://en.wikipedia.org/wiki/April_9_tragedy"
+   ],
+   "note": "Статья называет 21 погибшего в карточке, 19-20 в тексте."
+  },
+  {
+   "year": 2002,
+   "date": "25.04.2002",
+   "cat": "earthquake",
+   "ru": "Землетрясение в Тбилиси (mb 4,8): эпицентр в черте города, 5-7 погибших, тяжело пострадали 18 000 домохозяйств",
+   "en": "Tbilisi earthquake (4.8 mb): epicentre inside the city, 5-7 dead, 18,000 households badly affected",
+   "src": [
+    "https://en.wikipedia.org/wiki/2002_Tbilisi_earthquake"
+   ]
+  },
+  {
+   "year": 2015,
+   "date": "13-14.06.2015",
+   "cat": "flood",
+   "ru": "Наводнение реки Вере: не менее 20 погибших, пострадали зоопарк и площадь Героев",
+   "en": "Vere River flood: at least 20 dead, the zoo and Heroes Square hit",
+   "src": [
+    "https://en.wikipedia.org/wiki/2015_Tbilisi_flood",
+    "https://en.wikipedia.org/wiki/Tbilisi"
+   ],
+   "note": "В той же статье сказано, что значительные наводнения реки Вере были также в 1960, 1963, 1972 (несколько погибших) и 1995 годах; отдельных статей и подробностей о них нет, поэтому отметок для них нет."
+  }
+ ]
+}

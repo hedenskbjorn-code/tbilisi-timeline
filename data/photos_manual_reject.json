@@ -1,5 +1,5 @@
 {
- "note": "Photos rejected by manual review of contact sheets (people, events, concerts, food/drinks, cars, profanity, political signs, irrelevant objects). Reviewed: all 1612 photos accepted by tools/filter_photos.py, 2026-11-17. Second pass 2026-11-17: re-detection with a lower threshold, upscaling and flips flagged 495 more photos (mostly busts, plaque reliefs, murals = not people); the 200 highest-scoring were reviewed and 9 with people were added.",
+ "note": "Photos rejected by manual review of contact sheets (people, events, concerts, food/drinks, cars, profanity, political signs, irrelevant objects). Reviewed: all 1612 photos accepted by tools/filter_photos.py, 2026-11-17. Second pass 2026-11-17: re-detection with a lower threshold, upscaling and flips flagged 495 more photos (mostly busts, plaque reliefs, murals = not people); the 200 highest-scoring were reviewed and 9 with people were added. 2026-11-18: owner found a wrong match (memorial plaque of a residential house at 57 Tina Iosebidze St., 54 m from the church of St George in Saburtalo, register id 24758).",
  "titles": [
   "File:2022-10-31 Dashboard display in Mtatsminda Funicular car.jpg",
   "File:2024-01-27 Krasnye Zori, live in Revolution Bar in Tbilisi 02.jpg",
@@ -63,6 +63,7 @@
   "File:ლუდი ხევსურული (2).jpg",
   "File:ნაკამურა ტემპეის საფორტეპიანო მუსიკის კონცერტი 2.jpg",
   "File:რუსთაველის გამზირი 44 (3).jpg",
-  "File:საფერავი.jpg"
+  "File:საფერავი.jpg",
+  "File:Onise Tutberidze memorial plaque.jpg"
  ]
 }
