@@ -38,6 +38,16 @@ def jload(*p):
     return json.load(open(os.path.join(ROOT, *p), encoding="utf-8"))
 
 
+# notes shown under a description where the article is about a whole institution and the point of the route is one building of it (found by the owner, 2026-11-19: sight 1 is the
+# second building of the Theatre and Film University on Aghmashenebeli Avenue, the lead photo of its article shows the main building on Rustaveli Avenue)
+NOTES = {
+    1: {"ru": "Эта точка: здание на проспекте Давида Агмашенебели, 40 (запись реестра памятников, конец XIX века). Университет занимает два здания: по английской статье Википедии, первое на проспекте Руставели, 19–23, второе на проспекте Агмашенебели. Описание относится к университету в целом.",
+        "en": "This point is the building at 40 David Agmashenebeli Avenue (an entry of the heritage register, late 19th century). The university occupies two buildings: according to the English Wikipedia article, the first at 19-23 Rustaveli Avenue, the second on David Agmashenebeli Avenue. The description refers to the university as a whole.",
+        "ka": "ეს წერტილი არის შენობა დავით აღმაშენებლის გამზირზე №40 (ძეგლთა რეესტრის ჩანაწერი, XIX საუკუნის ბოლო). უნივერსიტეტი ორ შენობას იკავებს: ვიკიპედიის ინგლისური სტატიით, პირველი რუსთაველის გამზირზე №19–23, მეორე — დავით აღმაშენებლის გამზირზე. აღწერა მთლიანად უნივერსიტეტს ეხება."},
+}
+NO_ARTICLE_PHOTOS = {1}          # the photos of the articles show another building than the point: no photo from the articles
+
+
 def tidy(t):
     """the API cuts an introduction at an abbreviation ("(ок."): a dangling bracket at the end is cut off"""
     t = (t or "").strip()
@@ -108,13 +118,13 @@ def main():
             e = photos.get(key) or photos.get("File:" + key)
             if e and len(pl) < MAX_PHOTOS:
                 pl.append({k: e.get(k) for k in ("thumb", "page", "author", "license", "license_url", "w", "h")})
-        for ph in d.get("photos", []):
+        for ph in ([] if n in NO_ARTICLE_PHOTOS else d.get("photos", [])):
             f = (ph["file"] if ph["file"].startswith("File:") else "File:" + ph["file"]).replace("_", " ")          # the API of Commons returns the titles with spaces
             e = info.get(f)
             if e and len(pl) < MAX_PHOTOS and all(x["page"] != e["page"] for x in pl):
                 pl.append(e)
         facts = d.get("facts") or ({"address": p.get("address")} if p.get("address") and not d.get("desc") else None)       # no article: at least the address of the register
-        item = {"desc": d.get("desc"), "facts": facts, "wp": d.get("wp"), "sources": d.get("sources"), "src_by_lang": d.get("src_by_lang"), "tr": d.get("tr"), "photos": pl}
+        item = {"desc": d.get("desc"), "facts": facts, "wp": d.get("wp"), "sources": d.get("sources"), "src_by_lang": d.get("src_by_lang"), "tr": d.get("tr"), "notes_public": NOTES.get(n), "photos": pl}
         res[str(n)] = {k: v for k, v in item.items() if v}
     out = {"note": "Built by tools/build_run_details.py on 2026-11-19 from data/run_descriptions.json (descriptions written from Wikipedia articles) and the photos of Wikimedia Commons (free licences).", "sights": res}
     open(os.path.join(ROOT, "site", "data", "run_details.json"), "wb").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
