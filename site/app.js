@@ -111,6 +111,7 @@
       showRun: "Tbilisi Running Club: маршрут City Run 2026 и что увидеть по пути (сегодняшний город)", runStats: (r, n) => `${r.length_km} км, высота ${r.ele_min}-${r.ele_max} м, ${n} достопримечательностей`, runKm: "Километр", runDist: "От трассы", runYear: "Дата по реестру", runWiki: "Википедия", runStart: "Старт и финиш", runList: "По порядку вдоль маршрута", runNote: "В список входят объекты данных сайта, чья точка лежит не дальше 150 м от трассы: национального значения, со статьёй в Википедии, церкви, мосты, театры, музеи, стены и крепости. Расстояние считается от точки объекта до линии трассы, поэтому крупные здания могут быть ближе. Это не проверка видимости.", runSrc: "Маршрут (геометрия)",
       topoPlanOpt: "1:2 000 · городской план (z17)", legDistEx: "Мтацминда", legSetEx: "Коджори", ariaLang: "Язык", ariaClose: "закрыть", fbContactPh: "email или telegram (необязательно)",
       showSci: "Наука и культура: институты, университеты, музеи, театры (появляются по годам)", sciKinds: { science: "Наука и образование", culture: "Культура" }, sciFounded: "Основано", sciBuilt: "Здание", sciFrom: "Появляется", sciSrc: "Источники", sciFaint: "бледная точка: здание ещё не построено или учреждение было в другом месте",
+      loadMap: "Загрузка карты и данных…", loadPlan: "Загрузка плана…", loadFail: "Не удалось загрузить данные. Обновите страницу (Ctrl+F5).",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -268,6 +269,7 @@
       showRun: "Tbilisi Running Club: the City Run 2026 route and what to see on the way (today's city)", runStats: (r, n) => `${r.length_km} km, elevation ${r.ele_min}-${r.ele_max} m, ${n} sights`, runKm: "Kilometre", runDist: "From the route", runYear: "Date in the register", runWiki: "Wikipedia", runStart: "Start and finish", runList: "In order along the route", runNote: "The list holds the objects of the data of this site whose point lies within 150 m of the track: of national significance, with a Wikipedia article, churches, bridges, theatres, museums, walls and fortresses. The distance is from the point of the object to the line of the track, so large buildings may be closer. This is not a check of visibility.", runSrc: "Route (geometry)",
       topoPlanOpt: "1:2 000 · city plan (z17)", legDistEx: "Mtatsminda", legSetEx: "Kojori", ariaLang: "Language", ariaClose: "close", fbContactPh: "email or telegram (optional)",
       showSci: "Science and culture: institutes, universities, museums, theatres (appear by year)", sciKinds: { science: "Science and education", culture: "Culture" }, sciFounded: "Founded", sciBuilt: "Building", sciFrom: "Appears", sciSrc: "Sources", sciFaint: "a faint point: the building is not yet built or the institution was elsewhere",
+      loadMap: "Loading the map and data…", loadPlan: "Loading the plan…", loadFail: "The data could not be loaded. Reload the page (Ctrl+F5).",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -426,6 +428,7 @@
       showRun: "Tbilisi Running Club: City Run 2026-ის მარშრუტი და რა ჩანს გზაზე (დღევანდელი ქალაქი)", runStats: (r, n) => `${r.length_km} კმ, სიმაღლე ${r.ele_min}-${r.ele_max} მ, ${n} ღირსშესანიშნაობა`, runKm: "კილომეტრი", runDist: "ტრასიდან", runYear: "თარიღი რეესტრში", runWiki: "ვიკიპედია", runStart: "სტარტი და ფინიში", runList: "მარშრუტის გასწვრივ თანმიმდევრობით", runNote: "სიაში შედის საიტის მონაცემთა ობიექტები, რომელთა წერტილი ტრასიდან 150 მ-ს არ აცილდება: ეროვნული მნიშვნელობის, ვიკიპედიის სტატიით, ეკლესიები, ხიდები, თეატრები, მუზეუმები, გალავნები და ციხეები. მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა. ეს ხილვადობის შემოწმება არ არის.", runSrc: "მარშრუტი (გეომეტრია)",
       topoPlanOpt: "1:2 000 · ქალაქის გეგმა (z17)", legDistEx: "მთაწმინდა", legSetEx: "კოჯორი", ariaLang: "ენა", ariaClose: "დახურვა", fbContactPh: "ელფოსტა ან ტელეგრამი (არასავალდებულო)",
       showSci: "მეცნიერება და კულტურა: ინსტიტუტები, უნივერსიტეტები, მუზეუმები, თეატრები (ჩნდება წლების მიხედვით)", sciKinds: { science: "მეცნიერება და განათლება", culture: "კულტურა" }, sciFounded: "დაარსდა", sciBuilt: "შენობა", sciFrom: "ჩნდება", sciSrc: "წყაროები", sciFaint: "ფერმკრთალი წერტილი: შენობა ჯერ არ არის აშენებული ან დაწესებულება სხვაგან იყო",
+      loadMap: "რუკა და მონაცემები იტვირთება…", loadPlan: "გეგმა იტვირთება…", loadFail: "მონაცემების ჩატვირთვა ვერ მოხერხდა. განაახლეთ გვერდი (Ctrl+F5).",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -737,6 +740,7 @@
     map.addSource("plan-" + p.id, { type: "image", url: p.image, coordinates: p.corners });
     map.addLayer({ id: "plan-" + p.id, type: "raster", source: "plan-" + p.id, layout: { visibility: "none" },
                    paint: { "raster-opacity": planOpacity(), "raster-fade-duration": 0 } }, "admin-line");
+    if (dataReady) { setLoading("loadPlan", true); map.once("idle", hideLoading); }
   }
 
   function update() {
@@ -801,6 +805,7 @@
     if (typeof feedbackRefreshCtx === "function") feedbackRefreshCtx();
     $("title").textContent = t().title;
     $("lang").value = lang;
+    if ($("loading") && !$("loading").hidden) $("loadingTxt").textContent = t()[loadKey];
     $("lang").setAttribute("aria-label", t().ariaLang);
     document.querySelectorAll(".pclose").forEach((b) => b.setAttribute("aria-label", t().ariaClose));
     if ($("fbContactInput")) $("fbContactInput").placeholder = t().fbContactPh;
@@ -1741,6 +1746,35 @@
   }
   setTimeout(() => { if (!mapLoaded && typeof baseStyle !== "object") goOffline(); }, 8000);
   map.on("error", (e) => { if (!mapLoaded && !e.sourceId && typeof baseStyle !== "object") goOffline(); });
+  // loading plank: until the data and the first plan are drawn the screen says "loading"; a small one shows while a heavy plan comes in later
+  let dataReady = false, loadKey = "loadMap", loadTimer = 0;
+  function setLoading(key, mini) {
+    const el = $("loading");
+    if (!el) return;
+    loadKey = key;
+    el.className = mini ? "mini" : "";
+    $("loadingTxt").textContent = t()[key];
+    el.hidden = false;
+    clearTimeout(loadTimer);
+    loadTimer = setTimeout(() => {                    // safety: a small plank just goes away; the big one turns into a hint to reload
+      if (mini) hideLoading();
+      else { loadKey = "loadFail"; $("loadingTxt").textContent = t().loadFail; }
+    }, 45000);
+  }
+  function hideLoading() {
+    const el = $("loading");
+    if (el) el.hidden = true;
+    clearTimeout(loadTimer);
+  }
+  // the labels of the page at once, before the data are there (applyLang does the whole job later)
+  try {
+    document.title = t().title;
+    $("title").textContent = t().title;
+    $("lang").value = lang;
+    document.querySelectorAll("[data-i]").forEach((el) => { if (typeof t()[el.dataset.i] === "string") el.textContent = t()[el.dataset.i]; });
+  } catch (e) { /* applyLang will do it */ }
+  setLoading("loadMap");
+
   map.on("load", async () => {
     mapLoaded = true;
     if (baseOffline && !document.getElementById("basenote")) {
@@ -1906,6 +1940,8 @@
         popup(f.properties, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] });
       }
     } catch (e) {}
+    dataReady = true;
+    if (map.loaded()) hideLoading(); else map.once("idle", hideLoading);
   });
 
   window.addEventListener("hashchange", () => {
