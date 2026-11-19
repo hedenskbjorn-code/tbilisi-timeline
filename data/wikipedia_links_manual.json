@@ -1,0 +1,10 @@
+{
+ "note": "Wikipedia links added by hand for register objects that the automatic match (tools/match_wikipedia.py) did not link; they are put into data/wikipedia_links.json after the match. {register id: {lang: title}}; 'why' says what was checked.",
+ "objects": {
+  "3049": {
+   "ru": "Александро-Невская церковь (Тбилиси)",
+   "ka": "თბილისის წმინდა ალექსანდრე ნეველის ეკლესია",
+   "why": "The surviving 'Russian church' of St Alexander Nevsky on Marjanishvili Street (Wikidata Q4061030); the coordinates of the Russian article are 41 m from the register point. The English article 'Alexander Nevsky Cathedral, Tiflis' is another, demolished building (1930) 1.6 km away and must not be linked."
+  }
+ }
+}
