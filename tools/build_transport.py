@@ -35,6 +35,46 @@ def feat(geom, **p):
     return {"type": "Feature", "geometry": geom, "properties": p}
 
 
+def way_len(geom):
+    """length in metres of an OSM way given as a list of {lat, lon}"""
+    return round(sum(math.hypot((geom[j + 1]["lon"] - geom[j]["lon"]) * math.cos(math.radians(geom[j]["lat"])) * 111320, (geom[j + 1]["lat"] - geom[j]["lat"]) * 111320) for j in range(len(geom) - 1)))
+
+
+def far_pieces(ways, limit=1000, join=40):
+    """The OSM query takes every way with a street name in the whole box, and the names repeat in other parts of the city and the suburbs (found out 2026-11-19: tram tracks in
+    Tskneti, Okrokana, near Zahesi and so on). The ways of one name are joined into lines (ends closer than `join` m); the longest line is the main one; a piece that lies
+    farther than `limit` m from the main line is another street with the same name and is returned to be dropped."""
+    def hav(a, b):
+        k = math.cos(math.radians(a[1]))
+        return math.hypot((a[0] - b[0]) * k * 111320, (a[1] - b[1]) * 111320)
+    geoms = [line(w["geometry"]) for w in ways]
+    n = len(geoms)
+    par = list(range(n))
+
+    def find(i):
+        while par[i] != i:
+            par[i] = par[par[i]]
+            i = par[i]
+        return i
+    for i in range(n):
+        for j in range(i + 1, n):
+            if min(hav(a, b) for a in (geoms[i][0], geoms[i][-1]) for b in (geoms[j][0], geoms[j][-1])) < join:
+                par[find(i)] = find(j)
+    groups = {}
+    for i in range(n):
+        groups.setdefault(find(i), []).append(i)
+    length = lambda idx: sum(hav(geoms[i][k], geoms[i][k + 1]) for i in idx for k in range(len(geoms[i]) - 1))
+    main = max(groups.values(), key=length)
+    mp = [pt for i in main for pt in geoms[i]]
+    far = []
+    for i in range(n):
+        if i in main:
+            continue
+        if min(hav(a, b) for a in geoms[i][::3] for b in mp[::3]) > limit:
+            far.append(i)
+    return far
+
+
 def main():
     feats = []
     # ---------------- metro
@@ -181,6 +221,7 @@ def main():
         "khetagurov": ["Kosta Khetagurov Street"], "asc": ["Nikoloz Baratashvili Ascent"], "dedoplis": ["Tsminda Ketevan Dedoflis Avenue"], "barisakhos": ["Barisakho Street"],
         "anapa": ["Anapis 414 Divizia Street"], "zghvi": ["Tbilisi Zghvi Street"],
     }
+    NOT_MATCHED = {"pirosmani": "the only Niko Pirosmani Street pieces of the OSM box lie 9-10 km from Abastumani and Dadiani, the streets next to it in every route that names it (checked 2026-11-19)"}
     R1986 = {1: "dadiani eristavi tsereteli tsabadze mghvdeli abastumani tsinam", 2: "dadiani khudadov tseronisi akhtala", 3: "tsereteli eristavi guramishvili zghvi anapa",
              4: "dadiani guramishvili zghvi anapa", 5: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli", 6: "dadiani kakhiani lotkini",
              7: "moscow dedoplis navtlughi salosi", 8: "eristavi guramishvili sheshelidze khizanishvili", 9: "tsereteli beliashvili alley",
@@ -204,6 +245,7 @@ def main():
         if "geometry" in e:
             ways_tram.setdefault(e["tags"].get("name:en"), []).append(e)
     miss = []
+    dropped_tram = []
     for k, ivs in tram_iv.items():
         ivs = sorted(set(ivs))
         merged = []
@@ -215,6 +257,13 @@ def main():
         ws = [w for nm in TRAM_OSM[k] for w in ways_tram.get(nm, [])]
         if not ws:
             miss.append(k)
+        if k in NOT_MATCHED:                                   # no street of this name lies where the routes of the lists run: nothing is drawn rather than a wrong street
+            dropped_tram.extend((k, w["id"], way_len(w["geometry"])) for w in ws)
+            ws = []
+        drop = set(far_pieces(ws)) if ws else set()           # other streets with the same name far away (Tskneti, Okrokana, the north, the east)
+        for i in sorted(drop):
+            dropped_tram.append((k, ws[i]["id"], way_len(ws[i]["geometry"])))
+        ws = [w for i, w in enumerate(ws) if i not in drop]
         for w in ws:
             for a0, b0 in merged:
                 feats.append(feat({"type": "LineString", "coordinates": line(w["geometry"])}, id="tramnet_%s_%d_%d" % (k, w["id"], a0), kind="tram", y0=a0, y1=b0,
@@ -222,6 +271,9 @@ def main():
                                   note="SCHEMATIC. The street is drawn over its whole length in OpenStreetMap; the tram did not necessarily run along all of it. Years: the route lists of 1962 and 1986 (ka.wikipedia) and the lists of routes of 2000 (8 routes), 2003 (4 routes), 2005 (route 12) and the closing on 4 December 2006 (ru.wikipedia): between the lists the state is not known. Several streets of the routes are missing (no matching way in OSM).",
                                   src=["https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A0%E1%83%90%E1%83%9B%E1%83%95%E1%83%90%E1%83%98", "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D1%80%D0%B0%D0%BC%D0%B2%D0%B0%D0%B9"]))
     print("tram network streets:", len(tram_iv), "missing in OSM:", miss)
+    print("tram pieces dropped (the same street name far from the main line):", len(dropped_tram), "total m:", sum(d[2] for d in dropped_tram))
+    for d in dropped_tram:
+        print("   dropped", d)
     # ---------------- tram lines drawn on the 1913 plan (read by Gemini from gridded tiles, snapped to the red line by tools/snap_tram_1913.py); shown with the plan of 1913
     sp = os.path.join(ROOT, "data", "boundaries", "tram_1913_snapped.json")
     if os.path.exists(sp):
