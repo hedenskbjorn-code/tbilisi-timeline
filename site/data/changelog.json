@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.1.1",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "Страница маршрута /run/ открывается по умолчанию на английском (раньше брала язык браузера и главной карты); язык можно выбрать на странице или параметром ?lang=ru; превью для мессенджеров и заголовки на английском; кнопка «Скопировать ссылку» в карточке маршрута даёт общий адрес.",
+    "en": "The route page /run/ opens in English by default (before it took the language of the browser and of the main map); the language can be chosen on the page or with ?lang=ru; the preview for messengers and the titles are in English; the \"Copy link\" button in the card of the route gives the common address.",
+    "ka": "მარშრუტის გვერდი /run/ ნაგულისხმევად ინგლისურად იხსნება (ადრე ბრაუზერისა და მთავარი რუკის ენას იღებდა); ენის არჩევა შეიძლება გვერდზე ან პარამეტრით ?lang=ru; გადახედვა მესენჯერებისთვის და სათაურები ინგლისურია; ღილაკი „ბმულის კოპირება“ მარშრუტის ბარათში საერთო მისამართს იძლევა."
+   }
+  ]
+ },
+ {
   "version": "1.1.0",
   "date": "2026-11-19",
   "items": [

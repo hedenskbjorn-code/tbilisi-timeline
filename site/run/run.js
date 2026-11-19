@@ -3,10 +3,8 @@
 (function () {
   "use strict";
   const LANGS = ["ru", "en", "ka"];
-  let lang = "en";
-  const nav = (navigator.language || "en").slice(0, 2);
-  if (LANGS.includes(nav)) lang = nav;
-  try { const s = localStorage.getItem("lang"); if (LANGS.includes(s)) lang = s; } catch (e) {}
+  let lang = "en";                       // English by default (also for a Russian browser): the page is made to be sent to people; ?lang= and a choice made on this page change it
+  try { const s = localStorage.getItem("runLang"); if (LANGS.includes(s)) lang = s; } catch (e) {}
   const q = new URLSearchParams(location.search).get("lang");
   if (LANGS.includes(q)) lang = q;
   const $ = (id) => document.getElementById(id);
@@ -181,7 +179,7 @@
 
   $("lang").addEventListener("change", (e) => {
     lang = e.target.value;
-    try { localStorage.setItem("lang", lang); } catch (x) {}
+    try { localStorage.setItem("runLang", lang); } catch (x) {}
     renderText();
     for (const s of sights) if (markers[s.n]) markers[s.n].getElement().title = s.name[lang] || s.name.en;
   });
