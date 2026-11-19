@@ -38,7 +38,7 @@ EXTRA_FLAG = {"Georgia (country)": [{"file": "Flag of Georgia (1990–2004).svg"
 # (the name differs only by an epithet or a spelling, the life years overlap the rule). Everything else with a good match is taken ("auto"); the pictures are checked by eye afterwards.
 TITLE_FIX = {"demetre1": "Demetrius I of Georgia", "demetre1b": "Demetrius I of Georgia", "george3": "George III of Georgia", "george4": "George IV of Georgia",
              "david9": "David IX of Georgia", "constantine1": "Constantine I of Georgia", "demetre3": "Demetrius III of Georgia", "constantine2": "Constantine II of Georgia",
-             "simon2": "Simon II of Kartli", "jesse": "Jesse of Kartli", "jesse2": "Jesse of Kartli", "viceroy15": "Grand Duke Michael Nikolaevich of Russia"}
+             "simon2": "Simon II of Kartli", "jesse": "Jesse of Kartli", "jesse2": "Jesse of Kartli", "viceroy15": "Grand Duke Michael Nikolaevich of Russia", "margvelashvili": "Giorgi Margvelashvili"}
 ACCEPT = {"tamar", "vakhtang1", "alexander1", "simon1", "simon1b", "luarsab2", "david_regent", "viceroy5", "viceroy8", "secretary5", "secretary6", "secretary7", "secretary9"}
 EXCLUDE = {"emir0", "emir1", "emir2", "emir3", "emir4", "emir5", "emir6", "emir7", "emir8", "emir9", "emir10", "emir11", "emir12", "emir13", "emir14", "emir15",
            "aspacures2", "aspacures3", "mihrdat3", "pharasmanes4", "bacurius2", "pharasmanes6", "viceroy10", "viceroy17", "viceroy21", "secretary1", "secretary8"}
@@ -244,7 +244,7 @@ def download():
     c = json.load(open(os.path.join(ROOT, "data", "rulers_media_candidates.json"), encoding="utf-8"))
     out = {"rulers": {}, "flags": {}}
     base = os.path.join(ROOT, "site", "data", "rulers")
-    for sub in ("p", "b", "f"):
+    for sub in ("p", "b", "f", "fb"):
         os.makedirs(os.path.join(base, sub), exist_ok=True)
     seen = {}
     for rid, v in c["rulers"].items():
@@ -274,11 +274,15 @@ def download():
                 b = fetch_bytes(f["thumb"])
                 if not b:
                     continue
-                im = Image.open(io.BytesIO(b)).convert("RGBA"); im.thumbnail((96, 64))
-                name = "f/%s.webp" % re.sub(r"[^A-Za-z0-9]+", "_", os.path.splitext(f["file"])[0]).strip("_")
-                im.save(os.path.join(base, name), "WEBP", quality=85, method=6)
+                im = Image.open(io.BytesIO(b)).convert("RGBA")
+                stem = re.sub(r"[^A-Za-z0-9]+", "_", os.path.splitext(f["file"])[0]).strip("_")
+                big = im.copy(); big.thumbnail((480, 320))
+                big.save(os.path.join(base, "fb/%s.webp" % stem), "WEBP", lossless=True, method=6)          # flat colours: lossless stays sharp
+                im.thumbnail((96, 64))
+                name = "f/%s.webp" % stem
+                im.save(os.path.join(base, name), "WEBP", quality=90, method=6)
                 fseen[f["file"]] = name
-            out["flags"].setdefault(sid, []).append({"i": fseen[f["file"]], "k": f.get("k"), "from": f["from"], "to": f["to"], "l": f.get("license"), "a": f.get("artist"), "u": f.get("page")})
+            out["flags"].setdefault(sid, []).append({"i": fseen[f["file"]], "b": fseen[f["file"]].replace("f/", "fb/"), "k": f.get("k"), "from": f["from"], "to": f["to"], "l": f.get("license"), "a": f.get("artist"), "u": f.get("page")})
     json.dump(out, open(os.path.join(ROOT, "site", "data", "rulers_media.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     print("portraits:", len(out["rulers"]), "files:", len(seen), "| flags for states:", len(out["flags"]), "files:", len(fseen))
 
