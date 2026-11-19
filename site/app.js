@@ -650,6 +650,7 @@
       const c = TOPO[key], base = new URL("topo/" + key + "/", document.baseURI).href;
       map.addSource("topo", { type: "raster", tiles: [base + "{z}/{x}/{y}.webp"], tileSize: 256, minzoom: 11, maxzoom: c.max, bounds: TOPO_BOUNDS, attribution: "\u00A9 NAPR (maps.gov.ge)" });
       map.addLayer({ id: "topo", type: "raster", source: "topo", paint: { "raster-opacity": topoOpacity(), "raster-fade-duration": 0 } }, "admin-line");
+      liftTransport();
       topoShown = key;
     }
     map.setPaintProperty("topo", "raster-opacity", topoOpacity());
@@ -742,11 +743,17 @@
   $("showHere").addEventListener("change", () => { $("map").classList.toggle("here", $("showHere").checked); });
 
   // plan rasters are added to the map only when a plan is first needed (keeps the first page load light)
+  // transport (tram, metro, railway, bridges, avenues) lies above the old plans and the topographic map: layers added later go in just under "admin-line", i.e. above the transport
+  // that was added earlier, so the transport is lifted again after every plan or topographic map is added (found out 2026-11-19: the tram was hidden under the topographic map)
+  function liftTransport() {
+    for (const id of ["tr-line", "tr-aerial", "tr-pt"]) if (map.getLayer(id) && map.getLayer("admin-line")) map.moveLayer(id, "admin-line");
+  }
   function ensurePlan(p) {
     if (map.getLayer("plan-" + p.id)) return;
     map.addSource("plan-" + p.id, { type: "image", url: p.image, coordinates: p.corners });
     map.addLayer({ id: "plan-" + p.id, type: "raster", source: "plan-" + p.id, layout: { visibility: "none" },
                    paint: { "raster-opacity": planOpacity(), "raster-fade-duration": 0 } }, "admin-line");
+    liftTransport();
     if (dataReady) { setLoading("loadPlan", true); map.once("idle", hideLoading); }
   }
 
