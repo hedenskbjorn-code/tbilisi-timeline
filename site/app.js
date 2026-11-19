@@ -7,6 +7,7 @@
   const ZOOM_W = [0, 1000, 600, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
   let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
   let runData = null;                                                  // the run route and its sights (data/run_trc2026.json), see addRun
+  let rulersMedia = null;                                              // portraits of the rulers and flags of the states (data/rulers_media.json, made by tools/fetch_rulers_media.py)
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
   let reopenPopup = null, reopenInfo = null, openPop = null;          // the open card (a popup or the modal) and how to build it again, when the language is switched
   let science = [];                                                    // science and culture buildings (data/science.json), see addScience
@@ -1745,7 +1746,8 @@
   // and a tall card gets its own scrollbar.
   function freeRect() {
     const W = window.innerWidth, H = window.innerHeight, m = 8;
-    const r = { left: m, right: W - m, top: $("top").getBoundingClientRect().bottom + 4, bottom: $("bottom").getBoundingClientRect().top - m };
+    const bb = $("bottom").getBoundingClientRect();
+    const r = { left: m, right: W - m, top: $("timebar").getBoundingClientRect().bottom + 4, bottom: (bb.height ? bb.top : H - 30) - m };
     const mobile = window.matchMedia("(max-width:640px)").matches;
     for (const id of ["side", "filters", "views"]) {
       const el = $(id);
@@ -2019,6 +2021,7 @@
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
     try { runData = await getJSON("data/run_trc2026.json", 1); addRun(); } catch (e) { console.error("run", e && e.message); runData = null; }
+    try { rulersMedia = await getJSON("data/rulers_media.json", 1); } catch (e) { rulersMedia = null; }
     try { rulersData = await getJSON("data/rulers.json", 1); buildRulersBand(); updateRuleLine(); } catch (e) { console.error("rulers", e && e.message); rulersData = null; }
     try { science = await getJSON("data/science.json", 1); addScience(); } catch (e) { console.error("science", e && e.message); science = []; }
     try { religious = await getJSON("data/religious.json", 1); addReligious(); } catch (e) { console.error("religious", e && e.message); religious = []; }
@@ -2277,7 +2280,7 @@
     if (on && fit) {
       const c = runData.route.coords, b = new maplibregl.LngLatBounds(c[0], c[0]);
       for (const p of c) b.extend(p);
-      map.fitBounds(b, { padding: { top: 90, bottom: 190, left: 330, right: 300 }, maxZoom: 15.6, duration: 900 });
+      map.fitBounds(b, { padding: { top: Math.round($("timebar").getBoundingClientRect().bottom) + 30, bottom: document.body.classList.contains("rulers-on") ? 150 : 70, left: 330, right: 300 }, maxZoom: 15.6, duration: 900 });
     }
   }
   function updateRunUi() {
@@ -2336,13 +2339,28 @@
   const RULE_LANE_H = 13;
   const dispYear = (v) => Math.floor(v + 0.0001);
   const rText = (o) => (o && (o[lang] || o.en)) || "";
+  // the heights of the time bar (top) and of the bar of rulers (bottom) go to CSS: the panels lie between them; the band of rulers is aligned with the track of the slider
+  function syncBars() {
+    const tb = $("timebar"), bb = $("bottom"), root = document.documentElement.style;
+    root.setProperty("--tb", Math.round(tb.getBoundingClientRect().height) + "px");
+    root.setProperty("--bb", (document.body.classList.contains("rulers-on") ? Math.round(bb.getBoundingClientRect().height) + 30 : 0) + "px");
+  }
+  window.addEventListener("load", () => syncBars());
+  function alignRulers() {
+    const rn = $("ruleNow"), r = $("rulers"), bar = $("bottom"), sw = $("sliderwrap").getBoundingClientRect(), b = bar.getBoundingClientRect(), cs = getComputedStyle(bar);
+    if (!b.width) return;
+    if (window.matchMedia("(max-width:640px)").matches) { rn.style.width = ""; r.style.marginRight = ""; return; }
+    rn.style.width = Math.max(0, Math.round(sw.left - b.left - parseFloat(cs.paddingLeft))) + "px";
+    r.style.marginRight = Math.max(0, Math.round(b.right - sw.right - parseFloat(cs.paddingRight))) + "px";
+  }
   function buildRulersBand() {
     const box = $("rulers");
     if (!box) return;
     const on = $("showRulers") && $("showRulers").checked && rulersData;
     box.hidden = !on;
     document.body.classList.toggle("rulers-on", !!on);
-    if (!on) return;
+    if (!on) { syncBars(); return; }
+    alignRulers();
     const lo = zoomLo, hi = zoomHi, W = Math.max(0, $("rStates").clientWidth - 16);
     const fill = (row, items, kindOf, nameOf) => {
       row.textContent = "";
@@ -2368,6 +2386,7 @@
     };
     fill($("rStates"), rulersData.states, (it) => "rk-" + it.kind, (it) => rText(it.name));
     fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name));
+    syncBars();
   }
   function showRulerCard(it) {
     reopenInfo = () => showRulerCard(it);
@@ -2375,6 +2394,15 @@
     openInfo((body) => {
       infoLine(body, (rText(g) || "") + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to), "small");
       infoLine(body, rText(it.name), "");
+      const pm = !isState && rulersMedia && rulersMedia.rulers && rulersMedia.rulers[it.id];
+      if (pm) { body.appendChild(mediaImg(pm.i, 96, 120, rText(it.name))); credit(body, pm, it.from < 1700); }
+      if (isState && rulersMedia && rulersMedia.flags && rulersMedia.flags[it.id]) {
+        for (const f of rulersMedia.flags[it.id]) {
+          const row = document.createElement("div"); row.className = "small";
+          row.appendChild(mediaImg(f.i, 0, 28, (RN[lang] || RN.en).flag)); row.appendChild(document.createTextNode(" " + dispYear(f.from) + "–" + dispYear(f.to)));
+          body.appendChild(row); credit(body, f, false);
+        }
+      }
       if (isState && it.form) infoLine(body, L.ruleForm + ": " + rText(it.form));
       if (!isState && it.title) infoLine(body, rText(it.title));
       if (it.note && rText(it.note)) infoLine(body, rText(it.note));
@@ -2389,7 +2417,62 @@
       }
     });
   }
+  // the plate under the band: the flag of the period and up to two rulers with their portraits (Wikimedia Commons; the author and the licence are in the card)
+  const RN = {
+    ru: { img: "Изображение", cond: "До XVIII века это условное изображение (роспись, миниатюра или памятник), а не прижизненный портрет.", flag: "Флаг", open: "Карточка", src: "файл на Commons" },
+    en: { img: "Image", cond: "Before the 18th century this is a conventional image (a fresco, a miniature or a monument), not a portrait from life.", flag: "Flag", open: "Card", src: "file on Commons" },
+    ka: { img: "გამოსახულება", cond: "XVIII საუკუნემდე ეს პირობითი გამოსახულებაა (ფრესკა, მინიატურა ან ძეგლი), და არა ცოცხალი პორტრეტი.", flag: "დროშა", open: "ბარათი", src: "ფაილი Commons-ზე" },
+  };
+  const RGROUP_ORDER = ["king", "emperor", "president", "secretary", "head", "viceroy", "wali", "emir"];
+  function mediaImg(rel, w, h, alt) {
+    const i = document.createElement("img");
+    i.src = "data/rulers/" + rel; i.alt = alt || ""; i.loading = "lazy"; i.decoding = "async";
+    if (w) i.width = w;
+    if (h) i.height = h;
+    return i;
+  }
+  const flagFor = (stateId, yr) => { const l = rulersMedia && rulersMedia.flags && rulersMedia.flags[stateId]; return l ? l.find((f) => f.from <= yr && yr < f.to) : null; };
+  function credit(body, m, withCond) {
+    const d = document.createElement("div"), a = document.createElement("a"), R = RN[lang] || RN.en;
+    d.className = "small";
+    d.appendChild(document.createTextNode(R.img + ": " + (m.a ? m.a + ", " : "") + (m.l || "") + " · "));
+    a.href = m.u; a.target = "_blank"; a.rel = "noopener noreferrer"; a.textContent = R.src;
+    d.appendChild(a); body.appendChild(d);
+    if (withCond) { const c = document.createElement("div"); c.className = "small"; c.textContent = R.cond; body.appendChild(c); }
+  }
+  function updateRuleNow() {
+    const box = $("ruleNow");
+    if (!box) return;
+    box.textContent = "";
+    if (!rulersData || !$("showRulers").checked) return;
+    const within = (it) => it.from < year + 1 && it.to > year;
+    const st = rulersData.states.find((s) => within(s) && !s.lane);
+    const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);       // one person once (two terms of the same ruler meet in a year)
+    const pics = document.createElement("div"), txt = document.createElement("div");
+    pics.className = "rnpics"; txt.className = "rntxt";
+    for (const r of rl) {
+      const m = rulersMedia && rulersMedia.rulers && rulersMedia.rulers[r.id];
+      if (!m) continue;
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "rnpic"; b.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to);
+      b.appendChild(mediaImg(m.i, 36, 46, rText(r.name)));
+      b.addEventListener("click", () => showRulerCard(r));
+      pics.appendChild(b);
+    }
+    if (st) {
+      const row = document.createElement("div"), f = flagFor(st.id, year + 0.5);
+      row.className = "rnst";
+      if (f) { const im = mediaImg(f.i, 0, 14, (RN[lang] || RN.en).flag); im.title = (RN[lang] || RN.en).flag + ": " + rText(st.name); row.appendChild(im); }
+      const sp = document.createElement("span"); sp.textContent = rText(st.name); row.appendChild(sp);
+      row.addEventListener("click", () => showRulerCard(st));
+      txt.appendChild(row);
+    }
+    for (const r of rl) { const d = document.createElement("div"); d.className = "rnr"; d.textContent = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); txt.appendChild(d); }
+    if (pics.children.length) box.appendChild(pics);
+    box.appendChild(txt);
+  }
   function updateRuleLine() {
+    updateRuleNow();
     const box = $("ruleline");
     if (!box) return;
     box.textContent = "";
