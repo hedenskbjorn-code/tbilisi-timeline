@@ -38,6 +38,16 @@ def jload(*p):
     return json.load(open(os.path.join(ROOT, *p), encoding="utf-8"))
 
 
+def tidy(t):
+    """the API cuts an introduction at an abbreviation ("(ок."): a dangling bracket at the end is cut off"""
+    t = (t or "").strip()
+    if t.count("(") > t.count(")"):
+        t = t[:t.rfind("(")].rstrip(" ,;-—")
+        if t and t[-1] not in ".!?":
+            t += "."
+    return t
+
+
 def commons(titles):
     """imageinfo of Commons files: {title: {thumb, page, author, license, license_url, w, h}} for the files with a free licence"""
     out = {}
@@ -75,6 +85,17 @@ def main():
     photos = jload("site", "data", "photos.json")
     by = {(round(f["geometry"]["coordinates"][0], 6), round(f["geometry"]["coordinates"][1], 6)): f["properties"] for f in mon}
     wanted = [ph["file"] for d in desc.values() for ph in d.get("photos", [])]
+    for d in desc.values():                                                # clean the texts and add the translations (data/run_translations.json) where an article has no text in a language
+        d["desc"] = {lg: tidy(tx) for lg, tx in d.get("desc", {}).items()}
+    tr = jload("data", "run_translations.json")["translations"]
+    for n, langs in tr.items():
+        d = desc.get(int(n))
+        if d is None:
+            continue
+        for lg, e in langs.items():
+            if lg not in d["desc"]:
+                d["desc"][lg] = e["text"]
+                d.setdefault("tr", {})[lg] = e["from"]
     wanted = [(w if w.startswith("File:") else "File:" + w).replace("_", " ") for w in wanted]
     info = commons(sorted(set(wanted))) if wanted else {}
     res = {}
@@ -93,7 +114,7 @@ def main():
             if e and len(pl) < MAX_PHOTOS and all(x["page"] != e["page"] for x in pl):
                 pl.append(e)
         facts = d.get("facts") or ({"address": p.get("address")} if p.get("address") and not d.get("desc") else None)       # no article: at least the address of the register
-        item = {"desc": d.get("desc"), "facts": facts, "wp": d.get("wp"), "sources": d.get("sources"), "src_by_lang": d.get("src_by_lang"), "photos": pl}
+        item = {"desc": d.get("desc"), "facts": facts, "wp": d.get("wp"), "sources": d.get("sources"), "src_by_lang": d.get("src_by_lang"), "tr": d.get("tr"), "photos": pl}
         res[str(n)] = {k: v for k, v in item.items() if v}
     out = {"note": "Built by tools/build_run_details.py on 2026-11-19 from data/run_descriptions.json (descriptions written from Wikipedia articles) and the photos of Wikimedia Commons (free licences).", "sights": res}
     open(os.path.join(ROOT, "site", "data", "run_details.json"), "wb").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
