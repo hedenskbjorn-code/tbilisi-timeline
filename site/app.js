@@ -801,6 +801,7 @@
     updateC94();
     updateReligious();
     updateScience();
+    updateNoPhoto();
     updateRuleLine();
     updateStreets();
     updateViews();
@@ -836,6 +837,7 @@
     document.querySelectorAll(".pclose").forEach((b) => b.setAttribute("aria-label", t().ariaClose));
     if ($("fbContactInput")) $("fbContactInput").placeholder = t().fbContactPh;
     updateVersionBtn();
+    updatePhotoUi();
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
     updateZoomUi();
@@ -1219,9 +1221,56 @@
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
   function infoLine(body, text, cls) { const d = document.createElement("div"); d.className = cls || "small"; d.textContent = text; body.appendChild(d); return d; }
+  // "photo hunt": the ring layer and the list of the nearest objects without a photo (only where the photo form is switched on with ?club=1)
+  const photoOn = () => !!(window.TT_PHOTO && window.TT_PHOTO.enabled());
+  function updateNoPhoto() {
+    if (!map.getLayer("nophoto")) return;
+    const on = photoOn() && $("showNoPhoto").checked;
+    map.setLayoutProperty("nophoto", "visibility", on ? "visible" : "none");
+    if (on) map.setFilter("nophoto", ["all", filterExpr(), ["!", ["has", "ph"]]]);
+  }
+  function updatePhotoUi() {
+    const on = photoOn();
+    $("rowNoPhoto").hidden = !on; $("rowNear").hidden = !on;
+    if (on) { const S = window.TT_PHOTO.s(lang); $("noPhotoL").textContent = S.noPhotoL; $("btnNear").textContent = S.nearBtn; }
+  }
+  let lastPos = null;
+  function showNearby(pos) {
+    const S = window.TT_PHOTO.s(lang);
+    reopenInfo = () => showNearby(pos);
+    const k = Math.cos(pos.lat * Math.PI / 180), list = [];
+    for (const f of monuments.features) {
+      const p = f.properties;
+      if (p.ph) continue;
+      const [lng, lat] = f.geometry.coordinates;
+      list.push({ p, lng, lat, d: Math.hypot((lng - pos.lng) * k * 111320, (lat - pos.lat) * 111320) });
+    }
+    list.sort((a, b) => a.d - b.d);
+    openInfo((body) => {
+      $("imTitle").textContent = S.nearTitle;
+      infoLine(body, S.nearHint, "small");
+      if (!list.length) { infoLine(body, S.nearNone); return; }
+      for (const it of list.slice(0, 15)) {
+        let nm = it.p.name || "", ad = it.p.address || "";
+        try { if (window.GeoTr) { nm = window.GeoTr.nameInfo(it.p.name, lang, it.p.wp).text || nm; ad = window.GeoTr.address(it.p.address, lang) || ad; } } catch (e) {}
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "chip"; b.style.cssText = "display:block;width:100%;text-align:left;margin:4px 0";
+        b.textContent = (it.d < 1000 ? Math.round(it.d) + " m" : (it.d / 1000).toFixed(1) + " km") + " \u00B7 " + nm + (ad ? " \u00B7 " + ad : "");
+        b.addEventListener("click", () => { closeInfo(); map.flyTo({ center: [it.lng, it.lat], zoom: 17, duration: 1000 }); popup(it.p, { lng: it.lng, lat: it.lat }); });
+        body.appendChild(b);
+      }
+    });
+  }
+  $("btnNear").addEventListener("click", () => {
+    const S = window.TT_PHOTO.s(lang);
+    if (!navigator.geolocation) { openInfo((body) => { $("imTitle").textContent = S.nearTitle; infoLine(body, S.nearDenied); }); return; }
+    navigator.geolocation.getCurrentPosition((g) => { lastPos = { lat: g.coords.latitude, lng: g.coords.longitude }; showNearby(lastPos); },
+      () => openInfo((body) => { $("imTitle").textContent = S.nearTitle; infoLine(body, S.nearDenied); }), { enableHighAccuracy: true, timeout: 15000 });
+  });
   // the link "send a photo of this object" (photo.js): only in a browser where the form was switched on with ?club=1
-  function addPhotoLink(el, obj) {
+  function addPhotoLink(el, obj, need) {
     if (!window.TT_PHOTO || !window.TT_PHOTO.enabled()) return;
+    if (need) { const n = document.createElement("div"); n.className = "small"; n.style.cssText = "margin-top:8px;color:#f76707"; n.textContent = window.TT_PHOTO.s(lang).need; el.appendChild(n); }
     const h = el.querySelector("h3"), d = document.createElement("div"), a = document.createElement("a");
     d.className = "actions"; a.href = "#"; a.className = "fb"; a.textContent = window.TT_PHOTO.text(lang);
     a.addEventListener("click", (ev) => { ev.preventDefault(); window.TT_PHOTO.open({ obj, name: h ? h.textContent : obj, lang }); });
@@ -1782,7 +1831,7 @@
       if (lang !== "ka" && nmInfo.src === "ai" && L.trNote) infoLine(body, L.trNote);
       photoCredits(body, p);
     }), { id: p.id, name: p.name, reg: p.reg });
-    addPhotoLink(el, "mon:" + p.id);
+    addPhotoLink(el, "mon:" + p.id, !p.ph);
     setObjParam(p.id, showPopup("300px", lngLat, el));
   }
 
@@ -2036,6 +2085,10 @@
         "circle-color": "rgba(0,0,0,0)", "circle-stroke-width": 2, "circle-stroke-color": "#555555",
       },
     }, "mon");
+    map.addLayer({                                               // "photo hunt": a ring around every register object that has no photo (only where the photo form is on)
+      id: "nophoto", type: "circle", source: "mon", layout: { visibility: "none" }, filter: ["!", ["has", "ph"]],
+      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 6, 15, 12, 18, 17], "circle-color": "rgba(0,0,0,0)", "circle-stroke-width": 2.5, "circle-stroke-color": "#f76707", "circle-stroke-opacity": 0.95 },
+    }, "mon-ruin");
     map.on("click", "mon", (e) => { if (e.features && e.features[0]) popup(e.features[0].properties, e.lngLat); });
     map.on("mouseenter", "mon", () => { map.getCanvas().style.cursor = "pointer"; });
     map.on("mouseleave", "mon", () => { map.getCanvas().style.cursor = ""; });
@@ -2063,7 +2116,7 @@
     if (hy >= MIN && hy <= MAX && hy !== year) { year = hy; update(); }
   });
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj", "showNoPhoto"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
