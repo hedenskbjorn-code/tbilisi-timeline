@@ -31,6 +31,12 @@ EXTRA_STATE_FLAGS = {
     "georgia": [{"file": "KingDavidtheBuilderFlag.svg", "from": 1122, "to": 1125, "k": "recon"}, {"file": "QueenTamarFlag.svg", "from": 1184, "to": 1213, "k": "recon"},
                 {"file": "Flag of the Kingdom of Georgia.svg", "k": "recon"}],
     "kartli_kakheti": [{"file": "Flag of Kingdom of Kartli-Kakheti.svg", "k": "recon"}],
+    # the Russian article on the Kingdom of Kartli shows this file; Kartli has no flag of its own in Wikidata
+    "kartli": [{"file": "Flag of Kingdom of Kartli-Kakheti.svg", "k": "recon"}],
+    # the flags of the suzerains ("suz"): the data of the band say that Iberia was a province of the Sasanians after 580 and that the emirate was ruled by the Abbasid caliphate;
+    # the periods with changing masters (645-750) have no flag
+    "transition": [{"file": "Derafsh Kaviani flag of the late Sassanid Empire.svg", "from": 580, "to": 645, "k": "suz"}],
+    "emirate": [{"file": "Black flag.svg", "from": 750, "to": 1122, "k": "suz"}],
 }
 EXTRA_FLAG = {"Georgia (country)": [{"file": "Flag of Georgia (1990–2004).svg", "from": 1990, "to": 2004}]}      # absent in P41 of the item; the dates are those of the Commons file name
 
