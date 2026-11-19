@@ -24,7 +24,7 @@ EXCLUDE = {
     (10, "en"): "the article of the Sioni Cathedral, not of the monument to Vakhtang Gorgasali",
     (11, "ru"): "the church of the Forty Martyrs (sight 17), not St Abo",
     (12, "en"): "the article of the Metekhi church, not of the bridge",
-    (13, "en"): "the article of the fortress Narikala, not of the church of St Nicholas",
+    (14, "en"): "the article of the fortress Narikala, not of the church of St Nicholas",
     (21, "en"): "the Norashen church (sight 23), not Jvaris Mama",
     (29, "ru"): "the article of Shavteli Street, not of the clock tower",
     (30, "en"): "the article of a hotel, not of the marionette theatre",
@@ -45,7 +45,7 @@ NOTES = {
         "en": "This point is the building at 40 David Agmashenebeli Avenue (an entry of the heritage register, late 19th century). The university occupies two buildings: according to the English Wikipedia article, the first at 19-23 Rustaveli Avenue, the second on David Agmashenebeli Avenue. The description refers to the university as a whole.",
         "ka": "ეს წერტილი არის შენობა დავით აღმაშენებლის გამზირზე №40 (ძეგლთა რეესტრის ჩანაწერი, XIX საუკუნის ბოლო). უნივერსიტეტი ორ შენობას იკავებს: ვიკიპედიის ინგლისური სტატიით, პირველი რუსთაველის გამზირზე №19–23, მეორე — დავით აღმაშენებლის გამზირზე. აღწერა მთლიანად უნივერსიტეტს ეხება."},
 }
-NOTES[15] = {"ru": "Точка отмечает остатки церкви (запись реестра: ул. Гришашвили, 18, середина XIX века); сама церковь разрушена.",
+NOTES[13] = {"ru": "Точка отмечает остатки церкви (запись реестра: ул. Гришашвили, 18, середина XIX века); сама церковь разрушена.",
              "en": "The point marks the remains of the church (register entry: 18 Grishashvili St., middle of the 19th century); the church itself was destroyed.",
              "ka": "წერტილი ეკლესიის ნარჩენებს აღნიშნავს (რეესტრის ჩანაწერი: გრიშაშვილის ქ. 18, XIX საუკუნის შუა წლები); თვით ეკლესია დანგრეულია."}
 NO_ARTICLE_PHOTOS = {1}          # the photos of the articles show another building than the point: no photo from the articles

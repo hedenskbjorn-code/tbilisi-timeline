@@ -64,3 +64,12 @@ main { position:fixed; top:52px; left:0; right:0; bottom:0; display:grid; grid-t
 .it { display:none; margin:0 0 8px; font-size:18px; line-height:1.25; color:var(--fg); }
 #share { white-space:nowrap; }
 @media (max-width: 800px) { #title { display:none; } .it { display:block; } }
+
+.oldctl { position:absolute; top:10px; left:10px; z-index:2; max-width:min(260px, calc(100% - 70px)); }
+.oldctl .chip { box-shadow:0 1px 4px #0004; }
+.oldpanel { margin-top:6px; padding:8px 10px; background:var(--panel); color:var(--fg); border:1px solid var(--line); border-radius:8px; box-shadow:0 1px 6px #0004; display:flex; flex-direction:column; gap:8px; }
+.oldpanel select { width:100%; }
+.oldrow { display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-size:13px; }
+.oldrow input { flex:1 1 100%; }
+.oldpanel .small { font-size:12px; color:var(--muted); }
+body.og .oldctl { display:none; }
