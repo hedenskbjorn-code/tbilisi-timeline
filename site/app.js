@@ -2197,9 +2197,10 @@
     $("slider").value = Math.round(y2v(year));
     buildTicks(); buildEvMarks(); buildRulersBand(); updateZoomUi();
   }
-  function ensureInWindow() {
-    if (zoomIx === 0 || (year >= zoomLo && year <= zoomHi)) return;
-    applyWindow(year - ZOOM_W[zoomIx] / 2);
+  function ensureInWindow() {                      // a zoomed scale is centred on the year (the mark in the middle; at the ends of the history the window stops)
+    if (zoomIx === 0) return;
+    const w = ZOOM_W[zoomIx], lo = Math.min(Math.max(Math.round(year - w / 2), MIN), MAX - w);
+    if (lo !== zoomLo || zoomHi !== lo + w) applyWindow(lo);
   }
   function updateZoomUi() {
     $("zoomLbl").textContent = zoomIx === 0 ? t().zoomAll : zoomLo + "\u2013" + zoomHi;
@@ -2224,8 +2225,7 @@
   }
   function panWindow(dir) {
     if (zoomIx === 0) return;
-    applyWindow(zoomLo + dir * ZOOM_W[zoomIx] / 2);
-    if (year < zoomLo) year = zoomLo; else if (year > zoomHi) year = zoomHi;
+    year = Math.min(Math.max(Math.round(year + dir * ZOOM_W[zoomIx] / 2), MIN), MAX);
     update();
   }
   $("zoomIn").addEventListener("click", () => zoomBy(1));
@@ -2370,7 +2370,9 @@
     alignRulers();
     const c = year + 0.5, cnt = (w) => rulersData.rulers.filter((r) => !r.lane && r.to > c - w / 2 && r.from < c + w / 2).length;
     if (!bandW || cnt(bandW) < 3 || cnt(bandW) > 16) bandW = BAND_LEVELS.find((w) => cnt(w) >= 5) || BAND_LEVELS[BAND_LEVELS.length - 1];       // the smallest window with at least 5 rulers; kept while it stays between 3 and 16
-    const lo = c - bandW / 2, hi = c + bandW / 2, W = Math.max(0, $("rStates").clientWidth - 16);
+    let lo = c - bandW / 2, hi = c + bandW / 2;
+    if (zoomIx > 0) { lo = zoomLo; hi = zoomHi; bandW = hi - lo; }       // a zoomed scale: the same window as the scale above
+    const W = Math.max(0, $("rStates").clientWidth - 16);
     const shortName = (n) => { const w = n.replace(/\(.*?\)/g, "").trim().split(/\s+/), last = w[w.length - 1]; return /^[IVXLC]+$/.test(last) && w.length > 1 ? w[0] + " " + last : last; };
     const fill = (row, items, kindOf, nameOf, ruler) => {
       row.textContent = "";
@@ -2506,7 +2508,7 @@
     const y = year + 0.5;
     for (const el of document.querySelectorAll("#rulers .rseg")) el.classList.toggle("on", +el.dataset.from <= y && +el.dataset.to > y);
     const h = $("rhead");
-    if (h) h.style.left = "calc(8px + (100% - 16px) * 0.5 - 1px)";
+    if (h) h.style.left = "calc(8px + (100% - 16px) * " + (zoomIx > 0 ? (year + 0.5 - zoomLo) / Math.max(1, zoomHi - zoomLo) : 0.5) + " - 1px)";
   }
   // the summary at the left of the band: the form of government, the state, the rulers of the year, in a readable size
   function updateRuleSummary() {
@@ -2588,9 +2590,11 @@
     }
     const setTo = (y) => { if (y !== year) { year = y; update(); } };
     const wrap = $("sliderwrap");
-    if (wrap) track(wrap, "grabbing", () => null, (e) => {
-      const r = wrap.getBoundingClientRect();
-      setTo(v2y(Math.min(1000, Math.max(0, ((e.clientX - r.left - 8) / Math.max(1, r.width - 16)) * 1000))));
+    if (wrap) track(wrap, "grabbing", () => {
+      if (zoomIx === 0) setZoom(5);                                  // the whole history cannot be scrolled: zoom in first (the buttons bring it back)
+      return { y0: year, span: Math.max(1, zoomHi - zoomLo), w: Math.max(1, wrap.clientWidth - 16) };
+    }, (e, dx, c) => {
+      setTo(Math.round(Math.min(MAX, Math.max(MIN, c.y0 - dx * c.span / c.w))));          // the scale follows the pointer: to the right = earlier years
     });
     const axis = $("axis");
     if (axis) track(axis, "grabbing", () => ({ y0: year, w: Math.max(1, $("rulers").clientWidth - 16), span: bandW || 100 }), (e, dx, c) => {
