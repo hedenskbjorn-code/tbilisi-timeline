@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRC City Run 2026: что увидеть по пути (маршрут и 45 достопримечательностей Тбилиси)</title>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Маршрут TRC City Run 2026 (Tbilisi Running Club) на карте Тбилиси: 9,7 км и 45 достопримечательностей по пути, с описаниями, датами, фотографиями и ссылками на источники. Русский, English, ქართული.">
+<link rel="canonical" href="https://hedenskbjorn-code.github.io/tbilisi-timeline/run/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Тбилиси во времени">
+<meta property="og:title" content="TRC City Run 2026: что увидеть по пути">
+<meta property="og:description" content="Маршрут пробежки по центру Тбилиси, 9,7 км: 45 достопримечательностей по порядку вдоль трассы, с описаниями и фотографиями.">
+<meta property="og:url" content="https://hedenskbjorn-code.github.io/tbilisi-timeline/run/">
+<meta property="og:image" content="https://hedenskbjorn-code.github.io/tbilisi-timeline/img/og-run.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Маршрут TRC City Run 2026 на карте Тбилиси с пронумерованными достопримечательностями">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ka_GE">
+<meta name="twitter:card" content="summary_large_image">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org; font-src 'self' data: https://tiles.openfreemap.org; connect-src 'self' https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org https://cloudflareinsights.com; worker-src blob:; child-src blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="run.css">
+</head>
+<body>
+<header id="top">
+  <a id="home" href="../">&larr; <span id="homeTxt"></span></a>
+  <img id="logo" src="../img/trc-logo.png" alt="Tbilisi Running Club" width="36" height="36">
+  <h1 id="title"></h1>
+  <div class="spacer"></div>
+  <button id="share" class="chip" type="button"></button>
+  <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
+</header>
+<main>
+  <section id="list">
+    <div id="intro"></div>
+    <ol id="cards"></ol>
+    <footer id="credits"></footer>
+  </section>
+  <div id="map" role="application"></div>
+  <div id="loading" role="status" aria-live="polite"><span class="spin" aria-hidden="true"></span><span id="loadingTxt"></span></div>
+</main>
+<script src="../vendor/maplibre-gl.js"></script>
+<script src="run.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f4945adf4d994802bcb88c6ce54c4c32"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

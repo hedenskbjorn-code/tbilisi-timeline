@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.1.0",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Отдельная страница маршрута TRC City Run 2026 (адрес /run/): небольшая карта с трассой, 45 достопримечательностей по порядку вдоль маршрута с подробными описаниями на трёх языках, фотографиями и ссылками на источники; у страницы своя ссылка и свой превью-рисунок для мессенджеров.",
+    "en": "A separate page of the route TRC City Run 2026 (address /run/): a small map with the track, 45 sights in order along the route with detailed descriptions in three languages, photos and links to the sources; the page has its own link and its own preview picture for messengers.",
+    "ka": "TRC City Run 2026-ის მარშრუტის ცალკე გვერდი (მისამართი /run/): პატარა რუკა ტრასით, 45 ღირსშესანიშნაობა მარშრუტის გასწვრივ თანმიმდევრობით, დეტალური აღწერებით სამ ენაზე, ფოტოებითა და წყაროების ბმულებით; გვერდს აქვს საკუთარი ბმული და საკუთარი სურათი მესენჯერებისთვის."
+   },
+   {
+    "t": "new",
+    "ru": "В карточке маршрута на главной карте появились ссылка на эту страницу и кнопка «Скопировать ссылку».",
+    "en": "The card of the route on the main map now has a link to this page and a \"Copy link\" button.",
+    "ka": "მთავარ რუკაზე მარშრუტის ბარათში გაჩნდა ამ გვერდის ბმული და ღილაკი „ბმულის კოპირება“."
+   }
+  ]
+ },
+ {
   "version": "1.0.1",
   "date": "2026-11-19",
   "items": [

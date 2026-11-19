@@ -117,6 +117,7 @@
       trRoutes62: "Маршруты по списку 1962 г.", trRoutes86: "Маршруты по списку 1986 г.",
       chgTitle: "Что нового", chgNew: "Новое", chgFix: "Исправлено", chgFail: "Не удалось загрузить журнал изменений.",
       trGapEarly: "С 25 декабря 1904 в Тбилиси ходил электрический трамвай. Его линии на карте показаны с плана 1913 года, на этот год не нанесены.", trGapMid: (km, y) => `Трамвай в эти годы был (около ${km} км сети на ${y} год, ru.wikipedia), но его линии на карте не нанесены: данных об улицах нет.`,
+      runPage: "Страница маршрута: карта, описания и фото", runCopy: "Скопировать ссылку", runCopied: "Ссылка скопирована",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -279,6 +280,7 @@
       trRoutes62: "Routes of the list of 1962", trRoutes86: "Routes of the list of 1986",
       chgTitle: "What is new", chgNew: "New", chgFix: "Fixed", chgFail: "The log of changes could not be loaded.",
       trGapEarly: "An electric tram ran in Tbilisi from 25 December 1904. Its lines are shown on the map from the plan of 1913, they are not drawn for this year.", trGapMid: (km, y) => `There was a tram in these years (about ${km} km of network in ${y}, ru.wikipedia), but its lines are not drawn on the map: there are no data on the streets.`,
+      runPage: "The page of the route: map, descriptions and photos", runCopy: "Copy link", runCopied: "Link copied",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -442,6 +444,7 @@
       trRoutes62: "მარშრუტები 1962 წლის სიით", trRoutes86: "მარშრუტები 1986 წლის სიით",
       chgTitle: "რა არის ახალი", chgNew: "ახალი", chgFix: "გასწორდა", chgFail: "ცვლილებათა ჟურნალის ჩატვირთვა ვერ მოხერხდა.",
       trGapEarly: "თბილისში ელექტრო ტრამვაი 1904 წლის 25 დეკემბრიდან დადიოდა. მისი ხაზები რუკაზე 1913 წლის გეგმიდან ჩანს, ამ წლისთვის დატანილი არ არის.", trGapMid: (km, y) => `ამ წლებში ტრამვაი იყო (ქსელის დაახლოებით ${km} კმ ${y} წელს, ru.wikipedia), მაგრამ მისი ხაზები რუკაზე დატანილი არ არის: ქუჩების შესახებ მონაცემები არ გვაქვს.`,
+      runPage: "მარშრუტის გვერდი: რუკა, აღწერები და ფოტოები", runCopy: "ბმულის კოპირება", runCopied: "ბმული დაკოპირდა",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -2228,6 +2231,17 @@
     const L = t(), r = runData.route;
     openInfo((body) => {
       infoLine(body, "Tbilisi Running Club · TRC City Run 2026 \u00B7 " + L.runStats(r, runData.sights.length), "small");
+      const pg = document.createElement("div");                         // the separate page of the route: its own link, a small map and the sights with descriptions and photos
+      pg.className = "small";
+      const pa = document.createElement("a");
+      pa.href = "run/?lang=" + lang; pa.target = "_blank"; pa.rel = "noopener"; pa.textContent = L.runPage;
+      const cp = document.createElement("button");
+      cp.type = "button"; cp.className = "chip"; cp.style.marginLeft = "10px"; cp.textContent = L.runCopy;
+      cp.addEventListener("click", async () => {
+        const url = new URL("run/?lang=" + lang, location.href).href;
+        try { await navigator.clipboard.writeText(url); cp.textContent = L.runCopied; setTimeout(() => { cp.textContent = L.runCopy; }, 1800); } catch (e) { window.prompt(L.runCopy, url); }
+      });
+      pg.appendChild(pa); pg.appendChild(cp); body.appendChild(pg);
       infoLine(body, L.runList + ":", "");
       for (const s of runData.sights) infoLine(body, s.n + ". " + String(s.km).replace(".", ",") + " " + (lang === "ru" ? "км" : lang === "ka" ? "კმ" : "km") + " \u00B7 " + (s.name[lang] || s.name.en) + " \u00B7 " + s.d + " " + (lang === "ru" ? "м" : lang === "ka" ? "მ" : "m"), "small");
       infoLine(body, L.runNote);
