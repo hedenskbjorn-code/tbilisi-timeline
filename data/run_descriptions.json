@@ -1,0 +1,1209 @@
+[
+ {
+  "n": 1,
+  "wp": {
+   "ru": "Тбилисский театральный университет",
+   "en": "Shota Rustaveli Theatre and Film University",
+   "ka": "შოთა რუსთაველის თეატრისა და კინოს უნივერსიტეტი"
+  },
+  "desc": {
+   "ru": "Тбилисский театральный институт им. Ш. Руставели (сокращённо ТГИТиК) — высшее театральное учебное заведение Грузинской ССР и Грузии.",
+   "en": "Shota Rustaveli Theater and Georgia State Film University (TAFU) is one of the oldest universities in the Caucasus and Georgia. The Theater and Film University has dedicated solely to the visual and performing arts. The chief founder of the university was a well-known Georgian theater actor and director, Lado Meskhishvili.",
+   "ka": "საქართველოს შოთა რუსთაველის თეატრისა და კინოს სახელმწიფო უნივერსიტეტი — დარგობრივი ტიპის უნივერსიტეტი, რომელიც მიზნად ისახავს კულტურის მართვის და ხელოვნების საშემსრულებლო თუ გამოყენებით დარგებში კვალიფიციური კადრების მომზადებას; ინტერდისციპლინარული ხასიათის სასწავლო გეგმების განვითარებას."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82",
+   "https://en.wikipedia.org/wiki/Shota_Rustaveli_Theatre_and_Film_University",
+   "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%9D%E1%83%97%E1%83%90_%E1%83%A0%E1%83%A3%E1%83%A1%E1%83%97%E1%83%90%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98%E1%83%A1%E1%83%90_%E1%83%93%E1%83%90_%E1%83%99%E1%83%98%E1%83%9C%E1%83%9D%E1%83%A1_%E1%83%A3%E1%83%9C%E1%83%98%E1%83%95%E1%83%94%E1%83%A0%E1%83%A1%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Shota_Rustaveli_Theatre_and_Film_University.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:TAFU_Logo.jpeg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82",
+   "en": "https://en.wikipedia.org/wiki/Shota_Rustaveli_Theatre_and_Film_University",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%9D%E1%83%97%E1%83%90_%E1%83%A0%E1%83%A3%E1%83%A1%E1%83%97%E1%83%90%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98%E1%83%A1%E1%83%90_%E1%83%93%E1%83%90_%E1%83%99%E1%83%98%E1%83%9C%E1%83%9D%E1%83%A1_%E1%83%A3%E1%83%9C%E1%83%98%E1%83%95%E1%83%94%E1%83%A0%E1%83%A1%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98"
+  }
+ },
+ {
+  "n": 2,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 3,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 4,
+  "wp": {
+   "ru": "Сухой мост",
+   "ka": "მშრალი ხიდი"
+  },
+  "desc": {
+   "ru": "Сухой мост (груз. მშრალი ხიდი) — автомобильно-пешеходный мост в Тбилиси над бывшим рукавом Куры, ныне засыпанным и превращённым в часть улицы Звиада Гамсахурдиа. Вместе с Саарбрюкенским мостом является частью мостового сооружения через Куру и прилегающие улицы, ведущего из района Мтацминда (на мост выходит улица Хиди) в район Чугурети, к Саарбрюкенской площади.",
+   "ka": "მშრალი ხიდი (ყოფილი მიხეილის მცირე ხიდი) — ხიდი ქალაქ თბილისში. მშრალი ხიდი ცნობილია თავისი „საბროკერო ბირჟით“, ძველმანების ბაზრობითა და სურათების გამოფენა–გაყიდვით."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A1%D1%83%D1%85%D0%BE%D0%B9_%D0%BC%D0%BE%D1%81%D1%82",
+   "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A8%E1%83%A0%E1%83%90%E1%83%9A%E1%83%98_%E1%83%AE%E1%83%98%E1%83%93%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Drybridge.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D1%83%D1%85%D0%BE%D0%B9_%D0%BC%D0%BE%D1%81%D1%82",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A8%E1%83%A0%E1%83%90%E1%83%9A%E1%83%98_%E1%83%AE%E1%83%98%E1%83%93%E1%83%98"
+  }
+ },
+ {
+  "n": 5,
+  "wp": {
+   "ka": "ჩუღურეთის წმინდა ნიკოლოზის ეკლესია"
+  },
+  "desc": {
+   "ka": "ჩუღურეთის წმინდა ნიკოლოზის ეკლესია — ქართული მართლმადიდებლური ეკლესია თბილისში. მდებარეობს ჩუღურეთში, კოსტა ხეთაგუროვის ქუჩაზე. ეკლესიას თავდაპირველად „ჯუარის გამოჩენისა“ ერქვა და უგუმბათო იყო, პატარა ზომის, ქვითკირით ნაშენი."
+  },
+  "sources": [
+   "https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%A3%E1%83%A6%E1%83%A3%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1_%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:თბილისი._წმინდა_ნიკოლოზის_სახელობის_ეკლესია._1.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%A3%E1%83%A6%E1%83%A3%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1_%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 6,
+  "wp": {
+   "ru": "Мост Бараташвили",
+   "en": "Baratashvili Bridge",
+   "ka": "ნიკოლოზ ბარათაშვილის ხიდი"
+  },
+  "desc": {
+   "ru": "Мост Бараташвили (груз. ბარათაშვილის ხიდი) — автодорожный железобетонный балочный мост через реку Кура в Тбилиси, Грузия. Соединяет район Авлабари со Старым Тбилиси и районом Мтацминда (через Площадь Свободы, улицы Пушкина и Бараташвили).",
+   "en": "Baratashvili Bridge (Georgian: ბარათაშვილის ხიდი, baratashvilis khidi) is a traffic and pedestrian bridge over the Kura River in Tbilisi, capital of Georgia. It was built in 1966 in place of the previously dismantled Mukhrani Bridge honoring Princess Mukhrani.",
+   "ka": "ნიკოლოზ ბარათაშვილის ხიდი — ხიდი თბილისში, ქალაქის ცენტრისა და ისტორიული· უბნების — ავლაბრისა და ჩუღურეთის დამაკავშირებელი ხიდი მდინარე მტკვარზე, ნიკოლოზ ბარათაშვილის ქუჩის გაგრძელებაზე (1965; არქიტექტორები: შოთა ყავლაშვილი, ვლადიმერ ქურთიშვილი. ინჟინერი: გ. ქარცივაძე)."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%82_%D0%91%D0%B0%D1%80%D0%B0%D1%82%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "https://en.wikipedia.org/wiki/Baratashvili_Bridge",
+   "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96_%E1%83%91%E1%83%90%E1%83%A0%E1%83%90%E1%83%97%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%AE%E1%83%98%E1%83%93%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Baratashvili_Bridge_01.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:River_Mtkvari,_the_Baratashvili_Bridge_&_Presidential_Palace_in_Tbilisi_(2010).jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:Nikoloz_Baratashvili_Bridge_over_Kura,_2007-09-28.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%82_%D0%91%D0%B0%D1%80%D0%B0%D1%82%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Baratashvili_Bridge",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96_%E1%83%91%E1%83%90%E1%83%A0%E1%83%90%E1%83%97%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%AE%E1%83%98%E1%83%93%E1%83%98"
+  }
+ },
+ {
+  "n": 7,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 8,
+  "wp": {
+   "ka": "ავლაბრის ფერისცვალების ეკლესია"
+  },
+  "desc": {
+   "ka": "ავლაბრის ფერისცვალების ეკლესია, თბილისის ფერისცვალების დედათა მონასტერი, დარიის მონასტერი — არქიტექტურული ძეგლი თბილისში, ავლაბარში, ურბნისის ქუჩის №1-ში."
+  },
+  "sources": [
+   "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%95%E1%83%9A%E1%83%90%E1%83%91%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%A4%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AA%E1%83%95%E1%83%90%E1%83%9A%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  ],
+  "photos": [],
+  "src_by_lang": {
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%95%E1%83%9A%E1%83%90%E1%83%91%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%A4%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AA%E1%83%95%E1%83%90%E1%83%9A%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 9,
+  "wp": {
+   "ru": "Храм Метехи",
+   "en": "Metekhi Church",
+   "ka": "მეტეხის ღვთისმშობლის შობის ტაძარი"
+  },
+  "desc": {
+   "ru": "Храм Метехи (груз. მეტეხის ღვთისმშობლის შობის ტაძარი) — церковь во имя Успения Пресвятой Богородицы в Тбилиси, в подчинении Грузинской православной церкви. Расположена в районе Метехи на скале над рекой Кура.",
+   "en": "The Metekhi church of the Nativity of the Mother of God (Georgian: მეტეხის ღვთისმშობლის შობის ტაძარი, romanized: met'ekhis ghvtismshoblis shobis t'adzari), known simply as Metekhi, is a Georgian Orthodox Christian church located on the left bank of the river Kura. It sits on the Metekhi Cliff opposite the old town of Tbilisi, Georgia. Much of the existing structure dates back to the Middle Ages and was built between 1278 and 1289 AD under the reign of King Demetrius II of Georgia, although oral tradition traces Metekhi's origins further to the 5th century.",
+   "ka": "მეტეხის ღვთისმშობლის შობის ტაძარი — ტაძარი თბილისში, ავლაბარში, მეტეხის აღმართის №1-ში."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A5%D1%80%D0%B0%D0%BC_%D0%9C%D0%B5%D1%82%D0%B5%D1%85%D0%B8",
+   "https://en.wikipedia.org/wiki/Metekhi_Church",
+   "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%A2%E1%83%94%E1%83%AE%E1%83%98%E1%83%A1_%E1%83%A6%E1%83%95%E1%83%97%E1%83%98%E1%83%A1%E1%83%9B%E1%83%A8%E1%83%9D%E1%83%91%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A8%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_The_Metekhi_Church_of_Assumption_IMG_8842_1920.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:2014_Tbilisi,_Cerkiew_Metechi_(04).jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A5%D1%80%D0%B0%D0%BC_%D0%9C%D0%B5%D1%82%D0%B5%D1%85%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Metekhi_Church",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%A2%E1%83%94%E1%83%AE%E1%83%98%E1%83%A1_%E1%83%A6%E1%83%95%E1%83%97%E1%83%98%E1%83%A1%E1%83%9B%E1%83%A8%E1%83%9D%E1%83%91%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A8%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98"
+  }
+ },
+ {
+  "n": 10,
+  "wp": {
+   "ru": "Памятник Вахтангу Горгасали",
+   "en": "Tbilisi Sioni Cathedral"
+  },
+  "desc": {
+   "ru": "Памятник Вахтангу Горгасали (груз. ვახტანგ გორგასლის ძეგლი) — монумент в Тбилиси. Воздвигнут в честь царя Иберии Вахтанга I Горгасали (ок.",
+   "en": "The Sioni Cathedral of the Dormition (Georgian: სიონის ღვთისმშობლის მიძინების ტაძარი) is a Georgian Orthodox cathedral located in Tbilisi, the capital of Georgia. Following a medieval Georgian tradition of naming churches after specific places in the Holy Land, the Sioni Cathedral bears the name of Mount Zion at Jerusalem. It is commonly referred to as the \"Tbilisi Sioni\" to distinguish it from other churches in Georgia with the same name."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3%D1%83_%D0%93%D0%BE%D1%80%D0%B3%D0%B0%D1%81%D0%B0%D0%BB%D0%B8",
+   "https://en.wikipedia.org/wiki/Tbilisi_Sioni_Cathedral"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisoba_2014_09.JPG",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Tbilisi_Sioni_Cathedral_09.23.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3%D1%83_%D0%93%D0%BE%D1%80%D0%B3%D0%B0%D1%81%D0%B0%D0%BB%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Tbilisi_Sioni_Cathedral"
+  }
+ },
+ {
+  "n": 11,
+  "wp": {
+   "ru": "Церковь Сорока Мучеников (Тбилиси)"
+  },
+  "desc": {
+   "ru": "Церковь Сорока Мучеников (груз. ახალი ეკლესია) — культовое сооружение в Тбилиси, в историческом районе Старый город (ул. Самгебро, 6)."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%BE%D1%80%D0%BE%D0%BA%D0%B0_%D0%9C%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)"
+  ],
+  "photos": [
+   {
+    "file": "File:Churches_in_Old_Tbilisi,_ArmAg_(9).JPG",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%BE%D1%80%D0%BE%D0%BA%D0%B0_%D0%9C%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)"
+  }
+ },
+ {
+  "n": 12,
+  "wp": {
+   "ru": "Мост Метехи",
+   "en": "Metekhi Church",
+   "ka": "მეტეხის ხიდი"
+  },
+  "desc": {
+   "ru": "Мост Метехи (груз. მეტეხის ხიდი) — арочный мост через реку Куру в Тбилиси, Грузия. Соединяет исторические районы Старый Тбилиси и Метехи.",
+   "en": "The Metekhi church of the Nativity of the Mother of God (Georgian: მეტეხის ღვთისმშობლის შობის ტაძარი, romanized: met'ekhis ghvtismshoblis shobis t'adzari), known simply as Metekhi, is a Georgian Orthodox Christian church located on the left bank of the river Kura. It sits on the Metekhi Cliff opposite the old town of Tbilisi, Georgia. Much of the existing structure dates back to the Middle Ages and was built between 1278 and 1289 AD under the reign of King Demetrius II of Georgia, although oral tradition traces Metekhi's origins further to the 5th century.",
+   "ka": "მეტეხის ხიდი — ხიდი თბილისში მდინარე მტკვარზე. აგებულია მეტეხის კლდის ვიწროებში, იქ სადაც მდინარის კალაპოტი ყველაზე მეტად არის შევიწროებული ისტორიული ხიდების, ავლაბრისა და ვირის ხიდების ადგილზე."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%82_%D0%9C%D0%B5%D1%82%D0%B5%D1%85%D0%B8",
+   "https://en.wikipedia.org/wiki/Metekhi_Church",
+   "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%A2%E1%83%94%E1%83%AE%E1%83%98%E1%83%A1_%E1%83%AE%E1%83%98%E1%83%93%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Metekhi_Bridge_-_Tbilisi_-_01.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Tbilisi_The_Metekhi_Church_of_Assumption_IMG_8842_1920.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%82_%D0%9C%D0%B5%D1%82%D0%B5%D1%85%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Metekhi_Church",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%A2%E1%83%94%E1%83%AE%E1%83%98%E1%83%A1_%E1%83%AE%E1%83%98%E1%83%93%E1%83%98"
+  }
+ },
+ {
+  "n": 13,
+  "wp": {
+   "ru": "Церковь Святого Николая (Нарикала)",
+   "en": "Narikala",
+   "ka": "ნარიყალას წმინდა ნიკოლოზის ეკლესია"
+  },
+  "desc": {
+   "ru": "Церковь Святого Николая (груз. ნარიყალას წმინდა ნიკოლოზის ეკლესია) — храм Грузинской православной церкви в Тбилиси, находится в крепости Нарикала.",
+   "en": "Narikala (Georgian: ნარიყალა, pronounced [naɾiχʼaɫa]) is an ancient fortress overlooking Tbilisi, the capital of Georgia, and the Mtkvari (Kura) River. The fortress consists of two walled sections on a steep hill between the sulfur baths and the botanical gardens of Tbilisi. On the lower court there is the recently restored St Nicholas church.",
+   "ka": "ნარიყალას წმინდა ნიკოლოზის ეკლესია — საქართველოს მართლმადიდებელი ეკლესია თბილისში, მდებარე ნარიყალას ციხეში. თბილისის წმინდა ნიკოლოზის ეკლესია ნარიყალაზე თავდაპირველად აშენდა XIII საუკუნეში, წმინდა მეფე დემეტრე თავდადებულის დროს. პლატონ იოსელიანიც თვლის, რომ მეტეხის ეკლესიის პარალელურად აშენდა ნარიყალას ნიკოლოზის კარის ეკლესია."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%B2%D1%8F%D1%82%D0%BE%D0%B3%D0%BE_%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D1%8F_(%D0%9D%D0%B0%D1%80%D0%B8%D0%BA%D0%B0%D0%BB%D0%B0)",
+   "https://en.wikipedia.org/wiki/Narikala",
+   "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98%E1%83%A7%E1%83%90%E1%83%9A%E1%83%90%E1%83%A1_%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi,_Church_of_St._Nicholas,_Georgia.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Tbilisi_IMG_8846_1920.jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:Kala,_Tbilisi1-4.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%B2%D1%8F%D1%82%D0%BE%D0%B3%D0%BE_%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D1%8F_(%D0%9D%D0%B0%D1%80%D0%B8%D0%BA%D0%B0%D0%BB%D0%B0)",
+   "en": "https://en.wikipedia.org/wiki/Narikala",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98%E1%83%A7%E1%83%90%E1%83%9A%E1%83%90%E1%83%A1_%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 14,
+  "wp": {
+   "en": "Juma Mosque, Tbilisi"
+  },
+  "desc": {
+   "en": "The Juma Mosque (Georgian: ჯუმა მეჩეთი; Azerbaijani: Cümə məscidi) is the only surviving mosque in the historic Old Town of Tbilisi, Georgia. Located at the foot of Narikala Fortress on Botanical Street, it is notable for its shared use by both Sunni and Shia Muslims."
+  },
+  "sources": [
+   "https://en.wikipedia.org/wiki/Juma_Mosque,_Tbilisi"
+  ],
+  "photos": [
+   {
+    "file": "File:Juma_Mosque_of_Tbilisi.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "en": "https://en.wikipedia.org/wiki/Juma_Mosque,_Tbilisi"
+  }
+ },
+ {
+  "n": 15,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 16,
+  "wp": {
+   "ru": "Нарикала",
+   "en": "Narikala"
+  },
+  "desc": {
+   "ru": "Нарика́ла (вернее, Нарин-кала; груз. ნარიყალა, ნარინ კალა «нижняя/маленькая крепость») — крепостной комплекс различных эпох в Старом Тбилиси, на правом скалистом берегу Куры.",
+   "en": "Narikala (Georgian: ნარიყალა, pronounced [naɾiχʼaɫa]) is an ancient fortress overlooking Tbilisi, the capital of Georgia, and the Mtkvari (Kura) River. The fortress consists of two walled sections on a steep hill between the sulfur baths and the botanical gardens of Tbilisi. On the lower court there is the recently restored St Nicholas church."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%80%D0%B8%D0%BA%D0%B0%D0%BB%D0%B0",
+   "https://en.wikipedia.org/wiki/Narikala"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_IMG_8846_1920.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%80%D0%B8%D0%BA%D0%B0%D0%BB%D0%B0",
+   "en": "https://en.wikipedia.org/wiki/Narikala"
+  }
+ },
+ {
+  "n": 17,
+  "wp": {
+   "ru": "Церковь Сорока Мучеников (Тбилиси)",
+   "ka": "თბილისის წმინდა ორმეოცთა ეკლესია"
+  },
+  "desc": {
+   "ru": "Церковь Сорока Мучеников (груз. ახალი ეკლესია) — культовое сооружение в Тбилиси, в историческом районе Старый город (ул. Самгебро, 6).",
+   "ka": "თბილისის ორმოცი სებასტიელი მოწამის ტაძარი — ქართული არქიტექტურული ძეგლი თბილისში, სამღებროსა და ბოტანიკური ქუჩების გადაკვეთაზე."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%BE%D1%80%D0%BE%D0%BA%D0%B0_%D0%9C%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%94%E1%83%9D%E1%83%AA%E1%83%97%E1%83%90_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:Churches_in_Old_Tbilisi,_ArmAg_(9).JPG",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Church_in_Old_Tbilisi.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%BE%D1%80%D0%BE%D0%BA%D0%B0_%D0%9C%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%94%E1%83%9D%E1%83%AA%E1%83%97%E1%83%90_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 18,
+  "wp": {
+   "ru": "Церковь Сурб Геворг (Тбилиси)",
+   "en": "Saint George's Church, Tbilisi"
+  },
+  "desc": {
+   "ru": "Церковь Сурб Геворг (арм. Սուրբ Գևորգ եկեղեցի, груз. სურბ გევორგის ეკლესია — Церковь Святого Георгия) — армянская церковь XIII века, расположенная в историческом районе Тбилиси — Кала.",
+   "en": "Saint George's Church (Armenian: Սուրբ Գևորգ եկեղեցի, Surb Gevorg yekeghetsi; Georgian: სურფგევორქი, sur′pgevork′i) is a 13th-century Armenian church in the old city of Tbilisi, Georgia. It is one of the two functioning Armenian churches in Tbilisi and is the cathedral of the Georgian Diocese of the Armenian Apostolic Church. It is located in the south-western corner of Vakhtang Gorgasali Square (Meidani) and is overlooked by the ruins of Narikala fortress."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D1%83%D1%80%D0%B1_%D0%93%D0%B5%D0%B2%D0%BE%D1%80%D0%B3_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "https://en.wikipedia.org/wiki/Saint_George's_Church,_Tbilisi"
+  ],
+  "photos": [
+   {
+    "file": "File:Saint_Gevorg_Armenian_Church_in_Old_Tbilisi_seen_from_Samghebro_Street,_5.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Saint_Gevorg_Armenian_Church,_Old_Tbilisi_-_Սուրբ_Գևորգ_հայկական_եկեղեցի,_Հին_Թբիլիսի.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D1%83%D1%80%D0%B1_%D0%93%D0%B5%D0%B2%D0%BE%D1%80%D0%B3_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "en": "https://en.wikipedia.org/wiki/Saint_George's_Church,_Tbilisi"
+  }
+ },
+ {
+  "n": 19,
+  "wp": {
+   "ru": "Большая синагога (Тбилиси)",
+   "en": "Great Synagogue (Tbilisi)"
+  },
+  "desc": {
+   "ru": "Большая синагога в Тбилиси, также Сефардская, или синагога евреев из Ахалцихе (груз. ახალციხელების სინაგოგა) — главная синагога еврейской общины Тбилиси, расположена в районе старого Тбилиси Мейдан, на улице Леселидзе, 45-47, у Иерусалимской площади.",
+   "en": "The Great Synagogue (Georgian: დიდი სინაგოგა), also known as the Georgian Synagogue, is a synagogue, located at 45-47 Kote Afkhazi Street (formerly Leselidze Street) in Tbilisi, the capital of Georgia. Built between 1904 and 1911, it is the largest synagogue in the country and serves as the central house of worship for the city’s Jewish community."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%B0%D1%8F_%D1%81%D0%B8%D0%BD%D0%B0%D0%B3%D0%BE%D0%B3%D0%B0_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "https://en.wikipedia.org/wiki/Great_Synagogue_(Tbilisi)"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_Synagogue_(1).jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:თბილისის_დიდი_სინაგოგა.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%B0%D1%8F_%D1%81%D0%B8%D0%BD%D0%B0%D0%B3%D0%BE%D0%B3%D0%B0_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "en": "https://en.wikipedia.org/wiki/Great_Synagogue_(Tbilisi)"
+  }
+ },
+ {
+  "n": 20,
+  "wp": {
+   "ka": "თბილისის ქარვასლა"
+  },
+  "desc": {
+   "ka": "თბილისის ქარვასლა — ეროვნული მნიშვნელობის კატეგორიის კულტურის უძრავი ძეგლი მდებარეობს თბილისში, სიონის ქუჩა № 8 . ცნობილია, ასევე არწრუნის ქარვასლის სახელით."
+  },
+  "sources": [
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%95%E1%83%90%E1%83%A1%E1%83%9A%E1%83%90"
+  ],
+  "photos": [],
+  "src_by_lang": {
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%95%E1%83%90%E1%83%A1%E1%83%9A%E1%83%90"
+  }
+ },
+ {
+  "n": 21,
+  "wp": {
+   "ru": "Джварис Мама",
+   "en": "Norashen Church",
+   "ka": "თბილისის ჯვარის მამის ეკლესია"
+  },
+  "desc": {
+   "ru": "Джварис Мама (груз. თბილისის ჯვარის მამის ეკლესია) — православный храм в тбилисском Старом городе на улице Коте Абхази, 41. Небольшое кирпичное купольные здание, прямоугольное в плане, вытянутое по оси восток-запад (9,25 × 13,15 м).",
+   "en": "Norashen (Armenian: Նորաշեն, \"newly built\"; Georgian: ნორაშენი, Norasheni) is a non-functioning Armenian Apostolic church in Tbilisi, Georgia. It is located in the old town, near Sioni Cathedral and Jvaris Mama Church. The church has historically been known as the Church of the Holy Mother of God (Սուրբ Աստվածածին, Surb Astvatsatsin).",
+   "ka": "თბილისის ჯვარის მამის ეკლესია — ეკლესია მდებარეობს თბილისში, ძველი თბილისის რაიონში, ისტორიულ უბან ქვემო კალაში. ჩვენამდე მოღწეული ძეგლი XVI საუკუნეშია აგებული. დ."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%94%D0%B6%D0%B2%D0%B0%D1%80%D0%B8%D1%81_%D0%9C%D0%B0%D0%BC%D0%B0",
+   "https://en.wikipedia.org/wiki/Norashen_Church",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AF%E1%83%95%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%90%E1%83%9B%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_Jvris_mama_church_common_view.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Norashen_Holy_Mother_of_God_Armenian_Church_0009.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%B6%D0%B2%D0%B0%D1%80%D0%B8%D1%81_%D0%9C%D0%B0%D0%BC%D0%B0",
+   "en": "https://en.wikipedia.org/wiki/Norashen_Church",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AF%E1%83%95%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%90%E1%83%9B%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 22,
+  "wp": {
+   "ru": "Тбилисская духовная академия",
+   "en": "Tbilisi Theological Seminary",
+   "ka": "თბილისის სასულიერო აკადემია"
+  },
+  "desc": {
+   "ru": "Тбилисская духовная академия (груз. თბილისის სასულიერო აკადემია — Тбилисис сасулиэро академиа) — высшее богословское учебное заведение Грузинской православной церкви.",
+   "en": "Tbilisi Theological Academy and Seminary (Georgian: თბილისის სასულიერო სემინარია, romanized: tbilisis sasuliero seminaria; Russian: Тбили́сская духо́вная семина́рия, romanized: Tbilisskaya dukhovnaya seminariya) is a seminary in Tbilisi, Georgia. It operated from 1817 to 1919 under the name Tiflis Theological Seminary in the Georgian exarchate of the Russian Orthodox Church. The facility closed during the wake of the Russian Revolution and the subsequent 1921 invasion of Georgia.",
+   "ka": "თბილისის სასულიერო აკადემია, თბილისის სასულიერო აკადემია და სემინარია — სასულიერო სასწავლებელი, რომელიც თბილისის სასულიერო სემინარიასთან ერთად წარმოადგენს საქართველოს კანონით აღიარებულ ავტორიზებულ საგანმანთლებლო დაწესებულებას, ექვემდებარება საქართველოს მართლმადიდებელ ეკლესიას, კანონიკურად შედის საქართველოს საპატრიარქოს იურისდიქციაში, თანამშრომლობს საპატრიარქოს განათლების ცენტრთან და ანგარიშვალდებულია სრულიად საქართველოს კათოლიკოს-პატრიარქის წინაშე. დაარსდა 1988 წლის 1 ოქტომბერს. ამზადებს სამეცნიერო-სასულიერო და პედაგოგიურ კადრებს საქართველოს მართლმადიდებელი ეკლესიისათვის."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D0%B4%D1%83%D1%85%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F_%D0%B0%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F",
+   "https://en.wikipedia.org/wiki/Tbilisi_Theological_Seminary",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%A1%E1%83%A3%E1%83%9A%E1%83%98%E1%83%94%E1%83%A0%E1%83%9D_%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_cemynary.png",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:The_Orthodox_Theological_Seminary.jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:Old_Tbilisi._March_2014._05.JPG",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D0%B4%D1%83%D1%85%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F_%D0%B0%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F",
+   "en": "https://en.wikipedia.org/wiki/Tbilisi_Theological_Seminary",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%A1%E1%83%A3%E1%83%9A%E1%83%98%E1%83%94%E1%83%A0%E1%83%9D_%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 23,
+  "wp": {
+   "ru": "Церковь Норашен (Тбилиси)",
+   "en": "Norashen Church",
+   "ka": "ნორაშენი"
+  },
+  "desc": {
+   "ru": "Церковь Благовещения Богородицы (арм. Սուրբ Աստվածածին եկեղեցի, груз. ნორაშენი), более известная как Церковь Норашен (арм.",
+   "en": "Norashen (Armenian: Նորաշեն, \"newly built\"; Georgian: ნორაშენი, Norasheni) is a non-functioning Armenian Apostolic church in Tbilisi, Georgia. It is located in the old town, near Sioni Cathedral and Jvaris Mama Church. The church has historically been known as the Church of the Holy Mother of God (Սուրբ Աստվածածին, Surb Astvatsatsin).",
+   "ka": "ნორაშენი (სომხ. Նորաշեն) — ღვთისმშობლის სახელობის სომხური ეკლესია თბილისში. მდებარეობს ქვემო კალაში, კოტე აფხაზის ქუჩაზე, ჯვარის მამის გვერდით."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%9D%D0%BE%D1%80%D0%B0%D1%88%D0%B5%D0%BD_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "https://en.wikipedia.org/wiki/Norashen_Church",
+   "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%9D%E1%83%A0%E1%83%90%E1%83%A8%E1%83%94%E1%83%9C%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Norashen_Holy_Mother_of_God_Armenian_Church_0008.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Norashen_Holy_Mother_of_God_Armenian_Church_0009.jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:Norashen_Armenian_Church,_Old_Tbilisi.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%9D%D0%BE%D1%80%D0%B0%D1%88%D0%B5%D0%BD_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "en": "https://en.wikipedia.org/wiki/Norashen_Church",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%9D%E1%83%A0%E1%83%90%E1%83%A8%E1%83%94%E1%83%9C%E1%83%98"
+  }
+ },
+ {
+  "n": 24,
+  "wp": {
+   "ru": "Сиони",
+   "en": "Tbilisi Sioni Cathedral",
+   "ka": "სიონის ტაძარი"
+  },
+  "desc": {
+   "ru": "Сиони (груз. სიონი) — исторически главный храм Тбилиси и один из двух главных в Грузинской церкви; назван в честь Сионской горы и освящён в честь Успения Пресвятой Богородицы. Стоит на берегу реки Куры в историческом центре города.",
+   "en": "The Sioni Cathedral of the Dormition (Georgian: სიონის ღვთისმშობლის მიძინების ტაძარი) is a Georgian Orthodox cathedral located in Tbilisi, the capital of Georgia. Following a medieval Georgian tradition of naming churches after specific places in the Holy Land, the Sioni Cathedral bears the name of Mount Zion at Jerusalem. It is commonly referred to as the \"Tbilisi Sioni\" to distinguish it from other churches in Georgia with the same name.",
+   "ka": "თბილისის სიონის ღვთისმშობლის მიძინების საპატრიარქო ტაძარი, თბილისის სიონი — ქართული ხუროთმოძღვრების ძეგლი, ჯვაროვან-გუმბათოვანი ტაძარი, მდებარეობს თბილისში მტკვრის მარჯვენა დაბალ ნაპირზე, ზემო კალაში, სიონის ქუჩის №4–ში, ქ. თბილისის საკათედრო (საეპისკოპოსო) ტაძარი V საუკუნიდან დღემდე, ხოლო 1920 წლიდან საპატრიარქო ტაძარი."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BE%D0%BD%D0%B8",
+   "https://en.wikipedia.org/wiki/Tbilisi_Sioni_Cathedral",
+   "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%98%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi's_Sioni_(21)-1.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Tbilisi_Sioni_Cathedral_09.23.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BE%D0%BD%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Tbilisi_Sioni_Cathedral",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%98%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98"
+  }
+ },
+ {
+  "n": 25,
+  "wp": {
+   "ru": "Бани царя Ростома",
+   "ka": "როსტომ მეფის აბანო"
+  },
+  "desc": {
+   "ru": "Бани царя Ростома (груз. როსტომ მეფის აბანო) — историко-архитектурный комплекс в Тбилиси, в историческом районе Старый город у берега реки Кура. Единственная сохранившаяся часть дворцового комплекса царя Ростома, разрушенного во время персидского погрома города в 1795 году.",
+   "ka": "როსტომ მეფის აბანო ან ზარაფხანა — 1795 წელს აღა მაჰმად ხანის შემოსევისას დანგრეული სასახლის კომპლექსის ერთადერთი შემორჩენილი ნაწილი. აგურის ნაგებობა გუმბათით არის გადახურული და ზემოდან ნათდება. ინტერიერს ოთხკუთხა ნიშებში ჩასმული შეისრული თაღები ამშვენებს."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%91%D0%B0%D0%BD%D0%B8_%D1%86%D0%B0%D1%80%D1%8F_%D0%A0%D0%BE%D1%81%D1%82%D0%BE%D0%BC%D0%B0",
+   "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%9D%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%9B_%E1%83%9B%E1%83%94%E1%83%A4%E1%83%98%E1%83%A1_%E1%83%90%E1%83%91%E1%83%90%E1%83%9C%E1%83%9D"
+  ],
+  "photos": [
+   {
+    "file": "File:2014_Tbilisi,_Restauracja_Mepetubani.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:2024-11-06_King_Rostom's_Baths_with_plaques.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%91%D0%B0%D0%BD%D0%B8_%D1%86%D0%B0%D1%80%D1%8F_%D0%A0%D0%BE%D1%81%D1%82%D0%BE%D0%BC%D0%B0",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%9D%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%9B_%E1%83%9B%E1%83%94%E1%83%A4%E1%83%98%E1%83%A1_%E1%83%90%E1%83%91%E1%83%90%E1%83%9C%E1%83%9D"
+  }
+ },
+ {
+  "n": 26,
+  "wp": {
+   "ru": "Церковь Святого Георгия Кари",
+   "ka": "თბილისის წმინდა გიორგის კარის ეკლესია"
+  },
+  "desc": {
+   "ru": "Церковь святого Георгия Кари (груз. თბილისის წმინდა გიორგის კარის ეკლესია) — православная церковь в Тбилиси, в историческом районе Старый город, улица Шавтели, 4.",
+   "ka": "წმინდა გიორგის კარის ეკლესია — ქართული მართლმადიდებული ეკლესია თბილისში (კრწანისის რაიონი), დგას ერეკლე II-ს მოედნის ჩრდილო-დასავლეთით. ეკლესია ააშენა ქართლის ჯანიშინის ვახტანგ VI-ის ძმამ სიმონმა 1710 წელს (ვახუშტის 1735 წლის გეგმაზე — № 3, „კარის საყდარი“). პლატონ იოსელიანის გადმოცემით, თემურლენგს, 1398 წლის შემოსევის დროს, დაუნგრევია მთავარანგელოზის ეკლესია, რომელიც კარის ეკლესიის ადგილას მდგარა."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%B2%D1%8F%D1%82%D0%BE%D0%B3%D0%BE_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F_%D0%9A%D0%B0%D1%80%D0%B8",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98%E1%83%A1_%E1%83%99%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:2014_Tbilisi,_Cerkiew_na_ulicy_Ioane_Szawteli_(04).jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%B2%D1%8F%D1%82%D0%BE%D0%B3%D0%BE_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F_%D0%9A%D0%B0%D1%80%D0%B8",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98%E1%83%A1_%E1%83%99%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 27,
+  "wp": {
+   "ru": "Дом-музей Николоза Бараташвили",
+   "ka": "ნიკოლოზ ბარათაშვილის სახლ-მუზეუმი"
+  },
+  "desc": {
+   "ru": "Дом-музей Николоза Бараташвили (груз. ნიკოლოზ ბარათაშვილის სახლ-მუზეუმი) — учреждение культуры в городе Тбилиси (ул. Чахрухадзе, 17).",
+   "ka": "ნიკოლოზ ბარათაშვილის სახლ-მუზეუმი მდებარეობს თბილისში ჩახრუხაძის ქ. N17-ში ორსართულიანი სახლის პირველ სართულზე. მუზეუმი 1982 წელს გაიხსნა."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%BC-%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%BE%D0%B7%D0%B0_%D0%91%D0%B0%D1%80%D0%B0%D1%82%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96_%E1%83%91%E1%83%90%E1%83%A0%E1%83%90%E1%83%97%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%9A-%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Nikoloz_Baratashvili_House-Museum_in_Tbilisi.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%BC-%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%BE%D0%B7%D0%B0_%D0%91%D0%B0%D1%80%D0%B0%D1%82%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96_%E1%83%91%E1%83%90%E1%83%A0%E1%83%90%E1%83%97%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%9A-%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  }
+ },
+ {
+  "n": 28,
+  "wp": {
+   "ru": "Анчисхати",
+   "en": "Anchiskhati Basilica",
+   "ka": "ანჩისხატი"
+  },
+  "desc": {
+   "ru": "Анчисхати (груз. ანჩისხატი) — церковь VI века, посвящённая празднику Рождества Богородицы. Самая старая церковь Тбилиси из сохранившихся.",
+   "en": "The Anchiskhati Basilica of St Mary (Georgian: ანჩისხატი, Georgian pronunciation: [ˈantʃʰisχat’i]) is the oldest surviving church in Tbilisi, Georgia. It belongs to the Georgian Orthodox Church and dates from the sixth century.",
+   "ka": "ანჩისხატის ღვთისმშობლის ტაძრადმიყვანების ეკლესია, მარიამწმიდა ეკლესია, ზარის ეკლესია — ქართული ხუროთმოძღვრების ძეგლი თბილისში, მდებარე ი. შავთელის ქუჩის № 1-ში."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D1%87%D0%B8%D1%81%D1%85%D0%B0%D1%82%D0%B8",
+   "https://en.wikipedia.org/wiki/Anchiskhati_Basilica",
+   "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9C%E1%83%A9%E1%83%98%E1%83%A1%E1%83%AE%E1%83%90%E1%83%A2%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Church_of_Anchiskhati.2.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Tbilisi-86-Anchiskhati_Basilica-2019-gje.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D1%87%D0%B8%D1%81%D1%85%D0%B0%D1%82%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Anchiskhati_Basilica",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9C%E1%83%A9%E1%83%98%E1%83%A1%E1%83%AE%E1%83%90%E1%83%A2%E1%83%98"
+  }
+ },
+ {
+  "n": 29,
+  "wp": {
+   "ru": "Улица Шавтели"
+  },
+  "desc": {
+   "ru": "У́лица Шавтели́ (груз. შავთელის ქუჩა) — пешеходная улица в старой части города Тбилиси, столицы Грузии. От улицы Бараташвили до улицы Ираклия II. Одна из границ Площади Ираклия II. Популярный туристический маршрут."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%A8%D0%B0%D0%B2%D1%82%D0%B5%D0%BB%D0%B8"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_IMG_8925_1920.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%A8%D0%B0%D0%B2%D1%82%D0%B5%D0%BB%D0%B8"
+  }
+ },
+ {
+  "n": 30,
+  "wp": {
+   "ru": "Тбилисский государственный театр марионеток имени Резо Габриадзе",
+   "en": "Hotel Ambasadori",
+   "ka": "თბილისის მარიონეტების თეატრი"
+  },
+  "desc": {
+   "ru": "Тбилисский государственный театр марионеток имени Резо Габриадзе (груз. რეზო გაბრიაძის თეატრ-სტუდია) — учреждение культуры в Тбилиси. Расположен в историческом районе Старый город, на улице Шавтели, 13.",
+   "en": "The Hotel Ambasadori (ამბასადორი) is a luxury 5-star hotel in Tbilisi, Georgia. It is located in the heart of Tbilisi's historic center on the right bank of the Mtkvari River between the Anchiskhati Church and the Marionette Theatre near the commercial center of the city. The hotel has served as a meeting place for many institutions, international political meetings and conferences.",
+   "ka": "მარიონეტების თეატრი — პირველი ქართული მარიონეტული თეატრი, დაარსდა თბილისში 1980 წელს. თეატრმა დადგა რევაზ გაბრიაძის „ალფრედი და ვიოლეტა“ (რეჟისორი რ. გაბრიაძე, 1981) და მისივე „მარშალ დე ფანტიეს ბრილიანტი“ (რეჟისორი თ."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BC%D0%B0%D1%80%D0%B8%D0%BE%D0%BD%D0%B5%D1%82%D0%BE%D0%BA_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%A0%D0%B5%D0%B7%D0%BE_%D0%93%D0%B0%D0%B1%D1%80%D0%B8%D0%B0%D0%B4%D0%B7%D0%B5",
+   "https://en.wikipedia.org/wiki/Hotel_Ambasadori",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%90%E1%83%A0%E1%83%98%E1%83%9D%E1%83%9C%E1%83%94%E1%83%A2%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Rezo_Gabriadze木偶剧院1.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BC%D0%B0%D1%80%D0%B8%D0%BE%D0%BD%D0%B5%D1%82%D0%BE%D0%BA_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%A0%D0%B5%D0%B7%D0%BE_%D0%93%D0%B0%D0%B1%D1%80%D0%B8%D0%B0%D0%B4%D0%B7%D0%B5",
+   "en": "https://en.wikipedia.org/wiki/Hotel_Ambasadori",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%90%E1%83%A0%E1%83%98%E1%83%9D%E1%83%9C%E1%83%94%E1%83%A2%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
+  }
+ },
+ {
+  "n": 31,
+  "wp": {
+   "ru": "Ванкский собор (Тбилиси)",
+   "en": "Vank Monastery, Tbilisi"
+  },
+  "desc": {
+   "ru": "Ванкский собор (арм. Հայոց վանք, буквально «армянский монастырь») — кафедральный собор Армянской апостольской церкви в Грузии, снесённый в советское время. Располагался в городе Тбилиси, на месте современного здания средней школы № 104 (улица Георгия Атонели, д.",
+   "en": "The Church of the Holy Mother of God of the Mens Monastery, also known as Pashavank (Armenian: Պաշավանք) was an Armenian Apostolic church in the city of Tbilisi located on the right bank of the Kura River. It was destroyed by the Bolsheviks in 1938."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%92%D0%B0%D0%BD%D0%BA%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "https://en.wikipedia.org/wiki/Vank_Monastery,_Tbilisi"
+  ],
+  "photos": [
+   {
+    "file": "File:Armenian_monastery_of_Tbilisi_1.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Armenian_monastery_of_Tbilisi_2.png",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%92%D0%B0%D0%BD%D0%BA%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "en": "https://en.wikipedia.org/wiki/Vank_Monastery,_Tbilisi"
+  }
+ },
+ {
+  "n": 32,
+  "wp": {
+   "ru": "Улица Шавтели"
+  },
+  "desc": {
+   "ru": "У́лица Шавтели́ (груз. შავთელის ქუჩა) — пешеходная улица в старой части города Тбилиси, столицы Грузии. От улицы Бараташвили до улицы Ираклия II. Одна из границ Площади Ираклия II. Популярный туристический маршрут."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%A8%D0%B0%D0%B2%D1%82%D0%B5%D0%BB%D0%B8"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_IMG_8925_1920.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%A8%D0%B0%D0%B2%D1%82%D0%B5%D0%BB%D0%B8"
+  }
+ },
+ {
+  "n": 33,
+  "wp": {
+   "ru": "Улица Пушкина (Тбилиси)",
+   "ka": "პუშკინის ქუჩა (თბილისი)"
+  },
+  "desc": {
+   "ru": "Улица Пу́шкина (груз. პუშკინი ქუჩა) — в Тбилиси, одна из центральных улиц города. Идёт от Площади Свободы и, пересекая улицу Резо Табукашвили, переходит в улицу Бараташвили.",
+   "ka": "ალექსანდრე პუშკინის ქუჩა — ქუჩა თბილისში, მთაწმინდისა და კრწანისის რაიონებში (გარეთუბანი), კოტე (კონსტანტინე) აფხაზის ქუჩიდან ნიკოლოზ ბარათაშვილის ქუჩამდე. ეს სახელი ქუჩას ეწოდა 1880 წელს თბილისის თვითმმართველობის ხმოსნის, ნიკო ნიკოლაძის წინადადებით. ალექსანდრე პუშკინი 1829 წელს, თბილისში ყოფნის დროს, ახლანდელი №5 შენობის ადგილას მდგარ ორსართულიან, ხის მოჩუქურთმებულაივნიან ტრაქტირში ცხოვრობდა."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%A3%E1%83%A8%E1%83%99%E1%83%98%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90_(%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98)"
+  ],
+  "photos": [
+   {
+    "file": "File:Ul._Puszkina,_Tbilisi.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%A3%E1%83%A8%E1%83%99%E1%83%98%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90_(%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98)"
+  }
+ },
+ {
+  "n": 34,
+  "wp": {
+   "ru": "Грузинский Музей изобразительных искусств",
+   "en": "Georgian Museum of Fine Arts",
+   "ka": "ქართული სახვითი ხელოვნების მუზეუმი"
+  },
+  "desc": {
+   "ru": "Грузинский Музей изобразительных искусств (груз. ქართული სახვითი ხელოვნების მუზეუმი) ― частный художественный музей, расположенный на проспекте Руставели в Тбилиси (Грузия). В музее представлена частная коллекция произведений искусства семьи Джорджа (Джиа) Джохтаберидзе и Мананы Шевардадзе, основателей «Магтиком», крупнейшей телекоммуникационной компании в Грузии.",
+   "en": "Georgian Museum of Fine Arts (Georgian: ქართული სახვითი ხელოვნების მუზეუმი) is a private art museum located on the Rustaveli Avenue in Tbilisi, Georgia (country). The construction broke ground in 2013 and is the only building in Georgia built purposely to house art exhibitions. The museum official opening was held on September 26, 2018, while it opened to the public on October 2, 2018.",
+   "ka": "ქართული სახვითი ხელოვნების მუზეუმში, რომელიც 2018 წლის 2 ოქტომბერს გაიხსნა, მისი დამფუძნებლების, გია ჯოხთაბერიძისა და მანანა შევარდნაძის ოჯახის კერძო კოლექციაა გამოფენილი. მუზეუმში წარმოდგენილია, 1945 წლიდან დღემდე, 80–მდე ხელოვანის 3500–მდე ნამუშევარი."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2",
+   "https://en.wikipedia.org/wiki/Georgian_Museum_of_Fine_Arts",
+   "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%95%E1%83%98%E1%83%97%E1%83%98_%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%95%E1%83%9C%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Georgian_Museum_of_Fine_Arts_-_logo.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Georgian_Museum_of_Fine_Arts.png",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2",
+   "en": "https://en.wikipedia.org/wiki/Georgian_Museum_of_Fine_Arts",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%95%E1%83%98%E1%83%97%E1%83%98_%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%95%E1%83%9C%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  }
+ },
+ {
+  "n": 35,
+  "wp": {
+   "ru": "Старая Троицкая церковь (Тбилиси)",
+   "ka": "თბილისის ძველი სამების ეკლესია"
+  },
+  "desc": {
+   "ru": "Старая Троицкая церковь (груз. ძველი სამების ეკლესია) — приходской храм Грузинской православной церкви в Калубани, историческом пригороде Старого Тбилиси в Грузии. Церковь построена в XVIII—XIX веках.",
+   "ka": "თბილისის წმიდა სამების სახელობის ეკლესია — XVIII-XIX საუკუნეების ქართული მართლმადიდებლური ეკლესია თბილისში, ქალაქის ძველ ნაწილში (კალოუბანი). მდებარეობს ეროსი მანჯგალაძის ქუჩაზე (№6), საქართველოს პარლამენტის ეროვნული ბიბლიოთეკის შენობის უკან. სახელწოდება „ძველი სამების ეკლესია“ გავრცელდა თბილისის წმინდა სამების საკათედრო ტაძრის აგების (1995–2004 წლები) შემდეგ."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%80%D0%B0%D1%8F_%D0%A2%D1%80%D0%BE%D0%B8%D1%86%D0%BA%D0%B0%D1%8F_%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%95%E1%83%94%E1%83%9A%E1%83%98_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:Sameba.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%80%D0%B0%D1%8F_%D0%A2%D1%80%D0%BE%D0%B8%D1%86%D0%BA%D0%B0%D1%8F_%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_(%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8)",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%95%E1%83%94%E1%83%9A%E1%83%98_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 36,
+  "wp": {
+   "ru": "Национальная картинная галерея Грузии",
+   "en": "Tbilisi Art Gallery",
+   "ka": "საქართველოს ეროვნული გალერეა"
+  },
+  "desc": {
+   "ru": "Национальная картинная галерея Грузии (груз. ეროვნული გალერეა (თბილისი)) — художественный музей в Тбилиси, проспект Руставели, 11. Входит в государственную музейную сеть Грузии.",
+   "en": "The Tbilisi Art Gallery (Georgian: თბილისის სამხატვრო გალერეა), or the National Gallery is an art gallery located on Rustaveli Avenue in Tbilisi. Historically, it is known to Tbilisians as the Blue Gallery, taking its name from the various shades of the blue-green paint previously adorning the facade, although the building is now painted grey.",
+   "ka": "დიმიტრი შევარდნაძის სახელობის ეროვნული გალერეა — ხელოვნების გალერეა თბილისში, საქართველოს ეროვნული მუზეუმის ნაწილი. გალერეის შენობა (1888, არქიტექტორი ალექსანდრე ზალცმანი) წარმოადგენს ეროვნული მნიშვნელობის კატეგორიის კულტურის უძრავ ძეგლს. მდებარეობს თბილისში, რუსთაველის გამზირზე № 11."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8",
+   "https://en.wikipedia.org/wiki/Tbilisi_Art_Gallery",
+   "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%94%E1%83%A0%E1%83%9D%E1%83%95%E1%83%9C%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%92%E1%83%90%E1%83%9A%E1%83%94%E1%83%A0%E1%83%94%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_National_Gallery.JPG",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Tbilisi_Art_Gallery",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%94%E1%83%A0%E1%83%9D%E1%83%95%E1%83%9C%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%92%E1%83%90%E1%83%9A%E1%83%94%E1%83%A0%E1%83%94%E1%83%90"
+  }
+ },
+ {
+  "n": 37,
+  "wp": {
+   "en": "Tbilisi Marriott Hotel",
+   "ka": "თბილისი მარიოტი"
+  },
+  "desc": {
+   "en": "The Tbilisi Marriott Hotel (Georgian: სასტუმრო თბილისი მარიოტი) is a luxury five-star hotel located on Rustaveli Avenue in Tbilisi, Georgia. Built as a high-class hotel on the commission of the wealthy Armenian merchant Mikael Aramyants, it was opened in 1915 as Hôtel Majestic (Georgian: სასტუმრო მაჟესტიკი). During World War I, from 1915 to 1917, the hotel accommodated a military hospital before it could be opened for the public.",
+   "ka": "სასტუმრო „თბილისი მარიოტი“, ყოფილი სასტუმრო „მაჟესტიკი“ — შოთა რუსთაველის გამზირზე N13-ში მდებარე სომეხი ვაჭრისა და მეცენატის მიხეილ არამიანცის დაკვეთით აშენებული სასტუმრო."
+  },
+  "sources": [
+   "https://en.wikipedia.org/wiki/Tbilisi_Marriott_Hotel",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98_%E1%83%9B%E1%83%90%E1%83%A0%E1%83%98%E1%83%9D%E1%83%A2%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_Marriot_-_panoramio_-_Art_Anderson.jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:Tbilisi_Hotel.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "en": "https://en.wikipedia.org/wiki/Tbilisi_Marriott_Hotel",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98_%E1%83%9B%E1%83%90%E1%83%A0%E1%83%98%E1%83%9D%E1%83%A2%E1%83%98"
+  }
+ },
+ {
+  "n": 38,
+  "wp": {
+   "ru": "Государственный музей грузинской литературы имени Георгия Леонидзе",
+   "en": "Giorgi Leonidze State Museum of Literature",
+   "ka": "საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი"
+  },
+  "desc": {
+   "ru": "Государственный музей грузинской литературы имени Георгия Леонидзе (груз. საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი) — учреждение культуры Грузии. Расположен в Тбилиси, улица Г. Чантурия, д.",
+   "en": "Giorgi Leonidze State Museum of Literature, Georgia (Georgian: საქართველოს გიორგი ლეონიძის სახელობის მუზეუმი) was founded in 1930 upon the initiative of David Arsenishvili, a legendary museum-founder, who also was the creator of Tbilisi Theater Museum, and later the famous Andrej Rublow museum in Moscow. The greatest supporter for this initiative was Georgian poet Titsian Tabidze, who, together with the group of symbolist writers – the Blue Horns (Georgian: Tsisferyantselebi / ცისფერყანწელები ) – advocated the creation of a literature museum since 1919. Tabidze, together with Ivan Enikolofow, was also the first chair of the museum.",
+   "ka": "საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი — სახელმწიფო მუზეუმი თბილისში."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F_%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%D0%B7%D0%B5",
+   "https://en.wikipedia.org/wiki/Giorgi_Leonidze_State_Museum_of_Literature",
+   "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9A%E1%83%94%E1%83%9D%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A0%E1%83%90%E1%83%A2%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9B%E1%83%AC%E1%83%98%E1%83%A4%E1%83%9D_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Gia_Chanturia_street_8_-_Revaz_Tabukashvili_street_18.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F_%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%D0%B7%D0%B5",
+   "en": "https://en.wikipedia.org/wiki/Giorgi_Leonidze_State_Museum_of_Literature",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9A%E1%83%94%E1%83%9D%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A0%E1%83%90%E1%83%A2%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9B%E1%83%AC%E1%83%98%E1%83%A4%E1%83%9D_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  }
+ },
+ {
+  "n": 39,
+  "wp": {
+   "ru": "Грузинский театр имени Шота Руставели",
+   "en": "Rustaveli Theatre",
+   "ka": "რუსთაველის თეატრი"
+  },
+  "desc": {
+   "ru": "Грузинский государственный академический театр имени Шота Руставели (груз. რუსთაველის თეატრი) — один из ведущих драматических театров в Грузии, расположен в Тбилиси на проспекте Руставели, 17.",
+   "en": "Tbilisi State Academic Theater named after Shota Rustaveli (Georgian: თბილისის შოთა რუსთაველის სახელობის სახელმწიფო აკადემიური თეატრი, romanized: tbilisis shota rustavelis sakhelobis sakhelmts'ipo ak'ademiuri teat'ri), shortly Rustaveli Theater (Georgian: რუსთაველის თეატრი, romanized: rustavelis teat'ri), is the largest and one of the oldest theaters of Georgia, located in its capital Tbilisi on Rustaveli Avenue. Housed in an ornate Rococo-style edifice, the theatre was founded in 1887 and since 1921 has carried the name of Georgia's national poet Rustaveli.",
+   "ka": "შოთა რუსთაველის სახელობის აკადემიური თეატრი — საქართველოს ერთ-ერთი დიდი და უძველესი თეატრი. მდებარეობს თბილისში, შოთა რუსთაველის გამზ. #17-ში."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%A8%D0%BE%D1%82%D0%B0_%D0%A0%D1%83%D1%81%D1%82%D0%B0%D0%B2%D0%B5%D0%BB%D0%B8",
+   "https://en.wikipedia.org/wiki/Rustaveli_Theatre",
+   "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%A3%E1%83%A1%E1%83%97%E1%83%90%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Rustaveli_Theatre_Facade_(front),_Tbilisi.JPG",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Rustaveli_National_Theater_in_Georgia_(Europe),_built_19th_century_in_Rococo_style.jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:Rustaveli_Theatre_Facade,_Tbilisi.JPG",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%A8%D0%BE%D1%82%D0%B0_%D0%A0%D1%83%D1%81%D1%82%D0%B0%D0%B2%D0%B5%D0%BB%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Rustaveli_Theatre",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%A3%E1%83%A1%E1%83%97%E1%83%90%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
+  }
+ },
+ {
+  "n": 40,
+  "wp": {
+   "ru": "Грузинский театр оперы и балета имени Палиашвили",
+   "en": "Georgian National Opera Theater",
+   "ka": "თბილისის ოპერისა და ბალეტის თეატრი"
+  },
+  "desc": {
+   "ru": "Тбилисский государственный театр оперы и балета имени Захария Палиашвили (груз. თბილისის ზაქარია ფალიაშვილის სახელობის სახელმწიფო ოპერისა და ბალეტის თეატრი) — театр оперы и балета в городе Тбилиси, крупнейший музыкальный театр Грузии. Театр основан в 1851 году.",
+   "en": "The Tbilisi State Opera and Ballet Theater named after Zacharia Paliashvili (Georgian: თბილისის ზაქარია ფალიაშვილის სახელობის სახელმწიფო ოპერისა და ბალეტის თეატრი, romanized: tbilisis zakaria paliashvilis sakhelobis sakhelmts'ipo op'erisa da balet'is teat'ri), shortly Paliashvili Theatre (Georgian: ფალიაშვილის თეატრი, romanized: paliashvilis teat'ri), is an opera house situated on Rustaveli Avenue in Tbilisi, Georgia. Founded in 1851, Tbilisi Opera is the main opera house of Georgia and is among the oldest opera houses in Eastern Europe. Since 1896, the former Tiflis Imperial Theater has resided in an exotic neo-Moorish edifice originally constructed by Victor Johann Gottlieb Schröter, a prominent architect of Baltic German origin.",
+   "ka": "თბილისის ზაქარია ფალიაშვილის სახელობის ოპერისა და ბალეტის პროფესიული სახელმწიფო თეატრი — ოპერის სახლი ქ. თბილისში, საქართველოს მთავარი მუსიკალური თეატრი, თბილისის ერთ-ერთი ღირსშესანიშნაობა და ქალაქის კულტურული ცხოვრების ერთ-ერთი განმსაზღვრელი ცენტრი უკანასკნელი საუკუნენახევრის მანძილზე. დაარსდა 1851 წელს."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BE%D0%BF%D0%B5%D1%80%D1%8B_%D0%B8_%D0%B1%D0%B0%D0%BB%D0%B5%D1%82%D0%B0_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%9F%D0%B0%D0%BB%D0%B8%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "https://en.wikipedia.org/wiki/Georgian_National_Opera_Theater",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%9D%E1%83%9E%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%90_%E1%83%93%E1%83%90_%E1%83%91%E1%83%90%E1%83%9A%E1%83%94%E1%83%A2%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:National_Opera_House._Tbilisi,_Georgia.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BE%D0%BF%D0%B5%D1%80%D1%8B_%D0%B8_%D0%B1%D0%B0%D0%BB%D0%B5%D1%82%D0%B0_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%9F%D0%B0%D0%BB%D0%B8%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Georgian_National_Opera_Theater",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%9D%E1%83%9E%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%90_%E1%83%93%E1%83%90_%E1%83%91%E1%83%90%E1%83%9A%E1%83%94%E1%83%A2%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
+  }
+ },
+ {
+  "n": 41,
+  "wp": {
+   "ka": "ზურაბ წერეთლის თანამედროვე ხელოვნების მუზეუმი"
+  },
+  "desc": {
+   "ka": "ზურაბ წერეთლის თანამედროვე ხელოვნების მუზეუმი — ქართული სახვითი ხელოვნების მუზეუმი, რომელიც გაიხსნა 2012 წლის 29 თებერვალს თბილისში. მუზეუმს სახელი ეწოდა საბჭოთა და ქართველი მხატვარისა და მოქანდაკის ზურაბ წერეთლის პატივსაცემად. მუზეუმში დაცულია ზურაბ წერეთლის 300 მდე ნამუშევარი: ფერწერა, გრაფიკა, ქანდაკება და სხვა."
+  },
+  "sources": [
+   "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%A3%E1%83%A0%E1%83%90%E1%83%91_%E1%83%AC%E1%83%94%E1%83%A0%E1%83%94%E1%83%97%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%90%E1%83%9C%E1%83%90%E1%83%9B%E1%83%94%E1%83%93%E1%83%A0%E1%83%9D%E1%83%95%E1%83%94_%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%95%E1%83%9C%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Zurab_Tsereteli_Museum_Of_Modern_Art.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%A3%E1%83%A0%E1%83%90%E1%83%91_%E1%83%AC%E1%83%94%E1%83%A0%E1%83%94%E1%83%97%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%90%E1%83%9C%E1%83%90%E1%83%9B%E1%83%94%E1%83%93%E1%83%A0%E1%83%9D%E1%83%95%E1%83%94_%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%95%E1%83%9C%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  }
+ },
+ {
+  "n": 42,
+  "wp": {
+   "en": "IMELI Building",
+   "ka": "იმელი (შენობა)"
+  },
+  "desc": {
+   "en": "The IMEL Building (Georgian: იმელი) is a historic building in Tbilisi, the capital of Georgia, presently occupied by The Biltmore Hotel Tbilisi (Georgian: სასტუმრო „ბილტმორ თბილისი“). The building was constructed in the 1930s and is located on Rustaveli Avenue, the city's main thoroughfare.",
+   "ka": "იმელის შენობა — ქალაქ თბილისში, რუსთაველის გამზირზე მდებარე 1938 წელს საბჭოთა არქიტექტორი ალექსი შჩუსევის პროექტით სოციალისტური კლასიციზმის სტილში აგებული შენობა. შენობის თავდაპირველი ბინადარი მარქს-ენგელს-ლენინის ინსტიტუტის თბილისის ფილიალი იყო. 1992-95 წლებში საქართველოს პარლამენტი, 1995 წლიდან კი საქართველოს საკონსტიტუციო სასამართლო იყო განთავსებული."
+  },
+  "sources": [
+   "https://en.wikipedia.org/wiki/IMELI_Building",
+   "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9B%E1%83%94%E1%83%9A%E1%83%98_(%E1%83%A8%E1%83%94%E1%83%9C%E1%83%9D%E1%83%91%E1%83%90)"
+  ],
+  "photos": [
+   {
+    "file": "File:IMEL_Building,_Tbilisi_(2).jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:IMEL_Building,_Tbilisi.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "en": "https://en.wikipedia.org/wiki/IMELI_Building",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9B%E1%83%94%E1%83%9A%E1%83%98_(%E1%83%A8%E1%83%94%E1%83%9C%E1%83%9D%E1%83%91%E1%83%90)"
+  }
+ },
+ {
+  "n": 43,
+  "wp": {
+   "ru": "Radisson Blu Iveria Hotel",
+   "en": "Radisson Blu Iveria Hotel, Tbilisi",
+   "ka": "რადისონ ბლუ ივერია"
+  },
+  "desc": {
+   "ru": "Radisson Blu Iveria Hotel — гостиница в центре Тбилиси, расположенная на площади Революции роз. Гостиница стоит на скале. Комплекс гостиницы составляют два контрастирующих объёма — высотный жилой корпус и низкоэтажный блок ресторана и обслуживающих помещений.",
+   "en": "The Radisson Blu Iveria Hotel is a 236-room hotel on Rose Revolution Square in the city center of Tbilisi. It has a casino and spa as well as good views of Mtatsminda District.",
+   "ka": "რადისონ ბლუ ივერია — ხუთვარსკვლავიანი სასტუმრო ქალაქ თბილისში. ყოფილი „ინტურისტის“ სასტუმრო. თავდაპირველი 18-სართულიანი ნაგებობა 1967 წელს არქიტექტორ ო."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/Radisson_Blu_Iveria_Hotel",
+   "https://en.wikipedia.org/wiki/Radisson_Blu_Iveria_Hotel,_Tbilisi",
+   "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%90%E1%83%93%E1%83%98%E1%83%A1%E1%83%9D%E1%83%9C_%E1%83%91%E1%83%9A%E1%83%A3_%E1%83%98%E1%83%95%E1%83%94%E1%83%A0%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:Downtown_Tbilisi,_Georgia,_in_the_forefront_Hotel_Iveria,_May_2002.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Tbilisi_(30203392892).jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:სასტუმრო_\"რედისონი\".jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/Radisson_Blu_Iveria_Hotel",
+   "en": "https://en.wikipedia.org/wiki/Radisson_Blu_Iveria_Hotel,_Tbilisi",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%90%E1%83%93%E1%83%98%E1%83%A1%E1%83%9D%E1%83%9C_%E1%83%91%E1%83%9A%E1%83%A3_%E1%83%98%E1%83%95%E1%83%94%E1%83%A0%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 44,
+  "wp": {
+   "ru": "Мост Галактиона Табидзе",
+   "ka": "გალაკტიონის ხიდი"
+  },
+  "desc": {
+   "ru": "Мост Галактиона Табидзе (груз. გალაკტიონის ხიდი) — мост через реку Куру в Тбилиси, связывает привокзальную часть города (район Чугурети) с центральной частью города.",
+   "ka": "გალაკტიონის ხიდი — ხიდი ქალაქ თბილისში, მდინარე მტკვარზე, ვერის უბანში. აგებულია 1952 წელს (არქიტექტორი მიხეილ მელია, ინჟინერი გ. ჩომახიძე)."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%82_%D0%93%D0%B0%D0%BB%D0%B0%D0%BA%D1%82%D0%B8%D0%BE%D0%BD%D0%B0_%D0%A2%D0%B0%D0%B1%D0%B8%D0%B4%D0%B7%D0%B5",
+   "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9A%E1%83%90%E1%83%99%E1%83%A2%E1%83%98%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%AE%E1%83%98%E1%83%93%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Galaktioni_Bridge.JPG",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Georgia_location_map_(international_borders).svg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%82_%D0%93%D0%B0%D0%BB%D0%B0%D0%BA%D1%82%D0%B8%D0%BE%D0%BD%D0%B0_%D0%A2%D0%B0%D0%B1%D0%B8%D0%B4%D0%B7%D0%B5",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9A%E1%83%90%E1%83%99%E1%83%A2%E1%83%98%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%AE%E1%83%98%E1%83%93%E1%83%98"
+  }
+ },
+ {
+  "n": 45,
+  "wp": {
+   "ru": "Тбилисский академический театр имени К. Марджанишвили",
+   "en": "Marjanishvili Theatre",
+   "ka": "მარჯანიშვილის თეატრი"
+  },
+  "desc": {
+   "ru": "Тбилисский академический театр имени К. Марджанишвили (груз. მარჯანიშვილის თეატრი) — один из ведущих драматических театров в Грузии, расположен в Тбилиси, ул. Марджанишвили, 8.",
+   "en": "Kote Marjanishvili State Academic Drama Theatre (Georgian: კოტე მარჯანიშვილის სახელობის სახელმწიფო აკადემიური დრამატული თეატრი) is a state theatre in Tbilisi, Georgia. It is one of the oldest and most significant theatres in the country, coming second perhaps only to the national Rustaveli Theatre. The theatre was founded in Kutaisi in 1928 by Kote Marjanishvili.",
+   "ka": "კოტე მარჯანიშვილის სახელობის სახელმწიფო აკადემიური დრამატული თეატრი დაარსდა ქუთაისში 1928 წელს კოტე მარჯანიშვილის მიერ, 1930 წელს თბილისში გადმოვიდა, როგორც მეორე სახელმწიფო თეატრი და ძმები ზუბალაშვილების სახალხო სახლის შენობა დაიკავა. თეატრის დამფუძნებლად რეჟისორი კოტე მარჯანიშვილი რუსეთიდან მოიწვიეს, რომელსაც ქართული თეატრის რეფორმა უნდა განეხორციელებინა. 1933 წელს მარჯანიშვილის გარდაცვალების შემდეგ თეატრს მისი სახელი ეწოდა."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B0%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%9A._%D0%9C%D0%B0%D1%80%D0%B4%D0%B6%D0%B0%D0%BD%D0%B8%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "https://en.wikipedia.org/wiki/Marjanishvili_Theatre",
+   "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%A0%E1%83%AF%E1%83%90%E1%83%9C%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Mardjanishvilitheatretbs_old.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:მარჯანიშვილის_თეატრი.jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:Mardjanishvili_Theatre_Tbilisi.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B0%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%9A._%D0%9C%D0%B0%D1%80%D0%B4%D0%B6%D0%B0%D0%BD%D0%B8%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Marjanishvili_Theatre",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%A0%E1%83%AF%E1%83%90%E1%83%9C%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
+  }
+ }
+]

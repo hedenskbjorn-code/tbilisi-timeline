@@ -17,26 +17,26 @@
   const T = {
     ru: {
       title: "TRC City Run 2026: что увидеть по пути", home: "К карте с таймлайном", share: "Скопировать ссылку", copied: "Ссылка скопирована", loading: "Загрузка карты…",
-      intro: (r, n) => `Маршрут пробежки Tbilisi Running Club: <b>${num(r.length_km)} км</b>, высоты ${r.ele_min}–${r.ele_max} м, <b>${n}</b> достопримечательностей по порядку вдоль трассы. В список входят объекты не дальше 150 м от трассы; расстояние считается от точки объекта до линии трассы и не означает, что объект виден с неё. Описания составлены по статьям Википедии (ссылки под каждым объектом); где источники расходятся в датах, это сказано в тексте.`,
-      km: (v) => `${num(v)} км от старта`, dist: (d) => `${d} м от трассы`, reg: (y) => `дата по реестру ≈ ${y}`, noDesc: "Описание пока не добавлено.", wiki: "Википедия", onMap: "Показать на карте", sources: "Источники",
+      intro: (r, n) => `Маршрут пробежки Tbilisi Running Club: <b>${num(r.length_km)} км</b>, высоты ${r.ele_min}–${r.ele_max} м, <b>${n}</b> достопримечательностей по порядку вдоль трассы. В список входят объекты не дальше 150 м от трассы; расстояние считается от точки объекта до линии трассы и не означает, что объект виден с неё. Описания взяты из вводных абзацев статей Википедии (ссылка и лицензия под каждым описанием); у объектов без статьи описания нет.`,
+      km: (v) => `${num(v)} км от старта`, dist: (d) => `${d} м от трассы`, reg: (y) => `дата по реестру ≈ ${y}`, noDesc: "Описание пока не добавлено.", textFrom: "Текст:", wiki: "Википедия", onMap: "Показать на карте", sources: "Источники",
       factYear: "Время", factArch: "Автор проекта", factType: "Тип и стиль", factAddr: "Адрес", notes: "Примечание", start: "Старт и финиш",
-      credits: ["Карта: © участники OpenStreetMap, данные OpenFreeMap и OpenMapTiles. Геометрия трассы: Strava-маршрут «TRC City Run 2026» (сохранена только линия).", "Фото: Wikimedia Commons, автор и лицензия указаны на каждом снимке (ссылка ведёт на страницу файла). Тексты: собственное изложение по статьям Википедии. Логотип: Tbilisi Running Club. Сайт любительский, некоммерческий и не является официальным."],
+      credits: ["Карта: © участники OpenStreetMap, данные OpenFreeMap и OpenMapTiles. Геометрия трассы: Strava-маршрут «TRC City Run 2026» (сохранена только линия).", "Фото: Wikimedia Commons, автор и лицензия указаны на каждом снимке (ссылка ведёт на страницу файла). Тексты описаний: вводные абзацы статей Википедии (CC BY-SA 4.0), ссылка на статью под каждым описанием. Логотип: Tbilisi Running Club. Сайт любительский, некоммерческий и не является официальным."],
       imgAlt: (n) => `Фото: ${n}`, license: "лицензия", ogLine: (r, n) => `что увидеть по пути · ${num(r.length_km)} км · ${n} объектов`,
     },
     en: {
       title: "TRC City Run 2026: what to see on the way", home: "To the timeline map", share: "Copy link", copied: "Link copied", loading: "Loading the map…",
-      intro: (r, n) => `The route of a run of the Tbilisi Running Club: <b>${num(r.length_km)} km</b>, elevation ${r.ele_min}-${r.ele_max} m, <b>${n}</b> sights in order along the track. The list holds the objects within 150 m of the track; the distance is from the point of the object to the line of the track and does not mean that the object can be seen from it. The descriptions are written from the Wikipedia articles (the links are under each object); where the sources disagree on a date, the text says so.`,
-      km: (v) => `${num(v)} km from the start`, dist: (d) => `${d} m from the track`, reg: (y) => `date in the register ≈ ${y}`, noDesc: "No description yet.", wiki: "Wikipedia", onMap: "Show on the map", sources: "Sources",
+      intro: (r, n) => `The route of a run of the Tbilisi Running Club: <b>${num(r.length_km)} km</b>, elevation ${r.ele_min}-${r.ele_max} m, <b>${n}</b> sights in order along the track. The list holds the objects within 150 m of the track; the distance is from the point of the object to the line of the track and does not mean that the object can be seen from it. The descriptions are taken from the introductions of the Wikipedia articles (the link and the licence are under each description); an object without an article has no description.`,
+      km: (v) => `${num(v)} km from the start`, dist: (d) => `${d} m from the track`, reg: (y) => `date in the register ≈ ${y}`, noDesc: "No description yet.", textFrom: "Text:", wiki: "Wikipedia", onMap: "Show on the map", sources: "Sources",
       factYear: "Time", factArch: "Architect / author", factType: "Type and style", factAddr: "Address", notes: "Note", start: "Start and finish",
-      credits: ["Map: © OpenStreetMap contributors, data of OpenFreeMap and OpenMapTiles. Geometry of the track: the Strava route \"TRC City Run 2026\" (only the line is kept).", "Photos: Wikimedia Commons, the author and the licence are given on each photo (the link leads to the page of the file). Texts: our own wording from the Wikipedia articles. Logo: Tbilisi Running Club. This is a hobby, non-commercial site and it is not official."],
+      credits: ["Map: © OpenStreetMap contributors, data of OpenFreeMap and OpenMapTiles. Geometry of the track: the Strava route \"TRC City Run 2026\" (only the line is kept).", "Photos: Wikimedia Commons, the author and the licence are given on each photo (the link leads to the page of the file). Texts of the descriptions: the introductions of the Wikipedia articles (CC BY-SA 4.0), the link to the article is under each description. Logo: Tbilisi Running Club. This is a hobby, non-commercial site and it is not official."],
       imgAlt: (n) => `Photo: ${n}`, license: "licence", ogLine: (r, n) => `what to see on the way · ${num(r.length_km)} km · ${n} sights`,
     },
     ka: {
       title: "TRC City Run 2026: რა ჩანს გზაზე", home: "ისტორიულ რუკაზე", share: "ბმულის კოპირება", copied: "ბმული დაკოპირდა", loading: "რუკა იტვირთება…",
-      intro: (r, n) => `Tbilisi Running Club-ის სირბილის მარშრუტი: <b>${num(r.length_km)} კმ</b>, სიმაღლე ${r.ele_min}–${r.ele_max} მ, <b>${n}</b> ღირსშესანიშნაობა ტრასის გასწვრივ თანმიმდევრობით. სიაში შედის ობიექტები ტრასიდან 150 მ-ის ფარგლებში; მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა და არ ნიშნავს, რომ ობიექტი ტრასიდან ჩანს. აღწერები შედგენილია ვიკიპედიის სტატიების მიხედვით (ბმულები თითოეული ობიექტის ქვეშაა); სადაც წყაროები თარიღებში არ ემთხვევა, ეს ტექსტში წერია.`,
-      km: (v) => `${num(v)} კმ სტარტიდან`, dist: (d) => `${d} მ ტრასიდან`, reg: (y) => `თარიღი რეესტრში ≈ ${y}`, noDesc: "აღწერა ჯერ არ არის დამატებული.", wiki: "ვიკიპედია", onMap: "რუკაზე ჩვენება", sources: "წყაროები",
+      intro: (r, n) => `Tbilisi Running Club-ის სირბილის მარშრუტი: <b>${num(r.length_km)} კმ</b>, სიმაღლე ${r.ele_min}–${r.ele_max} მ, <b>${n}</b> ღირსშესანიშნაობა ტრასის გასწვრივ თანმიმდევრობით. სიაში შედის ობიექტები ტრასიდან 150 მ-ის ფარგლებში; მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა და არ ნიშნავს, რომ ობიექტი ტრასიდან ჩანს. აღწერები აღებულია ვიკიპედიის სტატიების შესავლიდან (ბმული და ლიცენზია თითოეული აღწერის ქვეშაა); ობიექტს, რომელსაც სტატია არა აქვს, აღწერა არ აქვს.`,
+      km: (v) => `${num(v)} კმ სტარტიდან`, dist: (d) => `${d} მ ტრასიდან`, reg: (y) => `თარიღი რეესტრში ≈ ${y}`, noDesc: "აღწერა ჯერ არ არის დამატებული.", textFrom: "ტექსტი:", wiki: "ვიკიპედია", onMap: "რუკაზე ჩვენება", sources: "წყაროები",
       factYear: "დრო", factArch: "პროექტის ავტორი", factType: "ტიპი და სტილი", factAddr: "მისამართი", notes: "შენიშვნა", start: "სტარტი და ფინიში",
-      credits: ["რუკა: © OpenStreetMap-ის მონაწილეები, OpenFreeMap-ისა და OpenMapTiles-ის მონაცემები. ტრასის გეომეტრია: Strava-ს მარშრუტი „TRC City Run 2026“ (შენახულია მხოლოდ ხაზი).", "ფოტოები: Wikimedia Commons, ავტორი და ლიცენზია მითითებულია თითოეულ ფოტოზე (ბმული ფაილის გვერდზე მიგიყვანთ). ტექსტები: ჩვენი საკუთარი გადმოცემა ვიკიპედიის სტატიების მიხედვით. ლოგო: Tbilisi Running Club. საიტი სამოყვარულო, არაკომერციულია და ოფიციალური არ არის."],
+      credits: ["რუკა: © OpenStreetMap-ის მონაწილეები, OpenFreeMap-ისა და OpenMapTiles-ის მონაცემები. ტრასის გეომეტრია: Strava-ს მარშრუტი „TRC City Run 2026“ (შენახულია მხოლოდ ხაზი).", "ფოტოები: Wikimedia Commons, ავტორი და ლიცენზია მითითებულია თითოეულ ფოტოზე (ბმული ფაილის გვერდზე მიგიყვანთ). აღწერების ტექსტები: ვიკიპედიის სტატიების შესავალი (CC BY-SA 4.0), სტატიის ბმული თითოეული აღწერის ქვეშაა. ლოგო: Tbilisi Running Club. საიტი სამოყვარულო, არაკომერციულია და ოფიციალური არ არის."],
       imgAlt: (n) => `ფოტო: ${n}`, license: "ლიცენზია", ogLine: (r, n) => `რა ჩანს გზაზე · ${num(r.length_km)} კმ · ${n} ღირსშესანიშნაობა`,
     },
   };
@@ -85,8 +85,17 @@
       meta.appendChild(el("span", "", L.dist(s.d)));
       if (s.year) meta.appendChild(el("span", "", L.reg(s.year)));
       body.appendChild(meta);
-      const text = d.desc && (d.desc[lang] || d.desc.en || d.desc.ru);
+      const text = d.desc && (d.desc[lang] || d.desc.en || d.desc.ru || d.desc.ka);
       body.appendChild(text ? el("p", "", text) : el("p", "nodesc", L.noDesc));
+      if (text) {                                                    // the text is that of Wikipedia (CC BY-SA 4.0): the article and the licence are named
+        const ul = d.desc[lang] ? lang : d.desc.en ? "en" : d.desc.ru ? "ru" : "ka";
+        const su = d.src_by_lang && d.src_by_lang[ul];
+        const cr = el("div", "notes");
+        cr.appendChild(document.createTextNode(L.textFrom + " "));
+        cr.appendChild(su ? link(su, L.wiki + " (" + ul.toUpperCase() + ")") : document.createTextNode(L.wiki + " (" + ul.toUpperCase() + ")"));
+        cr.appendChild(document.createTextNode(", CC BY-SA 4.0"));
+        body.appendChild(cr);
+      }
       const f = d.facts || {};
       const facts = [[L.factYear, f.year], [L.factArch, f.architect], [L.factType, f.style_or_type], [L.factAddr, f.address]].filter((x) => x[1] && x[1] !== "null");
       if (facts.length) body.appendChild(el("div", "facts", facts.map((x) => x[0] + ": " + x[1]).join(" · ")));
@@ -119,7 +128,7 @@
     $("share").textContent = L.share;
     $("lang").value = lang;
     $("loadingTxt").textContent = L.loading;
-    if (route) $("intro").innerHTML = L.intro(route, sights.length);
+    if (route) $("intro").innerHTML = '<h2 class="it">' + L.title + "</h2>" + L.intro(route, sights.length);
     const cr = $("credits");
     cr.textContent = "";
     for (const p of L.credits) cr.appendChild(el("p", "", p));
