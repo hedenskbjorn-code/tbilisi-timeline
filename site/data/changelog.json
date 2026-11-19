@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.3.2",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "Исправлена карточка «Театр марионеток» на Шавтели, 26: она показывала название и статью Википедии театра Габриадзе (Шавтели, 13). Ещё две карточки (площадь Руставели, Верийское кладбище) потеряли чужие ссылки на статьи Википедии.",
+    "en": "The card \"Marionette Theatre\" at Shavteli 26 is fixed: it showed the name and the Wikipedia article of the Gabriadze theatre (Shavteli 13). Two more cards (Rustaveli Square, Vera Cemetery) lost the Wikipedia links that belonged to other objects.",
+    "ka": "გასწორდა ბარათი „მარიონეტების თეატრი“ შავთელის 26-ზე: ის აჩვენებდა გაბრიაძის თეატრის (შავთელის 13) სახელს და ვიკიპედიის სტატიას. კიდევ ორ ბარათს (რუსთაველის მოედანი, ვერის სასაფლაო) მოეხსნა სხვა ობიექტებისთვის განკუთვნილი ვიკიპედიის ბმულები."
+   }
+  ]
+ },
+ {
   "version": "1.3.1",
   "date": "2026-11-19",
   "items": [

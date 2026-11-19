@@ -8,6 +8,7 @@ Georgian name of the object and the Georgian label of the item share a DISTINCTI
 quarters put several unrelated objects within 40 m of a famous one.
 
 Output: data/wikipedia_links.json  {register_id: {"ka": title, "en": title, "ru": title}}   (read by tools/build_site_data.py)
+Objects listed in data/wikipedia_links_reject.json are dropped from the result.
 Needs WIKIMEDIA_CONTACT in the environment (never committed).
 """
 import json
@@ -88,6 +89,10 @@ def main():
         if best:
             out[str(p["id"])] = best[1]["links"]
             log.append((round(best[0]), p["name"], best[1]["kaL"], best[1]["q"]))
+    rej = os.path.join(ROOT, "data", "wikipedia_links_reject.json")                # links the owner / review rejected: never put back
+    if os.path.exists(rej):
+        for i in json.load(open(rej, encoding="utf-8"))["ids"]:
+            out.pop(i, None)
     json.dump(out, open(os.path.join(ROOT, "data", "wikipedia_links.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     print("candidates:", len(cand), "register objects:", len(mon), "linked:", len(out))
     if "--show" in sys.argv:

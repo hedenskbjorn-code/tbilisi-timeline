@@ -1,0 +1,8 @@
+{
+ "note": "Register objects that must NOT be linked to a Wikipedia article, although the automatic match (tools/match_wikipedia.py) found one: the article is about another object. {register id: reason}",
+ "ids": {
+  "3662": "Register object 'Marionette Theatre', Shavteli 26 (monument 5067) is another building; the article is about the Gabriadze theatre at Shavteli 13 (object 3469).",
+  "17121": "The square (Rustaveli Square) is not the metro station 'Rustaveli'.",
+  "16982": "The Vera old cemetery is not the church of St Panteleimon (the article is about the church, object 4653)."
+ }
+}
