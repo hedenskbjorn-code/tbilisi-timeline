@@ -1,19 +1,49 @@
 [
  {
   "version": "1.6.0",
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "items": [
    {
     "t": "new",
-    "ru": "Таймлайн перенесён наверх экрана, полоса правителей осталась внизу. Под таймлайном внизу плашка «кто правит»: флаг периода и портреты правителей (Wikimedia Commons; автор и лицензия указаны в карточке, по клику на портрет). До XVIII века это условные изображения (росписи, миниатюры, памятники).",
-    "en": "The timeline is moved to the top of the screen; the band of rulers stays at the bottom. Next to it a plate shows who rules: the flag of the period and the portraits of the rulers (Wikimedia Commons; the author and the licence are in the card, opened by a click on the portrait). Before the 18th century these are conventional images (frescoes, miniatures, monuments).",
-    "ka": "ტაიმლაინი გადატანილია ეკრანის თავში, მმართველთა ზოლი კი ქვემოთაა. ქვემოთ ჩანს ფირფიტა „ვინ მართავს“: პერიოდის დროშა და მმართველთა პორტრეტები (Wikimedia Commons; ავტორი და ლიცენზია ბარათშია, პორტრეტზე დაწკაპუნებით). XVIII საუკუნემდე ეს პირობითი გამოსახულებებია (ფრესკები, მინიატურები, ძეგლები)."
+    "ru": "Таймлайн наверху экрана, правители внизу. Шкалу (годы и события) можно хватать мышью или пальцем и тянуть: метка года стоит в центре, а годы, события и правители едут под ней. Первое перетаскивание на всей истории приближает шкалу до окна в 150 лет, кнопка «−» возвращает «Всё».",
+    "en": "The timeline is on the top of the screen, the rulers at the bottom. The scale (years and events) can be grabbed with the mouse or a finger and dragged: the mark of the year stays in the centre, and the years, the events and the rulers move under it. The first drag on the whole history zooms in to a window of 150 years, the button '-' brings back the whole.",
+    "ka": "ტაიმლაინი ეკრანის თავშია, მმართველები კი ქვემოთ. სკალის (წლები და მოვლენები) დაჭერა და გადათრევა შეიძლება თაგვით ან თითით: წლის ნიშნული ცენტრშია, წლები, მოვლენები და მმართველები მის ქვეშ მოძრაობს. მთელ ისტორიაზე პირველი გადათრევა სკალას 150 წლის ფანჯრამდე აახლოებს, ღილაკი „−“ კი მთელს აბრუნებს."
    },
    {
     "t": "new",
-    "ru": "Флаги показаны только для периодов, где флаг подтверждён (Российская империя, Закавказская федерация, Грузия 1918–1921, Грузинская ССР, Грузия с 1990 года); для остальных периодов флагов нет.",
-    "en": "Flags are shown only for periods where the flag is attested (the Russian Empire, the Transcaucasian Federation, Georgia 1918-1921, the Georgian SSR, Georgia since 1990); no flags are shown for the other periods.",
-    "ka": "დროშები ნაჩვენებია მხოლოდ იმ პერიოდებისთვის, რომლისთვისაც დროშა დადასტურებულია (რუსეთის იმპერია, ამიერკავკასიის ფედერაცია, საქართველო 1918–1921, საქართველოს სსრ, საქართველო 1990 წლიდან); სხვა პერიოდებისთვის დროშები არ არის."
+    "ru": "Правители: линза внизу приближается к текущему году, слева сводка «кто правит сейчас» (форма правления, государство, правители), подсветка текущих периодов; иконка с флагом и портретом едет по ползунку. Портреты взяты с Wikimedia Commons (автор и лицензия в карточке); до XVIII века это условные изображения.",
+    "en": "Rulers: the band at the bottom zooms to the current year, on its left a summary 'who rules now' (the form of government, the state, the rulers), the current periods are lit; an icon with the flag and the portrait rides on the slider. The portraits are from Wikimedia Commons (the author and the licence are in the card); before the 18th century they are conventional images.",
+    "ka": "მმართველები: ქვედა ზოლი მიმდინარე წელს უახლოვდება, მარცხნივ ჩანს „ვინ მართავს ახლა“ (მმართველობის ფორმა, სახელმწიფო, მმართველები), მიმდინარე პერიოდები გაშუქებულია; დროშისა და პორტრეტის ხატულა ცურავს სლაიდერზე. პორტრეტები Wikimedia Commons-იდანაა (ავტორი და ლიცენზია ბარათშია); XVIII საუკუნემდე ისინი პირობითი გამოსახულებებია."
+   },
+   {
+    "t": "new",
+    "ru": "Флаги показаны по году и с пометкой вида: государственный, гражданский (до 1858 года у России государственного флага не было), реконструкция (ранние царства) или флаг сюзерена (580-645 и 750-1122). Для 645-750 флага нет.",
+    "en": "Flags are shown by the year and marked by kind: state, civil (Russia had no state flag before 1858), reconstruction (the early kingdoms) or the flag of the suzerain (580-645 and 750-1122). There is no flag for 645-750.",
+    "ka": "დროშები ნაჩვენებია წლის მიხედვით და სახეობის აღნიშვნით: სახელმწიფო, სამოქალაქო (1858 წლამდე რუსეთს სახელმწიფო დროშა არ ჰქონდა), რეკონსტრუქცია (ადრეული სამეფოები) ან სუზერენის დროშა (580-645 და 750-1122). 645-750 წლებისთვის დროშა არ არის."
+   },
+   {
+    "t": "new",
+    "ru": "События: теперь 140 (добавлено 47: Дидгори, Марабда, мосты, троллейбус и канатная дорога, заводы, Ортачальская ГЭС, гражданская война и война в Абхазии, Революция роз и другие); новая категория «Наука» (типография Вахтанга VI, институты и открытия, сделанные в Тбилиси). Все даты проверены по статьям, расхождения источников записаны в примечаниях.",
+    "en": "Events: now 140 (47 added: Didgori, Marabda, bridges, the trolleybus and the cable car, plants, the Ortachala HPP, the civil war and the war in Abkhazia, the Rose Revolution and others); a new category 'Science' (the printing house of Vakhtang VI, institutes and discoveries made in Tbilisi). All the dates are checked in the articles, the disagreements of the sources are in the notes.",
+    "ka": "მოვლენები: ახლა 140 (დაემატა 47: დიდგორი, მარაბდა, ხიდები, ტროლეიბუსი და საბაგირო, ქარხნები, ორთაჭალჰესი, სამოქალაქო ომი და ომი აფხაზეთში, ვარდების რევოლუცია და სხვა); ახალი კატეგორია „მეცნიერება“ (ვახტანგ VI-ის სტამბა, თბილისში შექმნილი ინსტიტუტები და აღმოჩენები). ყველა თარიღი სტატიებით არის შემოწმებული, წყაროების განსხვავებები კი შენიშვნებშია."
+   },
+   {
+    "t": "new",
+    "ru": "Виды: добавлено 8 снимков и гравюр (1850-60-е, 1870-80-е, 1898, 1914-1918), всего 140. Для объектов реестра добавлены ссылки на Википедию и фото: церковь Александра Невского, Мама Давити, Бетания, церковь св. Нино в Телавани.",
+    "en": "Views: 8 photographs and engravings added (1850-60s, 1870-80s, 1898, 1914-1918), 140 in all. Wikipedia links and photographs are added for the register objects: the church of Alexander Nevsky, Mamadaviti, Betania, the church of St Nino in Telovani.",
+    "ka": "ხედები: დაემატა 8 ფოტო და გრავიურა (1850-60-იანი, 1870-80-იანი, 1898, 1914-1918), სულ 140. რეესტრის ობიექტებისთვის დაემატა ბმულები ვიკიპედიაზე და ფოტოები: ალექსანდრე ნეველის ეკლესია, მამადავითი, ბეთანია, თელოვნის წმინდა ნინოს ეკლესია."
+   },
+   {
+    "t": "new",
+    "ru": "На телефоне интерфейс упрощён: одна строка лет, события без цифр, один портрет, сводка и одна строка правителей.",
+    "en": "On a phone the interface is simpler: one row of years, the events without numbers, one portrait, a summary and one row of the rulers.",
+    "ka": "ტელეფონზე ინტერფეისი გამარტივებულია: წლების ერთი რიგი, მოვლენები ციფრების გარეშე, ერთი პორტრეტი, შეჯამება და მმართველების ერთი რიგი."
+   },
+   {
+    "t": "new",
+    "ru": "Добавлены LICENSE (код: PolyForm Noncommercial 1.0.0) и NOTICE.md: что на каком условии разрешено и что принадлежит другим авторам.",
+    "en": "LICENSE (the code: PolyForm Noncommercial 1.0.0) and NOTICE.md are added: what is allowed on which terms and what belongs to other authors.",
+    "ka": "დაემატა LICENSE (კოდი: PolyForm Noncommercial 1.0.0) და NOTICE.md: რა არის დაშვებული რა პირობით და რა ეკუთვნის სხვა ავტორებს."
    }
   ]
  },
