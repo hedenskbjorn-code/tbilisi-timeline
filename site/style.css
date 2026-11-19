@@ -246,6 +246,12 @@ body.panel-open #yearchip { display:none; }
 #popbox svg { display:block; width:100%; height:auto; margin-top:4px; }
 #popbox .src { color:var(--muted); font-size:11px; }
 
+#loading { position:fixed; left:50%; top:46%; transform:translate(-50%,-50%); z-index:7; display:flex; align-items:center; gap:12px; padding:14px 20px; border-radius:10px; background:var(--panel, #fff); color:var(--fg, #222); box-shadow:0 2px 14px rgba(0,0,0,.35); font-size:15px; pointer-events:none; max-width:calc(100% - 32px); }
+#loading[hidden] { display:none; }
+#loading.mini { top:64px; transform:translateX(-50%); padding:7px 14px; font-size:13px; }
+#loading .spin { flex:none; width:18px; height:18px; border:3px solid #8884; border-top-color:var(--accent, #1c7ed6); border-radius:50%; animation:ldspin .9s linear infinite; }
+@keyframes ldspin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { #loading .spin { animation:none; border-top-color:#8884; } }
 #basenote { position:absolute; z-index:6; top:8px; left:50%; transform:translateX(-50%); max-width:min(560px, calc(100% - 140px)); padding:6px 10px; font-size:12px; line-height:1.35; background:var(--panel, #fff); color:var(--fg, #222); border:1px solid var(--muted, #999); border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.25); pointer-events:none; }
 
 /* third panel: historical views (drawings, photos), opened by its own button */
