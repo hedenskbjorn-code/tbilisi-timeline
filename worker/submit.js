@@ -5,7 +5,7 @@
 // Settings: binding PHOTOS (KV), secrets TURNSTILE_SECRET and HASH_SALT. KV key "cfg:open" = "0" closes the form.
 const ORIGIN = "https://hedenskbjorn-code.github.io";
 const MAX_BYTES = 3 * 1024 * 1024;          // the page re-encodes the picture to about 1600 px (a few hundred KB), so this is generous
-const MIN_SIDE = 800, MAX_SIDE = 8000;
+const MIN_SIDE = 800, MAX_SIDE = 3000, MAX_PIXELS = 6e6;      // the page makes at most 1600 px: bigger pictures are not from the form (and a tiny PNG of 8000x8000 would swallow the memory of the browser of the moderator)
 const PER_IP_DAY = 5, GLOBAL_DAY = 40;
 const MIN_FORM_MS = 4000, MAX_FORM_MS = 3 * 3600 * 1000;
 const PENDING_TTL = 60 * 86400;             // a picture nobody looked at is removed after 60 days
@@ -33,12 +33,13 @@ function imageInfo(u8) {
       if (u8[i] !== 0xff) { i++; continue; }
       const m = u8[i + 1];
       if (m === 0xff) { i++; continue; }
+      if (m === 0x00 || m === 0x01 || m === 0xd8 || m === 0xd9 || (m >= 0xd0 && m <= 0xd7)) { i += 2; continue; }      // markers without a length
       if (m >= 0xc0 && m <= 0xcf && m !== 0xc4 && m !== 0xc8 && m !== 0xcc) return { type: "image/jpeg", h: (u8[i + 5] << 8) | u8[i + 6], w: (u8[i + 7] << 8) | u8[i + 8] };
       i += 2 + ((u8[i + 2] << 8) | u8[i + 3]);
     }
     return null;
   }
-  if (u8.length > 30 && u8[0] === 0x89 && u8[1] === 0x50 && u8[2] === 0x4e && u8[3] === 0x47) {
+  if (u8.length > 33 && [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a].every((b, k) => u8[k] === b) && String.fromCharCode(u8[12], u8[13], u8[14], u8[15]) === "IHDR") {
     const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
     return { type: "image/png", w: dv.getUint32(16), h: dv.getUint32(20) };
   }
@@ -109,20 +110,21 @@ export default {
     if (!file || typeof file === "string" || !file.size || file.size > MAX_BYTES) return reply({ ok: false, error: "size" }, 413, origin);
     const bytes = new Uint8Array(await file.arrayBuffer());
     const info = imageInfo(bytes);
-    if (!info || !info.w || !info.h || Math.max(info.w, info.h) < MIN_SIDE || Math.max(info.w, info.h) > MAX_SIDE) return reply({ ok: false, error: "image" }, 400, origin);
+    if (!info || !info.w || !info.h || Math.max(info.w, info.h) < MIN_SIDE || Math.max(info.w, info.h) > MAX_SIDE || info.w * info.h > MAX_PIXELS) return reply({ ok: false, error: "image" }, 400, origin);
+    const hash = await sha256(bytes);
+    if (await env.PHOTOS.get("h:" + hash)) return reply({ ok: true, dup: true }, 200, origin);          // a repeated photo does not spend the daily limits
+    const oc = await objCoords(obj);                                        // the distances are counted here, not trusted from the page
+    if (!obj.startsWith("mon:") || (COORDS && !oc)) return reply({ ok: false, error: "object" }, 400, origin);      // only the register objects that exist (if the list could not be loaded, the check is skipped)
     const ip = req.headers.get("CF-Connecting-IP") || "";
     if (!(await turnstileOk(env, fd.get("cf-turnstile-response"), ip))) return reply({ ok: false, error: "captcha" }, 403, origin);
     const day = new Date().toISOString().slice(0, 10);
     const ipH = (await sha256(new TextEncoder().encode(env.HASH_SALT + "|" + ip))).slice(0, 16);
     if (!(await bump(env, "rl:" + day + ":" + ipH, PER_IP_DAY))) return reply({ ok: false, error: "limit" }, 429, origin);
     if (!(await bump(env, "rl:" + day + ":all", GLOBAL_DAY))) return reply({ ok: false, error: "busy" }, 429, origin);
-    const hash = await sha256(bytes);
-    if (await env.PHOTOS.get("h:" + hash)) return reply({ ok: true, dup: true }, 200, origin);
     const ts = Date.now(), rnd = hex(crypto.getRandomValues(new Uint8Array(3))), id = ts.toString(36) + rnd;
     const lat = num(fd.get("lat"), BBOX.lat[0], BBOX.lat[1]), lon = num(fd.get("lon"), BBOX.lon[0], BBOX.lon[1]);
     const glat = num(fd.get("glat"), BBOX.lat[0], BBOX.lat[1]), glon = num(fd.get("glon"), BBOX.lon[0], BBOX.lon[1]), gacc = num(fd.get("gacc"), 0, 5000);
     const has = (a, b) => a !== null && b !== null;
-    const oc = await objCoords(obj);                                        // the distances are counted here, not trusted from the page
     const dEx = oc && has(lat, lon) ? metres(lat, lon, oc[1], oc[0]) : null;
     const dGeo = oc && has(glat, glon) ? metres(glat, glon, oc[1], oc[0]) : null;
     const verified = (dEx !== null && dEx <= NEAR_M) || (dGeo !== null && dGeo <= NEAR_M) ? 1 : 0;

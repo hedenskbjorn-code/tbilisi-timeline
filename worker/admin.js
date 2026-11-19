@@ -42,6 +42,7 @@ async function listAll(env) {
 }
 
 async function act(env, body, mail) {
+  if (!body || typeof body !== "object") return json({ error: "json" }, 400);
   const id = String(body.id || "");
   if (!/^[a-z0-9]{6,20}$/.test(id)) return json({ error: "id" }, 400);
   const raw = await env.PHOTOS.get("meta:" + id);
@@ -52,6 +53,7 @@ async function act(env, body, mail) {
     const img = await env.PHOTOS.get("img:" + id, { type: "arrayBuffer" });
     if (!img) return json({ error: "no image" }, 404);
     m.status = "approved"; m.by = mail; m.at = Date.now();
+    delete m.lat; delete m.lon; delete m.glat; delete m.glon; delete m.ipH;       // after the check the exact positions and the hash of the address are not needed: the distances and the flag stay
     await env.PHOTOS.put("img:" + id, img);                                       // without an expiry: it stays until it is imported into the site
     await env.PHOTOS.put("h:" + m.hash, id);
     await env.PHOTOS.put("meta:" + id, JSON.stringify(m), { metadata: small("approved") });
@@ -80,9 +82,10 @@ export default {
       if (!img) return new Response("gone", { status: 404 });
       return new Response(img, { headers: { "Content-Type": JSON.parse(raw).mime, "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
     }
-    if (url.pathname === "/api/act" && req.method === "POST" && req.headers.get("X-Admin") === "1") return act(env, await req.json(), mail);
+    if (url.pathname === "/api/act" && req.method === "POST" && req.headers.get("X-Admin") === "1") return act(env, await req.json().catch(() => null), mail);
     if (url.pathname === "/api/open" && req.method === "POST" && req.headers.get("X-Admin") === "1") {              // the switch of the form: {open: true|false}
-      const b = await req.json();
+      const b = await req.json().catch(() => null);
+      if (!b) return json({ error: "json" }, 400);
       await env.PHOTOS.put("cfg:open", b.open ? "1" : "0");
       return json({ ok: true, open: !!b.open });
     }
