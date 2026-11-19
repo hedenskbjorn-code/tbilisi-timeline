@@ -1,6 +1,7 @@
 """Build the self-contained data folder for the public page (site/data).
 
 Reads : data/tbilisi_monuments.geojson, data/warped/*.webp|json, data/boundaries/*.geojson
+NOTE: this script rewrites site/data/lost.json; always run tools/add_lost_repl_i18n.py after it (English and Georgian descriptions of the lost sites).
 Writes: site/data/monuments.json  (slim GeoJSON: no long descriptions, coordinates rounded)
         site/data/plans.json      (plan list: year, image, corners, boundary file)
         site/data/<plan>.webp, site/data/<plan>_boundary.geojson  (copies)
@@ -142,6 +143,11 @@ _pr = os.path.join(ROOT, "data", "photos_pair_reject.json")
 if os.path.exists(_pr):
     pair_reject = json.load(open(_pr, encoding="utf-8"))["objects"]
 used = {}
+# photographs that visitors sent and the owner approved (data/user_photos.json, made by tools/import_user_photos.py): {"objects": {"<object id>": [{"id", "file", "author", "license", ...}]}}
+user_photos = {}
+_up = os.path.join(ROOT, "data", "user_photos.json")
+if os.path.exists(_up):
+    user_photos = json.load(open(_up, encoding="utf-8"))["objects"]
 # dates fixed by hand where the register contradicts itself (data/monument_date_overrides.json)
 date_fix = {}
 _df = os.path.join(ROOT, "data", "monument_date_overrides.json")
@@ -169,6 +175,9 @@ for f in src["features"]:
         ph = [t for t in override[str(p["id"])] if photo_info.get(t, {}).get("thumb") and photo_info[t].get("license")]
     for t in ph:
         used[t] = photo_info[t]
+    for e in user_photos.get(str(p["id"]), []):                          # the photographs of visitors go in like the photographs of Commons, with their author and licence
+        ph.append("User:" + e["id"])
+        used["User:" + e["id"]] = {"thumb": e["file"], "page": e["file"], "author": e["author"], "license": e["license"], "license_url": e["license_url"], "w": e["w"], "h": e["h"]}
     feats.append({
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [round(x, 6), round(y, 6)]},
