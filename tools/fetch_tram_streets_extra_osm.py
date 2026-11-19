@@ -12,7 +12,7 @@ import urllib.request
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OUT = os.path.join(ROOT, "data", "raw", "osm_transport", "tram_streets_extra.json")
 B = "(41.60,44.66,41.86,45.02)"
-Q = '[out:json][timeout:180];(way["highway"]["name:en"~"Uridia|Holbrook|Chodrishvili",i]%s;way["highway"]["name"~"ურიდია|ჰოლბრუკ|ჩოდრიშვილ"]%s;);out geom tags;' % (B, B)
+Q = '[out:json][timeout:180];(way["highway"]["name:en"~"Uridia|Holbrook|Chodrishvili|Makhaldiani|Rkinigza",i]%s;way["highway"]["name"~"ურიდია|ჰოლბრუკ|ჩოდრიშვილ|მახალდიან|რკინიგზის ქ"]%s;);out geom tags;' % (B, B)
 
 
 def main():

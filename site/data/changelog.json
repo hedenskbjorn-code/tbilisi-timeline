@@ -1,5 +1,29 @@
 [
  {
+  "version": "1.0.1",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "Клик по трамваю: там, где рядом проходит проспект, мост или железная дорога, открывается трамвай (раньше проспект перекрывал клик, например на проспекте Чавчавадзе).",
+    "en": "Click on the tram: where an avenue, a bridge or a railway runs beside it, the tram opens (before, the avenue took the click, for example on Chavchavadze Avenue).",
+    "ka": "დაწკაპუნება ტრამვაიზე: სადაც გვერდით გამზირი, ხიდი ან რკინიგზა გადის, ტრამვაი იხსნება (ადრე გამზირი იღებდა დაწკაპუნებას, მაგალითად ჭავჭავაძის გამზირზე)."
+   },
+   {
+    "t": "new",
+    "ru": "В годы, когда трамвай был, но линий на карте нет (1905–1912 и 1924–1961), в панели слева стоит пояснение с длиной сети по ru.wikipedia.",
+    "en": "For the years when there was a tram but no lines on the map (1905-1912 and 1924-1961) the panel on the left carries a note with the length of the network from ru.wikipedia.",
+    "ka": "წლებში, როცა ტრამვაი იყო, მაგრამ რუკაზე ხაზები არ არის (1905–1912 და 1924–1961), მარცხენა პანელში განმარტებაა ქსელის სიგრძით ru.wikipedia-დან."
+   },
+   {
+    "t": "fix",
+    "ru": "Трамвай, маршрут 6: добавлены переулок Махалдиани и улица Ркинигза (Железнодорожная); часть разрывов у вокзала закрыта.",
+    "en": "Tram, route 6: Makhaldiani Lane and Rkinigza (Railway) Street are added; part of the gaps by the railway station is closed.",
+    "ka": "ტრამვაი, მარშრუტი 6: დაემატა მახალდიანის შესახვევი და რკინიგზის ქუჩა; ვაგზალთან ნაწილი ხარვეზებისა დაიხურა."
+   }
+  ]
+ },
+ {
   "version": "1.0.0",
   "date": "2026-11-19",
   "note": {

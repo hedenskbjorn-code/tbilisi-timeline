@@ -116,6 +116,7 @@
       topoAutoNote: "Сейчас топокарта включена автоматически (годы 1953–2005, вместо плана). Чтобы скрыть её, снимите галочку «С 1953 по 2005 год показывать топокарту вместо плана» ниже.",
       trRoutes62: "Маршруты по списку 1962 г.", trRoutes86: "Маршруты по списку 1986 г.",
       chgTitle: "Что нового", chgNew: "Новое", chgFix: "Исправлено", chgFail: "Не удалось загрузить журнал изменений.",
+      trGapEarly: "С 25 декабря 1904 в Тбилиси ходил электрический трамвай. Его линии на карте показаны с плана 1913 года, на этот год не нанесены.", trGapMid: (km, y) => `Трамвай в эти годы был (около ${km} км сети на ${y} год, ru.wikipedia), но его линии на карте не нанесены: данных об улицах нет.`,
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -277,6 +278,7 @@
       topoAutoNote: "The topographic map is on automatically now (the years 1953-2005, instead of a plan). To hide it, clear the box \"From 1953 to 2005 show the topographic map instead of a plan\" below.",
       trRoutes62: "Routes of the list of 1962", trRoutes86: "Routes of the list of 1986",
       chgTitle: "What is new", chgNew: "New", chgFix: "Fixed", chgFail: "The log of changes could not be loaded.",
+      trGapEarly: "An electric tram ran in Tbilisi from 25 December 1904. Its lines are shown on the map from the plan of 1913, they are not drawn for this year.", trGapMid: (km, y) => `There was a tram in these years (about ${km} km of network in ${y}, ru.wikipedia), but its lines are not drawn on the map: there are no data on the streets.`,
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -439,6 +441,7 @@
       topoAutoNote: "ტოპოგრაფიული რუკა ახლა ავტომატურად არის ჩართული (1953–2005 წლები, გეგმის ნაცვლად). გასაქრობად მოხსენით ქვემოთ მოცემული ნიშნული „1953-2005 წლებში გეგმის ნაცვლად ტოპორუკის ჩვენება“.",
       trRoutes62: "მარშრუტები 1962 წლის სიით", trRoutes86: "მარშრუტები 1986 წლის სიით",
       chgTitle: "რა არის ახალი", chgNew: "ახალი", chgFix: "გასწორდა", chgFail: "ცვლილებათა ჟურნალის ჩატვირთვა ვერ მოხერხდა.",
+      trGapEarly: "თბილისში ელექტრო ტრამვაი 1904 წლის 25 დეკემბრიდან დადიოდა. მისი ხაზები რუკაზე 1913 წლის გეგმიდან ჩანს, ამ წლისთვის დატანილი არ არის.", trGapMid: (km, y) => `ამ წლებში ტრამვაი იყო (ქსელის დაახლოებით ${km} კმ ${y} წელს, ru.wikipedia), მაგრამ მისი ხაზები რუკაზე დატანილი არ არის: ქუჩების შესახებ მონაცემები არ გვაქვს.`,
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -1508,6 +1511,18 @@
   function trFilter() {
     return ["any", ["all", [">=", year, ["get", "y0"]], ["<", year, ["get", "y1"]]], ["all", [">=", year, ["get", "y2"]], ["<", year, ["get", "y3"]]]];
   }
+  // the years for which the map has no tram lines, though there was a tram (found out 2026-11-19): a note instead of silence
+  // lengths of the network by year (ru.wikipedia "Tbilisi tram": single-track count with depots); electric tram from 25 December 1904, the lines of the plan of 1913 are drawn from 1913
+  const TRAM_KM = { 1930: 65, 1940: 84, 1952: 98, 1961: 101 };
+  function trGapNote() {
+    const L = t();
+    if (year >= 1905 && year <= 1912) return L.trGapEarly;
+    if (year >= 1924 && year <= 1961) {
+      const a = Object.keys(TRAM_KM).map(Number).reduce((best, k) => (Math.abs(k - year) < Math.abs(best - year) ? k : best));
+      return L.trGapMid(TRAM_KM[a], a);
+    }
+    return "";
+  }
   function updateTransport() {
     const on = $("showTransport").checked;
     const AER = ["match", ["get", "kind"], ["funicular", "cablecar"], true, false];
@@ -1521,11 +1536,13 @@
     if (!box) return;
     const list = on ? trEvents.filter((x) => x.year <= year && x.year > year - 12).slice(-4).reverse() : [];
     box.textContent = "";
-    box.hidden = !list.length;
-    if (!list.length) return;
+    const gap = on ? trGapNote() : "";
+    box.hidden = !list.length && !gap;
+    if (box.hidden) return;
     const h = document.createElement("div");
     h.textContent = t().trEvents;
     box.appendChild(h);
+    if (gap) { const g = document.createElement("div"); g.className = "small"; g.textContent = gap; box.appendChild(g); }
     for (const x of list) {
       const d = document.createElement("div");
       const b = document.createElement("b");
@@ -1911,10 +1928,24 @@
       map.addLayer({ id: "tr-aerial", type: "line", source: "transport", filter: ["!=", ["geometry-type"], "Point"], layout: { visibility: "none", "line-cap": "butt" },     // funicular and cable car: violet dashed (not confused with the green metro line)
                      paint: { "line-color": "#7048e8", "line-width": 3.5, "line-dasharray": [1.6, 1.2] } });
       for (const id of ["tr-line", "tr-pt", "tr-aerial"]) {
-        map.on("click", id, (e) => { if (e.features && e.features[0]) { e.originalEvent.__trHit = true; transportPopup(e.features[0].properties, e.lngLat); } });
         map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
         map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
       }
+      // one click handler for all transport: the lines lie on one another (the tram is drawn 4 px beside the street, an avenue, a bridge and a railway can run along it), so
+      // the object of the highest rank within a few pixels is taken: a tram before a metro line, a bridge before an avenue (found out 2026-11-19: on Chavchavadze Avenue the avenue took the click)
+      const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue"];
+      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "run-pt", "lost-dot", "settle-dot"];
+      map.on("click", (e) => {
+        const near = (r) => [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
+        const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-aerial"].filter((id) => map.getLayer(id)) });
+        if (!hits.length) return;
+        const exact = POINT_LAYERS.filter((id) => map.getLayer(id));
+        if (exact.length && map.queryRenderedFeatures(e.point, { layers: exact }).length) return;      // a point object right under the click has its own card
+        const rank = (f) => { const i = TR_PRIO.indexOf(f.properties.kind); return i < 0 ? 99 : i; };
+        hits.sort((x, y) => rank(x) - rank(y));
+        e.originalEvent.__trHit = true;
+        transportPopup(hits[0].properties, e.lngLat);
+      });
     } catch (e) { /* no transport layer */ }
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
