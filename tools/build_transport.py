@@ -40,6 +40,36 @@ def way_len(geom):
     return round(sum(math.hypot((geom[j + 1]["lon"] - geom[j]["lon"]) * math.cos(math.radians(geom[j]["lat"])) * 111320, (geom[j + 1]["lat"] - geom[j]["lat"]) * 111320) for j in range(len(geom) - 1)))
 
 
+def outside_built_up(ways, y0, share=0.5):
+    """Indexes of ways that lie mostly outside the built-up outlines of their time (site/data/urban.json: outlines of 1954, 1972, 1978, 1985, 1990, 2000, ...; the outlines
+    within 12 years of the first year of the route are taken together). A tram did not run through open country. The outlines are approximate, so this is used only for the
+    streets where the picture of a street drawn far into the country is obvious (see CHECK_URBAN)."""
+    u = json.load(open(os.path.join(ROOT, "site", "data", "urban.json"), encoding="utf-8"))["features"]
+    snaps = sorted(set(f["properties"]["snap"] for f in u))
+    use = [x for x in snaps if y0 - 12 <= x <= y0 + 12] or [min(snaps, key=lambda x: abs(x - y0))]
+    rings = []
+    for f in u:
+        if f["properties"]["snap"] in use:
+            g = f["geometry"]
+            rings.extend([g["coordinates"][0]] if g["type"] == "Polygon" else [q[0] for q in g["coordinates"]])
+
+    def inside(pt, ring):
+        x, y = pt
+        c = False
+        for i in range(len(ring)):
+            x1, y1 = ring[i]
+            x2, y2 = ring[(i + 1) % len(ring)]
+            if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
+                c = not c
+        return c
+    out = []
+    for i, w in enumerate(ways):
+        pts = line(w["geometry"])[::2]
+        if sum(1 for q in pts if any(inside(q, r) for r in rings)) / max(1, len(pts)) < share:
+            out.append(i)
+    return out
+
+
 def far_pieces(ways, limit=1000, join=40):
     """The OSM query takes every way with a street name in the whole box, and the names repeat in other parts of the city and the suburbs (found out 2026-11-19: tram tracks in
     Tskneti, Okrokana, near Zahesi and so on). The ways of one name are joined into lines (ends closer than `join` m); the longest line is the main one; a piece that lies
@@ -221,6 +251,7 @@ def main():
         "khetagurov": ["Kosta Khetagurov Street"], "asc": ["Nikoloz Baratashvili Ascent"], "dedoplis": ["Tsminda Ketevan Dedoflis Avenue"], "barisakhos": ["Barisakho Street"],
         "anapa": ["Anapis 414 Divizia Street"], "zghvi": ["Tbilisi Zghvi Street"],
     }
+    CHECK_URBAN = {"khizanishvili", "zghvi", "anapa", "khudadov", "alley"}      # streets whose pieces in open country are dropped (checked on the topographic map and the outlines of the built-up area, 2026-11-19)
     NOT_MATCHED = {"pirosmani": "the only Niko Pirosmani Street pieces of the OSM box lie 9-10 km from Abastumani and Dadiani, the streets next to it in every route that names it (checked 2026-11-19)"}
     R1986 = {1: "dadiani eristavi tsereteli tsabadze mghvdeli abastumani tsinam", 2: "dadiani khudadov tseronisi akhtala", 3: "tsereteli eristavi guramishvili zghvi anapa",
              4: "dadiani guramishvili zghvi anapa", 5: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli", 6: "dadiani kakhiani lotkini",
@@ -264,11 +295,16 @@ def main():
         for i in sorted(drop):
             dropped_tram.append((k, ws[i]["id"], way_len(ws[i]["geometry"])))
         ws = [w for i, w in enumerate(ws) if i not in drop]
+        if k in CHECK_URBAN and ws:
+            out = set(outside_built_up(ws, merged[0][0]))
+            for i in sorted(out):
+                dropped_tram.append((k + " (outside the built-up area)", ws[i]["id"], way_len(ws[i]["geometry"])))
+            ws = [w for i, w in enumerate(ws) if i not in out]
         for w in ws:
             for a0, b0 in merged:
                 feats.append(feat({"type": "LineString", "coordinates": line(w["geometry"])}, id="tramnet_%s_%d_%d" % (k, w["id"], a0), kind="tram", y0=a0, y1=b0,
                                   name_en="Tram street (routes of the ka.wikipedia lists)", name_ru="Улица трамвайных маршрутов (по спискам ka.wikipedia)", name_ka="ტრამვაის მარშრუტების ქუჩა",
-                                  note="SCHEMATIC. The street is drawn over its whole length in OpenStreetMap; the tram did not necessarily run along all of it. Years: the route lists of 1962 and 1986 (ka.wikipedia) and the lists of routes of 2000 (8 routes), 2003 (4 routes), 2005 (route 12) and the closing on 4 December 2006 (ru.wikipedia): between the lists the state is not known. Several streets of the routes are missing (no matching way in OSM).",
+                                  note="SCHEMATIC. The street is drawn over its whole length in OpenStreetMap; the tram did not necessarily run along all of it. Years: the route lists of 1962 and 1986 (ka.wikipedia) and the lists of routes of 2000 (8 routes), 2003 (4 routes), 2005 (route 12) and the closing on 4 December 2006 (ru.wikipedia): between the lists the state is not known. Several streets of the routes are missing (no matching way in OSM). Pieces of a street that lie far from its main line (other streets with the same name) and, for some streets, pieces in open country outside the built-up area of the time are left out; the real tracks are not known (checked 2026-11-19, see sources.md).",
                                   src=["https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A0%E1%83%90%E1%83%9B%E1%83%95%E1%83%90%E1%83%98", "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D1%80%D0%B0%D0%BC%D0%B2%D0%B0%D0%B9"]))
     print("tram network streets:", len(tram_iv), "missing in OSM:", miss)
     print("tram pieces dropped (the same street name far from the main line):", len(dropped_tram), "total m:", sum(d[2] for d in dropped_tram))
