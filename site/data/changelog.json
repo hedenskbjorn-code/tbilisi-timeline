@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.4.1",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "Старт маршрута исправлен: круг начинается и заканчивается у площади Марджанишвили (как в прежнем файле), длина 9,69 км. В новом GPX не хватало первых и последних сотен метров.",
+    "en": "The start of the route is fixed: the loop begins and ends at Marjanishvili Square (as in the former file), 9.69 km. The new GPX lacked the first and last few hundred metres.",
+    "ka": "მარშრუტის სტარტი გასწორდა: წრე იწყება და მთავრდება მარჯანიშვილის მოედანთან (როგორც წინა ფაილში), სიგრძე 9,69 კმ. ახალ GPX-ს პირველი და ბოლო რამდენიმე ასეული მეტრი აკლდა."
+   },
+   {
+    "t": "new",
+    "ru": "На странице маршрута появились 9 остановок: пять зданий у площади Марджанишвили (банк TBC, Министерство образования, «Зелёное здание», издательство, здание на пр. Агмашенебели, 91) и серные бани Абанотубани (квартал, Чрели-абано, Прохладная баня, бани Мейтари). Всего 58 остановок.",
+    "en": "The route page has 9 new stops: five buildings at Marjanishvili Square (TBC Bank, the Ministry of Education, the \"Green Building\", the publishing house, the building at 91 Aghmashenebeli Ave.) and the sulphur baths of Abanotubani (the quarter, Chreli Abano, the Cool Bath, the Meitar baths). 58 stops in all.",
+    "ka": "მარშრუტის გვერდზე 9 ახალი გაჩერებაა: ხუთი შენობა მარჯანიშვილის მოედანთან (TBC ბანკი, განათლების სამინისტრო, „მწვანე შენობა“, გამომცემლობა, შენობა აღმაშენებლის გამზ. 91-ზე) და აბანოთუბნის გოგირდის აბანოები (უბანი, ჭრელი აბანო, გრილი აბანო, მეითარის აბანოები). სულ 58 გაჩერება."
+   }
+  ]
+ },
+ {
   "version": "1.4.0",
   "date": "2026-11-19",
   "items": [

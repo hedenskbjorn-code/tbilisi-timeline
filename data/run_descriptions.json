@@ -281,6 +281,59 @@
  },
  {
   "n": 14,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 15,
+  "wp": {
+   "ru": "Абанотубани",
+   "en": "Abanotubani",
+   "ka": "აბანოთუბანი"
+  },
+  "desc": {
+   "ru": "Абанотубани (груз. აბანოთუბანი) — исторический район в центре Тбилиси, известный своим комплексом бань, стоящих на естественных сернистых источниках. Построенные в разное время в XVII—XIX веках, нынешние бани формируют собой отдельный квартал города, являющийся популярным местом как среди жителей города, так и у многочисленных туристов.",
+   "en": "Abanotubani (Georgian: აბანოთუბანი, literally \"bath district\") is the ancient district of Tbilisi, Georgia, known for its sulphuric baths. Located at the eastern bank of the Mtkvari River at the foot of Narikala fort across Metekhisubani, Abanotubani is an important historic part of the city: it is where according to a legend the King of Iberia, Vakhtang Gorgasali’s falcon fell, leading to a discovery of the hot springs and, subsequently, to founding of a new capital. By the end of the 13th century, 65 baths were recorded in Tbilisi.",
+   "ka": "აბანოთუბანი, აბანოების უბანი — საქართველოს დედაქალაქ თბილისის ერთ-ერთი უძველესი უბანი, მდ. მტკვრის მარჯვენა სანაპიროზე. სახელწოდება უკავშირდება ძველთაგანვე ცნობილ ბუნებრივად ცხელ მინერალურ წყლებზე გაშენებულ აბანოებს."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D0%B0%D0%BD%D0%BE%D1%82%D1%83%D0%B1%D0%B0%D0%BD%D0%B8",
+   "https://en.wikipedia.org/wiki/Abanotubani",
+   "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%91%E1%83%90%E1%83%9C%E1%83%9D%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:026A_Tbilissi_Toits_des_bains_Orbeliani.JPG",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:2014_Tbilisi,_Łaźnie_siarkowe_w_Abanotubani_(04).jpg",
+    "why": "lead image of the en article"
+   },
+   {
+    "file": "File:Tbilisi_1464.jpg",
+    "why": "lead image of the ka article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D0%B0%D0%BD%D0%BE%D1%82%D1%83%D0%B1%D0%B0%D0%BD%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Abanotubani",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%91%E1%83%90%E1%83%9C%E1%83%9D%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98"
+  }
+ },
+ {
+  "n": 16,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 17,
   "wp": {
    "ru": "Церковь Святого Николая (Нарикала)",
    "en": "Narikala",
@@ -317,7 +370,7 @@
   }
  },
  {
-  "n": 15,
+  "n": 18,
   "wp": {
    "en": "Juma Mosque, Tbilisi"
   },
@@ -338,13 +391,21 @@
   }
  },
  {
-  "n": 16,
+  "n": 19,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 20,
   "wp": {
    "ru": "Нарикала",
    "en": "Narikala"
   },
   "desc": {
-   "ru": "Нарика́ла (вернее, Нарин-кала; груз. ნარიყალა, ნარინ კალა «нижняя/маленькая крепость») — крепостной комплекс различных эпох в Старом Тбилиси, на правом скалистом берегу Куры.",
+   "ru": "Нарикала (вернее, Нарин-кала; груз. ნარიყალა, ნარინ კალა «нижняя/маленькая крепость») — крепостной комплекс различных эпох в Старом Тбилиси, на правом скалистом берегу Куры.",
    "en": "Narikala (Georgian: ნარიყალა, pronounced [naɾiχʼaɫa]) is an ancient fortress overlooking Tbilisi, the capital of Georgia, and the Mtkvari (Kura) River. The fortress consists of two walled sections on a steep hill between the sulfur baths and the botanical gardens of Tbilisi. On the lower court there is the recently restored St Nicholas church."
   },
   "sources": [
@@ -363,7 +424,7 @@
   }
  },
  {
-  "n": 17,
+  "n": 21,
   "wp": {
    "ru": "Церковь Сорока Мучеников (Тбилиси)",
    "ka": "თბილისის წმინდა ორმეოცთა ეკლესია"
@@ -392,7 +453,7 @@
   }
  },
  {
-  "n": 18,
+  "n": 22,
   "wp": {
    "ru": "Церковь Сурб Геворг (Тбилиси)",
    "en": "Saint George's Church, Tbilisi"
@@ -421,7 +482,7 @@
   }
  },
  {
-  "n": 19,
+  "n": 23,
   "wp": {
    "ru": "Большая синагога (Тбилиси)",
    "en": "Great Synagogue (Tbilisi)"
@@ -450,7 +511,7 @@
   }
  },
  {
-  "n": 20,
+  "n": 24,
   "wp": {
    "ka": "თბილისის ქარვასლა"
   },
@@ -466,7 +527,7 @@
   }
  },
  {
-  "n": 21,
+  "n": 25,
   "wp": {
    "ru": "Джварис Мама",
    "en": "Norashen Church",
@@ -499,7 +560,7 @@
   }
  },
  {
-  "n": 22,
+  "n": 26,
   "wp": {
    "ru": "Тбилисская духовная академия",
    "en": "Tbilisi Theological Seminary",
@@ -507,7 +568,7 @@
   },
   "desc": {
    "ru": "Тбилисская духовная академия (груз. თბილისის სასულიერო აკადემია — Тбилисис сасулиэро академиа) — высшее богословское учебное заведение Грузинской православной церкви.",
-   "en": "Tbilisi Theological Academy and Seminary (Georgian: თბილისის სასულიერო სემინარია, romanized: tbilisis sasuliero seminaria; Russian: Тбили́сская духо́вная семина́рия, romanized: Tbilisskaya dukhovnaya seminariya) is a seminary in Tbilisi, Georgia. It operated from 1817 to 1919 under the name Tiflis Theological Seminary in the Georgian exarchate of the Russian Orthodox Church. The facility closed during the wake of the Russian Revolution and the subsequent 1921 invasion of Georgia.",
+   "en": "Tbilisi Theological Academy and Seminary (Georgian: თბილისის სასულიერო სემინარია, romanized: tbilisis sasuliero seminaria; Russian: Тбилисская духовная семинария, romanized: Tbilisskaya dukhovnaya seminariya) is a seminary in Tbilisi, Georgia. It operated from 1817 to 1919 under the name Tiflis Theological Seminary in the Georgian exarchate of the Russian Orthodox Church. The facility closed during the wake of the Russian Revolution and the subsequent 1921 invasion of Georgia.",
    "ka": "თბილისის სასულიერო აკადემია, თბილისის სასულიერო აკადემია და სემინარია — სასულიერო სასწავლებელი, რომელიც თბილისის სასულიერო სემინარიასთან ერთად წარმოადგენს საქართველოს კანონით აღიარებულ ავტორიზებულ საგანმანთლებლო დაწესებულებას, ექვემდებარება საქართველოს მართლმადიდებელ ეკლესიას, კანონიკურად შედის საქართველოს საპატრიარქოს იურისდიქციაში, თანამშრომლობს საპატრიარქოს განათლების ცენტრთან და ანგარიშვალდებულია სრულიად საქართველოს კათოლიკოს-პატრიარქის წინაშე. დაარსდა 1988 წლის 1 ოქტომბერს. ამზადებს სამეცნიერო-სასულიერო და პედაგოგიურ კადრებს საქართველოს მართლმადიდებელი ეკლესიისათვის."
   },
   "sources": [
@@ -536,7 +597,7 @@
   }
  },
  {
-  "n": 23,
+  "n": 27,
   "wp": {
    "ru": "Церковь Норашен (Тбилиси)",
    "en": "Norashen Church",
@@ -573,7 +634,7 @@
   }
  },
  {
-  "n": 24,
+  "n": 28,
   "wp": {
    "ru": "Сиони",
    "en": "Tbilisi Sioni Cathedral",
@@ -606,7 +667,7 @@
   }
  },
  {
-  "n": 25,
+  "n": 29,
   "wp": {
    "ru": "Бани царя Ростома",
    "ka": "როსტომ მეფის აბანო"
@@ -635,7 +696,7 @@
   }
  },
  {
-  "n": 26,
+  "n": 30,
   "wp": {
    "ru": "Церковь Святого Георгия Кари",
    "ka": "თბილისის წმინდა გიორგის კარის ეკლესია"
@@ -660,7 +721,7 @@
   }
  },
  {
-  "n": 27,
+  "n": 31,
   "wp": {
    "ru": "Дом-музей Николоза Бараташвили",
    "ka": "ნიკოლოზ ბარათაშვილის სახლ-მუზეუმი"
@@ -685,7 +746,7 @@
   }
  },
  {
-  "n": 28,
+  "n": 32,
   "wp": {
    "ru": "Анчисхати",
    "en": "Anchiskhati Basilica",
@@ -718,12 +779,12 @@
   }
  },
  {
-  "n": 29,
+  "n": 33,
   "wp": {
    "ru": "Улица Шавтели"
   },
   "desc": {
-   "ru": "У́лица Шавтели́ (груз. შავთელის ქუჩა) — пешеходная улица в старой части города Тбилиси, столицы Грузии. От улицы Бараташвили до улицы Ираклия II. Одна из границ Площади Ираклия II. Популярный туристический маршрут."
+   "ru": "Улица Шавтели (груз. შავთელის ქუჩა) — пешеходная улица в старой части города Тбилиси, столицы Грузии. От улицы Бараташвили до улицы Ираклия II. Одна из границ Площади Ираклия II. Популярный туристический маршрут."
   },
   "sources": [
    "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%A8%D0%B0%D0%B2%D1%82%D0%B5%D0%BB%D0%B8"
@@ -739,7 +800,7 @@
   }
  },
  {
-  "n": 30,
+  "n": 34,
   "wp": {
    "ru": "Тбилисский государственный театр марионеток имени Резо Габриадзе",
    "en": "Hotel Ambasadori",
@@ -768,7 +829,7 @@
   }
  },
  {
-  "n": 31,
+  "n": 35,
   "wp": {
    "ru": "Ванкский собор (Тбилиси)",
    "en": "Vank Monastery, Tbilisi"
@@ -797,12 +858,12 @@
   }
  },
  {
-  "n": 32,
+  "n": 36,
   "wp": {
    "ru": "Улица Шавтели"
   },
   "desc": {
-   "ru": "У́лица Шавтели́ (груз. შავთელის ქუჩა) — пешеходная улица в старой части города Тбилиси, столицы Грузии. От улицы Бараташвили до улицы Ираклия II. Одна из границ Площади Ираклия II. Популярный туристический маршрут."
+   "ru": "Улица Шавтели (груз. შავთელის ქუჩა) — пешеходная улица в старой части города Тбилиси, столицы Грузии. От улицы Бараташвили до улицы Ираклия II. Одна из границ Площади Ираклия II. Популярный туристический маршрут."
   },
   "sources": [
    "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%A8%D0%B0%D0%B2%D1%82%D0%B5%D0%BB%D0%B8"
@@ -818,13 +879,13 @@
   }
  },
  {
-  "n": 33,
+  "n": 37,
   "wp": {
    "ru": "Улица Пушкина (Тбилиси)",
    "ka": "პუშკინის ქუჩა (თბილისი)"
   },
   "desc": {
-   "ru": "Улица Пу́шкина (груз. პუშკინი ქუჩა) — в Тбилиси, одна из центральных улиц города. Идёт от Площади Свободы и, пересекая улицу Резо Табукашвили, переходит в улицу Бараташвили.",
+   "ru": "Улица Пушкина (груз. პუშკინი ქუჩა) — в Тбилиси, одна из центральных улиц города. Идёт от Площади Свободы и, пересекая улицу Резо Табукашвили, переходит в улицу Бараташвили.",
    "ka": "ალექსანდრე პუშკინის ქუჩა — ქუჩა თბილისში, მთაწმინდისა და კრწანისის რაიონებში (გარეთუბანი), კოტე (კონსტანტინე) აფხაზის ქუჩიდან ნიკოლოზ ბარათაშვილის ქუჩამდე. ეს სახელი ქუჩას ეწოდა 1880 წელს თბილისის თვითმმართველობის ხმოსნის, ნიკო ნიკოლაძის წინადადებით. ალექსანდრე პუშკინი 1829 წელს, თბილისში ყოფნის დროს, ახლანდელი №5 შენობის ადგილას მდგარ ორსართულიან, ხის მოჩუქურთმებულაივნიან ტრაქტირში ცხოვრობდა."
   },
   "sources": [
@@ -843,7 +904,7 @@
   }
  },
  {
-  "n": 34,
+  "n": 38,
   "wp": {
    "ru": "Грузинский Музей изобразительных искусств",
    "en": "Georgian Museum of Fine Arts",
@@ -876,7 +937,7 @@
   }
  },
  {
-  "n": 35,
+  "n": 39,
   "wp": {
    "ru": "Старая Троицкая церковь (Тбилиси)",
    "ka": "თბილისის ძველი სამების ეკლესია"
@@ -901,7 +962,7 @@
   }
  },
  {
-  "n": 36,
+  "n": 40,
   "wp": {
    "ru": "Государственный музей грузинской литературы имени Георгия Леонидзе",
    "en": "Giorgi Leonidze State Museum of Literature",
@@ -930,7 +991,7 @@
   }
  },
  {
-  "n": 37,
+  "n": 41,
   "wp": {
    "ru": "Кашвети",
    "en": "Kashveti Church"
@@ -959,7 +1020,7 @@
   }
  },
  {
-  "n": 38,
+  "n": 42,
   "wp": {},
   "desc": {},
   "sources": [],
@@ -967,7 +1028,7 @@
   "src_by_lang": {}
  },
  {
-  "n": 39,
+  "n": 43,
   "wp": {
    "ru": "Национальная картинная галерея Грузии",
    "en": "Tbilisi Art Gallery",
@@ -996,7 +1057,7 @@
   }
  },
  {
-  "n": 40,
+  "n": 44,
   "wp": {
    "en": "Tbilisi Marriott Hotel",
    "ka": "თბილისი მარიოტი"
@@ -1025,7 +1086,7 @@
   }
  },
  {
-  "n": 41,
+  "n": 45,
   "wp": {
    "ru": "Грузинский театр имени Шота Руставели",
    "en": "Rustaveli Theatre",
@@ -1062,7 +1123,7 @@
   }
  },
  {
-  "n": 42,
+  "n": 46,
   "wp": {
    "ru": "Тбилисская государственная консерватория имени Вано Сараджишвили",
    "en": "Tbilisi State Conservatoire",
@@ -1091,7 +1152,7 @@
   }
  },
  {
-  "n": 43,
+  "n": 47,
   "wp": {
    "ru": "Грузинский театр оперы и балета имени Палиашвили",
    "en": "Georgian National Opera Theater",
@@ -1120,7 +1181,7 @@
   }
  },
  {
-  "n": 44,
+  "n": 48,
   "wp": {
    "ka": "ზურაბ წერეთლის თანამედროვე ხელოვნების მუზეუმი"
   },
@@ -1141,7 +1202,7 @@
   }
  },
  {
-  "n": 45,
+  "n": 49,
   "wp": {
    "en": "IMELI Building",
    "ka": "იმელი (შენობა)"
@@ -1170,7 +1231,7 @@
   }
  },
  {
-  "n": 46,
+  "n": 50,
   "wp": {
    "ru": "Тбилисская государственная академия художеств",
    "en": "Tbilisi State Academy of Arts",
@@ -1203,7 +1264,7 @@
   }
  },
  {
-  "n": 47,
+  "n": 51,
   "wp": {
    "ru": "Radisson Blu Iveria Hotel",
    "en": "Radisson Blu Iveria Hotel, Tbilisi",
@@ -1240,7 +1301,7 @@
   }
  },
  {
-  "n": 48,
+  "n": 52,
   "wp": {
    "ru": "Мост Галактиона Табидзе",
    "ka": "გალაკტიონის ხიდი"
@@ -1269,7 +1330,31 @@
   }
  },
  {
-  "n": 49,
+  "n": 53,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 54,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 55,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 56,
   "wp": {
    "ru": "Тбилисский академический театр имени К. Марджанишвили",
    "en": "Marjanishvili Theatre",
@@ -1304,5 +1389,21 @@
    "en": "https://en.wikipedia.org/wiki/Marjanishvili_Theatre",
    "ka": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%A0%E1%83%AF%E1%83%90%E1%83%9C%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98"
   }
+ },
+ {
+  "n": 57,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 58,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
  }
 ]
