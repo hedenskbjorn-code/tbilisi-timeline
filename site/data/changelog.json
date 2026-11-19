@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.5.2",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Окно «Поддержать проект»: указано, что платёж принимается в лари (GEL), сумму вводит плательщик, и перечислены способы оплаты на странице банка.",
+    "en": "The \"Support the project\" window now says that the payment is in lari (GEL), that the payer enters the amount, and lists the payment options on the bank's page.",
+    "ka": "ფანჯარაში „პროექტის მხარდაჭერა“ მითითებულია, რომ გადახდა ლარშია (GEL), თანხას გადამხდელი თავად შეიყვანს, და ჩამოთვლილია ბანკის გვერდზე არსებული გადახდის ვარიანტები."
+   }
+  ]
+ },
+ {
   "version": "1.5.1",
   "date": "2026-11-19",
   "items": [
