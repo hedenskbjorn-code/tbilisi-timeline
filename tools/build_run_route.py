@@ -17,7 +17,11 @@ MAX_D = 150
 HAND = {26522, 3725, 16937, 3616, 3937, 3827, 17828, 3757, 3397,
         2914, 2850, 3082, 5203, 3193,                      # Marjanishvili Square (picked by the owner): the TBC bank building, the mixed-use building at Aghmashenebeli 9, the Ministry of Education, the "Green building", the publishing house
         3534, 3740, 3756, 3851}                            # the sulphur baths of Abanotubani: the baths of Abano Street, Chreli Abano, the Cool bath, the baths of the Meitars'
-# (the older GPX: see read_gpx and the second argument)      # Kukia Fortress, the old city wall, Gabriadze clock tower, Narikala, the synagogue, the mosque, Kukia church, Surb Gevorg, the Armenian church
+# (the older GPX: see read_gpx and the second argument)
+EXTRA = [                                                  # sights that are not in the register: id, the point (Plus Code PQ6W+2X Tbilisi given by the owner), the names
+    {"id": "extra:architects", "lat": 41.710063, "lon": 44.797444, "fn": "culture", "year": None,
+     "name": {"ru": "Дом архитекторов", "en": "The House of Architects", "ka": "არქიტექტორთა სახლი"}},
+]      # Kukia Fortress, the old city wall, Gabriadze clock tower, Narikala, the synagogue, the mosque, Kukia church, Surb Gevorg, the Armenian church
 EXCLUDE = {3835, 3317, 26449, 4920, 17121, 4209, 4381}                    # a shrine, a convent, a stone cross, a former church, the metro station, a house: not sights on their own
 NAMES = {                                                                  # names fixed by hand where the register or the Wikipedia title is too general or wrong
     2765: ("Тбилисский театральный университет (второе здание, пр. Агмашенебели)", "Shota Rustaveli Theatre and Film University (second building, Aghmashenebeli Avenue)", "შოთა რუსთაველის თეატრისა და კინოს უნივერსიტეტი (მეორე შენობა, აღმაშენებლის გამზ.)"),
@@ -129,6 +133,9 @@ def main():
         if any(hav((r["lat"], r["lon"]), (k["lat"], k["lon"])) < 60 for k in kept):
             continue
         kept.append({"id": "rel:" + r["id"], "lat": r["lat"], "lon": r["lon"], "d": d, "km": km, "fn": "religious", "ye": r["from"], "name": r["name"], "wp": {}, "key": ""})
+    for x in EXTRA:
+        d, km = locate(x["lat"], x["lon"])
+        kept.append({"id": x["id"], "lat": x["lat"], "lon": x["lon"], "d": d, "km": km, "fn": x["fn"], "ye": x["year"], "name": x["name"], "wp": {}, "key": ""})
     kept.sort(key=lambda c: c["km"])
     sights = []
     for i, c in enumerate(kept, 1):
