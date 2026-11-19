@@ -296,3 +296,38 @@ body.nofilters #views { right:16px; }
 .spqr img { background:#fff; padding:6px; border-radius:8px; image-rendering:pixelated; }
 .supportside { display:block; width:100%; margin-top:8px; text-align:center; }
 @media (max-width:640px) { #btnSupport { display:none; } }     /* the top bar is full on a phone: the same window opens from the Info panel */
+
+/* the time bar (play, zoom, slider, events) is on the top of the screen under the buttons; the bar of the rulers stays at the bottom.
+   --tb and --bb are the heights of the two bars (set by app.js), the panels lie between them */
+:root { --tb: 84px; --bb: 0px; }
+#timebar { position:absolute; top:56px; left:16px; right:64px; display:flex; gap:12px; align-items:center; z-index:5; background:var(--panel); padding:10px 16px 36px; border-radius:10px; box-shadow:0 1px 8px #0003; }
+#bottom, body.rulers-on #bottom { display:none; padding:8px 16px 10px; gap:0; align-items:flex-start; bottom:30px; }
+body.rulers-on #bottom { display:flex; }
+#ruleNow { flex:none; min-width:0; }
+#rulers { position:relative; left:auto; right:auto; top:auto; flex:1; min-width:0; }
+#side, #filters, #views { --top: calc(56px + var(--tb) + 8px); }
+#side { top:calc(56px + var(--tb) + 8px); max-height:calc(100% - 56px - var(--tb) - 8px - 40px - var(--bb)); }
+#filters, #views { top:calc(56px + var(--tb) + 8px); max-height:calc(100% - 56px - var(--tb) - 8px - 40px - var(--bb)); }
+body.rulers-on #side, body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 56px - var(--tb) - 8px - 40px - var(--bb)); }
+@media (max-width:640px) {
+  #timebar { top:52px; left:8px; right:8px; padding:8px 10px 34px; }
+  #bottom { left:8px; right:8px; bottom:10px; flex-direction:column; }
+  #ruleNow { width:auto !important; max-width:100%; }
+  #ruleNow .rntxt { flex:1 1 0; }
+  #rulers { margin-right:0 !important; width:100%; flex:none; }
+  #side, #filters, #views { top:calc(52px + var(--tb) + 8px); max-height:calc(100% - 52px - var(--tb) - 8px - 20px - var(--bb)); }
+  body.rulers-on #side, body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 52px - var(--tb) - 8px - 20px - var(--bb)); }
+  #yearchip, body:not(.panel-open) #yearchip { top:calc(52px + var(--tb) + 8px); }
+}
+
+/* the plate "who rules now": the flag of the period and the portraits of up to two rulers */
+#ruleNow { display:flex; gap:8px; align-items:flex-start; font-size:11px; line-height:1.3; color:var(--fg); }
+#ruleNow .rnpics { display:flex; gap:4px; flex:none; }
+#ruleNow .rnpic { padding:0; border:1px solid var(--line); border-radius:4px; background:none; cursor:pointer; line-height:0; overflow:hidden; }
+#ruleNow .rnpic img { display:block; object-fit:cover; object-position:top; width:36px; height:46px; }
+#ruleNow .rntxt { min-width:0; overflow:hidden; }
+#ruleNow .rnst { display:flex; align-items:center; gap:5px; font-weight:600; white-space:nowrap; overflow:hidden; cursor:pointer; }
+#ruleNow .rnst img { height:14px; width:auto; border:1px solid var(--line); flex:none; }
+#ruleNow .rnst span { overflow:hidden; text-overflow:ellipsis; }
+#ruleNow .rnr { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--muted); }
+#imBody img { max-width:100%; height:auto; border-radius:4px; margin:6px 6px 2px 0; vertical-align:middle; }
