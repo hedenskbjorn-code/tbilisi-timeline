@@ -863,6 +863,23 @@
    }
   },
   {
+   "year": 1850,
+   "date": "14.01.1850",
+   "cat": "build",
+   "ru": "В актовом зале Тбилисской гимназии силами любителей под руководством Георгия Эристави показана его комедия «Раздел» (2 января по старому стилю): первое представление грузинского профессионального театра Эристави, работавшего до 1856 года",
+   "en": "In the assembly hall of the Tbilisi gymnasium, amateurs directed by Giorgi Eristavi perform his comedy 'The Partition' (2 January in the old style): the first performance of the Georgian professional theatre of Eristavi, which worked until 1856",
+   "ka": "თბილისის გიმნაზიის სააქტო დარბაზში სცენისმოყვარეთა ძალებით, გიორგი ერისთავის რეჟისორობით წარმოადგინეს მისი პიესა „გაყრა“ (2 იანვარი ძველი სტილით): ერისთავის ქართული პროფესიული თეატრის პირველი წარმოდგენა; თეატრი 1856 წლამდე მოქმედებდა",
+   "src": [
+    "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%97%E1%83%90%E1%83%95%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98",
+    "https://ru.wikipedia.org/wiki/%D0%AD%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%B2%D0%B8,_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D0%B9_%D0%94%D0%B0%D0%B2%D0%B8%D0%B4%D0%BE%D0%B2%D0%B8%D1%87",
+    "https://en.wikipedia.org/wiki/Giorgi_Eristavi"
+   ],
+   "note": {
+    "ru": "Дата и место взяты из грузинской статьи о театре Георгия Эристави. Английская статья о нём называет 1 января 1851 года датой премьеры труппы, русская только 1850 год («Раздел» впервые поставлена).",
+    "en": "The date and the place are from the Georgian article on the theatre of Giorgi Eristavi. The English article on him gives 1 January 1851 as the premiere of the company, the Russian one only the year 1850 (the first staging of 'The Partition')."
+   }
+  },
+  {
    "year": 1851,
    "date": "12.04.1851",
    "cat": "build",
@@ -1578,6 +1595,22 @@
    }
   },
   {
+   "year": 1950,
+   "date": "12.1950",
+   "cat": "science",
+   "ru": "Академия наук Грузии учреждает Институт физики (до 2006 года в составе Академии; ныне Институт физики имени Элевтера Андроникашвили при Тбилисском университете)",
+   "en": "The Georgian Academy of Sciences establishes the Institute of Physics (part of the Academy until 2006; now the Elephter Andronikashvili Institute of Physics at Tbilisi State University)",
+   "ka": "საქართველოს მეცნიერებათა აკადემიამ დააფუძნა ფიზიკის ინსტიტუტი (2006 წლამდე აკადემიის შემადგენლობაში, დღეს თბილისის უნივერსიტეტთან მოქმედი ელეფთერ ანდრონიკაშვილის სახელობის ფიზიკის ინსტიტუტი)",
+   "src": [
+    "https://aiphysics.tsu.ge/",
+    "https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B4%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8,_%D0%AD%D0%BB%D0%B5%D0%B2%D1%82%D0%B5%D1%80_%D0%9B%D1%83%D0%B0%D1%80%D1%81%D0%B0%D0%B1%D0%BE%D0%B2%D0%B8%D1%87"
+   ],
+   "note": {
+    "ru": "Декабрь 1950 года указан на сайте института. В русской статье об Андроникашвили сказано, что он работал в Институте физики АН Грузинской ССР с 1942 года (директор с 1951), то есть источники расходятся.",
+    "en": "December 1950 is given on the website of the institute. The Russian article on Andronikashvili says that he worked at the Institute of Physics of the Georgian SSR Academy from 1942 (director from 1951), so the sources differ."
+   }
+  },
+  {
    "year": 1955,
    "date": "5.10.1955",
    "cat": "flood",
@@ -1614,6 +1647,32 @@
    }
   },
   {
+   "year": 1956,
+   "date": "1956",
+   "cat": "science",
+   "ru": "Основан Вычислительный центр Академии наук Грузии (с 1977 года носит имя Николая Мусхелишвили, инициатора его открытия; в 1956-1978 годах его возглавлял Давид Квеселава; с 1983 года Институт вычислительной математики)",
+   "en": "The Computing Centre of the Georgian Academy of Sciences is founded (since 1977 named after Nikoloz Muskhelishvili, the initiator of its opening; in 1956-1978 it was headed by David Kveselava; since 1983 the Institute of Computational Mathematics)",
+   "ka": "დაარსდა საქართველოს მეცნიერებათა აკადემიის გამოთვლითი ცენტრი (1977 წლიდან მას ეწოდა მისი გახსნის ინიციატორის ნიკო მუსხელიშვილის სახელი; 1956-1978 წლებში მას დავით კვესელავა ხელმძღვანელობდა; 1983 წლიდან გამოთვლითი მათემატიკის ინსტიტუტი)",
+   "src": [
+    "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D_%E1%83%9B%E1%83%A3%E1%83%A1%E1%83%AE%E1%83%94%E1%83%9A%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%97%E1%83%95%E1%83%9A%E1%83%98%E1%83%97%E1%83%98_%E1%83%9B%E1%83%90%E1%83%97%E1%83%94%E1%83%9B%E1%83%90%E1%83%A2%E1%83%98%E1%83%99%E1%83%98%E1%83%A1_%E1%83%98%E1%83%9C%E1%83%A1%E1%83%A2%E1%83%98%E1%83%A2%E1%83%A3%E1%83%A2%E1%83%98"
+   ]
+  },
+  {
+   "year": 1959,
+   "date": "21.11.1959",
+   "cat": "science",
+   "ru": "Официально открыт исследовательский ядерный реактор ИРТ-2000 в селе Мухатгверди близ Тбилиси (стройка начата весной 1957 года по инициативе директора Института физики Элевтера Андроникашвили)",
+   "en": "The research nuclear reactor IRT-2000 is officially opened in the village of Mukhatgverdi near Tbilisi (the construction began in the spring of 1957 on the initiative of the director of the Institute of Physics Elephter Andronikashvili)",
+   "ka": "ოფიციალურად გაიხსნა კვლევითი ბირთვული რეაქტორი ИРТ-2000 თბილისთან ახლოს, სოფელ მუხათგვერდში (მშენებლობა 1957 წლის გაზაფხულზე დაიწყო ფიზიკის ინსტიტუტის დირექტორის ელეფთერ ანდრონიკაშვილის ინიციატივით)",
+   "src": [
+    "https://aiphysics.tsu.ge/nuclear/nuclear-e.html"
+   ],
+   "note": {
+    "ru": "Реактор стоял не в городской черте, а в селе Мухатгверди вблизи Тбилиси; остановлен 29 декабря 1987 года, топливо вывезено в 1998 году (по сайту института).",
+    "en": "The reactor stood not in the city but in the village of Mukhatgverdi near Tbilisi; it was shut down on 29 December 1987 and the fuel was taken away in 1998 (after the website of the institute)."
+   }
+  },
+  {
    "year": 1960,
    "date": "5.07.1960",
    "cat": "flood",
@@ -1631,6 +1690,22 @@
     "ka": "ინფორმაცია გადმოცემულია სტატიის ცხრილისა და ტექსტის მიხედვით (წაკითხულია ეკრანზე; ქართულიდან თარგმანი ჩემია). დაღუპულთა რიცხვი სტატიაშია მითითებული."
    },
    "ka": "ვერეს წყალდიდობა: ზემოთ დანგრეულია ხიდები, მილსადენები და ჰიდრონაგებობები; ვაკე-საბურთალოს გვირაბთან ჩახერგილობის გარღვევის შემდეგ წყალი (259 მ³/წმ) მტკვრისკენ გამოექანა და ზოოპარკსა და აბრეშუმის ფაბრიკაში შეიჭრა"
+  },
+  {
+   "year": 1960,
+   "date": "3.10.1960",
+   "cat": "science",
+   "ru": "По постановлению Совета министров Грузинской ССР № 690 на базе физико-кибернетического отдела Института физики создан Институт кибернетики Академии наук Грузии (по сведениям самого института, первый в СССР институт кибернетики; ныне имени Владимира Чавчанидзе)",
+   "en": "By Resolution No. 690 of the Council of Ministers of the Georgian SSR the Institute of Cybernetics of the Georgian Academy of Sciences is established on the base of the Physics-Cybernetics Department of the Institute of Physics (according to the institute itself, the first institute of cybernetics in the USSR; now named after Vladimer Chavchanidze)",
+   "ka": "საქართველოს სსრ მინისტრთა საბჭოს №690 დადგენილებით ფიზიკის ინსტიტუტის ფიზიკა-კიბერნეტიკის განყოფილების ბაზაზე შეიქმნა საქართველოს მეცნიერებათა აკადემიის კიბერნეტიკის ინსტიტუტი (თავად ინსტიტუტის ცნობით, სსრკ-ში პირველი კიბერნეტიკის ინსტიტუტი; დღეს ვლადიმერ ჭავჭანიძის სახელობის)",
+   "src": [
+    "https://cybernetics.ge/en/history",
+    "https://cybernetics.ge/en/home"
+   ],
+   "note": {
+    "ru": "Дата взята со страницы истории института (3 октября 1960, постановление № 690); дата 1956, которая встречалась в одном из списков, неверна.",
+    "en": "The date is from the history page of the institute (3 October 1960, Resolution No. 690); the date 1956 that appeared in one list is wrong."
+   }
   },
   {
    "year": 1966,
