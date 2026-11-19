@@ -1,4 +1,4 @@
-// Worker "tbilisi-photos-admin": the page where the owner looks at the photographs that visitors sent (queue in the KV of worker/submit.js).
+// Worker "tbilisi-photos-admin": the page where the owner looks at the photographs that visitors sent and reads their messages (queues in the KV of worker/submit.js).
 // It is closed twice: Cloudflare Access (the policy allows only the owner) and, as a second lock, this Worker checks the signed header of Access itself (signature, issuer,
 // audience, expiry, the e-mail), so that a mistake in the settings of Access cannot open the page. Settings: binding PHOTOS (KV), variables TEAM_DOMAIN, POLICY_AUD, secret ADMIN_EMAILS
 // (e-mails of the moderators, comma separated).
@@ -70,12 +70,52 @@ async function act(env, body, mail) {
   return json({ ok: true });
 }
 
+async function listFb(env) {
+  const out = [];
+  let cursor;
+  do {
+    const r = await env.PHOTOS.list({ prefix: "fb:", cursor, limit: 1000 });
+    for (const k of r.keys) out.push({ id: k.name.slice(3), ...(k.metadata || {}) });
+    cursor = r.list_complete ? null : r.cursor;
+  } while (cursor);
+  return out.sort((a, b) => (b.t || 0) - (a.t || 0));
+}
+
+async function fbAct(env, body, mail) {
+  if (!body || typeof body !== "object") return json({ error: "json" }, 400);
+  const id = String(body.id || "");
+  if (!/^[a-z0-9]{6,20}$/.test(id)) return json({ error: "id" }, 400);
+  const raw = await env.PHOTOS.get("fb:" + id);
+  if (!raw) return json({ error: "gone" }, 404);
+  const m = JSON.parse(raw);
+  const small = (s) => ({ s, k: m.kind, t: m.ts, n: (m.message || "").slice(0, 80) });
+  if (body.action === "done") {
+    m.status = "done"; m.by = mail; m.at = Date.now(); delete m.ipH;                      // the hash of the address is not needed after the owner has read the message
+    await env.PHOTOS.put("fb:" + id, JSON.stringify(m), { expirationTtl: 90 * 86400, metadata: small("done") });
+  } else if (body.action === "reopen") {
+    m.status = "new"; delete m.by; delete m.at;
+    await env.PHOTOS.put("fb:" + id, JSON.stringify(m), { expirationTtl: 180 * 86400, metadata: small("new") });
+  } else if (body.action === "delete") {
+    await env.PHOTOS.delete("fb:" + id);
+  } else return json({ error: "action" }, 400);
+  return json({ ok: true });
+}
+
 export default {
   async fetch(req, env) {
     const mail = await who(req, env);
     if (!mail) return new Response("Forbidden", { status: 403 });
     const url = new URL(req.url);
     if (url.pathname === "/api/list") return json(await listAll(env));
+    if (url.pathname === "/api/fb/list") return json(await listFb(env));
+    if (url.pathname.startsWith("/api/fb/get/")) {
+      const r = await env.PHOTOS.get("fb:" + url.pathname.slice(12));
+      if (!r) return json({ error: "gone" }, 404);
+      const o = JSON.parse(r);
+      delete o.ipH;                                                                              // the page of the owner never shows the hash of the address
+      return json(o);
+    }
+    if (url.pathname === "/api/fb/act" && req.method === "POST" && req.headers.get("X-Admin") === "1") return fbAct(env, await req.json().catch(() => null), mail);
     if (url.pathname.startsWith("/api/meta/")) { const r = await env.PHOTOS.get("meta:" + url.pathname.slice(10)); return r ? new Response(r, { headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } }) : json({ error: "gone" }, 404); }
     if (url.pathname.startsWith("/api/img/")) {
       const id = url.pathname.slice(9), raw = await env.PHOTOS.get("meta:" + id), img = raw && (await env.PHOTOS.get("img:" + id, { type: "arrayBuffer" }));
@@ -109,7 +149,7 @@ header b{font-size:16px}.sp{flex:1}button,select,input{font:inherit;padding:6px 
 .muted{color:#a39b90;font-size:13px}.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center}input[type=text]{min-width:200px}
 @media(max-width:760px){.card{grid-template-columns:1fr}}
 </style></head><body>
-<header><b>Фото от посетителей</b><span class="muted" id="who">__MAIL__</span><button class="tab on" data-s="pending">Ждут</button><button class="tab" data-s="approved">Одобрены</button><button class="tab" data-s="rejected">Отклонены</button><span class="sp"></span><span id="cnt" class="muted"></span><button id="sw"></button></header>
+<header><b>Фото от посетителей</b><span class="muted" id="who">__MAIL__</span><button class="tab on" data-s="pending">Ждут</button><button class="tab" data-s="approved">Одобрены</button><button class="tab" data-s="rejected">Отклонены</button><button id="modeb">Сообщения</button><span class="sp"></span><span id="cnt" class="muted"></span><button id="sw"></button></header>
 <main id="list"><div class="muted">Загрузка…</div></main>
 <script nonce="__NONCE__">
 const SITE="__SITE__";let items=[],status="pending",data={mon:{},rel:{},sci:{}},photos={};
@@ -124,7 +164,7 @@ function objInfo(o){const [k,id]=o.split(":");if(k==="mon"){const f=data.mon[id]
 async function load(){
  const [mon,rel,sci,ph]=await Promise.all([jget(SITE+"data/monuments.json"),jget(SITE+"data/religious.json"),jget(SITE+"data/science.json"),jget(SITE+"data/photos.json")]);
  for(const f of mon.features)data.mon[f.properties.id]=f;for(const r of rel)data.rel[r.id]=r;for(const r of sci)data.sci[r.id]=r;photos=ph;
- await refresh();const o=await jget("/api/open");swBtn(o.open)}
+ await refresh();await refreshFb();setMode("photo");const o=await jget("/api/open");swBtn(o.open)}
 function swBtn(open){const b=document.getElementById("sw");b.textContent=open?"Форма открыта (закрыть)":"Форма закрыта (открыть)";b.onclick=async()=>{const r=await post("/api/open",{open:!open});swBtn(r.open)}}
 async function refresh(){items=await jget("/api/list");render()}
 async function render(){
@@ -154,5 +194,26 @@ async function render(){
    rr.append(inp);r.append(rr,out)}
   c.appendChild(r);box.appendChild(c)}}
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{status=b.dataset.s;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));render()});
+let mode="photo",fbs=[],fbStatus="new";
+const KINDS={data:"Ошибка в данных объекта",georef:"Привязка старого плана",boundary:"Граница города",translation:"Перевод или название",rights:"Вопрос по правам",other:"Другое"};
+async function refreshFb(){fbs=await jget("/api/fb/list")}
+async function renderFb(){
+ const box=document.getElementById("list");box.textContent="";
+ const bar=el("div","row");for(const [s,t] of [["new","Новые"],["done","Сделаны"]]){const b=el("button","tab"+(fbStatus===s?" on":""),t+" ("+fbs.filter(x=>x.s===s).length+")");b.onclick=()=>{fbStatus=s;renderFb()};bar.appendChild(b)}
+ box.appendChild(bar);
+ const sel=fbs.filter(x=>x.s===fbStatus);if(!sel.length){box.appendChild(el("div","muted","Пусто."));return}
+ for(const it of sel){const m=await jget("/api/fb/get/"+it.id);if(m.error)continue;
+  const c=el("div","card");c.style.gridTemplateColumns="1fr";const r=el("div");
+  r.appendChild(el("b","",(KINDS[m.kind]||m.kind)+" · "+new Date(m.ts).toLocaleString("ru")));
+  const msg=el("div","",m.message);msg.style.whiteSpace="pre-wrap";msg.style.margin="6px 0";r.appendChild(msg);
+  if(m.contact)r.appendChild(el("div","","Контакт: "+m.contact));
+  if(m.context)r.appendChild(el("div","muted","Контекст: "+m.context));
+  if(m.page&&m.page.startsWith(SITE)){const a=el("a","","страница, откуда отправлено");a.href=m.page;a.target="_blank";a.rel="noopener noreferrer";a.style.color="#8fb8e8";r.appendChild(a)}
+  const row=el("div","row"),ok=el("button",m.status==="done"?"":"ok",m.status==="done"?"Вернуть в новые":"Готово"),del=el("button","no","Удалить");
+  ok.onclick=async()=>{ok.disabled=true;await post("/api/fb/act",{id:it.id,action:m.status==="done"?"reopen":"done"});await refreshFb();setMode("fb")};
+  del.onclick=async()=>{if(!confirm("Удалить сообщение насовсем?"))return;del.disabled=true;await post("/api/fb/act",{id:it.id,action:"delete"});await refreshFb();setMode("fb")};
+  row.append(ok,del);r.appendChild(row);c.appendChild(r);box.appendChild(c)}}
+function setMode(m){mode=m;document.getElementById("modeb").textContent=m==="photo"?"Сообщения ("+fbs.filter(x=>x.s==="new").length+")":"Фото";document.querySelectorAll(".tab[data-s]").forEach(x=>{x.style.display=m==="photo"?"":"none"});if(m==="photo")render();else renderFb()}
+document.getElementById("modeb").onclick=()=>setMode(mode==="photo"?"fb":"photo");
 load();
 </script></body></html>`;

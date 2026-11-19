@@ -1,4 +1,4 @@
-// Worker "tbilisi-photos": receives photographs of objects from visitors of the site. Nothing sent here is public: every file waits in a private queue (KV) until the owner looks
+// Worker "tbilisi-photos": receives photographs of objects (POST /submit) and messages of the form "Report a problem" (POST /feedback) from visitors of the site. Nothing sent here is public: every file waits in a private queue (KV) until the owner looks
 // at it in the admin page (worker/admin.js). Defences, in the order they are applied:
 //   origin of the page, kill switch, size, honeypot and the time the form was open, Cloudflare Turnstile, per-visitor and total daily limits, the content of the file
 //   (magic bytes and the real width and height, no other types, no SVG), a text filter, a duplicate check by the hash of the file.
@@ -86,11 +86,49 @@ async function bump(env, key, limit) {
 
 const num = (v, lo, hi) => { const x = parseFloat(v); return Number.isFinite(x) && x >= lo && x <= hi ? Math.round(x * 1e6) / 1e6 : null; };
 
+// ---- a message of the form "Report a problem": nothing is public, it waits in the private queue (KV keys "fb:<id>") until the owner reads it in the admin page.
+// The same defences as for photographs: origin, kill switch "cfg:fb_open" = "0", size, honeypot, time of the form, Turnstile, daily limits per visitor and in total, a duplicate check.
+const FB_KINDS = new Set(["data", "georef", "boundary", "translation", "rights", "other"]);          // the options of the form of the page
+const FB_MAX_BYTES = 8000, FB_PER_IP_DAY = 3, FB_GLOBAL_DAY = 30, FB_TTL = 180 * 86400, FB_DUP_TTL = 7 * 86400;
+
+async function feedback(req, env, origin) {
+  if (origin !== ORIGIN) return reply({ ok: false, error: "origin" }, 403, origin);
+  if ((await env.PHOTOS.get("cfg:fb_open")) === "0") return reply({ ok: false, error: "closed" }, 503, origin);
+  const len = parseInt(req.headers.get("Content-Length") || "0", 10);
+  if (!len || len > FB_MAX_BYTES) return reply({ ok: false, error: "size" }, 413, origin);
+  let b;
+  try { b = JSON.parse(await req.text()); } catch (e) { return reply({ ok: false, error: "json" }, 400, origin); }
+  if (!b || typeof b !== "object" || Array.isArray(b)) return reply({ ok: false, error: "json" }, 400, origin);
+  if (String(b.hp || "")) return reply({ ok: true, id: "x" }, 200, origin);                          // a bot filled the hidden field: it is told "ok" and nothing is kept
+  const spent = Date.now() - parseInt(b.t, 10);
+  if (!(spent >= MIN_FORM_MS && spent <= MAX_FORM_MS)) return reply({ ok: false, error: "time" }, 400, origin);
+  const kind = String(b.kind || "");
+  if (!FB_KINDS.has(kind)) return reply({ ok: false, error: "kind" }, 400, origin);
+  const message = clean(b.message, 2000);
+  if (message.length < 5) return reply({ ok: false, error: "short" }, 400, origin);
+  const contact = clean(b.contact, 200), context = clean(b.context, 300);
+  const page = String(b.page || "").startsWith(SITE) ? clean(b.page, 300) : "";
+  const hash = await sha256(new TextEncoder().encode(kind + "|" + message));
+  if (await env.PHOTOS.get("fh:" + hash)) return reply({ ok: true, dup: true }, 200, origin);          // the same message again does not spend the daily limits
+  const ip = req.headers.get("CF-Connecting-IP") || "";
+  if (!(await turnstileOk(env, b["cf-turnstile-response"], ip))) return reply({ ok: false, error: "captcha" }, 403, origin);
+  const day = new Date().toISOString().slice(0, 10);
+  const ipH = (await sha256(new TextEncoder().encode(env.HASH_SALT + "|" + ip))).slice(0, 16);
+  if (!(await bump(env, "rlf:" + day + ":" + ipH, FB_PER_IP_DAY))) return reply({ ok: false, error: "limit" }, 429, origin);
+  if (!(await bump(env, "rlf:" + day + ":all", FB_GLOBAL_DAY))) return reply({ ok: false, error: "busy" }, 429, origin);
+  const ts = Date.now(), id = ts.toString(36) + hex(crypto.getRandomValues(new Uint8Array(3)));
+  const rec = { id, kind, message, contact, context, page, ts, ipH, status: "new" };
+  await env.PHOTOS.put("fb:" + id, JSON.stringify(rec), { expirationTtl: FB_TTL, metadata: { s: "new", k: kind, t: ts, n: message.slice(0, 80) } });
+  await env.PHOTOS.put("fh:" + hash, id, { expirationTtl: FB_DUP_TTL });
+  return reply({ ok: true, id }, 200, origin);
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), origin = req.headers.get("Origin") || "";
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(origin) });
     if (url.pathname === "/health") return reply({ ok: true, open: (await env.PHOTOS.get("cfg:open")) !== "0" }, 200, origin);
+    if (url.pathname === "/feedback" && req.method === "POST") return feedback(req, env, origin);
     if (url.pathname !== "/submit" || req.method !== "POST") return reply({ ok: false, error: "not_found" }, 404, origin);
     if (origin !== ORIGIN) return reply({ ok: false, error: "origin" }, 403, origin);
     if ((await env.PHOTOS.get("cfg:open")) === "0") return reply({ ok: false, error: "closed" }, 503, origin);
