@@ -142,10 +142,17 @@ _pr = os.path.join(ROOT, "data", "photos_pair_reject.json")
 if os.path.exists(_pr):
     pair_reject = json.load(open(_pr, encoding="utf-8"))["objects"]
 used = {}
+# dates fixed by hand where the register contradicts itself (data/monument_date_overrides.json)
+date_fix = {}
+_df = os.path.join(ROOT, "data", "monument_date_overrides.json")
+if os.path.exists(_df):
+    date_fix = json.load(open(_df, encoding="utf-8"))["objects"]
 
 feats, unknown = [], set()
 for f in src["features"]:
     p = f["properties"]
+    if str(p["id"]) in date_fix:
+        p = {**p, **{k: v for k, v in date_fix[str(p["id"])].items() if k != "why"}}
     first = (p.get("classification") or "").split(",")[0].strip()
     cls = CLASSES.get(first, "other")
     if cls == "other":

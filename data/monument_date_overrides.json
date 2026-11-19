@@ -1,0 +1,5 @@
+{"note": "Dates fixed by hand where the register's Period field contradicts its own raw date text (found by an external test of the site, 2026-11-19). Keys: object id. The same rule as elsewhere: a century gives its whole range, the shown year is the end of the range.",
+ "objects": {
+  "13026": {"year_from": 901, "year_to": 1000, "year_est": 950, "date_precision": "century", "why": "raw_date says the 10th century (Onadiri St George church); the Period field said the middle of the 4th century"},
+  "3769": {"year_from": 1831, "year_to": 1870, "year_est": 1850, "date_precision": "middle", "why": "raw_date says the middle of the 19th century; the Period field gave the whole century (end 1900); the same range as for the Dry Bridge (4866)"}
+ }}

@@ -84,7 +84,7 @@
   <label class="row"><input type="checkbox" id="showTopo"> <span data-i="showTopo"></span></label>
   <div class="row col" id="topobox" hidden>
     <select id="topoSel" class="chip" aria-label="topo">
-      <option value="t2">1:2 000 · городской план / city plan (z17)</option>
+      <option value="t2" data-i="topoPlanOpt"></option>
       <option value="t10">1:10 000 · 1952–2007</option>
       <option value="t25" selected>1:25 000 · 1953–2004</option>
       <option value="t50">1:50 000 · 1973–1990</option>
@@ -147,11 +147,11 @@
       <div><i class="sw sw-dist"></i><span data-i="legDistLine"></span></div>
       <div><i class="sw sw-plan"></i><span data-i="legPlan"></span></div>
       <div class="lg-h" data-i="legNames"></div>
-      <div><span class="lg-label lg-district">Mtatsminda</span><span data-i="legDistName"></span></div>
+      <div><span class="lg-label lg-district" data-i="legDistEx"></span><span data-i="legDistName"></span></div>
       <div><i class="dot setl-before"></i><span data-i="legSetBefore"></span></div>
       <div><i class="dot setl-after"></i><span data-i="legSetAfter"></span></div>
       <div><i class="dot setl-unk"></i><span data-i="legSetUnk"></span></div>
-      <div><span class="lg-label lg-settle">Kojori</span><span data-i="legSetName"></span></div>
+      <div><span class="lg-label lg-settle" data-i="legSetEx"></span><span data-i="legSetName"></span></div>
     </div>
   </details>
 </aside>
@@ -176,7 +176,7 @@
       <select id="fbKind"><option value="data" data-i="fbK1"></option><option value="georef" data-i="fbK2"></option><option value="boundary" data-i="fbK3"></option><option value="translation" data-i="fbK4"></option><option value="rights" data-i="fbK5"></option><option value="other" data-i="fbK6"></option></select></label>
     <label><span data-i="fbText"></span><textarea id="fbMsg" rows="5" maxlength="2000" required></textarea></label>
     <label><span data-i="fbCtx"></span><input id="fbCtx" type="text" readonly></label>
-    <label><span data-i="fbContact"></span><input id="fbContactInput" type="text" maxlength="200" placeholder="email / telegram (optional)"><span class="small" data-i="fbContactWarn"></span></label>
+    <label><span data-i="fbContact"></span><input id="fbContactInput" type="text" maxlength="200"><span class="small" data-i="fbContactWarn"></span></label>
     <input id="fbTrap" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="trap">
     <div class="modalbtns"><button type="button" id="fbCancel" class="chip" data-i="fbCancel"></button><button type="submit" id="fbSend" class="chip primary" data-i="fbSend"></button></div>
     <p id="fbStatus" class="small"></p>
