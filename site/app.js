@@ -2095,7 +2095,7 @@
     const src = map && map.getSource && map.getSource("run");
     if (src && runData) src.setData(runGeo());
   }
-  function wikiLink(s) {
+  function runWikiLink(s) {
     const l = s.wp[lang] ? lang : s.wp.en ? "en" : s.wp.ru ? "ru" : s.wp.ka ? "ka" : null;
     return l ? "https://" + l + ".wikipedia.org/wiki/" + encodeURIComponent(s.wp[l].replace(/ /g, "_")) : null;
   }
@@ -2109,7 +2109,7 @@
     row(L.runKm, String(s.km).replace(".", ","));
     row(L.runDist, s.d + " " + (lang === "ru" ? "м" : lang === "ka" ? "მ" : "m"));
     row(L.runYear, s.year ? "\u2248 " + s.year : "");
-    const u = wikiLink(s);
+    const u = runWikiLink(s);
     if (u) { const d = document.createElement("div"), a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = L.runWiki; d.appendChild(a); el.appendChild(d); }
     showPopup("300px", lngLat, el);
   }
