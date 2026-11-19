@@ -135,6 +135,29 @@
   "page": "https://commons.wikimedia.org/wiki/File:Ng_chernetsov,_Tiflis,_1839.jpg"
  },
  {
+  "id": "haxthausen_tiflis_1854",
+  "year": 1854,
+  "window": 10,
+  "image": "data/views/haxthausen_tiflis_1854.webp",
+  "title": {
+   "ru": "Вид Тифлиса, гравюра из книги Гакстгаузена «Закавказье» (1854)",
+   "en": "A view of Tiflis, an engraving from the book of Haxthausen 'Transcaucasia' (1854)",
+   "ka": "ტფილისის ხედი, გრავიურა ჰაქსთჰაუზენის წიგნიდან „ამიერკავკასია“ (1854)"
+  },
+  "author": {
+   "ru": "Грэб; Август фон Гакстгаузен и князь Павел Ливен",
+   "en": "Graeb; August von Haxthausen and Prince Paul Lieven",
+   "ka": "გრები; ავგუსტ ფონ ჰაქსთჰაუზენი და თავადი პაველ ლივენი"
+  },
+  "note": {
+   "ru": "Рисунок из Wikimedia Commons (общественное достояние); подпись и годы публикации по описанию на Commons. К карте не привязан.",
+   "en": "Drawing from Wikimedia Commons (public domain); the caption and the years of publication are as given on Commons. Not tied to the map.",
+   "ka": "ნახატი Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და გამოცემის წლები Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:August_von_Haxthausen._Transcaucasia._View_of_Tiflis.jpg"
+ },
+ {
   "id": "timm_tiflis_1850s",
   "year": 1856,
   "window": 25,
@@ -179,6 +202,29 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Paul_von_Franken_-_Ansicht_von_Tiflis_(1859).jpg"
+ },
+ {
+  "id": "tourdumonde_tiflis_1860",
+  "year": 1860,
+  "window": 10,
+  "image": "data/views/tourdumonde_tiflis_1860.webp",
+  "title": {
+   "ru": "Общий вид Тифлиса, гравюра из журнала «Le Tour du monde» (1860)",
+   "en": "A general view of Tiflis, an engraving from the journal 'Le Tour du monde' (1860)",
+   "ka": "ტფილისის საერთო ხედი, გრავიურა ჟურნალ „Le Tour du monde“-დან (1860)"
+  },
+  "author": {
+   "ru": "Эмиль Теодор Терон",
+   "en": "Émile Théodore Thérond",
+   "ka": "ემილ თეოდორ ტერონი"
+  },
+  "note": {
+   "ru": "Рисунок из Wikimedia Commons (общественное достояние); подпись и годы публикации по описанию на Commons. К карте не привязан.",
+   "en": "Drawing from Wikimedia Commons (public domain); the caption and the years of publication are as given on Commons. Not tied to the map.",
+   "ka": "ნახატი Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და გამოცემის წლები Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Le_Tour_du_monde-01-p321.jpg"
  },
  {
   "id": "viceroy_palace_1865",
@@ -503,6 +549,52 @@
   "page": "https://commons.wikimedia.org/wiki/File:Monument_to_Prince_Vorontsov_at_Mikhailovsky_Bridge,_Tiflis.jpg"
  },
  {
+  "id": "roinashvili_avlabar_bridge_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/roinashvili_avlabar_bridge_1870s.webp",
+  "title": {
+   "ru": "Авлабарский мост, А. Роинашвили (1870-е)",
+   "en": "The Avlabar Bridge, A. Roinashvili (1870s)",
+   "ka": "ავლაბრის ხიდი, ა. როინაშვილი (1870-იანი წლები)"
+  },
+  "author": {
+   "ru": "Александр Роинашвили",
+   "en": "Alexander Roinashvili",
+   "ka": "ალექსანდრე როინაშვილი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Avlabar_Bridge,_1870s.jpg"
+ },
+ {
+  "id": "kennan_bridge_1870s",
+  "year": 1875,
+  "window": 20,
+  "image": "data/views/kennan_bridge_1870s.webp",
+  "title": {
+   "ru": "Мост в Тифлисе, Дж. Кеннан (1870-е)",
+   "en": "A bridge in Tiflis, G. Kennan (1870s)",
+   "ka": "ხიდი ტფილისში, ჯ. კენანი (1870-იანი წლები)"
+  },
+  "author": {
+   "ru": "Джордж Кеннан",
+   "en": "George Kennan",
+   "ka": "ჯორჯ კენანი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Bridge_in_Tbilisi,_1870s.jpg"
+ },
+ {
   "id": "ermakov_nevsky",
   "year": 1881,
   "window": 35,
@@ -547,6 +639,29 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Ermakov._Stores_on_Michael_Bridge._1885.jpg"
+ },
+ {
+  "id": "konka_viceregal_palace_1880s",
+  "year": 1885,
+  "window": 15,
+  "image": "data/views/konka_viceregal_palace_1880s.webp",
+  "title": {
+   "ru": "Конка и дворец наместника на Головинском проспекте (1880-е)",
+   "en": "A horse tram (konka) and the Viceregal Palace on Golovin Avenue (1880s)",
+   "ka": "კონკა და მეფისნაცვლის სასახლე გოლოვინის პროსპექტზე (1880-იანი წლები)"
+  },
+  "author": {
+   "ru": "автор не указан на Commons",
+   "en": "the author is not given on Commons",
+   "ka": "ავტორი Commons-ზე მითითებული არ არის"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год (десятилетие) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year (decade) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი (ათწლეული) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Old_Tbilisi_Konka.jpg"
  },
  {
   "id": "kennan_tsar_1888",
@@ -777,6 +892,52 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Abanotubani_and_Surb_Sargisi_church.jpg"
+ },
+ {
+  "id": "demidov_ferry_1898",
+  "year": 1898,
+  "window": 10,
+  "image": "data/views/demidov_ferry_1898.webp",
+  "title": {
+   "ru": "Паром в Тифлисе (по названию файла: Демидов, 1898)",
+   "en": "A ferry boat in Tiflis (by the file name: Demidov, 1898)",
+   "ka": "ბორანი ტფილისში (ფაილის სახელით: დემიდოვი, 1898)"
+  },
+  "author": {
+   "ru": "автор снимка не указан (в названии файла: Demidov, 1898)",
+   "en": "the author of the photograph is not given (the file name has: Demidov, 1898)",
+   "ka": "ფოტოს ავტორი მითითებული არ არის (ფაილის სახელში: Demidov, 1898)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по названию и описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are from the title and the description on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის სათაურისა და აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Ferry_boat_tiflis_(Demidov,_1898).jpg"
+ },
+ {
+  "id": "demidov_main_bridge_1898",
+  "year": 1898,
+  "window": 10,
+  "image": "data/views/demidov_main_bridge_1898.webp",
+  "title": {
+   "ru": "Главный мост в Тифлисе (по названию файла: Демидов, 1898)",
+   "en": "The Main Bridge in Tiflis (by the file name: Demidov, 1898)",
+   "ka": "მთავარი ხიდი ტფილისში (ფაილის სახელით: დემიდოვი, 1898)"
+  },
+  "author": {
+   "ru": "автор снимка не указан (в названии файла: Demidov, 1898)",
+   "en": "the author of the photograph is not given (the file name has: Demidov, 1898)",
+   "ka": "ფოტოს ავტორი მითითებული არ არის (ფაილის სახელში: Demidov, 1898)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и год по названию и описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the year are from the title and the description on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წელი Commons-ის სათაურისა და აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Main_bridge,_tiflis_(Demidov,_1898).jpg"
  },
  {
   "id": "yermakov_avlabari_bridge",
@@ -1076,6 +1237,29 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Principal_club_at_Tiflis_(Curtis,_1911).JPG"
+ },
+ {
+  "id": "bufa_tiflis_1914_1918",
+  "year": 1916,
+  "window": 6,
+  "image": "data/views/bufa_tiflis_1914_1918.webp",
+  "title": {
+   "ru": "Тбилиси, снимок 1914-1918 годов; на первом плане типичная грузинская церковь",
+   "en": "Tbilisi, a photograph of 1914-1918; in the front a typical Georgian church",
+   "ka": "თბილისი, 1914-1918 წლების ფოტო; წინა პლანზე ტიპიური ქართული ეკლესია"
+  },
+  "author": {
+   "ru": "BUFA, коллекция фотографий Первой мировой войны (Национальный архив Нидерландов)",
+   "en": "BUFA, the photo collection of the First World War (the National Archives of the Netherlands)",
+   "ka": "BUFA, პირველი მსოფლიო ომის ფოტოკოლექცია (ნიდერლანდების ეროვნული არქივი)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние); подпись и годы (1914-1918) по описанию на Commons. К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain); the caption and the years (1914-1918) are as given on Commons. Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე); წარწერა და წლები (1914-1918) Commons-ის აღწერის მიხედვით. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tiflis_NL-HaNA_.24.09_158-2533.jpg"
  },
  {
   "id": "dartigues_french_hospital_1918",
