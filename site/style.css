@@ -378,3 +378,10 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
   #imBody img.rbig { max-width:150px; }
   #imBody img.rflag { height:44px; }
 }
+/* dragging the timeline */
+#sliderwrap, #axis { touch-action:none; }
+#axis { cursor:grab; }
+#axis.grabbing, #sliderwrap.grabbing { cursor:grabbing; }
+#axis .rseg { cursor:pointer; }
+#sliderwrap, #axis { user-select:none; -webkit-user-select:none; }
+#sliderwrap input { user-select:auto; }

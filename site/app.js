@@ -2549,6 +2549,55 @@
     for (const r of rl) add(rText(r.title) || rText(rulersData.groups[r.grp]), rText(r.name));
   }
   $("showRulers").addEventListener("change", () => { buildRulersBand(); updateRuleLine(); });
+
+  // Dragging the timeline with the mouse (or a finger). On the scale under the slider (years and events) the thumb follows the pointer; on the band of the rulers the band is grabbed
+  // and pulled: dragging to the left brings later years to the line. A drag starts after 4 px, so a plain click on a year, an event or a ruler still works.
+  (function dragTimeline() {
+    const THRESHOLD = 4;
+    function track(el, grabCls, onStart, onMove) {
+      let st = null;
+      el.addEventListener("pointerdown", (e) => {
+        if (e.button !== 0 || (e.target.closest && e.target.closest("input,select,textarea,a"))) return;
+        st = { x: e.clientX, drag: false, id: e.pointerId, ctx: onStart(e) };
+      });
+      el.addEventListener("pointermove", (e) => {
+        if (!st) return;
+        const dx = e.clientX - st.x;
+        if (!st.drag) {
+          if (Math.abs(dx) < THRESHOLD) return;
+          st.drag = true;
+          try { el.setPointerCapture(st.id); } catch (err) {}
+          el.classList.add(grabCls);
+        }
+        onMove(e, dx, st.ctx);
+      });
+      const end = () => {
+        if (!st) return;
+        if (st.drag) {
+          el.classList.remove(grabCls);
+          const stop = (ev) => { ev.stopPropagation(); ev.preventDefault(); };      // the click that ends a drag must not open a year or an event
+          window.addEventListener("click", stop, { capture: true, once: true });
+          setTimeout(() => window.removeEventListener("click", stop, true), 0);
+        }
+        st = null;
+      };
+      el.addEventListener("pointerup", end);
+      el.addEventListener("pointercancel", end);
+      el.addEventListener("dragstart", (e) => e.preventDefault());       // no native drag of a selected text or an image
+      el.addEventListener("selectstart", (e) => { if (st) e.preventDefault(); });
+    }
+    const setTo = (y) => { if (y !== year) { year = y; update(); } };
+    const wrap = $("sliderwrap");
+    if (wrap) track(wrap, "grabbing", () => null, (e) => {
+      const r = wrap.getBoundingClientRect();
+      setTo(v2y(Math.min(1000, Math.max(0, ((e.clientX - r.left - 8) / Math.max(1, r.width - 16)) * 1000))));
+    });
+    const axis = $("axis");
+    if (axis) track(axis, "grabbing", () => ({ y0: year, w: Math.max(1, $("rulers").clientWidth - 16), span: bandW || 100 }), (e, dx, c) => {
+      const lo = v2y(0), hi = v2y(1000);
+      setTo(Math.round(Math.min(hi, Math.max(lo, c.y0 - dx * c.span / c.w))));
+    });
+  })();
   if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
 
   // science and culture: universities, institutes, libraries, museums, theatres; points that appear in the year (data/science.json); science is drawn larger and above culture
