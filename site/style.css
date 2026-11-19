@@ -42,6 +42,7 @@ html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:1
 .rseg.approx { background-image:repeating-linear-gradient(45deg, #ffffff30 0 4px, transparent 4px 8px); }
 body.rulers-on #bottom { padding-bottom:98px; }
 body.rulers-on #side { max-height:calc(100% - 56px - 210px); }
+body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 210px); }      /* the band of rulers makes the bottom bar higher (144 px instead of 80): the right panels end above it */
 .rk-monarchy { --rc:#9c7410; } .rk-emirate { --rc:#2b8a3e; } .rk-overlord { --rc:#6c757d; } .rk-empire { --rc:#7048e8; } .rk-republic { --rc:#1971c2; } .rk-soviet { --rc:#c92a2a; } .rk-transition { --rc:#868e96; }
 .rg-emir { --rc:#2f9e44; } .rg-king { --rc:#b8860b; } .rg-wali { --rc:#8a6a10; } .rg-emperor { --rc:#7048e8; } .rg-viceroy { --rc:#9775fa; } .rg-head { --rc:#1c7ed6; } .rg-secretary { --rc:#e03131; } .rg-president { --rc:#1971c2; }
 .rellegend { display:flex; flex-wrap:wrap; gap:2px 12px; margin:2px 0 0 22px; }
