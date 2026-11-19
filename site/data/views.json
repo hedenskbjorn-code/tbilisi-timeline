@@ -2586,11 +2586,11 @@
   "page": "https://commons.wikimedia.org/wiki/File:Old_Tbilisi_(May_2009).jpg"
  },
  {
-  "id": "vk2010_peace_bridge_aerial",
+  "id": "own2010_peace_bridge_aerial",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_peace_bridge_aerial.webp",
+  "image": "data/views/own2010_peace_bridge_aerial.webp",
   "title": {
    "ru": "Мост Мира в стройке: стальной каркас у Куры, вид сверху, март 2010",
    "en": "The Bridge of Peace under construction: the steel frame by the Kura, seen from above, March 2010",
@@ -2602,9 +2602,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2613,11 +2613,11 @@
   }
  },
  {
-  "id": "vk2010_peace_bridge_frame",
+  "id": "own2010_peace_bridge_frame",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_peace_bridge_frame.webp",
+  "image": "data/views/own2010_peace_bridge_frame.webp",
   "title": {
    "ru": "Мост Мира в стройке: стальная конструкция на берегу, март 2010",
    "en": "The Bridge of Peace under construction: the steel structure on the bank, March 2010",
@@ -2629,9 +2629,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2640,11 +2640,11 @@
   }
  },
  {
-  "id": "vk2010_panorama_sameba",
+  "id": "own2010_panorama_sameba",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_panorama_sameba.webp",
+  "image": "data/views/own2010_panorama_sameba.webp",
   "title": {
    "ru": "Панорама Тбилиси: Самеба и старые крыши, март 2010",
    "en": "A panorama of Tbilisi: Sameba and the old roofs, March 2010",
@@ -2656,9 +2656,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2667,11 +2667,11 @@
   }
  },
  {
-  "id": "vk2010_narikala_wall",
+  "id": "own2010_narikala_wall",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_narikala_wall.webp",
+  "image": "data/views/own2010_narikala_wall.webp",
   "title": {
    "ru": "Нарикала и город, вид со стены крепости, март 2010",
    "en": "Narikala and the city, seen from the fortress wall, March 2010",
@@ -2683,9 +2683,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2694,11 +2694,11 @@
   }
  },
  {
-  "id": "vk2010_kura_cliffs",
+  "id": "own2010_kura_cliffs",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_kura_cliffs.webp",
+  "image": "data/views/own2010_kura_cliffs.webp",
   "title": {
    "ru": "Кура и скалы Старого города, март 2010",
    "en": "The Kura and the cliffs of the Old Town, March 2010",
@@ -2710,9 +2710,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2721,11 +2721,11 @@
   }
  },
  {
-  "id": "vk2010_metekhi",
+  "id": "own2010_metekhi",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_metekhi.webp",
+  "image": "data/views/own2010_metekhi.webp",
   "title": {
    "ru": "Метехи и памятник Вахтангу Горгасали, март 2010",
    "en": "Metekhi and the monument to Vakhtang Gorgasali, March 2010",
@@ -2737,9 +2737,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2748,11 +2748,11 @@
   }
  },
  {
-  "id": "vk2010_rike_park",
+  "id": "own2010_rike_park",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_rike_park.webp",
+  "image": "data/views/own2010_rike_park.webp",
   "title": {
    "ru": "Парк Рике до завершения благоустройства, март 2010",
    "en": "Rike Park before its landscaping was finished, March 2010",
@@ -2764,9 +2764,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2775,11 +2775,11 @@
   }
  },
  {
-  "id": "vk2010_avlabari_ruins",
+  "id": "own2010_avlabari_ruins",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_avlabari_ruins.webp",
+  "image": "data/views/own2010_avlabari_ruins.webp",
   "title": {
    "ru": "Руины старых домов в Авлабари, март 2010",
    "en": "The ruins of old houses in Avlabari, March 2010",
@@ -2791,9 +2791,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2802,11 +2802,11 @@
   }
  },
  {
-  "id": "vk2010_kalantarov_house",
+  "id": "own2010_kalantarov_house",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_kalantarov_house.webp",
+  "image": "data/views/own2010_kalantarov_house.webp",
   "title": {
    "ru": "Дом Калантарова (1908): парадная лестница, март 2010",
    "en": "The Kalantarov House (1908): the main staircase, March 2010",
@@ -2818,9 +2818,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
@@ -2829,11 +2829,11 @@
   }
  },
  {
-  "id": "vk2010_sameba_night",
+  "id": "own2010_sameba_night",
   "year": 2010,
   "from": 2010,
   "window": 5,
-  "image": "data/views/vk2010_sameba_night.webp",
+  "image": "data/views/own2010_sameba_night.webp",
   "title": {
    "ru": "Ночной Тбилиси: подсвеченная Самеба, март 2010",
    "en": "Tbilisi at night: the illuminated Sameba, March 2010",
@@ -2845,9 +2845,9 @@
    "ka": "მიხეილ დიდენკო"
   },
   "note": {
-   "ru": "Фото автора проекта, март 2010 (копия из ВКонтакте), увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
-   "en": "A photograph by the author of the project, March 2010 (a copy from VKontakte), enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი (ასლი „ВКонтакте“-დან), გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
+   "ru": "Фото автора проекта, март 2010, увеличено нейросетью SeedVR2 7B: на сильно увеличенных деталях возможны дорисованные элементы. Дата и место оценочные. К карте не привязано.",
+   "en": "A photograph by the author of the project, March 2010, enlarged with the neural network SeedVR2 7B: strongly enlarged details may contain invented elements. The date and the place are estimates. Not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო, 2010 წლის მარტი, გადიდებულია SeedVR2 7B ნეირონული ქსელით: ძლიერად გადიდებულ დეტალებში შეიძლება იყოს მოგონილი ელემენტები. თარიღი და ადგილი სავარაუდოა. რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",
