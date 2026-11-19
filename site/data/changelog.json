@@ -1,23 +1,5 @@
 [
  {
-  "version": "1.6.0",
-  "date": "2026-11-19",
-  "items": [
-   {
-    "t": "new",
-    "ru": "Таймлайн перенесён наверх экрана, полоса правителей осталась внизу. Под таймлайном внизу плашка «кто правит»: флаг периода и портреты правителей (Wikimedia Commons; автор и лицензия указаны в карточке, по клику на портрет). До XVIII века это условные изображения (росписи, миниатюры, памятники).",
-    "en": "The timeline is moved to the top of the screen; the band of rulers stays at the bottom. Next to it a plate shows who rules: the flag of the period and the portraits of the rulers (Wikimedia Commons; the author and the licence are in the card, opened by a click on the portrait). Before the 18th century these are conventional images (frescoes, miniatures, monuments).",
-    "ka": "ტაიმლაინი გადატანილია ეკრანის თავში, მმართველთა ზოლი კი ქვემოთაა. ქვემოთ ჩანს ფირფიტა „ვინ მართავს“: პერიოდის დროშა და მმართველთა პორტრეტები (Wikimedia Commons; ავტორი და ლიცენზია ბარათშია, პორტრეტზე დაწკაპუნებით). XVIII საუკუნემდე ეს პირობითი გამოსახულებებია (ფრესკები, მინიატურები, ძეგლები)."
-   },
-   {
-    "t": "new",
-    "ru": "Флаги показаны только для периодов, где флаг подтверждён (Российская империя, Закавказская федерация, Грузия 1918–1921, Грузинская ССР, Грузия с 1990 года); для остальных периодов флагов нет.",
-    "en": "Flags are shown only for periods where the flag is attested (the Russian Empire, the Transcaucasian Federation, Georgia 1918-1921, the Georgian SSR, Georgia since 1990); no flags are shown for the other periods.",
-    "ka": "დროშები ნაჩვენებია მხოლოდ იმ პერიოდებისთვის, რომლისთვისაც დროშა დადასტურებულია (რუსეთის იმპერია, ამიერკავკასიის ფედერაცია, საქართველო 1918–1921, საქართველოს სსრ, საქართველო 1990 წლიდან); სხვა პერიოდებისთვის დროშები არ არის."
-   }
-  ]
- },
- {
   "version": "1.5.2",
   "date": "2026-11-19",
   "items": [

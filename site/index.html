@@ -170,7 +170,7 @@
   </details>
 </aside>
 
-<div id="timebar">
+<footer id="bottom">
   <button id="play" class="chip" aria-label="play">▶</button>
   <button id="speed" class="chip" aria-label="speed">×2</button>
   <div id="zoombox"><button id="zoomL" class="chip" type="button">&#9664;</button><button id="zoomOut" class="chip" type="button">&minus;</button><button id="zoomIn" class="chip" type="button">+</button><button id="zoomR" class="chip" type="button">&#9654;</button><span id="zoomLbl"></span></div>
@@ -178,12 +178,8 @@
     <input type="range" id="slider" min="0" max="1000" step="1" value="850">
     <div id="ticks"></div>
     <div id="evmarks"></div>
+    <div id="rulers" hidden><div id="rStates" class="rrow"></div><div id="rRulers" class="rrow"></div></div>
   </div>
-</div>
-
-<footer id="bottom">
-  <div id="ruleNow" aria-live="polite"></div>
-  <div id="rulers" hidden><div id="rStates" class="rrow"></div><div id="rRulers" class="rrow"></div></div>
 </footer>
 
 <div id="fbModal" class="modal" hidden>
