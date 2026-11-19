@@ -38,7 +38,7 @@ Published with GitHub Pages from the `site/` folder (see `.github/workflows/page
 - Historical events: each is checked against the cited Wikipedia pages or books (see `site/data/history_events.json`, field `src`).
 - Built-up outlines since 1972: GUSV, Zenodo doi:10.5281/zenodo.14523232, CC BY 4.0 (smoothed and simplified). 1954 outline: U.S. Army Map Service sheet NK 38-8, public domain.
 - Base map: [OpenFreeMap](https://openfreemap.org) vector tiles, (c) OpenMapTiles, data (c) OpenStreetMap contributors.
-- The code in this repository is provided as is, without warranty.
+- The code in this repository is provided as is, without warranty. Licences: the code is under the PolyForm Noncommercial License 1.0.0 (`LICENSE`); the texts and the compiled data are under CC BY-NC 4.0; what belongs to other authors keeps its own terms (see `NOTICE.md`).
 
 ## Limitations
 Dates, boundaries and georeferencing are approximations made from open sources; they are not an authoritative record.

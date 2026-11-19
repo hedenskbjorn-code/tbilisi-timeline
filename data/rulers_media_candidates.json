@@ -1772,10 +1772,38 @@
    "status": "auto"
   },
   "transition": {
-   "status": "none"
+   "flags": [
+    {
+     "file": "Derafsh Kaviani flag of the late Sassanid Empire.svg",
+     "from": 580,
+     "to": 645,
+     "k": "suz",
+     "license": "Public domain",
+     "artist": "Oneasy",
+     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Derafsh_Kaviani_flag_of_the_late_Sassanid_Empire.svg/960px-Derafsh_Kaviani_flag_of_the_late_Sassanid_Empire.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Derafsh_Kaviani_flag_of_the_late_Sassanid_Empire.svg",
+     "mime": "image/svg+xml",
+     "free": true
+    }
+   ],
+   "status": "auto"
   },
   "emirate": {
-   "status": "none"
+   "flags": [
+    {
+     "file": "Black flag.svg",
+     "from": 750,
+     "to": 1122,
+     "k": "suz",
+     "license": "Public domain",
+     "artist": "PavelD",
+     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_flag.svg/960px-Black_flag.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Black_flag.svg",
+     "mime": "image/svg+xml",
+     "free": true
+    }
+   ],
+   "status": "auto"
   },
   "georgia": {
    "flags": [
@@ -1819,7 +1847,21 @@
    "status": "auto"
   },
   "kartli": {
-   "status": "none"
+   "flags": [
+    {
+     "file": "Flag of Kingdom of Kartli-Kakheti.svg",
+     "from": 1490,
+     "to": 1762,
+     "k": "recon",
+     "license": "CC BY-SA 4.0",
+     "artist": "Althiphika",
+     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Flag_of_Kingdom_of_Kartli-Kakheti.svg/960px-Flag_of_Kingdom_of_Kartli-Kakheti.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Kingdom_of_Kartli-Kakheti.svg",
+     "mime": "image/svg+xml",
+     "free": true
+    }
+   ],
+   "status": "auto"
   },
   "kartli_kakheti": {
    "flags": [
