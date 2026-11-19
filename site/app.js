@@ -2336,6 +2336,7 @@
   $("showRun").addEventListener("change", () => updateRun($("showRun").checked));
 
   // forms of state and rulers over Tbilisi: a band under the time scale (two rows with up to two lanes each), a line "who ruled" in the side panel, a card on a click
+  let bandW = 0; const BAND_LEVELS = [24, 48, 96, 192, 384, 768, 1536];    // the band is a lens: it shows this many years around the current year
   const RULE_MAIN_H = 22, RULE_SUB_H = 14, RULE_GAP = 2;               // the main row of the band (lane 0) and the thin row (lane 1: overlords, second rulers)
   const dispYear = (v) => Math.floor(v + 0.0001);
   const rText = (o) => (o && (o[lang] || o.en)) || "";
@@ -2367,13 +2368,16 @@
     document.body.classList.toggle("rulers-on", !!on);
     if (!on) { syncBars(); return; }
     alignRulers();
-    const lo = zoomLo, hi = zoomHi, W = Math.max(0, $("rStates").clientWidth - 16);
-    const fill = (row, items, kindOf, nameOf) => {
+    const c = year + 0.5, cnt = (w) => rulersData.rulers.filter((r) => !r.lane && r.to > c - w / 2 && r.from < c + w / 2).length;
+    if (!bandW || cnt(bandW) < 3 || cnt(bandW) > 16) bandW = BAND_LEVELS.find((w) => cnt(w) >= 5) || BAND_LEVELS[BAND_LEVELS.length - 1];       // the smallest window with at least 5 rulers; kept while it stays between 3 and 16
+    const lo = c - bandW / 2, hi = c + bandW / 2, W = Math.max(0, $("rStates").clientWidth - 16);
+    const shortName = (n) => { const w = n.replace(/\(.*?\)/g, "").trim().split(/\s+/), last = w[w.length - 1]; return /^[IVXLC]+$/.test(last) && w.length > 1 ? w[0] + " " + last : last; };
+    const fill = (row, items, kindOf, nameOf, ruler) => {
       row.textContent = "";
       let lanes = 0;
       for (const it of items) {
         if (it.to <= lo || it.from >= hi) continue;
-        const a = Math.max(it.from, lo), b = Math.min(it.to, hi), x1 = y2v(a) / 1000, x2 = y2v(b) / 1000;
+        const a = Math.max(it.from, lo), b = Math.min(it.to, hi), x1 = (a - lo) / (hi - lo), x2 = (b - lo) / (hi - lo);
         const px = (x2 - x1) * W;
         const btn = document.createElement("button");
         btn.type = "button";
@@ -2386,7 +2390,10 @@
         const lane = it.lane || 0;
         btn.style.top = (lane ? RULE_MAIN_H + RULE_GAP : 0) + "px";
         lanes = Math.max(lanes, lane + 1);
-        if (px >= (lane ? 56 : 46)) btn.textContent = nameOf(it); else btn.classList.add("nolabel");       // no text: no padding, so the width is the real length of the term
+        const full = nameOf(it), sh = ruler ? shortName(full) : full;
+        if (px >= full.length * (lane ? 5.6 : 6.3) + 14) btn.textContent = full;
+        else if (ruler && px >= sh.length * (lane ? 5.6 : 6.3) + 10) btn.textContent = sh;
+        else btn.classList.add("nolabel");       // no text: no padding, so the width is the real length of the term
         btn.title = nameOf(it) + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to);
         btn.addEventListener("click", () => showRulerCard(it));
         row.appendChild(btn);
@@ -2394,7 +2401,15 @@
       row.style.height = (lanes > 1 ? RULE_MAIN_H + RULE_GAP + RULE_SUB_H : RULE_MAIN_H) + "px";
     };
     fill($("rStates"), rulersData.states, (it) => "rk-" + it.kind, (it) => rText(it.name));
-    fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name));
+    fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name), true);
+    const tk = $("rticks");                       // years of the lens
+    tk.textContent = "";
+    const step = bandW <= 30 ? 5 : bandW <= 60 ? 10 : bandW <= 120 ? 20 : bandW <= 250 ? 50 : bandW <= 500 ? 100 : 200;
+    for (let y = Math.ceil(lo / step) * step; y <= hi; y += step) {
+      const sp = document.createElement("span");
+      sp.textContent = dispYear(y); sp.style.left = "calc(8px + (100% - 16px) * " + ((y - lo) / (hi - lo)) + ")";
+      tk.appendChild(sp);
+    }
     markRulers();
     syncBars();
   }
@@ -2467,7 +2482,7 @@
         if (m) { const i = mediaImg(m.i, 32, 40, rText(r.name)); i.className = "tkp"; i.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); tk.appendChild(i); }
       }
       if (rl.length && !tk.querySelector(".tkp")) {          // no portrait: a crown for the rulers of the monarchies, a star for the others
-        const g = document.createElement("span"); g.className = "tkph"; g.textContent = ["king", "emperor", "wali", "emir"].includes(rl[0].grp) ? "♛" : "★";
+        const g = document.createElement("span"); g.className = "tkph"; const ws = rText(rl[0].name).replace(/\(.*?\)/g, "").trim().split(/\s+/); g.textContent = ((ws[0] || "")[0] || "") + (ws.length > 1 && !/^[IVXLC]+$/.test(ws[ws.length - 1]) ? (ws[ws.length - 1][0] || "") : "");
         g.title = rText(rl[0].name) + " · " + dispYear(rl[0].from) + "–" + dispYear(rl[0].to); tk.appendChild(g);
       }
       if (fl) { const i = mediaImg(fl.i, 0, 22, R.flag); i.className = "tkf"; i.title = R.flag + ": " + rText(st.name) + (fl.k === "recon" ? " (" + R.recon + ")" : fl.k === "civil" ? " (" + R.civil + ")" : ""); tk.appendChild(i); }
@@ -2489,7 +2504,7 @@
     const y = year + 0.5;
     for (const el of document.querySelectorAll("#rulers .rseg")) el.classList.toggle("on", +el.dataset.from <= y && +el.dataset.to > y);
     const h = $("rhead");
-    if (h) h.style.left = "calc(8px + (100% - 16px) * " + (+$("slider").value / 1000) + " - 1px)";
+    if (h) h.style.left = "calc(8px + (100% - 16px) * 0.5 - 1px)";
   }
   // the summary at the left of the band: the form of government, the state, the rulers of the year, in a readable size
   function updateRuleSummary() {
@@ -2508,7 +2523,10 @@
     for (const s of ov) line("rs3", (s.kind === "overlord" ? L.ruleOver : L.ruleAdmin) + ": " + rText(s.name));
     for (const r of rl.slice(0, 3)) line("rs3", (rText(r.title) || rText(rulersData.groups[r.grp])) + ": " + rText(r.name));
   }
+  let bandRaf = 0;
+  function scheduleBand() { if (bandRaf) return; bandRaf = requestAnimationFrame(() => { bandRaf = 0; if (rulersData && $("showRulers").checked) buildRulersBand(); }); }
   function updateRuleLine() {
+    scheduleBand();
     updateToken();
     updateRuleSummary();
     markRulers();
