@@ -2,7 +2,9 @@
 Only the geometry of the route is kept (no author, no link to a person); the sights come from the data of the site: the register objects that are of national
 significance, have a Wikipedia article or are churches, fortresses and city walls, bridges, theatres and museums, plus a few picked by hand, and the religious buildings
 of data/religious.json that still stand. "Near" means the distance from the point of the object to the track (up to 150 m); the distance is given for every sight.
-Usage: python -X utf8 -P tools/build_run_route.py "<path to the .gpx>"
+Usage: python -X utf8 -P tools/build_run_route.py "<path to the .gpx>" ["<older .gpx of the same route>"]
+The second file (optional) fills the ends: the new track of 2026-11-19 was recorded 394 m after the real start (Marjanishvili Square), so the points of the older file before the place where the new
+track begins and after the place where it ends are added; the start of the route is then the start of the older file (checked with the owner).
 """
 import json
 import math
@@ -12,11 +14,19 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MAX_D = 150
-HAND = {26522, 3725, 16937, 3616, 3937, 3827, 17828, 3757, 3397}      # Kukia Fortress, the old city wall, Gabriadze clock tower, Narikala, the synagogue, the mosque, Kukia church, Surb Gevorg, the Armenian church
+HAND = {26522, 3725, 16937, 3616, 3937, 3827, 17828, 3757, 3397,
+        2914, 2850, 3082, 5203, 3193,                      # Marjanishvili Square (picked by the owner): the TBC bank building, the mixed-use building at Aghmashenebeli 9, the Ministry of Education, the "Green building", the publishing house
+        3534, 3740, 3756, 3851}                            # the sulphur baths of Abanotubani: the baths of Abano Street, Chreli Abano, the Cool bath, the baths of the Meitars'
+# (the older GPX: see read_gpx and the second argument)      # Kukia Fortress, the old city wall, Gabriadze clock tower, Narikala, the synagogue, the mosque, Kukia church, Surb Gevorg, the Armenian church
 EXCLUDE = {3835, 3317, 26449, 4920, 17121, 4209, 4381}                    # a shrine, a convent, a stone cross, a former church, the metro station, a house: not sights on their own
 NAMES = {                                                                  # names fixed by hand where the register or the Wikipedia title is too general or wrong
     2765: ("Тбилисский театральный университет (второе здание, пр. Агмашенебели)", "Shota Rustaveli Theatre and Film University (second building, Aghmashenebeli Avenue)", "შოთა რუსთაველის თეატრისა და კინოს უნივერსიტეტი (მეორე შენობა, აღმაშენებლის გამზ.)"),
     3827: ("Мечеть Джума", "Juma Mosque", "ჯუმა მეჩეთი"),
+    3534: ("Серные бани Абанотубани (ул. Абано)", "The sulphur baths of Abanotubani (Abano St.)", "აბანოთუბნის გოგირდის აბანოები (აბანოს ქ.)"),
+    3740: ("Чрели-абано (Пёстрая баня)", "Chreli Abano (the Variegated Bath)", "ჭრელი აბანო"),
+    3756: ("Прохладная баня (Грили-абано)", "The Cool Bath (Grili Abano)", "გრილი აბანო"),
+    3851: ("Бани Мейтари", "The Meitar baths", "მეითარის აბანოები"),
+    5203: ("«Зелёное здание» (ул. Марджанишвили, 6)", "The \"Green Building\" (6 Marjanishvili St.)", "„მწვანე შენობა“ (მარჯანიშვილის ქ. 6)"),
     3937: ("Большая синагога", "Great Synagogue", "დიდი სინაგოგა"),
     18545: ("Церковь Сорока Мучеников", "Church of the Forty Martyrs", "ორმოც მოწამეთა ეკლესია"),
     16051: ("Фрагменты старой городской стены у улицы Пушкина", "Fragments of the old city wall near Pushkin Street", "ძველი ქალაქის გალავნის ფრაგმენტები პუშკინის ქუჩასთან"),
@@ -56,6 +66,11 @@ def title(s):
 
 def main():
     pts = read_gpx(sys.argv[1])
+    if len(sys.argv) > 2:                                                  # fill the ends from the older file
+        old = read_gpx(sys.argv[2])
+        i0 = min(range(len(old)), key=lambda i: hav(old[i], pts[0]))
+        i1 = min(range(len(old)), key=lambda i: hav(old[i], pts[-1]))
+        pts = old[:i0] + pts + old[i1 + 1:]
     cum = [0.0]
     for a, b in zip(pts, pts[1:]):
         cum.append(cum[-1] + hav(a, b))

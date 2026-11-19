@@ -22,15 +22,15 @@ MAX_PHOTOS = 2
 # their text and their lead image are not used
 EXCLUDE = {
     (10, "en"): "the article of the Sioni Cathedral, not of the monument to Vakhtang Gorgasali",
-    (11, "ru"): "the church of the Forty Martyrs (sight 17), not St Abo",
+    (11, "ru"): "the church of the Forty Martyrs, not St Abo",
     (12, "en"): "the article of the Metekhi church, not of the bridge",
-    (14, "en"): "the article of the fortress Narikala, not of the church of St Nicholas",
-    (21, "en"): "the Norashen church (sight 23), not Jvaris Mama",
-    (29, "ru"): "the article of Shavteli Street, not of the clock tower",
-    (30, "en"): "the article of a hotel, not of the marionette theatre",
-    (32, "ru"): "the article of Shavteli Street, not of the city wall",
-    (33, "ru"): "the article of Pushkin Street, not of the fragments of the wall",
-    (33, "ka"): "the article of Pushkin Street, not of the fragments of the wall",
+    (17, "en"): "the article of the fortress Narikala, not of the church of St Nicholas",
+    (25, "en"): "the Norashen church, not Jvaris Mama",
+    (33, "ru"): "the article of Shavteli Street, not of the clock tower",
+    (34, "en"): "the article of a hotel, not of the marionette theatre",
+    (36, "ru"): "the article of Shavteli Street, not of the city wall",
+    (37, "ru"): "the article of Pushkin Street, not of the fragments of the wall",
+    (37, "ka"): "the article of Pushkin Street, not of the fragments of the wall",
 }
 
 
@@ -45,9 +45,12 @@ NOTES = {
         "en": "This point is the building at 40 David Agmashenebeli Avenue (an entry of the heritage register, late 19th century). The university occupies two buildings: according to the English Wikipedia article, the first at 19-23 Rustaveli Avenue, the second on David Agmashenebeli Avenue. The description refers to the university as a whole.",
         "ka": "ეს წერტილი არის შენობა დავით აღმაშენებლის გამზირზე №40 (ძეგლთა რეესტრის ჩანაწერი, XIX საუკუნის ბოლო). უნივერსიტეტი ორ შენობას იკავებს: ვიკიპედიის ინგლისური სტატიით, პირველი რუსთაველის გამზირზე №19–23, მეორე — დავით აღმაშენებლის გამზირზე. აღწერა მთლიანად უნივერსიტეტს ეხება."},
 }
-NOTES[13] = {"ru": "Точка отмечает остатки церкви (запись реестра: ул. Гришашвили, 18, середина XIX века); сама церковь разрушена.",
+NOTES[16] = {"ru": "Точка отмечает остатки церкви (запись реестра: ул. Гришашвили, 18, середина XIX века); сама церковь разрушена.",
              "en": "The point marks the remains of the church (register entry: 18 Grishashvili St., middle of the 19th century); the church itself was destroyed.",
              "ka": "წერტილი ეკლესიის ნარჩენებს აღნიშნავს (რეესტრის ჩანაწერი: გრიშაშვილის ქ. 18, XIX საუკუნის შუა წლები); თვით ეკლესია დანგრეულია."}
+NOTES[15] = {"ru": "Точка отмечает бани на улице Абано (запись реестра № 3669, начало XVIII века). Описание относится ко всему кварталу Абанотубани; отдельные бани квартала (Чрели-абано, Прохладная баня, бани Мейтари, бани царя Ростома) показаны отдельными остановками.",
+             "en": "The point marks the baths on Abano Street (register entry no. 3669, early 18th century). The description is of the whole quarter of Abanotubani; separate baths of the quarter (Chreli Abano, the Cool Bath, the Meitar baths, King Rostom's bathhouse) are shown as separate stops.",
+             "ka": "წერტილი აბანოს ქუჩის აბანოებს აღნიშნავს (რეესტრის ჩანაწერი № 3669, XVIII საუკუნის დასაწყისი). აღწერა მთელ აბანოთუბანს ეხება; უბნის ცალკეული აბანოები (ჭრელი აბანო, გრილი აბანო, მეითარის აბანოები, როსტომ მეფის აბანო) ცალკე გაჩერებადაა ნაჩვენები."}
 NO_ARTICLE_PHOTOS = {1}          # the photos of the articles show another building than the point: no photo from the articles
 
 
