@@ -42,10 +42,10 @@ def namespace():
     sys.exit("no KV namespace tbilisi-photos")
 
 
-def put_with_metadata(ns, key, value, metadata):
+def put_with_metadata(ns, key, value, metadata, ttl=None):
     b = uuid.uuid4().hex
     body = ("--%s\r\nContent-Disposition: form-data; name=\"value\"\r\n\r\n%s\r\n--%s\r\nContent-Disposition: form-data; name=\"metadata\"\r\n\r\n%s\r\n--%s--\r\n" % (b, value, b, json.dumps(metadata), b)).encode()
-    req("PUT", "/accounts/%s/storage/kv/namespaces/%s/values/%s" % (AID, ns, urllib.parse.quote(key, safe="")), body, "multipart/form-data; boundary=" + b)
+    req("PUT", "/accounts/%s/storage/kv/namespaces/%s/values/%s" % (AID, ns, urllib.parse.quote(key, safe="")) + ("?expiration_ttl=%d" % ttl if ttl else ""), body, "multipart/form-data; boundary=" + b)
 
 
 def main():
@@ -86,7 +86,9 @@ def main():
         print("  imported:", mid, "->", oid, "|", meta["name"], "|", im.size, "|", "dry run" if DRY else os.path.getsize(path) // 1024, "KB")
         if not DRY:
             meta["status"] = "imported"
-            put_with_metadata(ns, k["name"], json.dumps(meta), {"s": "imported", "o": meta["obj"], "t": meta["ts"], "n": meta["name"][:30]})
+            for f in ("lat", "lon", "glat", "glon", "ipH"):
+                meta.pop(f, None)                                               # the positions and the hash of the address are not kept after the import
+            put_with_metadata(ns, k["name"], json.dumps(meta), {"s": "imported", "o": meta["obj"], "t": meta["ts"], "n": meta["name"][:30]}, ttl=90 * 86400)
             req("DELETE", "/accounts/%s/storage/kv/namespaces/%s/values/%s" % (AID, ns, urllib.parse.quote("img:" + mid, safe="")))
         done += 1
     if not DRY:

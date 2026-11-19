@@ -142,7 +142,7 @@
       tsId = window.turnstile.render(q("phTs"), { sitekey: cfg.turnstileSitekey, theme: "auto", callback: (t) => { tsToken = t; }, "expired-callback": () => { tsToken = ""; }, "error-callback": () => { tsToken = ""; } });
     }
   }
-  function close() { stopCamera(); if (modal) modal.hidden = true; }
+  function close() { stopCamera(); if (prevUrl) { URL.revokeObjectURL(prevUrl); prevUrl = null; } if (modal) modal.hidden = true; }
 
   // the distance in metres from the position to the object (null when the position of the object is not known)
   const dist = (la, lo) => { if (!state.oc) return null; const k = Math.cos(la * Math.PI / 180); return Math.round(Math.hypot((lo - state.oc.lon) * k * 111320, (la - state.oc.lat) * 111320)); };
@@ -192,12 +192,14 @@
     stopCamera();
     if (!blob || Math.max(w, h) < 800) { q("phStatus").textContent = L.err.image; return; }
     state.blob = blob; state.gps = null;
-    q("phPrev").src = URL.createObjectURL(blob); q("phPrev").hidden = false;
+    showPrev(blob);
     const g = camPos || (await getPosition());
     if (g) state.geo = g;
     showLoc();
   }
 
+  let prevUrl = null;
+  function showPrev(blob) { if (prevUrl) URL.revokeObjectURL(prevUrl); prevUrl = URL.createObjectURL(blob); q("phPrev").src = prevUrl; q("phPrev").hidden = false; }
   const onFile = (e) => processFile(e.target.files && e.target.files[0]);
   async function processFile(file) {
     const L = T[state.lang] || T.en, st = q("phStatus");
@@ -214,7 +216,7 @@
       const blob = await new Promise((r) => c.toBlob(r, "image/jpeg", 0.85));
       if (!blob || blob.size > 3 * 1024 * 1024) { st.textContent = L.err.size; return; }
       state.blob = blob;
-      q("phPrev").src = URL.createObjectURL(blob); q("phPrev").hidden = false;
+      showPrev(blob);
       showLoc();
     } catch (err) { st.textContent = L.err.read; }
   }

@@ -16,7 +16,7 @@ async function takeShare(req) {
   try {
     const fd = await req.formData();
     const f = fd.get("photo");
-    if (f && f.size) {
+    if (f && f.size && f.size <= 25 * 1024 * 1024 && /^image\//.test(f.type || "")) {
       const c = await caches.open(SHARE_CACHE);
       await c.put(new URL("shared-photo", BASE).href, new Response(f, { headers: { "Content-Type": f.type || "image/jpeg", "X-Name": encodeURIComponent(f.name || "photo.jpg") } }));
     }

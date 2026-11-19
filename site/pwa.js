@@ -4,9 +4,9 @@
   "use strict";
   const $ = (id) => document.getElementById(id);
   const TXT = {
-    ru: { install: "📲 Установить приложение", pick: "Фото получено. Нажмите на объект на карте, к которому оно относится.", cancel: "Отмена" },
-    en: { install: "📲 Install the app", pick: "The photo is received. Tap the object on the map that it belongs to.", cancel: "Cancel" },
-    ka: { install: "📲 აპლიკაციის დაყენება", pick: "ფოტო მიღებულია. დააწკაპუნეთ რუკაზე ობიექტზე, რომელსაც ეკუთვნის.", cancel: "გაუქმება" },
+    ru: { install: "📲 Установить приложение", pick: "Фото получено. Нажмите на объект на карте, к которому оно относится.", cancel: "Отмена", iosTitle: "Установка на iPhone", ios: ["1. Откройте сайт в Safari.", "2. Нажмите «Поделиться» (квадрат со стрелкой вверх).", "3. Выберите «На экран Домой».", "Приём фото из меню «Поделиться» на iPhone недоступен: фото можно снять или выбрать в самой форме."] },
+    en: { install: "📲 Install the app", pick: "The photo is received. Tap the object on the map that it belongs to.", cancel: "Cancel", iosTitle: "Installing on iPhone", ios: ["1. Open the site in Safari.", "2. Tap \"Share\" (the square with an arrow up).", "3. Choose \"Add to Home Screen\".", "Receiving a photo from the Share menu is not available on iPhone: take a photo or choose one in the form itself."] },
+    ka: { install: "📲 აპლიკაციის დაყენება", pick: "ფოტო მიღებულია. დააწკაპუნეთ რუკაზე ობიექტზე, რომელსაც ეკუთვნის.", cancel: "გაუქმება", iosTitle: "iPhone-ზე დაყენება", ios: ["1. გახსენით საიტი Safari-ში.", "2. დააჭირეთ „გაზიარება“ (კვადრატი ისრით ზემოთ).", "3. აირჩიეთ „საწყის ეკრანზე დამატება“.", "iPhone-ზე ფოტოს მიღება მენიუდან „გაზიარება“ მიუწვდომელია: ფოტო გადაიღეთ ან აირჩიეთ თვით ფორმაში."] },
   };
   const lang = () => { const l = (document.documentElement.lang || "en").slice(0, 2); return TXT[l] ? l : "en"; };
   const S = () => TXT[lang()];
@@ -21,7 +21,18 @@
     if (b) { b.title = S().install; b.setAttribute("aria-label", S().install); b.hidden = false; }
   });
   window.addEventListener("appinstalled", () => { deferred = null; const b = $("btnInstall"); if (b) b.hidden = true; });
-  window.TT_PWA = { install: async () => { if (!deferred) return; deferred.prompt(); try { await deferred.userChoice; } catch (e) {} deferred = null; const b = $("btnInstall"); if (b) b.hidden = true; }, retext: () => { const b = $("btnInstall"); if (b) { b.title = S().install; b.setAttribute("aria-label", S().install); } } };
+  // iPhone and iPad: Safari has no install prompt (no "beforeinstallprompt"), so the same button shows the steps of "Add to Home Screen"
+  const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const standalone = navigator.standalone === true || (window.matchMedia && matchMedia("(display-mode: standalone)").matches);
+  function showIosHint() {
+    if (!window.TT_APP || !window.TT_APP.info) return;
+    window.TT_APP.info(S().iosTitle, S().ios);
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const b = $("btnInstall");
+    if (b && isIos && !standalone) { b.title = S().iosTitle; b.setAttribute("aria-label", S().iosTitle); b.hidden = false; }
+  });
+  window.TT_PWA = { install: async () => { if (!deferred) { if (isIos && !standalone) showIosHint(); return; } deferred.prompt(); try { await deferred.userChoice; } catch (e) {} deferred = null; const b = $("btnInstall"); if (b) b.hidden = true; }, retext: () => { const b = $("btnInstall"); if (b) { const x = deferred || !(isIos && !standalone) ? S().install : S().iosTitle; b.title = x; b.setAttribute("aria-label", x); } } };
   document.addEventListener("DOMContentLoaded", () => { const b = $("btnInstall"); if (b) b.addEventListener("click", () => window.TT_PWA.install()); });
 
   // a photo shared from the phone: ?share=1
@@ -48,4 +59,5 @@
     window.TT_APP.pickObject((o) => { bar.remove(); window.TT_PHOTO.open({ obj: o.obj, name: o.name, lang: o.lang, lat: o.lat, lon: o.lon, file }); });
   }
   if (new URLSearchParams(location.search).get("share") === "1") window.addEventListener("load", () => setTimeout(startShare, 1500));
+  else if (window.caches) caches.delete("tt-share").catch(() => {});                  // a shared photo nobody picked up is not kept
 })();

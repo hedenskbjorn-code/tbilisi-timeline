@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.3.1",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "new",
+    "ru": "На iPhone кнопка 📲 в шапке показывает, как добавить сайт на экран «Домой» (Safari не умеет предлагать установку сам).",
+    "en": "On iPhone the 📲 button in the header shows how to add the site to the Home Screen (Safari cannot offer the installation itself).",
+    "ka": "iPhone-ზე თავსართის ღილაკი 📲 აჩვენებს, როგორ დაემატოს საიტი საწყის ეკრანზე (Safari თავად ვერ სთავაზობს დაყენებას)."
+   },
+   {
+    "t": "fix",
+    "ru": "Усилена защита приёма фото: заявка на несуществующий объект отклоняется, размер картинки ограничен (до 3000 px и 6 млн пикселей), повторное фото не тратит дневной лимит, после одобрения точные координаты и хеш адреса не хранятся.",
+    "en": "The photo intake is hardened: a submission for a non-existent object is refused, the picture size is limited (up to 3000 px and 6 million pixels), a repeated photo does not spend the daily limit, and after approval the exact positions and the address hash are not kept.",
+    "ka": "გაძლიერდა ფოტოების მიღების დაცვა: არარსებულ ობიექტზე განაცხადი უარყოფილია, სურათის ზომა შეზღუდულია (3000 პიქსელამდე და 6 მლნ პიქსელი), განმეორებითი ფოტო დღიურ ლიმიტს არ ხარჯავს, დამტკიცების შემდეგ ზუსტი კოორდინატები და მისამართის ჰეში არ ინახება."
+   }
+  ]
+ },
+ {
   "version": "1.3.0",
   "date": "2026-11-19",
   "items": [

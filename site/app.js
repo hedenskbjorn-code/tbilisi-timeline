@@ -1236,7 +1236,7 @@
     if (on) { const S = window.TT_PHOTO.s(lang); $("noPhotoL").textContent = S.noPhotoL; $("btnNear").textContent = S.nearBtn; }
   }
   let lastPos = null, picker = null;
-  window.TT_APP = { pickObject: (cb) => { picker = cb; } };
+  window.TT_APP = { pickObject: (cb) => { picker = cb; }, info: (title, lines) => openInfo((body) => { $("imTitle").textContent = title; for (const l of lines) infoLine(body, l); }) };
   function showNearby(pos) {
     const S = window.TT_PHOTO.s(lang);
     reopenInfo = () => showNearby(pos);
