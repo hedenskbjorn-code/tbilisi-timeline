@@ -18,7 +18,7 @@
 
   const T = {
     ru: {
-      link: "📷 Прислать фото этого объекта", need: "Фото этого объекта пока нет. Если вы рядом, пришлите своё.", noPhotoL: "Объекты без фото (оранжевое кольцо): куда сходить с камерой", nearBtn: "Объекты без фото рядом со мной", nearTitle: "Объекты без фото рядом", nearHint: "Расстояние по прямой от вашего положения. Положение используется только в вашем браузере и никуда не отправляется.", nearNone: "Объектов без фото рядом не нашлось.", nearDenied: "Не удалось определить положение (разрешите доступ к геолокации в браузере).", title: "Фото объекта", object: "Объект",
+      link: "📷 Прислать фото этого объекта", need: "Фото этого объекта пока нет. Если вы рядом, пришлите своё.", noPhotoL: "Объекты без фото (оранжевое кольцо): куда сходить с камерой", nearBtn: "Объекты без фото рядом со мной", nearTitle: "Объекты без фото рядом", nearHint: "Расстояние по прямой от вашего положения. Положение используется только в вашем браузере и никуда не отправляется.", nearNone: "Объектов без фото рядом не нашлось.", nearDenied: "Не удалось определить положение (разрешите доступ к геолокации в браузере).", locExifOk: (d) => "✓ Координаты в фото найдены: до объекта " + d + " м.", locExifFar: (d) => "⚠ Фото снято далеко от объекта (" + d + " м). Это точно тот объект?", locExifNone: "Координат в фото нет. Если вы рядом с объектом, добавьте геолокацию: так заявку проверить проще.", btnGeo: "📍 Добавить мою геолокацию (я рядом с объектом)", geoOk: (d, a) => "✓ Геолокация добавлена: до объекта " + d + " м (±" + a + " м).", geoFar: (d) => "⚠ По геолокации вы далеко от объекта (" + d + " м).", geoFail: "Не удалось определить положение (разрешите доступ к геолокации в браузере).", btnCam: "📷 Снять камерой", btnShot: "Снять", camFail: "Камера недоступна: выберите готовый снимок из файлов.", privGeo: "Положение (из снимка или ваше) хранится только в закрытой очереди для проверки и не публикуется.", title: "Фото объекта", object: "Объект",
       hint: "Снимайте здание снаружи, целиком, при хорошем свете; без людей и номеров машин. Фото должно быть вашим. Присланное сначала проверяет владелец сайта и может быть не опубликовано.",
       file: "Фотография (JPEG, PNG или WebP)", name: "Ваше имя или ник (будет подписано под фото)", note: "Заметка (необязательно)",
       consent: "Я автор этой фотографии и разрешаю использовать её на этом сайте на условиях CC BY-SA 4.0 с указанием моего имени.",
@@ -30,7 +30,7 @@
         read: "Не удалось прочитать фото (возможно, формат HEIC: сделайте снимок в JPEG)." },
     },
     en: {
-      link: "📷 Send a photo of this object", need: "There is no photo of this object yet. If you are nearby, send yours.", noPhotoL: "Objects without a photo (orange ring): where to go with a camera", nearBtn: "Objects without a photo near me", nearTitle: "Objects without a photo nearby", nearHint: "The distance is in a straight line from your position. The position is used only in your browser and is sent nowhere.", nearNone: "No objects without a photo were found nearby.", nearDenied: "The position could not be found (allow the access to the location in the browser).", title: "Photo of the object", object: "Object",
+      link: "📷 Send a photo of this object", need: "There is no photo of this object yet. If you are nearby, send yours.", noPhotoL: "Objects without a photo (orange ring): where to go with a camera", nearBtn: "Objects without a photo near me", nearTitle: "Objects without a photo nearby", nearHint: "The distance is in a straight line from your position. The position is used only in your browser and is sent nowhere.", nearNone: "No objects without a photo were found nearby.", nearDenied: "The position could not be found (allow the access to the location in the browser).", locExifOk: (d) => "✓ The position is found in the photo: " + d + " m from the object.", locExifFar: (d) => "⚠ The photo was taken far from the object (" + d + " m). Is it really that object?", locExifNone: "There is no position in the photo. If you are near the object, add your location: it makes the check easier.", btnGeo: "📍 Add my location (I am near the object)", geoOk: (d, a) => "✓ Location added: " + d + " m from the object (±" + a + " m).", geoFar: (d) => "⚠ By your location you are far from the object (" + d + " m).", geoFail: "The position could not be found (allow the access to the location in the browser).", btnCam: "📷 Take a photo with the camera", btnShot: "Take", camFail: "The camera is not available: choose a ready photo from the files.", privGeo: "The position (from the photo or yours) is kept only in the closed queue for the check and is not published.", title: "Photo of the object", object: "Object",
       hint: "Photograph the building from outside, the whole of it, in good light; no people and no car plates. The photo must be your own. What you send is first checked by the owner of the site and may not be published.",
       file: "Photograph (JPEG, PNG or WebP)", name: "Your name or nickname (it will be signed under the photo)", note: "Note (optional)",
       consent: "I am the author of this photograph and allow its use on this site under CC BY-SA 4.0, with my name given.",
@@ -42,7 +42,7 @@
         read: "The photo could not be read (maybe the HEIC format: take the picture as JPEG)." },
     },
     ka: {
-      link: "📷 ამ ობიექტის ფოტოს გამოგზავნა", need: "ამ ობიექტის ფოტო ჯერ არ არის. თუ ახლოს ხართ, გამოგვიგზავნეთ თქვენი.", noPhotoL: "ობიექტები ფოტოს გარეშე (ნარინჯისფერი რგოლი): სად წახვიდეთ კამერით", nearBtn: "ფოტოს გარეშე ობიექტები ჩემ გვერდით", nearTitle: "ფოტოს გარეშე ობიექტები ახლოს", nearHint: "მანძილი წრფივია თქვენი მდებარეობიდან. მდებარეობა გამოიყენება მხოლოდ თქვენს ბრაუზერში და არსად იგზავნება.", nearNone: "ახლოს ფოტოს გარეშე ობიექტები ვერ მოიძებნა.", nearDenied: "მდებარეობის დადგენა ვერ მოხერხდა (ბრაუზერში დართეთ ნება გეოლოკაციაზე).", title: "ობიექტის ფოტო", object: "ობიექტი",
+      link: "📷 ამ ობიექტის ფოტოს გამოგზავნა", need: "ამ ობიექტის ფოტო ჯერ არ არის. თუ ახლოს ხართ, გამოგვიგზავნეთ თქვენი.", noPhotoL: "ობიექტები ფოტოს გარეშე (ნარინჯისფერი რგოლი): სად წახვიდეთ კამერით", nearBtn: "ფოტოს გარეშე ობიექტები ჩემ გვერდით", nearTitle: "ფოტოს გარეშე ობიექტები ახლოს", nearHint: "მანძილი წრფივია თქვენი მდებარეობიდან. მდებარეობა გამოიყენება მხოლოდ თქვენს ბრაუზერში და არსად იგზავნება.", nearNone: "ახლოს ფოტოს გარეშე ობიექტები ვერ მოიძებნა.", nearDenied: "მდებარეობის დადგენა ვერ მოხერხდა (ბრაუზერში დართეთ ნება გეოლოკაციაზე).", locExifOk: (d) => "✓ ფოტოში მდებარეობა ნაპოვნია: ობიექტამდე " + d + " მ.", locExifFar: (d) => "⚠ ფოტო ობიექტიდან შორს არის გადაღებული (" + d + " მ). ნამდვილად ეს ობიექტია?", locExifNone: "ფოტოში მდებარეობა არ არის. თუ ობიექტთან ახლოს ხართ, დაამატეთ თქვენი მდებარეობა: ასე შემოწმება უფრო ადვილია.", btnGeo: "📍 ჩემი მდებარეობის დამატება (ობიექტთან ახლოს ვარ)", geoOk: (d, a) => "✓ მდებარეობა დამატებულია: ობიექტამდე " + d + " მ (±" + a + " მ).", geoFar: (d) => "⚠ თქვენი მდებარეობით ობიექტიდან შორს ხართ (" + d + " მ).", geoFail: "მდებარეობის დადგენა ვერ მოხერხდა (ბრაუზერში დართეთ ნება გეოლოკაციაზე).", btnCam: "📷 კამერით გადაღება", btnShot: "გადაღება", camFail: "კამერა მიუწვდომელია: აირჩიეთ მზა ფოტო ფაილებიდან.", privGeo: "მდებარეობა (ფოტოდან ან თქვენი) ინახება მხოლოდ დახურულ რიგში შემოწმებისთვის და არ ქვეყნდება.", title: "ობიექტის ფოტო", object: "ობიექტი",
       hint: "გადაუღეთ შენობა გარედან, მთლიანად, კარგ განათებაზე; ადამიანებისა და მანქანის ნომრების გარეშე. ფოტო თქვენი უნდა იყოს. გამოგზავნილს ჯერ საიტის მფლობელი შეამოწმებს და შეიძლება არ გამოქვეყნდეს.",
       file: "ფოტო (JPEG, PNG ან WebP)", name: "თქვენი სახელი ან მეტსახელი (ფოტოს ქვეშ მიეწერება)", note: "შენიშვნა (სურვილისამებრ)",
       consent: "ვარ ამ ფოტოს ავტორი და ვაძლევ ნებართვას გამოვიყენოთ ეს საიტზე CC BY-SA 4.0-ის პირობებით, ჩემი სახელის მითითებით.",
@@ -97,7 +97,10 @@
     const m = mk("div", "modal"), f = mk("form", "modalbox");
     m.hidden = true; f.autocomplete = "off"; f.id = "phForm";
     f.innerHTML = '<h2 id="phTitle"></h2><div class="small" id="phObj"></div><p class="small" id="phHint"></p>' +
-      '<label><span id="phFileL"></span><input id="phFile" type="file" accept="image/jpeg,image/png,image/webp" required></label><img id="phPrev" alt="" hidden style="max-width:100%;max-height:200px;margin-top:6px;border-radius:6px">' +
+      '<label><span id="phFileL"></span><input id="phFile" type="file" accept="image/jpeg,image/png,image/webp"></label>' +
+      '<div class="modalbtns" style="justify-content:flex-start;gap:8px;margin-top:8px"><button type="button" id="phCam" class="chip"></button><button type="button" id="phGeo" class="chip"></button></div>' +
+      '<video id="phVid" playsinline muted hidden style="width:100%;max-height:260px;margin-top:6px;border-radius:6px;background:#000"></video><button type="button" id="phShot" class="chip primary" hidden></button>' +
+      '<img id="phPrev" alt="" hidden style="max-width:100%;max-height:200px;margin-top:6px;border-radius:6px"><div class="small" id="phLoc" aria-live="polite"></div>' +
       '<label><span id="phNameL"></span><input id="phName" type="text" maxlength="60" required></label>' +
       '<label><span id="phNoteL"></span><input id="phNote" type="text" maxlength="300"></label>' +
       '<label style="display:flex;gap:8px;align-items:flex-start;color:inherit"><input id="phCons" type="checkbox" required style="margin-top:3px"><span id="phConsT"></span></label>' +
@@ -108,6 +111,9 @@
     f.querySelector("#phCancel").addEventListener("click", close);
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !m.hidden) close(); });
     f.querySelector("#phFile").addEventListener("change", onFile);
+    f.querySelector("#phGeo").addEventListener("click", addGeo);
+    f.querySelector("#phCam").addEventListener("click", openCamera);
+    f.querySelector("#phShot").addEventListener("click", shoot);
     f.addEventListener("submit", send);
     m.appendChild(f);
     return m;
@@ -117,15 +123,16 @@
     const L = T[state.lang] || T.en;
     q("phTitle").textContent = L.title; q("phObj").textContent = L.object + ": " + state.name; q("phHint").textContent = L.hint;
     q("phFileL").textContent = L.file; q("phNameL").textContent = L.name; q("phNoteL").textContent = L.note; q("phConsT").textContent = L.consent;
-    q("phCancel").textContent = L.cancel; q("phSend").textContent = L.send;
-    const p = q("phPriv"); p.textContent = L.privacy + " ";
+    q("phCancel").textContent = L.cancel; q("phSend").textContent = L.send; q("phCam").textContent = L.btnCam; q("phGeo").textContent = L.btnGeo; q("phShot").textContent = L.btnShot;
+    q("phCam").hidden = !(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+    const p = q("phPriv"); p.textContent = L.privacy + " " + L.privGeo + " ";
     const a = mk("a", "", "GitHub"); a.href = "https://github.com/" + (cfg.repo || "") + "/issues"; a.target = "_blank"; a.rel = "noopener"; p.appendChild(a);
   }
   async function open(o) {
     if (!enabled()) return;
-    state = { obj: o.obj, name: o.name || o.obj, lang: o.lang || "en", opened: Date.now(), blob: null, gps: null };
+    state = { obj: o.obj, name: o.name || o.obj, lang: o.lang || "en", opened: Date.now(), blob: null, gps: null, geo: null, oc: isFinite(o.lat) && isFinite(o.lon) ? { lat: +o.lat, lon: +o.lon } : null };
     if (!modal) modal = build();
-    modal.querySelector("#phForm").reset(); q("phPrev").hidden = true; q("phStatus").textContent = ""; q("phSend").disabled = false;
+    stopCamera(); modal.querySelector("#phForm").reset(); q("phPrev").hidden = true; q("phStatus").textContent = ""; q("phLoc").textContent = ""; q("phSend").disabled = false;
     labels(); modal.hidden = false; tsToken = "";
     await loadTurnstile();
     if (window.turnstile && cfg.turnstileSitekey) {
@@ -134,7 +141,61 @@
       tsId = window.turnstile.render(q("phTs"), { sitekey: cfg.turnstileSitekey, theme: "auto", callback: (t) => { tsToken = t; }, "expired-callback": () => { tsToken = ""; }, "error-callback": () => { tsToken = ""; } });
     }
   }
-  function close() { if (modal) modal.hidden = true; }
+  function close() { stopCamera(); if (modal) modal.hidden = true; }
+
+  // the distance in metres from the position to the object (null when the position of the object is not known)
+  const dist = (la, lo) => { if (!state.oc) return null; const k = Math.cos(la * Math.PI / 180); return Math.round(Math.hypot((lo - state.oc.lon) * k * 111320, (la - state.oc.lat) * 111320)); };
+  function showLoc() {
+    const L = T[state.lang] || T.en, box = q("phLoc");
+    box.textContent = "";
+    const line = (txt, bad) => { const d = mk("div", "", txt); d.style.color = bad ? "#f76707" : "#2b8a3e"; d.style.marginTop = "4px"; box.appendChild(d); };
+    if (state.blob || state.gps) {
+      if (state.gps) { const d = dist(state.gps.lat, state.gps.lon); if (d === null) line("✓ " + L.locExifNone.slice(0, 0) + "GPS", false); else line(d <= 150 ? L.locExifOk(d) : L.locExifFar(d), d > 150); }
+      else if (!state.geo) { const d = mk("div", "", L.locExifNone); d.style.marginTop = "4px"; box.appendChild(d); }
+    }
+    if (state.geo) { const d = dist(state.geo.lat, state.geo.lon); line(d === null ? "✓" : d <= 150 ? L.geoOk(d, Math.round(state.geo.acc || 0)) : L.geoFar(d), d !== null && d > 150); }
+  }
+  function getPosition() {
+    return new Promise((res) => {
+      if (!navigator.geolocation) return res(null);
+      navigator.geolocation.getCurrentPosition((g) => res({ lat: g.coords.latitude, lon: g.coords.longitude, acc: g.coords.accuracy }), () => res(null), { enableHighAccuracy: true, timeout: 15000, maximumAge: 30000 });
+    });
+  }
+  async function addGeo() {
+    const L = T[state.lang] || T.en;
+    q("phStatus").textContent = "";
+    const g = await getPosition();
+    if (!g) { q("phStatus").textContent = L.geoFail; return; }
+    state.geo = g; showLoc();
+  }
+
+  // a photograph taken with the camera inside the form: the position is asked at the same moment, so it does not depend on what the phone writes into the file
+  let stream = null, camPos = null;
+  function stopCamera() { if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; } if (modal) { q("phVid").hidden = true; q("phShot").hidden = true; } }
+  async function openCamera() {
+    const L = T[state.lang] || T.en;
+    q("phStatus").textContent = "";
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" }, width: { ideal: 1920 } }, audio: false });
+    } catch (e) { q("phStatus").textContent = L.camFail; return; }
+    const v = q("phVid"); v.srcObject = stream; v.hidden = false; q("phShot").hidden = false; await v.play().catch(() => {});
+    getPosition().then((g) => { camPos = g; });                                  // asked while the camera is open
+  }
+  async function shoot() {
+    const L = T[state.lang] || T.en, v = q("phVid");
+    if (!v.videoWidth) return;
+    const k = Math.min(1, 1600 / Math.max(v.videoWidth, v.videoHeight)), w = Math.round(v.videoWidth * k), h = Math.round(v.videoHeight * k);
+    const c = document.createElement("canvas"); c.width = w; c.height = h;
+    c.getContext("2d").drawImage(v, 0, 0, w, h);
+    const blob = await new Promise((r) => c.toBlob(r, "image/jpeg", 0.85));
+    stopCamera();
+    if (!blob || Math.max(w, h) < 800) { q("phStatus").textContent = L.err.image; return; }
+    state.blob = blob; state.gps = null;
+    q("phPrev").src = URL.createObjectURL(blob); q("phPrev").hidden = false;
+    const g = camPos || (await getPosition());
+    if (g) state.geo = g;
+    showLoc();
+  }
 
   async function onFile(e) {
     const L = T[state.lang] || T.en, st = q("phStatus"), file = e.target.files && e.target.files[0];
@@ -152,18 +213,20 @@
       if (!blob || blob.size > 3 * 1024 * 1024) { st.textContent = L.err.size; return; }
       state.blob = blob;
       q("phPrev").src = URL.createObjectURL(blob); q("phPrev").hidden = false;
+      showLoc();
     } catch (err) { st.textContent = L.err.read; }
   }
 
   async function send(e) {
     e.preventDefault();
     const L = T[state.lang] || T.en, st = q("phStatus"), btn = q("phSend");
-    if (!state.blob) { st.textContent = L.err.read; return; }
+    if (!state.blob) { st.textContent = L.err.read; return; }               // (the file field is no longer required: a photograph can also come from the camera)
     if (!tsToken) { st.textContent = L.err.captcha; return; }
     const fd = new FormData();
     fd.append("obj", state.obj); fd.append("name", q("phName").value); fd.append("note", q("phNote").value); fd.append("consent", q("phCons").checked ? "1" : "");
     fd.append("t", String(state.opened)); fd.append("hp", q("phHp").value); fd.append("cf-turnstile-response", tsToken);
     if (state.gps) { fd.append("lat", String(state.gps.lat)); fd.append("lon", String(state.gps.lon)); }
+    if (state.geo) { fd.append("glat", String(state.geo.lat)); fd.append("glon", String(state.geo.lon)); fd.append("gacc", String(Math.round(state.geo.acc || 0))); }
     fd.append("photo", state.blob, "photo.jpg");
     btn.disabled = true; st.textContent = L.sending;
     try {
