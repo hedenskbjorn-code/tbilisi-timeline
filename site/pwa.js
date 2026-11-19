@@ -17,11 +17,11 @@
   let deferred = null;
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault(); deferred = e;
-    const b = $("btnInstall"), row = $("rowInstall");
-    if (b && row) { b.textContent = S().install; row.hidden = false; }
+    const b = $("btnInstall");
+    if (b) { b.title = S().install; b.setAttribute("aria-label", S().install); b.hidden = false; }
   });
-  window.addEventListener("appinstalled", () => { deferred = null; const row = $("rowInstall"); if (row) row.hidden = true; });
-  window.TT_PWA = { install: async () => { if (!deferred) return; deferred.prompt(); try { await deferred.userChoice; } catch (e) {} deferred = null; const row = $("rowInstall"); if (row) row.hidden = true; }, retext: () => { const b = $("btnInstall"); if (b) b.textContent = S().install; } };
+  window.addEventListener("appinstalled", () => { deferred = null; const b = $("btnInstall"); if (b) b.hidden = true; });
+  window.TT_PWA = { install: async () => { if (!deferred) return; deferred.prompt(); try { await deferred.userChoice; } catch (e) {} deferred = null; const b = $("btnInstall"); if (b) b.hidden = true; }, retext: () => { const b = $("btnInstall"); if (b) { b.title = S().install; b.setAttribute("aria-label", S().install); } } };
   document.addEventListener("DOMContentLoaded", () => { const b = $("btnInstall"); if (b) b.addEventListener("click", () => window.TT_PWA.install()); });
 
   // a photo shared from the phone: ?share=1
