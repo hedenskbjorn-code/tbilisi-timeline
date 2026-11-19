@@ -1,5 +1,5 @@
-// The form "send a photo of this object" (the receiving side is worker/submit.js, the check is done by the owner in worker/admin.js). Shown only while the form is switched on for the
-// visitor: the link with ?club=1 turns it on in this browser (?club=0 turns it off). The picture is re-encoded here (about 1600 px, JPEG): this removes the metadata (position, camera),
+// The form "send a photo of this object" (the receiving side is worker/submit.js, the check is done by the owner in worker/admin.js). Open for every visitor when config.js says
+// photoOpen: true; the link with ?club=0 hides it in this browser, ?club=1 shows it again (and is the only way to see it while photoOpen is false). The picture is re-encoded here (about 1600 px, JPEG): this removes the metadata (position, camera),
 // the position of the shot is read before that and is sent only as a hint for the check.
 (function () {
   "use strict";
@@ -8,9 +8,13 @@
   try {
     const q = new URLSearchParams(location.search).get("club");
     if (q === "1") localStorage.setItem(LS, "1");
-    if (q === "0") localStorage.removeItem(LS);
+    if (q === "0") localStorage.setItem(LS, "0");
   } catch (e) { /* no storage: the form stays off */ }
-  const enabled = () => { try { return !!cfg.photoEndpoint && localStorage.getItem(LS) === "1"; } catch (e) { return false; } };
+  const enabled = () => {
+    if (!cfg.photoEndpoint) return false;
+    try { const v = localStorage.getItem(LS); if (v === "0") return false; if (v === "1") return true; } catch (e) { /* no storage: the default */ }
+    return !!cfg.photoOpen;
+  };
 
   const T = {
     ru: {
