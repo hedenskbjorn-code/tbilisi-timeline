@@ -20,10 +20,14 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="ka_GE">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org; font-src 'self' data: https://tiles.openfreemap.org; connect-src 'self' https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org https://cloudflareinsights.com https://tbilisi-photos.hedenskbjorn.workers.dev; frame-src https://challenges.cloudflare.com; worker-src blob:; child-src blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org; font-src 'self' data: https://tiles.openfreemap.org; connect-src 'self' https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org https://cloudflareinsights.com https://tbilisi-photos.hedenskbjorn.workers.dev; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; media-src 'self' blob:; child-src blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
-<link rel="icon" href="data:,">
+<link rel="icon" type="image/png" href="img/pwa/icon-192.png">
+<link rel="apple-touch-icon" href="img/pwa/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1c2b4a">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="style.css">
 <script src="config.js"></script>
 </head>
@@ -125,6 +129,7 @@
     <label class="row"><input type="checkbox" id="showObj" checked> <span data-i="showObj"></span></label>
   <label class="row" id="rowNoPhoto" hidden><input type="checkbox" id="showNoPhoto"> <span id="noPhotoL"></span></label>
   <div class="row" id="rowNear" hidden><button type="button" id="btnNear" class="chip"></button></div>
+  <div class="row" id="rowInstall" hidden><button type="button" id="btnInstall" class="chip"></button></div>
   </div>
 
   <div id="types"><div class="small types-title" data-i="typesTitle"></div><div id="typelist"></div></div>
@@ -217,6 +222,7 @@
 <script src="vendor/maplibre-gl.js"></script>
 <script src="translit.js"></script>
 <script src="photo.js"></script>
+<script src="pwa.js"></script>
 <script src="app.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f4945adf4d994802bcb88c6ce54c4c32"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

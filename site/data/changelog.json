@@ -1,5 +1,29 @@
 [
  {
+  "version": "1.3.0",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Сайт можно установить как приложение на телефон или компьютер (кнопка «Установить приложение» в панели фильтров). Оболочка и последние просмотренные данные работают без сети.",
+    "en": "The site can be installed as an app on a phone or a computer (the \"Install the app\" button in the filters panel). The shell and the last viewed data work without network.",
+    "ka": "საიტის დაყენება შესაძლებელია აპლიკაციად ტელეფონზე ან კომპიუტერზე (ღილაკი „აპლიკაციის დაყენება“ ფილტრების პანელში). გარსი და ბოლოს ნანახი მონაცემები ქსელის გარეშეც მუშაობს."
+   },
+   {
+    "t": "new",
+    "ru": "Фото можно отправить прямо из меню «Поделиться» в галерее телефона: после этого достаточно нажать на объект на карте, и форма откроется с готовым фото (в установленном приложении).",
+    "en": "A photo can be sent straight from the \"Share\" menu of the phone's gallery: then just tap the object on the map and the form opens with the photo already in it (in the installed app).",
+    "ka": "ფოტოს გაგზავნა შეიძლება პირდაპირ ტელეფონის გალერეის მენიუდან „გაზიარება“: შემდეგ საკმარისია რუკაზე ობიექტზე დაჭერა და ფორმა გაიხსნება მზა ფოტოთი (დაყენებულ აპლიკაციაში)."
+   },
+   {
+    "t": "new",
+    "ru": "В форме фото можно снять камерой прямо на странице и добавить свою геолокацию. Сервер сверяет положение снимка с объектом: проверенные заявки идут первыми. Положение хранится только в закрытой очереди и не публикуется.",
+    "en": "In the photo form you can take a shot with the camera right on the page and add your location. The server compares the position of the shot with the object: verified submissions go first. The position is kept only in the closed queue and is not published.",
+    "ka": "ფოტოს ფორმაში შეგიძლიათ გვერდზევე გადაიღოთ კამერით და დაამატოთ თქვენი მდებარეობა. სერვერი ადარებს კადრის მდებარეობას ობიექტთან: შემოწმებული განაცხადები პირველია. მდებარეობა ინახება მხოლოდ დახურულ რიგში და არ ქვეყნდება."
+   }
+  ]
+ },
+ {
   "version": "1.2.1",
   "date": "2026-11-19",
   "items": [
