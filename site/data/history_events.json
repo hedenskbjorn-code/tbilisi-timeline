@@ -1583,6 +1583,27 @@
    "ka": "მიწისძვრა თბილისში (mb 4,8): ეპიცენტრი ქალაქის ფარგლებში, 5-7 დაღუპული, 18 000 შინამეურნეობა მძიმედ დაზარალდა"
   },
   {
+   "year": 2003,
+   "date": "3-23.11.2003",
+   "cat": "power",
+   "ru": "Революция роз: двадцать дней протестов (3-23 ноября) из-за спорных парламентских выборов; демонстранты во главе с Саакашвили вошли в зал заседаний парламента с красными розами в руках, 23 ноября президент Шеварднадзе ушёл в отставку",
+   "en": "Rose Revolution: twenty days of protests (3-23 November) over the disputed parliamentary elections; demonstrators led by Saakashvili stormed the session of the Parliament with red roses in hand, and on 23 November President Shevardnadze resigned",
+   "ka": "ვარდების რევოლუცია: ოცდღიანი პროტესტი (3-23 ნოემბერი) სადავო საპარლამენტო არჩევნების გამო; სააკაშვილის მეთაურობით დემონსტრანტები წითელი ვარდებით ხელში შეიჭრნენ პარლამენტის სხდომაზე, 23 ნოემბერს პრეზიდენტმა შევარდნაძემ გადადგა",
+   "src": [
+    "https://en.wikipedia.org/wiki/Rose_Revolution",
+    "https://en.wikipedia.org/wiki/President_of_Georgia"
+   ],
+   "place": {
+    "lng": 44.79833333,
+    "lat": 41.69694444,
+    "zoom": 16,
+    "ru": "Здание парламента, проспект Руставели",
+    "en": "The Parliament building, Rustaveli Avenue",
+    "ka": "პარლამენტის შენობა, რუსთაველის გამზირი",
+    "src": "coordinates of the page 'Parliament of Georgia' on English Wikipedia"
+   }
+  },
+  {
    "year": 2004,
    "date": "23.11.2004",
    "cat": "build",
