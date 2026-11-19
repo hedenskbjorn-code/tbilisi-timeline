@@ -900,7 +900,6 @@
   }
 
   function buildTicks() {
-    alignRulers();
     const box = $("ticks");
     box.textContent = "";
     const add = (y, cls) => {
@@ -1128,7 +1127,6 @@
   }
   const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
   function buildEvMarks() {
-    alignRulers();
     const box = $("evmarks");
     if (!box) return;
     box.textContent = "";
@@ -2346,7 +2344,8 @@
     alignRulers();
     const tb = $("timebar"), bb = $("bottom"), root = document.documentElement.style;
     root.setProperty("--tb", Math.round(tb.getBoundingClientRect().height) + "px");
-    root.setProperty("--bb", Math.round(bb.getBoundingClientRect().height) + 30 + "px");
+    const bh = bb.getBoundingClientRect().height;
+    root.setProperty("--bb", (bh ? Math.round(bh) + 30 : 0) + "px");
     updateToken();
   }
   window.addEventListener("load", () => syncBars());
