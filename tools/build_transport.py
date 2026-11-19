@@ -70,7 +70,7 @@ def outside_built_up(ways, y0, share=0.5):
     return out
 
 
-def far_pieces(ways, limit=1000, join=40):
+def far_pieces(ways, limit=1000, join=40, core=None):
     """The OSM query takes every way with a street name in the whole box, and the names repeat in other parts of the city and the suburbs (found out 2026-11-19: tram tracks in
     Tskneti, Okrokana, near Zahesi and so on). The ways of one name are joined into lines (ends closer than `join` m); the longest line is the main one; a piece that lies
     farther than `limit` m from the main line is another street with the same name and is returned to be dropped."""
@@ -95,6 +95,13 @@ def far_pieces(ways, limit=1000, join=40):
         groups.setdefault(find(i), []).append(i)
     length = lambda idx: sum(hav(geoms[i][k], geoms[i][k + 1]) for i in idx for k in range(len(geoms[i]) - 1))
     main = max(groups.values(), key=length)
+    if core:
+        # the longest line can be the wrong one (found out 2026-11-19: Pirosmani Street, 0.6 km in the east against 0.5 km by the railway station): when another line of the
+        # name lies more than 3 km nearer to the centre of the old network, that one is the main line
+        dist = lambda idx: min(hav(a, c) for i in idx for a in geoms[i][::2] for c in core[::2])
+        near = min(groups.values(), key=dist)
+        if dist(main) - dist(near) > 3000:
+            main = near
     mp = [pt for i in main for pt in geoms[i]]
     far = []
     for i in range(n):
@@ -250,12 +257,13 @@ def main():
         "kostava": ["Merab Kostava Street"], "melikishvili": ["Petre Melikishvili Avenue"], "chavchavadze": ["Ilia Chavchavadze Avenue"], "tamar": ["Tamar Mepe Avenue"],
         "khetagurov": ["Kosta Khetagurov Street"], "asc": ["Nikoloz Baratashvili Ascent"], "dedoplis": ["Tsminda Ketevan Dedoflis Avenue"], "barisakhos": ["Barisakho Street"],
         "anapa": ["Anapis 414 Divizia Street"], "zghvi": ["Tbilisi Zghvi Street"],
+        "uridia": ["Revaz Uridia Street"], "holbrooke": ["Richard Holbrooke Street"], "khmelnitsky": ["Bogdan Khmelnitski Street"],
     }
-    CHECK_URBAN = {"khizanishvili", "zghvi", "anapa", "khudadov", "alley"}      # streets whose pieces in open country are dropped (checked on the topographic map and the outlines of the built-up area, 2026-11-19)
-    NOT_MATCHED = {"pirosmani": "the only Niko Pirosmani Street pieces of the OSM box lie 9-10 km from Abastumani and Dadiani, the streets next to it in every route that names it (checked 2026-11-19)"}
-    R1986 = {1: "dadiani eristavi tsereteli tsabadze mghvdeli abastumani tsinam", 2: "dadiani khudadov tseronisi akhtala", 3: "tsereteli eristavi guramishvili zghvi anapa",
-             4: "dadiani guramishvili zghvi anapa", 5: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli", 6: "dadiani kakhiani lotkini",
-             7: "moscow dedoplis navtlughi salosi", 8: "eristavi guramishvili sheshelidze khizanishvili", 9: "tsereteli beliashvili alley",
+    CHECK_URBAN = {"alley"}      # streets whose pieces in open country are dropped (checked on the topographic map and the outlines of the built-up area, 2026-11-19)
+    NOT_MATCHED = {}                                         # streets with no usable OSM way: nothing is drawn (none now: Pirosmani Street was matched wrongly, see far_pieces)
+    R1986 = {1: "dadiani eristavi tsereteli tsabadze mghvdeli abastumani tsinam", 2: "dadiani uridia khudadov tseronisi akhtala", 3: "tsereteli eristavi guramishvili zghvi anapa",
+             4: "dadiani guramishvili zghvi anapa", 5: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli", 6: "dadiani uridia kakhiani lotkini",
+             7: "moscow dedoplis navtlughi holbrooke salosi khmelnitsky", 8: "eristavi guramishvili sheshelidze khizanishvili", 9: "tsereteli beliashvili alley",
              10: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli beliashvili alley", 11: "dadiani guramishvili sarajishvili libani barisakhos",
              12: "eristavi guramishvili sarajishvili libani barisakhos"}
     R1962 = {1: "abastumani tsinam tamar kostava melikishvili chavchavadze", 3: "abastumani tsereteli eristavi guramishvili sarajishvili",
@@ -272,11 +280,13 @@ def main():
         for k in st.split():
             tram_iv.setdefault(k, []).append((1986, END1986[r]))
     ways_tram = {}
-    for e in load("tram_streets"):
+    extra = os.path.join(RAW, "tram_streets_extra.json")
+    for e in load("tram_streets") + (load("tram_streets_extra") if os.path.exists(extra) else []):
         if "geometry" in e:
             ways_tram.setdefault(e["tags"].get("name:en"), []).append(e)
     miss = []
     dropped_tram = []
+    konka_core = [c for f in feats if str(f["properties"].get("id", "")).startswith("konka_") for c in f["geometry"]["coordinates"]]
     for k, ivs in tram_iv.items():
         ivs = sorted(set(ivs))
         merged = []
@@ -291,7 +301,7 @@ def main():
         if k in NOT_MATCHED:                                   # no street of this name lies where the routes of the lists run: nothing is drawn rather than a wrong street
             dropped_tram.extend((k, w["id"], way_len(w["geometry"])) for w in ws)
             ws = []
-        drop = set(far_pieces(ws)) if ws else set()           # other streets with the same name far away (Tskneti, Okrokana, the north, the east)
+        drop = set(far_pieces(ws, core=konka_core)) if ws else set()           # other streets with the same name far away (Tskneti, Okrokana, the north, the east)
         for i in sorted(drop):
             dropped_tram.append((k, ws[i]["id"], way_len(ws[i]["geometry"])))
         ws = [w for i, w in enumerate(ws) if i not in drop]
@@ -300,9 +310,16 @@ def main():
             for i in sorted(out):
                 dropped_tram.append((k + " (outside the built-up area)", ws[i]["id"], way_len(ws[i]["geometry"])))
             ws = [w for i, w in enumerate(ws) if i not in out]
+        r62 = ", ".join(str(r) for r in sorted(r for r, st in R1962.items() if k in st.split()))       # the numbers of the routes that name the street in the list of 1962 / of 1986
+        r86 = ", ".join(str(r) for r in sorted(r for r, st in R1986.items() if k in st.split()))
+        more = {}
+        if r62:
+            more["r62"] = r62
+        if r86:
+            more["r86"] = r86
         for w in ws:
             for a0, b0 in merged:
-                feats.append(feat({"type": "LineString", "coordinates": line(w["geometry"])}, id="tramnet_%s_%d_%d" % (k, w["id"], a0), kind="tram", y0=a0, y1=b0,
+                feats.append(feat({"type": "LineString", "coordinates": line(w["geometry"])}, id="tramnet_%s_%d_%d" % (k, w["id"], a0), kind="tram", y0=a0, y1=b0, **more,
                                   name_en="Tram street (routes of the ka.wikipedia lists)", name_ru="Улица трамвайных маршрутов (по спискам ka.wikipedia)", name_ka="ტრამვაის მარშრუტების ქუჩა",
                                   note="SCHEMATIC. The street is drawn over its whole length in OpenStreetMap; the tram did not necessarily run along all of it. Years: the route lists of 1962 and 1986 (ka.wikipedia) and the lists of routes of 2000 (8 routes), 2003 (4 routes), 2005 (route 12) and the closing on 4 December 2006 (ru.wikipedia): between the lists the state is not known. Several streets of the routes are missing (no matching way in OSM). Pieces of a street that lie far from its main line (other streets with the same name) and, for some streets, pieces in open country outside the built-up area of the time are left out; the real tracks are not known (checked 2026-11-19, see sources.md).",
                                   src=["https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A0%E1%83%90%E1%83%9B%E1%83%95%E1%83%90%E1%83%98", "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%82%D1%80%D0%B0%D0%BC%D0%B2%D0%B0%D0%B9"]))
