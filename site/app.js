@@ -2379,12 +2379,14 @@
         btn.type = "button";
         btn.className = "rseg " + kindOf(it) + (it.approx ? " approx" : "") + (it.lane ? " sub" : "");
         btn.dataset.from = it.from; btn.dataset.to = it.to;
-        btn.style.left = "calc(8px + (100% - 16px) * " + x1 + ")";
-        btn.style.width = "max(2px, calc((100% - 16px) * " + (x2 - x1) + "))";
+        const MIN = 6, grow = px < MIN ? (MIN - px) / 2 : 0;           // a term shorter than 6 px is widened to 6 px around its place
+        btn.style.left = "calc(8px + (100% - 16px) * " + x1 + " - " + grow.toFixed(1) + "px)";
+        btn.style.width = px < MIN ? MIN + "px" : "calc((100% - 16px) * " + (x2 - x1) + ")";
+        if (px < MIN) btn.classList.add("short");
         const lane = it.lane || 0;
         btn.style.top = (lane ? RULE_MAIN_H + RULE_GAP : 0) + "px";
         lanes = Math.max(lanes, lane + 1);
-        if (px >= (lane ? 56 : 46)) btn.textContent = nameOf(it);
+        if (px >= (lane ? 56 : 46)) btn.textContent = nameOf(it); else btn.classList.add("nolabel");       // no text: no padding, so the width is the real length of the term
         btn.title = nameOf(it) + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to);
         btn.addEventListener("click", () => showRulerCard(it));
         row.appendChild(btn);
@@ -2405,9 +2407,9 @@
       const pm = !isState && rulersMedia && rulersMedia.rulers && rulersMedia.rulers[it.id];
       if (pm) { const bi = mediaImg(pm.b || pm.i, 0, 0, rText(it.name)); bi.className = "rbig"; body.appendChild(bi); credit(body, pm, it.from < 1700); }
       if (isState && rulersMedia && rulersMedia.flags && rulersMedia.flags[it.id]) {
-        for (const f of rulersMedia.flags[it.id]) {
+        for (const f of rulersMedia.flags[it.id].slice().sort((a, b) => a.from - b.from)) {
           const row = document.createElement("div"); row.className = "small";
-          row.appendChild(mediaImg(f.i, 0, 28, (RN[lang] || RN.en).flag)); row.appendChild(document.createTextNode(" " + dispYear(f.from) + "–" + dispYear(f.to) + (f.k === "recon" ? " · " + (RN[lang] || RN.en).recon : f.k === "civil" ? " · " + (RN[lang] || RN.en).civil : "")));
+          { const fi = mediaImg(f.b || f.i, 0, 0, (RN[lang] || RN.en).flag); fi.className = "rflag"; row.appendChild(fi); } row.appendChild(document.createTextNode(" " + dispYear(f.from) + "–" + dispYear(f.to) + (f.k === "recon" ? " · " + (RN[lang] || RN.en).recon : f.k === "civil" ? " · " + (RN[lang] || RN.en).civil : "")));
           body.appendChild(row); credit(body, f, false);
         }
       }

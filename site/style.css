@@ -356,3 +356,6 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 @media (max-width:640px) { #ruleNow { width:auto !important; padding:0 0 4px; } }
 .rseg { opacity:1; background:color-mix(in srgb, var(--rc) 38%, var(--panel)); color:var(--fg); text-shadow:none; }
 .rseg.on, .rseg:hover { background:var(--rc); color:#fff; text-shadow:0 1px 1px #0004; }
+#imBody img.rflag { width:auto !important; height:64px; max-width:100%; border:1px solid var(--line); border-radius:3px; margin:6px 8px 2px 0; }
+.rseg.short { z-index:2; outline:1px solid var(--panel); }
+.rseg.nolabel { padding:0; }

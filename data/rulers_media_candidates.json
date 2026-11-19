@@ -1702,16 +1702,21 @@
    "mime": "image/jpeg"
   },
   "margvelashvili": {
-   "wp": "Giorgi Margvelashvili (chess player)",
-   "q": "Q4281192",
-   "label": "Giorgi Margvelashvili",
-   "desc": "Georgian chess player",
-   "birth": 1990,
+   "wp": "Giorgi Margvelashvili",
+   "q": "Q13107337",
+   "label": "Giorgi Marghvilashvili",
+   "desc": "Georgian politician and philosopher, fourth President of Georgia (2013–2018)",
+   "birth": 1969,
    "death": null,
-   "image": null,
-   "ratio": 1.0,
+   "image": "Prasidenten Margvelashvili (cropped).jpg",
+   "ratio": 0.5,
    "alive": true,
-   "status": "noimage"
+   "status": "auto",
+   "license": "CC BY 2.0",
+   "artist": "Bundesministerium für Europa, Integration und Äusseres",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/57/Prasidenten_Margvelashvili_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "page": "https://commons.wikimedia.org/wiki/File:Prasidenten_Margvelashvili_(cropped).jpg",
+   "mime": "image/jpeg"
   },
   "zourabichvili": {
    "wp": "Salomé Zourabichvili",
