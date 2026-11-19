@@ -20,6 +20,12 @@
     "ru": "Страница маршрута, объект 1: это второе здание Театрального университета на проспекте Агмашенебели, а не главное на проспекте Руставели; в названии указано здание, фото главного здания убрано, добавлено примечание об адресах.",
     "en": "Route page, object 1: it is the second building of the Theatre and Film University on Aghmashenebeli Avenue, not the main one on Rustaveli Avenue; the title names the building, the photo of the main building is removed, a note on the addresses is added.",
     "ka": "მარშრუტის გვერდი, ობიექტი 1: ეს თეატრისა და კინოს უნივერსიტეტის მეორე შენობაა აღმაშენებლის გამზირზე და არა მთავარი რუსთაველის გამზირზე; სათაურში შენობაა მითითებული, მთავარი შენობის ფოტო ამოღებულია, დაემატა შენიშვნა მისამართების შესახებ."
+   },
+   {
+    "t": "new",
+    "ru": "Страница маршрута: у 8 объектов без статьи в Википедии появились короткие справки по данным реестра культурного наследия и другим данным сайта (источник назван под текстом); теперь описания есть у всех 45 объектов.",
+    "en": "Route page: the 8 objects that have no Wikipedia article now have short notes from the data of the heritage register and other data of the site (the source is named under the text); all 45 objects now have a description.",
+    "ka": "მარშრუტის გვერდი: 8 ობიექტს, რომელსაც ვიკიპედიაში სტატია არა აქვს, ახლა აქვს მოკლე ცნობა კულტურული მემკვიდრეობის რეესტრისა და საიტის სხვა მონაცემებით (წყარო ტექსტის ქვეშ არის მითითებული); ახლა ყველა 45 ობიექტს აქვს აღწერა."
    }
   ]
  },

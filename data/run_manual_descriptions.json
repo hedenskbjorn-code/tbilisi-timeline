@@ -1,0 +1,94 @@
+{
+ "note": "Short descriptions of the sights that have no usable Wikipedia article, written by the assistant on 2026-11-19 only from the facts named in each text: the entries of the heritage register of Georgia (data of this site), the layer of lost buildings of this site, the ru.wikipedia articles about the district Kukia and about the Gabriadze theatre, and the en/ka articles about the St Sarkis church. kind: register = the register data; adapted = a retelling of a Wikipedia article (CC BY-SA); wikipedia = the introduction of an article. Georgian and English texts are not checked by a native speaker.",
+ "descriptions": {
+  "2": {
+   "kind": "register",
+   "desc": {
+    "ru": "Комплекс церкви Кукия — запись реестра культурного наследия Грузии (пр. Давида Агмашенебели, 38 / ул. Сосо Церетели, 5). Кукия — район Тбилиси на левом берегу Куры, на западном склоне горы Махата; деревня Кукия с обнесённой стеной церковью обозначена на плане города 1800 года. Рядом, по данным слоя «Утраченные здания» этого сайта, стояла Кукийская армянская церковь Пресвятой Богородицы (Сурб Аствацацин), построенная между 1820 и 1860 годами и снесённая в 1930–1938 годах.",
+    "en": "The Kukia Church Complex is an entry of the heritage register of Georgia (38 David Agmashenebeli Avenue / 5 Sosio Tsereteli St.). Kukia is a district of Tbilisi on the left bank of the Kura, on the western slope of Mount Makhata; a village Kukia with a walled church is marked on the plan of the city of 1800. Nearby, according to the layer of lost buildings of this site, stood the Kukia Armenian church of the Holy Mother of God (Surb Astvatsatsin), built between 1820 and 1860 and demolished in 1930-1938.",
+    "ka": "კუკიის ეკლესიის კომპლექსი — საქართველოს კულტურული მემკვიდრეობის რეესტრის ჩანაწერია (დავით აღმაშენებლის გამზ. 38 / სოსო წერეთლის ქ. 5). კუკია თბილისის უბანია მტკვრის მარცხენა ნაპირზე, მახათის მთის დასავლეთ ფერდობზე; კედლით შემოზღუდული ეკლესიის მქონე სოფელი კუკია აღნიშნულია ქალაქის 1800 წლის გეგმაზე. ახლოს, ამ საიტის „დაკარგული შენობების“ ფენის მონაცემებით, იდგა კუკიის სომხური ღვთისმშობლის ეკლესია (სურბ ასტვაწაწინი), აგებული 1820–1860 წლებს შორის და დანგრეული 1930–1938 წლებში."
+   },
+   "sources": [
+    "https://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%BA%D0%B8%D1%8F_(%D1%80%D0%B0%D0%B9%D0%BE%D0%BD)",
+    "https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%B0%D1%80%D0%BC%D1%8F%D0%BD%D1%81%D0%BA%D0%B8%D1%85_%D1%85%D1%80%D0%B0%D0%BC%D0%BE%D0%B2_%D0%B2_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  "3": {
+   "kind": "register",
+   "desc": {
+    "ru": "Кукийская крепость — запись реестра культурного наследия Грузии (пр. Давида Агмашенебели, 38); дата в реестре не указана. Кукия — район Тбилиси на левом берегу Куры, на западном склоне горы Махата. Отдельной статьи о крепости в Википедии нет.",
+    "en": "The Kukia Fortress is an entry of the heritage register of Georgia (38 David Agmashenebeli Avenue); the register gives no date. Kukia is a district of Tbilisi on the left bank of the Kura, on the western slope of Mount Makhata. Wikipedia has no separate article about the fortress.",
+    "ka": "კუკიის ციხე-სიმაგრე — საქართველოს კულტურული მემკვიდრეობის რეესტრის ჩანაწერია (დავით აღმაშენებლის გამზ. 38); რეესტრში თარიღი მითითებული არ არის. კუკია თბილისის უბანია მტკვრის მარცხენა ნაპირზე, მახათის მთის დასავლეთ ფერდობზე. ციხის შესახებ ვიკიპედიაში ცალკე სტატია არ არის."
+   },
+   "sources": [
+    "https://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%BA%D0%B8%D1%8F_(%D1%80%D0%B0%D0%B9%D0%BE%D0%BD)"
+   ]
+  },
+  "7": {
+   "kind": "register",
+   "desc": {
+    "ru": "Григорианская (армянская) церковь — запись реестра культурного наследия Грузии (ул. Гелати, 13 / ул. Иори, 30); дата в реестре — конец XVIII века. Отдельной статьи в Википедии нет.",
+    "en": "The Gregorian (Armenian) Church is an entry of the heritage register of Georgia (13 Gelati St. / 30 Iori St.); the register dates it to the end of the 18th century. Wikipedia has no separate article about it.",
+    "ka": "გრიგორიანული (სომხური) ეკლესია — საქართველოს კულტურული მემკვიდრეობის რეესტრის ჩანაწერია (გელათის ქ. 13 / იორის ქ. 30); რეესტრის მიხედვით თარიღდება მე-18 საუკუნის დასასრულით. ვიკიპედიაში მის შესახებ ცალკე სტატია არ არის."
+   }
+  },
+  "11": {
+   "kind": "register",
+   "desc": {
+    "ru": "Церковь св. Або — запись реестра культурного наследия Грузии (адрес в реестре не указан). По нашим данным, она находится в 60 м от храма Метехи. Отдельной статьи в Википедии нет.",
+    "en": "St. Abo Church is an entry of the heritage register of Georgia (the register gives no address). By our data it stands about 60 m from the Metekhi Church. Wikipedia has no separate article about it.",
+    "ka": "წმ. აბოს ეკლესია — საქართველოს კულტურული მემკვიდრეობის რეესტრის ჩანაწერია (რეესტრში მისამართი მითითებული არ არის). ჩვენი მონაცემებით, იგი მეტეხის ტაძრიდან დაახლოებით 60 მეტრზე მდებარეობს. ვიკიპედიაში მის შესახებ ცალკე სტატია არ არის."
+   }
+  },
+  "15": {
+   "kind": "wikipedia",
+   "desc": {
+    "ru": "Церковь Св. Саркиса (арм. Սուրբ Սարգիս եկեղեցի) — армянская церковь в районе Харпух (Серных бань) Старого Тбилиси, Грузия. Была разрушена по приказу Лаврентия Берии в 1930-х годах.",
+    "en": "Saint Sarkis Church (Armenian: Սուրբ Սարգիս եկեղեցի), is an Armenian church in Harpukh Sulfuric Baths district of Old Tbilisi, Georgia. It was destroyed by Lavrentiy Beria's order in the 1930s.",
+    "ka": "სურბ სარქისის ეკლესია — სომხური ეკლესია, რომელიც იდგა მდინარე მტკვრის მარჯვენა სანაპიროზე, თბილისის ძველ უბან — აბანოთუბანში. ტაძარი ჯვარგუმბათოვანი ნაგებობა იყო. ამჟამად დანგრეული და განადგურებულია."
+   },
+   "sources": [
+    "https://en.wikipedia.org/wiki/St._Sarkis_Church_(Tbilisi,_Georgia)",
+    "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%A3%E1%83%A0%E1%83%A4%E1%83%A1%E1%83%90%E1%83%A0%E1%83%A5%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98"
+   ],
+   "tr": {
+    "ru": "en"
+   },
+   "src_by_lang": {
+    "en": "https://en.wikipedia.org/wiki/St._Sarkis_Church_(Tbilisi,_Georgia)",
+    "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%A3%E1%83%A0%E1%83%A4%E1%83%A1%E1%83%90%E1%83%A0%E1%83%A5%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98"
+   }
+  },
+  "29": {
+   "kind": "adapted",
+   "desc": {
+    "ru": "Башня с часами Резо Габриадзе (ул. Шавтели, 13) пристроена в 2010 году к зданию Тбилисского театра марионеток. Каждый час из расписных дверей в верхней части башни появляется златокрылый ангел и ударяет молоточком в колокол; на башне также разыгрывается миниатюрный кукольный спектакль «Цикл жизни».",
+    "en": "The Rezo Gabriadze Clock Tower (13 Shavteli St.) was added in 2010 to the building of the Tbilisi Marionette Theatre. Every hour a golden-winged angel appears from the painted doors at the top of the tower and strikes a bell with a small hammer; a miniature puppet show, \"The Cycle of Life\", is also played on the tower.",
+    "ka": "რეზო გაბრიაძის საათიანი კოშკი (შავთელის ქ. 13) 2010 წელს მიაშენეს თბილისის მარიონეტების თეატრის შენობას. ყოველ საათზე კოშკის ზედა ნაწილის მოხატული კარიდან ოქროსფრთება ანგელოზი გამოდის და ჩაქუჩით ზარს ურტყამს; კოშკზე ასევე თამაშდება მინიატურული თოჯინური სპექტაკლი „სიცოცხლის ციკლი“."
+   },
+   "sources": [
+    "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BC%D0%B0%D1%80%D0%B8%D0%BE%D0%BD%D0%B5%D1%82%D0%BE%D0%BA_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%A0%D0%B5%D0%B7%D0%BE_%D0%93%D0%B0%D0%B1%D1%80%D0%B8%D0%B0%D0%B4%D0%B7%D0%B5"
+   ],
+   "from": "ru",
+   "src_by_lang": {
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%82%D0%B5%D0%B0%D1%82%D1%80_%D0%BC%D0%B0%D1%80%D0%B8%D0%BE%D0%BD%D0%B5%D1%82%D0%BE%D0%BA_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%A0%D0%B5%D0%B7%D0%BE_%D0%93%D0%B0%D0%B1%D1%80%D0%B8%D0%B0%D0%B4%D0%B7%D0%B5"
+   }
+  },
+  "32": {
+   "kind": "register",
+   "desc": {
+    "ru": "Участок старой городской стены у улицы Николоза Бараташвили — запись реестра культурного наследия Грузии; дата в реестре не указана. Отдельной статьи в Википедии об этом участке нет.",
+    "en": "A stretch of the old city wall by Nikoloz Baratashvili Street is an entry of the heritage register of Georgia; the register gives no date. Wikipedia has no separate article about this stretch.",
+    "ka": "ძველი ქალაქის გალავნის მონაკვეთი ნიკოლოზ ბარათაშვილის ქუჩის მიმდებარედ — საქართველოს კულტურული მემკვიდრეობის რეესტრის ჩანაწერია; რეესტრში თარიღი მითითებული არ არის. ვიკიპედიაში ამ მონაკვეთის შესახებ ცალკე სტატია არ არის."
+   }
+  },
+  "33": {
+   "kind": "register",
+   "desc": {
+    "ru": "Фрагменты старой городской стены у улицы Пушкина, 23–25 — запись реестра культурного наследия Грузии; дата в реестре не указана. Отдельной статьи в Википедии нет.",
+    "en": "Fragments of the old city wall at 23-25 Pushkin Street are an entry of the heritage register of Georgia; the register gives no date. Wikipedia has no separate article about them.",
+    "ka": "ძველი გალავნის ფრაგმენტები პუშკინის ქუჩა 23-25-ში — საქართველოს კულტურული მემკვიდრეობის რეესტრის ჩანაწერია; რეესტრში თარიღი მითითებული არ არის. ვიკიპედიაში მათ შესახებ ცალკე სტატია არ არის."
+   }
+  }
+ }
+}

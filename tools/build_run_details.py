@@ -45,6 +45,9 @@ NOTES = {
         "en": "This point is the building at 40 David Agmashenebeli Avenue (an entry of the heritage register, late 19th century). The university occupies two buildings: according to the English Wikipedia article, the first at 19-23 Rustaveli Avenue, the second on David Agmashenebeli Avenue. The description refers to the university as a whole.",
         "ka": "ეს წერტილი არის შენობა დავით აღმაშენებლის გამზირზე №40 (ძეგლთა რეესტრის ჩანაწერი, XIX საუკუნის ბოლო). უნივერსიტეტი ორ შენობას იკავებს: ვიკიპედიის ინგლისური სტატიით, პირველი რუსთაველის გამზირზე №19–23, მეორე — დავით აღმაშენებლის გამზირზე. აღწერა მთლიანად უნივერსიტეტს ეხება."},
 }
+NOTES[15] = {"ru": "Точка отмечает остатки церкви (запись реестра: ул. Гришашвили, 18, середина XIX века); сама церковь разрушена.",
+             "en": "The point marks the remains of the church (register entry: 18 Grishashvili St., middle of the 19th century); the church itself was destroyed.",
+             "ka": "წერტილი ეკლესიის ნარჩენებს აღნიშნავს (რეესტრის ჩანაწერი: გრიშაშვილის ქ. 18, XIX საუკუნის შუა წლები); თვით ეკლესია დანგრეულია."}
 NO_ARTICLE_PHOTOS = {1}          # the photos of the articles show another building than the point: no photo from the articles
 
 
@@ -106,6 +109,18 @@ def main():
             if lg not in d["desc"]:
                 d["desc"][lg] = e["text"]
                 d.setdefault("tr", {})[lg] = e["from"]
+    man = jload("data", "run_manual_descriptions.json")["descriptions"]          # sights with no usable article: short texts from the register and other data of the site
+    for n, e in man.items():
+        d = desc.get(int(n))
+        if d is not None and not d.get("desc"):
+            d["desc"] = dict(e["desc"])
+            d["kind"] = e["kind"]
+            d["sources"] = list(e.get("sources", []))
+            d["src_by_lang"] = dict(e.get("src_by_lang", {}))
+            if e.get("tr"):
+                d["tr"] = dict(e["tr"])
+            if e["kind"] == "adapted":
+                d["tr"] = {lg: e["from"] for lg in e["desc"]}
     wanted = [(w if w.startswith("File:") else "File:" + w).replace("_", " ") for w in wanted]
     info = commons(sorted(set(wanted))) if wanted else {}
     res = {}
@@ -124,7 +139,7 @@ def main():
             if e and len(pl) < MAX_PHOTOS and all(x["page"] != e["page"] for x in pl):
                 pl.append(e)
         facts = d.get("facts") or ({"address": p.get("address")} if p.get("address") and not d.get("desc") else None)       # no article: at least the address of the register
-        item = {"desc": d.get("desc"), "facts": facts, "wp": d.get("wp"), "sources": d.get("sources"), "src_by_lang": d.get("src_by_lang"), "tr": d.get("tr"), "notes_public": NOTES.get(n), "photos": pl}
+        item = {"desc": d.get("desc"), "facts": facts, "wp": d.get("wp"), "sources": d.get("sources"), "src_by_lang": d.get("src_by_lang"), "tr": d.get("tr"), "kind": d.get("kind"), "notes_public": NOTES.get(n), "photos": pl}
         res[str(n)] = {k: v for k, v in item.items() if v}
     out = {"note": "Built by tools/build_run_details.py on 2026-11-19 from data/run_descriptions.json (descriptions written from Wikipedia articles) and the photos of Wikimedia Commons (free licences).", "sights": res}
     open(os.path.join(ROOT, "site", "data", "run_details.json"), "wb").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
