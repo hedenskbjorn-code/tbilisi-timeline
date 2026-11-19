@@ -225,6 +225,7 @@ body.panel-open #yearchip { display:none; }
   #side, #filters { top:52px; left:8px; right:8px; width:auto; max-height:calc(100% - 52px - 112px); display:block; }
   #side[hidden], #filters[hidden] { display:none !important; }
   #btnInfo, #btnFilters { padding:5px 8px; font-size:12px; white-space:nowrap; }
+  body.rulers-on #side, body.rulers-on #filters { max-height:calc(100% - 52px - 176px); }      /* the band of rulers makes the bottom bar higher (144 px instead of 80) */
 }
 
 /* swipe mode: captions on both sides of the bar so it is clear which side is which */

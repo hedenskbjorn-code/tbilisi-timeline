@@ -108,6 +108,7 @@
       showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", lutheran: "Лютеранская", yazidi: "Езидская", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relApprox: "точка на карте приблизительная", relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
       showRulers: "Правители и формы власти (полоса под шкалой)", ruleNow: "Кто правил", ruleState: "Государство", ruleOver: "Внешняя власть", ruleAdmin: "Единица управления", ruleForm: "Форма власти", ruleYears: "Годы", ruleNoData: "нет данных",
       showRun: "Tbilisi Running Club: маршрут City Run 2026 и что увидеть по пути (сегодняшний город)", runStats: (r, n) => `${r.length_km} км, высота ${r.ele_min}-${r.ele_max} м, ${n} достопримечательностей`, runKm: "Километр", runDist: "От трассы", runYear: "Дата по реестру", runWiki: "Википедия", runStart: "Старт и финиш", runList: "По порядку вдоль маршрута", runNote: "В список входят объекты данных сайта, чья точка лежит не дальше 150 м от трассы: национального значения, со статьёй в Википедии, церкви, мосты, театры, музеи, стены и крепости. Расстояние считается от точки объекта до линии трассы, поэтому крупные здания могут быть ближе. Это не проверка видимости.", runSrc: "Маршрут (геометрия)",
+      topoPlanOpt: "1:2 000 · городской план (z17)", legDistEx: "Мтацминда", legSetEx: "Коджори", ariaLang: "Язык", ariaClose: "закрыть", fbContactPh: "email или telegram (необязательно)",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -263,6 +264,7 @@
       showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", lutheran: "Lutheran", yazidi: "Yazidi", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relApprox: "the point on the map is approximate", relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
       showRulers: "Rulers and forms of government (a band under the scale)", ruleNow: "Who ruled", ruleState: "State", ruleOver: "Outside power", ruleAdmin: "Administrative unit", ruleForm: "Form of rule", ruleYears: "Years", ruleNoData: "no data",
       showRun: "Tbilisi Running Club: the City Run 2026 route and what to see on the way (today's city)", runStats: (r, n) => `${r.length_km} km, elevation ${r.ele_min}-${r.ele_max} m, ${n} sights`, runKm: "Kilometre", runDist: "From the route", runYear: "Date in the register", runWiki: "Wikipedia", runStart: "Start and finish", runList: "In order along the route", runNote: "The list holds the objects of the data of this site whose point lies within 150 m of the track: of national significance, with a Wikipedia article, churches, bridges, theatres, museums, walls and fortresses. The distance is from the point of the object to the line of the track, so large buildings may be closer. This is not a check of visibility.", runSrc: "Route (geometry)",
+      topoPlanOpt: "1:2 000 · city plan (z17)", legDistEx: "Mtatsminda", legSetEx: "Kojori", ariaLang: "Language", ariaClose: "close", fbContactPh: "email or telegram (optional)",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -419,6 +421,7 @@
       showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", lutheran: "ლუთერანული", yazidi: "ეზიდური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relApprox: "წერტილი რუკაზე მიახლოებითია", relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
       showRulers: "მმართველები და მმართველობის ფორმები (ზოლი სკალის ქვეშ)", ruleNow: "ვინ მართავდა", ruleState: "სახელმწიფო", ruleOver: "გარე ძალა", ruleAdmin: "ადმინისტრაციული ერთეული", ruleForm: "მმართველობის ფორმა", ruleYears: "წლები", ruleNoData: "მონაცემი არ არის",
       showRun: "Tbilisi Running Club: City Run 2026-ის მარშრუტი და რა ჩანს გზაზე (დღევანდელი ქალაქი)", runStats: (r, n) => `${r.length_km} კმ, სიმაღლე ${r.ele_min}-${r.ele_max} მ, ${n} ღირსშესანიშნაობა`, runKm: "კილომეტრი", runDist: "ტრასიდან", runYear: "თარიღი რეესტრში", runWiki: "ვიკიპედია", runStart: "სტარტი და ფინიში", runList: "მარშრუტის გასწვრივ თანმიმდევრობით", runNote: "სიაში შედის საიტის მონაცემთა ობიექტები, რომელთა წერტილი ტრასიდან 150 მ-ს არ აცილდება: ეროვნული მნიშვნელობის, ვიკიპედიის სტატიით, ეკლესიები, ხიდები, თეატრები, მუზეუმები, გალავნები და ციხეები. მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა. ეს ხილვადობის შემოწმება არ არის.", runSrc: "მარშრუტი (გეომეტრია)",
+      topoPlanOpt: "1:2 000 · ქალაქის გეგმა (z17)", legDistEx: "მთაწმინდა", legSetEx: "კოჯორი", ariaLang: "ენა", ariaClose: "დახურვა", fbContactPh: "ელფოსტა ან ტელეგრამი (არასავალდებულო)",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -793,6 +796,9 @@
     if (typeof feedbackRefreshCtx === "function") feedbackRefreshCtx();
     $("title").textContent = t().title;
     $("lang").value = lang;
+    $("lang").setAttribute("aria-label", t().ariaLang);
+    document.querySelectorAll(".pclose").forEach((b) => b.setAttribute("aria-label", t().ariaClose));
+    if ($("fbContactInput")) $("fbContactInput").placeholder = t().fbContactPh;
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
     updateZoomUi();
@@ -1310,7 +1316,7 @@
     add(L.lostBuilt + ": " + rng(p.b0, p.b1) + " · " + L.lostLost + ": " + rng(p.l0, p.l1));
     const st = lostState(p);
     if (st) add(year + ": " + L.lostState[st], "k small");
-    if (p.repl && p.repl !== "null") add(L.lostRepl + ": " + p.repl);
+    if (p.repl && p.repl !== "null") add(L.lostRepl + ": " + (p["repl_" + lang] || p.repl));
     let srcs = [];
     try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
     addWiki(el, p);
@@ -1895,6 +1901,10 @@
     } catch (e) {}
   });
 
+  window.addEventListener("hashchange", () => {
+    const hy = parseInt((location.hash || "").slice(1), 10);
+    if (hy >= MIN && hy <= MAX && hy !== year) { year = hy; update(); }
+  });
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
   for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
@@ -2236,6 +2246,18 @@
     $("btnSearch").setAttribute("aria-label", t().searchBtn);
     if (!$("search").hidden) renderSearch();
   }
+  // does the word w, or its beginning of the length of the query, differ from the query tk by at most one letter (changed, lost or added)?
+  function within1(tk, w) {
+    for (const v of [w, w.slice(0, tk.length), w.slice(0, tk.length + 1), w.slice(0, tk.length - 1)]) {
+      if (Math.abs(v.length - tk.length) > 1) continue;
+      let i = 0;
+      while (i < v.length && i < tk.length && v[i] === tk[i]) i++;
+      if (v.length === tk.length && v.slice(i + 1) === tk.slice(i + 1)) return true;
+      if (v.length === tk.length + 1 && v.slice(i + 1) === tk.slice(i)) return true;
+      if (v.length + 1 === tk.length && v.slice(i) === tk.slice(i + 1)) return true;
+    }
+    return false;
+  }
   function runSearch(q) {
     const toks = normQ(q).split(" ").filter(Boolean);
     const rows = [];
@@ -2251,6 +2273,18 @@
         s += k.startsWith(tk) ? 3 : k.includes(" " + tk) ? 2 : 1;
       }
       if (s >= 0) scored.push({ it, s: s + (it.kind === "e" ? 0.5 : 0) });
+    }
+    if (!scored.length && toks.some((tk) => tk.length >= 5)) {      // nothing found: one typo (a letter changed, lost or added) is allowed in the words of 5+ letters
+      for (const it of searchIndex) {
+        const words = it.key.split(" ");
+        let s = 0;
+        for (const tk of toks) {
+          if (it.key.includes(tk)) { s += 2; continue; }
+          if (tk.length < 5 || !words.some((w) => within1(tk, w))) { s = -1; break; }
+          s += 1;
+        }
+        if (s >= 0) scored.push({ it, s });
+      }
     }
     scored.sort((a, b) => b.s - a.s);
     for (const x of scored.slice(0, 40)) rows.push(x.it);
