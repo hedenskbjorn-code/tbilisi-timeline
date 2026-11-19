@@ -289,3 +289,10 @@ body.nofilters #views { right:16px; }
 #evmarks button.cl::after { content:attr(data-n); position:absolute; right:-3px; top:-5px; min-width:12px; padding:0 3px; font:700 9px/12px system-ui,sans-serif; color:#fff; background:var(--accent); border-radius:8px; }
 .evrow { margin:4px 0; padding:6px 8px; border:1px solid var(--line); border-radius:6px; cursor:pointer; font-size:13px; }
 .evrow:hover, .evrow:focus { border-color:var(--accent); outline:none; }
+
+#btnSupport { padding:6px 9px; color:#d6336c; }
+.spgo { display:block; text-align:center; text-decoration:none; margin:12px 0 4px; }
+.spqr { display:flex; flex-direction:column; align-items:center; gap:6px; margin:12px 0; }
+.spqr img { background:#fff; padding:6px; border-radius:8px; image-rendering:pixelated; }
+.supportside { display:block; width:100%; margin-top:8px; text-align:center; }
+@media (max-width:640px) { #btnSupport { display:none; } }     /* the top bar is full on a phone: the same window opens from the Info panel */

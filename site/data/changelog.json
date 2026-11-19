@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.5.0",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Кнопка «Поддержать проект» (♥) в шапке: добровольный перевод через страницу банка TBC, ссылка и QR. Проект по-прежнему некоммерческий, без рекламы; сайт не получает и не хранит данные платежа.",
+    "en": "A \"Support the project\" button (♥) in the header: a voluntary transfer through the TBC bank payment page, with a link and a QR. The project stays non-commercial and ad-free; the site neither receives nor stores any payment data.",
+    "ka": "სათაურში გამოჩნდა ღილაკი „პროექტის მხარდაჭერა“ (♥): ნებაყოფლობითი გადარიცხვა TBC ბანკის გადახდის გვერდის საშუალებით, ბმულითა და QR-ით. პროექტი რჩება არაკომერციულად და რეკლამის გარეშე; საიტი არ იღებს და არ ინახავს გადახდის მონაცემებს."
+   }
+  ]
+ },
+ {
   "version": "1.4.1",
   "date": "2026-11-19",
   "items": [
