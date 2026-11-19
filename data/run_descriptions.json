@@ -273,6 +273,14 @@
  },
  {
   "n": 13,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 14,
   "wp": {
    "ru": "Церковь Святого Николая (Нарикала)",
    "en": "Narikala",
@@ -309,7 +317,7 @@
   }
  },
  {
-  "n": 14,
+  "n": 15,
   "wp": {
    "en": "Juma Mosque, Tbilisi"
   },
@@ -328,14 +336,6 @@
   "src_by_lang": {
    "en": "https://en.wikipedia.org/wiki/Juma_Mosque,_Tbilisi"
   }
- },
- {
-  "n": 15,
-  "wp": {},
-  "desc": {},
-  "sources": [],
-  "photos": [],
-  "src_by_lang": {}
  },
  {
   "n": 16,
@@ -903,6 +903,72 @@
  {
   "n": 36,
   "wp": {
+   "ru": "Государственный музей грузинской литературы имени Георгия Леонидзе",
+   "en": "Giorgi Leonidze State Museum of Literature",
+   "ka": "საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი"
+  },
+  "desc": {
+   "ru": "Государственный музей грузинской литературы имени Георгия Леонидзе (груз. საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი) — учреждение культуры Грузии. Расположен в Тбилиси, улица Г. Чантурия, д.",
+   "en": "Giorgi Leonidze State Museum of Literature, Georgia (Georgian: საქართველოს გიორგი ლეონიძის სახელობის მუზეუმი) was founded in 1930 upon the initiative of David Arsenishvili, a legendary museum-founder, who also was the creator of Tbilisi Theater Museum, and later the famous Andrej Rublow museum in Moscow. The greatest supporter for this initiative was Georgian poet Titsian Tabidze, who, together with the group of symbolist writers – the Blue Horns (Georgian: Tsisferyantselebi / ცისფერყანწელები ) – advocated the creation of a literature museum since 1919. Tabidze, together with Ivan Enikolofow, was also the first chair of the museum.",
+   "ka": "საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი — სახელმწიფო მუზეუმი თბილისში."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F_%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%D0%B7%D0%B5",
+   "https://en.wikipedia.org/wiki/Giorgi_Leonidze_State_Museum_of_Literature",
+   "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9A%E1%83%94%E1%83%9D%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A0%E1%83%90%E1%83%A2%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9B%E1%83%AC%E1%83%98%E1%83%A4%E1%83%9D_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  ],
+  "photos": [
+   {
+    "file": "File:Gia_Chanturia_street_8_-_Revaz_Tabukashvili_street_18.jpg",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F_%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%D0%B7%D0%B5",
+   "en": "https://en.wikipedia.org/wiki/Giorgi_Leonidze_State_Museum_of_Literature",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9A%E1%83%94%E1%83%9D%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A0%E1%83%90%E1%83%A2%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9B%E1%83%AC%E1%83%98%E1%83%A4%E1%83%9D_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
+  }
+ },
+ {
+  "n": 37,
+  "wp": {
+   "ru": "Кашвети",
+   "en": "Kashveti Church"
+  },
+  "desc": {
+   "ru": "Церковь Кашвети (церковь святого Георгия) (груз. ქაშვეთის წმინდა გიორგის სახელობის ტაძარი) — православная церковь в центре Тбилиси, расположенная напротив здания Парламента Грузии на проспекте Руставели (д. 9).",
+   "en": "The Kashveti Church of St. George (Georgian: ქაშვეთის წმინდა გიორგის სახელობის ტაძარი) is a Georgian Orthodox Church in central Tbilisi, located across from the Parliament building on Rustaveli Avenue. The Kashveti church was constructed between 1904 and 1910 by the architect Leopold Bilfeldt, who based his design on the medieval Samtavisi Cathedral."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%88%D0%B2%D0%B5%D1%82%D0%B8",
+   "https://en.wikipedia.org/wiki/Kashveti_Church"
+  ],
+  "photos": [
+   {
+    "file": "File:Kashveti1.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Kashveti1-2.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%88%D0%B2%D0%B5%D1%82%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Kashveti_Church"
+  }
+ },
+ {
+  "n": 38,
+  "wp": {},
+  "desc": {},
+  "sources": [],
+  "photos": [],
+  "src_by_lang": {}
+ },
+ {
+  "n": 39,
+  "wp": {
    "ru": "Национальная картинная галерея Грузии",
    "en": "Tbilisi Art Gallery",
    "ka": "საქართველოს ეროვნული გალერეა"
@@ -930,7 +996,7 @@
   }
  },
  {
-  "n": 37,
+  "n": 40,
   "wp": {
    "en": "Tbilisi Marriott Hotel",
    "ka": "თბილისი მარიოტი"
@@ -959,36 +1025,7 @@
   }
  },
  {
-  "n": 38,
-  "wp": {
-   "ru": "Государственный музей грузинской литературы имени Георгия Леонидзе",
-   "en": "Giorgi Leonidze State Museum of Literature",
-   "ka": "საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი"
-  },
-  "desc": {
-   "ru": "Государственный музей грузинской литературы имени Георгия Леонидзе (груз. საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი) — учреждение культуры Грузии. Расположен в Тбилиси, улица Г. Чантурия, д.",
-   "en": "Giorgi Leonidze State Museum of Literature, Georgia (Georgian: საქართველოს გიორგი ლეონიძის სახელობის მუზეუმი) was founded in 1930 upon the initiative of David Arsenishvili, a legendary museum-founder, who also was the creator of Tbilisi Theater Museum, and later the famous Andrej Rublow museum in Moscow. The greatest supporter for this initiative was Georgian poet Titsian Tabidze, who, together with the group of symbolist writers – the Blue Horns (Georgian: Tsisferyantselebi / ცისფერყანწელები ) – advocated the creation of a literature museum since 1919. Tabidze, together with Ivan Enikolofow, was also the first chair of the museum.",
-   "ka": "საქართველოს გიორგი ლეონიძის სახელობის ქართული ლიტერატურის სახელმწიფო მუზეუმი — სახელმწიფო მუზეუმი თბილისში."
-  },
-  "sources": [
-   "https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F_%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%D0%B7%D0%B5",
-   "https://en.wikipedia.org/wiki/Giorgi_Leonidze_State_Museum_of_Literature",
-   "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9A%E1%83%94%E1%83%9D%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A0%E1%83%90%E1%83%A2%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9B%E1%83%AC%E1%83%98%E1%83%A4%E1%83%9D_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
-  ],
-  "photos": [
-   {
-    "file": "File:Gia_Chanturia_street_8_-_Revaz_Tabukashvili_street_18.jpg",
-    "why": "lead image of the ru article"
-   }
-  ],
-  "src_by_lang": {
-   "ru": "https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D1%8F_%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%D0%B7%D0%B5",
-   "en": "https://en.wikipedia.org/wiki/Giorgi_Leonidze_State_Museum_of_Literature",
-   "ka": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9A%E1%83%94%E1%83%9D%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A0%E1%83%90%E1%83%A2%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9B%E1%83%AC%E1%83%98%E1%83%A4%E1%83%9D_%E1%83%9B%E1%83%A3%E1%83%96%E1%83%94%E1%83%A3%E1%83%9B%E1%83%98"
-  }
- },
- {
-  "n": 39,
+  "n": 41,
   "wp": {
    "ru": "Грузинский театр имени Шота Руставели",
    "en": "Rustaveli Theatre",
@@ -1025,7 +1062,36 @@
   }
  },
  {
-  "n": 40,
+  "n": 42,
+  "wp": {
+   "ru": "Тбилисская государственная консерватория имени Вано Сараджишвили",
+   "en": "Tbilisi State Conservatoire",
+   "ka": "თბილისის სახელმწიფო კონსერვატორია"
+  },
+  "desc": {
+   "ru": "Тбилисская консерватория имени Вано Сараджишвили (груз. ვანო სარაჯიშვილის სახელობის თბილისის სახელმწიფო კონსერვატორია) — музыкальное высшее учебное заведение в столице Грузии городе Тбилиси (ул. Грибоедова, 8-10).",
+   "en": "Tbilisi State Conservatoire (Georgian: თბილისის სახელმწიფო კონსერვატორია, romanized: tbilisis sakhelmts'ipo k'onservat'oria) is the State Conservatoire of Georgia, located in the capital Tbilisi.",
+   "ka": "თბილისის ვანო სარაჯიშვილის სახელობის სახელმწიფო კონსერვატორია — საქართველოში პირველი უმაღლესი სამუსიკო სასწავლებელია. წლების მანძილზე იგი იყო ამიერკავკასიაში ევროპული ყაიდის ერთადერთი სამუსიკო სასწავლებელი. კონსერვატორიის დაბადების თარიღია 1917 წლის 1 მაისი."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D0%BA%D0%BE%D0%BD%D1%81%D0%B5%D1%80%D0%B2%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%92%D0%B0%D0%BD%D0%BE_%D0%A1%D0%B0%D1%80%D0%B0%D0%B4%D0%B6%D0%B8%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "https://en.wikipedia.org/wiki/Tbilisi_State_Conservatoire",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9B%E1%83%AC%E1%83%98%E1%83%A4%E1%83%9D_%E1%83%99%E1%83%9D%E1%83%9C%E1%83%A1%E1%83%94%E1%83%A0%E1%83%95%E1%83%90%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:Tbilisi_Conservatoire.JPG",
+    "why": "lead image of the ru article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D0%BA%D0%BE%D0%BD%D1%81%D0%B5%D1%80%D0%B2%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%92%D0%B0%D0%BD%D0%BE_%D0%A1%D0%B0%D1%80%D0%B0%D0%B4%D0%B6%D0%B8%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "en": "https://en.wikipedia.org/wiki/Tbilisi_State_Conservatoire",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9B%E1%83%AC%E1%83%98%E1%83%A4%E1%83%9D_%E1%83%99%E1%83%9D%E1%83%9C%E1%83%A1%E1%83%94%E1%83%A0%E1%83%95%E1%83%90%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 43,
   "wp": {
    "ru": "Грузинский театр оперы и балета имени Палиашвили",
    "en": "Georgian National Opera Theater",
@@ -1054,7 +1120,7 @@
   }
  },
  {
-  "n": 41,
+  "n": 44,
   "wp": {
    "ka": "ზურაბ წერეთლის თანამედროვე ხელოვნების მუზეუმი"
   },
@@ -1075,7 +1141,7 @@
   }
  },
  {
-  "n": 42,
+  "n": 45,
   "wp": {
    "en": "IMELI Building",
    "ka": "იმელი (შენობა)"
@@ -1104,7 +1170,40 @@
   }
  },
  {
-  "n": 43,
+  "n": 46,
+  "wp": {
+   "ru": "Тбилисская государственная академия художеств",
+   "en": "Tbilisi State Academy of Arts",
+   "ka": "თბილისის სამხატვრო აკადემია"
+  },
+  "desc": {
+   "ru": "Тбилисская государственная академия художеств (груз. თბილისის სახელმწიფო სამხატვრო აკადემია) — академия художеств в городе Тбилиси, в Грузии. Академии присвоено имя Аполлона Кутателадзе.",
+   "en": "The Tbilisi State Academy of Arts (Georgian: თბილისის სახელმწიფო სამხატვრო აკადემია, tbilisis sakhelmts'ipo samkhat'vro ak'ademia) is one of the oldest universities in Georgia and the Caucasus. It is located in central Tbilisi near the Tbilisi Opera and Ballet Theatre on Rustaveli Avenue. Dating from the 1850s, the building that houses the Tbilisi State Academy of Art is a heritage site in Tbilisi.",
+   "ka": "აპოლონ ქუთათელაძის სახელობის თბილისის სახელმწიფო სამხატვრო აკადემია (თსსა) — კავკასიაში ერთ-ერთი უძველესი სახელოვნებო უნივერსიტეტი. მდებარეობს თბილისში, ალექსანდრე გრიბოედოვის ქუჩა № 22-ში."
+  },
+  "sources": [
+   "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B0%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F_%D1%85%D1%83%D0%B4%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2",
+   "https://en.wikipedia.org/wiki/Tbilisi_State_Academy_of_Arts",
+   "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AE%E1%83%90%E1%83%A2%E1%83%95%E1%83%A0%E1%83%9D_%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%90"
+  ],
+  "photos": [
+   {
+    "file": "File:LOGO_OF_TSSA.jpg",
+    "why": "lead image of the ru article"
+   },
+   {
+    "file": "File:Tbilisi_State_Academy_of_Arts_-logo.jpg",
+    "why": "lead image of the en article"
+   }
+  ],
+  "src_by_lang": {
+   "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B0%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F_%D1%85%D1%83%D0%B4%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2",
+   "en": "https://en.wikipedia.org/wiki/Tbilisi_State_Academy_of_Arts",
+   "ka": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AE%E1%83%90%E1%83%A2%E1%83%95%E1%83%A0%E1%83%9D_%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%90"
+  }
+ },
+ {
+  "n": 47,
   "wp": {
    "ru": "Radisson Blu Iveria Hotel",
    "en": "Radisson Blu Iveria Hotel, Tbilisi",
@@ -1141,7 +1240,7 @@
   }
  },
  {
-  "n": 44,
+  "n": 48,
   "wp": {
    "ru": "Мост Галактиона Табидзе",
    "ka": "გალაკტიონის ხიდი"
@@ -1170,7 +1269,7 @@
   }
  },
  {
-  "n": 45,
+  "n": 49,
   "wp": {
    "ru": "Тбилисский академический театр имени К. Марджанишвили",
    "en": "Marjanishvili Theatre",

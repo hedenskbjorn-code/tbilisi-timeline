@@ -18,7 +18,7 @@
       intro: (r, n) => `Маршрут пробежки Tbilisi Running Club: <b>${num(r.length_km)} км</b>, высоты ${r.ele_min}–${r.ele_max} м, <b>${n}</b> достопримечательностей по порядку вдоль трассы. В список входят объекты не дальше 150 м от трассы; расстояние считается от точки объекта до линии трассы и не означает, что объект виден с неё. Описания взяты из вводных абзацев статей Википедии (ссылка и лицензия под каждым описанием); для объектов без статьи это короткие справки по данным реестра культурного наследия, с пометкой источника.`,
       km: (v) => `${num(v)} км от старта`, dist: (d) => `${d} м от трассы`, reg: (y) => `дата по реестру ≈ ${y}`, noDesc: "Описание пока не добавлено.", textFrom: "Текст:", textReg: "Источник: реестр культурного наследия Грузии (данные этого сайта) и другие данные сайта; указанные в карточке статьи Википедии.", textAd: "Текст: пересказ по статье", textTr: (f) => ({ ru: "Текст: перевод с русского,", en: "Текст: перевод с английского,", ka: "Текст: перевод с грузинского," })[f], wiki: "Википедия", onMap: "Показать на карте", sources: "Источники",
       factYear: "Время", factArch: "Автор проекта", factType: "Тип и стиль", factAddr: "Адрес", notes: "Примечание", start: "Старт и финиш",
-      credits: ["Карта: © участники OpenStreetMap, данные OpenFreeMap и OpenMapTiles. Геометрия трассы: Strava-маршрут «TRC City Run 2026» (сохранена только линия).", "Фото: Wikimedia Commons, автор и лицензия указаны на каждом снимке (ссылка ведёт на страницу файла). Тексты описаний: вводные абзацы статей Википедии (CC BY-SA 4.0), ссылка на статью под каждым описанием. Логотип: Tbilisi Running Club. Сайт любительский, некоммерческий и не является официальным."],
+      credits: ["Карта: © участники OpenStreetMap, данные OpenFreeMap и OpenMapTiles. Геометрия трассы: трек маршрута «TRC City Run» (GPX клуба; сохранена только линия).", "Фото: Wikimedia Commons, автор и лицензия указаны на каждом снимке (ссылка ведёт на страницу файла). Тексты описаний: вводные абзацы статей Википедии (CC BY-SA 4.0), ссылка на статью под каждым описанием. Логотип: Tbilisi Running Club. Сайт любительский, некоммерческий и не является официальным."],
       imgAlt: (n) => `Фото: ${n}`, license: "лицензия", ogLine: (r, n) => `что увидеть по пути · ${num(r.length_km)} км · ${n} объектов`,
     },
     en: {
@@ -26,7 +26,7 @@
       intro: (r, n) => `The route of a run of the Tbilisi Running Club: <b>${num(r.length_km)} km</b>, elevation ${r.ele_min}-${r.ele_max} m, <b>${n}</b> sights in order along the track. The list holds the objects within 150 m of the track; the distance is from the point of the object to the line of the track and does not mean that the object can be seen from it. The descriptions are taken from the introductions of the Wikipedia articles (the link and the licence are under each description); for an object without an article it is a short note from the data of the heritage register, with the source named.`,
       km: (v) => `${num(v)} km from the start`, dist: (d) => `${d} m from the track`, reg: (y) => `date in the register ≈ ${y}`, noDesc: "No description yet.", textFrom: "Text:", textReg: "Source: the heritage register of Georgia (data of this site) and other data of the site; the Wikipedia articles named in the card.", textAd: "Text: a retelling of the article", textTr: (f) => ({ ru: "Text: translated from Russian,", en: "Text: translated from English,", ka: "Text: translated from Georgian," })[f], wiki: "Wikipedia", onMap: "Show on the map", sources: "Sources",
       factYear: "Time", factArch: "Architect / author", factType: "Type and style", factAddr: "Address", notes: "Note", start: "Start and finish",
-      credits: ["Map: © OpenStreetMap contributors, data of OpenFreeMap and OpenMapTiles. Geometry of the track: the Strava route \"TRC City Run 2026\" (only the line is kept).", "Photos: Wikimedia Commons, the author and the licence are given on each photo (the link leads to the page of the file). Texts of the descriptions: the introductions of the Wikipedia articles (CC BY-SA 4.0), the link to the article is under each description. Logo: Tbilisi Running Club. This is a hobby, non-commercial site and it is not official."],
+      credits: ["Map: © OpenStreetMap contributors, data of OpenFreeMap and OpenMapTiles. Geometry of the track: the track of the \"TRC City Run\" route (the club's GPX; only the line is kept).", "Photos: Wikimedia Commons, the author and the licence are given on each photo (the link leads to the page of the file). Texts of the descriptions: the introductions of the Wikipedia articles (CC BY-SA 4.0), the link to the article is under each description. Logo: Tbilisi Running Club. This is a hobby, non-commercial site and it is not official."],
       imgAlt: (n) => `Photo: ${n}`, license: "licence", ogLine: (r, n) => `what to see on the way · ${num(r.length_km)} km · ${n} sights`,
     },
     ka: {
@@ -34,11 +34,72 @@
       intro: (r, n) => `Tbilisi Running Club-ის სირბილის მარშრუტი: <b>${num(r.length_km)} კმ</b>, სიმაღლე ${r.ele_min}–${r.ele_max} მ, <b>${n}</b> ღირსშესანიშნაობა ტრასის გასწვრივ თანმიმდევრობით. სიაში შედის ობიექტები ტრასიდან 150 მ-ის ფარგლებში; მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა და არ ნიშნავს, რომ ობიექტი ტრასიდან ჩანს. აღწერები აღებულია ვიკიპედიის სტატიების შესავლიდან (ბმული და ლიცენზია თითოეული აღწერის ქვეშაა); ობიექტისთვის, რომელსაც სტატია არა აქვს, ეს მოკლე ცნობაა კულტურული მემკვიდრეობის რეესტრის მონაცემებით, წყაროს მითითებით.`,
       km: (v) => `${num(v)} კმ სტარტიდან`, dist: (d) => `${d} მ ტრასიდან`, reg: (y) => `თარიღი რეესტრში ≈ ${y}`, noDesc: "აღწერა ჯერ არ არის დამატებული.", textFrom: "ტექსტი:", textReg: "წყარო: საქართველოს კულტურული მემკვიდრეობის რეესტრი (ამ საიტის მონაცემები) და საიტის სხვა მონაცემები; ბარათში მითითებული ვიკიპედიის სტატიები.", textAd: "ტექსტი: სტატიის გადმოცემა", textTr: (f) => ({ ru: "ტექსტი: თარგმნილია რუსულიდან,", en: "ტექსტი: თარგმნილია ინგლისურიდან,", ka: "ტექსტი: თარგმნილია ქართულიდან," })[f], wiki: "ვიკიპედია", onMap: "რუკაზე ჩვენება", sources: "წყაროები",
       factYear: "დრო", factArch: "პროექტის ავტორი", factType: "ტიპი და სტილი", factAddr: "მისამართი", notes: "შენიშვნა", start: "სტარტი და ფინიში",
-      credits: ["რუკა: © OpenStreetMap-ის მონაწილეები, OpenFreeMap-ისა და OpenMapTiles-ის მონაცემები. ტრასის გეომეტრია: Strava-ს მარშრუტი „TRC City Run 2026“ (შენახულია მხოლოდ ხაზი).", "ფოტოები: Wikimedia Commons, ავტორი და ლიცენზია მითითებულია თითოეულ ფოტოზე (ბმული ფაილის გვერდზე მიგიყვანთ). აღწერების ტექსტები: ვიკიპედიის სტატიების შესავალი (CC BY-SA 4.0), სტატიის ბმული თითოეული აღწერის ქვეშაა. ლოგო: Tbilisi Running Club. საიტი სამოყვარულო, არაკომერციულია და ოფიციალური არ არის."],
+      credits: ["რუკა: © OpenStreetMap-ის მონაწილეები, OpenFreeMap-ისა და OpenMapTiles-ის მონაცემები. ტრასის გეომეტრია: მარშრუტის „TRC City Run“ ტრეკი (კლუბის GPX; შენახულია მხოლოდ ხაზი).", "ფოტოები: Wikimedia Commons, ავტორი და ლიცენზია მითითებულია თითოეულ ფოტოზე (ბმული ფაილის გვერდზე მიგიყვანთ). აღწერების ტექსტები: ვიკიპედიის სტატიების შესავალი (CC BY-SA 4.0), სტატიის ბმული თითოეული აღწერის ქვეშაა. ლოგო: Tbilisi Running Club. საიტი სამოყვარულო, არაკომერციულია და ოფიციალური არ არის."],
       imgAlt: (n) => `ფოტო: ${n}`, license: "ლიცენზია", ogLine: (r, n) => `რა ჩანს გზაზე · ${num(r.length_km)} კმ · ${n} ღირსშესანიშნაობა`,
     },
   };
   const t = () => T[lang];
+
+  // ---- the old map under the route: an old plan of the city or a topographic map of the General Staff (same files as on the main map) with a slider of the opacity
+  const OLD_T = {
+    ru: { title: "Старая карта", none: "нет", op: "Прозрачность", hint: "Планы 1735–1913 покрывают только старый центр; топокарты — весь город.", plans: "Старые планы", topo: "Топографические карты", btn: "Старая карта" },
+    en: { title: "Old map", none: "none", op: "Opacity", hint: "The plans of 1735-1913 cover only the old centre; the topographic maps cover the whole city.", plans: "Old plans", topo: "Topographic maps", btn: "Old map" },
+    ka: { title: "ძველი რუკა", none: "არცერთი", op: "გამჭვირვალობა", hint: "1735–1913 წლების გეგმები მხოლოდ ძველ ცენტრს ფარავს; ტოპოგრაფიული რუკები მთელ ქალაქს.", plans: "ძველი გეგმები", topo: "ტოპოგრაფიული რუკები", btn: "ძველი რუკა" },
+  };
+  const TOPOS = [["t10", "1:10 000 · 1952–2007", 17], ["t25", "1:25 000 · 1953–2004", 16], ["t50", "1:50 000 · 1973–1990", 15], ["t100", "1:100 000 · 1978–1990", 14]];
+  const TOPO_BOUNDS = [44.60, 41.55, 45.05, 41.88];
+  let plans = [], oldSel = "", oldOp = 70;
+  try { oldSel = localStorage.getItem("runOld") || ""; const o = parseInt(localStorage.getItem("runOldOp"), 10); if (o >= 0 && o <= 100) oldOp = o; } catch (e) {}
+  function removeOld() {
+    if (!map) return;
+    if (map.getLayer("old-map")) map.removeLayer("old-map");
+    if (map.getSource("old-map")) map.removeSource("old-map");
+  }
+  function applyOld() {                                  // (re)draws the chosen old map below the route; called after every change and after a style reload
+    if (!map || !map.isStyleLoaded()) return;
+    removeOld();
+    if (!oldSel) return;
+    const before = map.getLayer("route-casing") ? "route-casing" : undefined;
+    const p = plans.find((x) => x.id === oldSel);
+    if (p) map.addSource("old-map", { type: "image", url: "../" + p.image, coordinates: p.corners });
+    else {
+      const tp = TOPOS.find((x) => x[0] === oldSel);
+      if (!tp) return;
+      map.addSource("old-map", { type: "raster", tiles: [new URL("../topo/" + tp[0] + "/{z}/{x}/{y}.webp", document.baseURI).href], tileSize: 256, minzoom: 11, maxzoom: tp[2], bounds: TOPO_BOUNDS, attribution: "© NAPR (maps.gov.ge)" });
+    }
+    map.addLayer({ id: "old-map", type: "raster", source: "old-map", paint: { "raster-opacity": oldOp / 100, "raster-fade-duration": 0 } }, before);
+  }
+  function buildOldControl() {
+    const box = el("div", "oldctl"), L = OLD_T[lang];
+    const btn = el("button", "chip", ""); btn.type = "button"; btn.id = "oldBtn"; btn.setAttribute("aria-expanded", "false");
+    const panel = el("div", "oldpanel"); panel.hidden = true;
+    const sel = el("select", "chip"); sel.id = "oldSel";
+    const row = el("label", "oldrow"), lab = el("span", "", ""), out = el("output", "", oldOp + "%"), rng = el("input");
+    lab.id = "oldOpL"; rng.type = "range"; rng.min = 0; rng.max = 100; rng.value = oldOp; rng.id = "oldOp";
+    row.appendChild(lab); row.appendChild(out); row.appendChild(rng);
+    const hint = el("div", "small", ""); hint.id = "oldHint";
+    panel.appendChild(sel); panel.appendChild(row); panel.appendChild(hint);
+    box.appendChild(btn); box.appendChild(panel);
+    btn.addEventListener("click", () => { panel.hidden = !panel.hidden; btn.setAttribute("aria-expanded", String(!panel.hidden)); });
+    sel.addEventListener("change", () => { oldSel = sel.value; try { localStorage.setItem("runOld", oldSel); } catch (e) {} applyOld(); });
+    rng.addEventListener("input", () => { oldOp = +rng.value; out.textContent = oldOp + "%"; if (map.getLayer("old-map")) map.setPaintProperty("old-map", "raster-opacity", oldOp / 100); try { localStorage.setItem("runOldOp", String(oldOp)); } catch (e) {} });
+    $("map").appendChild(box);
+    fillOldSelect();
+  }
+  function fillOldSelect() {                             // also called when the language changes
+    const sel = $("oldSel"); if (!sel) return;
+    const L = OLD_T[lang];
+    sel.textContent = "";
+    const add = (parent, v, txt) => { const o = el("option", "", txt); o.value = v; parent.appendChild(o); };
+    add(sel, "", L.none);
+    const g1 = el("optgroup"); g1.label = L.plans; for (const p of plans) add(g1, p.id, p.year);
+    const g2 = el("optgroup"); g2.label = L.topo; for (const tp of TOPOS) add(g2, tp[0], tp[1]);
+    sel.appendChild(g1); sel.appendChild(g2);
+    sel.value = [...sel.options].some((o) => o.value === oldSel) ? oldSel : "";
+    if (sel.value !== oldSel) oldSel = "";
+    $("oldBtn").textContent = "\u{1F5FA} " + L.btn; sel.setAttribute("aria-label", L.title);
+    $("oldHint").textContent = L.hint; $("oldOpL").textContent = L.op + " "; $("oldOp").setAttribute("aria-label", L.op);
+  }
 
   let route = null, sights = [], details = {}, markers = {}, active = 0, map = null;
   const BASE = "https://tiles.openfreemap.org/styles/liberty";
@@ -174,8 +235,9 @@
       fell = true;
       map.setStyle(BG_STYLE);
     });
-    map.on("style.load", addRoute);
-    map.on("load", () => { addRoute(); $("loading").hidden = true; });
+    map.on("style.load", () => { addRoute(); applyOld(); });
+    map.on("load", () => { addRoute(); applyOld(); $("loading").hidden = true; });
+    if (!OG) buildOldControl();
     const start = el("div", "mk start", "S");
     start.title = t().start;
     new maplibregl.Marker({ element: start }).setLngLat(c[0]).addTo(map);
@@ -191,6 +253,7 @@
     lang = e.target.value;
     try { localStorage.setItem("runLang", lang); } catch (x) {}
     renderText();
+    fillOldSelect();
     for (const s of sights) if (markers[s.n]) markers[s.n].getElement().title = s.name[lang] || s.name.en;
   });
   $("share").addEventListener("click", async () => {
@@ -205,6 +268,7 @@
     try {
       const [rd, dd] = await Promise.all([getJSON("../data/run_trc2026.json"), getJSON("../data/run_details.json").catch(() => ({ sights: {} }))]);
       route = rd.route; sights = rd.sights; details = dd.sights || {};
+      try { plans = await getJSON("../data/plans.json"); } catch (e) { plans = []; }
     } catch (e) { $("loadingTxt").textContent = "Error: " + (e && e.message); return; }
     renderText();
     initMap();

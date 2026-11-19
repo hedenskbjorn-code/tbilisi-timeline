@@ -119,9 +119,9 @@ def main():
     for i, c in enumerate(kept, 1):
         sights.append({"n": i, "km": round(c["km"], 2), "d": round(c["d"]), "lat": round(c["lat"], 6), "lon": round(c["lon"], 6), "fn": c["fn"], "year": c["ye"],
                        "name": c["name"], "wp": c["wp"]})
-    out = {"note": "Built by tools/build_run_route.py on 2026-11-19 from the GPX of the route TRC City Run 2026 (Strava route 3539586152726489518) and the data of this site.",
+    out = {"note": "Built by tools/build_run_route.py on 2026-11-19 from the GPX of the route TRC City Run (the file of the club, updated 2026-11-19) and the data of this site.",
            "route": {"name": "TRC City Run 2026", "length_km": round(cum[-1] / 1000, 2), "ele_min": round(min(p[2] for p in pts)), "ele_max": round(max(p[2] for p in pts)),
-                     "coords": [[round(p[1], 6), round(p[0], 6)] for p in pts], "src": "https://www.strava.com/routes/3539586152726489518"},
+                     "coords": [[round(p[1], 6), round(p[0], 6)] for p in pts]},
            "sights": sights}
     p = os.path.join(ROOT, "site", "data", "run_trc2026.json")
     open(p, "wb").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
