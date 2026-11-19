@@ -8,6 +8,12 @@
     "ru": "Форма «Прислать фото этого объекта» в карточке объекта реестра: фото привязывается к объекту, проходит проверку владельцем сайта (капча, лимиты, проверка файла) и после одобрения появляется в карточке объекта с именем автора и лицензией CC BY-SA 4.0. Пока форма включается по скрытой ссылке для клуба.",
     "en": "The form \"Send a photo of this object\" in the card of a register object: the photo is tied to the object, is checked by the owner of the site (captcha, limits, check of the file) and, once approved, appears in the card of the object with the name of the author and the licence CC BY-SA 4.0. For now the form is switched on by a hidden link for the club.",
     "ka": "ფორმა „ამ ობიექტის ფოტოს გამოგზავნა“ რეესტრის ობიექტის ბარათში: ფოტო მიბმულია ობიექტზე, მას ამოწმებს საიტის მფლობელი (კაპჩა, ლიმიტები, ფაილის შემოწმება) და დამტკიცების შემდეგ ობიექტის ბარათში ჩნდება ავტორის სახელითა და ლიცენზიით CC BY-SA 4.0. ჯერჯერობით ფორმა ჩაირთვება კლუბის დამალული ბმულით."
+   },
+   {
+    "t": "new",
+    "ru": "«Охота за фото» (там, где форма включена): в карточке объекта без фото стоит просьба прислать снимок; слой «Объекты без фото» обводит такие объекты оранжевым кольцом (в реестре их 2299 из 2599); кнопка «Объекты без фото рядом со мной» показывает ближайшие по геолокации (положение остаётся в браузере).",
+    "en": "\"Photo hunt\" (where the form is switched on): the card of an object without a photo asks for a picture; the layer \"Objects without a photo\" rings such objects in orange (2299 of the 2599 objects of the register); the button \"Objects without a photo near me\" lists the nearest ones by the location (the position stays in the browser).",
+    "ka": "„ფოტოებზე ნადირობა“ (სადაც ფორმა ჩართულია): ფოტოს გარეშე ობიექტის ბარათში ფოტოს გამოგზავნის თხოვნაა; ფენა „ობიექტები ფოტოს გარეშე“ ასეთ ობიექტებს ნარინჯისფერი რგოლით აღნიშნავს (რეესტრის 2599 ობიექტიდან 2299); ღილაკი „ფოტოს გარეშე ობიექტები ჩემ გვერდით“ ახლოს მყოფებს გეოლოკაციით აჩვენებს (მდებარეობა ბრაუზერში რჩება)."
    }
   ]
  },

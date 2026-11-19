@@ -14,7 +14,7 @@
 
   const T = {
     ru: {
-      link: "📷 Прислать фото этого объекта", title: "Фото объекта", object: "Объект",
+      link: "📷 Прислать фото этого объекта", need: "Фото этого объекта пока нет. Если вы рядом, пришлите своё.", noPhotoL: "Объекты без фото (оранжевое кольцо): куда сходить с камерой", nearBtn: "Объекты без фото рядом со мной", nearTitle: "Объекты без фото рядом", nearHint: "Расстояние по прямой от вашего положения. Положение используется только в вашем браузере и никуда не отправляется.", nearNone: "Объектов без фото рядом не нашлось.", nearDenied: "Не удалось определить положение (разрешите доступ к геолокации в браузере).", title: "Фото объекта", object: "Объект",
       hint: "Снимайте здание снаружи, целиком, при хорошем свете; без людей и номеров машин. Фото должно быть вашим. Присланное сначала проверяет владелец сайта и может быть не опубликовано.",
       file: "Фотография (JPEG, PNG или WebP)", name: "Ваше имя или ник (будет подписано под фото)", note: "Заметка (необязательно)",
       consent: "Я автор этой фотографии и разрешаю использовать её на этом сайте на условиях CC BY-SA 4.0 с указанием моего имени.",
@@ -26,7 +26,7 @@
         read: "Не удалось прочитать фото (возможно, формат HEIC: сделайте снимок в JPEG)." },
     },
     en: {
-      link: "📷 Send a photo of this object", title: "Photo of the object", object: "Object",
+      link: "📷 Send a photo of this object", need: "There is no photo of this object yet. If you are nearby, send yours.", noPhotoL: "Objects without a photo (orange ring): where to go with a camera", nearBtn: "Objects without a photo near me", nearTitle: "Objects without a photo nearby", nearHint: "The distance is in a straight line from your position. The position is used only in your browser and is sent nowhere.", nearNone: "No objects without a photo were found nearby.", nearDenied: "The position could not be found (allow the access to the location in the browser).", title: "Photo of the object", object: "Object",
       hint: "Photograph the building from outside, the whole of it, in good light; no people and no car plates. The photo must be your own. What you send is first checked by the owner of the site and may not be published.",
       file: "Photograph (JPEG, PNG or WebP)", name: "Your name or nickname (it will be signed under the photo)", note: "Note (optional)",
       consent: "I am the author of this photograph and allow its use on this site under CC BY-SA 4.0, with my name given.",
@@ -38,7 +38,7 @@
         read: "The photo could not be read (maybe the HEIC format: take the picture as JPEG)." },
     },
     ka: {
-      link: "📷 ამ ობიექტის ფოტოს გამოგზავნა", title: "ობიექტის ფოტო", object: "ობიექტი",
+      link: "📷 ამ ობიექტის ფოტოს გამოგზავნა", need: "ამ ობიექტის ფოტო ჯერ არ არის. თუ ახლოს ხართ, გამოგვიგზავნეთ თქვენი.", noPhotoL: "ობიექტები ფოტოს გარეშე (ნარინჯისფერი რგოლი): სად წახვიდეთ კამერით", nearBtn: "ფოტოს გარეშე ობიექტები ჩემ გვერდით", nearTitle: "ფოტოს გარეშე ობიექტები ახლოს", nearHint: "მანძილი წრფივია თქვენი მდებარეობიდან. მდებარეობა გამოიყენება მხოლოდ თქვენს ბრაუზერში და არსად იგზავნება.", nearNone: "ახლოს ფოტოს გარეშე ობიექტები ვერ მოიძებნა.", nearDenied: "მდებარეობის დადგენა ვერ მოხერხდა (ბრაუზერში დართეთ ნება გეოლოკაციაზე).", title: "ობიექტის ფოტო", object: "ობიექტი",
       hint: "გადაუღეთ შენობა გარედან, მთლიანად, კარგ განათებაზე; ადამიანებისა და მანქანის ნომრების გარეშე. ფოტო თქვენი უნდა იყოს. გამოგზავნილს ჯერ საიტის მფლობელი შეამოწმებს და შეიძლება არ გამოქვეყნდეს.",
       file: "ფოტო (JPEG, PNG ან WebP)", name: "თქვენი სახელი ან მეტსახელი (ფოტოს ქვეშ მიეწერება)", note: "შენიშვნა (სურვილისამებრ)",
       consent: "ვარ ამ ფოტოს ავტორი და ვაძლევ ნებართვას გამოვიყენოთ ეს საიტზე CC BY-SA 4.0-ის პირობებით, ჩემი სახელის მითითებით.",
@@ -170,5 +170,5 @@
     } catch (err) { st.textContent = L.err.net; btn.disabled = false; }
   }
 
-  window.TT_PHOTO = { enabled, open, text: (lang) => (T[lang] || T.en).link, _exifGps: exifGps, _state: () => state };           // _ : for the tests
+  window.TT_PHOTO = { enabled, open, text: (lang) => (T[lang] || T.en).link, s: (lang) => T[lang] || T.en, _exifGps: exifGps, _state: () => state };           // _ : for the tests
 })();
