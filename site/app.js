@@ -115,6 +115,7 @@
       loadMap: "Загрузка карты и данных…", loadPlan: "Загрузка плана…", loadFail: "Не удалось загрузить данные. Обновите страницу (Ctrl+F5).",
       topoAutoNote: "Сейчас топокарта включена автоматически (годы 1953–2005, вместо плана). Чтобы скрыть её, снимите галочку «С 1953 по 2005 год показывать топокарту вместо плана» ниже.",
       trRoutes62: "Маршруты по списку 1962 г.", trRoutes86: "Маршруты по списку 1986 г.",
+      chgTitle: "Что нового", chgNew: "Новое", chgFix: "Исправлено", chgFail: "Не удалось загрузить журнал изменений.",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -275,6 +276,7 @@
       loadMap: "Loading the map and data…", loadPlan: "Loading the plan…", loadFail: "The data could not be loaded. Reload the page (Ctrl+F5).",
       topoAutoNote: "The topographic map is on automatically now (the years 1953-2005, instead of a plan). To hide it, clear the box \"From 1953 to 2005 show the topographic map instead of a plan\" below.",
       trRoutes62: "Routes of the list of 1962", trRoutes86: "Routes of the list of 1986",
+      chgTitle: "What is new", chgNew: "New", chgFix: "Fixed", chgFail: "The log of changes could not be loaded.",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -436,6 +438,7 @@
       loadMap: "რუკა და მონაცემები იტვირთება…", loadPlan: "გეგმა იტვირთება…", loadFail: "მონაცემების ჩატვირთვა ვერ მოხერხდა. განაახლეთ გვერდი (Ctrl+F5).",
       topoAutoNote: "ტოპოგრაფიული რუკა ახლა ავტომატურად არის ჩართული (1953–2005 წლები, გეგმის ნაცვლად). გასაქრობად მოხსენით ქვემოთ მოცემული ნიშნული „1953-2005 წლებში გეგმის ნაცვლად ტოპორუკის ჩვენება“.",
       trRoutes62: "მარშრუტები 1962 წლის სიით", trRoutes86: "მარშრუტები 1986 წლის სიით",
+      chgTitle: "რა არის ახალი", chgNew: "ახალი", chgFix: "გასწორდა", chgFail: "ცვლილებათა ჟურნალის ჩატვირთვა ვერ მოხერხდა.",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -826,6 +829,7 @@
     $("lang").setAttribute("aria-label", t().ariaLang);
     document.querySelectorAll(".pclose").forEach((b) => b.setAttribute("aria-label", t().ariaClose));
     if ($("fbContactInput")) $("fbContactInput").placeholder = t().fbContactPh;
+    updateVersionBtn();
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
     updateZoomUi();
@@ -1799,6 +1803,39 @@
     if (el) el.hidden = true;
     clearTimeout(loadTimer);
   }
+  // version and the log of changes (data/changelog.json: the first entry is the current version); the button in the header opens it in the modal window
+  let changelog = null;
+  async function loadChangelog() {
+    try { changelog = await getJSON("data/changelog.json", 1); } catch (e) { changelog = null; }
+    updateVersionBtn();
+  }
+  function updateVersionBtn() {
+    const b = $("btnVersion");
+    if (!b) return;
+    b.textContent = changelog && changelog.length ? "v" + changelog[0].version.replace(/\.0$/, "") : "v?";
+    b.title = t().chgTitle;
+    b.setAttribute("aria-label", t().chgTitle);
+  }
+  function showChangelog() {
+    reopenInfo = () => showChangelog();
+    const L = t();
+    openInfo((body) => {
+      $("imTitle").textContent = L.chgTitle;
+      if (!changelog || !changelog.length) { infoLine(body, L.chgFail); return; }
+      for (const r of changelog) {
+        infoLine(body, "v" + r.version + " \u00B7 " + r.date.split("-").reverse().join("."), "chg-h");
+        if (r.note) infoLine(body, r.note[lang] || r.note.en);
+        for (const [kind, label] of [["new", L.chgNew], ["fix", L.chgFix]]) {
+          const its = r.items.filter((x) => x.t === kind);
+          if (!its.length) continue;
+          infoLine(body, label + ":", "small");
+          for (const x of its) infoLine(body, "\u2022 " + (x[lang] || x.en), "small chg-i");
+        }
+      }
+    });
+  }
+  $("btnVersion").addEventListener("click", showChangelog);
+
   // the labels of the page at once, before the data are there (applyLang does the whole job later)
   try {
     document.title = t().title;
@@ -1974,6 +2011,7 @@
       }
     } catch (e) {}
     dataReady = true;
+    loadChangelog();
     if (map.loaded()) hideLoading(); else map.once("idle", hideLoading);
   });
 

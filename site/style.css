@@ -29,6 +29,9 @@ html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:1
 #play { width:44px; height:36px; padding:0; flex:none; }
 #speed { width:40px; height:36px; padding:0; flex:none; }
 #btnSearch { padding:6px 10px; }
+#btnVersion { padding:6px 9px; font-size:12px; opacity:.85; }
+.chg-h { font-weight:700; margin-top:12px; font-size:14px; }
+.chg-i { margin:3px 0 3px 14px; text-indent:-14px; }
 #ruleline { margin-top:8px; font-size:13px; }
 #ruleline .k { color:var(--muted); }
 #rulers { position:absolute; left:0; right:0; top:60px; pointer-events:none; }
