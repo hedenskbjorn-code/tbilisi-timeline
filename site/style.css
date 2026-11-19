@@ -359,3 +359,7 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #imBody img.rflag { width:auto !important; height:64px; max-width:100%; border:1px solid var(--line); border-radius:3px; margin:6px 8px 2px 0; }
 .rseg.short { z-index:2; outline:1px solid var(--panel); }
 .rseg.nolabel { padding:0; }
+#rticks { position:relative; height:16px; margin-top:2px; font-size:10.5px; color:var(--muted); pointer-events:none; }
+#rticks span { position:absolute; transform:translateX(-50%); white-space:nowrap; padding-top:3px; }
+#rticks span::before { content:""; position:absolute; left:50%; top:0; width:1px; height:3px; background:var(--muted); }
+#ruleToken .tkph { font:650 15px/1 system-ui,sans-serif; letter-spacing:-.5px; }
