@@ -2238,7 +2238,7 @@
       const cp = document.createElement("button");
       cp.type = "button"; cp.className = "chip"; cp.style.marginLeft = "10px"; cp.textContent = L.runCopy;
       cp.addEventListener("click", async () => {
-        const url = new URL("run/?lang=" + lang, location.href).href;
+        const url = new URL("run/", location.href).href;                 // the common address (English by default), not the language of this window
         try { await navigator.clipboard.writeText(url); cp.textContent = L.runCopied; setTimeout(() => { cp.textContent = L.runCopy; }, 1800); } catch (e) { window.prompt(L.runCopy, url); }
       });
       pg.appendChild(pa); pg.appendChild(cp); body.appendChild(pg);
