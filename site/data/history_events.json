@@ -189,6 +189,17 @@
    }
   },
   {
+   "year": 1121,
+   "date": "1121",
+   "cat": "invasion",
+   "ru": "Битва при Дидгори: царь Давид Строитель отразил нападение сильной армии сельджуков, после чего взял Тбилиси и перенёс туда столицу Грузии",
+   "en": "The Battle of Didgori: King David the Builder repels a strong Seljuk army, then takes Tbilisi and moves the capital of Georgia there",
+   "ka": "დიდგორის ბრძოლა: მეფე დავით აღმაშენებელმა მოიგერია სელჩუკთა ძლიერი ჯარის თავდასხმა, ამის შემდეგ აიღო თბილისი და დედაქალაქი იქ გადაიტანა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
    "year": 1122,
    "date": "1122",
    "cat": "power",
@@ -232,6 +243,17 @@
     "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
     "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
    }
+  },
+  {
+   "year": 1243,
+   "date": "1243",
+   "cat": "invasion",
+   "ru": "Царица Русудан заключает мир с монголами: дань и право занимать и фактически управлять примерно половиной грузинской территории; занятый монголами Тбилиси формально остаётся столицей, но царица правит из Кутаиси до смерти в 1245 году",
+   "en": "Queen Rusudan makes peace with the Mongols: tribute, and the right to occupy and in fact rule about half of the Georgian territory; Tbilisi, held by the Mongols, formally stays the capital, but the queen rules from Kutaisi until her death in 1245",
+   "ka": "დედოფალი რუსუდანი მონღოლებთან მშვიდობას დებს: ხარკი და საქართველოს ტერიტორიის დაახლოებით ნახევრის დაკავებისა და ფაქტობრივი მართვის უფლება; მონღოლებისგან დაკავებული თბილისი ფორმალურად დედაქალაქად რჩება, მაგრამ დედოფალი გარდაცვალებამდე (1245) ქუთაისიდან მართავს",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
   },
   {
    "year": 1251,
@@ -362,6 +384,17 @@
    }
   },
   {
+   "year": 1490,
+   "date": "1490",
+   "cat": "power",
+   "ru": "Мирный договор делит Грузинское царство на три независимых царства (Картлийское, Кахетинское, Имерети и Самцхе-Джавахети)",
+   "en": "A peace treaty divides the Kingdom of Georgia into three independent kingdoms (Kartli, Kakheti, Imereti and Samtskhe-Javakheti)",
+   "ka": "სამშვიდობო ხელშეკრულებით საქართველოს სამეფო სამ დამოუკიდებელ სამეფოდ იყოფა (ქართლის, კახეთის, იმერეთისა და სამცხე-ჯავახეთის)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
    "year": 1522,
    "date": "1522",
    "cat": "invasion",
@@ -438,6 +471,17 @@
    }
   },
   {
+   "year": 1625,
+   "date": "6.1625",
+   "cat": "invasion",
+   "ru": "Марабдинская битва: войско Теймураза I разгромлено персами (в марте того же года грузины победили персов в Марткопской битве)",
+   "en": "The Battle of Marabda: the army of Teimuraz I is crushed by the Persians (in March of the same year the Georgians had beaten the Persians at Martkopi)",
+   "ka": "მარაბდის ბრძოლა: თეიმურაზ I-ის ჯარი სპარსელებმა გაანადგურეს (იმავე წლის მარტში ქართველებმა სპარსელები მარტყოფთან დაამარცხეს)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
    "year": 1651,
    "date": "11.08.1651",
    "cat": "flood",
@@ -476,6 +520,30 @@
    "ka": "მიწისძვრა თბილისში: მეფე გიორგის კარზე ქორწილის დროს ღამით სახლები ირყეოდა, მხოლოდ დაბალი სახლები გადარჩა (იტალიელი მოგზაურის ფარლის მიხედვით)"
   },
   {
+   "year": 1709,
+   "date": "1709",
+   "cat": "science",
+   "ru": "В Тбилиси по инициативе царя Вахтанга VI основана первая грузинская типография (с участием Антимоза Ивирского и Михая Иштвановича)",
+   "en": "The first Georgian printing house is founded in Tbilisi on the initiative of King Vakhtang VI (with Anthim the Iberian and Mihai Iștvanovici)",
+   "ka": "თბილისში მეფე ვახტანგ VI-ის ინიციატივით დაარსდა პირველი ქართული სტამბა (ანთიმოზ ივერიელისა და მიჰაი იშტვანოვიჩის მონაწილეობით)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3_VI",
+    "https://en.wikipedia.org/wiki/Anthim_the_Iberian",
+    "https://en.wikipedia.org/wiki/Vakhtang_VI_of_Kartli"
+   ]
+  },
+  {
+   "year": 1712,
+   "date": "1712",
+   "cat": "science",
+   "ru": "В тбилисской типографии напечатан «Витязь в тигровой шкуре» с научными комментариями самого Вахтанга VI, с которых началась руставелология",
+   "en": "The Knight in the Panther's Skin is printed in the Tbilisi printing house with the scholarly commentary of Vakhtang VI himself, the beginning of Rustaveli studies",
+   "ka": "თბილისის სტამბაში დაიბეჭდა „ვეფხისტყაოსანი“ თავად ვახტანგ VI-ის სამეცნიერო კომენტარებით, საიდანაც დაიწყო რუსთველოლოგია",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3_VI"
+   ]
+  },
+  {
    "year": 1783,
    "date": "24.07.1783",
    "cat": "power",
@@ -490,6 +558,17 @@
     "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked. The treaty was concluded not in Tbilisi (by its name, in Georgievsk); the event concerns the city as the capital of the kingdom.",
     "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა. ხელშეკრულება დაიდო არა თბილისში (სახელწოდების მიხედვით, გეორგიევსკში); მოვლენა ქალაქს ეხება როგორც სამეფოს დედაქალაქს."
    }
+  },
+  {
+   "year": 1787,
+   "date": "1787",
+   "cat": "power",
+   "ru": "Когда началась очередная русско-турецкая война, российские войска вышли из Грузии (царь Ираклий II продолжал самостоятельные контакты с одним из соседей — вассалов Турции)",
+   "en": "When another Russo-Turkish war began, the Russian troops left Georgia (King Heraclius II kept independent contacts with one of the neighbours, a vassal of Turkey)",
+   "ka": "ახალი რუსეთ-თურქეთის ომის დაწყებისას რუსეთის ჯარი საქართველოდან გავიდა (მეფე ერეკლე II თურქეთის ერთ-ერთ ვასალ მეზობელთან დამოუკიდებელ კონტაქტებს ინარჩუნებდა)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
   },
   {
    "year": 1795,
@@ -664,6 +743,17 @@
    "ka": "ღამით მიწის რყევა თბილისში; ავლაბრის გარეუბანში ძველი კედელი ჩამოინგრა და ძველი დაუსახლებელი სახლი დაიქცა"
   },
   {
+   "year": 1811,
+   "date": "1811",
+   "cat": "power",
+   "ru": "Отменена многовековая автокефалия Грузинской церкви: католикос Антоний II выслан в Россию, Грузия становится Грузинским экзархатом Русской православной церкви",
+   "en": "The centuries-old autocephaly of the Georgian Church is abolished: Catholicos Antony II is exiled to Russia, and Georgia becomes the Georgian Exarchate of the Russian Orthodox Church",
+   "ka": "გაუქმდა ქართული ეკლესიის მრავალსაუკუნოვანი ავტოკეფალია: კათოლიკოსი ანტონ II რუსეთში გაასახლეს, საქართველო კი რუსეთის მართლმადიდებლური ეკლესიის საქართველოს ეგზარქოსატად იქცა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
    "year": 1816,
    "date": "10.1816",
    "cat": "power",
@@ -721,6 +811,17 @@
    }
   },
   {
+   "year": 1837,
+   "date": "1837",
+   "cat": "science",
+   "ru": "В Тифлисе основана Тифлисская физическая обсерватория (астрономические, метеорологические и магнитные наблюдения); в списке обсерваторий Центра малых планет ей присвоен код 125 «Тбилиси»",
+   "en": "The Tiflis Physical Observatory is founded in Tiflis (astronomical, meteorological and magnetic observations); in the list of observatory codes of the Minor Planet Center it has the code 125 'Tbilisi'",
+   "ka": "თბილისში დაარსდა თბილისის ფიზიკური ობსერვატორია (ასტრონომიული, მეტეოროლოგიური და მაგნიტური დაკვირვებები); მცირე პლანეტების ცენტრის ობსერვატორიების სიაში მას აქვს კოდი 125 „თბილისი“",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%A2%D0%B8%D1%84%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D1%81%D0%B5%D1%80%D0%B2%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D1%8F"
+   ]
+  },
+  {
    "year": 1844,
    "date": "12.1844",
    "cat": "power",
@@ -762,6 +863,34 @@
    }
   },
   {
+   "year": 1848,
+   "date": "1848-1851",
+   "cat": "build",
+   "ru": "Построен Сухой мост по проекту итальянского архитектора Дж. Скудьери: он вёл через рукав Куры на «Мадатовский остров»; 25 февраля 1883 года по нему прошёл первый в городе маршрут конки",
+   "en": "The Dry Bridge is built to the design of the Italian architect G. Scudieri: it crossed an arm of the Kura to 'Madatov Island'; on 25 February 1883 the first horse-tram route in the city ran over it",
+   "ka": "აშენდა მშრალი ხიდი იტალიელი არქიტექტორ ჯ. სკუდიერის პროექტით: იგი მტკვრის ტოტზე გადადიოდა „მადატოვის კუნძულზე“; 1883 წლის 25 თებერვალს მასზე გაიარა ქალაქის პირველმა კონკის მარშრუტმა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%A1%D1%83%D1%85%D0%BE%D0%B9_%D0%BC%D0%BE%D1%81%D1%82"
+   ]
+  },
+  {
+   "year": 1850,
+   "date": "14.01.1850",
+   "cat": "build",
+   "ru": "В актовом зале Тбилисской гимназии силами любителей под руководством Георгия Эристави показана его комедия «Раздел» (2 января по старому стилю): первое представление грузинского профессионального театра Эристави, работавшего до 1856 года",
+   "en": "In the assembly hall of the Tbilisi gymnasium, amateurs directed by Giorgi Eristavi perform his comedy 'The Partition' (2 January in the old style): the first performance of the Georgian professional theatre of Eristavi, which worked until 1856",
+   "ka": "თბილისის გიმნაზიის სააქტო დარბაზში სცენისმოყვარეთა ძალებით, გიორგი ერისთავის რეჟისორობით წარმოადგინეს მისი პიესა „გაყრა“ (2 იანვარი ძველი სტილით): ერისთავის ქართული პროფესიული თეატრის პირველი წარმოდგენა; თეატრი 1856 წლამდე მოქმედებდა",
+   "src": [
+    "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%97%E1%83%90%E1%83%95%E1%83%98%E1%83%A1_%E1%83%97%E1%83%94%E1%83%90%E1%83%A2%E1%83%A0%E1%83%98",
+    "https://ru.wikipedia.org/wiki/%D0%AD%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%B2%D0%B8,_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D0%B9_%D0%94%D0%B0%D0%B2%D0%B8%D0%B4%D0%BE%D0%B2%D0%B8%D1%87",
+    "https://en.wikipedia.org/wiki/Giorgi_Eristavi"
+   ],
+   "note": {
+    "ru": "Дата и место взяты из грузинской статьи о театре Георгия Эристави. Английская статья о нём называет 1 января 1851 года датой премьеры труппы, русская только 1850 год («Раздел» впервые поставлена).",
+    "en": "The date and the place are from the Georgian article on the theatre of Giorgi Eristavi. The English article on him gives 1 January 1851 as the premiere of the company, the Russian one only the year 1850 (the first staging of 'The Partition')."
+   }
+  },
+  {
    "year": 1851,
    "date": "12.04.1851",
    "cat": "build",
@@ -785,6 +914,17 @@
     "src": "coordinates of the page 'Georgian National Opera Theater' on English Wikipedia",
     "ka": "ოპერისა და ბალეტის თეატრი"
    }
+  },
+  {
+   "year": 1851,
+   "date": "1851",
+   "cat": "build",
+   "ru": "По проекту инженера Гагенмейстера построен однопролётный деревянный арочный мост на месте нынешнего моста 300 арагвинцев (его назвали Мнацакановским по тифлисцу Ивану Мнацаканову, пожертвовавшему 25 тысяч рублей; к 1866 году мост пришёл в негодность и обрушился в 1869)",
+   "en": "A single-span wooden arch bridge is built to the design of the engineer Hagenmeister on the site of today's Bridge of the 300 Aragvians (it was named Mnatsakanov's after Ivan Mnatsakanov of Tiflis, who gave 25 thousand roubles; by 1866 the bridge was unfit and it collapsed in 1869)",
+   "ka": "ინჟინერ გაგენმეისტერის პროექტით აშენდა ერთმალიანი ხის თაღოვანი ხიდი დღევანდელი 300 არაგველის ხიდის ადგილას (მას მნაცაკანოვის ხიდი ეწოდა თბილისელ ივანე მნაცაკანოვის სახელით, რომელმაც 25 ათასი მანეთი შესწირა; 1866 წლისთვის ხიდი გამოუსადეგარი გახდა და 1869 წელს ჩამოინგრა)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%82_300_%D0%B0%D1%80%D0%B0%D0%B3%D0%B2%D0%B8%D0%BD%D1%86%D0%B5%D0%B2"
+   ]
   },
   {
    "year": 1855,
@@ -1287,6 +1427,73 @@
    }
   },
   {
+   "year": 1919,
+   "date": "1919-1941",
+   "cat": "science",
+   "ru": "Тбилисский период Ивана Бериташвили: он разрабатывает парадигму «свободного поведения» (изучение целенаправленного поведения животных без жёстких рамок метода условных рефлексов)",
+   "en": "The Tbilisi period of Ivane Beritashvili: he develops the paradigm of 'free behavior' (a study of goal-directed behaviour of animals without the strict restraints of the conditioning method)",
+   "ka": "ივანე ბერიტაშვილის თბილისური პერიოდი: იგი ავითარებს „თავისუფალი ქცევის“ პარადიგმას (ცხოველთა მიზანმიმართული ქცევის შესწავლა პირობითი რეფლექსების მეთოდის მკაცრი ჩარჩოების გარეშე)",
+   "src": [
+    "https://en.wikipedia.org/wiki/Ivane_Beritashvili"
+   ]
+  },
+  {
+   "year": 1919,
+   "date": "21.02.1919",
+   "cat": "build",
+   "ru": "В Тифлисском театре оперы и балета под управлением автора состоялась первая постановка оперы Захария Палиашвили «Абесалом и Этери»; музыка гимна Грузии взята из двух опер Палиашвили, «Даиси» и «Абесалом и Этери»",
+   "en": "The first performance of Zakaria Paliashvili's opera 'Abesalom and Eteri' takes place in the Tiflis Opera and Ballet Theatre, conducted by the author; the music of the anthem of Georgia is taken from two operas of Paliashvili, 'Daisi' and 'Abesalom and Eteri'",
+   "ka": "თბილისის საოპერო და საბალეტო თეატრში ავტორის დირიჟორობით შედგა ზაქარია ფალიაშვილის ოპერის „აბესალომ და ეთერი“ პირველი წარმოდგენა; საქართველოს ჰიმნის მუსიკა აღებულია ფალიაშვილის ორი ოპერიდან — „დაისი“ და „აბესალომ და ეთერი“",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D0%B5%D1%81%D0%B0%D0%BB%D0%BE%D0%BC_%D0%B8_%D0%AD%D1%82%D0%B5%D1%80%D0%B8_(%D0%BE%D0%BF%D0%B5%D1%80%D0%B0)",
+    "https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D0%BC%D0%BD_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
+   "year": 1919,
+   "date": "5.1919",
+   "cat": "build",
+   "ru": "В кинотеатре «Аполло» состоялась премьера «Христине», первого грузинского художественного фильма (режиссёр Александр Цуцунава; снимали в 1916-1918 годах в Тбилиси и Гурии, работу восстановили по копиям, сохранившимся в Тбилиси)",
+   "en": "The premiere of 'Khristine', the first Georgian feature film, is held in the Apollo cinema (director Alexander Tsutsunava; shot in 1916-1918 in Tbilisi and Guria, restored from the copies kept in Tbilisi)",
+   "ka": "კინოთეატრ „აპოლოში“ გაიმართა პირველი ქართული მხატვრული ფილმის „ქრისტინეს“ პრემიერა (რეჟისორი ალექსანდრე წუწუნავა; გადაღებულია 1916-1918 წლებში თბილისსა და გურიაში, აღდგენილია თბილისში შენახული ასლებით)",
+   "src": [
+    "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%A0%E1%83%98%E1%83%A1%E1%83%A2%E1%83%98%E1%83%9C%E1%83%94_(%E1%83%A4%E1%83%98%E1%83%9A%E1%83%9B%E1%83%98)"
+   ]
+  },
+  {
+   "year": 1919,
+   "date": "1919",
+   "cat": "build",
+   "ru": "Весной в подвале театра Питоева на проспекте Руставели, на месте ресторана «Анона», открыто артистическое кафе «Химериони» по инициативе поэтов и писателей группы «Голубые роги»; оно работало до 1922 года",
+   "en": "In the spring the artists' cafe Khimerioni opens in the basement of the Pitoeff theatre on Rustaveli Avenue, in place of the restaurant Anona, on the initiative of the poets and writers of the Blue Horns group; it works until 1922",
+   "ka": "გაზაფხულზე რუსთაველის გამზირზე, პიტოევის თეატრის სარდაფში, რესტორან „ანონას“ ადგილას, „ცისფერყანწელთა“ ჯგუფის პოეტებისა და მწერლების ინიციატივით გაიხსნა სახელოვნებო კაფე „ხიმერიონი“; ის 1922 წლამდე მუშაობდა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%A5%D0%B8%D0%BC%D0%B5%D1%80%D0%B8%D0%BE%D0%BD%D0%B8"
+   ]
+  },
+  {
+   "year": 1920,
+   "date": "1920-1921",
+   "cat": "science",
+   "ru": "Иван Бериташвили издаёт в Тифлисе первый учебник физиологии на грузинском языке (два тома и практическое руководство); в 1922 году он выходит и на русском",
+   "en": "Ivane Beritashvili publishes in Tiflis the first Georgian-language textbook of physiology (two volumes and a practical guide); a Russian edition follows in 1922",
+   "ka": "ივანე ბერიტაშვილი თბილისში გამოსცემს ფიზიოლოგიის პირველ სახელმძღვანელოს ქართულ ენაზე (ორი ტომი და პრაქტიკული ხელმძღვანელობა); 1922 წელს ის რუსულადაც გამოდის",
+   "src": [
+    "https://en.wikipedia.org/wiki/Ivane_Beritashvili"
+   ]
+  },
+  {
+   "year": 1920,
+   "date": "1920",
+   "cat": "science",
+   "ru": "Николай Мусхелишвили возвращается в Тбилиси, чтобы организовать национальную научную школу; в 1922-1938 годах он профессор Тбилисского университета и Политехнического института, до 1976 года директор Математического института имени Размадзе",
+   "en": "Nikoloz Muskhelishvili returns to Tbilisi to organise a national scientific school; in 1922-1938 he is a professor of Tbilisi State University and the Polytechnic Institute, and until 1976 the director of the Razmadze Mathematical Institute",
+   "ka": "ნიკოლოზ მუსხელიშვილი თბილისში ბრუნდება ეროვნული სამეცნიერო სკოლის შესაქმნელად; 1922-1938 წლებში იგი თბილისის უნივერსიტეტისა და პოლიტექნიკური ინსტიტუტის პროფესორია, 1976 წლამდე კი რაზმაძის სახელობის მათემატიკის ინსტიტუტის დირექტორი",
+   "src": [
+    "https://en.wikipedia.org/wiki/Nikoloz_Muskhelishvili"
+   ]
+  },
+  {
    "year": 1921,
    "date": "25.02.1921",
    "cat": "invasion",
@@ -1317,6 +1524,62 @@
    "ka": "ვერეს წყალდიდობამ მტკვარში გააყოლა მდინარესთან ღამის გამთენებელი გლეხები ხარებითა და არბებით (10-ზე მეტი დაღუპული)"
   },
   {
+   "year": 1933,
+   "date": "1933",
+   "cat": "science",
+   "ru": "При Тбилисском университете организован научно-исследовательский институт математики, физики и механики (с 1944 года имени Андрея Размадзе, ныне Тбилисский математический институт)",
+   "en": "A research institute of mathematics, physics and mechanics is organised at Tbilisi State University (since 1944 named after Andrea Razmadze, now the Tbilisi Mathematical Institute)",
+   "ka": "თბილისის უნივერსიტეტთან ორგანიზებულ იქნა მათემატიკის, ფიზიკისა და მექანიკის სამეცნიერო-კვლევითი ინსტიტუტი (1944 წლიდან ანდრია რაზმაძის სახელობის, დღეს თბილისის მათემატიკის ინსტიტუტი)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B8%D0%BD%D1%81%D1%82%D0%B8%D1%82%D1%83%D1%82"
+   ]
+  },
+  {
+   "year": 1933,
+   "date": "1933",
+   "cat": "build",
+   "ru": "Протока Куры под Сухим мостом осушена, по бывшему руслу проложена улица (ныне часть улицы Звиада Гамсахурдиа); с тех пор мост называют Сухим",
+   "en": "The arm of the Kura under the Dry Bridge is drained and a street is laid along the old bed (today part of Zviad Gamsakhurdia Street); since then the bridge is called Dry",
+   "ka": "მშრალი ხიდის ქვეშ მტკვრის ტოტი დააშრეს და ყოფილ კალაპოტზე ქუჩა გაიყვანეს (დღეს ზვიად გამსახურდიას ქუჩის ნაწილი); მას შემდეგ ხიდს მშრალს ეძახიან",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%A1%D1%83%D1%85%D0%BE%D0%B9_%D0%BC%D0%BE%D1%81%D1%82"
+   ]
+  },
+  {
+   "year": 1934,
+   "date": "1934",
+   "cat": "science",
+   "ru": "По приглашению Сталина в Тбилисский институт бактериофагии приезжает Феликс д'Эрелль, один из открывателей бактериофагов, и работает там около 18 месяцев",
+   "en": "At the invitation of Stalin, Félix d'Hérelle, one of the discoverers of bacteriophages, comes to the Tbilisi institute and works there for about 18 months",
+   "ka": "სტალინის მოწვევით თბილისის ინსტიტუტში ჩამოდის ფელიქს დ'ერელი, ბაქტერიოფაგების ერთ-ერთი აღმომჩენი, და იქ დაახლოებით 18 თვე მუშაობს",
+   "src": [
+    "https://en.wikipedia.org/wiki/George_Eliava_Institute",
+    "https://en.wikipedia.org/wiki/George_Eliava"
+   ]
+  },
+  {
+   "year": 1934,
+   "date": "1934",
+   "cat": "science",
+   "ru": "В Тбилиси основан Центр по чуме (Tbilisi Black Death Centre), его возглавил Георгий Элиава",
+   "en": "The Tbilisi Black Death Centre is founded, headed by George Eliava",
+   "ka": "თბილისში დაარსდა ჭირის ცენტრი (Tbilisi Black Death Centre), რომელსაც გიორგი ელიავა ხელმძღვანელობდა",
+   "src": [
+    "https://en.wikipedia.org/wiki/George_Eliava"
+   ]
+  },
+  {
+   "year": 1935,
+   "date": "1935",
+   "cat": "science",
+   "ru": "В Тбилиси написана и издана книга д'Эрелля «Бактериофаг и феномен выздоровления»",
+   "en": "The book of d'Hérelle 'The Bacteriophage and the Phenomenon of Cure' is written and published in Tbilisi",
+   "ka": "თბილისში დაიწერა და გამოიცა დ'ერელის წიგნი „ბაქტერიოფაგი და განკურნების ფენომენი“",
+   "src": [
+    "https://en.wikipedia.org/wiki/George_Eliava_Institute"
+   ]
+  },
+  {
    "year": 1936,
    "date": "1936",
    "cat": "build",
@@ -1335,6 +1598,32 @@
     "src": "coordinates of the page 'Boris Paichadze Dinamo Arena' on English Wikipedia",
     "ka": "სტადიონი „დინამო“ (ბორის პაიჭაძის სახელობის დინამოს არენა)"
    }
+  },
+  {
+   "year": 1937,
+   "date": "30.03.1937",
+   "cat": "build",
+   "ru": "В Тбилиси начал работать троллейбус; к 1986 году действовало 21 линия длиной 215 км и 225 троллейбусов",
+   "en": "The trolleybus begins to run in Tbilisi; by 1986 there were 21 lines, 215 km long, and 225 trolleybuses",
+   "ka": "თბილისში ტროლეიბუსმა ფუნქციონირება დაიწყო; 1986 წლისთვის მოქმედებდა 215 კმ სიგრძის 21 ხაზი და 225 ტროლეიბუსი",
+   "src": [
+    "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A0%E1%83%9D%E1%83%9A%E1%83%94%E1%83%98%E1%83%91%E1%83%A3%E1%83%A1%E1%83%98"
+   ],
+   "note": {
+    "ru": "Дата 30 марта 1937 взята из грузинской статьи о тбилисском троллейбусе; в одном из списков стояло 21 апреля 1937 (возможно, дата официального открытия), это не подтверждено.",
+    "en": "The date of 30 March 1937 is from the Georgian article on the Tbilisi trolleybus; one list gave 21 April 1937 (perhaps the date of the official opening), which is not confirmed."
+   }
+  },
+  {
+   "year": 1939,
+   "date": "1939",
+   "cat": "build",
+   "ru": "Паровозовагоноремонтный завод переносят на окраину Тбилиси: этот год считается годом основания Тбилисского электровозостроительного завода (электровозы он строит с 1957 года, с помощью специалистов Новочеркасского завода)",
+   "en": "The steam-locomotive and wagon repair works is moved to the outskirts of Tbilisi: this year is counted as the founding of the Tbilisi Electric Locomotive Works (it builds electric locomotives since 1957, with the help of specialists of the Novocherkassk works)",
+   "ka": "ორთქლმავლებისა და ვაგონების სარემონტო ქარხანა თბილისის განაპირას გადააქვთ: ეს წელი ითვლება თბილისის ელექტროსაშენებელი ქარხნის დაარსების წლად (ელექტრომავლებს იგი 1957 წლიდან აგებს, ნოვოჩერკასკის ქარხნის სპეციალისტების დახმარებით)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B2%D0%BE%D0%B7%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4"
+   ]
   },
   {
    "year": 1940,
@@ -1356,6 +1645,17 @@
    "ka": "კოკისპირულმა წვიმამ (166 მმ) გამოიწვია მტკვრისა და ვერეს წყალდიდობა: ტალახიანი და ქვიანი ნაკადები ქუჩებს, სარდაფებსა და პირველ სართულებს ავსებდა, ტრანსპორტი რამდენიმე დღით გაჩერდა; დაიღუპა 20-ზე მეტი ადამიანი"
   },
   {
+   "year": 1941,
+   "date": "9.10-20.12.1941",
+   "cat": "build",
+   "ru": "Приказом № 1053сс авиазавод № 31 эвакуируется из Таганрога в Тбилиси; 20 декабря образован объединённый завод № 31 (слияние заводов № 31, 45 и 448) - начало Тбилисского авиазавода",
+   "en": "By order no. 1053ss the aircraft plant no. 31 is evacuated from Taganrog to Tbilisi; on 20 December the united plant no. 31 is formed (a merger of plants no. 31, 45 and 448) - the beginning of the Tbilisi aircraft plant",
+   "ka": "ბრძანება №1053სს-ით ტაგანროგიდან თბილისში ევაკუირებულია საავიაციო ქარხანა №31; 20 დეკემბერს შეიქმნა გაერთიანებული ქარხანა №31 (№31, 45 და 448 ქარხნების შერწყმა) - თბილისის საავიაციო ქარხნის დასაწყისი",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B0%D0%B2%D0%B8%D0%B0%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4"
+   ]
+  },
+  {
    "year": 1946,
    "date": "1946",
    "cat": "build",
@@ -1373,6 +1673,39 @@
     "en": "Vake Park",
     "src": "coordinates of the page 'Vake Park' on English Wikipedia",
     "ka": "ვაკის პარკი"
+   }
+  },
+  {
+   "year": 1950,
+   "date": "12.1950",
+   "cat": "science",
+   "ru": "Академия наук Грузии учреждает Институт физики (до 2006 года в составе Академии; ныне Институт физики имени Элевтера Андроникашвили при Тбилисском университете)",
+   "en": "The Georgian Academy of Sciences establishes the Institute of Physics (part of the Academy until 2006; now the Elephter Andronikashvili Institute of Physics at Tbilisi State University)",
+   "ka": "საქართველოს მეცნიერებათა აკადემიამ დააფუძნა ფიზიკის ინსტიტუტი (2006 წლამდე აკადემიის შემადგენლობაში, დღეს თბილისის უნივერსიტეტთან მოქმედი ელეფთერ ანდრონიკაშვილის სახელობის ფიზიკის ინსტიტუტი)",
+   "src": [
+    "https://aiphysics.tsu.ge/",
+    "https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B4%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8,_%D0%AD%D0%BB%D0%B5%D0%B2%D1%82%D0%B5%D1%80_%D0%9B%D1%83%D0%B0%D1%80%D1%81%D0%B0%D0%B1%D0%BE%D0%B2%D0%B8%D1%87"
+   ],
+   "note": {
+    "ru": "Декабрь 1950 года указан на сайте института. В русской статье об Андроникашвили сказано, что он работал в Институте физики АН Грузинской ССР с 1942 года (директор с 1951), то есть источники расходятся.",
+    "en": "December 1950 is given on the website of the institute. The Russian article on Andronikashvili says that he worked at the Institute of Physics of the Georgian SSR Academy from 1942 (director from 1951), so the sources differ."
+   }
+  },
+  {
+   "year": 1954,
+   "date": "1954",
+   "cat": "build",
+   "ru": "Введена в эксплуатацию Ортачальская ГЭС на Куре в черте Тбилиси (стройка начата осенью 1950 года; в маловодье станция сохраняет воду в русле реки)",
+   "en": "The Ortachala hydroelectric station on the Kura within Tbilisi is put into operation (the construction began in the autumn of 1950; in the low-water season the station keeps the water in the river bed)",
+   "ka": "ექსპლუატაციაში შევიდა ორთაჭალჰესი მტკვარზე, თბილისის ფარგლებში (მშენებლობა 1950 წლის შემოდგომაზე დაიწყო; წყალმცირობის პერიოდში სადგური მდინარის კალაპოტში წყალს ინარჩუნებს)",
+   "src": [
+    "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%A0%E1%83%97%E1%83%90%E1%83%AD%E1%83%90%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%B0%E1%83%98%E1%83%93%E1%83%A0%E1%83%9D%E1%83%94%E1%83%9A%E1%83%94%E1%83%A5%E1%83%A2%E1%83%A0%E1%83%9D%E1%83%A1%E1%83%90%E1%83%93%E1%83%92%E1%83%A3%E1%83%A0%E1%83%98",
+    "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%A0%E1%83%97%E1%83%90%E1%83%AD%E1%83%90%E1%83%9A%E1%83%90",
+    "https://ru.wikipedia.org/wiki/%D0%A5%D1%80%D0%B0%D0%BC%D0%B3%D1%8D%D1%81%D1%81%D1%82%D1%80%D0%BE%D0%B9"
+   ],
+   "note": {
+    "ru": "Год ввода 1954 назван в двух грузинских статьях (о станции и о районе Ортачала); начало стройки осенью 1950 года взято из статьи о тресте «Храмгэсстрой». В одном из списков стоял 1955, подтверждения этому нет.",
+    "en": "The year 1954 is given in two Georgian articles (on the station and on the Ortachala district); the start of the construction in the autumn of 1950 is from the article on the trust KhramGESStroy. One list gave 1955, which is not confirmed."
    }
   },
   {
@@ -1412,6 +1745,43 @@
    }
   },
   {
+   "year": 1956,
+   "date": "1956",
+   "cat": "science",
+   "ru": "Основан Вычислительный центр Академии наук Грузии (с 1977 года носит имя Николая Мусхелишвили, инициатора его открытия; в 1956-1978 годах его возглавлял Давид Квеселава; с 1983 года Институт вычислительной математики)",
+   "en": "The Computing Centre of the Georgian Academy of Sciences is founded (since 1977 named after Nikoloz Muskhelishvili, the initiator of its opening; in 1956-1978 it was headed by David Kveselava; since 1983 the Institute of Computational Mathematics)",
+   "ka": "დაარსდა საქართველოს მეცნიერებათა აკადემიის გამოთვლითი ცენტრი (1977 წლიდან მას ეწოდა მისი გახსნის ინიციატორის ნიკო მუსხელიშვილის სახელი; 1956-1978 წლებში მას დავით კვესელავა ხელმძღვანელობდა; 1983 წლიდან გამოთვლითი მათემატიკის ინსტიტუტი)",
+   "src": [
+    "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D_%E1%83%9B%E1%83%A3%E1%83%A1%E1%83%AE%E1%83%94%E1%83%9A%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%AE%E1%83%94%E1%83%9A%E1%83%9D%E1%83%91%E1%83%98%E1%83%A1_%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%97%E1%83%95%E1%83%9A%E1%83%98%E1%83%97%E1%83%98_%E1%83%9B%E1%83%90%E1%83%97%E1%83%94%E1%83%9B%E1%83%90%E1%83%A2%E1%83%98%E1%83%99%E1%83%98%E1%83%A1_%E1%83%98%E1%83%9C%E1%83%A1%E1%83%A2%E1%83%98%E1%83%A2%E1%83%A3%E1%83%A2%E1%83%98"
+   ]
+  },
+  {
+   "year": 1958,
+   "date": "1958",
+   "cat": "build",
+   "ru": "Появилась канатная дорога от проспекта Руставели на гору Мтацминда",
+   "en": "A cable car from Rustaveli Avenue to Mount Mtatsminda appears",
+   "ka": "გამოჩნდა საბაგირო გზა რუსთაველის გამზირიდან მთაწმინდაზე",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%B0_%D0%A0%D1%83%D1%81%D1%82%D0%B0%D0%B2%D0%B5%D0%BB%D0%B8_%E2%80%94_%D0%9C%D1%82%D0%B0%D1%86%D0%BC%D0%B8%D0%BD%D0%B4%D0%B0"
+   ]
+  },
+  {
+   "year": 1959,
+   "date": "21.11.1959",
+   "cat": "science",
+   "ru": "Официально открыт исследовательский ядерный реактор ИРТ-2000 в селе Мухатгверди близ Тбилиси (стройка начата весной 1957 года по инициативе директора Института физики Элевтера Андроникашвили)",
+   "en": "The research nuclear reactor IRT-2000 is officially opened in the village of Mukhatgverdi near Tbilisi (the construction began in the spring of 1957 on the initiative of the director of the Institute of Physics Elephter Andronikashvili)",
+   "ka": "ოფიციალურად გაიხსნა კვლევითი ბირთვული რეაქტორი ИРТ-2000 თბილისთან ახლოს, სოფელ მუხათგვერდში (მშენებლობა 1957 წლის გაზაფხულზე დაიწყო ფიზიკის ინსტიტუტის დირექტორის ელეფთერ ანდრონიკაშვილის ინიციატივით)",
+   "src": [
+    "https://aiphysics.tsu.ge/nuclear/nuclear-e.html"
+   ],
+   "note": {
+    "ru": "Реактор стоял не в городской черте, а в селе Мухатгверди вблизи Тбилиси; остановлен 29 декабря 1987 года, топливо вывезено в 1998 году (по сайту института).",
+    "en": "The reactor stood not in the city but in the village of Mukhatgverdi near Tbilisi; it was shut down on 29 December 1987 and the fuel was taken away in 1998 (after the website of the institute)."
+   }
+  },
+  {
    "year": 1960,
    "date": "5.07.1960",
    "cat": "flood",
@@ -1431,6 +1801,22 @@
    "ka": "ვერეს წყალდიდობა: ზემოთ დანგრეულია ხიდები, მილსადენები და ჰიდრონაგებობები; ვაკე-საბურთალოს გვირაბთან ჩახერგილობის გარღვევის შემდეგ წყალი (259 მ³/წმ) მტკვრისკენ გამოექანა და ზოოპარკსა და აბრეშუმის ფაბრიკაში შეიჭრა"
   },
   {
+   "year": 1960,
+   "date": "3.10.1960",
+   "cat": "science",
+   "ru": "По постановлению Совета министров Грузинской ССР № 690 на базе физико-кибернетического отдела Института физики создан Институт кибернетики Академии наук Грузии (по сведениям самого института, первый в СССР институт кибернетики; ныне имени Владимира Чавчанидзе)",
+   "en": "By Resolution No. 690 of the Council of Ministers of the Georgian SSR the Institute of Cybernetics of the Georgian Academy of Sciences is established on the base of the Physics-Cybernetics Department of the Institute of Physics (according to the institute itself, the first institute of cybernetics in the USSR; now named after Vladimer Chavchanidze)",
+   "ka": "საქართველოს სსრ მინისტრთა საბჭოს №690 დადგენილებით ფიზიკის ინსტიტუტის ფიზიკა-კიბერნეტიკის განყოფილების ბაზაზე შეიქმნა საქართველოს მეცნიერებათა აკადემიის კიბერნეტიკის ინსტიტუტი (თავად ინსტიტუტის ცნობით, სსრკ-ში პირველი კიბერნეტიკის ინსტიტუტი; დღეს ვლადიმერ ჭავჭანიძის სახელობის)",
+   "src": [
+    "https://cybernetics.ge/en/history",
+    "https://cybernetics.ge/en/home"
+   ],
+   "note": {
+    "ru": "Дата взята со страницы истории института (3 октября 1960, постановление № 690); дата 1956, которая встречалась в одном из списков, неверна.",
+    "en": "The date is from the history page of the institute (3 October 1960, Resolution No. 690); the date 1956 that appeared in one list is wrong."
+   }
+  },
+  {
    "year": 1966,
    "date": "11.01.1966",
    "cat": "build",
@@ -1440,6 +1826,17 @@
    "ru": "Открыто Тбилисское метро: первые шесть станций (стройка началась в 1952); четвёртое метро в СССР",
    "en": "The Tbilisi Metro opens with its first six stations (construction began in 1952); the fourth metro system in the USSR",
    "ka": "გაიხსნა თბილისის მეტროპოლიტენი პირველი ექვსი სადგურით (მშენებლობა დაიწყო 1952 წელს); მეოთხე მეტრო სსრკ-ში"
+  },
+  {
+   "year": 1966,
+   "date": "1966",
+   "cat": "build",
+   "ru": "Мосту, прежде называвшемуся Мухранским (по району на правом берегу, где стоял дворец князей Багратион-Мухранских), присвоено современное название: мост Бараташвили, в честь поэта",
+   "en": "The bridge, earlier called Mukhrani (after the district on the right bank where the palace of the Bagration-Mukhrani princes stood), gets its present name: the Baratashvili Bridge, after the poet",
+   "ka": "ხიდს, რომელსაც ადრე მუხრანის ხიდი ერქვა (მარჯვენა ნაპირას უბნის სახელით, სადაც ბაგრატიონ-მუხრანელების სასახლე იდგა), მიენიჭა დღევანდელი სახელი: ბარათაშვილის ხიდი, პოეტის პატივსაცემად",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%82_%D0%91%D0%B0%D1%80%D0%B0%D1%82%D0%B0%D1%88%D0%B2%D0%B8%D0%BB%D0%B8"
+   ]
   },
   {
    "year": 1968,
@@ -1459,6 +1856,17 @@
     "ka": "ინფორმაცია გადმოცემულია სტატიის ცხრილისა და ტექსტის მიხედვით (წაკითხულია ეკრანზე; ქართულიდან თარგმანი ჩემია). დაღუპულთა რიცხვი სტატიაშია მითითებული."
    },
    "ka": "მტკვრის უდიდესი წყალდიდობა დაკვირვების მანძილზე: 19 აპრილს პიკი 2450 მ³/წმ, კალაპოტის გამტარუნარიანობაზე (1800 მ³/წმ) 36%-ით მეტი; დაიტბორა სახლების სარდაფები და პირველი სართულები"
+  },
+  {
+   "year": 1968,
+   "date": "1968",
+   "cat": "science",
+   "ru": "В Тбилиси впервые опубликована книга Ивана Бериташвили «Память позвоночных, её характеристика и происхождение» (на русском; английский перевод вышел в 1971)",
+   "en": "Ivane Beritashvili's book 'Vertebrate Memory, its Characteristic and Origin' is first published in Tbilisi (in Russian; the English translation appears in 1971)",
+   "ka": "თბილისში პირველად გამოქვეყნდა ივანე ბერიტაშვილის წიგნი „ხერხემლიანთა მეხსიერება, მისი დახასიათება და წარმოშობა“ (რუსულად; ინგლისური თარგმანი 1971 წელს გამოვიდა)",
+   "src": [
+    "https://en.wikipedia.org/wiki/Ivane_Beritashvili"
+   ]
   },
   {
    "year": 1972,
@@ -1481,6 +1889,17 @@
    }
   },
   {
+   "year": 1975,
+   "date": "1975",
+   "cat": "build",
+   "ru": "Построено здание Министерства автомобильных дорог Грузинской ССР на улице Гагарина (проект архитекторов Георгия Чахавы и Зураба Джалагании)",
+   "en": "The building of the Ministry of Highways of the Georgian SSR is built on Gagarin Street (designed by the architects Giorgi Chakhava and Zurab Jalaghania)",
+   "ka": "აშენდა საქართველოს სსრ საავტომობილო გზების სამინისტროს შენობა გაგარინის ქუჩაზე (არქიტექტორები გიორგი ჩახავა და ზურაბ ჯალაღონია)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%97%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%9C%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D0%B5%D1%80%D1%81%D1%82%D0%B2%D0%B0_%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%B4%D0%BE%D1%80%D0%BE%D0%B3_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D0%A1%D0%A1%D0%A0"
+   ]
+  },
+  {
    "year": 1976,
    "date": "26.09.1976",
    "cat": "build",
@@ -1499,6 +1918,17 @@
     "src": "coordinates of the page 'Boris Paichadze Dinamo Arena' on English Wikipedia",
     "ka": "სტადიონი „დინამო“ (ბორის პაიჭაძის სახელობის დინამოს არენა)"
    }
+  },
+  {
+   "year": 1978,
+   "date": "14.04.1978",
+   "cat": "unrest",
+   "ru": "В Тбилиси прошли массовые демонстрации протеста против лишения грузинского языка статуса государственного",
+   "en": "Mass protest demonstrations in Tbilisi against taking the status of the state language away from Georgian",
+   "ka": "თბილისში გაიმართა მასობრივი საპროტესტო დემონსტრაციები ქართული ენისთვის სახელმწიფო ენის სტატუსის წართმევის წინააღმდეგ",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
   },
   {
    "year": 1981,
@@ -1547,6 +1977,28 @@
    "ka": "საბჭოთა ჯარების მიერ მშვიდობიანი დემონსტრაციის დარბევა რუსთაველის გამზირზე, დაახლოებით 20 დაღუპული"
   },
   {
+   "year": 1990,
+   "date": "28.10-14.11.1990",
+   "cat": "power",
+   "ru": "Блок Звиада Гамсахурдии побеждает на выборах в Верховный Совет Грузинской ССР (28 октября); 14 ноября он избран председателем Президиума Верховного Совета, и страна становится Республикой Грузия",
+   "en": "The bloc of Zviad Gamsakhurdia wins the elections to the Supreme Soviet of the Georgian SSR (28 October); on 14 November he is elected chairman of its Presidium and the country is renamed the Republic of Georgia",
+   "ka": "ზვიად გამსახურდიას ბლოკმა გაიმარჯვა საქართველოს სსრ უზენაესი საბჭოს არჩევნებზე (28 ოქტომბერი); 14 ნოემბერს იგი უზენაესი საბჭოს პრეზიდიუმის თავმჯდომარედ აირჩიეს და ქვეყანას საქართველოს რესპუბლიკა ეწოდა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
+   "year": 1990,
+   "date": "1.06.1990",
+   "cat": "other",
+   "ru": "Крушение двух кабин канатной дороги Руставели - Мтацминда: погибло 20 пассажиров, не менее 15 тяжело ранены; дорога была закрыта на долгие годы",
+   "en": "Two cabins of the Rustaveli - Mtatsminda cable car crash: 20 passengers die and at least 15 are seriously injured; the cable car is closed for many years",
+   "ka": "რუსთაველი - მთაწმინდის საბაგიროს ორი კაბინის ჩამოვარდნა: დაიღუპა 20 მგზავრი, სულ მცირე 15 მძიმედ დაშავდა; საბაგირო ბევრი წლით დაიხურა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%B0_%D0%A0%D1%83%D1%81%D1%82%D0%B0%D0%B2%D0%B5%D0%BB%D0%B8_%E2%80%94_%D0%9C%D1%82%D0%B0%D1%86%D0%BC%D0%B8%D0%BD%D0%B4%D0%B0"
+   ]
+  },
+  {
    "year": 1991,
    "date": "22.12.1991-6.01.1992",
    "cat": "power",
@@ -1567,6 +2019,50 @@
    }
   },
   {
+   "year": 1991,
+   "date": "9.04.1991",
+   "cat": "power",
+   "ru": "Верховный Совет Грузии принимает акт о восстановлении независимости; до распада СССР в конце года Грузия формально остаётся в его составе",
+   "en": "The Supreme Soviet of Georgia adopts the act restoring independence; until the Soviet Union breaks up at the end of the year Georgia formally stays within it",
+   "ka": "საქართველოს უზენაესმა საბჭომ მიიღო დამოუკიდებლობის აღდგენის აქტი; სსრკ-ის დაშლამდე, იმავე წლის ბოლომდე, საქართველო ფორმალურად მის შემადგენლობაში რჩებოდა",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
+   "year": 1992,
+   "date": "28.03.1992-6.11.1993",
+   "cat": "invasion",
+   "ru": "Гражданская война: сторонники свергнутого президента Гамсахурдии (звиадисты) воюют с правительственными войсками в Западной Грузии; 28 марта 1992 они заняли Зугдиди, Сенаки, Хоби, Абашу и Поти, 6 ноября 1993 практически без боя пал их последний оплот Зугдиди",
+   "en": "Civil war: the supporters of the ousted president Gamsakhurdia (the Zviadists) fight the government troops in Western Georgia; on 28 March 1992 they took Zugdidi, Senaki, Khobi, Abasha and Poti, and on 6 November 1993 their last stronghold, Zugdidi, fell almost without a fight",
+   "ka": "სამოქალაქო ომი: დამხობილი პრეზიდენტის გამსახურდიას მომხრეები (ზვიადისტები) დასავლეთ საქართველოში მთავრობის ჯარებს ებრძვიან; 1992 წლის 28 მარტს მათ დაიკავეს ზუგდიდი, სენაკი, ხობი, აბაშა და ფოთი, 1993 წლის 6 ნოემბერს კი თითქმის უბრძოლველად დაეცა მათი ბოლო ბურჯი — ზუგდიდი",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B6%D0%B4%D0%B0%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_%D0%B2%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B2_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
+   "year": 1992,
+   "date": "8.1992-14.05.1994",
+   "cat": "invasion",
+   "ru": "Война в Абхазии: с августа 1992 года бои между грузинскими и абхазскими вооружёнными силами после ввода Национальной гвардии Грузии; 27 июля 1993 в Сочи подписано соглашение о перемирии, 16-27 сентября битва за Сухуми, 27 сентября город взят абхазскими формированиями; 14 мая 1994 в Москве подписано соглашение о прекращении огня",
+   "en": "War in Abkhazia: from August 1992 fighting between Georgian and Abkhaz armed forces after the National Guard of Georgia entered Abkhazia; a ceasefire agreement was signed in Sochi on 27 July 1993, the battle for Sukhumi was fought on 16-27 September and the city was taken by Abkhaz forces on 27 September; a ceasefire agreement was signed in Moscow on 14 May 1994",
+   "ka": "აფხაზეთის ომი: 1992 წლის აგვისტოდან ბრძოლები ქართულ და აფხაზურ შეიარაღებულ ძალებს შორის საქართველოს ეროვნული გვარდიის შეყვანის შემდეგ; 1993 წლის 27 ივლისს სოჭში ხელი მოეწერა ცეცხლის შეწყვეტის შეთანხმებას, 16-27 სექტემბერს მიმდინარეობდა ბრძოლა სოხუმისთვის, 27 სექტემბერს ქალაქი აფხაზურმა ფორმირებებმა აიღეს; 1994 წლის 14 მაისს მოსკოვში ხელი მოეწერა ცეცხლის შეწყვეტის შეთანხმებას",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B2_%D0%90%D0%B1%D1%85%D0%B0%D0%B7%D0%B8%D0%B8_(1992%E2%80%941993)"
+   ]
+  },
+  {
+   "year": 1995,
+   "date": "5.11.1995",
+   "cat": "power",
+   "ru": "Президентские выборы: побеждает Эдуард Шеварднадзе (72,9 % голосов)",
+   "en": "Presidential election: Eduard Shevardnadze wins (72.9 % of the votes)",
+   "ka": "საპრეზიდენტო არჩევნები: იმარჯვებს ედუარდ შევარდნაძე (ხმების 72,9 %)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
    "year": 2002,
    "date": "25.04.2002",
    "cat": "earthquake",
@@ -1581,6 +2077,28 @@
     "ka": "2011 წლის მონოგრაფია ასახელებს MS 4,6-ს და ინტენსივობას 7-8 MSK შკალით."
    },
    "ka": "მიწისძვრა თბილისში (mb 4,8): ეპიცენტრი ქალაქის ფარგლებში, 5-7 დაღუპული, 18 000 შინამეურნეობა მძიმედ დაზარალდა"
+  },
+  {
+   "year": 2003,
+   "date": "3-23.11.2003",
+   "cat": "power",
+   "ru": "Революция роз: двадцать дней протестов (3-23 ноября) из-за спорных парламентских выборов; демонстранты во главе с Саакашвили вошли в зал заседаний парламента с красными розами в руках, 23 ноября президент Шеварднадзе ушёл в отставку",
+   "en": "Rose Revolution: twenty days of protests (3-23 November) over the disputed parliamentary elections; demonstrators led by Saakashvili stormed the session of the Parliament with red roses in hand, and on 23 November President Shevardnadze resigned",
+   "ka": "ვარდების რევოლუცია: ოცდღიანი პროტესტი (3-23 ნოემბერი) სადავო საპარლამენტო არჩევნების გამო; სააკაშვილის მეთაურობით დემონსტრანტები წითელი ვარდებით ხელში შეიჭრნენ პარლამენტის სხდომაზე, 23 ნოემბერს პრეზიდენტმა შევარდნაძემ გადადგა",
+   "src": [
+    "https://en.wikipedia.org/wiki/Rose_Revolution",
+    "https://en.wikipedia.org/wiki/President_of_Georgia",
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ],
+   "place": {
+    "lng": 44.79833333,
+    "lat": 41.69694444,
+    "zoom": 16,
+    "ru": "Здание парламента, проспект Руставели",
+    "en": "The Parliament building, Rustaveli Avenue",
+    "ka": "პარლამენტის შენობა, რუსთაველის გამზირი",
+    "src": "coordinates of the page 'Parliament of Georgia' on English Wikipedia"
+   }
   },
   {
    "year": 2004,
@@ -1621,6 +2139,39 @@
     "src": "coordinates of the page 'Freedom Square, Tbilisi' on English Wikipedia",
     "ka": "თავისუფლების მოედანი"
    }
+  },
+  {
+   "year": 2006,
+   "date": "4.12.2006",
+   "cat": "other",
+   "ru": "Ликвидированы последние 4 маршрута тбилисского троллейбуса",
+   "en": "The last 4 routes of the Tbilisi trolleybus are closed",
+   "ka": "ლიკვიდირებულ იქნა თბილისის ტროლეიბუსის უკანასკნელი 4 მარშრუტი",
+   "src": [
+    "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A0%E1%83%9D%E1%83%9A%E1%83%94%E1%83%98%E1%83%91%E1%83%A3%E1%83%A1%E1%83%98"
+   ]
+  },
+  {
+   "year": 2007,
+   "date": "9.2007",
+   "cat": "unrest",
+   "ru": "Недовольство политикой Саакашвили приводит к многотысячным акциям протеста",
+   "en": "Discontent with the policy of Saakashvili leads to protests of many thousands",
+   "ka": "სააკაშვილის პოლიტიკით უკმაყოფილებამ მრავალათასიანი საპროტესტო აქციები გამოიწვია",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
+  },
+  {
+   "year": 2008,
+   "date": "7-26.08.2008",
+   "cat": "invasion",
+   "ru": "Война в Грузии: в ночь с 7 на 8 августа штурмом Цхинвали началась война; 26 августа президент России Медведев подписал указ о признании независимости Абхазии и Южной Осетии",
+   "en": "War in Georgia: in the night of 7 to 8 August the storming of Tskhinvali begins the war; on 26 August the Russian president Medvedev signs a decree recognising the independence of Abkhazia and South Ossetia",
+   "ka": "ომი საქართველოში: 7-დან 8 აგვისტოს ღამეს ცხინვალზე იერიშით დაიწყო ომი; 26 აგვისტოს რუსეთის პრეზიდენტმა მედვედევმა ხელი მოაწერა ბრძანებულებას აფხაზეთისა და სამხრეთ ოსეთის დამოუკიდებლობის აღიარების შესახებ",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
+   ]
   },
   {
    "year": 2010,
@@ -1698,6 +2249,17 @@
     "src": "coordinates of the page 'Georgian National Opera Theater' on English Wikipedia",
     "ka": "ოპერისა და ბალეტის თეატრი"
    }
+  },
+  {
+   "year": 2024,
+   "date": "18.10.2024",
+   "cat": "build",
+   "ru": "После восстановления канатная дорога Руставели - Мтацминда открыта для пассажиров (работы возобновились осенью 2021 года)",
+   "en": "After its restoration the Rustaveli - Mtatsminda cable car opens to passengers (the work resumed in the autumn of 2021)",
+   "ka": "აღდგენის შემდეგ რუსთაველი - მთაწმინდის საბაგირო გაიხსნა მგზავრებისთვის (სამუშაოები 2021 წლის შემოდგომაზე განახლდა)",
+   "src": [
+    "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%B0_%D0%A0%D1%83%D1%81%D1%82%D0%B0%D0%B2%D0%B5%D0%BB%D0%B8_%E2%80%94_%D0%9C%D1%82%D0%B0%D1%86%D0%BC%D0%B8%D0%BD%D0%B4%D0%B0"
+   ]
   }
  ]
 }
