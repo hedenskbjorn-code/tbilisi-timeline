@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.2.1",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "Форма «Прислать фото» и «охота за фото» (кольца объектов без фото, список ближайших) теперь доступны всем посетителям, а не только по ссылке для клуба; выключить их в своём браузере можно ссылкой с ?club=0.",
+    "en": "The \"Send a photo\" form and the \"photo hunt\" (rings of objects without a photo, the list of the nearest ones) are now open to all visitors, not only by the link for the club; they can be switched off in a browser with a link with ?club=0.",
+    "ka": "ფორმა „ფოტოს გამოგზავნა“ და „ფოტოებზე ნადირობა“ (ფოტოს გარეშე ობიექტების რგოლები, უახლოესთა სია) ახლა ყველა სტუმრისთვისაა ხელმისაწვდომი და არა მხოლოდ კლუბის ბმულით; ბრაუზერში მათი გამორთვა შეიძლება ბმულით ?club=0."
+   }
+  ]
+ },
+ {
   "version": "1.2.0",
   "date": "2026-11-19",
   "items": [
