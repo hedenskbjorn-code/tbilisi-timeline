@@ -134,6 +134,7 @@
     if (!modal) modal = build();
     stopCamera(); modal.querySelector("#phForm").reset(); q("phPrev").hidden = true; q("phStatus").textContent = ""; q("phLoc").textContent = ""; q("phSend").disabled = false;
     labels(); modal.hidden = false; tsToken = "";
+    if (o.file) processFile(o.file);                                               // a photo shared from the phone arrives already chosen
     await loadTurnstile();
     if (window.turnstile && cfg.turnstileSitekey) {
       if (tsId !== null) { try { window.turnstile.remove(tsId); } catch (e) {} }
@@ -197,8 +198,9 @@
     showLoc();
   }
 
-  async function onFile(e) {
-    const L = T[state.lang] || T.en, st = q("phStatus"), file = e.target.files && e.target.files[0];
+  const onFile = (e) => processFile(e.target.files && e.target.files[0]);
+  async function processFile(file) {
+    const L = T[state.lang] || T.en, st = q("phStatus");
     state.blob = null; state.gps = null; q("phPrev").hidden = true; st.textContent = "";
     if (!file) return;
     try {

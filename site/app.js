@@ -838,6 +838,7 @@
     if ($("fbContactInput")) $("fbContactInput").placeholder = t().fbContactPh;
     updateVersionBtn();
     updatePhotoUi();
+    if (window.TT_PWA) window.TT_PWA.retext();
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
     updateZoomUi();
@@ -1234,7 +1235,8 @@
     $("rowNoPhoto").hidden = !on; $("rowNear").hidden = !on;
     if (on) { const S = window.TT_PHOTO.s(lang); $("noPhotoL").textContent = S.noPhotoL; $("btnNear").textContent = S.nearBtn; }
   }
-  let lastPos = null;
+  let lastPos = null, picker = null;
+  window.TT_APP = { pickObject: (cb) => { picker = cb; } };
   function showNearby(pos) {
     const S = window.TT_PHOTO.s(lang);
     reopenInfo = () => showNearby(pos);
@@ -2094,7 +2096,17 @@
       id: "nophoto", type: "circle", source: "mon", layout: { visibility: "none" }, filter: ["!", ["has", "ph"]],
       paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 6, 15, 12, 18, 17], "circle-color": "rgba(0,0,0,0)", "circle-stroke-width": 2.5, "circle-stroke-color": "#f76707", "circle-stroke-opacity": 0.95 },
     }, "mon-ruin");
-    map.on("click", "mon", (e) => { if (e.features && e.features[0]) popup(e.features[0].properties, e.lngLat); });
+    map.on("click", "mon", (e) => {
+      if (!e.features || !e.features[0]) return;
+      if (picker) {                                                              // "tap the object" after a photo was shared from the phone (pwa.js)
+        const p = e.features[0].properties, g = e.features[0].geometry.coordinates;
+        let nm = p.name || "";
+        try { if (window.GeoTr) nm = window.GeoTr.nameInfo(p.name, lang, p.wp).text || nm; } catch (er) {}
+        const cb = picker; picker = null; cb({ obj: "mon:" + p.id, name: nm, lang, lat: g[1], lon: g[0] });
+        return;
+      }
+      popup(e.features[0].properties, e.lngLat);
+    });
     map.on("mouseenter", "mon", () => { map.getCanvas().style.cursor = "pointer"; });
     map.on("mouseleave", "mon", () => { map.getCanvas().style.cursor = ""; });
 
