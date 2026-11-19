@@ -38,7 +38,7 @@ async function listAll(env) {
     for (const k of r.keys) out.push({ id: k.name.slice(5), ...(k.metadata || {}) });
     cursor = r.list_complete ? null : r.cursor;
   } while (cursor);
-  return out.sort((a, b) => (b.t || 0) - (a.t || 0));
+  return out.sort((a, b) => (b.v || 0) - (a.v || 0) || (b.t || 0) - (a.t || 0));          // the photographs with a confirmed position come first
 }
 
 async function act(env, body, mail) {
@@ -47,7 +47,7 @@ async function act(env, body, mail) {
   const raw = await env.PHOTOS.get("meta:" + id);
   if (!raw) return json({ error: "gone" }, 404);
   const m = JSON.parse(raw);
-  const small = (s) => ({ s, o: m.obj, t: m.ts, w: m.w, h: m.h, n: (m.name || "").slice(0, 30) });
+  const small = (s) => ({ s, o: m.obj, t: m.ts, w: m.w, h: m.h, n: (m.name || "").slice(0, 30), v: m.v || 0 });
   if (body.action === "approve") {
     const img = await env.PHOTOS.get("img:" + id, { type: "arrayBuffer" });
     if (!img) return json({ error: "no image" }, 404);
@@ -133,8 +133,13 @@ async function render(){
   const r=el("div");r.appendChild(el("b","",o?o.name:m.obj));if(o&&o.addr)r.appendChild(el("div","muted",o.addr));r.appendChild(el("div","muted","объект: "+m.obj+(m.reassigned?" (переназначено)":"")));
   const fl=el("div");const f=(t,bad)=>{fl.appendChild(el("span","fl"+(bad?" bad":""),t))};
   f(m.w+"×"+m.h+", "+Math.round(m.size/1024)+" КБ");if(Math.max(m.w,m.h)<1200)f("маленькое",1);
-  if(m.lat!=null&&o){const d=Math.round(hav(m.lat,m.lon,o.lat,o.lon));f("снято в "+d+" м от объекта",d>150)}else f("координат снимка нет",1);
+  const osm=(la,lo)=>"https://www.openstreetmap.org/?mlat="+la+"&mlon="+lo+"#map=19/"+la+"/"+lo;
+  if(m.dEx!=null)f("координаты снимка: "+m.dEx+" м от объекта",m.dEx>150);else if(m.lat!=null&&o){const d=Math.round(hav(m.lat,m.lon,o.lat,o.lon));f("координаты снимка: "+d+" м от объекта",d>150)}else f("координат в снимке нет",1);
+  if(m.dGeo!=null)f("геолокация при отправке: "+m.dGeo+" м"+(m.gacc?" (±"+Math.round(m.gacc)+" м)":""),m.dGeo>150);else f("геолокации при отправке нет",1);
+  f(m.v?"положение подтверждено":"положение не подтверждено",!m.v);
   f("дата отправки: "+new Date(m.ts).toLocaleString("ru"));r.appendChild(fl);
+  const lk=el("div","muted");const a=(t,u)=>{const x=el("a","",t);x.href=u;x.target="_blank";x.rel="noopener noreferrer";x.style.color="#8fb8e8";x.style.marginRight="12px";lk.appendChild(x)};
+  if(o)a("объект на карте",osm(o.lat,o.lon));if(m.lat!=null)a("снимок на карте",osm(m.lat,m.lon));if(m.glat!=null)a("геолокация на карте",osm(m.glat,m.glon));r.appendChild(lk);
   r.appendChild(el("div","","Автор: "+m.name+(m.note?" · «"+m.note+"»":"")));
   if(o&&o.ph.length){r.appendChild(el("div","muted","Уже есть фото объекта:"));const old=el("div","old");for(const k of o.ph.slice(0,4)){const p=photos[k];if(p){const i=el("img");i.src=p.thumb;old.appendChild(i)}}r.appendChild(old)}
   if(m.status==="rejected")r.appendChild(el("div","muted","Причина: "+m.reason));

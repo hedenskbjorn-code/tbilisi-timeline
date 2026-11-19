@@ -9,6 +9,8 @@ const MIN_SIDE = 800, MAX_SIDE = 8000;
 const PER_IP_DAY = 5, GLOBAL_DAY = 40;
 const MIN_FORM_MS = 4000, MAX_FORM_MS = 3 * 3600 * 1000;
 const PENDING_TTL = 60 * 86400;             // a picture nobody looked at is removed after 60 days
+const SITE = ORIGIN + "/tbilisi-timeline/";
+const NEAR_M = 150;                          // a photograph taken or sent within this distance of the object counts as "position confirmed"
 const OBJ_RE = /^[a-z]{1,8}:[A-Za-z0-9_.\-]{1,40}$/;
 const BBOX = { lat: [41.55, 41.90], lon: [44.60, 45.05] };          // Tbilisi: a coordinate outside is dropped
 
@@ -48,6 +50,21 @@ function imageInfo(u8) {
   }
   return null;
 }
+
+// coordinates of the register objects from the public data of the site (cached in the Worker for an hour): {"mon:<id>": [lon, lat]}
+let COORDS = null, COORDS_AT = 0;
+async function objCoords(id) {
+  if (!COORDS || Date.now() - COORDS_AT > 3600e3) {
+    try {
+      const j = await (await fetch(SITE + "data/monuments.json", { cf: { cacheTtl: 3600, cacheEverything: true } })).json();
+      COORDS = {};
+      for (const f of j.features) COORDS["mon:" + f.properties.id] = f.geometry.coordinates;
+      COORDS_AT = Date.now();
+    } catch (e) { return null; }
+  }
+  return COORDS[id] || null;
+}
+function metres(lat1, lon1, lat2, lon2) { const k = Math.cos(lat1 * Math.PI / 180); return Math.round(Math.hypot((lon2 - lon1) * k * 111320, (lat2 - lat1) * 111320)); }
 
 async function turnstileOk(env, token, ip) {
   if (!token) return false;
@@ -103,10 +120,17 @@ export default {
     if (await env.PHOTOS.get("h:" + hash)) return reply({ ok: true, dup: true }, 200, origin);
     const ts = Date.now(), rnd = hex(crypto.getRandomValues(new Uint8Array(3))), id = ts.toString(36) + rnd;
     const lat = num(fd.get("lat"), BBOX.lat[0], BBOX.lat[1]), lon = num(fd.get("lon"), BBOX.lon[0], BBOX.lon[1]);
-    const meta = { id, obj, name, note, lat: lat !== null && lon !== null ? lat : null, lon: lat !== null && lon !== null ? lon : null, ts, mime: info.type, w: info.w, h: info.h, size: bytes.length, hash, ipH, status: "pending", license: "CC BY-SA 4.0" };
+    const glat = num(fd.get("glat"), BBOX.lat[0], BBOX.lat[1]), glon = num(fd.get("glon"), BBOX.lon[0], BBOX.lon[1]), gacc = num(fd.get("gacc"), 0, 5000);
+    const has = (a, b) => a !== null && b !== null;
+    const oc = await objCoords(obj);                                        // the distances are counted here, not trusted from the page
+    const dEx = oc && has(lat, lon) ? metres(lat, lon, oc[1], oc[0]) : null;
+    const dGeo = oc && has(glat, glon) ? metres(glat, glon, oc[1], oc[0]) : null;
+    const verified = (dEx !== null && dEx <= NEAR_M) || (dGeo !== null && dGeo <= NEAR_M) ? 1 : 0;
+    const meta = { id, obj, name, note, lat: has(lat, lon) ? lat : null, lon: has(lat, lon) ? lon : null, glat: has(glat, glon) ? glat : null, glon: has(glat, glon) ? glon : null, gacc, dEx, dGeo, v: verified,
+                   ts, mime: info.type, w: info.w, h: info.h, size: bytes.length, hash, ipH, status: "pending", license: "CC BY-SA 4.0" };
     await env.PHOTOS.put("img:" + id, bytes, { expirationTtl: PENDING_TTL });
     await env.PHOTOS.put("h:" + hash, id, { expirationTtl: PENDING_TTL });
-    await env.PHOTOS.put("meta:" + id, JSON.stringify(meta), { expirationTtl: PENDING_TTL, metadata: { s: "pending", o: obj, t: ts, w: info.w, h: info.h, n: name.slice(0, 30) } });
+    await env.PHOTOS.put("meta:" + id, JSON.stringify(meta), { expirationTtl: PENDING_TTL, metadata: { s: "pending", o: obj, t: ts, w: info.w, h: info.h, n: name.slice(0, 30), v: verified } });
     return reply({ ok: true, id }, 200, origin);
   },
 };

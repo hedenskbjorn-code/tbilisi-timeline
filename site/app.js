@@ -1273,7 +1273,12 @@
     if (need) { const n = document.createElement("div"); n.className = "small"; n.style.cssText = "margin-top:8px;color:#f76707"; n.textContent = window.TT_PHOTO.s(lang).need; el.appendChild(n); }
     const h = el.querySelector("h3"), d = document.createElement("div"), a = document.createElement("a");
     d.className = "actions"; a.href = "#"; a.className = "fb"; a.textContent = window.TT_PHOTO.text(lang);
-    a.addEventListener("click", (ev) => { ev.preventDefault(); window.TT_PHOTO.open({ obj, name: h ? h.textContent : obj, lang }); });
+    a.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      let lat = NaN, lon = NaN;
+      if (obj.startsWith("mon:") && monuments) { const f = monuments.features.find((x) => String(x.properties.id) === obj.slice(4)); if (f) { lon = f.geometry.coordinates[0]; lat = f.geometry.coordinates[1]; } }
+      window.TT_PHOTO.open({ obj, name: h ? h.textContent : obj, lang, lat, lon });
+    });
     d.appendChild(a); el.appendChild(d);
   }
   function actions(el, openDetails, fbObj) {
