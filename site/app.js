@@ -1219,6 +1219,14 @@
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
   function infoLine(body, text, cls) { const d = document.createElement("div"); d.className = cls || "small"; d.textContent = text; body.appendChild(d); return d; }
+  // the link "send a photo of this object" (photo.js): only in a browser where the form was switched on with ?club=1
+  function addPhotoLink(el, obj) {
+    if (!window.TT_PHOTO || !window.TT_PHOTO.enabled()) return;
+    const h = el.querySelector("h3"), d = document.createElement("div"), a = document.createElement("a");
+    d.className = "actions"; a.href = "#"; a.className = "fb"; a.textContent = window.TT_PHOTO.text(lang);
+    a.addEventListener("click", (ev) => { ev.preventDefault(); window.TT_PHOTO.open({ obj, name: h ? h.textContent : obj, lang }); });
+    d.appendChild(a); el.appendChild(d);
+  }
   function actions(el, openDetails, fbObj) {
     const box = document.createElement("div");
     box.className = "actions";
@@ -1774,6 +1782,7 @@
       if (lang !== "ka" && nmInfo.src === "ai" && L.trNote) infoLine(body, L.trNote);
       photoCredits(body, p);
     }), { id: p.id, name: p.name, reg: p.reg });
+    addPhotoLink(el, "mon:" + p.id);
     setObjParam(p.id, showPopup("300px", lngLat, el));
   }
 

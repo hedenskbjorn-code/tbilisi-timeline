@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.2.0",
+  "date": "2026-11-19",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Форма «Прислать фото этого объекта» в карточке объекта реестра: фото привязывается к объекту, проходит проверку владельцем сайта (капча, лимиты, проверка файла) и после одобрения появляется в карточке объекта с именем автора и лицензией CC BY-SA 4.0. Пока форма включается по скрытой ссылке для клуба.",
+    "en": "The form \"Send a photo of this object\" in the card of a register object: the photo is tied to the object, is checked by the owner of the site (captcha, limits, check of the file) and, once approved, appears in the card of the object with the name of the author and the licence CC BY-SA 4.0. For now the form is switched on by a hidden link for the club.",
+    "ka": "ფორმა „ამ ობიექტის ფოტოს გამოგზავნა“ რეესტრის ობიექტის ბარათში: ფოტო მიბმულია ობიექტზე, მას ამოწმებს საიტის მფლობელი (კაპჩა, ლიმიტები, ფაილის შემოწმება) და დამტკიცების შემდეგ ობიექტის ბარათში ჩნდება ავტორის სახელითა და ლიცენზიით CC BY-SA 4.0. ჯერჯერობით ფორმა ჩაირთვება კლუბის დამალული ბმულით."
+   }
+  ]
+ },
+ {
   "version": "1.1.1",
   "date": "2026-11-19",
   "items": [
