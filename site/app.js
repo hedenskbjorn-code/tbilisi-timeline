@@ -900,6 +900,7 @@
   }
 
   function buildTicks() {
+    alignRulers();
     const box = $("ticks");
     box.textContent = "";
     const add = (y, cls) => {
@@ -1127,6 +1128,7 @@
   }
   const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
   function buildEvMarks() {
+    alignRulers();
     const box = $("evmarks");
     if (!box) return;
     box.textContent = "";
@@ -2341,17 +2343,18 @@
   const rText = (o) => (o && (o[lang] || o.en)) || "";
   // the heights of the time bar (top) and of the bar of rulers (bottom) go to CSS: the panels lie between them; the band of rulers is aligned with the track of the slider
   function syncBars() {
+    alignRulers();
     const tb = $("timebar"), bb = $("bottom"), root = document.documentElement.style;
     root.setProperty("--tb", Math.round(tb.getBoundingClientRect().height) + "px");
-    root.setProperty("--bb", (document.body.classList.contains("rulers-on") ? Math.round(bb.getBoundingClientRect().height) + 30 : 0) + "px");
+    root.setProperty("--bb", Math.round(bb.getBoundingClientRect().height) + 30 + "px");
+    updateToken();
   }
   window.addEventListener("load", () => syncBars());
-  function alignRulers() {
-    const rn = $("ruleNow"), r = $("rulers"), bar = $("bottom"), sw = $("sliderwrap").getBoundingClientRect(), b = bar.getBoundingClientRect(), cs = getComputedStyle(bar);
-    if (!b.width) return;
-    if (window.matchMedia("(max-width:640px)").matches) { rn.style.width = ""; r.style.marginRight = ""; return; }
-    rn.style.width = Math.max(0, Math.round(sw.left - b.left - parseFloat(cs.paddingLeft))) + "px";
-    r.style.marginRight = Math.max(0, Math.round(b.right - sw.right - parseFloat(cs.paddingRight))) + "px";
+  function alignRulers() {                     // the axis at the bottom (events, years, rulers) has the same extent as the slider track
+    const ax = $("axis"), bar = $("bottom"), sw = $("sliderwrap").getBoundingClientRect(), b = bar.getBoundingClientRect(), cs = getComputedStyle(bar);
+    if (!ax || !b.width || !sw.width) return;
+    ax.style.marginLeft = Math.max(0, Math.round(sw.left - b.left - parseFloat(cs.paddingLeft))) + "px";
+    ax.style.marginRight = Math.max(0, Math.round(b.right - sw.right - parseFloat(cs.paddingRight))) + "px";
   }
   function buildRulersBand() {
     const box = $("rulers");
@@ -2395,11 +2398,11 @@
       infoLine(body, (rText(g) || "") + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to), "small");
       infoLine(body, rText(it.name), "");
       const pm = !isState && rulersMedia && rulersMedia.rulers && rulersMedia.rulers[it.id];
-      if (pm) { body.appendChild(mediaImg(pm.i, 96, 120, rText(it.name))); credit(body, pm, it.from < 1700); }
+      if (pm) { const bi = mediaImg(pm.b || pm.i, 0, 0, rText(it.name)); bi.className = "rbig"; body.appendChild(bi); credit(body, pm, it.from < 1700); }
       if (isState && rulersMedia && rulersMedia.flags && rulersMedia.flags[it.id]) {
         for (const f of rulersMedia.flags[it.id]) {
           const row = document.createElement("div"); row.className = "small";
-          row.appendChild(mediaImg(f.i, 0, 28, (RN[lang] || RN.en).flag)); row.appendChild(document.createTextNode(" " + dispYear(f.from) + "–" + dispYear(f.to)));
+          row.appendChild(mediaImg(f.i, 0, 28, (RN[lang] || RN.en).flag)); row.appendChild(document.createTextNode(" " + dispYear(f.from) + "–" + dispYear(f.to) + (f.k === "recon" ? " · " + (RN[lang] || RN.en).recon : f.k === "civil" ? " · " + (RN[lang] || RN.en).civil : "")));
           body.appendChild(row); credit(body, f, false);
         }
       }
@@ -2419,9 +2422,9 @@
   }
   // the plate under the band: the flag of the period and up to two rulers with their portraits (Wikimedia Commons; the author and the licence are in the card)
   const RN = {
-    ru: { img: "Изображение", cond: "До XVIII века это условное изображение (роспись, миниатюра или памятник), а не прижизненный портрет.", flag: "Флаг", open: "Карточка", src: "файл на Commons" },
-    en: { img: "Image", cond: "Before the 18th century this is a conventional image (a fresco, a miniature or a monument), not a portrait from life.", flag: "Flag", open: "Card", src: "file on Commons" },
-    ka: { img: "გამოსახულება", cond: "XVIII საუკუნემდე ეს პირობითი გამოსახულებაა (ფრესკა, მინიატურა ან ძეგლი), და არა ცოცხალი პორტრეტი.", flag: "დროშა", open: "ბარათი", src: "ფაილი Commons-ზე" },
+    ru: { civil: "гражданский флаг, государственного флага не было", recon: "реконструкция", img: "Изображение", cond: "До XVIII века это условное изображение (роспись, миниатюра или памятник), а не прижизненный портрет.", flag: "Флаг", open: "Карточка", src: "файл на Commons" },
+    en: { civil: "civil ensign; there was no national flag", recon: "reconstruction", img: "Image", cond: "Before the 18th century this is a conventional image (a fresco, a miniature or a monument), not a portrait from life.", flag: "Flag", open: "Card", src: "file on Commons" },
+    ka: { civil: "სამოქალაქო დროშა; სახელმწიფო დროშა არ იყო", recon: "რეკონსტრუქცია", img: "გამოსახულება", cond: "XVIII საუკუნემდე ეს პირობითი გამოსახულებაა (ფრესკა, მინიატურა ან ძეგლი), და არა ცოცხალი პორტრეტი.", flag: "დროშა", open: "ბარათი", src: "ფაილი Commons-ზე" },
   };
   const RGROUP_ORDER = ["king", "emperor", "president", "secretary", "head", "viceroy", "wali", "emir"];
   function mediaImg(rel, w, h, alt) {
@@ -2440,39 +2443,42 @@
     d.appendChild(a); body.appendChild(d);
     if (withCond) { const c = document.createElement("div"); c.className = "small"; c.textContent = R.cond; body.appendChild(c); }
   }
-  function updateRuleNow() {
-    const box = $("ruleNow");
-    if (!box) return;
-    box.textContent = "";
-    if (!rulersData || !$("showRulers").checked) return;
-    const within = (it) => it.from < year + 1 && it.to > year;
+  // the token on the slider: the flag of the year and up to two rulers; it rides with the thumb and changes only when the state or a ruler changes (no flicker while playing)
+  function updateToken() {
+    const tk = $("ruleToken");
+    if (!tk) return;
+    if (!rulersData || !$("showRulers").checked) { tk.hidden = true; tk.dataset.key = ""; return; }
+    const R = RN[lang] || RN.en, within = (it) => it.from < year + 1 && it.to > year;
     const st = rulersData.states.find((s) => within(s) && !s.lane);
-    const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);       // one person once (two terms of the same ruler meet in a year)
-    const pics = document.createElement("div"), txt = document.createElement("div");
-    pics.className = "rnpics"; txt.className = "rntxt";
-    for (const r of rl) {
-      const m = rulersMedia && rulersMedia.rulers && rulersMedia.rulers[r.id];
-      if (!m) continue;
-      const b = document.createElement("button");
-      b.type = "button"; b.className = "rnpic"; b.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to);
-      b.appendChild(mediaImg(m.i, 36, 46, rText(r.name)));
-      b.addEventListener("click", () => showRulerCard(r));
-      pics.appendChild(b);
+    const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);
+    const fl = st ? flagFor(st.id, year + 0.5) : null;
+    const key = (st ? st.id : "") + "|" + rl.map((r) => r.id).join(",") + "|" + (fl ? fl.i : "") + "|" + lang;
+    if (tk.dataset.key !== key) {
+      tk.dataset.key = key; tk.textContent = "";
+      for (const r of rl) {
+        const m = rulersMedia && rulersMedia.rulers && rulersMedia.rulers[r.id];
+        if (m) { const i = mediaImg(m.i, 32, 40, rText(r.name)); i.className = "tkp"; i.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); tk.appendChild(i); }
+      }
+      if (rl.length && !tk.querySelector(".tkp")) {          // no portrait: a crown for the rulers of the monarchies, a star for the others
+        const g = document.createElement("span"); g.className = "tkph"; g.textContent = ["king", "emperor", "wali", "emir"].includes(rl[0].grp) ? "♛" : "★";
+        g.title = rText(rl[0].name) + " · " + dispYear(rl[0].from) + "–" + dispYear(rl[0].to); tk.appendChild(g);
+      }
+      if (fl) { const i = mediaImg(fl.i, 0, 22, R.flag); i.className = "tkf"; i.title = R.flag + ": " + rText(st.name) + (fl.k === "recon" ? " (" + R.recon + ")" : fl.k === "civil" ? " (" + R.civil + ")" : ""); tk.appendChild(i); }
+      if (tk.children.length) {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "tki"; b.textContent = "i"; b.setAttribute("aria-label", R.open);
+        b.addEventListener("click", (e) => { e.stopPropagation(); showRulerCard(rl[0] || st); });
+        tk.appendChild(b);
+      }
+      tk.setAttribute("aria-label", (st ? rText(st.name) : "") + (rl.length ? ": " + rl.map((r) => rText(r.name)).join(", ") : ""));
     }
-    if (st) {
-      const row = document.createElement("div"), f = flagFor(st.id, year + 0.5);
-      row.className = "rnst";
-      if (f) { const im = mediaImg(f.i, 0, 14, (RN[lang] || RN.en).flag); im.title = (RN[lang] || RN.en).flag + ": " + rText(st.name); row.appendChild(im); }
-      const sp = document.createElement("span"); sp.textContent = rText(st.name); row.appendChild(sp);
-      row.addEventListener("click", () => showRulerCard(st));
-      txt.appendChild(row);
-    }
-    for (const r of rl) { const d = document.createElement("div"); d.className = "rnr"; d.textContent = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); txt.appendChild(d); }
-    if (pics.children.length) box.appendChild(pics);
-    box.appendChild(txt);
+    tk.hidden = !tk.children.length;
+    if (tk.hidden) return;
+    const sw = $("sliderwrap"), W = sw.clientWidth, half = tk.offsetWidth / 2;
+    tk.style.left = Math.min(Math.max(8 + (W - 16) * (+$("slider").value / 1000), half), W - half) + "px";
   }
   function updateRuleLine() {
-    updateRuleNow();
+    updateToken();
     const box = $("ruleline");
     if (!box) return;
     box.textContent = "";
