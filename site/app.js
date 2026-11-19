@@ -8,6 +8,7 @@
   let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
   let runData = null;                                                  // the run route and its sights (data/run_trc2026.json), see addRun
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
+  let science = [];                                                    // science and culture buildings (data/science.json), see addScience
   let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
   let searchIndex = null, searchRows = [], searchSel = -1;      // search (see the block "search" below)
   let KNOTS = FULL_KNOTS;                         // zoomed scale: one linear piece over the window zoomLo..zoomHi (see applyWindow)
@@ -109,6 +110,7 @@
       showRulers: "Правители и формы власти (полоса под шкалой)", ruleNow: "Кто правил", ruleState: "Государство", ruleOver: "Внешняя власть", ruleAdmin: "Единица управления", ruleForm: "Форма власти", ruleYears: "Годы", ruleNoData: "нет данных",
       showRun: "Tbilisi Running Club: маршрут City Run 2026 и что увидеть по пути (сегодняшний город)", runStats: (r, n) => `${r.length_km} км, высота ${r.ele_min}-${r.ele_max} м, ${n} достопримечательностей`, runKm: "Километр", runDist: "От трассы", runYear: "Дата по реестру", runWiki: "Википедия", runStart: "Старт и финиш", runList: "По порядку вдоль маршрута", runNote: "В список входят объекты данных сайта, чья точка лежит не дальше 150 м от трассы: национального значения, со статьёй в Википедии, церкви, мосты, театры, музеи, стены и крепости. Расстояние считается от точки объекта до линии трассы, поэтому крупные здания могут быть ближе. Это не проверка видимости.", runSrc: "Маршрут (геометрия)",
       topoPlanOpt: "1:2 000 · городской план (z17)", legDistEx: "Мтацминда", legSetEx: "Коджори", ariaLang: "Язык", ariaClose: "закрыть", fbContactPh: "email или telegram (необязательно)",
+      showSci: "Наука и культура: институты, университеты, музеи, театры (появляются по годам)", sciKinds: { science: "Наука и образование", culture: "Культура" }, sciFounded: "Основано", sciBuilt: "Здание", sciFrom: "Появляется", sciSrc: "Источники", sciFaint: "бледная точка: здание ещё не построено или учреждение было в другом месте",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -265,6 +267,7 @@
       showRulers: "Rulers and forms of government (a band under the scale)", ruleNow: "Who ruled", ruleState: "State", ruleOver: "Outside power", ruleAdmin: "Administrative unit", ruleForm: "Form of rule", ruleYears: "Years", ruleNoData: "no data",
       showRun: "Tbilisi Running Club: the City Run 2026 route and what to see on the way (today's city)", runStats: (r, n) => `${r.length_km} km, elevation ${r.ele_min}-${r.ele_max} m, ${n} sights`, runKm: "Kilometre", runDist: "From the route", runYear: "Date in the register", runWiki: "Wikipedia", runStart: "Start and finish", runList: "In order along the route", runNote: "The list holds the objects of the data of this site whose point lies within 150 m of the track: of national significance, with a Wikipedia article, churches, bridges, theatres, museums, walls and fortresses. The distance is from the point of the object to the line of the track, so large buildings may be closer. This is not a check of visibility.", runSrc: "Route (geometry)",
       topoPlanOpt: "1:2 000 · city plan (z17)", legDistEx: "Mtatsminda", legSetEx: "Kojori", ariaLang: "Language", ariaClose: "close", fbContactPh: "email or telegram (optional)",
+      showSci: "Science and culture: institutes, universities, museums, theatres (appear by year)", sciKinds: { science: "Science and education", culture: "Culture" }, sciFounded: "Founded", sciBuilt: "Building", sciFrom: "Appears", sciSrc: "Sources", sciFaint: "a faint point: the building is not yet built or the institution was elsewhere",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -422,6 +425,7 @@
       showRulers: "მმართველები და მმართველობის ფორმები (ზოლი სკალის ქვეშ)", ruleNow: "ვინ მართავდა", ruleState: "სახელმწიფო", ruleOver: "გარე ძალა", ruleAdmin: "ადმინისტრაციული ერთეული", ruleForm: "მმართველობის ფორმა", ruleYears: "წლები", ruleNoData: "მონაცემი არ არის",
       showRun: "Tbilisi Running Club: City Run 2026-ის მარშრუტი და რა ჩანს გზაზე (დღევანდელი ქალაქი)", runStats: (r, n) => `${r.length_km} კმ, სიმაღლე ${r.ele_min}-${r.ele_max} მ, ${n} ღირსშესანიშნაობა`, runKm: "კილომეტრი", runDist: "ტრასიდან", runYear: "თარიღი რეესტრში", runWiki: "ვიკიპედია", runStart: "სტარტი და ფინიში", runList: "მარშრუტის გასწვრივ თანმიმდევრობით", runNote: "სიაში შედის საიტის მონაცემთა ობიექტები, რომელთა წერტილი ტრასიდან 150 მ-ს არ აცილდება: ეროვნული მნიშვნელობის, ვიკიპედიის სტატიით, ეკლესიები, ხიდები, თეატრები, მუზეუმები, გალავნები და ციხეები. მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა. ეს ხილვადობის შემოწმება არ არის.", runSrc: "მარშრუტი (გეომეტრია)",
       topoPlanOpt: "1:2 000 · ქალაქის გეგმა (z17)", legDistEx: "მთაწმინდა", legSetEx: "კოჯორი", ariaLang: "ენა", ariaClose: "დახურვა", fbContactPh: "ელფოსტა ან ტელეგრამი (არასავალდებულო)",
+      showSci: "მეცნიერება და კულტურა: ინსტიტუტები, უნივერსიტეტები, მუზეუმები, თეატრები (ჩნდება წლების მიხედვით)", sciKinds: { science: "მეცნიერება და განათლება", culture: "კულტურა" }, sciFounded: "დაარსდა", sciBuilt: "შენობა", sciFrom: "ჩნდება", sciSrc: "წყაროები", sciFaint: "ფერმკრთალი წერტილი: შენობა ჯერ არ არის აშენებული ან დაწესებულება სხვაგან იყო",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -766,6 +770,7 @@
     updatePop();
     updateC94();
     updateReligious();
+    updateScience();
     updateRuleLine();
     updateStreets();
     updateViews();
@@ -806,6 +811,7 @@
     updateRelUi();
     buildRulersBand();
     updateRunUi();
+    updateSciUi();
     $("note").textContent = t().note(undated);
     buildTypes();
     buildAbout();
@@ -1811,6 +1817,7 @@
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
     try { runData = await getJSON("data/run_trc2026.json", 1); addRun(); } catch (e) { console.error("run", e && e.message); runData = null; }
     try { rulersData = await getJSON("data/rulers.json", 1); buildRulersBand(); updateRuleLine(); } catch (e) { console.error("rulers", e && e.message); rulersData = null; }
+    try { science = await getJSON("data/science.json", 1); addScience(); } catch (e) { console.error("science", e && e.message); science = []; }
     try { religious = await getJSON("data/religious.json", 1); addReligious(); } catch (e) { console.error("religious", e && e.message); religious = []; }
     try { c94 = await getJSON("data/city1894.json", 2); addC94(); } catch (e) { console.error("c94", e && e.message); c94 = null; }
     try { stNames = (await getJSON("data/street_names.json", 2)).streets; stGeom = await getJSON("data/street_geom.json", 2); addStLabelsLayer(); updateStNames(); } catch (e) { stNames = []; }
@@ -1906,7 +1913,7 @@
     if (hy >= MIN && hy <= MAX && hy !== year) { year = hy; update(); }
   });
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
@@ -2161,6 +2168,77 @@
   $("showRulers").addEventListener("change", () => { buildRulersBand(); updateRuleLine(); });
   if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
 
+  // science and culture: universities, institutes, libraries, museums, theatres; points that appear in the year (data/science.json); science is drawn larger and above culture
+  const SCI_COLOR = { science: "#1c7ed6", culture: "#868e96" };
+  const sciFeats = () => science.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] },
+    properties: { id: c.id, kind: c.kind, from: c.from, sf: c.sf || 0, label: c.name[lang] || c.name.en } }));
+  function addScience() {
+    if (!science.length || map.getSource("sci")) return;
+    map.addSource("sci", { type: "geojson", data: { type: "FeatureCollection", features: sciFeats() } });
+    const sci = ["==", ["get", "kind"], "science"];
+    map.addLayer({ id: "sci-pt", type: "circle", source: "sci", layout: { visibility: "none", "circle-sort-key": ["case", sci, 2, 1] },
+      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, ["case", sci, 6.5, 4.5], 17, ["case", sci, 12.5, 9]], "circle-color": ["case", sci, SCI_COLOR.science, SCI_COLOR.culture],
+               "circle-stroke-color": ["case", sci, "#0b3d91", "#343a40"], "circle-stroke-width": 2, "circle-opacity": 1, "circle-stroke-opacity": 1 } });
+    map.addLayer({ id: "sci-lb", type: "symbol", source: "sci", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.3], "text-anchor": "top", "text-optional": true },
+      paint: { "text-color": ["case", sci, "#0b3d91", "#495057"], "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    map.on("click", "sci-pt", (e) => {
+      const f = e.features && e.features[0], c = f && science.find((x) => x.id === f.properties.id);
+      if (c) popupSci(c, e.lngLat);
+    });
+    map.on("mouseenter", "sci-pt", () => { map.getCanvas().style.cursor = "pointer"; });
+    map.on("mouseleave", "sci-pt", () => { map.getCanvas().style.cursor = ""; });
+    updateScience();
+  }
+  function updateScience() {
+    if (!map.getLayer("sci-pt")) return;
+    const on = $("showSci").checked;
+    for (const id of ["sci-pt", "sci-lb"]) {
+      map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+      map.setFilter(id, ["<=", ["get", "from"], year]);
+    }
+    for (const id of ["sci-pt", "sci-lb"]) map.moveLayer(id);          // to the top: above the topographic map and the points of the register, which other code also moves
+    const faint = ["case", ["<", year, ["get", "sf"]], 0.35, 1];       // before the present building stands (or the institution is in another place) the point is faint
+    map.setPaintProperty("sci-pt", "circle-opacity", faint);
+    map.setPaintProperty("sci-pt", "circle-stroke-opacity", faint);
+  }
+  function updateSciUi() {
+    const box = $("sciLegend");
+    if (box) {
+      box.textContent = "";
+      for (const k of Object.keys(SCI_COLOR)) { const s = document.createElement("span"); s.textContent = t().sciKinds[k]; s.style.setProperty("--c", SCI_COLOR[k]); box.appendChild(s); }
+    }
+    const src = map && map.getSource && map.getSource("sci");
+    if (src) src.setData({ type: "FeatureCollection", features: sciFeats() });
+  }
+  function popupSci(c, lngLat) {
+    const L = t(), el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = c.name[lang] || c.name.en;
+    el.appendChild(h3);
+    const row = (k, v) => { if (!v) return; const d = document.createElement("div"), kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; d.appendChild(kk); d.appendChild(document.createTextNode(v)); el.appendChild(d); };
+    const rr = document.createElement("div");
+    rr.className = "k";
+    rr.textContent = L.sciKinds[c.kind] || c.kind;
+    el.appendChild(rr);
+    row(L.sciFounded, c.founded);
+    row(L.sciBuilt, c.built);
+    if (!String(c.founded || "").includes(String(c.from))) row(L.sciFrom, String(c.from));
+    if (c.approx) row(L.relApprox, "\u2248");
+    if (c.sf && year < c.sf) row("\u25CB", L.sciFaint);
+    const n = document.createElement("div");
+    n.className = "small";
+    n.textContent = c.note[lang] || c.note.en;
+    el.appendChild(n);
+    const s = document.createElement("div");
+    s.className = "src";
+    s.appendChild(document.createTextNode(L.sciSrc + ": "));
+    c.src.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u.replace("https://", "")).slice(0, 60); if (i) s.appendChild(document.createTextNode(" \u00B7 ")); s.appendChild(a); });
+    el.appendChild(s);
+    showPopup("340px", lngLat, el);
+  }
+  $("showSci").addEventListener("change", updateScience);
+
   // religious buildings of different religions: points that appear in the year of the building and disappear when it was destroyed
   const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", lutheran: "#868e96", yazidi: "#74b816", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c" };
   function addReligious() {
@@ -2236,6 +2314,7 @@
     }
     for (const ev of histEvents) idx.push({ kind: "e", ev, key: normQ([ev.ru, ev.en, ev.ka, ev.date, ev.year].join(" ")) });
     if (rulersData) for (const u of rulersData.rulers.concat(rulersData.states)) idx.push({ kind: "u", u, key: normQ([u.name.ru, u.name.en, u.name.ka, u.title ? u.title.ru + " " + u.title.en : "", Math.floor(u.from), Math.floor(u.to)].join(" ")) });
+    for (const c of science) idx.push({ kind: "s", c, key: normQ([c.name.ru, c.name.en, c.name.ka, c.founded, c.built, c.from, T.ru.sciKinds[c.kind], T.en.sciKinds[c.kind]].join(" ")) });
     for (const r of religious) idx.push({ kind: "r", r, key: normQ([r.name.ru, r.name.en, r.name.ka, r.date, t().relNames[r.rel], T.en.relNames[r.rel]].join(" ")) });
     return idx;
   }
@@ -2304,6 +2383,7 @@
       b.className = "st";
       if (r.kind === "y") { a.textContent = "\u23F1 " + L.searchYear + " " + r.year; }
       else if (r.kind === "u") { a.textContent = "\uD83D\uDC51 " + rText(r.u.name); b.textContent = [rText(r.u.title) || rText(rulersData.groups[r.u.grp || r.u.kind]), Math.floor(r.u.from) + "–" + Math.floor(r.u.to)].filter(Boolean).join(" · "); }
+      else if (r.kind === "s") { a.textContent = (r.c.kind === "science" ? "\uD83D\uDD2C " : "\uD83C\uDFAD ") + (r.c.name[lang] || r.c.name.en); b.textContent = [L.sciKinds[r.c.kind], r.c.founded ? L.sciFounded + " " + r.c.founded : r.c.from].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "r") { a.textContent = "\u26EA " + (r.r.name[lang] || r.r.name.en); b.textContent = [L.relNames[r.r.rel], r.r.date, r.r.to ? L.relGone + " " + r.r.to : ""].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "e") { a.textContent = (EV_ICON[r.ev.cat] || EV_ICON.other) + " " + (r.ev[lang] || r.ev.en); b.textContent = r.ev.date + " \u00B7 " + (L.evCats[r.ev.cat] || ""); }
       else {
@@ -2341,6 +2421,7 @@
     if (r.kind === "y") target = r.year;
     else if (r.kind === "e") target = r.ev.year;
     else if (r.kind === "u") target = (year >= r.u.from && year < r.u.to) ? year : Math.floor(r.u.from);
+    else if (r.kind === "s") target = Math.max(year, r.c.from);
     else if (r.kind === "r") target = (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
     else target = Math.max(year, r.f.properties.ye);
     year = target;
@@ -2349,6 +2430,12 @@
     if (r.kind === "u") {
       $("showRulers").checked = true; buildRulersBand(); updateRuleLine();
       showRulerCard(r.u);
+      return;
+    }
+    if (r.kind === "s") {
+      $("showSci").checked = true; updateScience();
+      map.flyTo({ center: [r.c.lon, r.c.lat], zoom: Math.max(map.getZoom(), 16.5), duration: 1200 });
+      popupSci(r.c, { lng: r.c.lon, lat: r.c.lat });
       return;
     }
     if (r.kind === "r") {
