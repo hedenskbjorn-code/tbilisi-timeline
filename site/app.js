@@ -8,6 +8,7 @@
   let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
   let runData = null;                                                  // the run route and its sights (data/run_trc2026.json), see addRun
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
+  let reopenPopup = null, reopenInfo = null, openPop = null;          // the open card (a popup or the modal) and how to build it again, when the language is switched
   let science = [];                                                    // science and culture buildings (data/science.json), see addScience
   let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
   let searchIndex = null, searchRows = [], searchSel = -1;      // search (see the block "search" below)
@@ -1128,6 +1129,7 @@
     }
   }
   function showEventList(list) {
+    reopenInfo = () => showEventList(list);
     const L = t();
     openInfo((body) => {
       for (const ev of list) {
@@ -1154,6 +1156,7 @@
     map.flyTo({ center: [ev.place.lng, ev.place.lat], zoom: ev.place.zoom || 15, duration: 1200 });
   }
   function showHistEvent(ev) {
+    reopenInfo = () => showHistEvent(ev);
     const L = t();
     showEventPlace(ev);
     openInfo((body) => {
@@ -1185,7 +1188,7 @@
     build(body);
     $("infoModal").hidden = false;
   }
-  function closeInfo() { $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } }
+  function closeInfo() { reopenInfo = null; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } }
   $("imClose").addEventListener("click", closeInfo);
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
@@ -1195,7 +1198,12 @@
     box.className = "actions";
     const a1 = document.createElement("a");
     a1.href = "#"; a1.className = "fb"; a1.textContent = t().infoBtn;
-    a1.addEventListener("click", (ev) => { ev.preventDefault(); openDetails(); });
+    a1.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      const rp = reopenPopup;
+      openDetails();
+      reopenInfo = rp ? () => { if (openPop) openPop.remove(); rp(); const b = document.querySelector(".maplibregl-popup .actions a.fb"); if (b) b.click(); } : null;
+    });
     const a2 = document.createElement("a");
     a2.href = "#"; a2.className = "fb"; a2.textContent = t().fbPopup;
     a2.addEventListener("click", (ev) => { ev.preventDefault(); openFeedback(fbObj); });
@@ -1271,6 +1279,7 @@
   }
 
   function settlePopup(p, lngLat) {
+    reopenPopup = () => settlePopup(p, lngLat);
     const L = t();
     const el = document.createElement("div");
     el.className = "pop";
@@ -1315,6 +1324,7 @@
   }
 
   function lostPopup(p, lngLat) {
+    reopenPopup = () => lostPopup(p, lngLat);
     const L = t();
     const el = document.createElement("div");
     el.className = "pop";
@@ -1358,6 +1368,7 @@
   }
 
   function waterPopup(p, lngLat) {
+    reopenPopup = () => waterPopup(p, lngLat);
     const L = t();
     const el = document.createElement("div");
     el.className = "pop";
@@ -1506,6 +1517,7 @@
   }
 
   function transportPopup(p, lngLat) {
+    reopenPopup = () => transportPopup(p, lngLat);
     const L = t();
     const el = document.createElement("div");
     el.className = "pop";
@@ -1641,6 +1653,8 @@
   }
   function showPopup(maxWidth, lngLat, el) {
     const pop = new maplibregl.Popup({ maxWidth, focusAfterOpen: false }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+    openPop = pop;
+    pop.on("close", () => { if (openPop === pop) { openPop = null; reopenPopup = null; } });
     const fit = () => {
       const node = pop.getElement();
       if (!node) return;
@@ -1677,6 +1691,7 @@
   }
 
   function popup(p, lngLat) {
+    reopenPopup = () => popup(p, lngLat);
     const L = t();
     const el = document.createElement("div");
     el.className = "pop";
@@ -1954,12 +1969,19 @@
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
   });
+  function refreshCard() {
+    try {
+      if (!$("infoModal").hidden && reopenInfo) { reopenInfo(); return; }
+      if (openPop && reopenPopup) { const rp = reopenPopup; openPop.remove(); rp(); }
+    } catch (e) { console.error("card", e && e.message); }
+  }
   $("lang").addEventListener("change", (e) => {
     lang = e.target.value;
     try { localStorage.setItem("lang", lang); } catch (e) {}
     applyLang();
     buildEvMarks();
     layoutSwipe();
+    refreshCard();
   });
 
   let timer = null;
@@ -2100,6 +2122,7 @@
     return l ? "https://" + l + ".wikipedia.org/wiki/" + encodeURIComponent(s.wp[l].replace(/ /g, "_")) : null;
   }
   function popupRunSight(s, lngLat) {
+    reopenPopup = () => popupRunSight(s, lngLat);
     const L = t(), el = document.createElement("div");
     el.className = "pop";
     const h3 = document.createElement("h3");
@@ -2114,6 +2137,7 @@
     showPopup("300px", lngLat, el);
   }
   function showRunCard() {
+    reopenInfo = () => showRunCard();
     const L = t(), r = runData.route;
     openInfo((body) => {
       infoLine(body, "Tbilisi Running Club · TRC City Run 2026 \u00B7 " + L.runStats(r, runData.sights.length), "small");
@@ -2166,6 +2190,7 @@
     fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name));
   }
   function showRulerCard(it) {
+    reopenInfo = () => showRulerCard(it);
     const L = t(), isState = it.kind !== undefined, g = rulersData.groups[isState ? it.kind : it.grp];
     openInfo((body) => {
       infoLine(body, (rText(g) || "") + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to), "small");
@@ -2247,6 +2272,7 @@
     if (src) src.setData({ type: "FeatureCollection", features: sciFeats() });
   }
   function popupSci(c, lngLat) {
+    reopenPopup = () => popupSci(c, lngLat);
     const L = t(), el = document.createElement("div");
     el.className = "pop";
     const h3 = document.createElement("h3");
@@ -2296,6 +2322,7 @@
     if (!map.getLayer("rel-pt")) return;
     const on = $("showRel").checked;
     for (const id of ["rel-pt", "rel-lb"]) {
+      map.moveLayer(id);                                              // to the top: above the topographic map and the points of the register (the layer of science and culture goes above this one)
       map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
       map.setFilter(id, ["all", ["<=", ["get", "from"], year], [">", ["get", "to"], year]]);
     }
@@ -2311,6 +2338,7 @@
       properties: { id: r.id, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", label: r.name[lang] || r.name.en } })) });
   }
   function popupRel(r, lngLat) {
+    reopenPopup = () => popupRel(r, lngLat);
     const L = t(), el = document.createElement("div");
     el.className = "pop";
     const h3 = document.createElement("h3");
