@@ -79,6 +79,12 @@
     "ru": "Даты двух объектов реестра (церковь в Онадзири и ещё один), подписи опции 1:2000, легенды и поля контакта на трёх языках; на телефоне панели не заходят на шкалу при включённых правителях.",
     "en": "The dates of two register objects (the church in Onadziri and one more), the labels of the 1:2000 option, the legend and the contact field in three languages; on a phone the panels no longer reach the scale when the rulers are on.",
     "ka": "რეესტრის ორი ობიექტის თარიღები (ონადირის ეკლესია და კიდევ ერთი), 1:2000 ვარიანტის, ლეგენდისა და საკონტაქტო ველის წარწერები სამ ენაზე; ტელეფონზე პანელები მმართველების ჩართვისას სკალას აღარ ფარავს."
+   },
+   {
+    "t": "fix",
+    "ru": "Панели «Фильтры и слои» (с легендой) и «Виды» больше не заходят под таймлайн, когда включена полоса правителей.",
+    "en": "The panels \"Filters and layers\" (with the legend) and \"Views\" no longer run under the time scale when the band of rulers is on.",
+    "ka": "პანელები „ფილტრები და ფენები“ (ლეგენდით) და „ხედები“ აღარ ჩადის დროის სკალის ქვეშ, როცა მმართველთა ზოლი ჩართულია."
    }
   ]
  }
