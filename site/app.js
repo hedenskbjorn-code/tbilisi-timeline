@@ -2336,7 +2336,7 @@
   $("showRun").addEventListener("change", () => updateRun($("showRun").checked));
 
   // forms of state and rulers over Tbilisi: a band under the time scale (two rows with up to two lanes each), a line "who ruled" in the side panel, a card on a click
-  const RULE_LANE_H = 13;
+  const RULE_MAIN_H = 22, RULE_SUB_H = 14, RULE_GAP = 2;               // the main row of the band (lane 0) and the thin row (lane 1: overlords, second rulers)
   const dispYear = (v) => Math.floor(v + 0.0001);
   const rText = (o) => (o && (o[lang] || o.en)) || "";
   // the heights of the time bar (top) and of the bar of rulers (bottom) go to CSS: the panels lie between them; the band of rulers is aligned with the track of the slider
@@ -2347,12 +2347,16 @@
     const bh = bb.getBoundingClientRect().height;
     root.setProperty("--bb", (bh ? Math.round(bh) + 30 : 0) + "px");
     updateToken();
+    updateRuleSummary();
+    markRulers();
   }
   window.addEventListener("load", () => syncBars());
-  function alignRulers() {                     // the axis at the bottom (events, years, rulers) has the same extent as the slider track
-    const ax = $("axis"), bar = $("bottom"), sw = $("sliderwrap").getBoundingClientRect(), b = bar.getBoundingClientRect(), cs = getComputedStyle(bar);
+  function alignRulers() {                     // the summary "who rules now" stands left of the slider track, the axis (rulers) has the extent of the slider
+    const ax = $("axis"), rn = $("ruleNow"), bar = $("bottom"), sw = $("sliderwrap").getBoundingClientRect(), b = bar.getBoundingClientRect(), cs = getComputedStyle(bar);
     if (!ax || !b.width || !sw.width) return;
-    ax.style.marginLeft = Math.max(0, Math.round(sw.left - b.left - parseFloat(cs.paddingLeft))) + "px";
+    const L = Math.max(0, Math.round(sw.left - b.left - parseFloat(cs.paddingLeft)));
+    rn.style.width = L + "px";
+    ax.style.marginLeft = "0px";
     ax.style.marginRight = Math.max(0, Math.round(b.right - sw.right - parseFloat(cs.paddingRight))) + "px";
   }
   function buildRulersBand() {
@@ -2373,21 +2377,23 @@
         const px = (x2 - x1) * W;
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "rseg " + kindOf(it) + (it.approx ? " approx" : "");
+        btn.className = "rseg " + kindOf(it) + (it.approx ? " approx" : "") + (it.lane ? " sub" : "");
+        btn.dataset.from = it.from; btn.dataset.to = it.to;
         btn.style.left = "calc(8px + (100% - 16px) * " + x1 + ")";
         btn.style.width = "max(2px, calc((100% - 16px) * " + (x2 - x1) + "))";
         const lane = it.lane || 0;
-        btn.style.top = lane * RULE_LANE_H + "px";
+        btn.style.top = (lane ? RULE_MAIN_H + RULE_GAP : 0) + "px";
         lanes = Math.max(lanes, lane + 1);
-        if (px >= 34) btn.textContent = nameOf(it);
+        if (px >= (lane ? 56 : 46)) btn.textContent = nameOf(it);
         btn.title = nameOf(it) + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to);
         btn.addEventListener("click", () => showRulerCard(it));
         row.appendChild(btn);
       }
-      row.style.height = Math.max(lanes, 1) * RULE_LANE_H + "px";
+      row.style.height = (lanes > 1 ? RULE_MAIN_H + RULE_GAP + RULE_SUB_H : RULE_MAIN_H) + "px";
     };
     fill($("rStates"), rulersData.states, (it) => "rk-" + it.kind, (it) => rText(it.name));
     fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name));
+    markRulers();
     syncBars();
   }
   function showRulerCard(it) {
@@ -2476,8 +2482,34 @@
     const sw = $("sliderwrap"), W = sw.clientWidth, half = tk.offsetWidth / 2;
     tk.style.left = Math.min(Math.max(8 + (W - 16) * (+$("slider").value / 1000), half), W - half) + "px";
   }
+  // the highlight of the periods that contain the year (the others are dimmed) and the line at the position of the thumb
+  function markRulers() {
+    const y = year + 0.5;
+    for (const el of document.querySelectorAll("#rulers .rseg")) el.classList.toggle("on", +el.dataset.from <= y && +el.dataset.to > y);
+    const h = $("rhead");
+    if (h) h.style.left = "calc(8px + (100% - 16px) * " + (+$("slider").value / 1000) + " - 1px)";
+  }
+  // the summary at the left of the band: the form of government, the state, the rulers of the year, in a readable size
+  function updateRuleSummary() {
+    const box = $("ruleNow");
+    if (!box) return;
+    box.textContent = "";
+    if (!rulersData || !$("showRulers").checked) return;
+    const L = t(), within = (it) => it.from < year + 1 && it.to > year;
+    const st = rulersData.states.find((s) => within(s) && !s.lane), ov = rulersData.states.filter((s) => within(s) && s.lane);
+    const rl = rulersData.rulers.filter(within).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en && x.grp === r.grp) === i);
+    const line = (cls, txt) => { const d = document.createElement("div"); d.className = cls; d.textContent = txt; box.appendChild(d); return d; };
+    if (st) {
+      line("rs1", rText(st.name));
+      if (st.form && rText(st.form)) line("rs2", rText(st.form));
+    } else line("rs2", L.ruleNoData);
+    for (const s of ov) line("rs3", (s.kind === "overlord" ? L.ruleOver : L.ruleAdmin) + ": " + rText(s.name));
+    for (const r of rl.slice(0, 3)) line("rs3", (rText(r.title) || rText(rulersData.groups[r.grp])) + ": " + rText(r.name));
+  }
   function updateRuleLine() {
     updateToken();
+    updateRuleSummary();
+    markRulers();
     const box = $("ruleline");
     if (!box) return;
     box.textContent = "";
