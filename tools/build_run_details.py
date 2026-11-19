@@ -18,6 +18,20 @@ _contact = os.environ.get("WIKIMEDIA_CONTACT")
 UA = "tbilisi-timeline-hobby/0.1 (non-commercial hobby project; Wikimedia Commons API client%s)" % ("; contact: " + _contact if _contact else "")
 OK_LICENSE = re.compile(r"^(CC[ -]BY([ -]SA)?([ -]\d(\.\d)?)?|CC0.*|CC[ -]BY-SA.*|Public domain.*|PD.*)$", re.I)
 MAX_PHOTOS = 2
+# (sight, language) pairs where the search found an article about ANOTHER object (checked by hand on 2026-11-19, names of the articles in tools/fetch_run_wikipedia.py output):
+# their text and their lead image are not used
+EXCLUDE = {
+    (10, "en"): "the article of the Sioni Cathedral, not of the monument to Vakhtang Gorgasali",
+    (11, "ru"): "the church of the Forty Martyrs (sight 17), not St Abo",
+    (12, "en"): "the article of the Metekhi church, not of the bridge",
+    (13, "en"): "the article of the fortress Narikala, not of the church of St Nicholas",
+    (21, "en"): "the Norashen church (sight 23), not Jvaris Mama",
+    (29, "ru"): "the article of Shavteli Street, not of the clock tower",
+    (30, "en"): "the article of a hotel, not of the marionette theatre",
+    (32, "ru"): "the article of Shavteli Street, not of the city wall",
+    (33, "ru"): "the article of Pushkin Street, not of the fragments of the wall",
+    (33, "ka"): "the article of Pushkin Street, not of the fragments of the wall",
+}
 
 
 def jload(*p):
@@ -50,11 +64,18 @@ def commons(titles):
 def main():
     run = jload("site", "data", "run_trc2026.json")
     desc = {d["n"]: d for d in jload("data", "run_descriptions.json")}
+    for (n, lg), why in EXCLUDE.items():
+        d = desc.get(n)
+        if d:
+            for k in ("desc", "wp", "src_by_lang"):
+                d.get(k, {}).pop(lg, None)
+            d["photos"] = [ph for ph in d.get("photos", []) if ("the %s article" % lg) not in ph.get("why", "")]
+            d["sources"] = [u for u in d.get("sources", []) if not u.startswith("https://%s.wikipedia.org/" % lg)]
     mon = jload("site", "data", "monuments.json")["features"]
     photos = jload("site", "data", "photos.json")
     by = {(round(f["geometry"]["coordinates"][0], 6), round(f["geometry"]["coordinates"][1], 6)): f["properties"] for f in mon}
     wanted = [ph["file"] for d in desc.values() for ph in d.get("photos", [])]
-    wanted = [w if w.startswith("File:") else "File:" + w for w in wanted]
+    wanted = [(w if w.startswith("File:") else "File:" + w).replace("_", " ") for w in wanted]
     info = commons(sorted(set(wanted))) if wanted else {}
     res = {}
     for s in run["sights"]:
@@ -67,11 +88,12 @@ def main():
             if e and len(pl) < MAX_PHOTOS:
                 pl.append({k: e.get(k) for k in ("thumb", "page", "author", "license", "license_url", "w", "h")})
         for ph in d.get("photos", []):
-            f = ph["file"] if ph["file"].startswith("File:") else "File:" + ph["file"]
+            f = (ph["file"] if ph["file"].startswith("File:") else "File:" + ph["file"]).replace("_", " ")          # the API of Commons returns the titles with spaces
             e = info.get(f)
             if e and len(pl) < MAX_PHOTOS and all(x["page"] != e["page"] for x in pl):
                 pl.append(e)
-        item = {"desc": d.get("desc"), "facts": d.get("facts"), "wp": d.get("wp"), "sources": d.get("sources"), "photos": pl}
+        facts = d.get("facts") or ({"address": p.get("address")} if p.get("address") and not d.get("desc") else None)       # no article: at least the address of the register
+        item = {"desc": d.get("desc"), "facts": facts, "wp": d.get("wp"), "sources": d.get("sources"), "src_by_lang": d.get("src_by_lang"), "photos": pl}
         res[str(n)] = {k: v for k, v in item.items() if v}
     out = {"note": "Built by tools/build_run_details.py on 2026-11-19 from data/run_descriptions.json (descriptions written from Wikipedia articles) and the photos of Wikimedia Commons (free licences).", "sights": res}
     open(os.path.join(ROOT, "site", "data", "run_details.json"), "wb").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
