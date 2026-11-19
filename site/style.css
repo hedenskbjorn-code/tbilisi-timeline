@@ -339,3 +339,20 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #timebar { align-items:flex-start; }
 #play, #speed, #zoombox { margin-top:8px; }
 @media (max-width:640px) { #play, #speed, #zoombox { margin-top:0; } }
+/* the band of the states and the rulers: bigger, calm colours (the colour is the kind of power), the current periods are lit, the others are dimmed */
+#rulers .rrow { margin-top:3px; }
+.rseg { height:22px; line-height:22px; font-size:11.5px; padding:0 7px; border-radius:5px; color:#fff; font-weight:500; opacity:.5; box-shadow:none; background-image:none; text-shadow:0 1px 1px #0004; }
+.rseg.sub { height:14px; line-height:14px; font-size:10.5px; padding:0 5px; }
+.rseg.on { opacity:1; box-shadow:inset 0 0 0 2px #ffffffcc; }
+.rseg:hover { opacity:1; box-shadow:inset 0 0 0 2px #fff; }
+.rseg.approx { background-image:repeating-linear-gradient(45deg, #ffffff22 0 4px, transparent 4px 8px); }
+.rk-monarchy { --rc:#9a7b2f; } .rk-empire { --rc:#6b5ca5; } .rk-emirate { --rc:#4f8a5b; } .rk-republic { --rc:#3f72a6; } .rk-soviet { --rc:#a9484d; } .rk-transition, .rk-overlord { --rc:#7b8590; }
+.rg-king, .rg-emperor, .rg-wali, .rg-emir { --rc:#8f7a45; } .rg-viceroy, .rg-head, .rg-secretary, .rg-president { --rc:#556b86; }
+#rhead { position:absolute; top:0; bottom:0; width:2px; background:var(--accent); opacity:.8; pointer-events:none; z-index:2; }
+#ruleNow { flex:none; min-width:0; padding-right:12px; overflow:hidden; max-height:96px; line-height:1.3; }
+#ruleNow .rs1 { font-size:13.5px; font-weight:650; color:var(--fg); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+#ruleNow .rs2 { font-size:11.5px; color:var(--muted); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; margin:1px 0 3px; }
+#ruleNow .rs3 { font-size:12px; color:var(--fg); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+@media (max-width:640px) { #ruleNow { width:auto !important; padding:0 0 4px; } }
+.rseg { opacity:1; background:color-mix(in srgb, var(--rc) 38%, var(--panel)); color:var(--fg); text-shadow:none; }
+.rseg.on, .rseg:hover { background:var(--rc); color:#fff; text-shadow:0 1px 1px #0004; }
