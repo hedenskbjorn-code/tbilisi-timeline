@@ -88,9 +88,10 @@
       legSetUnk: "Посёлок: год включения неизвестен",
       legSetName: "Название посёлка (клик по точке: когда и откуда включён)",
       fbBtn: "Сообщить об ошибке", fbTitle: "Сообщить об ошибке или недочёте",
-      fbHint: "Опишите, что неверно или чего не хватает. Страница ничего не отправляет сама: сообщение откроется как обращение (issue) в репозитории проекта на GitHub (нужен аккаунт GitHub), либо уйдёт через форму, если она подключена.",
+      fbHint: "Опишите, что неверно или чего не хватает. Сообщение уходит в закрытую очередь автору проекта (аккаунт не нужен) и нигде не публикуется. Если форма недоступна, сообщение откроется как обращение на GitHub.",
       fbType: "Что не так", fbK1: "Ошибка в данных объекта (название, дата, адрес, положение)", fbK2: "Старый план лежит не там (привязка)", fbK3: "Граница города или застройки", fbK4: "Ошибка в переводе или названии", fbK5: "Вопрос по правам, прошу убрать данные", fbK6: "Другое",
       fbText: "Описание", fbCtx: "Контекст (подставляется автоматически)", fbContact: "Как с вами связаться (по желанию)", fbSend: "Отправить", fbCancel: "Отмена",
+      fbCaptcha: "Отметьте проверку «я не робот» и отправьте ещё раз.", fbLimit: "Слишком много сообщений за сутки. Попробуйте завтра.", fbWait: "Слишком быстро: подождите несколько секунд и отправьте снова.", fbFail: "Не удалось отправить сообщение. Проверьте текст (от 5 символов) или попробуйте позже.", 
       fbSent: "Спасибо! Обращение отправлено.", fbOpened: "Открыто окно GitHub: подтвердите отправку обращения там.", fbPopup: "Сообщить об ошибке по этому объекту",
       showLost: "Утраченные здания (снесены или разрушены)", showGhost: "показывать и после утраты (бледно)",
       legLostOn: "Утраченное здание: ещё стоит в этот год", legLostUnc: "Утраченное: год постройки или сноса неточен", legLostOff: "Утраченное: уже снесено (бледный «призрак»)",
@@ -128,7 +129,7 @@
       viewSource: "источник",
       trNote: "Название и улицы переведены автоматически (ИИ) с грузинского оригинала из реестра и могут быть неточными.",
       trOrig: "оригинал",
-      fbContactWarn: "Внимание: при отправке через GitHub контакт попадёт в публичный Issue и будет виден всем. Не указывайте то, что не хотите публиковать.",
+      fbContactWarn: "Контакт увидит только автор проекта. Если форма недоступна и сообщение уходит через GitHub, он станет публичным: тогда не указывайте то, что не хотите публиковать.",
       infoBtn: "Источники и подробности",
       infoTitle: "Источники и подробности",
       evCats: { unrest: "Протест и насилие", oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", science: "Наука", other: "Событие" },
@@ -251,9 +252,10 @@
       legSetUnk: "Settlement: year of annexation unknown",
       legSetName: "Settlement name (click the dot: when and from where annexed)",
       fbBtn: "Report a problem", fbTitle: "Report an error or a shortcoming",
-      fbHint: "Describe what is wrong or missing. The page sends nothing by itself: your message opens as an issue in the project's GitHub repository (a GitHub account is needed), or goes through a form if one is connected.",
+      fbHint: "Describe what is wrong or missing. The message goes to the private queue of the author of the project (no account is needed) and is not published anywhere. If the form is not available, it opens as an issue on GitHub.",
       fbType: "What is wrong", fbK1: "Error in an object's data (name, date, address, position)", fbK2: "An old plan is misplaced (registration)", fbK3: "City or built-up boundary", fbK4: "Error in a translation or a name", fbK5: "Rights question, please remove data", fbK6: "Other",
       fbText: "Description", fbCtx: "Context (filled in automatically)", fbContact: "How to reach you (optional)", fbSend: "Send", fbCancel: "Cancel",
+      fbCaptcha: "Complete the 'I am not a robot' check and send again.", fbLimit: "Too many messages in a day. Please try tomorrow.", fbWait: "Too fast: wait a few seconds and send again.", fbFail: "The message could not be sent. Check the text (at least 5 characters) or try later.", 
       fbSent: "Thank you! The report was sent.", fbOpened: "A GitHub window was opened: confirm sending the issue there.", fbPopup: "Report a problem with this object",
       showLost: "Lost buildings (demolished or destroyed)", showGhost: "also show after the loss (faint)",
       legLostOn: "Lost building: still standing in this year", legLostUnc: "Lost: date of construction or loss is imprecise", legLostOff: "Lost: already gone (faint “ghost”)",
@@ -291,7 +293,7 @@
       viewSource: "source",
       trNote: "The name and streets were translated automatically (AI) from the Georgian original in the register and may be inexact.",
       trOrig: "original",
-      fbContactWarn: "Note: when sent through GitHub, the contact goes into a public Issue and is visible to everyone. Leave it empty if you do not want that.",
+      fbContactWarn: "Only the author of the project will see the contact. If the form is not available and the message goes through GitHub, it becomes public: then leave out what you do not want published.",
       infoBtn: "Sources and details",
       infoTitle: "Sources and details",
       evCats: { unrest: "Protest and violence", oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", science: "Science", other: "Event" },
@@ -415,9 +417,10 @@
       legSetUnk: "დასახლება: შეერთების წელი უცნობია",
       legSetName: "დასახლების დასახელება (დააწკაპუნეთ წერტილზე: როდის და საიდან შეუერთდა)",
       fbBtn: "შეცდომის შეტყობინება", fbTitle: "შეატყობინეთ შეცდომა ან ნაკლოვანება",
-      fbHint: "აღწერეთ, რა არის არასწორი ან რა აკლია. გვერდი თავად არაფერს აგზავნის: შეტყობინება გაიხსნება როგორც issue პროექტის GitHub-რეპოზიტორიაში (საჭიროა GitHub-ის ანგარიში), ან გაიგზავნება ფორმით, თუ ის მიერთებულია.",
+      fbHint: "აღწერეთ, რა არის არასწორი ან რა აკლია. შეტყობინება იგზავნება პროექტის ავტორის დახურულ რიგში (ანგარიში საჭირო არ არის) და არსად ქვეყნდება. თუ ფორმა მიუწვდომელია, შეტყობინება გაიხსნება GitHub-ზე.",
       fbType: "რა არის არასწორი", fbK1: "შეცდომა ობიექტის მონაცემებში (სახელი, თარიღი, მისამართი, მდებარეობა)", fbK2: "ძველი გეგმა არასწორ ადგილასაა (მიბმა)", fbK3: "ქალაქის ან განაშენიანების საზღვარი", fbK4: "შეცდომა თარგმანში ან სახელში", fbK5: "უფლებების საკითხი, გთხოვთ წაშალოთ მონაცემები", fbK6: "სხვა",
       fbText: "აღწერა", fbCtx: "კონტექსტი (ივსება ავტომატურად)", fbContact: "როგორ დაგიკავშირდეთ (სურვილისამებრ)", fbSend: "გაგზავნა", fbCancel: "გაუქმება",
+      fbCaptcha: "გაიარეთ შემოწმება „მე არ ვარ რობოტი“ და გაგზავნეთ ხელახლა.", fbLimit: "ერთ დღეში ძალიან ბევრი შეტყობინებაა. სცადეთ ხვალ.", fbWait: "ძალიან სწრაფად: რამდენიმე წამი დაელოდეთ და ხელახლა გაგზავნეთ.", fbFail: "შეტყობინება ვერ გაიგზავნა. შეამოწმეთ ტექსტი (მინიმუმ 5 სიმბოლო) ან სცადეთ მოგვიანებით.", 
       fbSent: "გმადლობთ! შეტყობინება გაიგზავნა.", fbOpened: "გაიხსნა GitHub-ის ფანჯარა: დაადასტურეთ იქ გაგზავნა.", fbPopup: "შეატყობინეთ ამ ობიექტის შესახებ შეცდომა",
       showLost: "დაკარგული შენობები (დანგრეული ან განადგურებული)", showGhost: "დაკარგვის შემდეგაც ჩვენება (მკრთალად)",
       legLostOn: "დაკარგული შენობა: ამ წელს ჯერ დგას", legLostUnc: "დაკარგული: აშენების ან დაკარგვის თარიღი ზუსტი არ არის", legLostOff: "დაკარგული: უკვე აღარ არის (მკრთალი „აჩრდილი“)",
@@ -453,7 +456,7 @@
       viewNext: "შემდეგი ფოტო",
       viewLicense: "ლიცენზია",
       viewSource: "წყარო",
-      fbContactWarn: "ყურადღება: GitHub-ის გავლით გაგზავნისას კონტაქტი საჯარო Issue-ში მოხვდება და ყველას დაენახება. თუ არ გსურთ, ნუ მიუთითებთ.",
+      fbContactWarn: "კონტაქტს მხოლოდ პროექტის ავტორი ნახავს. თუ ფორმა მიუწვდომელია და შეტყობინება GitHub-ით იგზავნება, ის საჯარო გახდება: მაშინ ნუ მიუთითებთ იმას, რისი გამოქვეყნებაც არ გსურთ.",
       infoBtn: "წყაროები და დეტალები",
       infoTitle: "წყაროები და დეტალები",
       evCats: { unrest: "პროტესტი და ძალადობა", oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", science: "მეცნიერება", other: "მოვლენა" },
@@ -1686,10 +1689,35 @@
     $("fbStatus").textContent = "";
     $("fbMsg").value = "";
     feedbackRefreshCtx();
+    fbOpenedAt = Date.now(); $("fbStatus").textContent = ""; fbTsReset();
     $("fbModal").hidden = false;
     $("fbMsg").focus();
   }
   function closeFeedback() { $("fbModal").hidden = true; }
+
+  // the form sends the message to the private queue of the author (Worker /feedback): Turnstile, the time the form was open and a hidden field protect it; GitHub is the reserve
+  let fbToken = "", fbTsId = null, fbOpenedAt = 0;
+  function fbTsLoad() {
+    return new Promise((res) => {
+      if (window.turnstile) return res();
+      if (!document.querySelector('script[src^="https://challenges.cloudflare.com/turnstile"]')) {
+        const s = document.createElement("script");
+        s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"; s.async = true; s.onerror = () => res();
+        document.head.appendChild(s);
+      }
+      let n = 0;
+      const w = setInterval(() => { if (window.turnstile || ++n > 50) { clearInterval(w); res(); } }, 100);
+    });
+  }
+  async function fbTsReset() {
+    fbToken = "";
+    if (!cfg.feedbackEndpoint || !cfg.turnstileSitekey) return;
+    await fbTsLoad();
+    if (!window.turnstile) return;
+    if (fbTsId !== null) { try { window.turnstile.remove(fbTsId); } catch (e) {} fbTsId = null; }
+    $("fbTs").textContent = "";
+    fbTsId = window.turnstile.render($("fbTs"), { sitekey: cfg.turnstileSitekey, theme: "auto", callback: (tk) => { fbToken = tk; }, "expired-callback": () => { fbToken = ""; }, "error-callback": () => { fbToken = ""; } });
+  }
   $("fbOpen").addEventListener("click", () => openFeedback(null));
   $("fbCancel").addEventListener("click", closeFeedback);
   $("fbModal").addEventListener("click", (e) => { if (e.target === $("fbModal")) closeFeedback(); });
@@ -1703,12 +1731,17 @@
     const ctx = feedbackContext();
     const payload = { kind: $("fbKind").value, kindLabel, message: body, contact, context: ctx, page: location.href.split("#")[0] };
     if (cfg.feedbackEndpoint) {
+      if (cfg.turnstileSitekey && !fbToken) { $("fbStatus").textContent = t().fbCaptcha; return; }
       try {
-        await fetch(cfg.feedbackEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) });
-        $("fbStatus").textContent = t().fbSent;
-        setTimeout(closeFeedback, 1800);
+        const r = await fetch(cfg.feedbackEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ ...payload, t: fbOpenedAt, hp: $("fbTrap").value, "cf-turnstile-response": fbToken }) });
+        const j = await r.json().catch(() => ({}));
+        if (r.ok && j.ok) { $("fbStatus").textContent = t().fbSent; fbToken = ""; setTimeout(closeFeedback, 1800); return; }
+        // the service answered but refused: say why (the reserve with GitHub is for the case when the service cannot be reached at all)
+        $("fbStatus").textContent = j.error === "captcha" ? t().fbCaptcha : (j.error === "limit" || j.error === "busy") ? t().fbLimit : j.error === "time" ? t().fbWait : t().fbFail;
+        fbTsReset();
         return;
-      } catch (err) { /* fall through to GitHub */ }
+      } catch (err) { /* the service cannot be reached: fall through to GitHub */ }
     }
     if (cfg.repo) {
       const title = `[${payload.kind}] ${body.slice(0, 70).replace(/\s+/g, " ")}`;

@@ -385,3 +385,4 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #axis .rseg { cursor:pointer; }
 #sliderwrap, #axis { user-select:none; -webkit-user-select:none; }
 #sliderwrap input { user-select:auto; }
+#fbTs { margin:8px 0; }

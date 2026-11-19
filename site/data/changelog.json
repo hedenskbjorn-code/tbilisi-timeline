@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.6.1",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Обратная связь без GitHub: кнопка «Сообщить об ошибке» теперь отправляет сообщение в закрытую очередь автору проекта (аккаунт не нужен, сообщение нигде не публикуется; защита: проверка Turnstile и ограничение числа сообщений). Если служба недоступна, остаётся запасной путь через GitHub.",
+    "en": "Feedback without GitHub: the button 'Report a problem' now sends the message to the private queue of the author of the project (no account is needed, the message is not published anywhere; protected by a Turnstile check and a limit of messages). If the service is not available, the reserve way through GitHub remains.",
+    "ka": "უკუკავშირი GitHub-ის გარეშე: ღილაკი „შეცდომის შეტყობინება“ ახლა შეტყობინებას პროექტის ავტორის დახურულ რიგში აგზავნის (ანგარიში საჭირო არ არის, შეტყობინება არსად ქვეყნდება; დაცვა: Turnstile-ის შემოწმება და შეტყობინებების რაოდენობის ლიმიტი). თუ სერვისი მიუწვდომელია, რჩება სარეზერვო გზა GitHub-ის საშუალებით."
+   }
+  ]
+ },
+ {
   "version": "1.6.0",
   "date": "2026-11-20",
   "items": [
