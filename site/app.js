@@ -108,7 +108,6 @@
       showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", lutheran: "Лютеранская", yazidi: "Езидская", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relApprox: "точка на карте приблизительная", relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
       showRulers: "Правители и формы власти (полоса под шкалой)", ruleNow: "Кто правил", ruleState: "Государство", ruleOver: "Внешняя власть", ruleAdmin: "Единица управления", ruleForm: "Форма власти", ruleYears: "Годы", ruleNoData: "нет данных",
       showRun: "Tbilisi Running Club: маршрут City Run 2026 и что увидеть по пути (сегодняшний город)", runStats: (r, n) => `${r.length_km} км, высота ${r.ele_min}-${r.ele_max} м, ${n} достопримечательностей`, runKm: "Километр", runDist: "От трассы", runYear: "Дата по реестру", runWiki: "Википедия", runStart: "Старт и финиш", runList: "По порядку вдоль маршрута", runNote: "В список входят объекты данных сайта, чья точка лежит не дальше 150 м от трассы: национального значения, со статьёй в Википедии, церкви, мосты, театры, музеи, стены и крепости. Расстояние считается от точки объекта до линии трассы, поэтому крупные здания могут быть ближе. Это не проверка видимости.", runSrc: "Маршрут (геометрия)",
-      coaTitle: "Герб Тбилиси", coaCredit: "Герб Тбилиси: официальный символ города (мэрия Тбилиси), файл Seal of Tbilisi, Georgia.svg на Wikimedia Commons (векторная версия: Nesnad); по закону Грузии об авторском праве официальные гербы не охраняются (метка PD-GE-exempt). Сайт не связан с мэрией и не является официальным.",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -264,7 +263,6 @@
       showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", lutheran: "Lutheran", yazidi: "Yazidi", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relApprox: "the point on the map is approximate", relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
       showRulers: "Rulers and forms of government (a band under the scale)", ruleNow: "Who ruled", ruleState: "State", ruleOver: "Outside power", ruleAdmin: "Administrative unit", ruleForm: "Form of rule", ruleYears: "Years", ruleNoData: "no data",
       showRun: "Tbilisi Running Club: the City Run 2026 route and what to see on the way (today's city)", runStats: (r, n) => `${r.length_km} km, elevation ${r.ele_min}-${r.ele_max} m, ${n} sights`, runKm: "Kilometre", runDist: "From the route", runYear: "Date in the register", runWiki: "Wikipedia", runStart: "Start and finish", runList: "In order along the route", runNote: "The list holds the objects of the data of this site whose point lies within 150 m of the track: of national significance, with a Wikipedia article, churches, bridges, theatres, museums, walls and fortresses. The distance is from the point of the object to the line of the track, so large buildings may be closer. This is not a check of visibility.", runSrc: "Route (geometry)",
-      coaTitle: "Coat of arms of Tbilisi", coaCredit: "Coat of arms of Tbilisi: the official symbol of the city (Tbilisi City Hall), the file Seal of Tbilisi, Georgia.svg on Wikimedia Commons (vector version: Nesnad); under the Georgian law on copyright official coats of arms are not protected (the tag PD-GE-exempt). This site is not connected with the city hall and is not official.",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -421,7 +419,6 @@
       showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", lutheran: "ლუთერანული", yazidi: "ეზიდური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relApprox: "წერტილი რუკაზე მიახლოებითია", relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
       showRulers: "მმართველები და მმართველობის ფორმები (ზოლი სკალის ქვეშ)", ruleNow: "ვინ მართავდა", ruleState: "სახელმწიფო", ruleOver: "გარე ძალა", ruleAdmin: "ადმინისტრაციული ერთეული", ruleForm: "მმართველობის ფორმა", ruleYears: "წლები", ruleNoData: "მონაცემი არ არის",
       showRun: "Tbilisi Running Club: City Run 2026-ის მარშრუტი და რა ჩანს გზაზე (დღევანდელი ქალაქი)", runStats: (r, n) => `${r.length_km} კმ, სიმაღლე ${r.ele_min}-${r.ele_max} მ, ${n} ღირსშესანიშნაობა`, runKm: "კილომეტრი", runDist: "ტრასიდან", runYear: "თარიღი რეესტრში", runWiki: "ვიკიპედია", runStart: "სტარტი და ფინიში", runList: "მარშრუტის გასწვრივ თანმიმდევრობით", runNote: "სიაში შედის საიტის მონაცემთა ობიექტები, რომელთა წერტილი ტრასიდან 150 მ-ს არ აცილდება: ეროვნული მნიშვნელობის, ვიკიპედიის სტატიით, ეკლესიები, ხიდები, თეატრები, მუზეუმები, გალავნები და ციხეები. მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა. ეს ხილვადობის შემოწმება არ არის.", runSrc: "მარშრუტი (გეომეტრია)",
-      coaTitle: "თბილისის გერბი", coaCredit: "თბილისის გერბი: ქალაქის ოფიციალური სიმბოლო (თბილისის მერია), ფაილი Seal of Tbilisi, Georgia.svg Wikimedia Commons-ზე (ვექტორული ვერსია: Nesnad); საქართველოს საავტორო უფლებების კანონის მიხედვით ოფიციალური გერბები დაცული არ არის (PD-GE-exempt). საიტი მერიასთან დაკავშირებული არ არის და ოფიციალური არ არის.",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -795,7 +792,6 @@
     document.title = t().title;
     if (typeof feedbackRefreshCtx === "function") feedbackRefreshCtx();
     $("title").textContent = t().title;
-    $("coa").title = t().coaTitle; $("coa").alt = t().coaTitle;
     $("lang").value = lang;
     document.querySelectorAll("[data-i]").forEach((el) => { el.textContent = t()[el.dataset.i]; });
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
@@ -832,7 +828,7 @@
   function buildAbout() {
     const box = $("abouttext");
     box.textContent = "";
-    for (const para of t().about.concat(t().coaCredit)) {
+    for (const para of t().about) {
       const p = document.createElement("p");
       p.className = "small";
       p.textContent = para;
