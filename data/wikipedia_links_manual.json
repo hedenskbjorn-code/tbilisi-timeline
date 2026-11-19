@@ -1,0 +1,33 @@
+{
+ "note": "Wikipedia links added by hand for register objects that the automatic match (tools/match_wikipedia.py) did not link; they are put into data/wikipedia_links.json after the match. {register id: {lang: title}}; 'why' says what was checked.",
+ "objects": {
+  "3049": {
+   "ru": "Александро-Невская церковь (Тбилиси)",
+   "ka": "თბილისის წმინდა ალექსანდრე ნეველის ეკლესია",
+   "why": "The surviving 'Russian church' of St Alexander Nevsky on Marjanishvili Street (Wikidata Q4061030); the coordinates of the Russian article are 41 m from the register point. The English article 'Alexander Nevsky Cathedral, Tiflis' is another, demolished building (1930) 1.6 km away and must not be linked."
+  },
+  "4070": {
+   "ru": "Церковь Святого Давида (Тбилиси)",
+   "ka": "მთაწმინდის მამადავითის სახელობის ეკლესია",
+   "why": "Mamadaviti church on Mtatsminda: the Russian article is 0 m from the register point (Wikidata Q12866896)."
+  },
+  "6661": {
+   "ru": "Грузинская Бетания",
+   "en": "Betania Monastery",
+   "ka": "ბეთანიის მონასტერი",
+   "why": "Betania monastery (Wikidata Q830965): the articles are 16 m from the register point of the church of St George."
+  },
+  "15663": {
+   "ru": "Грузинская Бетания",
+   "en": "Betania Monastery",
+   "ka": "ბეთანიის მონასტერი",
+   "why": "The bell tower of the Betania monastery: 21 m from the point of the articles about the monastery (Wikidata Q830965)."
+  },
+  "6659": {
+   "ru": "Грузинская Бетания",
+   "en": "Betania Monastery",
+   "ka": "ბეთანიის მონასტერი",
+   "why": "The Betania monastery as a whole (Wikidata Q830965)."
+  }
+ }
+}

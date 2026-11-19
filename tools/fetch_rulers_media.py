@@ -25,13 +25,26 @@ FREE = re.compile(r"(?i)^(public domain|pd\b|cc0|cc[- ]by(-sa)?\b|attribution|no
 # Ottoman and Safavid flags are even called "Fictitious"), so they are not shown. state id -> the Wikipedia article whose Wikidata item lists the flags with their dates (P41)
 STATE_ARTICLE = {"russia": "Russian Empire", "tdfr": "Transcaucasian Democratic Federative Republic", "drg": "Democratic Republic of Georgia", "gssr": "Georgian Soviet Socialist Republic",
                  "rep1991": "Georgia (country)", "council1992": "Georgia (country)", "rep1995": "Georgia (country)", "rep2013": "Georgia (country)"}
+# Flags of the early states are modern reconstructions (the Wikidata items list them as the flag of the state); they are shown with the mark "reconstruction". The specific ones come first.
+EXTRA_STATE_FLAGS = {
+    "iberia": [{"file": "Kartli - drosha jvari.svg", "k": "recon"}],
+    "georgia": [{"file": "KingDavidtheBuilderFlag.svg", "from": 1122, "to": 1125, "k": "recon"}, {"file": "QueenTamarFlag.svg", "from": 1184, "to": 1213, "k": "recon"},
+                {"file": "Flag of the Kingdom of Georgia.svg", "k": "recon"}],
+    "kartli_kakheti": [{"file": "Flag of Kingdom of Kartli-Kakheti.svg", "k": "recon"}],
+    # the Russian article on the Kingdom of Kartli shows this file; Kartli has no flag of its own in Wikidata
+    "kartli": [{"file": "Flag of Kingdom of Kartli-Kakheti.svg", "k": "recon"}],
+    # the flags of the suzerains ("suz"): the data of the band say that Iberia was a province of the Sasanians after 580 and that the emirate was ruled by the Abbasid caliphate;
+    # the periods with changing masters (645-750) have no flag
+    "transition": [{"file": "Derafsh Kaviani flag of the late Sassanid Empire.svg", "from": 580, "to": 645, "k": "suz"}],
+    "emirate": [{"file": "Black flag.svg", "from": 750, "to": 1122, "k": "suz"}],
+}
 EXTRA_FLAG = {"Georgia (country)": [{"file": "Flag of Georgia (1990–2004).svg", "from": 1990, "to": 2004}]}      # absent in P41 of the item; the dates are those of the Commons file name
 
 # Rulers: the search by name is wrong for some (a namesake), so the article is given by hand; EXCLUDE: no reliable match or no portrait expected; ACCEPT: the match was checked by hand
 # (the name differs only by an epithet or a spelling, the life years overlap the rule). Everything else with a good match is taken ("auto"); the pictures are checked by eye afterwards.
 TITLE_FIX = {"demetre1": "Demetrius I of Georgia", "demetre1b": "Demetrius I of Georgia", "george3": "George III of Georgia", "george4": "George IV of Georgia",
              "david9": "David IX of Georgia", "constantine1": "Constantine I of Georgia", "demetre3": "Demetrius III of Georgia", "constantine2": "Constantine II of Georgia",
-             "simon2": "Simon II of Kartli", "jesse": "Jesse of Kartli", "jesse2": "Jesse of Kartli", "viceroy15": "Grand Duke Michael Nikolaevich of Russia"}
+             "simon2": "Simon II of Kartli", "jesse": "Jesse of Kartli", "jesse2": "Jesse of Kartli", "viceroy15": "Grand Duke Michael Nikolaevich of Russia", "margvelashvili": "Giorgi Margvelashvili"}
 ACCEPT = {"tamar", "vakhtang1", "alexander1", "simon1", "simon1b", "luarsab2", "david_regent", "viceroy5", "viceroy8", "secretary5", "secretary6", "secretary7", "secretary9"}
 EXCLUDE = {"emir0", "emir1", "emir2", "emir3", "emir4", "emir5", "emir6", "emir7", "emir8", "emir9", "emir10", "emir11", "emir12", "emir13", "emir14", "emir15",
            "aspacures2", "aspacures3", "mihrdat3", "pharasmanes4", "bacurius2", "pharasmanes6", "viceroy10", "viceroy17", "viceroy21", "secretary1", "secretary8"}
@@ -112,7 +125,7 @@ def file_info(names):
     out = {}
     names = sorted(set(names))
     for i in range(0, len(names), 40):
-        d = api("commons.wikimedia.org", action="query", titles="|".join("File:" + n for n in names[i:i + 40]), prop="imageinfo", iiprop="extmetadata|url|mime", iiurlwidth=200)
+        d = api("commons.wikimedia.org", action="query", titles="|".join("File:" + n for n in names[i:i + 40]), prop="imageinfo", iiprop="extmetadata|url|mime", iiurlwidth=520)
         for p in d.get("query", {}).get("pages", []):
             ii = (p.get("imageinfo") or [{}])[0]
             em = ii.get("extmetadata", {})
@@ -172,6 +185,10 @@ def main():
     sres = {}
     for s in states:
         art = STATE_ARTICLE.get(s["id"])
+        if s["id"] in EXTRA_STATE_FLAGS:
+            keep = [{"file": f["file"], "from": f.get("from", s["from"]), "to": f.get("to", s["to"]), "k": f["k"]} for f in EXTRA_STATE_FLAGS[s["id"]]]
+            sres[s["id"]] = {"flags": keep, "status": "auto"}
+            continue
         if not art:
             sres[s["id"]] = {"status": "none"}
             continue
@@ -189,7 +206,8 @@ def main():
             f0 = s["from"] if f["from"] is None else f["from"]
             f1 = s["to"] if f["to"] is None else f["to"]
             if f0 < s["to"] and f1 > s["from"]:
-                keep.append({"file": f["file"], "from": f0, "to": f1})
+                # the Russian Empire: the tricolour was only the civil ensign before 1858 (en.wikipedia, Flag of Russia); the state flag was black-yellow-white 1858-1896, the tricolour since 1896
+                keep.append({"file": f["file"], "from": max(f0, s["from"]), "to": f1, "k": "civil" if (s["id"] == "russia" and f1 <= 1858) else "state"})
         sres[s["id"]] = {"wp": title, "q": q, "article": art, "flags": keep, "status": "auto" if keep else "noimage"}
     # 3. licences and thumbnails of the chosen files
     files = [v["image"] for v in res.values() if v.get("image")] + [f["file"] for v in sres.values() for f in v.get("flags", [])]
@@ -232,7 +250,7 @@ def download():
     c = json.load(open(os.path.join(ROOT, "data", "rulers_media_candidates.json"), encoding="utf-8"))
     out = {"rulers": {}, "flags": {}}
     base = os.path.join(ROOT, "site", "data", "rulers")
-    for sub in ("p", "f"):
+    for sub in ("p", "b", "f", "fb"):
         os.makedirs(os.path.join(base, sub), exist_ok=True)
     seen = {}
     for rid, v in c["rulers"].items():
@@ -243,11 +261,14 @@ def download():
             b = fetch_bytes(v["thumb"])
             if not b:
                 print("skip (download failed):", rid); continue
-            im = Image.open(io.BytesIO(b)).convert("RGB"); im.thumbnail((96, 120))
+            im = Image.open(io.BytesIO(b)).convert("RGB")
+            big = im.copy(); big.thumbnail((480, 600))
+            im.thumbnail((96, 120))
             name = "p/%s.webp" % rid
-            im.save(os.path.join(base, name), "WEBP", quality=78, method=6)
+            im.save(os.path.join(base, name), "WEBP", quality=80, method=6)
+            big.save(os.path.join(base, "b/%s.webp" % rid), "WEBP", quality=82, method=6)
             seen[key] = name
-        out["rulers"][rid] = {"i": seen[key], "l": v.get("license"), "a": v.get("artist"), "u": v.get("page")}
+        out["rulers"][rid] = {"i": seen[key], "b": seen[key].replace("p/", "b/"), "l": v.get("license"), "a": v.get("artist"), "u": v.get("page")}
     fseen = {}
     for sid, v in c["states"].items():
         for f in v.get("flags", []):
@@ -259,11 +280,15 @@ def download():
                 b = fetch_bytes(f["thumb"])
                 if not b:
                     continue
-                im = Image.open(io.BytesIO(b)).convert("RGBA"); im.thumbnail((96, 64))
-                name = "f/%s.webp" % re.sub(r"[^A-Za-z0-9]+", "_", os.path.splitext(f["file"])[0]).strip("_")
-                im.save(os.path.join(base, name), "WEBP", quality=85, method=6)
+                im = Image.open(io.BytesIO(b)).convert("RGBA")
+                stem = re.sub(r"[^A-Za-z0-9]+", "_", os.path.splitext(f["file"])[0]).strip("_")
+                big = im.copy(); big.thumbnail((480, 320))
+                big.save(os.path.join(base, "fb/%s.webp" % stem), "WEBP", lossless=True, method=6)          # flat colours: lossless stays sharp
+                im.thumbnail((96, 64))
+                name = "f/%s.webp" % stem
+                im.save(os.path.join(base, name), "WEBP", quality=90, method=6)
                 fseen[f["file"]] = name
-            out["flags"].setdefault(sid, []).append({"i": fseen[f["file"]], "from": f["from"], "to": f["to"], "l": f.get("license"), "a": f.get("artist"), "u": f.get("page")})
+            out["flags"].setdefault(sid, []).append({"i": fseen[f["file"]], "b": fseen[f["file"]].replace("f/", "fb/"), "k": f.get("k"), "from": f["from"], "to": f["to"], "l": f.get("license"), "a": f.get("artist"), "u": f.get("page")})
     json.dump(out, open(os.path.join(ROOT, "site", "data", "rulers_media.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     print("portraits:", len(out["rulers"]), "files:", len(seen), "| flags for states:", len(out["flags"]), "files:", len(fseen))
 

@@ -131,7 +131,7 @@
       fbContactWarn: "Внимание: при отправке через GitHub контакт попадёт в публичный Issue и будет виден всем. Не указывайте то, что не хотите публиковать.",
       infoBtn: "Источники и подробности",
       infoTitle: "Источники и подробности",
-      evCats: { unrest: "Протест и насилие", oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", other: "Событие" },
+      evCats: { unrest: "Протест и насилие", oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", science: "Наука", other: "Событие" },
       evSrc: "Источники",
       evNote: "Дата и подробности из статей Википедии (en, ru).",
       infoRegister: "Данные объекта: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство сохранения культурного наследия), сокращённая выжимка для некоммерческого использования. Условия и полный список источников: «О проекте и источниках» на боковой панели.",
@@ -294,7 +294,7 @@
       fbContactWarn: "Note: when sent through GitHub, the contact goes into a public Issue and is visible to everyone. Leave it empty if you do not want that.",
       infoBtn: "Sources and details",
       infoTitle: "Sources and details",
-      evCats: { unrest: "Protest and violence", oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", other: "Event" },
+      evCats: { unrest: "Protest and violence", oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", science: "Science", other: "Event" },
       evSrc: "Sources",
       evNote: "Date and details from Wikipedia articles (en, ru).",
       infoRegister: "Object data: public records of the register of immovable cultural heritage monuments of Georgia (National Agency for Cultural Heritage Preservation), a reduced extract for non-commercial use. Terms and the full list of sources: “About and sources” in the side panel.",
@@ -456,7 +456,7 @@
       fbContactWarn: "ყურადღება: GitHub-ის გავლით გაგზავნისას კონტაქტი საჯარო Issue-ში მოხვდება და ყველას დაენახება. თუ არ გსურთ, ნუ მიუთითებთ.",
       infoBtn: "წყაროები და დეტალები",
       infoTitle: "წყაროები და დეტალები",
-      evCats: { unrest: "პროტესტი და ძალადობა", oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", other: "მოვლენა" },
+      evCats: { unrest: "პროტესტი და ძალადობა", oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", science: "მეცნიერება", other: "მოვლენა" },
       evSrc: "წყაროები",
       evNote: "თარიღი და დეტალები ვიკიპედიის სტატიებიდან (en, ru).",
       infoRegister: "ობიექტის მონაცემები: საქართველოს კულტურული მემკვიდრეობის უძრავი ძეგლების რეესტრის საჯარო ცნობები (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო), შემოკლებული ამონარიდი არაკომერციული გამოყენებისთვის. პირობები და წყაროების სრული სია: „პროექტის შესახებ და წყაროები“ გვერდით პანელში.",
@@ -1125,7 +1125,7 @@
     m.textContent = L.stMore;
     box.appendChild(m);
   }
-  const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
+  const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", science: "\uD83D\uDD2C", other: "\uD83D\uDCCC" };
   function buildEvMarks() {
     const box = $("evmarks");
     if (!box) return;
@@ -2197,9 +2197,10 @@
     $("slider").value = Math.round(y2v(year));
     buildTicks(); buildEvMarks(); buildRulersBand(); updateZoomUi();
   }
-  function ensureInWindow() {
-    if (zoomIx === 0 || (year >= zoomLo && year <= zoomHi)) return;
-    applyWindow(year - ZOOM_W[zoomIx] / 2);
+  function ensureInWindow() {                      // a zoomed scale is centred on the year (the mark in the middle; at the ends of the history the window stops)
+    if (zoomIx === 0) return;
+    const w = ZOOM_W[zoomIx], lo = Math.min(Math.max(Math.round(year - w / 2), MIN), MAX - w);
+    if (lo !== zoomLo || zoomHi !== lo + w) applyWindow(lo);
   }
   function updateZoomUi() {
     $("zoomLbl").textContent = zoomIx === 0 ? t().zoomAll : zoomLo + "\u2013" + zoomHi;
@@ -2224,8 +2225,7 @@
   }
   function panWindow(dir) {
     if (zoomIx === 0) return;
-    applyWindow(zoomLo + dir * ZOOM_W[zoomIx] / 2);
-    if (year < zoomLo) year = zoomLo; else if (year > zoomHi) year = zoomHi;
+    year = Math.min(Math.max(Math.round(year + dir * ZOOM_W[zoomIx] / 2), MIN), MAX);
     update();
   }
   $("zoomIn").addEventListener("click", () => zoomBy(1));
@@ -2336,22 +2336,29 @@
   $("showRun").addEventListener("change", () => updateRun($("showRun").checked));
 
   // forms of state and rulers over Tbilisi: a band under the time scale (two rows with up to two lanes each), a line "who ruled" in the side panel, a card on a click
-  const RULE_LANE_H = 13;
+  let bandW = 0; const BAND_LEVELS = [24, 48, 96, 192, 384, 768, 1536];    // the band is a lens: it shows this many years around the current year
+  const RULE_MAIN_H = 22, RULE_SUB_H = 14, RULE_GAP = 2;               // the main row of the band (lane 0) and the thin row (lane 1: overlords, second rulers)
   const dispYear = (v) => Math.floor(v + 0.0001);
   const rText = (o) => (o && (o[lang] || o.en)) || "";
   // the heights of the time bar (top) and of the bar of rulers (bottom) go to CSS: the panels lie between them; the band of rulers is aligned with the track of the slider
   function syncBars() {
+    alignRulers();
     const tb = $("timebar"), bb = $("bottom"), root = document.documentElement.style;
     root.setProperty("--tb", Math.round(tb.getBoundingClientRect().height) + "px");
-    root.setProperty("--bb", (document.body.classList.contains("rulers-on") ? Math.round(bb.getBoundingClientRect().height) + 30 : 0) + "px");
+    const bh = bb.getBoundingClientRect().height;
+    root.setProperty("--bb", (bh ? Math.round(bh) + 30 : 0) + "px");
+    updateToken();
+    updateRuleSummary();
+    markRulers();
   }
   window.addEventListener("load", () => syncBars());
-  function alignRulers() {
-    const rn = $("ruleNow"), r = $("rulers"), bar = $("bottom"), sw = $("sliderwrap").getBoundingClientRect(), b = bar.getBoundingClientRect(), cs = getComputedStyle(bar);
-    if (!b.width) return;
-    if (window.matchMedia("(max-width:640px)").matches) { rn.style.width = ""; r.style.marginRight = ""; return; }
-    rn.style.width = Math.max(0, Math.round(sw.left - b.left - parseFloat(cs.paddingLeft))) + "px";
-    r.style.marginRight = Math.max(0, Math.round(b.right - sw.right - parseFloat(cs.paddingRight))) + "px";
+  function alignRulers() {                     // the summary "who rules now" stands left of the slider track, the axis (rulers) has the extent of the slider
+    const ax = $("axis"), rn = $("ruleNow"), bar = $("bottom"), sw = $("sliderwrap").getBoundingClientRect(), b = bar.getBoundingClientRect(), cs = getComputedStyle(bar);
+    if (!ax || !b.width || !sw.width) return;
+    const L = Math.max(0, Math.round(sw.left - b.left - parseFloat(cs.paddingLeft)));
+    rn.style.width = L + "px";
+    ax.style.marginLeft = "0px";
+    ax.style.marginRight = Math.max(0, Math.round(b.right - sw.right - parseFloat(cs.paddingRight))) + "px";
   }
   function buildRulersBand() {
     const box = $("rulers");
@@ -2361,31 +2368,52 @@
     document.body.classList.toggle("rulers-on", !!on);
     if (!on) { syncBars(); return; }
     alignRulers();
-    const lo = zoomLo, hi = zoomHi, W = Math.max(0, $("rStates").clientWidth - 16);
-    const fill = (row, items, kindOf, nameOf) => {
+    const c = year + 0.5, cnt = (w) => rulersData.rulers.filter((r) => !r.lane && r.to > c - w / 2 && r.from < c + w / 2).length;
+    if (!bandW || cnt(bandW) < 3 || cnt(bandW) > 16) bandW = BAND_LEVELS.find((w) => cnt(w) >= 5) || BAND_LEVELS[BAND_LEVELS.length - 1];       // the smallest window with at least 5 rulers; kept while it stays between 3 and 16
+    let lo = c - bandW / 2, hi = c + bandW / 2;
+    if (zoomIx > 0) { lo = zoomLo; hi = zoomHi; bandW = hi - lo; }       // a zoomed scale: the same window as the scale above
+    const W = Math.max(0, $("rStates").clientWidth - 16);
+    const shortName = (n) => { const w = n.replace(/\(.*?\)/g, "").trim().split(/\s+/), last = w[w.length - 1]; return /^[IVXLC]+$/.test(last) && w.length > 1 ? w[0] + " " + last : last; };
+    const fill = (row, items, kindOf, nameOf, ruler) => {
       row.textContent = "";
       let lanes = 0;
+      const phone = window.matchMedia("(max-width:640px)").matches;      // a phone: one row, the main line only
       for (const it of items) {
-        if (it.to <= lo || it.from >= hi) continue;
-        const a = Math.max(it.from, lo), b = Math.min(it.to, hi), x1 = y2v(a) / 1000, x2 = y2v(b) / 1000;
+        if (it.to <= lo || it.from >= hi || (phone && it.lane)) continue;
+        const a = Math.max(it.from, lo), b = Math.min(it.to, hi), x1 = (a - lo) / (hi - lo), x2 = (b - lo) / (hi - lo);
         const px = (x2 - x1) * W;
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "rseg " + kindOf(it) + (it.approx ? " approx" : "");
-        btn.style.left = "calc(8px + (100% - 16px) * " + x1 + ")";
-        btn.style.width = "max(2px, calc((100% - 16px) * " + (x2 - x1) + "))";
+        btn.className = "rseg " + kindOf(it) + (it.approx ? " approx" : "") + (it.lane ? " sub" : "");
+        btn.dataset.from = it.from; btn.dataset.to = it.to;
+        const MIN = 6, grow = px < MIN ? (MIN - px) / 2 : 0;           // a term shorter than 6 px is widened to 6 px around its place
+        btn.style.left = "calc(8px + (100% - 16px) * " + x1 + " - " + grow.toFixed(1) + "px)";
+        btn.style.width = px < MIN ? MIN + "px" : "calc((100% - 16px) * " + (x2 - x1) + ")";
+        if (px < MIN) btn.classList.add("short");
         const lane = it.lane || 0;
-        btn.style.top = lane * RULE_LANE_H + "px";
+        btn.style.top = (lane ? RULE_MAIN_H + RULE_GAP : 0) + "px";
         lanes = Math.max(lanes, lane + 1);
-        if (px >= 34) btn.textContent = nameOf(it);
+        const full = nameOf(it), sh = ruler ? shortName(full) : full;
+        if (px >= full.length * (lane ? 5.6 : 6.3) + 14) btn.textContent = full;
+        else if (ruler && px >= sh.length * (lane ? 5.6 : 6.3) + 10) btn.textContent = sh;
+        else btn.classList.add("nolabel");       // no text: no padding, so the width is the real length of the term
         btn.title = nameOf(it) + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to);
         btn.addEventListener("click", () => showRulerCard(it));
         row.appendChild(btn);
       }
-      row.style.height = Math.max(lanes, 1) * RULE_LANE_H + "px";
+      row.style.height = (lanes > 1 && !phone ? RULE_MAIN_H + RULE_GAP + RULE_SUB_H : RULE_MAIN_H) + "px";
     };
     fill($("rStates"), rulersData.states, (it) => "rk-" + it.kind, (it) => rText(it.name));
-    fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name));
+    fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name), true);
+    const tk = $("rticks");                       // years of the lens
+    tk.textContent = "";
+    const step = bandW <= 30 ? 5 : bandW <= 60 ? 10 : bandW <= 120 ? 20 : bandW <= 250 ? 50 : bandW <= 500 ? 100 : 200;
+    for (let y = Math.ceil(lo / step) * step; y <= hi; y += step) {
+      const sp = document.createElement("span");
+      sp.textContent = dispYear(y); sp.style.left = "calc(8px + (100% - 16px) * " + ((y - lo) / (hi - lo)) + ")";
+      tk.appendChild(sp);
+    }
+    markRulers();
     syncBars();
   }
   function showRulerCard(it) {
@@ -2395,11 +2423,11 @@
       infoLine(body, (rText(g) || "") + " \u00B7 " + dispYear(it.from) + "\u2013" + dispYear(it.to), "small");
       infoLine(body, rText(it.name), "");
       const pm = !isState && rulersMedia && rulersMedia.rulers && rulersMedia.rulers[it.id];
-      if (pm) { body.appendChild(mediaImg(pm.i, 96, 120, rText(it.name))); credit(body, pm, it.from < 1700); }
+      if (pm) { const bi = mediaImg(pm.b || pm.i, 0, 0, rText(it.name)); bi.className = "rbig"; body.appendChild(bi); credit(body, pm, it.from < 1700); }
       if (isState && rulersMedia && rulersMedia.flags && rulersMedia.flags[it.id]) {
-        for (const f of rulersMedia.flags[it.id]) {
+        for (const f of rulersMedia.flags[it.id].slice().sort((a, b) => a.from - b.from)) {
           const row = document.createElement("div"); row.className = "small";
-          row.appendChild(mediaImg(f.i, 0, 28, (RN[lang] || RN.en).flag)); row.appendChild(document.createTextNode(" " + dispYear(f.from) + "–" + dispYear(f.to)));
+          { const fi = mediaImg(f.b || f.i, 0, 0, (RN[lang] || RN.en).flag); fi.className = "rflag"; row.appendChild(fi); } row.appendChild(document.createTextNode(" " + dispYear(f.from) + "–" + dispYear(f.to) + (f.k && (RN[lang] || RN.en)[f.k] ? " \u00B7 " + (RN[lang] || RN.en)[f.k] : "")));
           body.appendChild(row); credit(body, f, false);
         }
       }
@@ -2419,9 +2447,9 @@
   }
   // the plate under the band: the flag of the period and up to two rulers with their portraits (Wikimedia Commons; the author and the licence are in the card)
   const RN = {
-    ru: { img: "Изображение", cond: "До XVIII века это условное изображение (роспись, миниатюра или памятник), а не прижизненный портрет.", flag: "Флаг", open: "Карточка", src: "файл на Commons" },
-    en: { img: "Image", cond: "Before the 18th century this is a conventional image (a fresco, a miniature or a monument), not a portrait from life.", flag: "Flag", open: "Card", src: "file on Commons" },
-    ka: { img: "გამოსახულება", cond: "XVIII საუკუნემდე ეს პირობითი გამოსახულებაა (ფრესკა, მინიატურა ან ძეგლი), და არა ცოცხალი პორტრეტი.", flag: "დროშა", open: "ბარათი", src: "ფაილი Commons-ზე" },
+    ru: { suz: "флаг сюзерена, реконструкция", civil: "гражданский флаг, государственного флага не было", recon: "реконструкция", img: "Изображение", cond: "До XVIII века это условное изображение (роспись, миниатюра или памятник), а не прижизненный портрет.", flag: "Флаг", open: "Карточка", src: "файл на Commons" },
+    en: { suz: "the flag of the suzerain, a reconstruction", civil: "civil ensign; there was no national flag", recon: "reconstruction", img: "Image", cond: "Before the 18th century this is a conventional image (a fresco, a miniature or a monument), not a portrait from life.", flag: "Flag", open: "Card", src: "file on Commons" },
+    ka: { suz: "სუზერენის დროშა, რეკონსტრუქცია", civil: "სამოქალაქო დროშა; სახელმწიფო დროშა არ იყო", recon: "რეკონსტრუქცია", img: "გამოსახულება", cond: "XVIII საუკუნემდე ეს პირობითი გამოსახულებაა (ფრესკა, მინიატურა ან ძეგლი), და არა ცოცხალი პორტრეტი.", flag: "დროშა", open: "ბარათი", src: "ფაილი Commons-ზე" },
   };
   const RGROUP_ORDER = ["king", "emperor", "president", "secretary", "head", "viceroy", "wali", "emir"];
   function mediaImg(rel, w, h, alt) {
@@ -2440,39 +2468,72 @@
     d.appendChild(a); body.appendChild(d);
     if (withCond) { const c = document.createElement("div"); c.className = "small"; c.textContent = R.cond; body.appendChild(c); }
   }
-  function updateRuleNow() {
+  // the token on the slider: the flag of the year and up to two rulers; it rides with the thumb and changes only when the state or a ruler changes (no flicker while playing)
+  function updateToken() {
+    const tk = $("ruleToken");
+    if (!tk) return;
+    if (!rulersData || !$("showRulers").checked) { tk.hidden = true; tk.dataset.key = ""; return; }
+    const R = RN[lang] || RN.en, within = (it) => it.from < year + 1 && it.to > year;
+    const st = rulersData.states.find((s) => within(s) && !s.lane);
+    const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);
+    const fl = st ? flagFor(st.id, year + 0.5) : null;
+    const key = (st ? st.id : "") + "|" + rl.map((r) => r.id).join(",") + "|" + (fl ? fl.i : "") + "|" + lang;
+    if (tk.dataset.key !== key) {
+      tk.dataset.key = key; tk.textContent = "";
+      let np = 0;
+      for (const r of rl) {
+        const m = rulersMedia && rulersMedia.rulers && rulersMedia.rulers[r.id];
+        if (m) { const i = mediaImg(m.i, 32, 40, rText(r.name)); i.className = "tkp" + (np++ ? " tkp2" : ""); i.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); tk.appendChild(i); }
+      }
+      if (rl.length && !tk.querySelector(".tkp")) {          // no portrait: a crown for the rulers of the monarchies, a star for the others
+        const g = document.createElement("span"); g.className = "tkph"; const ws = rText(rl[0].name).replace(/\(.*?\)/g, "").trim().split(/\s+/); g.textContent = ((ws[0] || "")[0] || "") + (ws.length > 1 && !/^[IVXLC]+$/.test(ws[ws.length - 1]) ? (ws[ws.length - 1][0] || "") : "");
+        g.title = rText(rl[0].name) + " · " + dispYear(rl[0].from) + "–" + dispYear(rl[0].to); tk.appendChild(g);
+      }
+      if (fl) { const i = mediaImg(fl.i, 0, 22, R.flag); i.className = "tkf"; i.title = R.flag + ": " + rText(st.name) + (fl.k && R[fl.k] ? " (" + R[fl.k] + ")" : ""); tk.appendChild(i); }
+      if (tk.children.length) {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "tki"; b.textContent = "i"; b.setAttribute("aria-label", R.open);
+        b.addEventListener("click", (e) => { e.stopPropagation(); showRulerCard(rl[0] || st); });
+        tk.appendChild(b);
+      }
+      tk.setAttribute("aria-label", (st ? rText(st.name) : "") + (rl.length ? ": " + rl.map((r) => rText(r.name)).join(", ") : ""));
+    }
+    tk.hidden = !tk.children.length;
+    if (tk.hidden) return;
+    const sw = $("sliderwrap"), W = sw.clientWidth, half = tk.offsetWidth / 2;
+    tk.style.left = Math.min(Math.max(8 + (W - 16) * (+$("slider").value / 1000), half), W - half) + "px";
+  }
+  // the highlight of the periods that contain the year (the others are dimmed) and the line at the position of the thumb
+  function markRulers() {
+    const y = year + 0.5;
+    for (const el of document.querySelectorAll("#rulers .rseg")) el.classList.toggle("on", +el.dataset.from <= y && +el.dataset.to > y);
+    const h = $("rhead");
+    if (h) h.style.left = "calc(8px + (100% - 16px) * " + (zoomIx > 0 ? (year + 0.5 - zoomLo) / Math.max(1, zoomHi - zoomLo) : 0.5) + " - 1px)";
+  }
+  // the summary at the left of the band: the form of government, the state, the rulers of the year, in a readable size
+  function updateRuleSummary() {
     const box = $("ruleNow");
     if (!box) return;
     box.textContent = "";
     if (!rulersData || !$("showRulers").checked) return;
-    const within = (it) => it.from < year + 1 && it.to > year;
-    const st = rulersData.states.find((s) => within(s) && !s.lane);
-    const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);       // one person once (two terms of the same ruler meet in a year)
-    const pics = document.createElement("div"), txt = document.createElement("div");
-    pics.className = "rnpics"; txt.className = "rntxt";
-    for (const r of rl) {
-      const m = rulersMedia && rulersMedia.rulers && rulersMedia.rulers[r.id];
-      if (!m) continue;
-      const b = document.createElement("button");
-      b.type = "button"; b.className = "rnpic"; b.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to);
-      b.appendChild(mediaImg(m.i, 36, 46, rText(r.name)));
-      b.addEventListener("click", () => showRulerCard(r));
-      pics.appendChild(b);
-    }
+    const L = t(), within = (it) => it.from < year + 1 && it.to > year;
+    const st = rulersData.states.find((s) => within(s) && !s.lane), ov = rulersData.states.filter((s) => within(s) && s.lane);
+    const rl = rulersData.rulers.filter(within).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en && x.grp === r.grp) === i);
+    const line = (cls, txt) => { const d = document.createElement("div"); d.className = cls; d.textContent = txt; box.appendChild(d); return d; };
     if (st) {
-      const row = document.createElement("div"), f = flagFor(st.id, year + 0.5);
-      row.className = "rnst";
-      if (f) { const im = mediaImg(f.i, 0, 14, (RN[lang] || RN.en).flag); im.title = (RN[lang] || RN.en).flag + ": " + rText(st.name); row.appendChild(im); }
-      const sp = document.createElement("span"); sp.textContent = rText(st.name); row.appendChild(sp);
-      row.addEventListener("click", () => showRulerCard(st));
-      txt.appendChild(row);
-    }
-    for (const r of rl) { const d = document.createElement("div"); d.className = "rnr"; d.textContent = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); txt.appendChild(d); }
-    if (pics.children.length) box.appendChild(pics);
-    box.appendChild(txt);
+      line("rs1", rText(st.name));
+      if (st.form && rText(st.form)) line("rs2", rText(st.form));
+    } else line("rs2", L.ruleNoData);
+    for (const s of ov) line("rs3 ov", (s.kind === "overlord" ? L.ruleOver : L.ruleAdmin) + ": " + rText(s.name));
+    for (const r of rl.slice(0, 3)) line("rs3 pr", (rText(r.title) || rText(rulersData.groups[r.grp])) + ": " + rText(r.name));
   }
+  let bandRaf = 0;
+  function scheduleBand() { if (bandRaf) return; bandRaf = requestAnimationFrame(() => { bandRaf = 0; if (rulersData && $("showRulers").checked) buildRulersBand(); }); }
   function updateRuleLine() {
-    updateRuleNow();
+    scheduleBand();
+    updateToken();
+    updateRuleSummary();
+    markRulers();
     const box = $("ruleline");
     if (!box) return;
     box.textContent = "";
@@ -2490,6 +2551,57 @@
     for (const r of rl) add(rText(r.title) || rText(rulersData.groups[r.grp]), rText(r.name));
   }
   $("showRulers").addEventListener("change", () => { buildRulersBand(); updateRuleLine(); });
+
+  // Dragging the timeline with the mouse (or a finger). On the scale under the slider (years and events) the thumb follows the pointer; on the band of the rulers the band is grabbed
+  // and pulled: dragging to the left brings later years to the line. A drag starts after 4 px, so a plain click on a year, an event or a ruler still works.
+  (function dragTimeline() {
+    const THRESHOLD = 4;
+    function track(el, grabCls, onStart, onMove) {
+      let st = null;
+      el.addEventListener("pointerdown", (e) => {
+        if (e.button !== 0 || (e.target.closest && e.target.closest("input,select,textarea,a"))) return;
+        st = { x: e.clientX, drag: false, id: e.pointerId, ctx: onStart(e) };
+      });
+      el.addEventListener("pointermove", (e) => {
+        if (!st) return;
+        const dx = e.clientX - st.x;
+        if (!st.drag) {
+          if (Math.abs(dx) < THRESHOLD) return;
+          st.drag = true;
+          try { el.setPointerCapture(st.id); } catch (err) {}
+          el.classList.add(grabCls);
+        }
+        onMove(e, dx, st.ctx);
+      });
+      const end = () => {
+        if (!st) return;
+        if (st.drag) {
+          el.classList.remove(grabCls);
+          const stop = (ev) => { ev.stopPropagation(); ev.preventDefault(); };      // the click that ends a drag must not open a year or an event
+          window.addEventListener("click", stop, { capture: true, once: true });
+          setTimeout(() => window.removeEventListener("click", stop, true), 0);
+        }
+        st = null;
+      };
+      el.addEventListener("pointerup", end);
+      el.addEventListener("pointercancel", end);
+      el.addEventListener("dragstart", (e) => e.preventDefault());       // no native drag of a selected text or an image
+      el.addEventListener("selectstart", (e) => { if (st) e.preventDefault(); });
+    }
+    const setTo = (y) => { if (y !== year) { year = y; update(); } };
+    const wrap = $("sliderwrap");
+    if (wrap) track(wrap, "grabbing", () => {
+      if (zoomIx === 0) setZoom(5);                                  // the whole history cannot be scrolled: zoom in first (the buttons bring it back)
+      return { y0: year, span: Math.max(1, zoomHi - zoomLo), w: Math.max(1, wrap.clientWidth - 16) };
+    }, (e, dx, c) => {
+      setTo(Math.round(Math.min(MAX, Math.max(MIN, c.y0 - dx * c.span / c.w))));          // the scale follows the pointer: to the right = earlier years
+    });
+    const axis = $("axis");
+    if (axis) track(axis, "grabbing", () => ({ y0: year, w: Math.max(1, $("rulers").clientWidth - 16), span: bandW || 100 }), (e, dx, c) => {
+      const lo = v2y(0), hi = v2y(1000);
+      setTo(Math.round(Math.min(hi, Math.max(lo, c.y0 - dx * c.span / c.w))));
+    });
+  })();
   if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
 
   // science and culture: universities, institutes, libraries, museums, theatres; points that appear in the year (data/science.json); science is drawn larger and above culture

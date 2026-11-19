@@ -300,34 +300,88 @@ body.nofilters #views { right:16px; }
 /* the time bar (play, zoom, slider, events) is on the top of the screen under the buttons; the bar of the rulers stays at the bottom.
    --tb and --bb are the heights of the two bars (set by app.js), the panels lie between them */
 :root { --tb: 84px; --bb: 0px; }
-#timebar { position:absolute; top:56px; left:16px; right:64px; display:flex; gap:12px; align-items:center; z-index:5; background:var(--panel); padding:10px 16px 36px; border-radius:10px; box-shadow:0 1px 8px #0003; }
-#bottom, body.rulers-on #bottom { display:none; padding:8px 16px 10px; gap:0; align-items:flex-start; bottom:30px; }
+#timebar { position:absolute; top:56px; left:16px; right:64px; display:flex; gap:12px; align-items:center; z-index:5; background:var(--panel); padding:10px 16px 8px; border-radius:10px; box-shadow:0 1px 8px #0003; }
+#bottom { display:none; padding:6px 16px 8px; gap:0; align-items:flex-start; bottom:30px; }
 body.rulers-on #bottom { display:flex; }
-#ruleNow { flex:none; min-width:0; }
-#rulers { position:relative; left:auto; right:auto; top:auto; flex:1; min-width:0; }
+#axis { position:relative; flex:1; min-width:0; }
+#rulers { position:relative; left:auto; right:auto; top:auto; }
 #side, #filters, #views { --top: calc(56px + var(--tb) + 8px); }
 #side { top:calc(56px + var(--tb) + 8px); max-height:calc(100% - 56px - var(--tb) - 8px - 40px - var(--bb)); }
 #filters, #views { top:calc(56px + var(--tb) + 8px); max-height:calc(100% - 56px - var(--tb) - 8px - 40px - var(--bb)); }
 body.rulers-on #side, body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 56px - var(--tb) - 8px - 40px - var(--bb)); }
 @media (max-width:640px) {
-  #timebar { top:52px; left:8px; right:8px; padding:8px 10px 34px; }
+  #timebar { top:52px; left:8px; right:8px; padding:8px 10px 12px; }
   #bottom { left:8px; right:8px; bottom:10px; flex-direction:column; }
-  #ruleNow { width:auto !important; max-width:100%; }
-  #ruleNow .rntxt { flex:1 1 0; }
-  #rulers { margin-right:0 !important; width:100%; flex:none; }
+  #axis { flex:none; align-self:stretch; }
+  #timebar { flex-wrap:wrap; gap:6px 10px; padding-bottom:10px; }
+  #sliderwrap { order:3; flex:1 0 100%; }
   #side, #filters, #views { top:calc(52px + var(--tb) + 8px); max-height:calc(100% - 52px - var(--tb) - 8px - 20px - var(--bb)); }
   body.rulers-on #side, body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 52px - var(--tb) - 8px - 20px - var(--bb)); }
   #yearchip, body:not(.panel-open) #yearchip { top:calc(52px + var(--tb) + 8px); }
 }
 
-/* the plate "who rules now": the flag of the period and the portraits of up to two rulers */
-#ruleNow { display:flex; gap:8px; align-items:flex-start; font-size:11px; line-height:1.3; color:var(--fg); }
-#ruleNow .rnpics { display:flex; gap:4px; flex:none; }
-#ruleNow .rnpic { padding:0; border:1px solid var(--line); border-radius:4px; background:none; cursor:pointer; line-height:0; overflow:hidden; }
-#ruleNow .rnpic img { display:block; object-fit:cover; object-position:top; width:36px; height:46px; }
-#ruleNow .rntxt { min-width:0; overflow:hidden; }
-#ruleNow .rnst { display:flex; align-items:center; gap:5px; font-weight:600; white-space:nowrap; overflow:hidden; cursor:pointer; }
-#ruleNow .rnst img { height:14px; width:auto; border:1px solid var(--line); flex:none; }
-#ruleNow .rnst span { overflow:hidden; text-overflow:ellipsis; }
-#ruleNow .rnr { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--muted); }
 #imBody img { max-width:100%; height:auto; border-radius:4px; margin:6px 6px 2px 0; vertical-align:middle; }
+
+/* the token: the flag of the year and the rulers ride on the slider with the thumb */
+#sliderwrap { position:relative; height:auto; display:block; }
+#sliderrow { position:relative; height:52px; display:flex; align-items:center; }
+#ticks { position:relative; left:auto; right:auto; top:auto; height:42px; }
+#evmarks { position:relative; left:auto; right:auto; top:auto; height:18px; margin-top:2px; }
+#ruleToken { position:absolute; top:26px; left:0; transform:translate(-50%,-50%); display:flex; align-items:center; gap:4px; padding:4px 6px; background:var(--panel); border:2px solid var(--accent); border-radius:10px; box-shadow:0 2px 8px #0006; pointer-events:none; transition:left .15s linear; z-index:2; }
+#ruleToken[hidden] { display:none; }
+#ruleToken .tkp { width:32px; height:40px; object-fit:cover; object-position:top; border-radius:4px; display:block; }
+#ruleToken .tkf { height:22px; width:auto; border:1px solid var(--line); display:block; }
+#ruleToken .tki { pointer-events:auto; position:absolute; top:-10px; right:-10px; width:18px; height:18px; border-radius:50%; border:1px solid var(--line); background:var(--panel); color:var(--fg); font:italic 700 11px/16px serif; padding:0; cursor:pointer; }
+@media (max-width:640px) { #ruleToken .tkp { width:26px; height:32px; } #ruleToken .tkf { height:18px; } #sliderrow { height:44px; } #ruleToken { top:22px; } }
+body.rulers-on #bottom, #bottom { padding-bottom:8px; }
+#imBody img.rbig { display:block; width:100%; max-width:260px; height:auto; border-radius:6px; margin:8px 0 4px; }
+#ruleToken .tkph { width:32px; height:40px; display:flex; align-items:center; justify-content:center; font-size:24px; color:var(--accent); background:var(--bg); border-radius:4px; }
+#timebar { align-items:flex-start; }
+#play, #speed, #zoombox { margin-top:8px; }
+@media (max-width:640px) { #play, #speed, #zoombox { margin-top:0; } }
+/* the band of the states and the rulers: bigger, calm colours (the colour is the kind of power), the current periods are lit, the others are dimmed */
+#rulers .rrow { margin-top:3px; }
+.rseg { height:22px; line-height:22px; font-size:11.5px; padding:0 7px; border-radius:5px; color:#fff; font-weight:500; opacity:.5; box-shadow:none; background-image:none; text-shadow:0 1px 1px #0004; }
+.rseg.sub { height:14px; line-height:14px; font-size:10.5px; padding:0 5px; }
+.rseg.on { opacity:1; box-shadow:inset 0 0 0 2px #ffffffcc; }
+.rseg:hover { opacity:1; box-shadow:inset 0 0 0 2px #fff; }
+.rseg.approx { background-image:repeating-linear-gradient(45deg, #ffffff22 0 4px, transparent 4px 8px); }
+.rk-monarchy { --rc:#9a7b2f; } .rk-empire { --rc:#6b5ca5; } .rk-emirate { --rc:#4f8a5b; } .rk-republic { --rc:#3f72a6; } .rk-soviet { --rc:#a9484d; } .rk-transition, .rk-overlord { --rc:#7b8590; }
+.rg-king, .rg-emperor, .rg-wali, .rg-emir { --rc:#8f7a45; } .rg-viceroy, .rg-head, .rg-secretary, .rg-president { --rc:#556b86; }
+#rhead { position:absolute; top:0; bottom:0; width:2px; background:var(--accent); opacity:.8; pointer-events:none; z-index:2; }
+#ruleNow { flex:none; min-width:0; padding-right:12px; overflow:hidden; max-height:96px; line-height:1.3; }
+#ruleNow .rs1 { font-size:13.5px; font-weight:650; color:var(--fg); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+#ruleNow .rs2 { font-size:11.5px; color:var(--muted); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; margin:1px 0 3px; }
+#ruleNow .rs3 { font-size:12px; color:var(--fg); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+@media (max-width:640px) { #ruleNow { width:auto !important; padding:0 0 4px; } }
+.rseg { opacity:1; background:color-mix(in srgb, var(--rc) 38%, var(--panel)); color:var(--fg); text-shadow:none; }
+.rseg.on, .rseg:hover { background:var(--rc); color:#fff; text-shadow:0 1px 1px #0004; }
+#imBody img.rflag { width:auto !important; height:64px; max-width:100%; border:1px solid var(--line); border-radius:3px; margin:6px 8px 2px 0; }
+.rseg.short { z-index:2; outline:1px solid var(--panel); }
+.rseg.nolabel { padding:0; }
+#rticks { position:relative; height:16px; margin-top:2px; font-size:10.5px; color:var(--muted); pointer-events:none; }
+#rticks span { position:absolute; transform:translateX(-50%); white-space:nowrap; padding-top:3px; }
+#rticks span::before { content:""; position:absolute; left:50%; top:0; width:1px; height:3px; background:var(--muted); }
+#ruleToken .tkph { font:650 15px/1 system-ui,sans-serif; letter-spacing:-.5px; }
+/* a phone: the same content, less of it on the screen at once */
+@media (max-width:640px) {
+  #zoomL, #zoomR, #zoomLbl { display:none; }
+  #ticks { height:22px; }
+  #ticks span.r2 { display:none; }
+  #evmarks { height:16px; }
+  #evmarks button.cl::after { display:none; }
+  #ruleToken .tkp2, #ruleToken .tki { display:none; }
+  #rticks { display:none; }
+  #ruleNow .rs2 { display:none; }
+  #ruleNow .rs3.ov { display:none; }
+  #ruleNow .rs3.pr ~ .rs3.pr ~ .rs3.pr { display:none; }
+  #imBody img.rbig { max-width:150px; }
+  #imBody img.rflag { height:44px; }
+}
+/* dragging the timeline */
+#sliderwrap, #axis { touch-action:none; }
+#axis { cursor:grab; }
+#axis.grabbing, #sliderwrap.grabbing { cursor:grabbing; }
+#axis .rseg { cursor:pointer; }
+#sliderwrap, #axis { user-select:none; -webkit-user-select:none; }
+#sliderwrap input { user-select:auto; }
