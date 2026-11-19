@@ -15,6 +15,7 @@ MAX_D = 150
 HAND = {26522, 3725, 16937, 3616, 3937, 3827, 17828, 3757, 3397}      # Kukia Fortress, the old city wall, Gabriadze clock tower, Narikala, the synagogue, the mosque, Kukia church, Surb Gevorg, the Armenian church
 EXCLUDE = {3835, 3317, 26449, 4920, 17121, 4209, 4381}                    # a shrine, a convent, a stone cross, a former church, the metro station, a house: not sights on their own
 NAMES = {                                                                  # names fixed by hand where the register or the Wikipedia title is too general or wrong
+    2765: ("Тбилисский театральный университет (второе здание, пр. Агмашенебели)", "Shota Rustaveli Theatre and Film University (second building, Aghmashenebeli Avenue)", "შოთა რუსთაველის თეატრისა და კინოს უნივერსიტეტი (მეორე შენობა, აღმაშენებლის გამზ.)"),
     3827: ("Мечеть Джума", "Juma Mosque", "ჯუმა მეჩეთი"),
     3937: ("Большая синагога", "Great Synagogue", "დიდი სინაგოგა"),
     18545: ("Церковь Сорока Мучеников", "Church of the Forty Martyrs", "ორმოც მოწამეთა ეკლესია"),
