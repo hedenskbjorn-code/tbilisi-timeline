@@ -1,0 +1,85 @@
+[
+ {
+  "version": "1.0.0",
+  "date": "2026-11-19",
+  "note": {
+   "ru": "Журнал изменений ведётся с этой версии; раньше изменения не записывались.",
+   "en": "The log of changes starts with this version; earlier changes were not written down.",
+   "ka": "ცვლილებათა ჟურნალი ამ ვერსიიდან იწყება; ადრინდელი ცვლილებები არ ჩაწერილა."
+  },
+  "items": [
+   {
+    "t": "new",
+    "ru": "Слой «Наука и культура»: 30 университетов, институтов, библиотек, музеев и театров с датами основания и здания, источниками и поиском (наука синим и крупнее, культура серым).",
+    "en": "Layer \"Science and culture\": 30 universities, institutes, libraries, museums and theatres with the dates of foundation and of the building, sources and search (science in blue and larger, culture in grey).",
+    "ka": "ფენა „მეცნიერება და კულტურა“: 30 უნივერსიტეტი, ინსტიტუტი, ბიბლიოთეკა, მუზეუმი და თეატრი დაარსებისა და შენობის თარიღებით, წყაროებითა და ძიებით (მეცნიერება — ლურჯი და უფრო დიდი, კულტურა — რუხი)."
+   },
+   {
+    "t": "new",
+    "ru": "Плашка «Загрузка…» при старте и при подгрузке тяжёлого плана; подписи страницы появляются сразу.",
+    "en": "A \"Loading...\" plank at the start and while a heavy plan comes in; the labels of the page appear at once.",
+    "ka": "ფირფიტა „იტვირთება…“ გაშვებისას და მძიმე გეგმის ჩატვირთვისას; გვერდის წარწერები მაშინვე ჩნდება."
+   },
+   {
+    "t": "new",
+    "ru": "Номера маршрутов в карточке трамвая (по спискам 1962 и 1986 годов).",
+    "en": "Route numbers in the tram card (from the lists of 1962 and 1986).",
+    "ka": "მარშრუტების ნომრები ტრამვაის ბარათში (1962 და 1986 წლების სიებით)."
+   },
+   {
+    "t": "new",
+    "ru": "Открытая карточка не закрывается при смене языка, а строится заново на новом языке.",
+    "en": "The open card is no longer closed when the language is switched, it is built again in the new language.",
+    "ka": "ღია ბარათი ენის შეცვლისას აღარ იხურება, ახალ ენაზე თავიდან აიგება."
+   },
+   {
+    "t": "new",
+    "ru": "Поиск допускает одну опечатку в слове (от 5 букв); переход по ссылке с годом (#1913) работает и в открытой вкладке.",
+    "en": "The search allows one typo in a word (of 5 letters or more); a link with a year (#1913) works in an open tab too.",
+    "ka": "ძიება უშვებს ერთ შეცდომას სიტყვაში (5 ასოდან); წელიანი ბმული (#1913) ღია ჩანართშიც მუშაობს."
+   },
+   {
+    "t": "new",
+    "ru": "Переводы: события транспорта, места событий и описания утраченных зданий на грузинском; описания утраченных мест на английском.",
+    "en": "Translations: transport events, places of events and descriptions of lost buildings in Georgian; descriptions of lost places in English.",
+    "ka": "თარგმანები: ტრანსპორტის მოვლენები, მოვლენათა ადგილები და დაკარგულ შენობათა აღწერები ქართულად; დაკარგულ ადგილთა აღწერები ინგლისურად."
+   },
+   {
+    "t": "fix",
+    "ru": "Исправлены пустые подписи кнопок и фильтров (ошибка после снятия герба).",
+    "en": "Fixed the empty labels of the buttons and filters (an error after the coat of arms was removed).",
+    "ka": "გასწორდა ღილაკებისა და ფილტრების ცარიელი წარწერები (გერბის მოხსნის შემდეგ დაშვებული შეცდომა)."
+   },
+   {
+    "t": "fix",
+    "ru": "Исправлены клики по объектам реестра: карточка снова открывается.",
+    "en": "Fixed the clicks on the objects of the register: the card opens again.",
+    "ka": "გასწორდა რეესტრის ობიექტებზე დაწკაპუნება: ბარათი ისევ იხსნება."
+   },
+   {
+    "t": "fix",
+    "ru": "Трамвай, ревизия: убраны участки одноимённых улиц в Цхнети, Окрокане, на севере и востоке; Пиросмани у вокзала возвращена; добавлены улицы Уридиа, Холбрука и Хмельницкого. Сеть по-прежнему схематична (улицы нарисованы целиком).",
+    "en": "Tram, revision: the pieces of same-named streets in Tskneti, Okrokana, the north and the east are removed; Pirosmani Street by the station is back; the streets of Uridia, Holbrooke and Khmelnitski are added. The network is still schematic (streets are drawn over their whole length).",
+    "ka": "ტრამვაი, გადასინჯვა: ცხნეთში, ოქროყანაში, ჩრდილოეთსა და აღმოსავლეთში ერთსახელიანი ქუჩების მონაკვეთები ამოღებულია; ვაგზალთან პიროსმანის ქუჩა დაბრუნდა; დაემატა ურიდიას, ჰოლბრუკისა და ხმელნიცკის ქუჩები. ქსელი ისევ სქემატურია (ქუჩები მთლიანად არის დახატული)."
+   },
+   {
+    "t": "fix",
+    "ru": "Трамвай, метро, мосты и проспекты видны поверх топокарты и старых планов; религиозные точки и слой науки и культуры поверх топокарты.",
+    "en": "Tram, metro, bridges and avenues are visible above the topographic map and the old plans; the religious points and the layer of science and culture are above the topographic map.",
+    "ka": "ტრამვაი, მეტრო, ხიდები და გამზირები ტოპორუკასა და ძველ გეგმებზე ზემოთ ჩანს; რელიგიური წერტილები და მეცნიერებისა და კულტურის ფენა ტოპორუკაზე ზემოთაა."
+   },
+   {
+    "t": "fix",
+    "ru": "Топокарта: когда она включена сама (1953–2005), чекбокс «поверх карты» в промежуточном состоянии и объясняет, как её скрыть.",
+    "en": "Topographic map: when it is on by itself (1953-2005), the box \"on top of the map\" is half-ticked and explains how to hide it.",
+    "ka": "ტოპორუკა: როცა თავისით არის ჩართული (1953–2005), ნიშნული „რუკის ზემოდან“ შუალედურ მდგომარეობაშია და განმარტავს, როგორ დაიმალოს."
+   },
+   {
+    "t": "fix",
+    "ru": "Даты двух объектов реестра (церковь в Онадзири и ещё один), подписи опции 1:2000, легенды и поля контакта на трёх языках; на телефоне панели не заходят на шкалу при включённых правителях.",
+    "en": "The dates of two register objects (the church in Onadziri and one more), the labels of the 1:2000 option, the legend and the contact field in three languages; on a phone the panels no longer reach the scale when the rulers are on.",
+    "ka": "რეესტრის ორი ობიექტის თარიღები (ონადირის ეკლესია და კიდევ ერთი), 1:2000 ვარიანტის, ლეგენდისა და საკონტაქტო ველის წარწერები სამ ენაზე; ტელეფონზე პანელები მმართველების ჩართვისას სკალას აღარ ფარავს."
+   }
+  ]
+ }
+]
