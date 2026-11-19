@@ -15,7 +15,7 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MAX_D = 150
 HAND = {26522, 3725, 16937, 3616, 3937, 3827, 17828, 3757, 3397,
-        2914, 2850, 3082, 5203, 3193,                      # Marjanishvili Square (picked by the owner): the TBC bank building, the mixed-use building at Aghmashenebeli 9, the Ministry of Education, the "Green building", the publishing house
+        2914, 3082, 5203, 3193,                      # Marjanishvili Square (picked by the owner): the TBC bank building, the Ministry of Education, the "Green building", the publishing house (the mixed-use building at Aghmashenebeli 91 was dropped at the owner's request)
         3534, 3740, 3756, 3851}                            # the sulphur baths of Abanotubani: the baths of Abano Street, Chreli Abano, the Cool bath, the baths of the Meitars'
 # (the older GPX: see read_gpx and the second argument)
 EXTRA = [                                                  # sights that are not in the register: id, the point (Plus Code PQ6W+2X Tbilisi given by the owner), the names
