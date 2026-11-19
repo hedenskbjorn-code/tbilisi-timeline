@@ -2375,8 +2375,9 @@
     const fill = (row, items, kindOf, nameOf, ruler) => {
       row.textContent = "";
       let lanes = 0;
+      const phone = window.matchMedia("(max-width:640px)").matches;      // a phone: one row, the main line only
       for (const it of items) {
-        if (it.to <= lo || it.from >= hi) continue;
+        if (it.to <= lo || it.from >= hi || (phone && it.lane)) continue;
         const a = Math.max(it.from, lo), b = Math.min(it.to, hi), x1 = (a - lo) / (hi - lo), x2 = (b - lo) / (hi - lo);
         const px = (x2 - x1) * W;
         const btn = document.createElement("button");
@@ -2398,7 +2399,7 @@
         btn.addEventListener("click", () => showRulerCard(it));
         row.appendChild(btn);
       }
-      row.style.height = (lanes > 1 ? RULE_MAIN_H + RULE_GAP + RULE_SUB_H : RULE_MAIN_H) + "px";
+      row.style.height = (lanes > 1 && !phone ? RULE_MAIN_H + RULE_GAP + RULE_SUB_H : RULE_MAIN_H) + "px";
     };
     fill($("rStates"), rulersData.states, (it) => "rk-" + it.kind, (it) => rText(it.name));
     fill($("rRulers"), rulersData.rulers, (it) => "rg-" + it.grp, (it) => rText(it.name), true);
@@ -2477,9 +2478,10 @@
     const key = (st ? st.id : "") + "|" + rl.map((r) => r.id).join(",") + "|" + (fl ? fl.i : "") + "|" + lang;
     if (tk.dataset.key !== key) {
       tk.dataset.key = key; tk.textContent = "";
+      let np = 0;
       for (const r of rl) {
         const m = rulersMedia && rulersMedia.rulers && rulersMedia.rulers[r.id];
-        if (m) { const i = mediaImg(m.i, 32, 40, rText(r.name)); i.className = "tkp"; i.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); tk.appendChild(i); }
+        if (m) { const i = mediaImg(m.i, 32, 40, rText(r.name)); i.className = "tkp" + (np++ ? " tkp2" : ""); i.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); tk.appendChild(i); }
       }
       if (rl.length && !tk.querySelector(".tkp")) {          // no portrait: a crown for the rulers of the monarchies, a star for the others
         const g = document.createElement("span"); g.className = "tkph"; const ws = rText(rl[0].name).replace(/\(.*?\)/g, "").trim().split(/\s+/); g.textContent = ((ws[0] || "")[0] || "") + (ws.length > 1 && !/^[IVXLC]+$/.test(ws[ws.length - 1]) ? (ws[ws.length - 1][0] || "") : "");
@@ -2520,8 +2522,8 @@
       line("rs1", rText(st.name));
       if (st.form && rText(st.form)) line("rs2", rText(st.form));
     } else line("rs2", L.ruleNoData);
-    for (const s of ov) line("rs3", (s.kind === "overlord" ? L.ruleOver : L.ruleAdmin) + ": " + rText(s.name));
-    for (const r of rl.slice(0, 3)) line("rs3", (rText(r.title) || rText(rulersData.groups[r.grp])) + ": " + rText(r.name));
+    for (const s of ov) line("rs3 ov", (s.kind === "overlord" ? L.ruleOver : L.ruleAdmin) + ": " + rText(s.name));
+    for (const r of rl.slice(0, 3)) line("rs3 pr", (rText(r.title) || rText(rulersData.groups[r.grp])) + ": " + rText(r.name));
   }
   let bandRaf = 0;
   function scheduleBand() { if (bandRaf) return; bandRaf = requestAnimationFrame(() => { bandRaf = 0; if (rulersData && $("showRulers").checked) buildRulersBand(); }); }

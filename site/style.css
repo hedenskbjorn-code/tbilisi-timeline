@@ -363,3 +363,18 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #rticks span { position:absolute; transform:translateX(-50%); white-space:nowrap; padding-top:3px; }
 #rticks span::before { content:""; position:absolute; left:50%; top:0; width:1px; height:3px; background:var(--muted); }
 #ruleToken .tkph { font:650 15px/1 system-ui,sans-serif; letter-spacing:-.5px; }
+/* a phone: the same content, less of it on the screen at once */
+@media (max-width:640px) {
+  #zoomL, #zoomR, #zoomLbl { display:none; }
+  #ticks { height:22px; }
+  #ticks span.r2 { display:none; }
+  #evmarks { height:16px; }
+  #evmarks button.cl::after { display:none; }
+  #ruleToken .tkp2, #ruleToken .tki { display:none; }
+  #rticks { display:none; }
+  #ruleNow .rs2 { display:none; }
+  #ruleNow .rs3.ov { display:none; }
+  #ruleNow .rs3.pr ~ .rs3.pr ~ .rs3.pr { display:none; }
+  #imBody img.rbig { max-width:150px; }
+  #imBody img.rflag { height:44px; }
+}
