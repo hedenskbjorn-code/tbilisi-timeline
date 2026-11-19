@@ -114,6 +114,7 @@
       showSci: "Наука и культура: институты, университеты, музеи, театры (появляются по годам)", sciKinds: { science: "Наука и образование", culture: "Культура" }, sciFounded: "Основано", sciBuilt: "Здание", sciFrom: "Появляется", sciSrc: "Источники", sciFaint: "бледная точка: здание ещё не построено или учреждение было в другом месте",
       loadMap: "Загрузка карты и данных…", loadPlan: "Загрузка плана…", loadFail: "Не удалось загрузить данные. Обновите страницу (Ctrl+F5).",
       topoAutoNote: "Сейчас топокарта включена автоматически (годы 1953–2005, вместо плана). Чтобы скрыть её, снимите галочку «С 1953 по 2005 год показывать топокарту вместо плана» ниже.",
+      trRoutes62: "Маршруты по списку 1962 г.", trRoutes86: "Маршруты по списку 1986 г.",
       searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
       zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
       zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
@@ -273,6 +274,7 @@
       showSci: "Science and culture: institutes, universities, museums, theatres (appear by year)", sciKinds: { science: "Science and education", culture: "Culture" }, sciFounded: "Founded", sciBuilt: "Building", sciFrom: "Appears", sciSrc: "Sources", sciFaint: "a faint point: the building is not yet built or the institution was elsewhere",
       loadMap: "Loading the map and data…", loadPlan: "Loading the plan…", loadFail: "The data could not be loaded. Reload the page (Ctrl+F5).",
       topoAutoNote: "The topographic map is on automatically now (the years 1953-2005, instead of a plan). To hide it, clear the box \"From 1953 to 2005 show the topographic map instead of a plan\" below.",
+      trRoutes62: "Routes of the list of 1962", trRoutes86: "Routes of the list of 1986",
       searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
       zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
       zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
@@ -433,6 +435,7 @@
       showSci: "მეცნიერება და კულტურა: ინსტიტუტები, უნივერსიტეტები, მუზეუმები, თეატრები (ჩნდება წლების მიხედვით)", sciKinds: { science: "მეცნიერება და განათლება", culture: "კულტურა" }, sciFounded: "დაარსდა", sciBuilt: "შენობა", sciFrom: "ჩნდება", sciSrc: "წყაროები", sciFaint: "ფერმკრთალი წერტილი: შენობა ჯერ არ არის აშენებული ან დაწესებულება სხვაგან იყო",
       loadMap: "რუკა და მონაცემები იტვირთება…", loadPlan: "გეგმა იტვირთება…", loadFail: "მონაცემების ჩატვირთვა ვერ მოხერხდა. განაახლეთ გვერდი (Ctrl+F5).",
       topoAutoNote: "ტოპოგრაფიული რუკა ახლა ავტომატურად არის ჩართული (1953–2005 წლები, გეგმის ნაცვლად). გასაქრობად მოხსენით ქვემოთ მოცემული ნიშნული „1953-2005 წლებში გეგმის ნაცვლად ტოპორუკის ჩვენება“.",
+      trRoutes62: "მარშრუტები 1962 წლის სიით", trRoutes86: "მარშრუტები 1986 წლის სიით",
       searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
       zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
       zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
@@ -1539,6 +1542,8 @@
     el.appendChild(h3);
     const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); };
     add((L.trKinds[p.kind] || p.kind) + " · " + L.trPeriod(+p.y0, +p.y1, +p.y2, +p.y3));
+    if (p.r62) add(L.trRoutes62 + ": " + p.r62);                       // the numbers of the routes that name the street in the list of 1962 / 1986
+    if (p.r86) add(L.trRoutes86 + ": " + p.r86);
     let srcs = [];
     try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
     actions(el, () => openInfo((body) => {
