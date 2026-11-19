@@ -131,7 +131,7 @@
       fbContactWarn: "Внимание: при отправке через GitHub контакт попадёт в публичный Issue и будет виден всем. Не указывайте то, что не хотите публиковать.",
       infoBtn: "Источники и подробности",
       infoTitle: "Источники и подробности",
-      evCats: { unrest: "Протест и насилие", oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", other: "Событие" },
+      evCats: { unrest: "Протест и насилие", oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", science: "Наука", other: "Событие" },
       evSrc: "Источники",
       evNote: "Дата и подробности из статей Википедии (en, ru).",
       infoRegister: "Данные объекта: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство сохранения культурного наследия), сокращённая выжимка для некоммерческого использования. Условия и полный список источников: «О проекте и источниках» на боковой панели.",
@@ -294,7 +294,7 @@
       fbContactWarn: "Note: when sent through GitHub, the contact goes into a public Issue and is visible to everyone. Leave it empty if you do not want that.",
       infoBtn: "Sources and details",
       infoTitle: "Sources and details",
-      evCats: { unrest: "Protest and violence", oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", other: "Event" },
+      evCats: { unrest: "Protest and violence", oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", science: "Science", other: "Event" },
       evSrc: "Sources",
       evNote: "Date and details from Wikipedia articles (en, ru).",
       infoRegister: "Object data: public records of the register of immovable cultural heritage monuments of Georgia (National Agency for Cultural Heritage Preservation), a reduced extract for non-commercial use. Terms and the full list of sources: “About and sources” in the side panel.",
@@ -456,7 +456,7 @@
       fbContactWarn: "ყურადღება: GitHub-ის გავლით გაგზავნისას კონტაქტი საჯარო Issue-ში მოხვდება და ყველას დაენახება. თუ არ გსურთ, ნუ მიუთითებთ.",
       infoBtn: "წყაროები და დეტალები",
       infoTitle: "წყაროები და დეტალები",
-      evCats: { unrest: "პროტესტი და ძალადობა", oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", other: "მოვლენა" },
+      evCats: { unrest: "პროტესტი და ძალადობა", oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", science: "მეცნიერება", other: "მოვლენა" },
       evSrc: "წყაროები",
       evNote: "თარიღი და დეტალები ვიკიპედიის სტატიებიდან (en, ru).",
       infoRegister: "ობიექტის მონაცემები: საქართველოს კულტურული მემკვიდრეობის უძრავი ძეგლების რეესტრის საჯარო ცნობები (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო), შემოკლებული ამონარიდი არაკომერციული გამოყენებისთვის. პირობები და წყაროების სრული სია: „პროექტის შესახებ და წყაროები“ გვერდით პანელში.",
@@ -1125,7 +1125,7 @@
     m.textContent = L.stMore;
     box.appendChild(m);
   }
-  const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", other: "\uD83D\uDCCC" };
+  const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", science: "\uD83D\uDD2C", other: "\uD83D\uDCCC" };
   function buildEvMarks() {
     const box = $("evmarks");
     if (!box) return;
