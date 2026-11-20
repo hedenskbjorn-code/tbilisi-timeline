@@ -158,6 +158,12 @@
     if (!t) return "";
     if (/^ადრე შუასაუკუნეები/.test(t)) return i ? "раннее Средневековье" : "Early Middle Ages";
     if (/^შუა საუკუნეები/.test(t)) return i ? "Средние века" : "Middle Ages";
+    // a range of centuries ("17-18 centuries"): shown as a range; with a part of the century, a year or a note it stays as the register text
+    const rg = t.match(/(\d{1,2})\s*-\s*(\d{1,2})\s*საუკუნ/);
+    if (rg) {
+      if (/დასაწყის|დასასრულ|მიწურულ|შუახან|ნახევარ|წლამდე|\d{3,4}/.test(t)) return null;
+      return i ? roman(+rg[1]) + "-" + roman(+rg[2]) + " века" : ord(+rg[1]) + "-" + ord(+rg[2]) + " centuries";
+    }
     const parts = [];
     const cm = t.match(new RegExp("(\\d{1,2})(?:-ე)?\\s*(?:საუკუნ|ს-ის|ს\\.|ს(?!" + GE + "))"));
     if (cm) {
@@ -184,5 +190,7 @@
     if (segs.some((x) => x === null)) return raw;               // anything not recognised: keep the register text
     return segs.filter(Boolean).join("; ");
   }
-  window.GeoTr = { name, nameInfo, address, date, setDict };
+  const api = { name, nameInfo, address, date, setDict };
+  if (typeof window !== "undefined") window.GeoTr = api;
+  if (typeof module !== "undefined" && module.exports) module.exports = api;          // the unit tests (tests/translit.test.mjs) load the file in Node
 })();

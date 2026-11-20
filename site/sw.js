@@ -1,9 +1,9 @@
 // Service worker of the site: (1) the application shell works without network (the last seen data too), (2) accepts a photo shared to the site from the share menu of the phone
 // (Web Share Target: POST ./share-target) and leaves it for the page to pick up. Heavy things (tiles, photos, topographic maps) are never cached here.
-const VERSION = "tt-v3";
+const VERSION = "tt-v4";
 const SHARE_CACHE = "tt-share";
 const BASE = self.registration.scope;                                  // ends with "/"
-const SHELL = ["./", "index.html", "app.js", "photo.js", "pwa.js", "support.js", "config.js", "style.css", "translit.js", "vendor/maplibre-gl.js", "vendor/maplibre-gl.css", "manifest.webmanifest", "img/pwa/icon-192.png"];
+const SHELL = ["./", "index.html", "app.js", "i18n.js", "photo.js", "pwa.js", "support.js", "config.js", "style.css", "translit.js", "vendor/maplibre-gl.js", "vendor/maplibre-gl.css", "manifest.webmanifest", "img/pwa/icon-192.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => Promise.all(SHELL.map((u) => c.add(new Request(new URL(u, BASE), { cache: "reload" })).catch(() => {})))).then(() => self.skipWaiting()));

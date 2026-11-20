@@ -5,7 +5,7 @@
 * { box-sizing:border-box; }
 html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
 #map { position:absolute; inset:0; }
-#top { position:absolute; top:0; left:0; right:0; display:flex; align-items:center; gap:10px; padding:10px 64px 10px 16px; z-index:5; pointer-events:none; }
+#top { position:absolute; top:0; left:0; right:0; display:flex; align-items:center; gap:10px; padding:10px 16px 10px 16px; z-index:5; pointer-events:none; }
 #top > * { pointer-events:auto; }
 #top h1 { margin:0; font-size:17px; font-weight:650; padding:6px 12px; background:var(--panel); border-radius:8px; box-shadow:0 1px 6px #0003; }
 .spacer { flex:1; }
@@ -148,7 +148,7 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
 @media (max-width:640px) {
   #menu { display:inline-block; padding:5px 10px; }
   #fbOpen { padding:5px 8px; font-size:12px; }
-  #top { padding:8px 56px 8px 8px; gap:6px; }
+  #top { padding:8px 8px 8px 8px; gap:6px; }
   #top h1 { display:none; }
   #fbOpen { white-space:nowrap; }
   #lang { padding:5px 6px; }
@@ -300,7 +300,7 @@ body.nofilters #views { right:16px; }
 /* the time bar (play, zoom, slider, events) is on the top of the screen under the buttons; the bar of the rulers stays at the bottom.
    --tb and --bb are the heights of the two bars (set by app.js), the panels lie between them */
 :root { --tb: 84px; --bb: 0px; }
-#timebar { position:absolute; top:56px; left:16px; right:64px; display:flex; gap:12px; align-items:center; z-index:5; background:var(--panel); padding:10px 16px 8px; border-radius:10px; box-shadow:0 1px 8px #0003; }
+#timebar { position:absolute; top:56px; left:16px; right:16px; display:flex; gap:12px; align-items:center; z-index:5; background:var(--panel); padding:10px 16px 8px; border-radius:10px; box-shadow:0 1px 8px #0003; }
 #bottom { display:none; padding:6px 16px 8px; gap:0; align-items:flex-start; bottom:30px; }
 body.rulers-on #bottom { display:flex; }
 #axis { position:relative; flex:1; min-width:0; }
@@ -416,3 +416,19 @@ body:not(.rulers-on) #rbToggle { display:none; }
 body:not(.rulers-on) #rbShow { display:block; }
 @media (max-width:640px) { #rbShow { right:8px; bottom:62px; } }          /* above the line with the attribution of the map, which must stay visible */
 body:has(#timebar.min) #yearchip { display:none !important; }          /* the folded time bar already shows the year */
+/* the panels with the content are drawn a moment after the year changes: while they wait (and while the playback runs) they are shown paler */
+#side, #views, #filters { transition:opacity .25s; }
+body.stale #side, body.stale #views { opacity:.55; }
+@media (prefers-reduced-motion: reduce) { #side, #views, #filters { transition:none; } }
+/* the sections of the left panel */
+#side details.sec { margin:6px 0 0; border-top:1px solid color-mix(in srgb, var(--fg, #222) 14%, transparent); padding-top:2px; }
+#side details.sec > summary { cursor:pointer; list-style:none; font-size:12px; font-weight:650; letter-spacing:.02em; text-transform:uppercase; opacity:.75; padding:5px 0 3px; user-select:none; }
+#side details.sec > summary::-webkit-details-marker { display:none; }
+#side details.sec > summary::before { content:"\25B8"; display:inline-block; width:14px; transition:transform .15s; }
+#side details.sec[open] > summary::before { transform:rotate(90deg); }
+#side details.sec[hidden] { display:none; }
+/* the colour square before a line of the summary of the band is the colour of its row */
+.rsw { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:6px; background:var(--rc, #888); vertical-align:baseline; }
+/* the keyboard focus is visible (only for the keyboard, not for the mouse) */
+:focus-visible { outline:2px solid var(--accent, #1c7ed6); outline-offset:2px; }
+input[type=range]:focus-visible { outline-offset:4px; }

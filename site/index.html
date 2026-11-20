@@ -29,7 +29,15 @@
 <meta name="theme-color" content="#1c2b4a">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="style.css">
-<script src="config.js"></script>
+<!-- the scripts are loaded in parallel with the page and run in this order after the page is parsed -->
+<script defer src="config.js"></script>
+<script defer src="vendor/maplibre-gl.js"></script>
+<script defer src="i18n.js"></script>
+<script defer src="translit.js"></script>
+<script defer src="photo.js"></script>
+<script defer src="pwa.js"></script>
+<script defer src="support.js"></script>
+<script defer src="app.js"></script>
 </head>
 <body>
 <div id="map"></div>
@@ -64,13 +72,21 @@
     <div id="year">1887</div>
     <div id="count"></div>
   </div>
-  <div id="planline"></div>
-  <div id="bndline"></div>
-  <div id="arealine"></div>
-  <div id="ruleline"></div>
-  <div id="popbox" class="small" hidden></div>
-  <div id="trevents" class="small" hidden></div>
-  <div id="stnames" class="small" hidden></div>
+  <details class="sec" id="secCity" data-sec="city" open><summary data-i="secCity"></summary>
+    <div id="planline"></div>
+    <div id="bndline"></div>
+    <div id="arealine"></div>
+    <div id="popbox" class="small" hidden></div>
+  </details>
+  <details class="sec" id="secPower" data-sec="power" open><summary data-i="secPower"></summary>
+    <div id="ruleline"></div>
+  </details>
+  <details class="sec" id="secTransport" data-sec="transport"><summary data-i="secTransport"></summary>
+    <div id="trevents" class="small" hidden></div>
+  </details>
+  <details class="sec" id="secStreets" data-sec="streets"><summary data-i="secStreets"></summary>
+    <div id="stnames" class="small" hidden></div>
+  </details>
   <details id="distinfo"><summary id="distsum"></summary><div id="distbody"></div></details>
 
   <details id="how"><summary data-i="howTitle"></summary><div id="howtext"></div></details>
@@ -195,9 +211,9 @@
   </div>
 </footer>
 
-<div id="fbModal" class="modal" hidden>
+<div id="fbModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="fbTitleH">
   <form id="fbForm" class="modalbox" autocomplete="off">
-    <h2 data-i="fbTitle"></h2>
+    <h2 id="fbTitleH" data-i="fbTitle"></h2>
     <p class="small" data-i="fbHint"></p>
     <label><span data-i="fbType"></span>
       <select id="fbKind"><option value="data" data-i="fbK1"></option><option value="georef" data-i="fbK2"></option><option value="boundary" data-i="fbK3"></option><option value="translation" data-i="fbK4"></option><option value="rights" data-i="fbK5"></option><option value="other" data-i="fbK6"></option></select></label>
@@ -211,7 +227,7 @@
   </form>
 </div>
 
-<div id="infoModal" class="modal" hidden>
+<div id="infoModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="imTitle">
   <div class="modalbox viewbox">
     <h2 id="imTitle"></h2>
     <div id="imBody"></div>
@@ -219,7 +235,7 @@
   </div>
 </div>
 
-<div id="viewModal" class="modal" hidden>
+<div id="viewModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="vmTitle">
   <div class="modalbox viewbox">
     <h2 id="vmTitle"></h2>
     <div id="vmCount" class="small"></div>
@@ -235,12 +251,6 @@
   </div>
 </div>
 
-<script src="vendor/maplibre-gl.js"></script>
-<script src="translit.js"></script>
-<script src="photo.js"></script>
-<script src="pwa.js"></script>
-<script src="support.js"></script>
-<script src="app.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f4945adf4d994802bcb88c6ce54c4c32"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

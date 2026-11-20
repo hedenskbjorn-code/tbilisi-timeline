@@ -19,508 +19,8 @@
   const PLAN_AFTER = 10; // the last plan is shown at most this many years after its date
   const COARSE = new Set(["century", "half", "mixed"]);
 
-  const T = {
-    ru: {
-      title: "Тбилиси во времени",
-      showPlan: "Старый план на карте", planOpacity: "Прозрачность плана",
-      showBnd: "Границы застройки по годам", showAdmin: "Современная административная граница (2019, для сравнения)", showDistricts: "Районы и их названия", oldAdmin: "Старая граница (1973–2005): по положению посёлков согласуется с границей до реформы 2006 года (≈330 км² против 354 км² по диссертации; дата набора данных не подтверждена)", distNone: "Для этого времени сведений о делении на районы в проекте нет.", distNote: "Названия и периоды пересказаны ИИ по вторичным источникам, не проверены по первоисточникам; границ прошлых районов в открытых данных не найдено.", distTitle: (lbl) => `Районы: ${lbl}`, distMod: "ныне", showFilter: "Показывать объекты реестра", showNat: "национального значения", showMon: "памятники", showObj: "объекты культурного наследия",
-      legNew: "Построено за последние 25 лет", legOld: "Построено раньше", legNat: "Национального значения",
-      legCoarse: "Точная дата неизвестна (век, половина века)",
-      count: (n, y) => `${n} объектов к ${y} году`,
-      noPlan: (first, last, y) => y < first ? `Планов этого времени пока нет (первый — ${first}).` : `Для этого периода плана пока нет (последний — ${last}). Фон — современная карта.`,
-      plan: (y, m) => `План ${y} года, точность привязки ≈ ${m} м`,
-      bnd: (y) => `Граница застройки по плану ${y} (по глазу, приблизительно)`,
-      bndPartial: (y) => `Граница города по плану ${y}: нанесены только уверенно видимые участки (север и восток), запад и юг не нанесены`,
-      noBnd: (y) => `Границы по плану ${y} года ещё не нанесены.`,
-      area: (km, y, src) => `Территория города ≈ ${km} км² (данные на ${y}; ${src === "sec" ? "вторичный источник, не проверено по оригиналу" : "Харебава 2024"})`,
-      note: (undated) => `Даты объектов — по записям реестра; для диапазона дат (четверть века, век и т. д.) на шкале берётся конец диапазона, то есть «не позже». ${undated} объектов без даты не показаны. Фоновая карта — OpenFreeMap / OpenStreetMap.`,
-      name: "Название", address: "Адрес", cls: "Тип", date: "Дата в реестре", est: "На шкале с года", range: "диапазон", prec: "точность",
-      reg: "Реестр №", photo: "Фото рядом с точкой (может показывать соседнее здание)", photoBy: "Фото", unc: "Положение на карте приблизительное", national: "национального значения", object: "объект культурного наследия", monument: "памятник",
-      precision: { exact: "год", quarter: "четверть века", middle: "середина века", half: "половина века", century: "век", mixed: "смешанная", years: "годы", unknown: "—" },
-      src: { ExactDate: "поле «точная дата»", Period: "поле «период»", DateRange: "диапазон дат" },
-      classes: { architecture: "архитектура", archaeology: "археология", ethnography: "этнография", memorial: "мемориальный", urban: "градостроительство",
-                 monumental_art: "монументальное искусство", garden: "садово-парковое", science: "наука", engineering: "инженерное", other: "другое" },
-      aboutTitle: "О проекте и источниках",
-      about: [
-        "Некоммерческий хобби-проект на открытых данных. Даты, границы и привязка планов — приблизительные оценки, а не официальные сведения.",
-        "Объекты: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство по сохранению культурного наследия). Письменной открытой лицензии на эти данные найти не удалось; в некоммерческих целях используется сокращённая выборка (название, адрес, координаты, даты, номер). Даты — оценка по записям реестра.",
-        "Планы Тифлиса 1735 (Вахушти, схематичный), 1785 (Пищевич), 1800 (Чуйко), 1821 (Швецов), 1844 (Военно-топографическое депо), 1850 (Генеральный штаб), 1887 (А. Ильин) 1911 (топографический лист окрестностей) и 1913 (землемерный отдел городской управы): сканы Wikimedia Commons, общественное достояние. Планы привязаны к современной карте по контрольным точкам (точность около 50 м, у плана 1735 года около 150 м), границы застройки обведены по ним вручную.",
-        "Исторические виды Тифлиса (1578–1910-е): миниатюра «Нусрет-наме» (British Library), гравюры по рисункам Шардена и Турнефора, картины Чернецова, Лермонтова, Франкена и Айвазовского, фотографии Ермакова и Прокудина-Горского; файлы Wikimedia Commons, общественное достояние; уменьшенные копии. Это рисунки и снимки с одной точки, к карте они не привязаны.",
-        "Топографические карты (слой «Топокарта Генштаба»): серии 1:10 000–1:100 000 издания 1952–2007 годов, открытые тайлы Национального агентства публичного реестра Грузии (maps.gov.ge, район Тбилиси, плюс городской план 1:2 000); тайлы района Тбилиси скачаны в ноябре 2026 года и лежат на этом сайте; карты принадлежат агентству.",
-        "Транспорт: линии метро, железной дороги, фуникулёра, подвесных дорог, проспектов и мостов; геометрия © участники OpenStreetMap (ODbL), годы по страницам Википедии и Wikidata (источники в окнах событий и в карточках линий). Трамвай: конка 1883–1910 и улицы маршрутов 1962–2006 по спискам грузинской Википедии; улица рисуется целиком, поэтому линия длиннее настоящей колеи, а у некоторых маршрутов есть разрывы.",
-        "События на ползунке и названия улиц по годам: только то, что подтверждено открытой страницей Википедии (ссылка показана в окне события и рядом со строкой улицы). Черновики и поиск готовил ИИ (Gemini), затем каждое утверждение проверялось по странице; неподтверждённое отброшено. Годы переименований в разных статьях иногда расходятся, это указано в примечаниях.",
-        "Старые фотографии в «Исторических видах» (Ермаков, Энгель и др.): Wikimedia Commons, общественное достояние; подпись и год по описанию на Commons; к карте не привязаны.",
-        "Приватность: страница не использует cookie и аналитику; в браузере хранится только выбранный язык и состояние панелей. При открытии браузер обращается к tiles.openfreemap.org (подложка карты) и к wikimedia.org (превью фотографий), поэтому им виден адрес посетителя. Форма обратной связи через GitHub создаёт публичный Issue.",
-        "Плотность застройки: доля площади, занятая контурами зданий OpenStreetMap (© участники OpenStreetMap, ODbL), в ячейках около 100×100 м; это состояние на момент выгрузки (ноябрь 2026), у зданий в OSM нет годов постройки, поэтому слой показывается только для современных лет.",
-        "Административная граница Тбилиси (2019): OCHA COD-AB Georgia (HDX), источник — Национальная статистическая служба Грузии, лицензия CC BY-IGO. Площадь 502,5 км² совпадает с данными диссертации для периода после 2006 года.",
-        "Границы районов и их названия: © участники OpenStreetMap, лицензия ODbL (этот набор данных — производная база; при повторном использовании сохраняйте ту же лицензию и атрибуцию). Показано современное деление на 10 районов.",
-        "Серая пунктирная линия 1973–2005 годов — граница из geoBoundaries (ADM2, метаданные: 2007). Проверка по положению посёлков: присоединённые в 2006 году (Цхнети, Цавкиси, Окрокана, Кикети, Бетания, Диди Дигоми, Загэси) лежат вне неё, присоединённые раньше (Поничала, Орхеви, Глдани, Варкетили) внутри, то есть она соответствует границе до реформы 2006 года. Её площадь ≈ 330 км² меньше 354 км² из диссертации, причина не установлена. Деление на районы и их названия по периодам (без границ) пересказаны ИИ по вторичным источникам и не проверены по первоисточникам.",
-        "Площадь города: Н. Харебава, диссертация, Тбилисский государственный университет им. Ив. Джавахишвили, 2024.",
-        "Фото: Wikimedia Commons, с указанием автора и лицензии; подбираются по координатам (не дальше 30 м, более дальние только после проверки) и всё же могут показывать соседнее здание.",
-        "Шкала времени начинается с IV века: по общим обзорам (Википедия, не проверено по первоисточникам), самые ранние письменные сведения о крепости на месте города относятся к середине–второй половине IV века (около 364 г.), а традиционная дата основания города по грузинским летописям — 458 г. (Вахтанг Горгасали). До 1700 года шкала сжата, до 1735 года планов и границ нет, показаны только объекты реестра.",
-        "Утраченные здания: список составлен ИИ (Gemini) по Wikidata, Википедии (ka, ru, en) и легендам исторических планов; даты и положение приблизительны, значок показывает, найден ли год утраты на странице источника. Не является официальным реестром.",
-        "Границы застройки с 1972 года: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), лицензия CC BY 4.0; сглажены и упрощены проектом. Контур 1954 года: заливка застройки на листе NK 38-8 Army Map Service (США, 1:250 000), общественное достояние; положение приблизительное.",
-        "Фоновая карта: OpenFreeMap, © OpenMapTiles, данные © участники OpenStreetMap. Библиотека карты: MapLibre GL JS.",
-      ],
-      urbanNone: (first) => `Границ застройки для этого времени пока нет (первая — ${first}).`,
-      urbanLine: (snap, src, partial, y, acc) => `Граница застройки на ${snap} год${snap !== y ? " (ближайшая к " + y + " году)" : ""}: ${src}${partial ? ". Показаны только уверенно видимые участки (север и восток)" : ""}${acc ? ". Положение может отличаться на ~" + acc + " м" : ""}`,
-      urbanSrc: { ams: "заливка застройки на американской карте 1954 г. (1:250 000, по съёмкам 1920–40-х, показывает состояние примерно 1940-х), приблизительно", traced: "обводка по старому плану, вручную, приблизительно", gusv: "спутниковая оценка (GUSV, Landsat): сглаженная огибающая застройки, не административная граница" },
-      showSettle: "Посёлки, вошедшие в состав города",
-      settleJoined: (y, from, geomNote) => `Включён в состав города: ${y} г.${from ? " (из " + from + ")" : ""}`,
-      settleUnknown: "Год включения в проекте не указан",
-      settleSrc: "Год и основание пересказаны ИИ по вторичным источникам (Какурия 1979, БСЭ, постановление парламента 2006), не проверены по первоисточникам.",
-      settleGeom: { inside_old: "По положению лежит внутри границы города до 2006 года.", outside_old_inside_2019: "По положению лежит вне границы до 2006 года и внутри современной: это согласуется с присоединением в 2006 году.", outside_2019: "Лежит вне современной границы города." },
-      settleFrom: { Gardabani: "Гардабанского района", Mtskheta: "Мцхетского района" },
-      settleNow: (y, inCity) => `В ${y} году: ${inCity === null ? "год включения неизвестен" : inCity ? "входит в состав города (административно; это не значит, что он застроен)" : "ещё не входил в состав города"}`,
-      settleConflict: "⚠ Положение противоречит году: лежит вне границы до 2006 года (либо год в пересказе неверен, либо граница набора данных не охватывает это село).",
-      legRuin: "Руины или остатки (по названию в реестре)", ruinRow: "Состояние", ruinTxt: "руины, остатки или место объекта (по названию в реестре)",
-      legTitle: "Легенда", legObjects: "Объекты реестра (точки)", legBounds: "Линии и области", legNames: "Подписи",
-      legFill: "Область застройки/территории города на выбранный год (заливка с обводкой)",
-      legSat: "Сплошная линия: спутниковая оценка застройки (с 1972 года)",
-      legTraced: "Пунктир: обводка вручную по старому плану или карте",
-      legAdmin: "Тёмный пунктир: современная административная граница (2019)",
-      legOldAdmin: "Серый пунктир: граница до 2006 года (1973–2005)",
-      legDistLine: "Тонкая линия: границы современных районов",
-      legPlan: "Старый план (если включён «Старый план на карте»)",
-      legDistName: "Название района (современные)",
-      legSetBefore: "Посёлок: ещё не включён в город",
-      legSetAfter: "Посёлок: уже включён в город",
-      legSetUnk: "Посёлок: год включения неизвестен",
-      legSetName: "Название посёлка (клик по точке: когда и откуда включён)",
-      fbBtn: "Сообщить об ошибке", fbTitle: "Сообщить об ошибке или недочёте",
-      fbHint: "Опишите, что неверно или чего не хватает. Сообщение уходит в закрытую очередь автору проекта (аккаунт не нужен) и нигде не публикуется. Если форма недоступна, сообщение откроется как обращение на GitHub.",
-      fbType: "Что не так", fbK1: "Ошибка в данных объекта (название, дата, адрес, положение)", fbK2: "Старый план лежит не там (привязка)", fbK3: "Граница города или застройки", fbK4: "Ошибка в переводе или названии", fbK5: "Вопрос по правам, прошу убрать данные", fbK6: "Другое",
-      fbText: "Описание", fbCtx: "Контекст (подставляется автоматически)", fbContact: "Как с вами связаться (по желанию)", fbSend: "Отправить", fbCancel: "Отмена",
-      fbCaptcha: "Отметьте проверку «я не робот» и отправьте ещё раз.", fbLimit: "Слишком много сообщений за сутки. Попробуйте завтра.", fbWait: "Слишком быстро: подождите несколько секунд и отправьте снова.", fbFail: "Не удалось отправить сообщение. Проверьте текст (от 5 символов) или попробуйте позже.", 
-      fbSent: "Спасибо! Обращение отправлено.", fbOpened: "Открыто окно GitHub: подтвердите отправку обращения там.", fbPopup: "Сообщить об ошибке по этому объекту",
-      showLost: "Утраченные здания (снесены или разрушены)", showGhost: "показывать и после утраты (бледно)",
-      legLostOn: "Утраченное здание: ещё стоит в этот год", legLostUnc: "Утраченное: год постройки или сноса неточен", legLostOff: "Утраченное: уже снесено (бледный «призрак»)",
-      lostKinds: { church: "церковь", cathedral: "собор", mosque: "мечеть", synagogue: "синагога", caravanserai: "караван-сарай", theatre: "театр", gate: "ворота", wall: "стена", tower: "башня", bridge: "мост", station: "вокзал", barracks: "казармы/замок", palace: "дворец", house: "дом", other: "другое" },
-      lostWhy: { demolished: "снесён", destroyed: "разрушен", rebuilt: "перестроен", flooded: "затоплен", unknown: "причина неизвестна" },
-      lostBuilt: "Построен", lostLost: "Утрачен", lostRepl: "Сейчас на месте", lostState: { stand: "в этот год ещё стоит", unc: "в этот год мог уже быть снесён (дата утраты неточна)", gone: "в этот год уже утрачен", early: "в этот год мог ещё не существовать (дата постройки неточна)" },
-      lostAcc: (m, pos) => `Положение ${pos === "plan" ? "снято с исторического плана" : "по координатам из источника"}, погрешность ≈ ${m} м`,
-      lostChk: "Год утраты найден на странице источника (слабая проверка)", lostNoChk: "Год утраты на странице источника не найден автоматически",
-      lostSrc: "Список составлен ИИ по Wikidata, Википедии и легендам планов; не является официальным.", lostSources: "Источники",
-      showWater: "Тбилисское море и озёра (исторические)",
-      legWater: "Тбилисское море (водохранилище, с 1951–1953)", legLake: "Солёные озёра до водохранилища (по топографическому листу ок. 1911 г.)",
-      waterRes: "Тбилисское море (Тбилисское водохранилище)", waterLake: "Солёное озеро (на месте или рядом с будущим Тбилисским морем)",
-      waterTxtRes: (y) => y < 1951 ? "В этот год моря ещё не было: на месте залитой позже долины были солёные озёра (серая заливка показывает будущую акваторию)." : y < 1953 ? "Водохранилище заполнялось: источники расходятся в дате открытия (1951 или 1953)." : "Водохранилище существует (контур по OpenStreetMap; площадь по литературе 11,2–11,6 км²).",
-      waterTxtLake: (y) => y < 1953 ? "Озеро обведено по топографическому листу окрестностей Тифлиса около 1911 г. (1:42 000); как выглядели озёра раньше и как менялись до 1951 г., не проверено. Положение около ±70 м." : "К этому году озёра затоплены водохранилищем.",
-      waterSrc: "Источники: OpenStreetMap (контур моря, ODbL); лист NK 38-8 Army Map Service (озёра).",
-      viewsTitle: "Исторические виды (рисунки, не планы)",
-      viewClose: "Закрыть",
-      showRel: "Религиозные сооружения (появляются и исчезают по годам)", relNames: { orthodox: "Грузинская православная", russian: "Русская православная", lutheran: "Лютеранская", yazidi: "Езидская", armenian: "Армянская апостольская", catholic: "Католическая", jewish: "Иудейская", muslim: "Мусульманская", zoroastrian: "Зороастрийская" }, relApprox: "точка на карте приблизительная", relBuilt: "Построено", relGone: "Утрачено", relStatus: "Сейчас", relSrc: "Источники",
-      showRulers: "Правители и формы власти (полоса под шкалой)", ruleNow: "Кто правил", ruleState: "Государство", ruleOver: "Внешняя власть", ruleAdmin: "Единица управления", ruleForm: "Форма власти", ruleYears: "Годы", ruleNoData: "нет данных",
-      showRun: "Tbilisi Running Club: маршрут City Run 2026 и что увидеть по пути (сегодняшний город)", runStats: (r, n) => `${r.length_km} км, высота ${r.ele_min}-${r.ele_max} м, ${n} достопримечательностей`, runKm: "Километр", runDist: "От трассы", runYear: "Дата по реестру", runWiki: "Википедия", runStart: "Старт и финиш", runList: "По порядку вдоль маршрута", runNote: "В список входят объекты данных сайта, чья точка лежит не дальше 150 м от трассы: национального значения, со статьёй в Википедии, церкви, мосты, театры, музеи, стены и крепости. Расстояние считается от точки объекта до линии трассы, поэтому крупные здания могут быть ближе. Это не проверка видимости.", runSrc: "Маршрут (геометрия)",
-      topoPlanOpt: "1:2 000 · городской план (z17)", legDistEx: "Мтацминда", legSetEx: "Коджори", ariaLang: "Язык", ariaClose: "закрыть", fbContactPh: "email или telegram (необязательно)",
-      showSci: "Наука и культура: институты, университеты, музеи, театры (появляются по годам)", sciKinds: { science: "Наука и образование", culture: "Культура" }, sciFounded: "Основано", sciBuilt: "Здание", sciFrom: "Появляется", sciSrc: "Источники", sciFaint: "бледная точка: здание ещё не построено или учреждение было в другом месте",
-      lcTitle: "Показать моё положение", nrBtnT: "Что рядом со мной", nrTitle: "Рядом со мной", nrHint: "Показаны объекты, существующие в выбранном году (с учётом фильтров), и события с местом на карте. Расстояние по прямой, стрелка показывает сторону света (вверху север). Положение используется только в вашем браузере и никуда не отправляется.", nrNone: "Рядом ничего не нашлось.", nrFar: "Вы далеко от Тбилиси: показано то, что ближе всего.", nrDenied: "Не удалось определить положение. Разрешите доступ к геолокации в браузере (для сайта) и включите геолокацию на телефоне.", nrAcc: "точность около", unitM: "м", unitKm: "км", nrEv: "событие",
-      tbHide: "Свернуть шкалу времени", tbShow: "Развернуть шкалу времени", rbHide: "Скрыть линию правителей", rbShow: "Правители",
-      glFail: "Не удалось запустить графику карты (WebGL). Обновление страницы здесь не поможет: полностью закройте браузер (все окна) и откройте снова, либо обновите драйвер видеокарты. В другом браузере (Edge, Chrome) сайт может открыться.", glSlow: "Карта долго не запускается. Если экран остаётся пустым, полностью закройте браузер и откройте снова или обновите драйвер видеокарты.", glReload: "Обновить страницу",
-      loadMap: "Загрузка карты и данных…", loadPlan: "Загрузка плана…", loadFail: "Не удалось загрузить данные. Обновите страницу (Ctrl+F5).",
-      topoAutoNote: "Сейчас топокарта включена автоматически (годы 1953–2005, вместо плана). Чтобы скрыть её, снимите галочку «С 1953 по 2005 год показывать топокарту вместо плана» ниже.",
-      trRoutes62: "Маршруты по списку 1962 г.", trRoutes86: "Маршруты по списку 1986 г.",
-      chgTitle: "Что нового", chgNew: "Новое", chgFix: "Исправлено", chgFail: "Не удалось загрузить журнал изменений.",
-      trGapEarly: "С 25 декабря 1904 в Тбилиси ходил электрический трамвай. Его линии на карте показаны с плана 1913 года, на этот год не нанесены.", trGapMid: (km, y) => `Трамвай в эти годы был (около ${km} км сети на ${y} год, ru.wikipedia), но его линии на карте не нанесены: данных об улицах нет.`,
-      runPage: "Страница маршрута: карта, описания и фото", runCopy: "Скопировать ссылку", runCopied: "Ссылка скопирована",
-      searchBtn: "Поиск", searchPh: "Название, адрес, событие или год", searchNone: "Ничего не найдено", searchYear: "Перейти к году", searchMore: "Показаны первые результаты, уточните запрос",
-      zoomL: "Сдвинуть шкалу к более ранним годам", zoomR: "Сдвинуть шкалу к более поздним годам",
-      zoomAll: "Всё", zoomIn: "Приблизить шкалу времени", zoomOut: "Отдалить шкалу времени",
-      viewPrev: "Предыдущее фото",
-      viewNext: "Следующее фото",
-      viewLicense: "лицензия",
-      viewSource: "источник",
-      trNote: "Название и улицы переведены автоматически (ИИ) с грузинского оригинала из реестра и могут быть неточными.",
-      trOrig: "оригинал",
-      fbContactWarn: "Контакт увидит только автор проекта. Если форма недоступна и сообщение уходит через GitHub, он станет публичным: тогда не указывайте то, что не хотите публиковать.",
-      infoBtn: "Источники и подробности",
-      infoTitle: "Источники и подробности",
-      evCats: { unrest: "Протест и насилие", oldest: "Старейшая сохранившаяся постройка", build: "Строительство и достижения", invasion: "Нашествие, осада, взятие", earthquake: "Землетрясение", fire: "Пожар", flood: "Наводнение", power: "Смена власти, политическое событие", science: "Наука", other: "Событие" },
-      evSrc: "Источники",
-      evNote: "Дата и подробности из статей Википедии (en, ru).",
-      infoRegister: "Данные объекта: публичные сведения реестра недвижимых памятников культурного наследия Грузии (Национальное агентство сохранения культурного наследия), сокращённая выжимка для некоммерческого использования. Условия и полный список источников: «О проекте и источниках» на боковой панели.",
-      infoPhotos: "Фотографии",
-      showDensity: "Плотность застройки (OSM, сейчас)",
-      legDensity: "Плотность застройки по зданиям OSM (с 2015): светлее — реже, тёмно-красный — очень плотно",
-      showTransport: "Транспорт: метро, ж/д, фуникулёр, проспекты",
-      legTransport: "Транспорт по годам: метро (красная линия Ахметели — Варкетили, зелёная Сабурталинская), проспекты и мосты (оранжевый и синий), конка 1883–1910 (коричневая), железная дорога (серый), фуникулёр и канатная дорога (фиолетовый пунктир)",
-      trKinds: { metro_line: "линия метро", metro_station: "станция метро", railway: "железная дорога", funicular: "фуникулёр", cablecar: "канатная дорога", avenue: "проспект", bridge: "мост", tram: "трамвай (конка, улицы маршрутов)" },
-      trPeriod: (a, b, c, d) => "с " + a + (b < 9999 ? " до " + b : "") + (c > 0 ? ", затем с " + c + (d < 9999 ? " до " + d : "") : ""),
-      trEvents: "Транспорт и дороги в эти годы",
-      showTopo: "Топокарта Генштаба (НАПР, Грузия) поверх карты",
-      topoNote: "Советские топокарты разных изданий (издания указаны в списке); открытые тайлы maps.gov.ge (район Тбилиси). Участки листов могут быть разных лет.",
-      swLeft: "старый план (слева от полосы)", swRight: "современная карта (справа)",
-      autoTopo: "С 1953 по 2005 год показывать топокарту вместо плана",
-      topoLine: (name) => "Топокарта Генштаба (НАПР): " + name + ". Листы разных изданий, участки могут быть разных лет.",
-      showStLabels: "Названия улиц того года на карте (по проверенным данным)",
-      howTitle: "Как пользоваться",
-      how: [
-        "Ползунок внизу задаёт год; ▶ запускает анимацию. Значки над ползунком отмечают исторические события: нажмите, чтобы перейти к году и прочитать источник.",
-        "Нажмите на точку объекта, чтобы открыть карточку. Адрес страницы запоминает объект, год и место на карте: ссылкой можно поделиться.",
-        "Окно «Фильтры» справа включает слои: старый план, топокарту (с 1953 года она заменяет план), транспорт, названия улиц того года.",
-        "«Шторка»: слева от белой полосы старый план или топокарта, справа сегодняшняя карта. «Что было здесь»: клик по карте показывает эту точку на всех старых планах.",
-        "Окна «Справка» и «Фильтры» можно скрыть кнопками вверху.",
-      ],
-      roadLabels: "Названия современных улиц поверх старого плана",
-      popTitle: "Население города",
-      popNote: "Город в границах разных лет, данные и методики разные: ряд ориентировочный. Тёмные точки: переписи и статистика, светлые: оценки (не подтверждены).",
-      popBefore: "Данных о населении на этот год нет (самая ранняя оценка: 1803).",
-      show94: "Объекты 1894 года по описанию иранского путешественника (гостиницы, театры, баня, музеи)",
-      c94Title: "Из описания Тбилиси 1894 года",
-      c94Pos: "Положение",
-      c94Conf: { high: "уверенность высокая", medium: "уверенность средняя (около 100-150 м)", low: "уверенность низкая (200 м и больше)" },
-      c94Src: "Источник",
-      btnInfo: "Справка", btnFilters: "Фильтры", evCluster: "События рядом на шкале (выберите)", btnViews: "Виды", viewsAll: "Все виды (не только к выбранному году)", viewsNone: "К этому году видов нет: для части лет свободных фото не нашлось. Включите «Все виды».", filtersTitle: "Фильтры и слои",
-      stTitle: "Как назывались улицы в этом году (проверено по Википедии)",
-      stNow: "сейчас",
-      stMore: "Названия по годам известны не для всех улиц.",
-      baseOff: "Подложка карты (OpenFreeMap) недоступна из вашей сети, показан упрощённый фон без улиц и зданий. Исторические слои, планы и названия работают.",
-      showStreets: "Улицы по плану 1913 г. (проба, автоматическая обводка)",
-      showSwipe: "Шторка: слева старый план, справа современная карта (двигай полосу)",
-      showHere: "Что было здесь: клик по карте показывает эту точку на всех планах",
-      hereTitle: "Эта точка на старых планах",
-      hereLoad: "Планы загружаются по очереди…",
-      hereNone: "Эта точка за пределами всех планов.",
-      hereAcc: (m) => "точность привязки ±" + m + " м",
-      hereNote: "Окно около 260 м. Каждый план привязан к карте со своей погрешностью, поэтому сдвиг в десятки метров возможен.",
-      typesTitle: "Назначение (сейчас — по названию, иначе по реестру)", func: "Современное назначение (по названию)", func0: "Первоначальное назначение (по реестру)", wiki: "Статья в Википедии",
-      types: { residential: "Жилые дома", religious: "Религиозные", defense: "Оборонительные", culture: "Образование, наука, культура",
-               public: "Общественные и торговые", transport: "Транспорт и инженерия", memorial: "Мемориалы и парки", rural: "Археология и сельское", other: "Прочие" },
-    },
-    en: {
-      title: "Tbilisi through time",
-      showPlan: "Old plan on the map", planOpacity: "Plan opacity",
-      showBnd: "Built-up outlines by year", showAdmin: "Current administrative boundary (2019, for comparison)", showDistricts: "Districts and their names", oldAdmin: "Older boundary (1973–2005): by the position of settlements it matches the pre-2006 limit (≈330 km² versus 354 km² in the thesis; dataset date not confirmed)", distNone: "The project has no information on the district division for this period.", distNote: "Names and periods were relayed by an AI from secondary sources and are not checked against the originals; boundaries of past districts were not found in open data.", distTitle: (lbl) => `Districts: ${lbl}`, distMod: "now", showFilter: "Show register objects", showNat: "of national significance", showMon: "monuments", showObj: "cultural heritage objects",
-      legNew: "Built in the last 25 years", legOld: "Built earlier", legNat: "National significance",
-      legCoarse: "Exact date unknown (century, half-century)",
-      count: (n, y) => `${n} objects by ${y}`,
-      noPlan: (first, last, y) => y < first ? `No plan for this period yet (the first is ${first}).` : `No plan for this period yet (the last is ${last}). Background: modern map.`,
-      plan: (y, m) => `Plan of ${y}, registration accuracy ≈ ${m} m`,
-      bnd: (y) => `Built-up boundary from the ${y} plan (traced by eye, approximate)`,
-      bndPartial: (y) => `City limit from the ${y} plan: only the clearly visible stretches (north and east) are traced; west and south are not`,
-      noBnd: (y) => `The boundary on the ${y} plan has not been traced yet.`,
-      area: (km, y, src) => `City territory ≈ ${km} km² (data for ${y}; ${src === "sec" ? "secondary source, not checked against the original" : "Kharebava 2024"})`,
-      note: (undated) => `Object dates come from register entries; for a date range (quarter-century, century, etc.) the end of the range is used on the timeline, i.e. "not later than". ${undated} undated objects are not shown. Base map: OpenFreeMap / OpenStreetMap.`,
-      name: "Name", address: "Address", cls: "Type", date: "Date in register", est: "Shown on the timeline from", range: "range", prec: "precision",
-      reg: "Register no.", photo: "Photo near this point (may show a neighbouring building)", photoBy: "Photo", unc: "Map position is approximate", national: "national significance", object: "cultural heritage object", monument: "monument",
-      precision: { exact: "year", quarter: "quarter-century", middle: "mid-century", half: "half-century", century: "century", mixed: "mixed", years: "years", unknown: "—" },
-      src: { ExactDate: "“exact date” field", Period: "“period” field", DateRange: "date range" },
-      classes: { architecture: "architecture", archaeology: "archaeology", ethnography: "ethnography", memorial: "memorial", urban: "urban planning",
-                 monumental_art: "monumental art", garden: "garden / landscape", science: "science", engineering: "engineering", other: "other" },
-      aboutTitle: "About and sources",
-      about: [
-        "A non-commercial hobby project built on open data. Dates, boundaries and plan registration are approximations, not official information.",
-        "Objects: public information from the register of immovable cultural heritage of Georgia (National Agency for Cultural Heritage Preservation). No written open licence for this data could be found; a reduced extract (name, address, coordinates, dates, number) is used for non-commercial purposes. Dates are estimated from register records.",
-        "Plans of Tiflis, 1735 (Vakhushti, schematic), 1785 (Pishchevich), 1800 (Chuiko), 1821 (Shvetsov), 1844 (Military Topographic Depot), 1850 (General Staff), 1887 (A. Ilyin) 1911 (topographic sheet of the environs) and 1913 (city survey department): scans from Wikimedia Commons, public domain. The plans are registered to the modern map with control points (accuracy about 50 m, about 150 m for 1735) and the built-up outlines are traced by hand from them.",
-        "Historical views of Tiflis (1578 to the 1910s): a miniature from the Nusretname (British Library), engravings after drawings by Chardin and Tournefort, paintings by Chernetsov, Lermontov, Franken and Aivazovsky, photographs by Yermakov and Prokudin-Gorsky; Wikimedia Commons files, public domain; reduced copies. They are drawings and photographs from a single viewpoint and are not tied to the map.",
-        "Topographic maps (the General Staff topo layer): 1:10 000 to 1:100 000 series, editions 1952-2007, open tiles of the National Agency of Public Registry of Georgia (maps.gov.ge); tiles of the Tbilisi area were downloaded in November 2026 and are served from this site; the maps belong to the agency.",
-        "Transport: metro, railway, funicular, cable car, avenue and bridge lines; geometry (c) OpenStreetMap contributors (ODbL), years from Wikipedia and Wikidata pages (sources in the event windows and on the line cards). Tram: the horse tram of 1883-1910 and the streets of the routes of 1962-2006 from the Georgian Wikipedia lists; a street is drawn over its whole length, so the line is longer than the real track and some routes have gaps.",
-        "Events on the slider and street names by year: only what an open Wikipedia page confirms (the link is shown in the event window and next to the street line). Drafts and searches were prepared by an AI (Gemini), then every statement was checked against the page; unconfirmed items were dropped. The years of renaming sometimes differ between articles; this is noted.",
-        "Old photographs in the Historical views (Yermakov, Engel and others): Wikimedia Commons, public domain; the caption and the year are as given on Commons; not tied to the map.",
-        "Privacy: the page uses no cookies or analytics; only the chosen language and the state of the panels are stored in the browser. On loading, the browser contacts tiles.openfreemap.org (basemap) and wikimedia.org (photo previews), so these services can see the visitor's address. The feedback form through GitHub creates a public Issue.",
-        "Building density: the share of ground covered by OpenStreetMap building footprints (© OpenStreetMap contributors, ODbL) in cells of about 100×100 m; it shows the state at the time of export (November 2026); OSM buildings have no construction years, so the layer is shown only for recent years.",
-        "Administrative boundary of Tbilisi (2019): OCHA COD-AB Georgia (HDX), source: National Statistics Office of Georgia, licence CC BY-IGO. Its area of 502.5 km² matches the thesis figure for the period after 2006.",
-        "District boundaries and names: © OpenStreetMap contributors, ODbL (this dataset is a derived database; keep the same licence and attribution if you reuse it). The current division into 10 districts is shown.",
-        "The grey dashed line for 1973–2005 is a boundary from geoBoundaries (ADM2, metadata: 2007). Checked by the position of settlements: those annexed in 2006 (Tskneti, Tsavkisi, Okrokana, Kiketi, Betania, Didi Dighomi, Zahesi) lie outside it, those annexed earlier (Ponichala, Orkhevi, Gldani, Varketili) inside, so it matches the pre-2006 limit. Its area of about 330 km² is smaller than the 354 km² in the thesis, the reason is not established. The district divisions and names by period (without boundaries) were relayed by an AI from secondary sources and are not checked against the originals.",
-        "City area: N. Kharebava, PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024.",
-        "Photos: Wikimedia Commons, shown with author and licence; matched by coordinates (not farther than 30 m; farther ones only after a check) and may still show a neighbouring building.",
-        "The timeline starts in the 4th century: according to general surveys (Wikipedia, not checked against the primary sources), the earliest written evidence of a fortress at the site dates to the mid to late 4th century (about 364), and the traditional date of the city’s foundation in the Georgian chronicles is 458 (Vakhtang Gorgasali). The scale is compressed before 1700; there are no plans or outlines before 1735, only register objects are shown.",
-        "Lost buildings: the list was compiled by an AI (Gemini) from Wikidata, Wikipedia (ka, ru, en) and the legends of historical plans; dates and positions are approximate, and the popup says whether the year of loss was found on a source page. It is not an official register.",
-        "Built-up outlines since 1972: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), licence CC BY 4.0; smoothed and simplified by the project. The 1954 outline: built-up fill on sheet NK 38-8 of the U.S. Army Map Service (1:250 000), public domain; position is approximate.",
-        "Base map: OpenFreeMap, © OpenMapTiles, data © OpenStreetMap contributors. Map library: MapLibre GL JS.",
-      ],
-      urbanNone: (first) => `No built-up outline for this period yet (the first is ${first}).`,
-      urbanLine: (snap, src, partial, y, acc) => `Built-up outline for ${snap}${snap !== y ? " (nearest to " + y + ")" : ""}: ${src}${partial ? ". Only the clearly visible stretches (north and east) are shown" : ""}${acc ? ". Position may be off by ~" + acc + " m" : ""}`,
-      urbanSrc: { ams: "built-up fill on the American 1954 map (1:250 000, from 1920s-40s surveys, showing about the 1940s), approximate", traced: "traced by hand from an old plan, approximate", gusv: "satellite estimate (GUSV, Landsat): a smoothed envelope of built-up land, not an administrative boundary" },
-      showSettle: "Settlements annexed to the city",
-      settleJoined: (y, from, geomNote) => `Annexed to the city: ${y}${from ? " (from " + from + ")" : ""}`,
-      settleUnknown: "The year of annexation is not given in the project",
-      settleSrc: "The year and the basis were relayed by an AI from secondary sources (Kakuria 1979, Great Soviet Encyclopedia, 2006 parliament resolution) and are not checked against the originals.",
-      settleGeom: { inside_old: "Its position is inside the pre-2006 city limit.", outside_old_inside_2019: "Its position is outside the pre-2006 limit and inside the current one: consistent with annexation in 2006.", outside_2019: "It lies outside the current city limit." },
-      settleFrom: { Gardabani: "Gardabani district", Mtskheta: "Mtskheta district" },
-      settleNow: (y, inCity) => `In ${y}: ${inCity === null ? "year of annexation unknown" : inCity ? "part of the city administratively (this does not mean it is built up)" : "not yet part of the city"}`,
-      settleConflict: "⚠ The position contradicts the year: it lies outside the pre-2006 limit (either the year in the report is wrong, or the dataset boundary does not include this village).",
-      legRuin: "Ruins or remains (by the register name)", ruinRow: "Condition", ruinTxt: "ruins, remains or site of an object (by the register name)",
-      legTitle: "Legend", legObjects: "Register objects (dots)", legBounds: "Lines and areas", legNames: "Labels",
-      legFill: "Built-up area / city territory for the selected year (fill with outline)",
-      legSat: "Solid line: satellite estimate of built-up land (from 1972)",
-      legTraced: "Dashed: traced by hand from an old plan or map",
-      legAdmin: "Dark dashed: current administrative boundary (2019)",
-      legOldAdmin: "Grey dashed: boundary before 2006 (1973–2005)",
-      legDistLine: "Thin line: boundaries of the current districts",
-      legPlan: "Old plan (when “Old plan on the map” is on)",
-      legDistName: "District name (current)",
-      legSetBefore: "Settlement: not yet part of the city",
-      legSetAfter: "Settlement: already part of the city",
-      legSetUnk: "Settlement: year of annexation unknown",
-      legSetName: "Settlement name (click the dot: when and from where annexed)",
-      fbBtn: "Report a problem", fbTitle: "Report an error or a shortcoming",
-      fbHint: "Describe what is wrong or missing. The message goes to the private queue of the author of the project (no account is needed) and is not published anywhere. If the form is not available, it opens as an issue on GitHub.",
-      fbType: "What is wrong", fbK1: "Error in an object's data (name, date, address, position)", fbK2: "An old plan is misplaced (registration)", fbK3: "City or built-up boundary", fbK4: "Error in a translation or a name", fbK5: "Rights question, please remove data", fbK6: "Other",
-      fbText: "Description", fbCtx: "Context (filled in automatically)", fbContact: "How to reach you (optional)", fbSend: "Send", fbCancel: "Cancel",
-      fbCaptcha: "Complete the 'I am not a robot' check and send again.", fbLimit: "Too many messages in a day. Please try tomorrow.", fbWait: "Too fast: wait a few seconds and send again.", fbFail: "The message could not be sent. Check the text (at least 5 characters) or try later.", 
-      fbSent: "Thank you! The report was sent.", fbOpened: "A GitHub window was opened: confirm sending the issue there.", fbPopup: "Report a problem with this object",
-      showLost: "Lost buildings (demolished or destroyed)", showGhost: "also show after the loss (faint)",
-      legLostOn: "Lost building: still standing in this year", legLostUnc: "Lost: date of construction or loss is imprecise", legLostOff: "Lost: already gone (faint “ghost”)",
-      lostKinds: { church: "church", cathedral: "cathedral", mosque: "mosque", synagogue: "synagogue", caravanserai: "caravanserai", theatre: "theatre", gate: "gate", wall: "wall", tower: "tower", bridge: "bridge", station: "station", barracks: "barracks/castle", palace: "palace", house: "house", other: "other" },
-      lostWhy: { demolished: "demolished", destroyed: "destroyed", rebuilt: "rebuilt", flooded: "flooded", unknown: "reason unknown" },
-      lostBuilt: "Built", lostLost: "Lost", lostRepl: "Now on the site", lostState: { stand: "still standing in this year", unc: "may already have been demolished in this year (loss date imprecise)", gone: "already lost in this year", early: "may not yet have existed in this year (construction date imprecise)" },
-      lostAcc: (m, pos) => `Position ${pos === "plan" ? "read from a historical plan" : "from a source coordinate"}, error ≈ ${m} m`,
-      lostChk: "The year of loss was found on a cited source page (weak check)", lostNoChk: "The year of loss was not found automatically on the cited pages",
-      lostSrc: "The list was compiled by an AI from Wikidata, Wikipedia and plan legends; it is not official.", lostSources: "Sources",
-      showWater: "Tbilisi Sea and lakes (historical)",
-      legWater: "Tbilisi Sea (reservoir, from 1951–1953)", legLake: "Salt lakes before the reservoir (from the topographic sheet of c.1911)",
-      waterRes: "Tbilisi Sea (Tbilisi Reservoir)", waterLake: "Salt lake (on or next to the site of the future Tbilisi Sea)",
-      waterTxtRes: (y) => y < 1951 ? "The sea did not exist in this year: the valley flooded later held salt lakes (the grey fill marks the future water surface)." : y < 1953 ? "The reservoir was being filled: sources disagree on the opening date (1951 or 1953)." : "The reservoir exists (outline from OpenStreetMap; the literature gives 11.2–11.6 km²).",
-      waterTxtLake: (y) => y < 1953 ? "The lake is outlined from the topographic sheet of the Tiflis environs of about 1911 (1:42,000); how the lakes looked earlier, and how they changed before 1951, has not been checked. Position about ±70 m." : "By this year the lakes were flooded by the reservoir.",
-      waterSrc: "Sources: OpenStreetMap (outline of the sea, ODbL); topographic sheet of c.1911 (lakes).",
-      viewsTitle: "Historical views (drawings, not plans)",
-      viewClose: "Close",
-      showRel: "Religious buildings (appear and disappear by year)", relNames: { orthodox: "Georgian Orthodox", russian: "Russian Orthodox", lutheran: "Lutheran", yazidi: "Yazidi", armenian: "Armenian Apostolic", catholic: "Catholic", jewish: "Jewish", muslim: "Muslim", zoroastrian: "Zoroastrian" }, relApprox: "the point on the map is approximate", relBuilt: "Built", relGone: "Lost", relStatus: "Today", relSrc: "Sources",
-      showRulers: "Rulers and forms of government (a band under the scale)", ruleNow: "Who ruled", ruleState: "State", ruleOver: "Outside power", ruleAdmin: "Administrative unit", ruleForm: "Form of rule", ruleYears: "Years", ruleNoData: "no data",
-      showRun: "Tbilisi Running Club: the City Run 2026 route and what to see on the way (today's city)", runStats: (r, n) => `${r.length_km} km, elevation ${r.ele_min}-${r.ele_max} m, ${n} sights`, runKm: "Kilometre", runDist: "From the route", runYear: "Date in the register", runWiki: "Wikipedia", runStart: "Start and finish", runList: "In order along the route", runNote: "The list holds the objects of the data of this site whose point lies within 150 m of the track: of national significance, with a Wikipedia article, churches, bridges, theatres, museums, walls and fortresses. The distance is from the point of the object to the line of the track, so large buildings may be closer. This is not a check of visibility.", runSrc: "Route (geometry)",
-      topoPlanOpt: "1:2 000 · city plan (z17)", legDistEx: "Mtatsminda", legSetEx: "Kojori", ariaLang: "Language", ariaClose: "close", fbContactPh: "email or telegram (optional)",
-      showSci: "Science and culture: institutes, universities, museums, theatres (appear by year)", sciKinds: { science: "Science and education", culture: "Culture" }, sciFounded: "Founded", sciBuilt: "Building", sciFrom: "Appears", sciSrc: "Sources", sciFaint: "a faint point: the building is not yet built or the institution was elsewhere",
-      lcTitle: "Show my location", nrBtnT: "What is near me", nrTitle: "Near me", nrHint: "The list shows the objects that exist in the chosen year (with the filters) and the events that have a place on the map. The distance is in a straight line, the arrow shows the direction (up is north). The position is used only in your browser and is sent nowhere.", nrNone: "Nothing was found nearby.", nrFar: "You are far from Tbilisi: the nearest things are shown.", nrDenied: "The position could not be found. Allow the access to the location for this site in the browser and switch the location on in the phone.", nrAcc: "accuracy about", unitM: "m", unitKm: "km", nrEv: "event",
-      tbHide: "Fold the time scale", tbShow: "Unfold the time scale", rbHide: "Hide the line of rulers", rbShow: "Rulers",
-      glFail: "The map graphics (WebGL) could not be started. Reloading the page will not help here: close the browser completely (all windows) and open it again, or update the video driver. The site may open in another browser (Edge, Chrome).", glSlow: "The map takes long to start. If the screen stays empty, close the browser completely and open it again or update the video driver.", glReload: "Reload the page",
-      loadMap: "Loading the map and data…", loadPlan: "Loading the plan…", loadFail: "The data could not be loaded. Reload the page (Ctrl+F5).",
-      topoAutoNote: "The topographic map is on automatically now (the years 1953-2005, instead of a plan). To hide it, clear the box \"From 1953 to 2005 show the topographic map instead of a plan\" below.",
-      trRoutes62: "Routes of the list of 1962", trRoutes86: "Routes of the list of 1986",
-      chgTitle: "What is new", chgNew: "New", chgFix: "Fixed", chgFail: "The log of changes could not be loaded.",
-      trGapEarly: "An electric tram ran in Tbilisi from 25 December 1904. Its lines are shown on the map from the plan of 1913, they are not drawn for this year.", trGapMid: (km, y) => `There was a tram in these years (about ${km} km of network in ${y}, ru.wikipedia), but its lines are not drawn on the map: there are no data on the streets.`,
-      runPage: "The page of the route: map, descriptions and photos", runCopy: "Copy link", runCopied: "Link copied",
-      searchBtn: "Search", searchPh: "Name, address, event or year", searchNone: "Nothing found", searchYear: "Go to the year", searchMore: "Only the first results are shown, narrow the query",
-      zoomL: "Move the scale to earlier years", zoomR: "Move the scale to later years",
-      zoomAll: "All", zoomIn: "Zoom the time scale in", zoomOut: "Zoom the time scale out",
-      viewPrev: "Previous photo",
-      viewNext: "Next photo",
-      viewLicense: "licence",
-      viewSource: "source",
-      trNote: "The name and streets were translated automatically (AI) from the Georgian original in the register and may be inexact.",
-      trOrig: "original",
-      fbContactWarn: "Only the author of the project will see the contact. If the form is not available and the message goes through GitHub, it becomes public: then leave out what you do not want published.",
-      infoBtn: "Sources and details",
-      infoTitle: "Sources and details",
-      evCats: { unrest: "Protest and violence", oldest: "Oldest surviving building", build: "Construction and achievements", invasion: "Invasion, siege, capture", earthquake: "Earthquake", fire: "Fire", flood: "Flood", power: "Change of power, political event", science: "Science", other: "Event" },
-      evSrc: "Sources",
-      evNote: "Date and details from Wikipedia articles (en, ru).",
-      infoRegister: "Object data: public records of the register of immovable cultural heritage monuments of Georgia (National Agency for Cultural Heritage Preservation), a reduced extract for non-commercial use. Terms and the full list of sources: “About and sources” in the side panel.",
-      infoPhotos: "Photographs",
-      showDensity: "Building density (OSM, today)",
-      legDensity: "Building density from OSM footprints (from 2015): lighter is sparser, dark red is very dense",
-      showTransport: "Transport: metro, railway, funicular, avenues",
-      legTransport: "Transport by year: metro (red Akhmeteli-Varketili line, green Saburtalo line), avenues and bridges (orange and blue), horse tram 1883-1910 (brown), railway (grey), funicular and cable car (violet dashes)",
-      trKinds: { metro_line: "metro line", metro_station: "metro station", railway: "railway", funicular: "funicular", cablecar: "cable car", avenue: "avenue", bridge: "bridge", tram: "tram (konka, route streets)" },
-      trPeriod: (a, b, c, d) => "from " + a + (b < 9999 ? " until " + b : "") + (c > 0 ? ", then from " + c + (d < 9999 ? " until " + d : "") : ""),
-      trEvents: "Transport and roads in these years",
-      showTopo: "General Staff topographic map (NAPR, Georgia) over the map",
-      topoNote: "Soviet topographic maps of various editions (the editions are in the list); open tiles of maps.gov.ge (Tbilisi area). Parts of a sheet can be from different years.",
-      swLeft: "old plan (left of the bar)", swRight: "today's map (right)",
-      autoTopo: "From 1953 to 2005 show the topographic map instead of a plan",
-      topoLine: (name) => "General Staff topographic map (NAPR): " + name + ". Sheets of various editions; parts can be from different years.",
-      showStLabels: "Street names of that year on the map (checked data only)",
-      howTitle: "How to use",
-      how: [
-        "The slider at the bottom sets the year; ▶ plays the animation. The icons above it mark historical events: click one to jump to that year and read the source.",
-        "Click an object dot to open its card. The address of the page remembers the object, the year and the place on the map, so the link can be shared.",
-        "The Filters window on the right switches layers: old plan, topographic map (from 1953 it replaces the plan), transport, street names of that year.",
-        "Swipe: left of the white bar is the old plan or topographic map, right of it today's map. What was here: a click on the map shows that point on every old plan.",
-        "The Info and Filters windows can be hidden with the buttons at the top.",
-      ],
-      roadLabels: "Names of present-day streets over the old plan",
-      popTitle: "Population of the city",
-      popNote: "The city within its borders of each year; sources and methods differ, so the series is approximate. Dark dots: censuses and statistics, hollow dots: estimates (not confirmed).",
-      popBefore: "No population figure for this year (the earliest estimate is 1803).",
-      show94: "Objects of 1894 from the Persian traveller's description (hotels, theatres, bath, museums)",
-      c94Title: "From the 1894 description of Tbilisi",
-      c94Pos: "Position",
-      c94Conf: { high: "high confidence", medium: "medium confidence (about 100-150 m)", low: "low confidence (200 m or more)" },
-      c94Src: "Source",
-      btnInfo: "Info", btnFilters: "Filters", evCluster: "Events close together on the scale (choose one)", btnViews: "Views", viewsAll: "All views (not only for the chosen year)", viewsNone: "No views for this year: for some years no freely licensed photographs were found. Tick \"All views\".", filtersTitle: "Filters and layers",
-      stTitle: "Street names in this year (checked against Wikipedia)",
-      stNow: "today",
-      stMore: "Names by year are known only for some streets.",
-      baseOff: "The basemap (OpenFreeMap) is not reachable from your network, so a simplified background without streets and buildings is shown. The historical layers, plans and names work.",
-      showStreets: "Streets on the 1913 plan (experiment, automatic trace)",
-      showSwipe: "Swipe: old plan on the left, today's map on the right (drag the bar)",
-      showHere: "What was here: click the map to see that point on every plan",
-      hereTitle: "This point on the old plans",
-      hereLoad: "Plans are loading one by one…",
-      hereNone: "This point is outside every plan.",
-      hereAcc: (m) => "georeferencing accuracy ±" + m + " m",
-      hereNote: "The window is about 260 m wide. Every plan is fitted to the map with its own error, so a shift of tens of metres is possible.",
-      typesTitle: "Use (today — by name, otherwise per register)", func: "Present-day use (by name)", func0: "Original function (per register)", wiki: "Wikipedia article",
-      types: { residential: "Residential houses", religious: "Religious", defense: "Defensive", culture: "Education, science, culture",
-               public: "Public and commercial", transport: "Transport and engineering", memorial: "Memorials and parks", rural: "Archaeology and rural", other: "Other" },
-    },
-    ka: {
-      title: "თბილისი დროში",
-      showPlan: "ძველი გეგმა რუკაზე", planOpacity: "გეგმის გამჭვირვალობა",
-      showBnd: "განაშენიანების საზღვრები წლების მიხედვით", showAdmin: "თანამედროვე ადმინისტრაციული საზღვარი (2019, შესადარებლად)", showDistricts: "რაიონები და მათი სახელები", oldAdmin: "ძველი საზღვარი (1973–2005): დასახლებების მდებარეობით ემთხვევა 2006 წლამდე არსებულ საზღვარს (≈330 კმ², დისერტაციაში 354 კმ²; ნაკრების თარიღი დადასტურებული არ არის)", distNone: "ამ პერიოდისთვის რაიონული დაყოფის შესახებ ინფორმაცია პროექტში არ არის.", distNote: "სახელები და პერიოდები გადმოცემულია ხელოვნური ინტელექტის მიერ მეორადი წყაროებიდან და ორიგინალებთან შემოწმებული არ არის; წარსულის რაიონების საზღვრები ღია მონაცემებში ვერ მოიძებნა.", distTitle: (lbl) => `რაიონები: ${lbl}`, distMod: "დღეს", showFilter: "რეესტრის ობიექტების ჩვენება", showNat: "ეროვნული მნიშვნელობის", showMon: "ძეგლები", showObj: "კულტურული მემკვიდრეობის ობიექტები",
-      legNew: "აშენებულია ბოლო 25 წლის განმავლობაში", legOld: "აშენებულია უფრო ადრე", legNat: "ეროვნული მნიშვნელობის",
-      legCoarse: "ზუსტი თარიღი უცნობია (საუკუნე, საუკუნის ნახევარი)",
-      count: (n, y) => `${n} ობიექტი ${y} წლისთვის`,
-      noPlan: (first, last, y) => y < first ? `ამ პერიოდის გეგმა ჯერ არ არის (პირველი — ${first}).` : `ამ პერიოდისთვის გეგმა ჯერ არ არის (ბოლო — ${last}). ფონი — თანამედროვე რუკა.`,
-      plan: (y, m) => `${y} წლის გეგმა, მიბმის სიზუსტე ≈ ${m} მ`,
-      bnd: (y) => `ქალაქის განაშენიანების საზღვარი ${y} წლის გეგმით (თვალით, მიახლოებით)`,
-      bndPartial: (y) => `ქალაქის საზღვარი ${y} წლის გეგმით: დატანილია მხოლოდ კარგად ხილული მონაკვეთები (ჩრდილოეთი და აღმოსავლეთი), დასავლეთი და სამხრეთი არ არის დატანილი`,
-      noBnd: (y) => `${y} წლის გეგმის საზღვარი ჯერ არ არის დატანილი.`,
-      area: (km, y, src) => `ქალაქის ტერიტორია ≈ ${km} კმ² (${y} წლის მონაცემი; ${src === "sec" ? "მეორადი წყარო, ორიგინალთან არ არის შემოწმებული" : "ხარებავა 2024"})`,
-      note: (undated) => `ობიექტების თარიღები რეესტრის ჩანაწერებიდანაა; თარიღთა დიაპაზონისთვის (საუკუნის მეოთხედი, საუკუნე და ა. შ.) შკალაზე აღებულია დიაპაზონის ბოლო, ე. ი. „არაუგვიანეს“. ${undated} თარიღის არმქონე ობიექტი ნაჩვენები არ არის. ფონური რუკა — OpenFreeMap / OpenStreetMap.`,
-      name: "სახელწოდება", address: "მისამართი", cls: "ტიპი", date: "თარიღი რეესტრში", est: "შკალაზე ჩანს", range: "დიაპაზონი", prec: "სიზუსტე",
-      reg: "რეესტრის №", unc: "მდებარეობა რუკაზე სავარაუდოა", national: "ეროვნული მნიშვნელობის", object: "კულტურული მემკვიდრეობის ობიექტი", monument: "ძეგლი",
-      photo: "ფოტო წერტილის სიახლოვეს (შეიძლება მეზობელ შენობას აჩვენებდეს)", photoBy: "ფოტო",
-      precision: { exact: "წელი", quarter: "საუკუნის მეოთხედი", middle: "საუკუნის შუა", half: "საუკუნის ნახევარი", century: "საუკუნე", mixed: "შერეული", years: "წლები", unknown: "—" },
-      src: { ExactDate: "„ზუსტი თარიღის“ ველი", Period: "„პერიოდის“ ველი", DateRange: "თარიღთა დიაპაზონი" },
-      classes: { architecture: "არქიტექტურა", archaeology: "არქეოლოგია", ethnography: "ეთნოგრაფია", memorial: "მემორიალური", urban: "ქალაქთმშენებლობა",
-                 monumental_art: "მონუმენტური ხელოვნება", garden: "საბაღე-საპარკო", science: "მეცნიერება", engineering: "საინჟინრო", other: "სხვა" },
-      aboutTitle: "პროექტის შესახებ და წყაროები",
-      about: [
-        "არაკომერციული ჰობი-პროექტი ღია მონაცემებზე. თარიღები, საზღვრები და გეგმების მიბმა მიახლოებითია და არ წარმოადგენს ოფიციალურ ინფორმაციას.",
-        "ობიექტები: საქართველოს უძრავი კულტურული მემკვიდრეობის ძეგლთა რეესტრის საჯარო ინფორმაცია (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო). ამ მონაცემებისთვის წერილობითი ღია ლიცენზია ვერ მოიძებნა; არაკომერციული მიზნით გამოყენებულია შემოკლებული ამონარიდი (სახელწოდება, მისამართი, კოორდინატები, თარიღები, ნომერი). თარიღები რეესტრის ჩანაწერებზე დაფუძნებული შეფასებაა.",
-        "ტფილისის გეგმები, 1735 (ვახუშტი, სქემატური), 1785 (პიშჩევიჩი), 1800 (ჩუიკო), 1821 (შვეცოვი), 1844 (სამხედრო-ტოპოგრაფიული დეპო), 1850 (გენშტაბი), 1887 (ა. ილინი) 1911 (შემოგარენის ტოპოგრაფიული ფურცელი) და 1913 (საქალაქო სამმართველოს მიწისმზომელთა განყოფილება): Wikimedia Commons-ის სკანები, საჯარო სივრცე. გეგმები თანამედროვე რუკაზე მიბმულია საკონტროლო წერტილებით (სიზუსტე დაახლოებით 50 მ, 1735 წლის გეგმისთვის დაახლოებით 150 მ), განაშენიანების საზღვრები მათ მიხედვით ხელით არის დატანილი.",
-        "ტფილისის ისტორიული ხედები (1578–1910-იანი წლები): „ნუსრეთნამეს“ მინიატურა (British Library), გრავიურები შარდენისა და ტურნეფორის ნახატებით, ჩერნეცოვის, ლერმონტოვის, ფრანკენისა და აივაზოვსკის ნახატები, ერმაკოვისა და პროკუდინ-გორსკის ფოტოები; Wikimedia Commons-ის ფაილები, საჯარო სივრცე; შემცირებული ასლები. ესენი ერთი წერტილიდან შესრულებული ნახატები და ფოტოებია და რუკას არ უკავშირდება.",
-        "ტოპოგრაფიული რუკები (გენშტაბის ტოპორუკის ფენა): 1:10 000–1:100 000 სერიები, 1952–2007 წლების გამოცემები, საჯარო ტაილები საქართველოს საჯარო რეესტრის ეროვნული სააგენტოსგან (maps.gov.ge); თბილისის ტერიტორიის ტაილები გადმოწერილია 2026 წლის ნოემბერში და ინახება ამ საიტზე; რუკები სააგენტოს ეკუთვნის.",
-        "ტრანსპორტი: მეტროს, რკინიგზის, ფუნიკულიორის, საბაგიროს, გამზირებისა და ხიდების ხაზები; გეომეტრია (c) OpenStreetMap-ის მონაწილეები (ODbL), წლები ვიკიპედიისა და Wikidata-ს გვერდებიდან (წყაროები მოვლენების ფანჯრებსა და ხაზის ბარათებშია). ტრამვაი: 1883-1910 წლების კონკა და 1962-2006 წლების მარშრუტების ქუჩები ქართული ვიკიპედიის სიებიდან; ქუჩა მთლიანადაა დახატული, ამიტომ ხაზი რეალურ ლიანდაგზე გრძელია და ზოგ მარშრუტს წყვეტები აქვს.",
-        "მოვლენები სლაიდერზე და ქუჩების სახელები წლების მიხედვით: მხოლოდ ის, რასაც ვიკიპედიის ღია გვერდი ადასტურებს (ბმული ნაჩვენებია მოვლენის ფანჯარასა და ქუჩის სტრიქონთან). ნახაზებსა და ძიებას ხელოვნური ინტელექტი (Gemini) ამზადებდა, შემდეგ თითოეული დებულება გვერდის მიხედვით მოწმდებოდა; დაუდასტურებელი ამოვარდა. გადარქმევის წლები სტატიებს შორის ზოგჯერ განსხვავდება; ეს აღნიშნულია.",
-        "ძველი ფოტოები «ისტორიულ ხედებში» (ერმაკოვი, ენგელი და სხვ.): Wikimedia Commons, საჯარო სივრცე; წარწერა და წელი Commons-ის აღწერის მიხედვით; რუკას არ უკავშირდება.",
-        "კონფიდენციალურობა: გვერდი არ იყენებს cookie-ს და ანალიტიკას; ბრაუზერში მხოლოდ არჩეული ენა და პანელების მდგომარეობა ინახება. ჩატვირთვისას ბრაუზერი მიმართავს tiles.openfreemap.org-ს (რუკის ფონი) და wikimedia.org-ს (ფოტოების გადახედვა), ამიტომ ამ სერვისებს ეხილვებათ სტუმრის მისამართი. GitHub-ით გაგზავნილი უკუკავშირი საჯარო Issue-ს ქმნის.",
-        "განაშენიანების სიმჭიდროვე: OpenStreetMap-ის შენობების კონტურებით დაკავებული ფართობის წილი (© OpenStreetMap contributors, ODbL), დაახლოებით 100×100 მ უჯრედებში; ნაჩვენებია ექსპორტის მომენტის მდგომარეობა (2026 წლის ნოემბერი); OSM-ის შენობებს აგების წლები არ აქვს, ამიტომ ფენა მხოლოდ თანამედროვე წლებისთვის ჩანს.",
-        "თბილისის ადმინისტრაციული საზღვარი (2019): OCHA COD-AB Georgia (HDX), წყარო — საქართველოს სტატისტიკის ეროვნული სამსახური, ლიცენზია CC BY-IGO. ფართობი 502,5 კმ² ემთხვევა დისერტაციის მონაცემს 2006 წლის შემდგომი პერიოდისთვის.",
-        "რაიონების საზღვრები და სახელები: © OpenStreetMap-ის მონაწილეები, ლიცენზია ODbL (ეს მონაცემთა ნაკრები წარმოებული ბაზაა; გამოყენებისას შეინარჩუნეთ იგივე ლიცენზია და ატრიბუცია). ნაჩვენებია 10 რაიონად დღევანდელი დაყოფა.",
-        "1973–2005 წლების ნაცრისფერი წყვეტილი ხაზი — geoBoundaries-ის საზღვარია (ADM2, მეტამონაცემები: 2007). შემოწმება დასახლებების მდებარეობით: 2006 წელს მიერთებული (წყნეთი, წავკისი, ოქროყანა, კიკეთი, ბეთანია, დიდი დიღომი, ზაჰესი) მის გარეთაა, ადრე მიერთებული (პონიჭალა, ორხევი, გლდანი, ვარკეთილი) — შიგნით, ანუ ის შეესაბამება 2006 წლამდე არსებულ საზღვარს. მისი ფართობი დაახლოებით 330 კმ² დისერტაციის 354 კმ²-ზე ნაკლებია, მიზეზი დადგენილი არ არის. რაიონული დაყოფა და სახელები პერიოდების მიხედვით (საზღვრების გარეშე) გადმოცემულია ხელოვნური ინტელექტის მიერ მეორადი წყაროებიდან და ორიგინალებთან შემოწმებული არ არის.",
-        "ქალაქის ფართობი: ნ. ხარებავა, სადოქტორო დისერტაცია, ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი, 2024.",
-        "ფოტოები: Wikimedia Commons, ავტორისა და ლიცენზიის მითითებით; შერჩეულია კოორდინატებით და შეიძლება მეზობელ შენობას აჩვენებდეს.",
-        "დროის შკალა იწყება IV საუკუნიდან: ზოგადი მიმოხილვების მიხედვით (ვიკიპედია, პირველწყაროებთან შემოწმებული არ არის), ქალაქის ადგილას ციხესიმაგრის შესახებ უძველესი წერილობითი ცნობები IV საუკუნის შუა და მეორე ნახევარს (დაახლოებით 364 წელი) განეკუთვნება, ხოლო ქალაქის დაარსების ტრადიციული თარიღი ქართული მატიანეების მიხედვით 458 წელია (ვახტანგ გორგასალი). 1700 წლამდე შკალა შეკუმშულია, 1735 წლამდე გეგმები და საზღვრები არ არის, ნაჩვენებია მხოლოდ რეესტრის ობიექტები.",
-        "დაკარგული შენობები: სია შედგენილია ხელოვნური ინტელექტის (Gemini) მიერ Wikidata-ს, ვიკიპედიის (ka, ru, en) და ისტორიული გეგმების ლეგენდების მიხედვით; თარიღები და მდებარეობა მიახლოებითია, ბუშტი აჩვენებს, ნაპოვნია თუ არა დაკარგვის წელი წყაროს გვერდზე. ეს არ არის ოფიციალური რეესტრი.",
-        "განაშენიანების საზღვრები 1972 წლიდან: GUSV — Mapping of 30 m global urban boundaries from 1972 to 2021 (Zenodo, doi:10.5281/zenodo.14523232), ლიცენზია CC BY 4.0; გასწორებული და გამარტივებულია პროექტის მიერ. 1954 წლის კონტური: აშშ-ის არმიის რუკების სამსახურის NK 38-8 ფურცელზე განაშენიანების შევსება (1:250 000), საჯარო სივრცე; მდებარეობა მიახლოებითია.",
-        "ფონური რუკა: OpenFreeMap, © OpenMapTiles, მონაცემები © OpenStreetMap-ის მონაწილეები. რუკის ბიბლიოთეკა: MapLibre GL JS.",
-      ],
-      urbanNone: (first) => `ამ პერიოდისთვის განაშენიანების საზღვარი ჯერ არ არის (პირველი — ${first}).`,
-      urbanLine: (snap, src, partial, y, acc) => `განაშენიანების საზღვარი ${snap} წლისთვის${snap !== y ? " (უახლოესი " + y + " წელთან)" : ""}: ${src}${partial ? ". ნაჩვენებია მხოლოდ კარგად ხილული მონაკვეთები (ჩრდილოეთი და აღმოსავლეთი)" : ""}${acc ? ". მდებარეობის ცდომილება შეიძლება ~" + acc + " მ იყოს" : ""}`,
-      urbanSrc: { ams: "განაშენიანების შევსება 1954 წლის ამერიკულ რუკაზე (1:250 000, 1920–40-იანი წლების აგეგმვებით, დაახლოებით 1940-იანების მდგომარეობა), მიახლოებით", traced: "ძველი გეგმიდან ხელით დატანილი, მიახლოებით", gusv: "თანამგზავრული შეფასება (GUSV, Landsat): განაშენიანების გასწორებული კონტური, არა ადმინისტრაციული საზღვარი" },
-      showSettle: "ქალაქს შეერთებული დასახლებები",
-      settleJoined: (y, from, geomNote) => `ქალაქს შეუერთდა: ${y} წელი${from ? " (" + from + ")" : ""}`,
-      settleUnknown: "შეერთების წელი პროექტში მითითებული არ არის",
-      settleSrc: "წელი და საფუძველი გადმოცემულია ხელოვნური ინტელექტის მიერ მეორადი წყაროებიდან (ქაქურია 1979, საბჭოთა დიდი ენციკლოპედია, 2006 წლის პარლამენტის დადგენილება) და ორიგინალებთან შემოწმებული არ არის.",
-      settleGeom: { inside_old: "მდებარეობით 2006 წლამდე არსებული საქალაქო საზღვრის შიგნითაა.", outside_old_inside_2019: "მდებარეობით 2006 წლამდე არსებული საზღვრის გარეთაა და დღევანდელის შიგნით: ეს შეესაბამება 2006 წელს მიერთებას.", outside_2019: "დღევანდელი საქალაქო საზღვრის გარეთაა." },
-      settleFrom: { Gardabani: "გარდაბნის რაიონიდან", Mtskheta: "მცხეთის რაიონიდან" },
-      settleNow: (y, inCity) => `${y} წელს: ${inCity === null ? "შეერთების წელი უცნობია" : inCity ? "ადმინისტრაციულად ქალაქის ნაწილია (ეს არ ნიშნავს, რომ განაშენიანებულია)" : "ჯერ არ შედიოდა ქალაქში"}`,
-      settleConflict: "⚠ მდებარეობა წელს ეწინააღმდეგება: 2006 წლამდე არსებული საზღვრის გარეთაა (ან გადმოცემული წელი არასწორია, ან ნაკრების საზღვარი ამ სოფელს არ მოიცავს).",
-      legRuin: "ნანგრევები ან ნაშთები (რეესტრის სახელის მიხედვით)", ruinRow: "მდგომარეობა", ruinTxt: "ნანგრევები, ნაშთები ან ობიექტის ადგილი (რეესტრის სახელის მიხედვით)",
-      legTitle: "პირობითი ნიშნები", legObjects: "რეესტრის ობიექტები (წერტილები)", legBounds: "ხაზები და არეები", legNames: "წარწერები",
-      legFill: "განაშენიანება / ქალაქის ტერიტორია არჩეული წლისთვის (შევსება კონტურით)",
-      legSat: "უწყვეტი ხაზი: განაშენიანების თანამგზავრული შეფასება (1972-დან)",
-      legTraced: "წყვეტილი: ძველი გეგმიდან ან რუკიდან ხელით დატანილი",
-      legAdmin: "მუქი წყვეტილი: თანამედროვე ადმინისტრაციული საზღვარი (2019)",
-      legOldAdmin: "რუხი წყვეტილი: საზღვარი 2006 წლამდე (1973–2005)",
-      legDistLine: "თხელი ხაზი: თანამედროვე რაიონების საზღვრები",
-      legPlan: "ძველი გეგმა (როცა ჩართულია „ძველი გეგმა რუკაზე“)",
-      legDistName: "რაიონის დასახელება (თანამედროვე)",
-      legSetBefore: "დასახლება: ქალაქში ჯერ არ შედის",
-      legSetAfter: "დასახლება: უკვე ქალაქის ნაწილია",
-      legSetUnk: "დასახლება: შეერთების წელი უცნობია",
-      legSetName: "დასახლების დასახელება (დააწკაპუნეთ წერტილზე: როდის და საიდან შეუერთდა)",
-      fbBtn: "შეცდომის შეტყობინება", fbTitle: "შეატყობინეთ შეცდომა ან ნაკლოვანება",
-      fbHint: "აღწერეთ, რა არის არასწორი ან რა აკლია. შეტყობინება იგზავნება პროექტის ავტორის დახურულ რიგში (ანგარიში საჭირო არ არის) და არსად ქვეყნდება. თუ ფორმა მიუწვდომელია, შეტყობინება გაიხსნება GitHub-ზე.",
-      fbType: "რა არის არასწორი", fbK1: "შეცდომა ობიექტის მონაცემებში (სახელი, თარიღი, მისამართი, მდებარეობა)", fbK2: "ძველი გეგმა არასწორ ადგილასაა (მიბმა)", fbK3: "ქალაქის ან განაშენიანების საზღვარი", fbK4: "შეცდომა თარგმანში ან სახელში", fbK5: "უფლებების საკითხი, გთხოვთ წაშალოთ მონაცემები", fbK6: "სხვა",
-      fbText: "აღწერა", fbCtx: "კონტექსტი (ივსება ავტომატურად)", fbContact: "როგორ დაგიკავშირდეთ (სურვილისამებრ)", fbSend: "გაგზავნა", fbCancel: "გაუქმება",
-      fbCaptcha: "გაიარეთ შემოწმება „მე არ ვარ რობოტი“ და გაგზავნეთ ხელახლა.", fbLimit: "ერთ დღეში ძალიან ბევრი შეტყობინებაა. სცადეთ ხვალ.", fbWait: "ძალიან სწრაფად: რამდენიმე წამი დაელოდეთ და ხელახლა გაგზავნეთ.", fbFail: "შეტყობინება ვერ გაიგზავნა. შეამოწმეთ ტექსტი (მინიმუმ 5 სიმბოლო) ან სცადეთ მოგვიანებით.", 
-      fbSent: "გმადლობთ! შეტყობინება გაიგზავნა.", fbOpened: "გაიხსნა GitHub-ის ფანჯარა: დაადასტურეთ იქ გაგზავნა.", fbPopup: "შეატყობინეთ ამ ობიექტის შესახებ შეცდომა",
-      showLost: "დაკარგული შენობები (დანგრეული ან განადგურებული)", showGhost: "დაკარგვის შემდეგაც ჩვენება (მკრთალად)",
-      legLostOn: "დაკარგული შენობა: ამ წელს ჯერ დგას", legLostUnc: "დაკარგული: აშენების ან დაკარგვის თარიღი ზუსტი არ არის", legLostOff: "დაკარგული: უკვე აღარ არის (მკრთალი „აჩრდილი“)",
-      lostKinds: { church: "ეკლესია", cathedral: "ტაძარი", mosque: "მეჩეთი", synagogue: "სინაგოგა", caravanserai: "ქარვასლა", theatre: "თეატრი", gate: "კარიბჭე", wall: "გალავანი", tower: "კოშკი", bridge: "ხიდი", station: "სადგური", barracks: "ყაზარმა/ციხე", palace: "სასახლე", house: "სახლი", other: "სხვა" },
-      lostWhy: { demolished: "დანგრეულია", destroyed: "განადგურებულია", rebuilt: "გადაკეთებულია", flooded: "დატბორილია", unknown: "მიზეზი უცნობია" },
-      lostBuilt: "აშენდა", lostLost: "დაიკარგა", lostRepl: "ამჟამად ადგილზე", lostState: { stand: "ამ წელს ჯერ დგას", unc: "ამ წელს შეიძლება უკვე დანგრეული ყოფილიყო (დაკარგვის თარიღი ზუსტი არ არის)", gone: "ამ წელს უკვე დაკარგულია", early: "ამ წელს შეიძლება ჯერ არ არსებულიყო (აშენების თარიღი ზუსტი არ არის)" },
-      lostAcc: (m, pos) => `მდებარეობა ${pos === "plan" ? "აღებულია ისტორიული გეგმიდან" : "წყაროს კოორდინატებით"}, ცდომილება ≈ ${m} მ`,
-      lostChk: "დაკარგვის წელი ნაპოვნია მითითებულ წყაროს გვერდზე (სუსტი შემოწმება)", lostNoChk: "დაკარგვის წელი მითითებულ გვერდებზე ავტომატურად ვერ მოიძებნა",
-      lostSrc: "სია შედგენილია ხელოვნური ინტელექტის მიერ Wikidata-ს, ვიკიპედიისა და გეგმების ლეგენდების მიხედვით; ოფიციალური არ არის.", lostSources: "წყაროები",
-      showWater: "თბილისის ზღვა და ტბები (ისტორიული)",
-      legWater: "თბილისის ზღვა (წყალსაცავი, 1951–1953-დან)", legLake: "მლაშე ტბები წყალსაცავამდე (დაახლოებით 1911 წლის ტოპოგრაფიული ფურცლიდან)",
-      waterRes: "თბილისის ზღვა (თბილისის წყალსაცავი)", waterLake: "მლაშე ტბა (მომავალი თბილისის ზღვის ადგილას ან გვერდით)",
-      waterTxtRes: (y) => y < 1951 ? "ამ წელს ზღვა ჯერ არ არსებობდა: მოგვიანებით დატბორილ ველზე მლაშე ტბები იყო (ნაცრისფერი შევსება მომავალ აკვატორიას აჩვენებს)." : y < 1953 ? "წყალსაცავი ივსებოდა: წყაროები გახსნის თარიღზე ერთმანეთს არ ემთხვევა (1951 ან 1953)." : "წყალსაცავი არსებობს (კონტური OpenStreetMap-იდან; ლიტერატურაში 11,2–11,6 კმ²).",
-      waterTxtLake: (y) => y < 1953 ? "ტბა შემოხაზულია დაახლოებით 1911 წლის თბილისის შემოგარენის ტოპოგრაფიული ფურცლით (1:42 000); ტბების უფრო ადრინდელი სახე და 1951 წლამდე ცვლილებები არ შემოწმებულა. მდებარეობა დაახლოებით ±70 მ." : "ამ წლისთვის ტბები წყალსაცავმა დატბორა.",
-      waterSrc: "წყაროები: OpenStreetMap (ზღვის კონტური, ODbL); ტოპოგრაფიული ფურცელი დაახლოებით 1911 წლიდან (ტბები).",
-      viewsTitle: "ისტორიული ხედები (ნახატები, არა გეგმები)",
-      viewClose: "დახურვა",
-      showRel: "რელიგიური ნაგებობები (ჩნდება და ქრება წლების მიხედვით)", relNames: { orthodox: "ქართული მართლმადიდებლური", russian: "რუსული მართლმადიდებლური", lutheran: "ლუთერანული", yazidi: "ეზიდური", armenian: "სომხური სამოციქულო", catholic: "კათოლიკური", jewish: "ებრაული", muslim: "მუსლიმური", zoroastrian: "ზოროასტრული" }, relApprox: "წერტილი რუკაზე მიახლოებითია", relBuilt: "აშენდა", relGone: "დაკარგულია", relStatus: "დღეს", relSrc: "წყაროები",
-      showRulers: "მმართველები და მმართველობის ფორმები (ზოლი სკალის ქვეშ)", ruleNow: "ვინ მართავდა", ruleState: "სახელმწიფო", ruleOver: "გარე ძალა", ruleAdmin: "ადმინისტრაციული ერთეული", ruleForm: "მმართველობის ფორმა", ruleYears: "წლები", ruleNoData: "მონაცემი არ არის",
-      showRun: "Tbilisi Running Club: City Run 2026-ის მარშრუტი და რა ჩანს გზაზე (დღევანდელი ქალაქი)", runStats: (r, n) => `${r.length_km} კმ, სიმაღლე ${r.ele_min}-${r.ele_max} მ, ${n} ღირსშესანიშნაობა`, runKm: "კილომეტრი", runDist: "ტრასიდან", runYear: "თარიღი რეესტრში", runWiki: "ვიკიპედია", runStart: "სტარტი და ფინიში", runList: "მარშრუტის გასწვრივ თანმიმდევრობით", runNote: "სიაში შედის საიტის მონაცემთა ობიექტები, რომელთა წერტილი ტრასიდან 150 მ-ს არ აცილდება: ეროვნული მნიშვნელობის, ვიკიპედიის სტატიით, ეკლესიები, ხიდები, თეატრები, მუზეუმები, გალავნები და ციხეები. მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა. ეს ხილვადობის შემოწმება არ არის.", runSrc: "მარშრუტი (გეომეტრია)",
-      topoPlanOpt: "1:2 000 · ქალაქის გეგმა (z17)", legDistEx: "მთაწმინდა", legSetEx: "კოჯორი", ariaLang: "ენა", ariaClose: "დახურვა", fbContactPh: "ელფოსტა ან ტელეგრამი (არასავალდებულო)",
-      showSci: "მეცნიერება და კულტურა: ინსტიტუტები, უნივერსიტეტები, მუზეუმები, თეატრები (ჩნდება წლების მიხედვით)", sciKinds: { science: "მეცნიერება და განათლება", culture: "კულტურა" }, sciFounded: "დაარსდა", sciBuilt: "შენობა", sciFrom: "ჩნდება", sciSrc: "წყაროები", sciFaint: "ფერმკრთალი წერტილი: შენობა ჯერ არ არის აშენებული ან დაწესებულება სხვაგან იყო",
-      lcTitle: "ჩემი მდებარეობის ჩვენება", nrBtnT: "რა არის ჩემ გვერდით", nrTitle: "ჩემ გვერდით", nrHint: "ნაჩვენებია ობიექტები, რომლებიც არჩეულ წელს არსებობს (ფილტრების გათვალისწინებით), და მოვლენები, რომლებსაც რუკაზე ადგილი აქვს. მანძილი წრფივია, ისარი მიმართულებას აჩვენებს (ზემოთ ჩრდილოეთია). მდებარეობა გამოიყენება მხოლოდ თქვენს ბრაუზერში და არსად იგზავნება.", nrNone: "ახლოს არაფერი მოიძებნა.", nrFar: "თბილისიდან შორს ხართ: ნაჩვენებია უახლოესი.", nrDenied: "მდებარეობის დადგენა ვერ მოხერხდა. ბრაუზერში დართეთ ნება გეოლოკაციაზე ამ საიტისთვის და ტელეფონზე ჩართეთ მდებარეობა.", nrAcc: "სიზუსტე დაახლოებით", unitM: "მ", unitKm: "კმ", nrEv: "მოვლენა",
-      tbHide: "დროის სკალის ჩაკეცვა", tbShow: "დროის სკალის გაშლა", rbHide: "მმართველების ხაზის დამალვა", rbShow: "მმართველები",
-      glFail: "რუკის გრაფიკის (WebGL) გაშვება ვერ მოხერხდა. გვერდის განახლება აქ არ დაგეხმარებათ: მთლიანად დახურეთ ბრაუზერი (ყველა ფანჯარა) და ხელახლა გახსენით, ან განაახლეთ ვიდეოდრაივერი. სხვა ბრაუზერში (Edge, Chrome) საიტი შეიძლება გაიხსნას.", glSlow: "რუკა დიდხანს იტვირთება. თუ ეკრანი ცარიელი რჩება, მთლიანად დახურეთ ბრაუზერი და ხელახლა გახსენით ან განაახლეთ ვიდეოდრაივერი.", glReload: "გვერდის განახლება",
-      loadMap: "რუკა და მონაცემები იტვირთება…", loadPlan: "გეგმა იტვირთება…", loadFail: "მონაცემების ჩატვირთვა ვერ მოხერხდა. განაახლეთ გვერდი (Ctrl+F5).",
-      topoAutoNote: "ტოპოგრაფიული რუკა ახლა ავტომატურად არის ჩართული (1953–2005 წლები, გეგმის ნაცვლად). გასაქრობად მოხსენით ქვემოთ მოცემული ნიშნული „1953-2005 წლებში გეგმის ნაცვლად ტოპორუკის ჩვენება“.",
-      trRoutes62: "მარშრუტები 1962 წლის სიით", trRoutes86: "მარშრუტები 1986 წლის სიით",
-      chgTitle: "რა არის ახალი", chgNew: "ახალი", chgFix: "გასწორდა", chgFail: "ცვლილებათა ჟურნალის ჩატვირთვა ვერ მოხერხდა.",
-      trGapEarly: "თბილისში ელექტრო ტრამვაი 1904 წლის 25 დეკემბრიდან დადიოდა. მისი ხაზები რუკაზე 1913 წლის გეგმიდან ჩანს, ამ წლისთვის დატანილი არ არის.", trGapMid: (km, y) => `ამ წლებში ტრამვაი იყო (ქსელის დაახლოებით ${km} კმ ${y} წელს, ru.wikipedia), მაგრამ მისი ხაზები რუკაზე დატანილი არ არის: ქუჩების შესახებ მონაცემები არ გვაქვს.`,
-      runPage: "მარშრუტის გვერდი: რუკა, აღწერები და ფოტოები", runCopy: "ბმულის კოპირება", runCopied: "ბმული დაკოპირდა",
-      searchBtn: "ძებნა", searchPh: "სახელი, მისამართი, მოვლენა ან წელი", searchNone: "ვერაფერი მოიძებნა", searchYear: "გადასვლა წელზე", searchMore: "ნაჩვენებია პირველი შედეგები, დააზუსტეთ მოთხოვნა",
-      zoomL: "სკალის გადაწევა ადრეული წლებისკენ", zoomR: "სკალის გადაწევა გვიანდელი წლებისკენ",
-      zoomAll: "ყველა", zoomIn: "დროის სკალის გაზრდა", zoomOut: "დროის სკალის დაპატარავება",
-      viewPrev: "წინა ფოტო",
-      viewNext: "შემდეგი ფოტო",
-      viewLicense: "ლიცენზია",
-      viewSource: "წყარო",
-      fbContactWarn: "კონტაქტს მხოლოდ პროექტის ავტორი ნახავს. თუ ფორმა მიუწვდომელია და შეტყობინება GitHub-ით იგზავნება, ის საჯარო გახდება: მაშინ ნუ მიუთითებთ იმას, რისი გამოქვეყნებაც არ გსურთ.",
-      infoBtn: "წყაროები და დეტალები",
-      infoTitle: "წყაროები და დეტალები",
-      evCats: { unrest: "პროტესტი და ძალადობა", oldest: "უძველესი შემორჩენილი ნაგებობა", build: "მშენებლობა და მიღწევები", invasion: "შემოსევა, ალყა, აღება", earthquake: "მიწისძვრა", fire: "ხანძარი", flood: "წყალდიდობა", power: "ხელისუფლების ცვლილება, პოლიტიკური მოვლენა", science: "მეცნიერება", other: "მოვლენა" },
-      evSrc: "წყაროები",
-      evNote: "თარიღი და დეტალები ვიკიპედიის სტატიებიდან (en, ru).",
-      infoRegister: "ობიექტის მონაცემები: საქართველოს კულტურული მემკვიდრეობის უძრავი ძეგლების რეესტრის საჯარო ცნობები (კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო), შემოკლებული ამონარიდი არაკომერციული გამოყენებისთვის. პირობები და წყაროების სრული სია: „პროექტის შესახებ და წყაროები“ გვერდით პანელში.",
-      infoPhotos: "ფოტოები",
-      showDensity: "განაშენიანების სიმჭიდროვე (OSM, დღეს)",
-      legDensity: "განაშენიანების სიმჭიდროვე OSM-ის შენობების მიხედვით (2015-დან): ღია — იშვიათი, მუქი წითელი — ძალიან მჭიდრო",
-      showTransport: "ტრანსპორტი: მეტრო, რკინიგზა, ფუნიკულიორი, გამზირები",
-      legTransport: "ტრანსპორტი წლების მიხედვით: მეტრო (წითელი ახმეტელი-ვარკეთილის ხაზი, მწვანე საბურთალოს ხაზი), გამზირები და ხიდები (ნარინჯისფერი და ლურჯი), კონკა 1883–1910 (ყავისფერი), რკინიგზა (ნაცრისფერი), ფუნიკულიორი და საბაგირო (იისფერი პუნქტირი)",
-      trKinds: { metro_line: "მეტროს ხაზი", metro_station: "მეტროს სადგური", railway: "რკინიგზა", funicular: "ფუნიკულიორი", cablecar: "საბაგირო", avenue: "გამზირი", bridge: "ხიდი", tram: "ტრამვაი (კონკა, მარშრუტების ქუჩები)" },
-      trPeriod: (a, b, c, d) => a + "-დან" + (b < 9999 ? " " + b + "-მდე" : "") + (c > 0 ? ", შემდეგ " + c + "-დან" + (d < 9999 ? " " + d + "-მდე" : "") : ""),
-      trEvents: "ტრანსპორტი და გზები ამ წლებში",
-      showTopo: "გენშტაბის ტოპოგრაფიული რუკა (სსიპ, საქართველო) რუკის თავზე",
-      topoNote: "საბჭოთა ტოპორუკები სხვადასხვა გამოცემისა (გამოცემები სიაშია); maps.gov.ge-ს საჯარო ტაილები (თბილისის რაიონი). ფურცლის ნაწილები შეიძლება სხვადასხვა წლისა იყოს.",
-      swLeft: "ძველი გეგმა (ზოლის მარცხნივ)", swRight: "თანამედროვე რუკა (მარჯვნივ)",
-      autoTopo: "1953-2005 წლებში გეგმის ნაცვლად ტოპორუკის ჩვენება",
-      topoLine: (name) => "გენშტაბის ტოპოგრაფიული რუკა (სსიპ): " + name + ". სხვადასხვა გამოცემის ფურცლები, ნაწილები შეიძლება სხვადასხვა წლისა იყოს.",
-      showStLabels: "ქუჩების იმ წლის სახელები რუკაზე (შემოწმებული მონაცემები)",
-      howTitle: "როგორ გამოვიყენოთ",
-      how: [
-        "ქვედა ბოლოში სლაიდერი წელს არჩევს; ▶ ანიმაციას ჩართავს. სლაიდერის ზემოთ ხატები ისტორიულ მოვლენებს აღნიშნავს: დააწკაპუნეთ, რომ წელზე გადახვიდეთ და წყარო წაიკითხოთ.",
-        "ობიექტის წერტილზე დაწკაპუნებით იხსნება ბარათი. გვერდის მისამართი ობიექტს, წელს და ადგილს იმახსოვრებს, ამიტომ ბმულის გაზიარება შეიძლება.",
-        "მარჯვენა ფანჯარა «ფილტრები და ფენები» ფენებს რთავს: ძველი გეგმა, ტოპორუკა (1953 წლიდან გეგმის ნაცვლადაა), ტრანსპორტი, იმ წლის ქუჩების სახელები.",
-        "შედარება: თეთრი ზოლის მარცხნივ ძველი გეგმა ან ტოპორუკაა, მარჯვნივ დღევანდელი რუკა. «რა იყო აქ»: რუკაზე დაწკაპუნება ამ წერტილს ყველა ძველ გეგმაზე აჩვენებს.",
-        "«ცნობა» და «ფილტრები» ფანჯრების დამალვა ზედა ღილაკებით შეიძლება.",
-      ],
-      roadLabels: "დღევანდელი ქუჩების სახელები ძველი გეგმის თავზე",
-      popTitle: "ქალაქის მოსახლეობა",
-      popNote: "ქალაქი თითოეული წლის საზღვრებში; წყაროები და მეთოდები განსხვავდება, ამიტომ რიგი მიახლოებითია. მუქი წერტილები: აღწერები და სტატისტიკა, ღია წერტილები: შეფასებები (დაუდასტურებელი).",
-      popBefore: "ამ წლის მოსახლეობის მონაცემი არ არის (უადრესი შეფასება: 1803).",
-      show94: "1894 წლის ობიექტები ირანელი მოგზაურის აღწერის მიხედვით (სასტუმროები, თეატრები, აბანო, მუზეუმები)",
-      c94Title: "თბილისის 1894 წლის აღწერიდან",
-      c94Pos: "მდებარეობა",
-      c94Conf: { high: "მაღალი სიზუსტე", medium: "საშუალო სიზუსტე (დაახლოებით 100-150 მ)", low: "დაბალი სიზუსტე (200 მ და მეტი)" },
-      c94Src: "წყარო",
-      btnInfo: "ცნობა", btnFilters: "ფილტრები", evCluster: "მოვლენები სკალაზე ახლოს (აირჩიეთ)", btnViews: "ხედები", viewsAll: "ყველა ხედი (არა მხოლოდ არჩეული წლისთვის)", viewsNone: "ამ წლისთვის ხედები არ არის: ზოგი წლისთვის თავისუფალი ლიცენზიის ფოტო ვერ ვიპოვეთ. ჩართეთ „ყველა ხედი“.", filtersTitle: "ფილტრები და ფენები",
-      stTitle: "ქუჩების სახელები ამ წელს (შემოწმებულია ვიკიპედიით)",
-      stNow: "დღეს",
-      stMore: "სახელები წლების მიხედვით ცნობილია არა ყველა ქუჩისთვის.",
-      baseOff: "რუკის ფონი (OpenFreeMap) თქვენი ქსელიდან მიუწვდომელია, ნაჩვენებია გამარტივებული ფონი ქუჩებისა და შენობების გარეშე. ისტორიული ფენები, გეგმები და სახელები მუშაობს.",
-      showStreets: "ქუჩები 1913 წლის გეგმით (ექსპერიმენტი, ავტომატური გადახაზვა)",
-      showSwipe: "შედარება: მარცხნივ ძველი გეგმა, მარჯვნივ თანამედროვე რუკა (გადაადგილეთ ზოლი)",
-      showHere: "რა იყო აქ: დააწკაპუნეთ რუკაზე, რომ ნახოთ ეს წერტილი ყველა გეგმაზე",
-      hereTitle: "ეს წერტილი ძველ გეგმებზე",
-      hereLoad: "გეგმები იტვირთება თანმიმდევრულად…",
-      hereNone: "ეს წერტილი ყველა გეგმის გარეთაა.",
-      hereAcc: (m) => "მიბმის სიზუსტე ±" + m + " მ",
-      hereNote: "ფანჯარა დაახლოებით 260 მ-ია. თითოეული გეგმა რუკას საკუთარი ცდომილებით ერგება, ამიტომ ათეულობით მეტრით გადახრა შესაძლებელია.",
-      typesTitle: "დანიშნულება (დღეს — სახელის მიხედვით, სხვა შემთხვევაში რეესტრით)", func: "დღევანდელი დანიშნულება (სახელის მიხედვით)", func0: "თავდაპირველი დანიშნულება (რეესტრის მიხედვით)", wiki: "სტატია ვიკიპედიაში",
-      types: { residential: "საცხოვრებელი სახლები", religious: "რელიგიური", defense: "თავდაცვითი", culture: "განათლება, მეცნიერება, კულტურა",
-               public: "საზოგადოებრივი და სავაჭრო", transport: "ტრანსპორტი და ინჟინერია", memorial: "მემორიალები და პარკები", rural: "არქეოლოგია და სოფლის", other: "სხვა" },
-    },
-  };
+  const T = window.TT_I18N;
+
 
   const LANGS = ["ka", "en", "ru"];
   let lang = "en";
@@ -815,8 +315,6 @@
       ["==", ["get", "national"], true], getCss("--nat"),
       ["<=", ["-", year, ["get", "ye"]], NEW_YEARS], getCss("--accent"),
       getCss("--old")]);
-    $("count").textContent = t().count(countVisible(), year);
-
     const pl = currentPlan(year);
     for (const p of plans) {
       const on = pl && p.id === pl.id && $("showPlan").checked;
@@ -829,15 +327,12 @@
     updateDensity();
     updateTransport();
     updateTopo();
-    updateStNames();
-    updatePop();
     updateC94();
     updateReligious();
     updateScience();
     updateNoPhoto();
-    updateRuleLine();
+    updateRuleBar();
     updateStreets();
-    updateViews();
     updateSwipe();
     updateLost();
     if (map.getLayer("admin-line")) map.setLayoutProperty("admin-line", "visibility", $("showAdmin").checked ? "visible" : "none");
@@ -846,12 +341,48 @@
     const dOn = $("showDistricts").checked ? "visible" : "none";
     for (const id of ["districts-line", "districts-label"]) if (map.getLayer(id)) map.setLayoutProperty(id, "visibility", dOn);
     if (map.getLayer("districts-label")) map.setLayoutProperty("districts-label", "text-field", ["get", "name_" + lang]);
+    syncSections();
+    schedulePanels();
+  }
+
+  // The map, the year and the time scale follow every step; the content panels (the text on the left, the views on the right, the chart) are drawn
+  // a moment after the last change (0.3 s) and, while the playback runs, only when it stops: they cannot be read at that speed and they made everything jerk.
+  let playing = false, panelTimer = 0, panelsDrawn = false;
+  function updatePanels() {
+    $("count").textContent = t().count(countVisible(), year);
+    updateStNames();
+    updatePop();
+    updateRuleBox();
+    updateViews();
     let ar = null;
     for (const x of areas) if (x.year <= year) ar = x;
     $("arealine").textContent = (ar ? t().area(ar.km2, ar.year, ar.src) : "") + ($("showAdmin").checked && year >= 1973 && year <= 2005 ? " · " + t().oldAdmin : "");
     updateDistInfo();
     updatePlanLine();
     $("bndline").textContent = bndText;
+    syncSections();
+    document.body.classList.remove("stale");
+  }
+  let secState = {};
+  try { secState = JSON.parse(localStorage.getItem("sec") || "{}") || {}; } catch (e) {}
+  function syncSections() {
+    for (const sec of document.querySelectorAll("#side details.sec")) {
+      const id = sec.dataset.sec;
+      if (!sec.dataset.ready) {
+        sec.dataset.ready = "1";
+        if (id in secState) sec.open = !!secState[id];
+        sec.addEventListener("toggle", () => { secState[id] = sec.open; try { localStorage.setItem("sec", JSON.stringify(secState)); } catch (e) {} });
+      }
+      sec.hidden = ![...sec.querySelectorAll(":scope > div")].some((d) => !d.hidden && (d.children.length || d.textContent.trim()));
+    }
+  }
+  function flushPanels() { clearTimeout(panelTimer); panelTimer = 0; updatePanels(); }
+  function schedulePanels() {
+    if (!panelsDrawn) { panelsDrawn = true; flushPanels(); return; }          // the first drawing is at once
+    if (playing) { document.body.classList.add("stale"); return; }
+    document.body.classList.add("stale");
+    clearTimeout(panelTimer);
+    panelTimer = setTimeout(flushPanels, 300);
   }
 
   function updatePlanLine() {
@@ -867,6 +398,9 @@
     $("lang").value = lang;
     if ($("loading") && !$("loading").hidden) $("loadingTxt").textContent = t()[loadKey];
     $("lang").setAttribute("aria-label", t().ariaLang);
+    $("slider").setAttribute("aria-label", t().ariaYear);
+    $("vmPrev").setAttribute("aria-label", t().ariaPrev);
+    $("vmNext").setAttribute("aria-label", t().ariaNext);
     if (typeof updateLocTitles === "function") updateLocTitles();
     if (typeof updateFoldTitles === "function" && $("tbToggle")) updateFoldTitles();
     document.querySelectorAll(".pclose").forEach((b) => b.setAttribute("aria-label", t().ariaClose));
@@ -2290,9 +1824,10 @@
   let speedIx = 1;
   try { const k = parseInt(localStorage.getItem("speed"), 10); if (k >= 0 && k < SPEEDS.length) speedIx = k; } catch (e) {}
   $("speed").textContent = "×" + SPEEDS[speedIx][0];
-  function stopPlay() { clearInterval(timer); timer = null; $("play").textContent = "▶"; }
+  function stopPlay() { clearInterval(timer); timer = null; $("play").textContent = "▶"; playing = false; document.body.classList.remove("playing"); flushPanels(); }
   function startPlay() {
     clearInterval(timer);
+    playing = true; document.body.classList.add("playing");
     timer = setInterval(() => {
       year = Math.min(MAX, year + (year < 1000 ? 25 : year < 1700 ? 10 : 1));
       update();
@@ -2326,8 +1861,14 @@
     $("slider").value = Math.round(y2v(year));
     buildTicks(); buildEvMarks(); buildRulersBand(); updateZoomUi();
   }
-  function ensureInWindow() {                      // a zoomed scale is centred on the year (the mark in the middle; at the ends of the history the window stops)
-    if (zoomIx === 0) return;
+  // The window of a zoomed scale stays where it is while the year is inside it (a click on the scale, the slider, an event mark change only the year).
+  // It moves when the year leaves it (playback, search, a jump: the window is centred on the year at once) and when the scale itself is dragged or the
+  // arrows are used (winCenter: the mark stays in the middle and the scale slides under it).
+  let winCenter = false;
+  function ensureInWindow() {
+    if (zoomIx === 0) { winCenter = false; return; }
+    if (!winCenter && year >= zoomLo && year <= zoomHi) return;
+    winCenter = false;
     const w = ZOOM_W[zoomIx], lo = Math.min(Math.max(Math.round(year - w / 2), MIN), MAX - w);
     if (lo !== zoomLo || zoomHi !== lo + w) applyWindow(lo);
   }
@@ -2355,6 +1896,7 @@
   function panWindow(dir) {
     if (zoomIx === 0) return;
     year = Math.min(Math.max(Math.round(year + dir * ZOOM_W[zoomIx] / 2), MIN), MAX);
+    winCenter = true;
     update();
   }
   $("zoomIn").addEventListener("click", () => zoomBy(1));
@@ -2648,21 +2190,29 @@
     const L = t(), within = (it) => it.from < year + 1 && it.to > year;
     const st = rulersData.states.find((s) => within(s) && !s.lane), ov = rulersData.states.filter((s) => within(s) && s.lane);
     const rl = rulersData.rulers.filter(within).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en && x.grp === r.grp) === i);
-    const line = (cls, txt) => { const d = document.createElement("div"); d.className = cls; d.textContent = txt; box.appendChild(d); return d; };
+    const line = (cls, txt, sw) => {
+      const d = document.createElement("div"); d.className = cls;
+      if (sw) { const i = document.createElement("i"); i.className = "rsw " + sw; i.setAttribute("aria-hidden", "true"); d.appendChild(i); }
+      d.appendChild(document.createTextNode(txt)); box.appendChild(d); return d;
+    };
+    // the small square before a line has the colour of the row of the band that the line is about
     if (st) {
-      line("rs1", rText(st.name));
+      line("rs1", rText(st.name), "rk-" + st.kind);
       if (st.form && rText(st.form)) line("rs2", rText(st.form));
     } else line("rs2", L.ruleNoData);
-    for (const s of ov) line("rs3 ov", (s.kind === "overlord" ? L.ruleOver : L.ruleAdmin) + ": " + rText(s.name));
-    for (const r of rl.slice(0, 3)) line("rs3 pr", (rText(r.title) || rText(rulersData.groups[r.grp])) + ": " + rText(r.name));
+    for (const s of ov) line("rs3 ov", (s.kind === "overlord" ? L.ruleOver : L.ruleAdmin) + ": " + rText(s.name), "rk-" + s.kind);
+    for (const r of rl.slice(0, 3)) line("rs3 pr", (rText(r.title) || rText(rulersData.groups[r.grp])) + ": " + rText(r.name), "rg-" + r.grp);
   }
   let bandRaf = 0;
   function scheduleBand() { if (bandRaf) return; bandRaf = requestAnimationFrame(() => { bandRaf = 0; if (rulersData && $("showRulers").checked) buildRulersBand(); }); }
-  function updateRuleLine() {
+  function updateRuleBar() {
     scheduleBand();
     updateToken();
     updateRuleSummary();
     markRulers();
+  }
+  function updateRuleLine() { updateRuleBar(); updateRuleBox(); }
+  function updateRuleBox() {
     const box = $("ruleline");
     if (!box) return;
     box.textContent = "";
@@ -2717,7 +2267,7 @@
       el.addEventListener("dragstart", (e) => e.preventDefault());       // no native drag of a selected text or an image
       el.addEventListener("selectstart", (e) => { if (st) e.preventDefault(); });
     }
-    const setTo = (y) => { if (y !== year) { year = y; update(); } };
+    const setTo = (y) => { if (y !== year) { year = y; winCenter = true; update(); } };          // dragging the scale: the window follows
     const wrap = $("sliderwrap");
     if (wrap) track(wrap, "grabbing", () => {
       if (zoomIx === 0) setZoom(5);                                  // the whole history cannot be scrolled: zoom in first (the buttons bring it back)
