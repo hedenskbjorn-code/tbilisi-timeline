@@ -442,6 +442,49 @@
     }
   }
 
+  // the window "Literature and sources": the list is made by tools/build_bibliography.py from the data of the events
+  let biblioData = null;
+  async function showBiblio() {
+    try {
+      if (!biblioData) {
+        const r = await fetch("data/bibliography.json");
+        if (!r.ok) throw new Error(r.status);
+        biblioData = await r.json();
+      }
+    } catch (e) {
+      openInfo((body) => infoLine(body, t().biblioFail), false, t().biblioTitle);
+      return;
+    }
+    const d = biblioData;
+    openInfo((body) => {
+      infoLine(body, t().biblioIntro);
+      const head = (txt) => { const h = document.createElement("h4"); h.textContent = txt; body.appendChild(h); };
+      const links = (box, arr) => {
+        for (const l of arr) {
+          box.appendChild(document.createTextNode(" "));
+          const a = document.createElement("a");
+          a.href = l.u; a.target = "_blank"; a.rel = "noopener";
+          a.textContent = l.t === "scan" ? t().biblioScan : l.t;
+          box.appendChild(a);
+        }
+      };
+      head(t().biblioBooks);
+      for (const b of d.books) {
+        const row = infoLine(body, b.ref + " (" + t().biblioEvents(b.events) + ")");
+        links(row, b.links);
+      }
+      head(t().biblioConsulted);
+      for (const b of d.consulted) {
+        const row = infoLine(body, b.ref);
+        links(row, b.links);
+      }
+      head(t().biblioWeb);
+      for (const w of d.web) infoLine(body, w.name + ": " + w.pages + " / " + t().biblioEvents(w.events));
+      infoLine(body, t().biblioMethod);
+    }, false, t().biblioTitle);
+  }
+  $("btnBiblio").addEventListener("click", showBiblio);
+
   function buildAbout() {
     const box = $("abouttext");
     box.textContent = "";
@@ -798,8 +841,8 @@
 
   let photoInfo = null;
   // Details that do not belong on the card (licences, sources, register notes) live in a separate window opened by a button.
-  function openInfo(build, sheet) {
-    $("imTitle").textContent = t().infoTitle;
+  function openInfo(build, sheet, title) {
+    $("imTitle").textContent = title || t().infoTitle;
     const body = $("imBody");
     body.textContent = "";
     body.className = "";

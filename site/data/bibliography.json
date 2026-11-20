@@ -1,0 +1,437 @@
+{
+ "updated": "2026-11-20",
+ "events": 270,
+ "books": [
+  {
+   "id": "istoria2012",
+   "ref": "«საქართველოს ისტორია» (ოთხტომეული) / Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. История Грузии. Т. II–IV. 2012.",
+   "links": [
+    {
+     "t": "ka.wikisource",
+     "u": "https://ka.wikisource.org/wiki/2012_-_%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90_(%E1%83%9D%E1%83%97%E1%83%AE%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)_-_%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%98_III"
+    }
+   ],
+   "events": 38
+  },
+  {
+   "id": "ioseliani",
+   "ref": "П. Иосселиани. Описание древностей города Тифлиса. 1866.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/sat_and_21_yahoo"
+    }
+   ],
+   "events": 14
+  },
+  {
+   "id": "floods",
+   "ref": "А. Амиранашвили, Ц. Басилашвили, Э. Элизбарашвили, О. Варазанашвили. Катастрофические паводки в окрестностях Тбилиси. Труды Института гидрометеорологии.",
+   "links": [],
+   "events": 11
+  },
+  {
+   "id": "calendar",
+   "ref": "Кавказский календарь на 1856 год; Кавказский календарь на 1886 год.",
+   "links": [
+    {
+     "t": "1856",
+     "u": "https://archive.org/details/kavkazskijkalendarna1856god51"
+    },
+    {
+     "t": "1886",
+     "u": "https://archive.org/details/kavkazskijkalendarna1886god60"
+    }
+   ],
+   "events": 10
+  },
+  {
+   "id": "kartlis",
+   "ref": "«Картлис Цховреба». Русский перевод. Тбилиси, 2008.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/KartlisCxovreba"
+    }
+   ],
+   "events": 9
+  },
+  {
+   "id": "allcaucasus",
+   "ref": "Весь Кавказъ. Сборник (Тифлис), Административный отдел; год 1903 взят из прежних ссылок проекта, на прочитанных страницах он не указан.",
+   "links": [],
+   "events": 8
+  },
+  {
+   "id": "dubrovin",
+   "ref": "Н. Ф. Дубровин. История войны и владычества русских на Кавказе. Т. II–IV. 1886.",
+   "links": [
+    {
+     "t": "т. II",
+     "u": "https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru0"
+    },
+    {
+     "t": "т. III",
+     "u": "https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru89"
+    },
+    {
+     "t": "т. IV",
+     "u": "https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru62"
+    }
+   ],
+   "events": 8
+  },
+  {
+   "id": "irgor",
+   "ref": "Сборник статей на фарси «Взаимное историческое и культурное влияние Ирана и Грузии» (تأثیر متقابل تاریخی و فرهنگی ایران و گرجستان).",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/abu-abdurahman-kurdi-f_barid_20180203_1115"
+    }
+   ],
+   "events": 8
+  },
+  {
+   "id": "lang_giorgi",
+   "ref": "D. M. Lang. Georgia in the Reign of Giorgi the Brilliant (1314–1346). Bulletin of the School of Oriental and African Studies, 1955.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/GeorgiaInTheReignOfGiorgiTheBrilliant1314-1346"
+    }
+   ],
+   "events": 6
+  },
+  {
+   "id": "lang1955",
+   "ref": "D. M. Lang. Studies in the Numismatic History of Georgia in Transcaucasia. American Numismatic Society, 1955.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/lang-1955-georgian-numismatics"
+    }
+   ],
+   "events": 6
+  },
+  {
+   "id": "potto",
+   "ref": "В. А. Потто. Кавказская война. Т. 1–2.",
+   "links": [],
+   "events": 6
+  },
+  {
+   "id": "earthquakes",
+   "ref": "О. Варазанашвили, Н. Церетели, Э. Церетели. Historical Earthquakes in Georgia (up to 1900). Тбилиси, 2011.",
+   "links": [],
+   "events": 6
+  },
+  {
+   "id": "woytinsky",
+   "ref": "V. Woytinsky. La Georgia (una vera democrazia). 1920.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/lageorgiaunaver00schrgoog"
+    }
+   ],
+   "events": 5
+  },
+  {
+   "id": "bakradze",
+   "ref": "Д. Бакрадзе, Н. Берзенов. Тифлисъ въ историческомъ и этнографическомъ отношенiяхъ. Тифлис, 1870.",
+   "links": [],
+   "events": 5
+  },
+  {
+   "id": "dumas",
+   "ref": "А. Дюма. Кавказ (Le Caucase), 1859.",
+   "links": [],
+   "events": 3
+  },
+  {
+   "id": "vakhushti",
+   "ref": "ვახუშტი ბატონიშვილი. აღწერა აწინდელისა ქართლისა (აღწერა ტფილისისა) / Вахушти Багратиони. Описание города Тбилиси.",
+   "links": [],
+   "events": 3
+  },
+  {
+   "id": "brosset",
+   "ref": "M.-F. Brosset. Histoire de la Géorgie (1849); Rapports sur un voyage archéologique dans la Géorgie et dans l'Arménie (1850); М.-Ф. Броссе. История Грузии, грузинский перевод, т. II, 1900.",
+   "links": [
+    {
+     "t": "Histoire, 1849",
+     "u": "https://archive.org/details/bub_gb_TmtpAAAAMAAJ"
+    },
+    {
+     "t": "Rapports, 1850",
+     "u": "https://archive.org/details/Travel1847to1848BrossetRapports"
+    }
+   ],
+   "events": 2
+  },
+  {
+   "id": "rody",
+   "ref": "Дворянские роды Грузии. Т. 4. 1998.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/4-1998_202212"
+    }
+   ],
+   "events": 2
+  },
+  {
+   "id": "togoshvili",
+   "ref": "Тогошвили. Избранные труды по кавказоведению. Т. 1–2. 2014.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/izbrannye_trudy_po_kavkazovedeniiu_tom_1_2"
+    }
+   ],
+   "events": 2
+  },
+  {
+   "id": "baye",
+   "ref": "J. de Baye. Tiflis. Souvenirs d'une mission. Paris, 1900.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/BSG_8MSUP605"
+    }
+   ],
+   "events": 1
+  },
+  {
+   "id": "wardrop",
+   "ref": "O. Wardrop. The Kingdom of Georgia. London, 1888.",
+   "links": [
+    {
+     "t": "Project Gutenberg",
+     "u": "https://www.gutenberg.org/ebooks/48403"
+    }
+   ],
+   "events": 1
+  },
+  {
+   "id": "majd",
+   "ref": "Маджд ос-Салтане. Описание города Тбилиси (1894). Грузинский перевод и комментарии М. Мамацашвили. Тбилиси: Мецниереба, 1971.",
+   "links": [],
+   "events": 1
+  },
+  {
+   "id": "museum",
+   "ref": "Путеводитель по Кавказскому военно-историческому музею. Тифлис.",
+   "links": [],
+   "events": 1
+  },
+  {
+   "id": "uckebani",
+   "ref": "სალიტერატურონი ნაწილნი ტფილისის უწყებათანი (Литературные части Тифлисских ведомостей), 1832, № 2–3.",
+   "links": [],
+   "events": 1
+  }
+ ],
+ "consulted": [
+  {
+   "id": "ferri",
+   "ref": "B. Ferri. Istoria delle missioni de' chierici regolari teatini. 1704.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/bub_gb_wAjrlgBz4hIC"
+    }
+   ],
+   "events": 0
+  },
+  {
+   "id": "lamberti",
+   "ref": "A. Lamberti. Relatione della Colchide hoggi detta Mengrellia. 1654.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/bub_gb_tYxmx3czaloC"
+    }
+   ],
+   "events": 0
+  },
+  {
+   "id": "tcherny",
+   "ref": "יוסף יהודה טשארני. ספר המסעות בארץ קוקז ובמדינות אשר מעבר לקוקז (Й. Я. Чёрный, Книга путешествий по Кавказу и Закавказью), Санкт-Петербург, 1884.",
+   "links": [
+    {
+     "t": "hebrewbooks",
+     "u": "https://www.hebrewbooks.org/46832"
+    }
+   ],
+   "events": 0
+  },
+  {
+   "id": "abramovitch",
+   "ref": "R. Abramovitsh. Der ṭeror gegen sotsyalisṭen in Rusland un in Gruzye. 1925 (на идише).",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/nybc202101"
+    }
+   ],
+   "events": 0
+  },
+  {
+   "id": "pomerantz",
+   "ref": "A. Pomerantz. Ḳavḳaz. 1943 (на идише).",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/nybc209214"
+    }
+   ],
+   "events": 0
+  },
+  {
+   "id": "zeidlits",
+   "ref": "Сборник сведений о Кавказе. 1871.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/sborniksviedien00komigoog"
+    }
+   ],
+   "events": 0
+  },
+  {
+   "id": "evliya",
+   "ref": "Evliya Çelebi. Seyahatname. Cilt 2 (Istanbul, 1896).",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/evliyaelebisey02evliuoft"
+    }
+   ],
+   "events": 0
+  }
+ ],
+ "web": [
+  {
+   "host": "en.wikipedia.org",
+   "name": "Wikipedia (en)",
+   "pages": 59,
+   "events": 97
+  },
+  {
+   "host": "ru.wikipedia.org",
+   "name": "Wikipedia (ru)",
+   "pages": 28,
+   "events": 84
+  },
+  {
+   "host": "ka.wikisource.org",
+   "name": "Wikisource (ka)",
+   "pages": 4,
+   "events": 41
+  },
+  {
+   "host": "ka.wikipedia.org",
+   "name": "Wikipedia (ka)",
+   "pages": 9,
+   "events": 28
+  },
+  {
+   "host": "openlibrary.ge",
+   "name": "openlibrary.ge",
+   "pages": 4,
+   "events": 20
+  },
+  {
+   "host": "doi.org",
+   "name": "DOI",
+   "pages": 1,
+   "events": 11
+  },
+  {
+   "host": "archive.org",
+   "name": "Internet Archive",
+   "pages": 2,
+   "events": 11
+  },
+  {
+   "host": "ru.wikisource.org",
+   "name": "Wikisource (ru)",
+   "pages": 2,
+   "events": 8
+  },
+  {
+   "host": "www.cambridge.org",
+   "name": "www.cambridge.org",
+   "pages": 1,
+   "events": 6
+  },
+  {
+   "host": "library.britishmuseum.org",
+   "name": "library.britishmuseum.org",
+   "pages": 1,
+   "events": 4
+  },
+  {
+   "host": "litres.com",
+   "name": "litres.com",
+   "pages": 1,
+   "events": 4
+  },
+  {
+   "host": "books.yandex.ru",
+   "name": "books.yandex.ru",
+   "pages": 1,
+   "events": 2
+  },
+  {
+   "host": "aiphysics.tsu.ge",
+   "name": "aiphysics.tsu.ge",
+   "pages": 2,
+   "events": 2
+  },
+  {
+   "host": "cybernetics.ge",
+   "name": "cybernetics.ge",
+   "pages": 2,
+   "events": 2
+  },
+  {
+   "host": "georgianencyclopedia.ge",
+   "name": "georgianencyclopedia.ge",
+   "pages": 1,
+   "events": 1
+  },
+  {
+   "host": "www.gutenberg.org",
+   "name": "Project Gutenberg",
+   "pages": 1,
+   "events": 1
+  },
+  {
+   "host": "idfi.ge",
+   "name": "idfi.ge",
+   "pages": 1,
+   "events": 1
+  },
+  {
+   "host": "fr.wikipedia.org",
+   "name": "Wikipedia (fr)",
+   "pages": 1,
+   "events": 1
+  },
+  {
+   "host": "www.facebook.com",
+   "name": "www.facebook.com",
+   "pages": 1,
+   "events": 1
+  },
+  {
+   "host": "blogs.lse.ac.uk",
+   "name": "blogs.lse.ac.uk",
+   "pages": 1,
+   "events": 1
+  }
+ ]
+}
