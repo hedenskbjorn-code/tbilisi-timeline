@@ -28,6 +28,24 @@ for (const p of listFiles(path.join(SITE, "data"), [".json", ".geojson"]).concat
   try { data[rel(p)] = JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { err(`${rel(p)}: not valid JSON (${e.message})`); }
 }
 
+// ---- the list of literature (made by tools/build_bibliography.py) -------------------------------------------
+{
+  const b = data["data/bibliography.json"];
+  if (!b) err("data/bibliography.json: missing (python tools/build_bibliography.py)");
+  else {
+    const ev = data["data/history_events.json"]?.events?.length;
+    if (b.events !== ev) err(`data/bibliography.json: made for ${b.events} events, the data has ${ev}; run python tools/build_bibliography.py`);
+    for (const g of ["books", "consulted"]) {
+      if (!Array.isArray(b[g]) || !b[g].length) err(`data/bibliography.json: no ${g}`);
+      for (const x of b[g] || []) {
+        if (typeof x.ref !== "string" || !x.ref.trim()) err(`data/bibliography.json: an entry of ${g} without ref`);
+        for (const l of x.links || []) if (!/^https?:\/\//.test(l.u || "")) err(`data/bibliography.json: bad link ${JSON.stringify(l)}`);
+      }
+    }
+    if (!Array.isArray(b.web) || !b.web.length) err("data/bibliography.json: no web");
+  }
+}
+
 // ---- JavaScript syntax of the files of the site (not the vendor) ------------------------------------------
 for (const p of fs.readdirSync(SITE).filter((f) => f.endsWith(".js")).map((f) => path.join(SITE, f))) {
   try { new vm.Script(fs.readFileSync(p, "utf8"), { filename: p }); } catch (e) { err(`${rel(p)}: syntax error (${e.message})`); }

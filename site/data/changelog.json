@@ -1,5 +1,35 @@
 [
  {
+  "version": "1.6.15",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Тридцать четыре события из книг Иосселиани (1866), Войтинского (1920), Бэя (1900), сборника «Весь Кавказъ», путеводителя по Кавказскому военно-историческому музею и сборника статей на фарси об Иране и Грузии, каждое сверено по странице: церкви и разорения Тифлиса, анафема 1764, убийство генерала Лазарева 1803, освящение Сиона 1861, бюст Пушкина 1892, забастовка 1896, арсенал 1917, городская дума 1875, водопровод 1887, холера 1892, визит Николая II в музей 1914, персидская типография 1828, иранская школа 1906, переименование города 1936. У четырёх событий есть булавка. В событии 1850 года уточнён день и месяц учреждения Публичной библиотеки (26 апреля).",
+    "en": "Thirty-four events from the books of Ioseliani (1866), Woytinsky (1920), de Baye (1900), the collection 'Ves Kavkaz', the guide to the Caucasian Military-Historical Museum and a collection of articles in Persian on Iran and Georgia, each checked against the page: churches and sackings of Tiflis, the anathema of 1764, the killing of General Lazarev in 1803, the consecration of Sioni in 1861, the Pushkin bust of 1892, the strike of 1896, the arsenal of 1917, the city duma of 1875, the waterworks of 1887, the cholera of 1892, the visit of Nicholas II to the museum in 1914, the Persian printing house of 1828, the Iranian school of 1906, the renaming of the city in 1936. Four events have a pin. In the 1850 event the day and month of the founding of the Public Library are specified (26 April).",
+    "ka": "ოცდათოთხმეტი მოვლენა იოსელიანის (1866), ვოიტინსკის (1920), დე ბეის (1900) წიგნებიდან, კრებულიდან „მთელი კავკასია“, კავკასიის სამხედრო-ისტორიული მუზეუმის გზამკვლევიდან და ირანისა და საქართველოს შესახებ სტატიების კრებულიდან სპარსულ ენაზე, თითოეული გვერდით შემოწმებულია: თბილისის ეკლესიები და აოხრებები, 1764 წლის ანათემა, გენერალ ლაზარევის მკვლელობა 1803 წელს, სიონის კურთხევა 1861 წელს, პუშკინის ბიუსტი 1892 წელს, 1896 წლის გაფიცვა, არსენალი 1917 წელს, საქალაქო სათათბირო 1875 წელს, წყალსადენი 1887 წელს, ქოლერა 1892 წელს, ნიკოლოზ II-ის ვიზიტი მუზეუმში 1914 წელს, სპარსული სტამბა 1828 წელს, ირანული სკოლა 1906 წელს, ქალაქის გადარქმევა 1936 წელს. ოთხ მოვლენას ნიშანი აქვს. 1850 წლის მოვლენაში დაზუსტებულია საჯარო ბიბლიოთეკის დაარსების დღე და თვე (26 აპრილი)."
+   },
+   {
+    "t": "new",
+    "ru": "В разделе «О проекте и источниках» появилась кнопка «Литература и источники»: список книг и документов с числом событий, которые на них опираются, ссылками на сканы и списком страниц сайтов, на которые ссылаются события. Список собирается из данных сайта, поэтому не устаревает; тот же список лежит в репозитории (BIBLIOGRAPHY.md).",
+    "en": "The section About and sources has a new button, Literature and sources: the list of books and documents with the number of events that rely on each, the links to the scans and the list of web pages that the events link to. The list is built from the data of the site, so it cannot get out of date; the same list is in the repository (BIBLIOGRAPHY.md).",
+    "ka": "განყოფილებაში „პროექტის შესახებ და წყაროები“ გაჩნდა ღილაკი „ლიტერატურა და წყაროები“: წიგნებისა და დოკუმენტების სია იმ მოვლენების რაოდენობით, რომლებიც მათზეა დაფუძნებული, სკანების ბმულებით და საიტის იმ გვერდების სიით, რომლებზეც მოვლენები მიუთითებს. სია საიტის მონაცემებიდან იგება, ამიტომ არ ძველდება; იგივე სია საცავშიც არის (BIBLIOGRAPHY.md)."
+   }
+  ]
+ },
+ {
+  "version": "1.6.14",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Восемь событий XIX века из «Кавказского календаря» 1886 года (проверено по страницам): семинария 1817, первые русские и грузинские спектакли 1845 и 1851, газета «Кавказ» и школа Св. Нины 1846, библиотека, отдел РГО и обсерватория 1850, телеграф Поти — Тифлис 1860, музей и памятник Воронцову 1867, городская больница 1868.",
+    "en": "Eight 19th-century events from the 'Kavkazsky kalendar' of 1886 (checked against the pages): the seminary of 1817, the first Russian and Georgian performances of 1845 and 1851, the newspaper 'Kavkaz' and the school of St Nino in 1846, the library, the Geographical Society department and the observatory in 1850, the Poti–Tiflis telegraph of 1860, the museum and the Vorontsov monument of 1867, the city hospital of 1868.",
+    "ka": "დაემატა XIX საუკუნის რვა მოვლენა „კავკასიის კალენდრიდან“ (1886; გვერდებით შემოწმებულია): 1817 წლის სემინარია, პირველი რუსული და ქართული სპექტაკლები (1845 და 1851), გაზეთი „კავკაზი“ და წმ. ნინოს სასწავლებელი (1846), ბიბლიოთეკა, გეოგრაფიული საზოგადოების განყოფილება და ობსერვატორია (1850), ფოთი–თბილისის ტელეგრაფი (1860), მუზეუმი და ვორონცოვის ძეგლი (1867), საქალაქო საავადმყოფო (1868)."
+   }
+  ]
+ },
+ {
   "version": "1.6.13",
   "date": "2026-11-20",
   "items": [

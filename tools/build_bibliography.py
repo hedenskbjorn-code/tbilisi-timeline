@@ -1,0 +1,132 @@
+"""Builds the list of literature and sources from the data of the site.
+
+  python tools/build_bibliography.py
+
+Reads site/data/history_events.json (the links of the events and the citations in their notes) and writes
+  site/data/bibliography.json  - for the window "Literature and sources" of the page;
+  BIBLIOGRAPHY.md              - the same list for the repository.
+The books are listed by hand below (the full reference in the language of the book, the links to the scans); the number of events that rely on a book
+is counted from the data, so it cannot get out of date. A link of an event that does not belong to any book below falls into the lists of the web pages.
+"""
+import json
+import os
+import re
+import collections
+import urllib.parse
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+EV = os.path.join(ROOT, "site", "data", "history_events.json")
+OUT_JSON = os.path.join(ROOT, "site", "data", "bibliography.json")
+OUT_MD = os.path.join(ROOT, "BIBLIOGRAPHY.md")
+ARCH = "https://archive.org/details/"
+
+# (id, reference in the language of the book, links [(label, url)], regular expression for the links and notes of the events)
+BOOKS = [
+    ("dubrovin", "Н. Ф. Дубровин. История войны и владычества русских на Кавказе. Т. II–IV. 1886.",
+     [("т. II", ARCH + "dubrovinnfistorijavojnyivladychestvaru0"), ("т. III", ARCH + "dubrovinnfistorijavojnyivladychestvaru89"), ("т. IV", ARCH + "dubrovinnfistorijavojnyivladychestvaru62")], r"Дубровин"),
+    ("kartlis", "«Картлис Цховреба». Русский перевод. Тбилиси, 2008.", [("scan", ARCH + "KartlisCxovreba")], r"Картлис Цховреба"),
+    ("istoria2012", "«საქართველოს ისტორია» (ოთხტომეული) / Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. История Грузии. Т. II–IV. 2012.",
+     [("ka.wikisource", "https://ka.wikisource.org/wiki/2012_-_%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90_(%E1%83%9D%E1%83%97%E1%83%AE%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)_-_%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%98_III")],
+     r"საქართველოს ისტორია|Асатиани|История Грузии» \(в 4|История Грузии» \(ოთხ"),
+    ("vakhushti", "ვახუშტი ბატონიშვილი. აღწერა აწინდელისა ქართლისა (აღწერა ტფილისისა) / Вахушти Багратиони. Описание города Тбилиси.", [], r"Вахушти|Vakhushti|აღწერა აწინდელისა"),
+    ("lang1955", "D. M. Lang. Studies in the Numismatic History of Georgia in Transcaucasia. American Numismatic Society, 1955.", [("scan", ARCH + "lang-1955-georgian-numismatics")], r"Studies in the Numismatic|Ланг \(1955\)|Ланг, 1955"),
+    ("lang_giorgi", "D. M. Lang. Georgia in the Reign of Giorgi the Brilliant (1314–1346). Bulletin of the School of Oriental and African Studies, 1955.", [("scan", ARCH + "GeorgiaInTheReignOfGiorgiTheBrilliant1314-1346")], r"Giorgi the Brilliant"),
+    ("togoshvili", "Тогошвили. Избранные труды по кавказоведению. Т. 1–2. 2014.", [("scan", ARCH + "izbrannye_trudy_po_kavkazovedeniiu_tom_1_2")], r"Тогошвили"),
+    ("rody", "Дворянские роды Грузии. Т. 4. 1998.", [("scan", ARCH + "4-1998_202212")], r"Дворянские роды"),
+    ("brosset", "M.-F. Brosset. Histoire de la Géorgie (1849); Rapports sur un voyage archéologique dans la Géorgie et dans l'Arménie (1850); М.-Ф. Броссе. История Грузии, грузинский перевод, т. II, 1900.",
+     [("Histoire, 1849", ARCH + "bub_gb_TmtpAAAAMAAJ"), ("Rapports, 1850", ARCH + "Travel1847to1848BrossetRapports")], r"Броссе|Brosset"),
+    ("irgor", "Сборник статей на фарси «Взаимное историческое и культурное влияние Ирана и Грузии» (تأثیر متقابل تاریخی و فرهنگی ایران و گرجستان).", [("scan", ARCH + "abu-abdurahman-kurdi-f_barid_20180203_1115")], r"Взаимное историческое и культурное влияние Ирана"),
+    ("ioseliani", "П. Иосселиани. Описание древностей города Тифлиса. 1866.", [("scan", ARCH + "sat_and_21_yahoo")], r"Иосселиани"),
+    ("calendar", "Кавказский календарь на 1856 год; Кавказский календарь на 1886 год.", [("1856", ARCH + "kavkazskijkalendarna1856god51"), ("1886", ARCH + "kavkazskijkalendarna1886god60")], r"Кавказский календарь"),
+    ("uckebani", "სალიტერატურონი ნაწილნი ტფილისის უწყებათანი (Литературные части Тифлисских ведомостей), 1832, № 2–3.", [], r"Литературные части|სალიტერატურონი"),
+    ("woytinsky", "V. Woytinsky. La Georgia (una vera democrazia). 1920.", [("scan", ARCH + "lageorgiaunaver00schrgoog")], r"Войтинский|Woytinsky"),
+    ("baye", "J. de Baye. Tiflis. Souvenirs d'une mission. Paris, 1900.", [("scan", ARCH + "BSG_8MSUP605")], r"Baye|Бэй"),
+    ("potto", "В. А. Потто. Кавказская война. Т. 1–2.", [], r"Потто"),
+    ("dumas", "А. Дюма. Кавказ (Le Caucase), 1859.", [], r"Дюма"),
+    ("bakradze", "Д. Бакрадзе, Н. Берзенов. Тифлисъ въ историческомъ и этнографическомъ отношенiяхъ. Тифлис, 1870.", [], r"Бакрадзе"),
+    ("allcaucasus", "Весь Кавказъ. Сборник (Тифлис), Административный отдел; год 1903 взят из прежних ссылок проекта, на прочитанных страницах он не указан.", [], r"Весь Кавказ"),
+    ("museum", "Путеводитель по Кавказскому военно-историческому музею. Тифлис.", [], r"Путеводитель по Кавказскому военно-историческому музею"),
+    ("majd", "Маджд ос-Салтане. Описание города Тбилиси (1894). Грузинский перевод и комментарии М. Мамацашвили. Тбилиси: Мецниереба, 1971.", [], r"Маджд"),
+    ("wardrop", "O. Wardrop. The Kingdom of Georgia. London, 1888.", [("Project Gutenberg", "https://www.gutenberg.org/ebooks/48403")], r"Wardrop"),
+    ("earthquakes", "О. Варазанашвили, Н. Церетели, Э. Церетели. Historical Earthquakes in Georgia (up to 1900). Тбилиси, 2011.", [], r"Historical Earthquakes"),
+    ("floods", "А. Амиранашвили, Ц. Басилашвили, Э. Элизбарашвили, О. Варазанашвили. Катастрофические паводки в окрестностях Тбилиси. Труды Института гидрометеорологии.", [], r"Катастрофические паводки"),
+]
+# read in full or in part, but no event of the site relies on them (yet)
+CONSULTED = [
+    ("ferri", "B. Ferri. Istoria delle missioni de' chierici regolari teatini. 1704.", [("scan", ARCH + "bub_gb_wAjrlgBz4hIC")]),
+    ("lamberti", "A. Lamberti. Relatione della Colchide hoggi detta Mengrellia. 1654.", [("scan", ARCH + "bub_gb_tYxmx3czaloC")]),
+    ("tcherny", "יוסף יהודה טשארני. ספר המסעות בארץ קוקז ובמדינות אשר מעבר לקוקז (Й. Я. Чёрный, Книга путешествий по Кавказу и Закавказью), Санкт-Петербург, 1884.", [("hebrewbooks", "https://www.hebrewbooks.org/46832")]),
+    ("abramovitch", "R. Abramovitsh. Der ṭeror gegen sotsyalisṭen in Rusland un in Gruzye. 1925 (на идише).", [("scan", ARCH + "nybc202101")]),
+    ("pomerantz", "A. Pomerantz. Ḳavḳaz. 1943 (на идише).", [("scan", ARCH + "nybc209214")]),
+    ("zeidlits", "Сборник сведений о Кавказе. 1871.", [("scan", ARCH + "sborniksviedien00komigoog")]),
+    ("evliya", "Evliya Çelebi. Seyahatname. Cilt 2 (Istanbul, 1896).", [("scan", ARCH + "evliyaelebisey02evliuoft")]),
+]
+HOSTS = {
+    "en.wikipedia.org": "Wikipedia (en)", "ru.wikipedia.org": "Wikipedia (ru)", "ka.wikipedia.org": "Wikipedia (ka)", "fr.wikipedia.org": "Wikipedia (fr)",
+    "ka.wikisource.org": "Wikisource (ka)", "ru.wikisource.org": "Wikisource (ru)", "commons.wikimedia.org": "Wikimedia Commons",
+    "openlibrary.ge": "openlibrary.ge", "www.gutenberg.org": "Project Gutenberg", "archive.org": "Internet Archive", "doi.org": "DOI",
+}
+
+
+def labels(e):
+    out = []
+    for s in e["src"]:
+        out.append(s if isinstance(s, str) else s["label"])
+        out.append(s if isinstance(s, str) else s["url"])
+    out.append(e.get("note", {}).get("ru", ""))
+    return " \n ".join(urllib.parse.unquote(x) for x in out)
+
+
+def main():
+    d = json.load(open(EV, encoding="utf-8"))
+    events = d["events"]
+    texts = [labels(e) for e in events]
+    books = []
+    for bid, ref, links, rx in BOOKS:
+        n = sum(1 for t in texts if re.search(rx, t))
+        books.append({"id": bid, "ref": ref, "links": [{"t": a, "u": b} for a, b in links], "events": n})
+    books.sort(key=lambda b: (-b["events"], b["ref"]))
+    consulted = [{"id": i, "ref": r, "links": [{"t": a, "u": b} for a, b in l], "events": 0} for i, r, l in CONSULTED]
+    hosts = collections.Counter()
+    pages = collections.defaultdict(set)
+    for e in events:
+        for s in e["src"]:
+            u = s if isinstance(s, str) else s["url"]
+            h = re.sub(r"^https?://([^/]+)/.*", r"\1", u)
+            hosts[h] += 1
+            pages[h].add(u)
+    web = [{"host": h, "name": HOSTS.get(h, h), "pages": len(pages[h]), "events": n} for h, n in hosts.most_common()]
+    data = {"updated": "2026-11-20", "events": len(events), "books": books, "consulted": consulted, "web": web}
+    json.dump(data, open(OUT_JSON, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
+    open(OUT_JSON, "a", encoding="utf-8", newline="\n").write("\n")
+
+    md = ["# Literature and sources", "",
+          "Generated by `tools/build_bibliography.py` from the data of the site (`site/data/history_events.json`); do not edit by hand. "
+          "The same list is shown on the page (About and sources, button Literature and sources).",
+          "Sources of the maps, plans, photographs, boundaries and other layers are listed in the panel About and sources of the page and in `sources.md`.", "",
+          f"Events of the timeline: {len(events)}. Every event has at least one link; where a book was read, the note of the event gives the page.", "",
+          "## Books and documents (the number of events that rely on the work)", ""]
+    for i, b in enumerate(books, 1):
+        ln = "; ".join(f"[{x['t']}]({x['u']})" for x in b["links"])
+        md.append(f"{i}. {b['ref']} — {b['events']} event(s)" + (f". Scan: {ln}" if ln else ""))
+    md += ["", "## Read, but no event relies on them yet", ""]
+    for i, b in enumerate(consulted, 1):
+        ln = "; ".join(f"[{x['t']}]({x['u']})" for x in b["links"])
+        md.append(f"{i}. {b['ref']}" + (f" Scan: {ln}" if ln else ""))
+    md += ["", "## Web pages that the events link to", "", "| Site | Pages | Events |", "|---|---|---|"]
+    for w in web:
+        md.append(f"| {w['name']} | {w['pages']} | {w['events']} |")
+    md += ["", "## How the texts were read", "",
+           "- Wikipedia and Wikisource pages were opened and read; the link is given in the event. Where a page is only a bibliographic record of a book, the note says so.",
+           "- Books: the text of a PDF (text layer, or OCR with Tesseract 5.4; Ottoman and Persian print with Kraken and the OpenITI models) was used only to find a place; "
+           "every fact that is shown on the site was read on the image of the page, and the note of the event gives the page.",
+           "- Where two sources disagree, the event keeps the date of the source that was read and the note names the other date.",
+           "- Texts in Georgian were written by the project with the help of an AI and checked by a second AI (Gemini); they have not been checked by a native speaker.", ""]
+    open(OUT_MD, "w", encoding="utf-8", newline="\n").write("\n".join(md))
+    print("books", len(books), "with events:", sum(1 for b in books if b["events"]), "web hosts", len(web))
+    for b in books:
+        print(b["events"], b["id"])
+
+
+if __name__ == "__main__":
+    main()
