@@ -493,13 +493,17 @@
    "src": [
     "https://en.wikipedia.org/wiki/History_of_Tbilisi",
     "https://en.wikipedia.org/wiki/Tbilisi",
-    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8",
+    {
+     "label": "V. Minorsky, «Caucasica» (BSOAS, 1949–1953), сборник на archive.org",
+     "url": "https://archive.org/details/MinorskyCaucasica0104194953"
+    }
    ],
    "ka": "მეფე დავით აღმაშენებელი თბილისს იერიშით იღებს (ალყა დაიწყო 1121 წელს დიდგორის ბრძოლის შემდეგ)",
    "note": {
-    "ru": "По ru.wikipedia (История Тбилиси): город отдан на трёхдневное разграбление, большая часть сожжена, 500 жителей повешены; по Ибн аль-Асиру Давид затем «старался угодить жителям»; столица перенесена в Тбилиси из Кутаиси.",
-    "en": "According to ru.wikipedia (History of Tbilisi): the city was given up to three days of looting, most of it was burned, 500 inhabitants were hanged; according to Ibn al-Athir, David afterwards 'tried to please the townspeople'; the capital was moved to Tbilisi from Kutaisi.",
-    "ka": "ru.wikipedia-ს („თბილისის ისტორია“) მიხედვით: ქალაქი სამდღიან ძარცვას მიეცა, უმეტესი ნაწილი დაიწვა, 500 მოსახლე ჩამოახრჩვეს; იბნ ალ-ასირის მიხედვით, დავითი შემდეგ „ცდილობდა ქალაქელთა გულის მოგებას“; დედაქალაქი ქუთაისიდან თბილისში გადმოიტანეს."
+    "ru": "По ru.wikipedia (История Тбилиси): город отдан на трёхдневное разграбление, большая часть сожжена, 500 жителей повешены; по Ибн аль-Асиру Давид затем «старался угодить жителям»; столица перенесена в Тбилиси из Кутаиси. Ибн аль-Азрак аль-Фарики (по английскому переводу В. Минорского, BSOAS 13/1, 1949, с. 33–34): город взят мечом, горел три дня, затем царь даровал жителям амана; мусульманам гарантированы призыв к молитве и пятничная проповедь, свиньи в город не допускаются, грузинам, армянам и евреям запрещён вход в баню Исмаила; подать составила 5 динаров в год с грузина, 4 с еврея и 3 с мусульманина. Арабский текст не читался.",
+    "en": "According to ru.wikipedia (History of Tbilisi): the city was given up to three days of looting, most of it was burned, 500 inhabitants were hanged; according to Ibn al-Athir, David afterwards 'tried to please the townspeople'; the capital was moved to Tbilisi from Kutaisi. Ibn al-Azraq al-Fariqi (in the English translation of V. Minorsky, BSOAS 13/1, 1949, pp. 33-34): the city was taken by the sword and burned for three days, then the king granted its people aman; the Muslims were guaranteed the call to prayer and the Friday sermon, pigs were not to be brought into the town, Georgians, Armenians and Jews were forbidden to enter the baths of Ismael; the levy was 5 dinars a year for a Georgian, 4 for a Jew and 3 for a Muslim. The Arabic text was not read.",
+    "ka": "ru.wikipedia-ს („თბილისის ისტორია“) მიხედვით: ქალაქი სამდღიან ძარცვას მიეცა, უმეტესი ნაწილი დაიწვა, 500 მოსახლე ჩამოახრჩვეს; იბნ ალ-ასირის მიხედვით, დავითი შემდეგ „ცდილობდა ქალაქელთა გულის მოგებას“; დედაქალაქი ქუთაისიდან თბილისში გადმოიტანეს. იბნ ალ-აზრაყ ალ-ფარიყი (ვ. მინორსკის ინგლისური თარგმანით, BSOAS 13/1, 1949, გვ. 33–34): ქალაქი მახვილით აიღეს და სამი დღე იწვოდა, შემდეგ მეფემ მოსახლეობას ამანი მიანიჭა; მუსლიმებს გარანტირებული ჰქონდათ ლოცვისკენ მოწოდება და პარასკევის ქადაგება, ქალაქში ღორების შემოყვანა აკრძალული იყო, ქართველებს, სომხებსა და ებრაელებს ისმაელის აბანოში შესვლა ეკრძალებოდათ; გადასახადი წელიწადში 5 დინარი იყო ქართველისთვის, 4 — ებრაელისთვის და 3 — მუსლიმისთვის. არაბული ტექსტი არ წაგვიკითხავს."
    },
    "place": {
     "lng": 44.80861111,
@@ -509,6 +513,83 @@
     "en": "Narikala fortress",
     "src": "coordinates of the page 'Narikala' on English Wikipedia",
     "ka": "ნარიყალას ციხე"
+   }
+  },
+  {
+   "year": 1153,
+   "date": "1153",
+   "cat": "other",
+   "src": [
+    {
+     "label": "V. Minorsky, «Caucasica» (BSOAS, 1949–1953), сборник на archive.org",
+     "url": "https://archive.org/details/MinorskyCaucasica0104194953"
+    }
+   ],
+   "ru": "Арабский историк Ибн аль-Азрак входит в Тбилиси и видит, как царь Деметре I в пятницу слушает проповедь в соборной мечети и жертвует ей 200 золотых динаров (548 год хиджры)",
+   "en": "The Arab historian Ibn al-Azraq enters Tbilisi and sees King Demetre I listen to the Friday sermon in the cathedral mosque and give it 200 gold dinars (the year 548 of the Hijra)",
+   "ka": "არაბი ისტორიკოსი იბნ ალ-აზრაყი თბილისში შედის და ხედავს, როგორ უსმენს მეფე დემეტრე I პარასკევს ქადაგებას მთავარ მეჩეთში და მას 200 ოქროს დინარს სწირავს (ჰიჯრის 548 წელი)",
+   "note": {
+    "ru": "По английскому переводу В. Минорского («Caucasica in the History of Mayyāfāriqīn», BSOAS 13/1, 1949, с. 33–34) труда Ибн аль-Азрака аль-Фарики «Та'рих Майяфарикин»: автор сам вошёл в Тифлис в 548/1153 году и служил при царе «абхазов» Димитри (1121–1156); в пятницу царь пришёл в соборную мечеть, сел напротив проповедника, выслушал всю хутбу и пожаловал мечети 200 золотых динаров; по словам автора, мусульмане не пользовались такой честью и в Багдаде. Арабский текст не читался, использован только английский перевод. Булавки нет: место мечети того времени в источнике не названо, а нынешняя мечеть на ул. Ботанической построена позднее.",
+    "en": "From the English translation by V. Minorsky ('Caucasica in the History of Mayyafariqin', BSOAS 13/1, 1949, pp. 33-34) of the work of Ibn al-Azraq al-Fariqi, 'Ta'rikh Mayyafariqin': the author himself entered Tiflis in 548/1153 and was in the service of the king of the 'Abkhaz' Dimitri (1121-1156); on a Friday the king came to the cathedral mosque, sat opposite the preacher, listened to the whole khutba and granted the mosque 200 gold dinars; the author says that the Muslims would not enjoy such esteem even in Baghdad. The Arabic text was not read, only the English translation was used. There is no pin: the source does not name the place of the mosque of that time, and the present mosque on Botanikuri Street was built later.",
+    "ka": "ვ. მინორსკის ინგლისური თარგმანის მიხედვით („Caucasica in the History of Mayyafariqin“, BSOAS 13/1, 1949, გვ. 33–34) იბნ ალ-აზრაყ ალ-ფარიყის ნაშრომისა „თარიხ მაიაფარიყინ“: ავტორი თვითონ შევიდა ტიფლისში 548/1153 წელს და „აფხაზთა“ მეფე დიმიტრის (1121–1156) სამსახურში იყო; პარასკევს მეფე მთავარ მეჩეთში მივიდა, მქადაგებლის პირისპირ დაჯდა, მთელი ხუტბა მოისმინა და მეჩეთს 200 ოქროს დინარი უწყალობა; ავტორის თქმით, მუსლიმები ბაღდადშიც ვერ ისარგებლებდნენ ასეთი პატივით. არაბული ტექსტი არ წაგვიკითხავს, გამოყენებულია მხოლოდ ინგლისური თარგმანი. ნიშანი არ არის: წყარო იმდროინდელი მეჩეთის ადგილს არ ასახელებს, ბოტანიკურის ქუჩაზე არსებული მეჩეთი კი უფრო გვიან არის აშენებული."
+   }
+  },
+  {
+   "year": 1184,
+   "date": "1184",
+   "cat": "power",
+   "src": [
+    {
+     "label": "en.wikipedia, «Tamar of Georgia»",
+     "url": "https://en.wikipedia.org/wiki/Tamar_of_Georgia"
+    },
+    {
+     "label": "en.wikipedia, «Metekhi Church» (Исани)",
+     "url": "https://en.wikipedia.org/wiki/Metekhi_Church"
+    },
+    {
+     "label": "vostlit.info, «История и восхваление венценосцев», гл. 1–24 (рус. пер.)",
+     "url": "https://www.vostlit.info/Texts/rus15/Istor_vencenoscev/text1.phtml"
+    },
+    {
+     "label": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008): статья на ru.wikipedia о своде",
+     "url": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%82%D0%BB%D0%B8%D1%81_%D1%86%D1%85%D0%BE%D0%B2%D1%80%D0%B5%D0%B1%D0%B0"
+    }
+   ],
+   "ru": "Умирает царь Георгий III; царица Тамар, получив весть в Тбилиси, в своём крепостном дворце Исани, остаётся единовластной правительницей (с 1178 года она была соправительницей отца)",
+   "en": "King George III dies; Queen Tamar receives the news in Tbilisi, in her fortress palace of Isani, and remains the sole ruler (she had been her father's co-ruler since 1178)",
+   "ka": "მეფე გიორგი III გარდაიცვალა; დედოფალმა თამარმა ეს ამბავი თბილისში, თავის ციხე-სასახლე ისანში მიიღო და ერთპიროვნულ მმართველად დარჩა (1178 წლიდან იგი მამის თანამმართველი იყო)",
+   "note": {
+    "ru": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008), «История и восхваление венценосцев», с. 254: весть о смерти царя дошла до Тамар «в Тбилиси, в крепостном ее дворце Исани»; примечание 124 (с. 296): «Исани – местность в Тбилиси на так называемом Авлабаре, здесь находился царский дворец». Годы правления Георгия III (1156–1184) даны в примечаниях 12 и 17. Соправительницей отца Тамар стала в 1178 году, единовластной в 1184-м (en.wikipedia, «Tamar of Georgia»). Булавки нет: точное место дворца Исани не установлено в доступных источниках. Тот же текст есть в публичном русском переводе на vostlit.info («История и восхваление венценосцев», гл. 1–24).",
+    "en": "Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), 'The history and the eulogy of the crowned ones', p. 254: the news of the king's death reached Tamar 'in Tbilisi, in her fortress palace of Isani'; note 124 (p. 296): 'Isani is a locality in Tbilisi on the so-called Avlabari, the royal palace stood here'. The years of George III (1156-1184) are given in notes 12 and 17. Tamar became her father's co-ruler in 1178 and the sole ruler in 1184 (en.wikipedia, 'Tamar of Georgia'). There is no pin: the exact place of the Isani palace is not established in the available sources. The same text is in the public Russian translation on vostlit.info ('The history and the eulogy of the crowned ones', chapters 1-24).",
+    "ka": "„ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), „ისტორიანი და აზმანი შარავანდედთანი“, გვ. 254: მეფის გარდაცვალების ამბავი თამარს „თბილისში, თავის ციხე-სასახლე ისანში“ მიუვიდა; შენიშვნა 124 (გვ. 296): „ისანი თბილისის ადგილია, ე.წ. ავლაბარზე, აქ იდგა სამეფო სასახლე“. გიორგი III-ის მეფობის წლები (1156–1184) შენიშვნებში 12 და 17 არის მოცემული. თამარი მამის თანამმართველი 1178 წელს გახდა, ერთპიროვნული მმართველი — 1184 წელს (en.wikipedia, „Tamar of Georgia“). ნიშანი არ არის: ისნის სასახლის ზუსტი ადგილი ხელმისაწვდომ წყაროებში დადგენილი არ არის. იგივე ტექსტი ხელმისაწვდომია vostlit.info-ზე რუსულ თარგმანში („ისტორიანი და აზმანი შარავანდედთანი“, თავები 1–24)."
+   }
+  },
+  {
+   "year": 1188,
+   "date": "1188-1189",
+   "cat": "power",
+   "src": [
+    {
+     "label": "en.wikipedia, «David Soslan»",
+     "url": "https://en.wikipedia.org/wiki/David_Soslan"
+    },
+    {
+     "label": "en.wikipedia, «Tamar of Georgia»",
+     "url": "https://en.wikipedia.org/wiki/Tamar_of_Georgia"
+    },
+    {
+     "label": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008): статья на ru.wikipedia о своде",
+     "url": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%82%D0%BB%D0%B8%D1%81_%D1%86%D1%85%D0%BE%D0%B2%D1%80%D0%B5%D0%B1%D0%B0"
+    }
+   ],
+   "ru": "Знать собирается в Дидубе и выдаёт царицу Тамар замуж за Давида Сослана (второй брак после развода с Юрием Боголюбским); оттуда молодые вступают в Тбилиси",
+   "en": "The nobles gather at Didube and marry Queen Tamar to David Soslan (her second marriage, after the divorce from Yury Bogolyubsky); from there the couple enter Tbilisi",
+   "ka": "დიდებულები დიდუბეში იკრიბებიან და დედოფალ თამარს დავით სოსლანზე ათხოვებენ (მეორე ქორწინება იური ბოგოლიუბსკისთან განქორწინების შემდეგ); იქიდან ახალდაქორწინებულები თბილისში შედიან",
+   "note": {
+    "ru": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008), «История и восхваление венценосцев», с. 306: «собрались в Дидубе и соединили брачными узами Давида с Тамар. Оттуда вступили в Тбилиси». Год в источниках расходится: примечание на с. 324 говорит, что свадьба состоялась в 1188 году; en.wikipedia («David Soslan», «Tamar of Georgia») называет около 1189 года и «между 1187 и 1189» после развода 1187 года. Поэтому поставлено 1188–1189. Дворцом Дидубе место называет только en.wikipedia; в летописи сказано просто «в Дидубе». Булавки нет.",
+    "en": "Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), 'The history and the eulogy of the crowned ones', p. 306: 'they gathered at Didube and joined David to Tamar in marriage. From there they entered Tbilisi'. The sources differ on the year: the note on p. 324 says that the wedding took place in 1188; en.wikipedia ('David Soslan', 'Tamar of Georgia') gives about 1189 and 'between 1187 and 1189' after the divorce of 1187. So 1188-1189 is given. Only en.wikipedia calls the place the Didube palace; the chronicle says just 'at Didube'. There is no pin.",
+    "ka": "„ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), „ისტორიანი და აზმანი შარავანდედთანი“, გვ. 306: „დიდუბეში შეიკრიბნენ და დავითი თამართან ქორწინებით შეაერთეს. იქიდან თბილისში შევიდნენ“. წლის შესახებ წყაროები განსხვავდება: გვ. 324-ზე შენიშვნა ამბობს, რომ ქორწილი 1188 წელს შედგა; en.wikipedia („David Soslan“, „Tamar of Georgia“) ასახელებს დაახლოებით 1189 წელს და „1187–1189 წლებს შორის“, 1187 წლის განქორწინების შემდეგ. ამიტომ მითითებულია 1188–1189. დიდუბის სასახლედ ადგილს მხოლოდ en.wikipedia ასახელებს; მატიანეში უბრალოდ „დიდუბეშია“ ნათქვამი. ნიშანი არ არის."
    }
   },
   {
@@ -565,6 +646,81 @@
     "en": "Basiani (today Pasinler, Turkey)",
     "ka": "ბასიანი (დღეს პასინლერი, თურქეთი)",
     "src": "coordinates of the page 'Battle of Basiani' on English Wikipedia"
+   }
+  },
+  {
+   "year": 1210,
+   "date": "1209-1210",
+   "cat": "battle",
+   "src": [
+    {
+     "label": "vostlit.info, «История и восхваление венценосцев», гл. 25–53 (рус. пер.)",
+     "url": "https://www.vostlit.info/Texts/rus15/Istor_vencenoscev/text2.phtml"
+    },
+    {
+     "label": "en.wikipedia, «Zakare II Zakarian»",
+     "url": "https://en.wikipedia.org/wiki/Zakare_II_Zakarian"
+    },
+    {
+     "label": "en.wikipedia, «Ivane I Zakarian»",
+     "url": "https://en.wikipedia.org/wiki/Ivane_I_Zakarian"
+    },
+    {
+     "label": "en.wikipedia, «Tamar of Georgia»",
+     "url": "https://en.wikipedia.org/wiki/Tamar_of_Georgia"
+    },
+    {
+     "label": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008): статья на ru.wikipedia о своде",
+     "url": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%82%D0%BB%D0%B8%D1%81_%D1%86%D1%85%D0%BE%D0%B2%D1%80%D0%B5%D0%B1%D0%B0"
+    }
+   ],
+   "ru": "Закарий и Иване Мхаргрдзели возвращаются в Тбилиси из похода в северный Иран (Тавриз, Миана): царица встречает их с торжеством, победители переходят в Исани, где она принимает добычу и знать",
+   "en": "Zakare and Ivane Mkhargrdzeli return to Tbilisi from the campaign into northern Iran (Tabriz, Miana): the queen greets them in triumph, the victors move to Isani, where she receives the booty and the nobles",
+   "ka": "ზაქარია და ივანე მხარგრძელები თბილისში ბრუნდებიან ჩრდილოეთ ირანში (თავრიზი, მიანა) ლაშქრობიდან: დედოფალი მათ ზეიმით ხვდება, გამარჯვებულები ისანში გადადიან, სადაც იგი ნადავლსა და დიდებულებს იღებს",
+   "note": {
+    "ru": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008), «История и восхваление венценосцев», с. 288–290: поход на Тавриз и Миану, возвращение в Тбилиси, «слышны были звуки труб и цевниц», затем «перешли в Исани, царица воссела на трон». Тот же рассказ есть в публичном переводе на vostlit.info (гл. 25–53). Года в летописи нет. По en.wikipedia набег на север Ирана датируется 1210 годом (статьи «Zakare II Zakarian» и «Ivane I Zakarian»), а статья «Tamar of Georgia» начинает кампанию с 1209 года (Ардебиль); поэтому поставлено 1209–1210. Тома II истории Грузии (2012) под рукой не было. Булавки нет: место в Исани не установлено.",
+    "en": "Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), 'The history and the eulogy of the crowned ones', pp. 288-290: the campaign against Tabriz and Miana, the return to Tbilisi, 'the sounds of trumpets and pipes were heard', then 'they moved to Isani, the queen sat on the throne'. The same account is in the public translation on vostlit.info (chapters 25-53). The chronicle gives no year. According to en.wikipedia the raid into northern Iran is dated 1210 (the articles 'Zakare II Zakarian' and 'Ivane I Zakarian'), while the article 'Tamar of Georgia' begins the campaign in 1209 (Ardabil); so 1209-1210 is given. Volume II of the history of Georgia (2012) was not at hand. There is no pin: the place in Isani is not established.",
+    "ka": "„ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), „ისტორიანი და აზმანი შარავანდედთანი“, გვ. 288–290: ლაშქრობა თავრიზისა და მიანის წინააღმდეგ, თბილისში დაბრუნება, „გაისმოდა საყვირებისა და სალამურების ხმა“, შემდეგ „ისანში გადავიდნენ, დედოფალი ტახტზე დაჯდა“. იგივე თხრობა ხელმისაწვდომია vostlit.info-ს საჯარო თარგმანში (თავები 25–53). მატიანეში წელი არ არის. en.wikipedia-ს მიხედვით ჩრდილოეთ ირანში თარეში 1210 წლით თარიღდება (სტატიები „Zakare II Zakarian“ და „Ivane I Zakarian“), სტატია „Tamar of Georgia“ კი ლაშქრობას 1209 წლიდან იწყებს (არდებილი); ამიტომ მითითებულია 1209–1210. საქართველოს ისტორიის II ტომი (2012) ხელთ არ გვქონდა. ნიშანი არ არის: ისანში ადგილი დადგენილი არ არის."
+   }
+  },
+  {
+   "year": 1213,
+   "date": "1213",
+   "cat": "power",
+   "src": [
+    {
+     "label": "en.wikipedia, «Tamar of Georgia»",
+     "url": "https://en.wikipedia.org/wiki/Tamar_of_Georgia"
+    },
+    {
+     "label": "Wikidata, «Agarani Fortress» (координаты)",
+     "url": "https://www.wikidata.org/wiki/Q12861341"
+    },
+    {
+     "label": "vostlit.info, «История и восхваление венценосцев», гл. 25–53 (рус. пер.)",
+     "url": "https://www.vostlit.info/Texts/rus15/Istor_vencenoscev/text2.phtml"
+    },
+    {
+     "label": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008): статья на ru.wikipedia о своде",
+     "url": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%82%D0%BB%D0%B8%D1%81_%D1%86%D1%85%D0%BE%D0%B2%D1%80%D0%B5%D0%B1%D0%B0"
+    }
+   ],
+   "ru": "В крепости Агары (ныне Коджорская), летней резиденции царей к югу от Тбилиси, умирает царица Тамар (традиционная дата — 1213 год)",
+   "en": "Queen Tamar dies in the fortress of Agara (now Kojori), the summer residence of the kings south of Tbilisi (the traditional date is 1213)",
+   "ka": "აგარანის ციხეში (ახლანდელი კოჯრის ციხე), თბილისის სამხრეთით მდებარე მეფეთა ზაფხულის რეზიდენციაში, გარდაიცვალა დედოფალი თამარი (ტრადიციული თარიღია 1213 წელი)",
+   "note": {
+    "ru": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008), с. 318: тяжело больную царицу несли в паланкине в Тбилиси, потом в лесистые горы, «и снова взяли ее сюда, в Агары, в крепость»; примечание 90 (с. 328): по Н. А. Бердзенишвили, крепость Агары — нынешняя Коджорская, летняя резиденция царей южнее Тбилиси, «в этой крепости скончалась царица Тамар». Год в этом месте летописи не назван: по en.wikipedia («Tamar of Georgia») традиционная дата — 1213 год (18 января), но есть указания и на 1207 или 1210 год. Булавка на крепости стоит по координатам элемента Викидаты «Agarani Fortress» (Q12861341); она лежит за чертой города, к юго-западу от центра.",
+    "en": "Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 318: the gravely ill queen was carried in a palanquin to Tbilisi, then to the wooded mountains, 'and again they took her here, to Agara, to the fortress'; note 90 (p. 328): according to N. A. Berdzenishvili the fortress of Agara is the present Kojori fortress, the summer residence of the kings south of Tbilisi, 'Queen Tamar died in this fortress'. The chronicle does not name the year here: according to en.wikipedia ('Tamar of Georgia') the traditional date is 1213 (18 January), but there are indications of 1207 or 1210 as well. The pin stands on the fortress at the coordinates of the Wikidata item 'Agarani Fortress' (Q12861341); it lies outside the city, south-west of the centre.",
+    "ka": "„ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 318: მძიმედ დაავადებული დედოფალი პალანკინით თბილისში წაიყვანეს, შემდეგ ტყიან მთებში, „და ისევ აქ, აგარაში, ციხეში წამოიყვანეს“; შენიშვნა 90 (გვ. 328): ნ. ბერძენიშვილის მიხედვით, აგარანის ციხე ახლანდელი კოჯრის ციხეა, თბილისის სამხრეთით მდებარე მეფეთა ზაფხულის რეზიდენცია, „ამ ციხეში გარდაიცვალა დედოფალი თამარი“. მატიანე ამ ადგილას წელს არ ასახელებს: en.wikipedia-ს („Tamar of Georgia“) მიხედვით ტრადიციული თარიღია 1213 წელი (18 იანვარი), მაგრამ არის მითითებები 1207 ან 1210 წელზეც. ნიშანი ციხეზე დგას Wikidata-ს ელემენტის „Agarani Fortress“ (Q12861341) კოორდინატებით; იგი ქალაქის ფარგლებს გარეთ, ცენტრიდან სამხრეთ-დასავლეთით მდებარეობს."
+   },
+   "place": {
+    "lng": 44.691997,
+    "lat": 41.640465,
+    "zoom": 15,
+    "ru": "Крепость Агары (Коджорская крепость)",
+    "en": "Agara fortress (Kojori fortress)",
+    "ka": "აგარანის ციხე (კოჯრის ციხე)",
+    "src": "coordinates of the Wikidata item 'Agarani Fortress' (Q12861341)"
    }
   },
   {
@@ -5079,6 +5235,25 @@
     "en": "Sameba Cathedral",
     "src": "coordinates of the page 'Holy Trinity Cathedral of Tbilisi' on English Wikipedia",
     "ka": "სამების საკათედრო ტაძარი (სამება)"
+   }
+  },
+  {
+   "year": 2005,
+   "date": "25.05.2005",
+   "cat": "build",
+   "src": [
+    {
+     "label": "en.wikipedia, «Baku–Tbilisi–Ceyhan pipeline»",
+     "url": "https://en.wikipedia.org/wiki/Baku%E2%80%93Tbilisi%E2%80%93Ceyhan_pipeline"
+    }
+   ],
+   "ru": "Торжественно открыт нефтепровод Баку — Тбилиси — Джейхан (1768 км): церемония 25 мая в Сангачальском терминале под Баку; нефть дошла до Джейхана 28 мая 2006 года",
+   "en": "The Baku-Tbilisi-Ceyhan oil pipeline (1,768 km) is inaugurated: the ceremony on 25 May at the Sangachal Terminal near Baku; the oil reached Ceyhan on 28 May 2006",
+   "ka": "ოფიციალურად გაიხსნა ბაქო-თბილისი-ჯეიჰანის ნავთობსადენი (1768 კმ): ცერემონია 25 მაისს ბაქოსთან, სანგაჩალის ტერმინალზე გაიმართა; ნავთობმა ჯეიჰანს 2006 წლის 28 მაისს მიაღწია",
+   "note": {
+    "ru": "По статье en.wikipedia «Baku–Tbilisi–Ceyhan pipeline»: 25 мая 2005 года трубопровод открыли в Сангачале президенты Азербайджана, Грузии и Турции; открытие грузинского участка принимал президент Саакашвили на насосной станции у Гардабани 12 октября 2005 года; церемония в Джейхане прошла 13 июля 2006 года. Трубопровод проходит по Грузии и называется по Тбилиси, но по городу не идёт, поэтому булавки нет. Первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Baku-Tbilisi-Ceyhan pipeline': on 25 May 2005 the presidents of Azerbaijan, Georgia and Turkey opened the pipeline at Sangachal; the opening of the Georgian section was hosted by President Saakashvili at the pumping station near Gardabani on 12 October 2005; the ceremony at Ceyhan took place on 13 July 2006. The pipeline crosses Georgia and is named after Tbilisi but does not pass through the city, so there is no pin. The primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Baku–Tbilisi–Ceyhan pipeline“ მიხედვით: 2005 წლის 25 მაისს აზერბაიჯანის, საქართველოსა და თურქეთის პრეზიდენტებმა ნავთობსადენი სანგაჩალში გახსნეს; საქართველოს მონაკვეთის გახსნას პრეზიდენტმა სააკაშვილმა გარდაბნის მახლობლად სატუმბ სადგურზე 2005 წლის 12 ოქტომბერს უმასპინძლა; ჯეიჰანში ცერემონია 2006 წლის 13 ივლისს გაიმართა. ნავთობსადენი საქართველოს ტერიტორიაზე გადის და თბილისის სახელს ატარებს, მაგრამ ქალაქზე არ გადის, ამიტომ ნიშანი არ არის. პირველწყაროები არ შემოწმებულა."
    }
   },
   {

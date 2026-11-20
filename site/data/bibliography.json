@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-20",
- "events": 270,
+ "events": 276,
  "books": [
   {
    "id": "istoria2012",
@@ -25,6 +25,17 @@
    "events": 15
   },
   {
+   "id": "kartlis",
+   "ref": "«Картлис Цховреба». Русский перевод. Тбилиси, 2008.",
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://archive.org/details/KartlisCxovreba"
+    }
+   ],
+   "events": 13
+  },
+  {
    "id": "floods",
    "ref": "А. Амиранашвили, Ц. Басилашвили, Э. Элизбарашвили, О. Варазанашвили. Катастрофические паводки в окрестностях Тбилиси. Труды Института гидрометеорологии.",
    "links": [],
@@ -44,17 +55,6 @@
     }
    ],
    "events": 11
-  },
-  {
-   "id": "kartlis",
-   "ref": "«Картлис Цховреба». Русский перевод. Тбилиси, 2008.",
-   "links": [
-    {
-     "t": "scan",
-     "u": "https://archive.org/details/KartlisCxovreba"
-    }
-   ],
-   "events": 9
   },
   {
    "id": "allcaucasus",
@@ -361,14 +361,14 @@
   {
    "host": "en.wikipedia.org",
    "name": "Wikipedia (en)",
-   "pages": 59,
-   "events": 97
+   "pages": 64,
+   "events": 106
   },
   {
    "host": "ru.wikipedia.org",
    "name": "Wikipedia (ru)",
    "pages": 28,
-   "events": 86
+   "events": 90
   },
   {
    "host": "ka.wikisource.org",
@@ -389,15 +389,15 @@
    "events": 20
   },
   {
+   "host": "archive.org",
+   "name": "Internet Archive",
+   "pages": 3,
+   "events": 13
+  },
+  {
    "host": "doi.org",
    "name": "DOI",
    "pages": 1,
-   "events": 11
-  },
-  {
-   "host": "archive.org",
-   "name": "Internet Archive",
-   "pages": 2,
    "events": 11
   },
   {
@@ -425,6 +425,12 @@
    "events": 4
   },
   {
+   "host": "www.vostlit.info",
+   "name": "www.vostlit.info",
+   "pages": 2,
+   "events": 3
+  },
+  {
    "host": "books.yandex.ru",
    "name": "books.yandex.ru",
    "pages": 1,
@@ -441,6 +447,12 @@
    "name": "cybernetics.ge",
    "pages": 2,
    "events": 2
+  },
+  {
+   "host": "www.wikidata.org",
+   "name": "www.wikidata.org",
+   "pages": 1,
+   "events": 1
   },
   {
    "host": "georgianencyclopedia.ge",
