@@ -38,6 +38,8 @@ main { position:fixed; top:52px; left:0; right:0; bottom:0; display:grid; grid-t
 #credits { margin-top:20px; font-size:12px; color:var(--muted); }
 #credits p { margin:0 0 6px; }
 .mk { width:26px; height:26px; border-radius:13px; background:var(--accent); color:#fff; border:2px solid #fff; box-shadow:0 1px 4px #0006; font:700 12px/22px system-ui, sans-serif; text-align:center; cursor:pointer; }
+button.mk { padding:0; cursor:pointer; }
+.mk:focus-visible { outline:2px solid #fff; box-shadow:0 0 0 4px var(--accent), 0 1px 4px #0006; }
 .mk.active { transform:scale(1.35); background:#1c7ed6; z-index:5; }
 .mk.start { background:#2b8a3e; width:20px; height:20px; border-radius:10px; line-height:16px; }
 #loading { position:absolute; top:70px; left:calc(460px + 50%); transform:translateX(-50%); z-index:15; display:flex; align-items:center; gap:10px; padding:10px 16px; border-radius:10px; background:var(--panel); box-shadow:0 2px 12px #0005; pointer-events:none; }

@@ -242,10 +242,12 @@
     start.title = t().start;
     new maplibregl.Marker({ element: start }).setLngLat(c[0]).addTo(map);
     for (const s of sights) {
-      const m = el("div", "mk", String(s.n));
+      const m = el("button", "mk", String(s.n));                 // a button: the keyboard (Tab, Enter, Space) works and a screen reader names it
+      m.type = "button";
       m.title = s.name[lang] || s.name.en;
       m.addEventListener("click", (ev) => { ev.stopPropagation(); select(s.n, { scroll: true }); });
       markers[s.n] = new maplibregl.Marker({ element: m }).setLngLat([s.lon, s.lat]).addTo(map);
+      m.setAttribute("aria-label", s.n + ". " + (s.name[lang] || s.name.en));          // after the Marker: it sets its own label "Map marker"
     }
   }
 

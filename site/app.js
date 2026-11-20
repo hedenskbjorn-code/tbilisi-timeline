@@ -307,6 +307,7 @@
     if ($("yearchip")) $("yearchip").textContent = year;
     if ($("tbYear")) $("tbYear").textContent = year;
     $("slider").value = Math.round(y2v(year));
+    $("slider").setAttribute("aria-valuetext", String(year));                     // a screen reader says the year, not the position 0-1000
     try { history.replaceState(null, "", "#" + year); } catch (e) {}
     if (!map.getLayer("mon")) return;
     map.setFilter("mon", filterExpr());
@@ -399,6 +400,7 @@
     if ($("loading") && !$("loading").hidden) $("loadingTxt").textContent = t()[loadKey];
     $("lang").setAttribute("aria-label", t().ariaLang);
     $("slider").setAttribute("aria-label", t().ariaYear);
+    $("speed").setAttribute("aria-label", t().ariaSpeed);
     $("btnMore").setAttribute("aria-label", t().ariaMore); $("btnMore").title = t().ariaMore;
     $("vmPrev").setAttribute("aria-label", t().ariaPrev);
     $("vmNext").setAttribute("aria-label", t().ariaNext);
@@ -815,6 +817,7 @@
     map.flyTo({ center: [ev.place.lng, ev.place.lat], zoom: ev.place.zoom || 16, padding: pad, duration: 1200 });
   }
   function showHistEvent(ev) {
+    if (window.TT_closePanels) window.TT_closePanels();          // a phone: the card takes the place of the open panel
     if (ev.cat === "battle" && !$("showBattles").checked) { $("showBattles").checked = true; buildEvMarks(); }          // an opened battle must be visible on the scale
     reopenInfo = () => showHistEvent(ev);
     const L = t();
@@ -841,7 +844,14 @@
 
   let photoInfo = null;
   // Details that do not belong on the card (licences, sources, register notes) live in a separate window opened by a button.
+  let infoFocus = null, viewFocus = null, fbFocus = null;       // the element that had the focus before a window was opened: the focus goes back to it
+  const giveFocusBack = (el, ...fallbacks) => {                 // the element may be gone (the tiles are rebuilt when the year changes): then the first visible element of the list
+    const cands = [el, ...fallbacks.map((q) => document.querySelector(q))];
+    const target = cands.find((c) => c && c.isConnected && c.offsetParent !== null);
+    if (target) { try { target.focus(); } catch (e) {} }
+  };
   function openInfo(build, sheet, title) {
+    if ($("infoModal").hidden) infoFocus = document.activeElement;
     $("imTitle").textContent = title || t().infoTitle;
     const body = $("imBody");
     body.textContent = "";
@@ -850,7 +860,7 @@
     $("infoModal").classList.toggle("sheet", !!sheet);          // an event with a place: a sheet at the bottom, the map and the pin stay in sight
     $("infoModal").hidden = false;
   }
-  function closeInfo() { reopenInfo = null; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } }
+  function closeInfo() { reopenInfo = null; const was = !$("infoModal").hidden; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } if (was) { giveFocusBack(infoFocus); infoFocus = null; } }
   $("imClose").addEventListener("click", closeInfo);
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
@@ -1236,6 +1246,7 @@
 
   function openView(v) {
     const L = t();
+    if ($("viewModal").hidden) viewFocus = document.activeElement;
     curView = v;
     const idx = shownViews.indexOf(v), many = idx >= 0 && shownViews.length > 1;
     $("vmPrev").hidden = $("vmNext").hidden = !many;
@@ -1258,7 +1269,7 @@
     } else src.textContent = L.viewLicense + ": " + lic;
     $("viewModal").hidden = false;
   }
-  function closeView() { $("viewModal").hidden = true; }
+  function closeView() { const was = !$("viewModal").hidden; $("viewModal").hidden = true; if (was) { giveFocusBack(viewFocus, "#vgrid button", "#btnViews"); viewFocus = null; } }
   $("vmClose").addEventListener("click", closeView);
   $("viewModal").addEventListener("click", (e) => { if (e.target === $("viewModal")) closeView(); });
   function stepView(d) {
@@ -1393,6 +1404,7 @@
   }
   function feedbackRefreshCtx() { if ($("fbCtx")) $("fbCtx").value = feedbackContext(); }
   function openFeedback(obj) {
+    if ($("fbModal").hidden) fbFocus = document.activeElement;
     fbObject = obj || null;
     $("fbStatus").textContent = "";
     $("fbMsg").value = "";
@@ -1401,7 +1413,7 @@
     $("fbModal").hidden = false;
     $("fbMsg").focus();
   }
-  function closeFeedback() { $("fbModal").hidden = true; }
+  function closeFeedback() { const was = !$("fbModal").hidden; $("fbModal").hidden = true; if (was) { giveFocusBack(fbFocus, "#fbOpen"); fbFocus = null; } }
 
   // the form sends the message to the private queue of the author (Worker /feedback): Turnstile, the time the form was open and a hidden field protect it; GitHub is the reserve
   let fbToken = "", fbTsId = null, fbOpenedAt = 0;
@@ -1462,6 +1474,7 @@
   {
     const mq = window.matchMedia("(max-width:640px)");
     const KEYS = ["info", "filters", "views"];
+    const tight = window.matchMedia("(min-width:641px) and (max-width:899px)");     // a tablet: the views panel would lie over the info panel
     const els = { info: $("side"), filters: $("filters"), views: $("views") }, btns = { info: $("btnInfo"), filters: $("btnFilters"), views: $("btnViews") };
     let st = { info: !mq.matches, filters: !mq.matches, views: false };
     try { const s = JSON.parse(localStorage.getItem("panels") || "null"); if (s && !mq.matches) st = { info: s.info !== false, filters: s.filters !== false, views: s.views === true }; } catch (e) {}
@@ -1474,11 +1487,14 @@
     const toggle = (k, on) => {
       st[k] = on === undefined ? !st[k] : on;
       if (mq.matches && st[k]) for (const o of KEYS) if (o !== k) st[o] = false;
+      if (tight.matches && st[k] && (k === "views" || k === "info")) st[k === "views" ? "info" : "views"] = false;
       apply();
     };
     btns.info.addEventListener("click", () => toggle("info"));
     btns.filters.addEventListener("click", () => toggle("filters"));
     btns.views.addEventListener("click", () => toggle("views"));
+    if (tight.matches && st.info && st.views) st.views = false;
+    tight.addEventListener("change", () => { if (tight.matches && st.info && st.views) { st.views = false; apply(); } });
     for (const b of document.querySelectorAll(".pclose")) b.addEventListener("click", () => toggle(b.dataset.panel, false));
     window.TT_closePanels = () => { if (!mq.matches) return; let any = false; for (const k of KEYS) if (st[k]) { st[k] = false; any = true; } if (any) apply(); };
     apply();
@@ -2067,7 +2083,7 @@
     if (on && fit) {
       const c = runData.route.coords, b = new maplibregl.LngLatBounds(c[0], c[0]);
       for (const p of c) b.extend(p);
-      map.fitBounds(b, { padding: { top: Math.round($("timebar").getBoundingClientRect().bottom) + 30, bottom: document.body.classList.contains("rulers-on") ? 150 : 70, left: 330, right: 300 }, maxZoom: 15.6, duration: 900 });
+      map.fitBounds(b, { padding: { top: Math.round($("timebar").getBoundingClientRect().bottom) + 30, bottom: document.body.classList.contains("rulers-on") ? 150 : 70, left: innerWidth <= 640 ? 16 : Math.min(330, Math.round(innerWidth * 0.4)), right: innerWidth <= 640 ? 16 : Math.min(300, Math.round(innerWidth * 0.35)) }, maxZoom: 15.6, duration: 900 });
     }
   }
   function updateRunUi() {
@@ -2096,6 +2112,7 @@
     showPopup("300px", lngLat, el);
   }
   function showRunCard() {
+    if (window.TT_closePanels) window.TT_closePanels();
     reopenInfo = () => showRunCard();
     const L = t(), r = runData.route;
     openInfo((body) => {
