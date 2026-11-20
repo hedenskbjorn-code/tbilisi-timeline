@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.6.12",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Битвы сверены по книгам («Картлис Цховреба», Ланг, Тогошвили, «Дворянские роды Грузии»): в примечаниях страницы и расхождения со статьями, у битвы при Нахидури появилась булавка (место приблизительное). У четырёх битв (Эрцухи, Рахси, Ботора, Хунани) булавки нет: книги называют только область или реку.",
+    "en": "The battles are checked against the books (Kartlis Tskhovreba, Lang, Togoshvili, 'Noble families of Georgia'): the notes give the pages and the differences from the articles, the battle of Nakhiduri got a pin (the place is approximate). Four battles (Ertsukhi, Rakhsi, Botora, Khunani) have no pin: the books name only a region or a river.",
+    "ka": "ბრძოლები წიგნებთან არის შემოწმებული („ქართლის ცხოვრება“, ლენგი, ტოგოშვილი, „საქართველოს თავადაზნაურობა“): შენიშვნებში მითითებულია გვერდები და სტატიებთან განსხვავებები; ნახიდურის ბრძოლას ნიშანი დაემატა (ადგილი მიახლოებითია). ოთხ ბრძოლას (ერცუხი, რახსი, ბოტორა, ხუნანი) ნიშანი არ აქვს: წიგნები მხოლოდ მხარეს ან მდინარეს ასახელებენ."
+   }
+  ]
+ },
+ {
   "version": "1.6.11",
   "date": "2026-11-20",
   "items": [
