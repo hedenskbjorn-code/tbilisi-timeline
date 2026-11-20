@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.6.3",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Шкалу времени и линию правителей можно убрать: стрелка в углу панели сворачивает шкалу в маленькую плашку с годом, кнопка ▼ скрывает линию правителей (возвращает кнопка «Правители»). Выбор запоминается в браузере. На телефоне линия правителей по умолчанию свёрнута.",
+    "en": "The time scale and the line of rulers can be put away: the arrow in the corner of the panel folds the scale into a small pill with the year, the button ▼ hides the line of rulers (the button 'Rulers' brings it back). The choice is remembered in the browser. On a phone the line of rulers is folded by default.",
+    "ka": "დროის სკალა და მმართველთა ხაზი შეიძლება მოიშოროთ: პანელის კუთხეში ისარი სკალას წელიწადიან პატარა ფირფიტად კეცავს, ღილაკი ▼ მმართველთა ხაზს მალავს (ღილაკი „მმართველები“ აბრუნებს). არჩევანი ბრაუზერში ინახება. ტელეფონზე მმართველთა ხაზი ნაგულისხმევად ჩაკეცილია."
+   },
+   {
+    "t": "fix",
+    "ru": "Кнопки карты (приблизить, «Где я», «Рядом») на телефоне были закрыты панелью времени; теперь они ниже панелей и не перекрываются открытыми панелями фильтров и видов.",
+    "en": "The map buttons (zoom, 'Where am I', 'Near me') were covered by the time bar on a phone; now they lie below the bars and are not covered by the open panels of filters and views.",
+    "ka": "რუკის ღილაკები (მასშტაბი, „სად ვარ“, „ჩემ გვერდით“) ტელეფონზე დროის პანელს ფარავდა; ახლა ისინი პანელების ქვემოთაა და ღია ფილტრებისა და ხედების პანელები მათ არ ფარავს."
+   }
+  ]
+ },
+ {
   "version": "1.6.2",
   "date": "2026-11-20",
   "items": [

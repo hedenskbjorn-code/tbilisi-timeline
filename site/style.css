@@ -391,3 +391,25 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #glnote p { margin:0 0 8px; }
 #glnote button { padding:5px 10px; cursor:pointer; }
 .maplibregl-ctrl button.nearctl { font-size:18px; line-height:29px; }
+/* the buttons of the map (zoom, position, near me) lie below the header and the time bar, not under them */
+.maplibregl-ctrl-top-right { top:calc(56px + var(--tb) + 8px); }
+@media (max-width:640px) { .maplibregl-ctrl-top-right { top:calc(52px + var(--tb) + 8px); } }
+/* on a wide screen the buttons keep to the left of an open panel on the right (filters or views) */
+@media (min-width:641px) {
+  body:has(#filters:not([hidden])) .maplibregl-ctrl-top-right { right:292px; }
+  body.nofilters:has(#views:not([hidden])) .maplibregl-ctrl-top-right { right:332px; }                /* views panel alone: 16 + 308 + 8 */
+  body:not(.nofilters):has(#views:not([hidden])) .maplibregl-ctrl-top-right { right:620px; }          /* views left of filters: 304 + 308 + 8 */
+}
+/* folding of the time scale and of the line of rulers */
+#tbToggle, #rbToggle { position:absolute; top:6px; right:8px; padding:2px 8px; min-width:0; font-size:12px; line-height:18px; z-index:2; }
+#tbYear { display:none; font-weight:700; }
+#timebar.min { right:auto; padding:6px 8px 6px 12px; gap:10px; align-items:center; flex-wrap:nowrap; }
+#timebar.min > :not(#tbToggle):not(#tbYear) { display:none; }
+#timebar.min #tbYear { display:inline; }
+#timebar.min #tbToggle { position:static; }
+#rbToggle { top:4px; }
+body:not(.rulers-on) #rbToggle { display:none; }
+#rbShow { display:none; position:absolute; left:16px; bottom:30px; z-index:5; box-shadow:0 1px 8px #0003; }
+body:not(.rulers-on) #rbShow { display:block; }
+@media (max-width:640px) { #rbShow { left:8px; bottom:62px; } }          /* above the line with the attribution of the map, which must stay visible */
+body:has(#timebar.min) #yearchip { display:none !important; }          /* the folded time bar already shows the year */
