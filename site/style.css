@@ -432,3 +432,42 @@ body.stale #side, body.stale #views { opacity:.55; }
 /* the keyboard focus is visible (only for the keyboard, not for the mouse) */
 :focus-visible { outline:2px solid var(--accent, #1c7ed6); outline-offset:2px; }
 input[type=range]:focus-visible { outline-offset:4px; }
+/* the right group of the top bar: on a wide screen in the bar, on a phone in the menu "..." (app.js moves it) */
+#topRight { display:flex; align-items:center; gap:10px; }
+#btnMore { display:none; }
+@media (max-width:640px) {
+  :root { --safe-top: env(safe-area-inset-top, 0px); --safe-bottom: env(safe-area-inset-bottom, 0px); }
+  #btnMore { display:inline-block; min-width:44px; min-height:40px; font-size:20px; line-height:1; padding:6px 10px; }
+  #top { z-index:8; gap:6px; padding-top:calc(8px + var(--safe-top)); padding-left:max(8px, env(safe-area-inset-left)); padding-right:max(8px, env(safe-area-inset-right)); }
+  #moreMenu { position:absolute; top:100%; right:max(8px, env(safe-area-inset-right)); z-index:20; width:min(260px, calc(100% - 16px)); padding:8px; border-radius:10px; background:var(--panel); box-shadow:0 4px 18px #0006; display:flex; flex-direction:column; gap:8px; pointer-events:auto; }
+  #moreMenu[hidden] { display:none; }
+  #moreMenu #topRight { flex-direction:column; align-items:stretch; gap:8px; }
+  #moreMenu .chip, #moreMenu select { width:100%; min-height:44px; font-size:14px; text-align:left; padding:8px 12px; box-sizing:border-box; }
+  #moreMenu #btnSupport { display:block; }
+  #moreMenu #fbOpen { font-size:14px; padding:8px 12px; }
+  #moreMenu #fbOpen::before { content:none; }
+  #moreMenu #btnSupport::after, #moreMenu #btnInstall::after { content:attr(title); margin-left:10px; font-size:14px; }          /* the icon buttons get their text in the menu */
+  /* bigger targets for a finger (the look stays) */
+  #btnInfo, #btnFilters, #btnViews, #btnSearch { min-height:40px; padding:8px 10px; font-size:13px; }
+  #btnSearch { min-width:44px; }
+  .pclose { padding:10px 14px; }
+  #tbToggle, #rbToggle { padding:8px 14px; font-size:14px; }
+  #evmarks button { width:24px; }
+  #evmarks button::before { content:""; position:absolute; left:-1px; right:-1px; top:-14px; bottom:-14px; }
+  #evmarks button.cl::after { display:block; top:auto; bottom:-7px; right:-6px; min-width:11px; font:700 9px/11px system-ui,sans-serif; }          /* the count under the icon: it does not cover it */
+  /* the edges of the screen of a modern phone (notch, gesture bar): the bars keep inside */
+  #timebar { top:calc(52px + var(--safe-top)); left:max(8px, env(safe-area-inset-left)); right:max(8px, env(safe-area-inset-right)); }
+  #side, #filters, #views { top:calc(52px + var(--safe-top) + var(--tb) + 8px); max-height:calc(100% - 52px - var(--safe-top) - var(--tb) - 8px - 20px - var(--bb)); }
+  body.rulers-on #side, body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 52px - var(--safe-top) - var(--tb) - 8px - 20px - var(--bb)); }
+  #yearchip, body:not(.panel-open) #yearchip { top:calc(52px + var(--safe-top) + var(--tb) + 8px); }
+  .maplibregl-ctrl-top-right { top:calc(52px + var(--safe-top) + var(--tb) + 8px); }
+  #bottom { bottom:calc(10px + var(--safe-bottom)); left:max(8px, env(safe-area-inset-left)); right:max(8px, env(safe-area-inset-right)); }
+  #rbShow { bottom:calc(62px + var(--safe-bottom)); right:max(8px, env(safe-area-inset-right)); }
+}
+/* very narrow phones (320-360 px): the four buttons and the menu button still fit in Georgian */
+@media (max-width:360px) {
+  #top { gap:4px; }
+  #btnInfo, #btnFilters, #btnViews, #btnSearch { padding:8px 6px; font-size:12px; }
+  #btnSearch, #btnMore { min-width:40px; }
+  #btnMore { padding:6px 6px; }
+}
