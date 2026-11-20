@@ -1177,6 +1177,20 @@
   const viewTiles = new Map();
   const VIEW_WINDOW = 150;                       // a view is offered for 150 years after its date
 
+  // the tiles of the grid are 130-180 px wide: they load a small copy (site/data/views/thumb/, made by tools/make_view_thumbs.py); the viewer loads the whole picture.
+  // Three pictures from Wikimedia have a checked thumbnail address (500 px); the others keep their address.
+  const VIEW_THUMB_OK = new Set(["viceroy_palace_1865", "kennan_tiflis_1870s", "ermakov_nevsky"]);
+  function viewThumb(v) {
+    const u = v.image;
+    if (!/^https?:/.test(u)) return u.replace(/^data\/views\/([^/]+?)\.\w+$/, "data/views/thumb/$1.webp");
+    if (!VIEW_THUMB_OK.has(v.id)) return u;
+    const t = u.replace(/\?.*$/, "");
+    let m = t.match(/^(https:\/\/thumb\.wikimedia\.org\/wikipedia\/commons\/thumb\/.+)\/\d+px-([^/]+)$/);
+    if (m) return m[1] + "/500px-" + m[2];
+    m = t.match(/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/(\w\/\w\w)\/([^/]+)$/);
+    return m ? "https://upload.wikimedia.org/wikipedia/commons/thumb/" + m[1] + "/" + m[2] + "/500px-" + m[2] : u;
+  }
+
   function updateViews() {
     const box = $("vgrid");
     if (!box || $("views").hidden) return;                       // tiles (and their images) are built only while the panel is open
@@ -1200,7 +1214,7 @@
         const b = document.createElement("button");
         b.type = "button";
         const im = document.createElement("img");
-        im.src = v.image; im.loading = "lazy"; im.alt = "";
+        im.src = viewThumb(v); im.loading = "lazy"; im.alt = "";
         const cap = document.createElement("span");
         cap.className = "vcap";
         const yr = document.createElement("span");
