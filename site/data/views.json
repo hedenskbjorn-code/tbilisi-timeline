@@ -1776,8 +1776,8 @@
   },
   "author": {
    "ru": "Главархив Москвы",
-   "en": "Главархив Москвы",
-   "ka": "Главархив Москвы"
+   "en": "Main Archive of Moscow (Glavarkhiv Moskvy)",
+   "ka": "მოსკოვის მთავარი არქივი"
   },
   "note": {
    "ru": "Фотография из Wikimedia Commons, лицензия CC BY 4.0: указание автора и ссылка на страницу файла обязательны; копия уменьшена. Подпись и год по описанию на Commons. К карте не привязана.",
@@ -3084,8 +3084,8 @@
   },
   "note": {
    "ru": "Фото автора проекта. Здание: дом князя Василия Габашвили (Руставели, 54; построен в 1896 по проекту Корнелия Татищева, ru.wikipedia, «Дом Габашвили (Тбилиси)»). Дата по данным съёмки; к карте не привязано.",
-   "en": "A photograph by the author of the project. The building: the house of Prince Vasil Gabashvili (Rustaveli 54; built in 1896 to a design by Cornelius Tatishchev, ru.wikipedia, 'Дом Габашвили (Тбилиси)'). The date is from the shooting data; not tied to the map.",
-   "ka": "პროექტის ავტორის ფოტო. შენობა: თავად ვასილ გაბაშვილის სახლი (რუსთაველის 54; აშენდა 1896 წელს კორნელიუს ტატიშჩევის პროექტით, ru.wikipedia, „Дом Габашвили (Тбилиси)“). თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
+   "en": "A photograph by the author of the project. The building: the house of Prince Vasil Gabashvili (Rustaveli 54; built in 1896 to a design by Cornelius Tatishchev, ru.wikipedia, 'Gabashvili House (Tbilisi)'). The date is from the shooting data; not tied to the map.",
+   "ka": "პროექტის ავტორის ფოტო. შენობა: თავად ვასილ გაბაშვილის სახლი (რუსთაველის 54; აშენდა 1896 წელს კორნელიუს ტატიშჩევის პროექტით, ru.wikipedia, „გაბაშვილის სახლი (თბილისი)“). თარიღი გადაღების მონაცემებით; რუკას არ უკავშირდება."
   },
   "license": {
    "ru": "авторские права за автором; публикуется с его разрешения",

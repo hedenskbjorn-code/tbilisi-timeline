@@ -117,6 +117,7 @@ NOTES_EN = {
     "bagrat6": "Ruled Kartli until 1478 (the Kingdom of Kartli page); in the list a king of Imereti from 1463.",
     "david10": "Years per the list 1505-1526; George IX is named king in 1525-1527.",
     "george9": "Years per the list 1525-1527; cut here to 1526-1527 so that it does not overlap David X.",
+    "george5": "Reunification of Georgia in 1329 (infobox).",
     "simon1": "Reigned again in 1578-1600.",
     "david11": "Installed by the shah; the introduction of the Safavid Georgia page puts it in 1562, the 16th-century section in 1569-1578.",
     "simon1b": "Tbilisi was held by the Ottomans in 1578-1612; Simon ruled the rest of Kartli.",
@@ -366,7 +367,7 @@ PR = [("gamsakhurdia0", y(14, 11, 1990), y(14, 4, 1991), "Звиад Гамса�
       ("saakashvili2", y(20, 1, 2008), y(17, 11, 2013), "Михаил Саакашвили", "Mikheil Saakashvili", "მიხეილ სააკაშვილი", "Переизбран 5.01.2008.", None),
       ("margvelashvili", y(17, 11, 2013), y(16, 12, 2018), "Георгий Маргвелашвили", "Giorgi Margvelashvili", "გიორგი მარგველაშვილი", "", None),
       ("zourabichvili", y(16, 12, 2018), y(29, 12, 2024), "Саломе Зурабишвили", "Salome Zourabichvili", "სალომე ზურაბიშვილი", "Дата начала: в тексте страницы «ноябрь 2018», в таблице 16.12.2018. Статус после 2024 оспаривается.", None),
-      ("kavelashvili", y(29, 12, 2024), 2026.9, "Михаил Кавелашвили", "Mikheil Kavelashvili", "მიხეილ ყაველაშვილი", "Избран 14.12.2024, вступил 29.12.2024; статус оспаривается (часть сторон считает президентом З. Зурабишвили).", None)]
+      ("kavelashvili", y(29, 12, 2024), 2026.9, "Михаил Кавелашвили", "Mikheil Kavelashvili", "მიხეილ ყაველაშვილი", "Избран 14.12.2024, вступил 29.12.2024; статус оспаривается (часть сторон считает президентом С. Зурабишвили).", None)]
 for rid, a, b, ru, en, ka, nt, ttl in PR:
     R(rid, a, b, "president", E(ru, en, ka), E(nt, NOTES_EN.get(rid, nt)), [W + "President_of_Georgia"], title=ttl, lane=0)
 
@@ -374,8 +375,27 @@ DATA = {"note": "Built by tools/build_rulers.py on 2026-11-19; every entry cites
         "groups": GROUPS, "states": STATES, "rulers": RULERS}
 
 
+def add_georgian(o, ka_map):
+    """The Georgian text of the notes and forms: N() puts the English text into "ka" when no Georgian one is given;
+    the Georgian translations are kept in data/rulers_ka.json (the Russian text -> the Georgian one) and put in here."""
+    n = 0
+    if isinstance(o, dict):
+        if isinstance(o.get("ka"), str) and isinstance(o.get("ru"), str) and not any("ა" <= c <= "ჿ" for c in o["ka"]) and o["ru"] in ka_map:
+            o["ka"] = ka_map[o["ru"]]
+            n += 1
+        for v in o.values():
+            n += add_georgian(v, ka_map)
+    elif isinstance(o, list):
+        for v in o:
+            n += add_georgian(v, ka_map)
+    return n
+
+
 def main():
     p = os.path.join(ROOT, "site", "data", "rulers.json")
+    kp = os.path.join(ROOT, "data", "rulers_ka.json")
+    if os.path.exists(kp):
+        print("Georgian texts put in:", add_georgian(DATA, json.load(open(kp, encoding="utf-8"))))
     data = json.dumps(DATA, ensure_ascii=False, indent=0).encode("utf-8")
     open(p, "wb").write(data)
     print("states:", len(STATES), "rulers:", len(RULERS), "bytes:", len(data))

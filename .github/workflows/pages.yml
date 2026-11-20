@@ -11,7 +11,19 @@ concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
+  # the checks of the data and of the texts stop the deploy when a translation is missing, a Georgian text is not Georgian,
+  # a file of the page is missing or a unit test fails (tests/)
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tests/check_data.mjs
+      - run: node --test tests/*.test.mjs
   deploy:
+    needs: checks
     runs-on: ubuntu-latest
     environment:
       name: github-pages
