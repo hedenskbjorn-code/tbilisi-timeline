@@ -115,6 +115,7 @@
       topoPlanOpt: "1:2 000 · городской план (z17)", legDistEx: "Мтацминда", legSetEx: "Коджори", ariaLang: "Язык", ariaClose: "закрыть", fbContactPh: "email или telegram (необязательно)",
       showSci: "Наука и культура: институты, университеты, музеи, театры (появляются по годам)", sciKinds: { science: "Наука и образование", culture: "Культура" }, sciFounded: "Основано", sciBuilt: "Здание", sciFrom: "Появляется", sciSrc: "Источники", sciFaint: "бледная точка: здание ещё не построено или учреждение было в другом месте",
       lcTitle: "Показать моё положение", nrBtnT: "Что рядом со мной", nrTitle: "Рядом со мной", nrHint: "Показаны объекты, существующие в выбранном году (с учётом фильтров), и события с местом на карте. Расстояние по прямой, стрелка показывает сторону света (вверху север). Положение используется только в вашем браузере и никуда не отправляется.", nrNone: "Рядом ничего не нашлось.", nrFar: "Вы далеко от Тбилиси: показано то, что ближе всего.", nrDenied: "Не удалось определить положение. Разрешите доступ к геолокации в браузере (для сайта) и включите геолокацию на телефоне.", nrAcc: "точность около", unitM: "м", unitKm: "км", nrEv: "событие",
+      tbHide: "Свернуть шкалу времени", tbShow: "Развернуть шкалу времени", rbHide: "Скрыть линию правителей", rbShow: "Правители",
       glFail: "Не удалось запустить графику карты (WebGL). Обновление страницы здесь не поможет: полностью закройте браузер (все окна) и откройте снова, либо обновите драйвер видеокарты. В другом браузере (Edge, Chrome) сайт может открыться.", glSlow: "Карта долго не запускается. Если экран остаётся пустым, полностью закройте браузер и откройте снова или обновите драйвер видеокарты.", glReload: "Обновить страницу",
       loadMap: "Загрузка карты и данных…", loadPlan: "Загрузка плана…", loadFail: "Не удалось загрузить данные. Обновите страницу (Ctrl+F5).",
       topoAutoNote: "Сейчас топокарта включена автоматически (годы 1953–2005, вместо плана). Чтобы скрыть её, снимите галочку «С 1953 по 2005 год показывать топокарту вместо плана» ниже.",
@@ -281,6 +282,7 @@
       topoPlanOpt: "1:2 000 · city plan (z17)", legDistEx: "Mtatsminda", legSetEx: "Kojori", ariaLang: "Language", ariaClose: "close", fbContactPh: "email or telegram (optional)",
       showSci: "Science and culture: institutes, universities, museums, theatres (appear by year)", sciKinds: { science: "Science and education", culture: "Culture" }, sciFounded: "Founded", sciBuilt: "Building", sciFrom: "Appears", sciSrc: "Sources", sciFaint: "a faint point: the building is not yet built or the institution was elsewhere",
       lcTitle: "Show my location", nrBtnT: "What is near me", nrTitle: "Near me", nrHint: "The list shows the objects that exist in the chosen year (with the filters) and the events that have a place on the map. The distance is in a straight line, the arrow shows the direction (up is north). The position is used only in your browser and is sent nowhere.", nrNone: "Nothing was found nearby.", nrFar: "You are far from Tbilisi: the nearest things are shown.", nrDenied: "The position could not be found. Allow the access to the location for this site in the browser and switch the location on in the phone.", nrAcc: "accuracy about", unitM: "m", unitKm: "km", nrEv: "event",
+      tbHide: "Fold the time scale", tbShow: "Unfold the time scale", rbHide: "Hide the line of rulers", rbShow: "Rulers",
       glFail: "The map graphics (WebGL) could not be started. Reloading the page will not help here: close the browser completely (all windows) and open it again, or update the video driver. The site may open in another browser (Edge, Chrome).", glSlow: "The map takes long to start. If the screen stays empty, close the browser completely and open it again or update the video driver.", glReload: "Reload the page",
       loadMap: "Loading the map and data…", loadPlan: "Loading the plan…", loadFail: "The data could not be loaded. Reload the page (Ctrl+F5).",
       topoAutoNote: "The topographic map is on automatically now (the years 1953-2005, instead of a plan). To hide it, clear the box \"From 1953 to 2005 show the topographic map instead of a plan\" below.",
@@ -448,6 +450,7 @@
       topoPlanOpt: "1:2 000 · ქალაქის გეგმა (z17)", legDistEx: "მთაწმინდა", legSetEx: "კოჯორი", ariaLang: "ენა", ariaClose: "დახურვა", fbContactPh: "ელფოსტა ან ტელეგრამი (არასავალდებულო)",
       showSci: "მეცნიერება და კულტურა: ინსტიტუტები, უნივერსიტეტები, მუზეუმები, თეატრები (ჩნდება წლების მიხედვით)", sciKinds: { science: "მეცნიერება და განათლება", culture: "კულტურა" }, sciFounded: "დაარსდა", sciBuilt: "შენობა", sciFrom: "ჩნდება", sciSrc: "წყაროები", sciFaint: "ფერმკრთალი წერტილი: შენობა ჯერ არ არის აშენებული ან დაწესებულება სხვაგან იყო",
       lcTitle: "ჩემი მდებარეობის ჩვენება", nrBtnT: "რა არის ჩემ გვერდით", nrTitle: "ჩემ გვერდით", nrHint: "ნაჩვენებია ობიექტები, რომლებიც არჩეულ წელს არსებობს (ფილტრების გათვალისწინებით), და მოვლენები, რომლებსაც რუკაზე ადგილი აქვს. მანძილი წრფივია, ისარი მიმართულებას აჩვენებს (ზემოთ ჩრდილოეთია). მდებარეობა გამოიყენება მხოლოდ თქვენს ბრაუზერში და არსად იგზავნება.", nrNone: "ახლოს არაფერი მოიძებნა.", nrFar: "თბილისიდან შორს ხართ: ნაჩვენებია უახლოესი.", nrDenied: "მდებარეობის დადგენა ვერ მოხერხდა. ბრაუზერში დართეთ ნება გეოლოკაციაზე ამ საიტისთვის და ტელეფონზე ჩართეთ მდებარეობა.", nrAcc: "სიზუსტე დაახლოებით", unitM: "მ", unitKm: "კმ", nrEv: "მოვლენა",
+      tbHide: "დროის სკალის ჩაკეცვა", tbShow: "დროის სკალის გაშლა", rbHide: "მმართველების ხაზის დამალვა", rbShow: "მმართველები",
       glFail: "რუკის გრაფიკის (WebGL) გაშვება ვერ მოხერხდა. გვერდის განახლება აქ არ დაგეხმარებათ: მთლიანად დახურეთ ბრაუზერი (ყველა ფანჯარა) და ხელახლა გახსენით, ან განაახლეთ ვიდეოდრაივერი. სხვა ბრაუზერში (Edge, Chrome) საიტი შეიძლება გაიხსნას.", glSlow: "რუკა დიდხანს იტვირთება. თუ ეკრანი ცარიელი რჩება, მთლიანად დახურეთ ბრაუზერი და ხელახლა გახსენით ან განაახლეთ ვიდეოდრაივერი.", glReload: "გვერდის განახლება",
       loadMap: "რუკა და მონაცემები იტვირთება…", loadPlan: "გეგმა იტვირთება…", loadFail: "მონაცემების ჩატვირთვა ვერ მოხერხდა. განაახლეთ გვერდი (Ctrl+F5).",
       topoAutoNote: "ტოპოგრაფიული რუკა ახლა ავტომატურად არის ჩართული (1953–2005 წლები, გეგმის ნაცვლად). გასაქრობად მოხსენით ქვემოთ მოცემული ნიშნული „1953-2005 წლებში გეგმის ნაცვლად ტოპორუკის ჩვენება“.",
@@ -802,6 +805,7 @@
     ensureInWindow();
     $("year").textContent = year;
     if ($("yearchip")) $("yearchip").textContent = year;
+    if ($("tbYear")) $("tbYear").textContent = year;
     $("slider").value = Math.round(y2v(year));
     try { history.replaceState(null, "", "#" + year); } catch (e) {}
     if (!map.getLayer("mon")) return;
@@ -864,6 +868,7 @@
     if ($("loading") && !$("loading").hidden) $("loadingTxt").textContent = t()[loadKey];
     $("lang").setAttribute("aria-label", t().ariaLang);
     if (typeof updateLocTitles === "function") updateLocTitles();
+    if (typeof updateFoldTitles === "function" && $("tbToggle")) updateFoldTitles();
     document.querySelectorAll(".pclose").forEach((b) => b.setAttribute("aria-label", t().ariaClose));
     if ($("fbContactInput")) $("fbContactInput").placeholder = t().fbContactPh;
     updateVersionBtn();
@@ -2727,6 +2732,29 @@
     });
   })();
   if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
+  // the owner of the screen decides: the time scale folds to a small pill with the year, the line of rulers hides to a pill "Rulers"; the choice is remembered (not part of the filters)
+  function uiGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function uiSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function setTbMin(on, save) {
+    $("timebar").classList.toggle("min", !!on);
+    $("tbToggle").textContent = on ? "▼" : "▲";
+    const tx = on ? t().tbShow : t().tbHide; $("tbToggle").title = tx; $("tbToggle").setAttribute("aria-label", tx);
+    $("tbYear").textContent = year;
+    if (save) uiSet("ui_tb", on ? "min" : "");
+    requestAnimationFrame(() => { syncBars(); window.dispatchEvent(new Event("resize")); });
+  }
+  $("tbToggle").addEventListener("click", () => setTbMin(!$("timebar").classList.contains("min"), true));
+  function setRulersOn(on) { $("showRulers").checked = on; $("showRulers").dispatchEvent(new Event("change")); uiSet("ui_rb", on ? "on" : "off"); }
+  $("rbToggle").addEventListener("click", () => setRulersOn(false));
+  $("rbShow").addEventListener("click", () => setRulersOn(true));
+  $("showRulers").addEventListener("change", () => uiSet("ui_rb", $("showRulers").checked ? "on" : "off"));
+  function updateFoldTitles() {
+    const L = t(); $("rbToggle").title = L.rbHide; $("rbToggle").setAttribute("aria-label", L.rbHide); $("rbShow").textContent = "👑 " + L.rbShow;
+    const tx = $("timebar").classList.contains("min") ? L.tbShow : L.tbHide; $("tbToggle").title = tx; $("tbToggle").setAttribute("aria-label", tx);
+  }
+  { const v = uiGet("ui_rb"); if (v === "on") $("showRulers").checked = true; if (v === "off") $("showRulers").checked = false; }
+  if (uiGet("ui_tb") === "min") setTbMin(true, false);
+  updateFoldTitles();
 
   // science and culture: universities, institutes, libraries, museums, theatres; points that appear in the year (data/science.json); science is drawn larger and above culture
   const SCI_COLOR = { science: "#1c7ed6", culture: "#868e96" };
