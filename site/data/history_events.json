@@ -1,5 +1,5 @@
 {
- "note": "Verified 2026-11-18 by reading the cited Wikipedia pages (Gemini draft of 23 events was checked; events not confirmed by any page were dropped: 1723, 1735, 1830, 1844, Gori earthquake 1920 felt in Tbilisi, flood 1956, independence declaration 9.04.1991; the 4 January 1900 earthquake with >1000 deaths in the list of earthquakes in Georgia rests on newspaper footnotes only and was not used). Removed after the owner's check: separate marks for Vere floods 1960, 1963, 1972, 1995 (they rested on one sentence of the 2015 flood article, and the link led to an article about 2015); the sentence is kept in the note of the 2015 event. 2026-11-18: earthquakes of 1682, 1803, 1804, 1819, 1894 and the full entry for 1896 added from the monograph of Varazanashvili, Tsereteli, Tsereteli (2011), which the owner found (PDF read in full). 2026-11-18: floods 1651-1968 added from Amiranashvili et al. (2023), found in the openlibrary.ge repository. Added 2026-11-18 (positive events, category 'build'; the oldest surviving buildings, category 'oldest'): each checked against the cited English Wikipedia page; not added because not confirmed: Jvari Mama, the bridges' opening years, Hotel Iveria, the Sports Palace, Junior Eurovision 2017, the zoo, the Tbilisi Sea; festivals and the UEFA Super Cup 2015 were left out at the owner's request. Points on the map: the coordinates of the English Wikipedia pages of the buildings. 2026-11-20: 23 events added after a fact-check of the owner's file (tbilisi_timeline_facts_for_claude.md) against the text of ka.wikipedia 'History of Tbilisi' (read in full) and independent pages (Georgian Encyclopedia, IDFI, ru/en Wikipedia, LSE); not added because not confirmed: 1259 (the revolt of David Narin was in western Georgia), 1412 (Tbilisi-specific restoration), 1732 (a Lezgin sack of Tbilisi), 1748 (wall and Darial road), the 1795 figure of 15,000 (sources give it for captives, not for inhabitants). 2026-11-20 (second pass): the facts of section 7 of the same file were checked in the PDF of the book 'History of Georgia', vol. III (2012) read with pdftotext: confirmed facts were added or used to refine events (the page numbers in the notes are the printed ones, the PDF page is the printed one plus 2); not found in the text and not used: the Iphigenia of 1795, the 101 salvos of 1783, the 12 April 1802 reading, the second Tbilisi mouravi Giorgi Saakadze of 1608; the Metekhi church (1278-1289) and the events of 1522, 23.09.1800 and 16.02.1801 already existed. 2026-11-20 (third pass): volumes II and IV of the same book (2012) were read with pdftotext and the facts of section 8 of the file were checked; added what was found in the text (the printed page = the PDF page minus 2). Not found in the text and not used: 541 (Arvand Gushnasp), the decree of Heraclius on the magi, 1840 (Golovin), 1874 (Kipiani), 1886 (Lagiashvili), 1935, 1951-53 (Tbilisi oblast), 1956 (television), 1980 (one million), the date of 2 January 1850 (the existing event says 14 January); not read because they are scans without a text layer: the volumes of Brosset (1895, 1900), the 'Short chronicles' (1968) and the issues of 'Tbilisis Utskebani' of 1832.",
+ "note": "Verified 2026-11-18 by reading the cited Wikipedia pages (Gemini draft of 23 events was checked; events not confirmed by any page were dropped: 1723, 1735, 1830, 1844, Gori earthquake 1920 felt in Tbilisi, flood 1956, independence declaration 9.04.1991; the 4 January 1900 earthquake with >1000 deaths in the list of earthquakes in Georgia rests on newspaper footnotes only and was not used). Removed after the owner's check: separate marks for Vere floods 1960, 1963, 1972, 1995 (they rested on one sentence of the 2015 flood article, and the link led to an article about 2015); the sentence is kept in the note of the 2015 event. 2026-11-18: earthquakes of 1682, 1803, 1804, 1819, 1894 and the full entry for 1896 added from the monograph of Varazanashvili, Tsereteli, Tsereteli (2011), which the owner found (PDF read in full). 2026-11-18: floods 1651-1968 added from Amiranashvili et al. (2023), found in the openlibrary.ge repository. Added 2026-11-18 (positive events, category 'build'; the oldest surviving buildings, category 'oldest'): each checked against the cited English Wikipedia page; not added because not confirmed: Jvari Mama, the bridges' opening years, Hotel Iveria, the Sports Palace, Junior Eurovision 2017, the zoo, the Tbilisi Sea; festivals and the UEFA Super Cup 2015 were left out at the owner's request. Points on the map: the coordinates of the English Wikipedia pages of the buildings. 2026-11-20: 23 events added after a fact-check of the owner's file (tbilisi_timeline_facts_for_claude.md) against the text of ka.wikipedia 'History of Tbilisi' (read in full) and independent pages (Georgian Encyclopedia, IDFI, ru/en Wikipedia, LSE); not added because not confirmed: 1259 (the revolt of David Narin was in western Georgia), 1412 (Tbilisi-specific restoration), 1732 (a Lezgin sack of Tbilisi), 1748 (wall and Darial road), the 1795 figure of 15,000 (sources give it for captives, not for inhabitants). 2026-11-20 (second pass): the facts of section 7 of the same file were checked in the PDF of the book 'History of Georgia', vol. III (2012) read with pdftotext: confirmed facts were added or used to refine events (the page numbers in the notes are the printed ones, the PDF page is the printed one plus 2); not found in the text and not used: the Iphigenia of 1795, the 101 salvos of 1783, the 12 April 1802 reading, the second Tbilisi mouravi Giorgi Saakadze of 1608; the Metekhi church (1278-1289) and the events of 1522, 23.09.1800 and 16.02.1801 already existed. 2026-11-20 (third pass): volumes II and IV of the same book (2012) were read with pdftotext and the facts of section 8 of the file were checked; added what was found in the text (the printed page = the PDF page minus 2). Not found in the text and not used: 541 (Arvand Gushnasp), the decree of Heraclius on the magi, 1840 (Golovin), 1874 (Kipiani), 1886 (Lagiashvili), 1935, 1951-53 (Tbilisi oblast), 1956 (television), 1980 (one million), the date of 2 January 1850 (the existing event says 14 January); not read because they are scans without a text layer: the volumes of Brosset (1895, 1900), the 'Short chronicles' (1968) and the issues of 'Tbilisis Utskebani' of 1832. 2026-11-20 (fourth pass): the OCR of the books of georgia-timeline/data/raw/books (and of the earlier scans) was searched for Tbilisi with a year; the candidates were checked on the images of the pages; added: 1357 (Lang, pp. 90-91), 1770 (Wardrop, p. 125), 1790 and 1798 (Dubrovin, vol. III, pp. 31 and 233); the notes of 1330 (Lang: 1329) and 1227 (Brosset: 1229). The printed numbers of the pages are given.",
  "events": [
   {
    "year": 364,
@@ -24,6 +24,25 @@
     "en": "Narikala fortress",
     "src": "coordinates of the page 'Narikala' on English Wikipedia",
     "ka": "ნარიყალას ციხე"
+   }
+  },
+  {
+   "year": 500,
+   "date": "500",
+   "cat": "power",
+   "src": [
+    {
+     "label": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008): статья на ru.wikipedia о своде",
+     "url": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%82%D0%BB%D0%B8%D1%81_%D1%86%D1%85%D0%BE%D0%B2%D1%80%D0%B5%D0%B1%D0%B0"
+    }
+   ],
+   "ru": "Царь Дачи, сын и преемник Вахтанга Горгасала, завершает ограды Тбилиси и по воле отца превращает его в царский дом, то есть в резиденцию (рубеж V–VI веков, год условный)",
+   "en": "King Dachi, the son and successor of Vakhtang Gorgasali, completes the walls of Tbilisi and, as his father had ordered, makes it a royal house, that is a residence (about the turn of the 5th and 6th centuries, the year is conventional)",
+   "ka": "მეფე დაჩიმ, ვახტანგ გორგასლის ძემ და მემკვიდრემ, თბილისის გალავნები დაასრულა და მამის ანდერძისამებრ სამეფო სახლად, ანუ რეზიდენციად აქცია (V-VI საუკუნეების მიჯნა, წელი პირობითია)",
+   "note": {
+    "ru": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008), «История и повествование о Вахтанге Горгасале» (Джуаншер), с. 103: «завершил он ограды Тбилиси, и как было повелено о том Вахтангом, превратил его в дом царский». Летопись годов не указывает: год 500 поставлен условно, чтобы событие встало между Нарикалой и Анчисхати. Комментарий 162 (с. 129): превращение Тбилиси в столицу самим Вахтангом Горгасалом считается легендой; о превращении его в стольный центр говорится только в «Исторической хронике Псевдо-Джуаншера», и там это дело Дачи.",
+    "en": "Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), 'The history and the narrative of Vakhtang Gorgasali' (Juansher), p. 103: 'he completed the walls of Tbilisi and, as Vakhtang had ordered, made it a royal house'. The chronicle gives no years: the year 500 is set conventionally so that the event stands between Narikala and Anchiskhati. Commentary 162 (p. 129): the making of Tbilisi the capital by Vakhtang Gorgasali himself is regarded as a legend; the turning of Tbilisi into a capital is told only in the 'Historical Chronicle of Pseudo-Juansher', and there it is the deed of Dachi.",
+    "ka": "„ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), „ვახტანგ გორგასლის ცხოვრება და მოთხრობა“ (ჯუანშერი), გვ. 103: „დაასრულა თბილისის გალავნები და, როგორც ვახტანგს ჰქონდა ნაბრძანები, სამეფო სახლად აქცია“. მატიანე წლებს არ ასახელებს: 500 წელი პირობითად არის დასმული, რათა მოვლენა ნარიყალასა და ანჩისხატს შორის მოხვდეს. კომენტარი 162 (გვ. 129): თბილისის დედაქალაქად გადაქცევა თვით ვახტანგ გორგასლის მიერ ლეგენდად ითვლება; თბილისის დედაქალაქად ქცევა მხოლოდ „ფსევდო-ჯუანშერის ისტორიულ მატიანეში“ არის მოთხრობილი და იქ ეს დაჩის საქმეა."
    }
   },
   {
@@ -254,6 +273,25 @@
    }
   },
   {
+   "year": 1062,
+   "date": "1062",
+   "cat": "power",
+   "src": [
+    {
+     "label": "D. M. Lang, «Studies in the Numismatic History of Georgia in Transcaucasia», American Numismatic Society, 1955 (библиографическая запись)",
+     "url": "https://library.britishmuseum.org/bib/200735"
+    }
+   ],
+   "ru": "Горожане Тбилиси изгоняют двух последних джафаридских эмиров, братьев Мансура и Абу-ль-Хайджу, поссорившихся из-за власти; в 1068 году их арестует султан Алп-Арслан во время вторжения в Грузию",
+   "en": "The citizens of Tbilisi expel the last two Ja'farid emirs, the brothers Mansur and Abu'l-Hayja, who had quarrelled in their bid for power; in 1068 Sultan Alp Arslan arrests them during his invasion of Georgia",
+   "ka": "თბილისელებმა განდევნეს ჯაფარიანთა უკანასკნელი ორი ამირა, ძმები მანსური და აბულ-ჰაიჯა, რომლებიც ძალაუფლების გამო ერთმანეთს წაეჩხუბნენ; 1068 წელს, საქართველოში შემოსევისას, სულთანმა ალფ-არსლანმა ისინი დააპატიმრა",
+   "note": {
+    "ru": "Д. М. Ланг (1955), с. 16-17, со ссылкой на В. Минорского. На с. 17 приведён рассказ Ибн аль-Азрака о положении в 1121-1122 годах: сорок лет город был в руках населения, каждый месяц делами заведовал один из жителей, а Давид Строитель довёл город до крайней нужды; от какого года идут эти сорок лет, источник не говорит.",
+    "en": "D. M. Lang (1955), pp. 16-17, citing V. Minorsky. On p. 17 he gives the account of Ibn al-Azraq about the situation in 1121-1122: for forty years the city had been in the hands of the population, every month one of the inhabitants administered its affairs, and David the Builder brought the city to great straits; the source does not say from which year the forty years are counted.",
+    "ka": "დ. მ. ლენგი (1955), გვ. 16-17, ვ. მინორსკის მითითებით. გვ. 17-ზე მოყვანილია იბნ ალ-აზრაყის ამბავი 1121-1122 წლების მდგომარეობის შესახებ: ორმოც წელს ქალაქი მოსახლეობის ხელში იყო, ყოველ თვე ქალაქის საქმეებს მოსახლეთაგან ერთ-ერთი განაგებდა, დავით აღმაშენებელმა კი ქალაქი უკიდურეს გაჭირვებაში ჩააგდო; რომელი წლიდან აითვლება ეს ორმოცი წელი, წყარო არ ამბობს."
+   }
+  },
+  {
    "year": 1068,
    "date": "1068",
    "cat": "invasion",
@@ -362,9 +400,28 @@
    "en": "Tbilisi is freed from the Khwarezmians: the local Muslims, oppressed by them, informed the Georgian command that the garrison was small. Later, when Jalal al-Din came again, the Georgian government decided not to resist: on leaving the capital the army burnt the city",
    "ka": "თბილისი ხვარაზმელებისგან გათავისუფლდა: ხვარაზმელთა ძალადობით შევიწროვებულმა ადგილობრივმა მაჰმადიანებმა ქართველთა სარდლობას გარნიზონის სიმცირე შეატყობინეს. მოგვიანებით, ჯალალ ად-დინის ხელახლა მოსვლისას, საქართველოს მთავრობამ წინააღმდეგობის გაწევაზე უარი თქვა: დედაქალაქის დატოვებისას ჯარმა ქალაქი გადაწვა",
    "note": {
-    "ru": "ka.wikipedia относит освобождение к концу 1226 года, книга называет февраль 1227 года; здесь взята дата книги. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 21-22.",
-    "en": "ka.wikipedia puts the liberation at the end of 1226, the book names February 1227; the date of the book is used here. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 21-22.",
-    "ka": "ka.wikipedia განთავისუფლებას 1226 წლის მიწურულით ათარიღებს, წიგნში 1227 წლის თებერვალია დასახელებული; აქ წიგნის თარიღია გამოყენებული. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 21-22."
+    "ru": "ka.wikipedia относит освобождение к концу 1226 года, книга называет февраль 1227 года; здесь взята дата книги. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 21-22. М.-Ф. Броссе (1849), введение, с. LXIX: повторный приход Джелал ад-Дина в Грузию датирован 1229 годом (первый, со взятием Тбилиси, — 1226).",
+    "en": "ka.wikipedia puts the liberation at the end of 1226, the book names February 1227; the date of the book is used here. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 21-22. M.-F. Brosset (1849), introduction, p. LXIX: the second coming of Jalal al-Din to Georgia is dated 1229 (the first, with the taking of Tbilisi, 1226).",
+    "ka": "ka.wikipedia განთავისუფლებას 1226 წლის მიწურულით ათარიღებს, წიგნში 1227 წლის თებერვალია დასახელებული; აქ წიგნის თარიღია გამოყენებული. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 21-22. მ.-ფ. ბროსე (1849), შესავალი, გვ. LXIX: ჯალალ ად-დინის საქართველოში მეორედ მოსვლა 1229 წლითაა დათარიღებული (პირველი, თბილისის აღებით, 1226 წელს)."
+   }
+  },
+  {
+   "year": 1230,
+   "date": "1230",
+   "cat": "power",
+   "src": [
+    {
+     "label": "D. M. Lang, «Studies in the Numismatic History of Georgia in Transcaucasia», American Numismatic Society, 1955 (библиографическая запись)",
+     "url": "https://library.britishmuseum.org/bib/200735"
+    }
+   ],
+   "ru": "Царица Русудан вновь занимает Тбилиси: об этом говорит возобновление чеканки серебряных дирхемов после перерыва более чем в сто лет (монета 450 года по Короникону, то есть 1230)",
+   "en": "Queen Rusudan reoccupies Tbilisi: this is shown by the resumption of silver dirhem minting after a break of more than a hundred years (a coin of the year 450 of the K'oronikon, that is 1230)",
+   "ka": "დედოფალი რუსუდანი თბილისს კვლავ იკავებს: ამაზე მიუთითებს ვერცხლის დირჰემების მოჭრის განახლება ასზე მეტი წლის შესვენების შემდეგ (კორონიკონის 450 წლის, ანუ 1230 წლის მონეტა)",
+   "note": {
+    "ru": "Д. М. Ланг (1955), с. 31: «повторное занятие Тифлиса Русудан в 1230 году отмечено возобновлением чеканки серебра после перерыва более чем в век»; на дирхеме бюст Христа, на внешнем поле арабская легенда с именем Русудан («царица цариц, слава мира и веры, дочь Тамары»). Название места чеканки Ланг ставит в квадратных скобках ([Tiflis]). Дата возвращения города здесь (1230) расходится с датой события 1227 года (освобождение от хорезмийцев); расхождение оставлено.",
+    "en": "D. M. Lang (1955), p. 31: 'The reoccupation of Tiflis by Rusudan in 1230 is marked by the resumption of silver minting after the lapse of over a century'; the dirhem bears a bust of Christ, and the Arabic legend on the outer margin names Rusudan ('Queen of Queens, glory of the World and Faith, daughter of Tamar'). Lang puts the mint name in square brackets ([Tiflis]). The date of the return of the city given here (1230) differs from the date of the event of 1227 (the liberation from the Khwarazmians); the difference is left as it is.",
+    "ka": "დ. მ. ლენგი (1955), გვ. 31: „თბილისის ხელახალი დაკავება რუსუდანის მიერ 1230 წელს აღინიშნა ვერცხლის მონეტების მოჭრის განახლებით ერთ საუკუნეზე მეტი შესვენების შემდეგ“; დირჰემზე ქრისტეს ბიუსტია, გარე არშიაზე კი რუსუდანის სახელით არაბული წარწერა („დედოფალთა დედოფალი, სოფლისა და სარწმუნოების დიდება, თამარის ასული“). მოჭრის ადგილს ლენგი კვადრატულ ფრჩხილებში ([Tiflis]) აყენებს. ქალაქის დაბრუნების აქ მითითებული თარიღი (1230) განსხვავდება 1227 წლის მოვლენის (ხორეზმელებისგან განთავისუფლება) თარიღისგან; განსხვავება დატოვებულია."
    }
   },
   {
@@ -520,15 +577,38 @@
     {
      "label": "ka.wikisource, «საქართველოს ისტორია», ტ. III (2012)",
      "url": "https://ka.wikisource.org/wiki/2012_-_%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90_(%E1%83%9D%E1%83%97%E1%83%AE%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)_-_%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%98_III"
+    },
+    {
+     "label": "D. M. Lang, «Georgia in the Reign of Giorgi the Brilliant (1314-1346)», Bulletin of SOAS, 1955",
+     "url": "https://www.cambridge.org/core/journals/bulletin-of-the-school-of-oriental-and-african-studies/article/georgia-in-the-reign-of-giorgi-the-brilliant/786434042E5DF2D379C122E77409E246"
     }
    ],
    "ru": "Папа Иоанн XXII переносит восточный католический миссионерский центр из Смирны в Тбилиси, учреждает Тбилисское епископство и велит построить кафедральный храм; епископом назначен Иоанн Флорентийский (1330-1348)",
    "en": "Pope John XXII moves the eastern Catholic missionary centre from Smyrna to Tbilisi, founds the bishopric of Tbilisi and orders a cathedral to be built; John of Florence is appointed bishop (1330-1348)",
    "ka": "რომის პაპმა იოანე XXII-მ აღმოსავლეთის კათოლიკური სამისიონერო ცენტრი სმირნიდან თბილისში გადმოიტანა, თბილისი საეპისკოპოსო ქალაქად დააწესა და საკათედრო ტაძრის აშენებაც ბრძანა; ეპისკოპოსად დაინიშნა იოანე ფლორენციელი (1330-1348)",
    "note": {
-    "ru": "Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 61.",
-    "en": "Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 61.",
-    "ka": "ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 61."
+    "ru": "Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 61. Д. М. Ланг (1955), с. 81: в 1329 году папа возвёл Тифлис в католическую епископскую кафедру и назначил первым епископом доминиканца Иоанна Флорентийского (он занимал кафедру 19 лет, в 1349 его сменил Бертран Коллети); таблица на с. 91: «1329 — основана римско-католическая епархия Тифлиса». Книга «История Грузии» (2012) даёт 1330 год.",
+    "en": "Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 61. D. M. Lang (1955), p. 81: in 1329 the Pope elevated Tiflis to a Roman Catholic episcopal see and appointed the Dominican John of Florence as its first bishop (he held the see for 19 years, in 1349 he was succeeded by Bertrand Colleti); the table on p. 91: '1329 Roman Catholic bishopric of Tiflis founded'. The book 'History of Georgia' (2012) gives 1330.",
+    "ka": "ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 61. დ. მ. ლენგი (1955), გვ. 81: 1329 წელს პაპმა თბილისი რომაულ-კათოლიკურ საეპისკოპოსო კათედრად აქცია და პირველ ეპისკოპოსად დომინიკელი იოანე ფლორენციელი დანიშნა (კათედრა 19 წელი ეკავა, 1349 წელს ის ბერტრან კოლეტიმ შეცვალა); ცხრილი გვ. 91-ზე: „1329 თბილისის რომაულ-კათოლიკური საეპისკოპოსო დაარსდა“. წიგნი „საქართველოს ისტორია“ (2012) 1330 წელს ასახელებს."
+   }
+  },
+  {
+   "year": 1357,
+   "date": "1356-1357",
+   "cat": "power",
+   "src": [
+    {
+     "label": "D. M. Lang, «Georgia in the Reign of Giorgi the Brilliant (1314-1346)», Bulletin of SOAS, 1955",
+     "url": "https://www.cambridge.org/core/journals/bulletin-of-the-school-of-oriental-and-african-studies/article/georgia-in-the-reign-of-giorgi-the-brilliant/786434042E5DF2D379C122E77409E246"
+    }
+   ],
+   "ru": "Сначала Золотая Орда (Джани-бек), а затем джалаириды (шейх Хасан Бузург) на короткое время подчиняют Восточную Грузию, включая Тбилиси: в Тбилиси чеканят монеты с именем шейха Хасана (757-758 гг. хиджры); после 1357 года таких монет нет, и это позволяет думать, что вскоре грузины вытеснили монголов из Восточной Грузии",
+   "en": "First the Golden Horde (Jani Beg) and then the Jalayirids (Shaykh Hasan the Big) hold Eastern Georgia for a short time, Tbilisi included: coins in the name of Shaykh Hasan are struck in Tbilisi (757-758 of the Hijra); no coins of this series appear after 1357, which suggests that soon after the Georgians drove the Mongols from Eastern Georgia",
+   "ka": "ჯერ ოქროს ურდო (ჯანი-ბეგი), შემდეგ კი ჯალაირიდები (შეიხ ჰასან ბუზურგი) მოკლე ხნით დაიმორჩილეს აღმოსავლეთ საქართველო, თბილისის ჩათვლით: თბილისში შეიხ ჰასანის სახელით მონეტები მოიჭრა (ჰიჯრის 757-758 წწ.); 1357 წლის შემდეგ ამ სერიის მონეტები აღარ გვხვდება, რაც იმაზე მიუთითებს, რომ ქართველებმა მალევე განდევნეს მონღოლები აღმოსავლეთ საქართველოდან",
+   "note": {
+    "ru": "Д. М. Ланг, с. 90 (таблица хронологии на с. 91: «1357 — … джалаириды захватывают Закавказье и чеканят монеты в Тифлисе», «1358 (?) — грузины вновь занимают Тифлис»). Года 757-758 хиджры соответствуют 1356-1357. Возвращение города грузинами — вывод автора по прекращению монет, прямого свидетельства нет.",
+    "en": "D. M. Lang, p. 90 (the table of dates on p. 91: '1357 ... the Jala'irs seize Transcaucasia and strike coins in Tiflis', '1358 (?) Georgians reoccupy Tiflis'). The years 757-758 of the Hijra are 1356-1357. The return of the city to the Georgians is the conclusion of the author from the end of the coins, there is no direct evidence.",
+    "ka": "დ. მ. ლენგი, გვ. 90 (თარიღების ცხრილი გვ. 91-ზე: „1357 ... ჯალაირიდები ამიერკავკასიას იპყრობენ და თბილისში მონეტებს ჭრიან“, „1358 (?) ქართველები თბილისს კვლავ იკავებენ“). ჰიჯრის 757-758 წლები 1356-1357 წლებია. ქართველების მიერ ქალაქის დაბრუნება ავტორის დასკვნაა მონეტების მოჭრის შეწყვეტიდან გამომდინარე, პირდაპირი დამადასტურებელი მონაცემი არ არის."
    }
   },
   {
@@ -857,6 +937,15 @@
     "ru": "Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 207.",
     "en": "Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 207.",
     "ka": "ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 207."
+   },
+   "place": {
+    "lng": 44.80694444,
+    "lat": 41.69555556,
+    "zoom": 16,
+    "ru": "Базилика Анчисхати",
+    "en": "Anchiskhati Basilica",
+    "src": "coordinates of the page 'Anchiskhati Basilica' on English Wikipedia",
+    "ka": "ანჩისხატის ბაზილიკა"
    }
   },
   {
@@ -911,15 +1000,19 @@
      "label": "ka.wikipedia, «История Тбилиси»",
      "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90"
     },
-    "https://en.wikipedia.org/wiki/Constantine_II_of_Kakheti"
+    "https://en.wikipedia.org/wiki/Constantine_II_of_Kakheti",
+    {
+     "label": "D. M. Lang, «Studies in the Numismatic History of Georgia in Transcaucasia», American Numismatic Society, 1955 (библиографическая запись)",
+     "url": "https://library.britishmuseum.org/bib/200735"
+    }
    ],
    "ru": "Тбилиси переходит к османам: начинается «Осмалоба», она длится до 1735 года; в городе садится ахалцихский паша Исак I",
    "en": "Tbilisi passes to the Ottomans: the 'Osmaloba' begins and lasts until 1735; Isak I, the pasha of Akhaltsikhe, sits in the city",
    "ka": "თბილისი ოსმალებმა აიღეს და დაიწყო ოსმალობა, რომელიც 1735 წლამდე გაგრძელდა; თბილისში ახალციხის ფაშა ისაყ I დაჯდა",
    "note": {
-    "ru": "en.wikipedia: 12 июня 1723 года Константин II Кахетинский сдал Тбилиси османскому командующему Ибрагим-паше.",
-    "en": "en.wikipedia: on 12 June 1723 Constantine II of Kakheti surrendered Tbilisi to the Ottoman commander Ibrahim Pasha.",
-    "ka": "en.wikipedia: 1723 წლის 12 ივნისს კონსტანტინე II კახელმა თბილისი ოსმალთა სარდალ იბრაჰიმ-ფაშას გადასცა."
+    "ru": "en.wikipedia: 12 июня 1723 года Константин II Кахетинский сдал Тбилиси османскому командующему Ибрагим-паше. Д. М. Ланг (1955), с. 98-99: османы открыли в Тифлисе монетный двор; здесь чеканили при Ахмеде III с 1138 года хиджры (1725-26) до 1730 года и при Махмуде I с 1730 года примерно до 1735; номинальным правителем при османах на время стал принявший ислам брат Вахтанга VI Иесе (Мустафа-паша).",
+    "en": "en.wikipedia: on 12 June 1723 Constantine II of Kakheti surrendered Tbilisi to the Ottoman commander Ibrahim Pasha. D. M. Lang (1955), pp. 98-99: the Ottomans opened a mint in Tiflis; it struck coins under Ahmad III from A.H. 1138 (1725-26) until 1730 and under Mahmud I from 1730 until about 1735; nominal rule under the Ottomans was exercised for a time by Wakhtang VI's brother Iese, who became a Sunni (Mustafa Pasha).",
+    "ka": "en.wikipedia: 1723 წლის 12 ივნისს კონსტანტინე II კახელმა თბილისი ოსმალთა სარდალ იბრაჰიმ-ფაშას გადასცა. დ. მ. ლენგი (1955), გვ. 98-99: ოსმალებმა თბილისში ზარაფხანა გახსნეს; აქ მონეტები აჰმედ III-ის დროს ჰიჯრის 1138 წლიდან (1725-26) 1730 წლამდე იჭრებოდა, მაჰმუდ I-ის დროს კი 1730 წლიდან დაახლოებით 1735 წლამდე; ოსმალთა ბატონობისას ნომინალურ მმართველად გარკვეული ხნით ვახტანგ VI-ის ძმა ესე გახდა, რომელმაც სუნიტობა მიიღო (მუსტაფა-ფაშა)."
    }
   },
   {
@@ -991,15 +1084,19 @@
     {
      "label": "ka.wikisource, «საქართველოს ისტორია», ტ. III (2012)",
      "url": "https://ka.wikisource.org/wiki/2012_-_%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90_(%E1%83%9D%E1%83%97%E1%83%AE%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)_-_%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%98_III"
+    },
+    {
+     "label": "D. M. Lang, «Studies in the Numismatic History of Georgia in Transcaucasia», American Numismatic Society, 1955 (библиографическая запись)",
+     "url": "https://library.britishmuseum.org/bib/200735"
     }
    ],
    "ru": "Тбилиси переходит под власть Ирана: начинается «Кызылбашоба»",
    "en": "Tbilisi passes under the rule of Iran: the 'Qizilbashoba' begins",
    "ka": "თბილისში ყიზილბაშობა დაიწყო (ქალაქი ირანის ხელისუფლების ქვეშ გადავიდა)",
    "note": {
-    "ru": "Надир (Тамаз-кули-хан) вступил в Тбилиси, провёл там 17 дней и поспешил к Дарубанду против крымских татар. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 249.",
-    "en": "Nadir (Tahmasp Quli Khan) entered Tbilisi, stayed there 17 days and hurried to Derbent against the Crimean Tatars. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 249.",
-    "ka": "ნადირი (თამაზ-ყული-ხანი) თბილისში შემოვიდა, 17 დღე დაჰყო და ყირიმელი თათრების წინააღმდეგ დარუბანდისკენ გაეშურა. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 249."
+    "ru": "Надир (Тамаз-кули-хан) вступил в Тбилиси, провёл там 17 дней и поспешил к Дарубанду против крымских татар. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 249. Д. М. Ланг (1955), с. 102-103: Тбилиси отвоёван в 1735 году; первые монеты (аббаси) чеканены здесь от имени сефевидского Аббаса III (1148 год хиджры, 1735-36), а с 1736 года от имени Надир-шаха.",
+    "en": "Nadir (Tahmasp Quli Khan) entered Tbilisi, stayed there 17 days and hurried to Derbent against the Crimean Tatars. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 249. D. M. Lang (1955), pp. 102-103: Tiflis was recaptured in 1735; the first coins (abbasi) struck there were in the name of the Safavid puppet Abbas III (A.H. 1148, 1735-36) and from 1736 in the name of Nadir Shah.",
+    "ka": "ნადირი (თამაზ-ყული-ხანი) თბილისში შემოვიდა, 17 დღე დაჰყო და ყირიმელი თათრების წინააღმდეგ დარუბანდისკენ გაეშურა. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 249. დ. მ. ლენგი (1955), გვ. 102-103: თბილისი 1735 წელს დაბრუნდა; აქ პირველი მონეტები (აბასიანები) სეფიანთა მარიონეტი აბას III-ის სახელით მოიჭრა (ჰიჯრის 1148 წელი, 1735-36), 1736 წლიდან კი ნადირ-შაჰის სახელით."
    }
   },
   {
@@ -1023,6 +1120,34 @@
     "ru": "В 1758 году Каитмазашвили по инициативе Ираклия II перешёл ректором в духовно-философское училище, открытое в Телави; в 1782 году то училище стало философской семинарией. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 362.",
     "en": "In 1758 Kaitmazashvili moved, on the initiative of Erekle II, to be rector of the theological-philosophical school opened in Telavi; in 1782 that school became a philosophical seminary. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 362.",
     "ka": "1758 წელს ყაითმაზაშვილი ერეკლე მეფის ინიციატივით თელავში გახსნილი სასულიერო-ფილოსოფიური სასწავლებლის რექტორად გადავიდა; 1782 წელს ის სასწავლებელი ფილოსოფიურ სემინარიად გადაკეთდა. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 362."
+   },
+   "place": {
+    "lng": 44.80694444,
+    "lat": 41.69555556,
+    "zoom": 16,
+    "ru": "Базилика Анчисхати",
+    "en": "Anchiskhati Basilica",
+    "src": "coordinates of the page 'Anchiskhati Basilica' on English Wikipedia",
+    "ka": "ანჩისხატის ბაზილიკა"
+   }
+  },
+  {
+   "year": 1755,
+   "date": "1755",
+   "cat": "other",
+   "src": [
+    {
+     "label": "Н. Ф. Дубровин, «История войны и владычества русских на Кавказе» (1886): автор на ru.wikisource",
+     "url": "https://ru.wikisource.org/wiki/%D0%90%D0%B2%D1%82%D0%BE%D1%80:%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9_%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%94%D1%83%D0%B1%D1%80%D0%BE%D0%B2%D0%B8%D0%BD"
+    }
+   ],
+   "ru": "В Тбилиси и Гори у католических монахов отбирают церкви и дома из-за подозрения, что грузинский патриарх Антоний принял католичество; богослужения им приходится вести в наёмных домах",
+   "en": "In Tbilisi and Gori the Catholic monks are deprived of their churches and houses on the suspicion that the Georgian patriarch Anton had adopted the Catholic faith; they have to hold services in rented houses",
+   "ka": "თბილისსა და გორში კათოლიკე ბერებს ეკლესიები და სახლები ჩამოართვეს, რადგან ეჭვობდნენ, რომ ქართველმა პატრიარქმა ანტონმა კათოლიკური სარწმუნოება მიიღო; ღვთისმსახურება მათ დაქირავებულ სახლებში უწევდათ",
+   "note": {
+    "ru": "Н. Ф. Дубровин, т. IV (1886), с. 499: места в Тифлисе и Гори для церквей и домов двое католических монахов получили от царя Теймураза I в 1630 году за принесённые мощи его матери царицы Кетеваны и владели ими до 1755 года. Дубровин пишет «грузинский патриарх Антоний» (католикос Антоний I). Позже, при князе Цицианове, храмы католиков снова воздвигались (там же).",
+    "en": "N. F. Dubrovin, vol. IV (1886), p. 499: two Catholic monks received the places in Tiflis and Gori for churches and houses from King Teimuraz I in 1630 for the relics of his mother Queen Ketevan which they presented, and held them until 1755. Dubrovin writes 'the Georgian patriarch Antony' (the catholicos Anton I). Later, under Prince Tsitsianov, the churches of the Catholics were built again (the same page).",
+    "ka": "ნ. ფ. დუბროვინი, ტ. IV (1886), გვ. 499: თბილისსა და გორში ეკლესიებისა და სახლების ასაშენებელი ადგილები ორმა კათოლიკე ბერმა მეფე თეიმურაზ I-გან 1630 წელს მიიღო მისი დედის, დედოფალ ქეთევანის, ნაწილების მირთმევისთვის და 1755 წლამდე ფლობდნენ. დუბროვინი წერს „ქართველი პატრიარქი ანტონი“ (კათალიკოსი ანტონ I). მოგვიანებით, თავადი ციციანოვის დროს, კათოლიკეთა ტაძრები ისევ აშენდა (იქვე)."
    }
   },
   {
@@ -1042,6 +1167,25 @@
     "ru": "Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 286.",
     "en": "Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 286.",
     "ka": "ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 286."
+   }
+  },
+  {
+   "year": 1770,
+   "date": "1770",
+   "cat": "other",
+   "src": [
+    {
+     "label": "O. Wardrop, «The Kingdom of Georgia» (1888), Project Gutenberg",
+     "url": "https://www.gutenberg.org/ebooks/48403"
+    }
+   ],
+   "ru": "Великая чума опустошает Закавказье; по Уордропу, в одном Тбилиси умерло 5000 человек",
+   "en": "A great plague devastates Transcaucasia; according to Wardrop, 5,000 people die in Tbilisi alone",
+   "ka": "ჭირის დიდმა ეპიდემიამ ამიერკავკასია ააოხრა; უორდროპის მიხედვით, მარტო თბილისში 5000 ადამიანი დაიღუპა",
+   "note": {
+    "ru": "О. Уордроп (1888), с. 125: чума «в следующем году» после прихода графа Тотлебена с 5000 человек (1769). Число 5000 приводит только эта книга, независимого подтверждения я не нашёл.",
+    "en": "O. Wardrop (1888), p. 125: the plague came 'in the following year' after Count Todleben arrived with 5,000 men (1769). The figure of 5,000 is given only by this book, I found no independent confirmation.",
+    "ka": "ო. უორდროპი (1888), გვ. 125: ჭირი გრაფ ტოტლებენის 5000 კაცით მოსვლის (1769) „მომდევნო წელს“ დაიწყო. რიცხვი 5000 მხოლოდ ამ წიგნში გვხვდება, დამოუკიდებელი დადასტურება ვერ ვიპოვე."
    }
   },
   {
@@ -1099,6 +1243,25 @@
    }
   },
   {
+   "year": 1784,
+   "date": "22.01.1784-23.01.1784",
+   "cat": "power",
+   "src": [
+    {
+     "label": "Н. Ф. Дубровин, «История войны и владычества русских на Кавказе» (1886): автор на ru.wikisource",
+     "url": "https://ru.wikisource.org/wiki/%D0%90%D0%B2%D1%82%D0%BE%D1%80:%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9_%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%94%D1%83%D0%B1%D1%80%D0%BE%D0%B2%D0%B8%D0%BD"
+    }
+   ],
+   "ru": "Торжественно принимают в Тифлисе полковника Тамару, доставившего ратификацию Георгиевского трактата: 22 января в тронном зале царского дворца Ираклий II принимает регалии (знамя, саблю, мантию, скипетр, корону) и грамоту, весь день звонят колокола, ночью город иллюминирован; на следующий день, 23 января, в соборной церкви Ираклий подписывает ратификацию и приносит присягу императрице Екатерине II",
+   "en": "Colonel Tamara, who brought the ratification of the Treaty of Georgievsk, is received in Tiflis with ceremony: on 22 January in the audience hall of the royal palace Erekle II receives the regalia (banner, sabre, mantle, sceptre, crown) and the charter, bells ring all day and the city is illuminated at night; on the next day, 23 January, in the cathedral church Erekle signs the ratification and swears the oath to Empress Catherine II",
+   "ka": "თბილისში საზეიმოდ შეხვდნენ პოლკოვნიკ ტამარას, რომელმაც გეორგიევსკის ტრაქტატის რატიფიკაცია ჩამოიტანა: 22 იანვარს სამეფო სასახლის სადარბაზო დარბაზში ერეკლე II-მ მიიღო რეგალიები (დროშა, ხმალი, მანტია, კვერთხი, გვირგვინი) და სიგელი, მთელი დღე ზარები რეკდა, ღამით ქალაქი განათებული იყო; მეორე დღეს, 23 იანვარს, საკათედრო ტაძარში ერეკლემ რატიფიკაციას მოაწერა ხელი და იმპერატრიცა ეკატერინე II-ს ერთგულებას შეჰფიცა",
+   "note": {
+    "ru": "Н. Ф. Дубровин, т. II (1886), с. 15-18. Тамара приехал в Тифлис 17 января (с. 15); торжественное вступление назначено на 22 января; присяга в соборной церкви состоялась на следующий день (с. 17-18). В сноске на с. 15 Дубровин указывает, что утверждение Бутковым доставки ратификации и знаков инвеституры в ноябре 1783 года неверно.",
+    "en": "N. F. Dubrovin, vol. II (1886), pp. 15-18. Tamara arrived in Tiflis on 17 January (p. 15); the solemn entry was fixed for 22 January; the oath in the cathedral church took place on the next day (pp. 17-18). In a footnote on p. 15 Dubrovin states that the claim of Butkov that the ratification and the insignia were delivered in November 1783 is not correct.",
+    "ka": "ნ. ფ. დუბროვინი, ტ. II (1886), გვ. 15-18. ტამარა თბილისში 17 იანვარს ჩამოვიდა (გვ. 15); საზეიმო შემოსვლა 22 იანვარს დაინიშნა; ფიცი საკათედრო ტაძარში მეორე დღეს მოხდა (გვ. 17-18). გვ. 15-ის სქოლიოში დუბროვინი აღნიშნავს, რომ ბუტკოვის მტკიცება, თითქოს რატიფიკაცია და ინვესტიტურის ნიშნები 1783 წლის ნოემბერში იყო ჩამოტანილი, არასწორია."
+   }
+  },
+  {
    "year": 1787,
    "date": "1787",
    "cat": "power",
@@ -1108,6 +1271,25 @@
    "src": [
     "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
    ]
+  },
+  {
+   "year": 1790,
+   "date": "1790",
+   "cat": "power",
+   "src": [
+    {
+     "label": "Н. Ф. Дубровин, «История войны и владычества русских на Кавказе», т. III (1886): автор на ru.wikisource",
+     "url": "https://ru.wikisource.org/wiki/%D0%90%D0%B2%D1%82%D0%BE%D1%80:%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9_%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%94%D1%83%D0%B1%D1%80%D0%BE%D0%B2%D0%B8%D0%BD"
+    }
+   ],
+   "ru": "В Тбилиси заключён союзный договор между царём Грузии (Ираклием II), имеретинским царём и владетелями Мингрелии и Гурии: Ираклий принимает над ними верховное попечение и обязуется хлопотать о покровительстве России, а они признают его верховную власть",
+   "en": "An alliance treaty is concluded in Tbilisi between the king of Georgia (Erekle II), the king of Imereti and the rulers of Mingrelia and Guria: Erekle takes the supreme guardianship over them and promises to seek the protection of Russia for them, and they recognise his supreme power",
+   "ka": "თბილისში გაფორმდა მოკავშირეობის ხელშეკრულება საქართველოს მეფეს (ერეკლე II-ს), იმერეთის მეფესა და სამეგრელოსა და გურიის მფლობელებს შორის: ერეკლემ მათზე უზენაესი მზრუნველობა აიღო და რუსეთის მფარველობისთვის შუამდგომლობას დაჰპირდა, ისინი კი მისი უზენაესი ხელისუფლება აღიარეს",
+   "note": {
+    "ru": "Н. Ф. Дубровин, т. III (1886), с. 31; он ссылается на документ Московского архива Министерства иностранных дел («Переписка грузинских царей с императорским двором», № 45). Дубровин пишет «царь Грузии и Имерети» в перечне сторон, а в условиях называет Ираклия.",
+    "en": "N. F. Dubrovin, vol. III (1886), p. 31; he refers to a document of the Moscow archive of the Ministry of Foreign Affairs ('The correspondence of the Georgian kings with the imperial court', no. 45). Dubrovin writes 'the king of Georgia and Imereti' in the list of the parties and names Erekle in the terms.",
+    "ka": "ნ. ფ. დუბროვინი, ტ. III (1886), გვ. 31; ის საგარეო საქმეთა სამინისტროს მოსკოვის არქივის დოკუმენტზე მიუთითებს („ქართველ მეფეთა მიმოწერა საიმპერატორო კართან“, № 45). დუბროვინი მხარეთა ჩამონათვალში წერს „საქართველოსა და იმერეთის მეფეს“, პირობებში კი ერეკლეს ასახელებს."
+   }
   },
   {
    "year": 1795,
@@ -1151,6 +1333,25 @@
     "ru": "Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 351.",
     "en": "Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 351.",
     "ka": "ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 351."
+   }
+  },
+  {
+   "year": 1798,
+   "date": "1798",
+   "cat": "other",
+   "src": [
+    {
+     "label": "Н. Ф. Дубровин, «История войны и владычества русских на Кавказе», т. III (1886): автор на ru.wikisource",
+     "url": "https://ru.wikisource.org/wiki/%D0%90%D0%B2%D1%82%D0%BE%D1%80:%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9_%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%94%D1%83%D0%B1%D1%80%D0%BE%D0%B2%D0%B8%D0%BD"
+    }
+   ],
+   "ru": "В начале года в Тбилиси и в других местах Грузии появилась чума («моровая язва»), которая, как полагали, началась в Ганджинском ханстве из-за голода",
+   "en": "At the beginning of the year plague appears in Tbilisi and in other places of Georgia; it was thought to have begun in the khanate of Ganja because of famine",
+   "ka": "1798 წლის დასაწყისში თბილისსა და საქართველოს სხვა ადგილებში ჭირი გამოჩნდა, რომელიც, როგორც ფიქრობდნენ, განჯის სახანოში შიმშილის გამო დაიწყო",
+   "note": {
+    "ru": "Н. Ф. Дубровин, т. III (1886), с. 233; он ссылается на рапорт графа Гудовича от 18 января 1798 года (Грузинский архив Комендантского управления).",
+    "en": "N. F. Dubrovin, vol. III (1886), p. 233; he refers to the report of Count Gudovich of 18 January 1798 (the Georgian archive of the Commandant's Office).",
+    "ka": "ნ. ფ. დუბროვინი, ტ. III (1886), გვ. 233; ის გრაფ გუდოვიჩის 1798 წლის 18 იანვრის რაპორტზე მიუთითებს (კომენდანტის სამმართველოს ქართული არქივი)."
    }
   },
   {
@@ -1260,6 +1461,15 @@
     "ru": "Только по Потто (т. 1). Для армянского населения в прочитанном месте указано лишь «седьмого числа» без месяца.",
     "en": "Only from Potto (vol. 1). For the Armenian population the passage read says only 'on the seventh' without the month.",
     "ka": "მხოლოდ პოტოს მიხედვით (ტ. 1). სომხური მოსახლეობისთვის წაკითხულ ადგილას მითითებულია მხოლოდ „მეშვიდე რიცხვი“ თვის გარეშე."
+   },
+   "place": {
+    "lng": 44.8075,
+    "lat": 41.6914,
+    "zoom": 16,
+    "ru": "Собор Сиони",
+    "en": "Sioni Cathedral",
+    "src": "coordinates of the page 'Tbilisi Sioni Cathedral' on English Wikipedia",
+    "ka": "სიონის ტაძარი"
    }
   },
   {
@@ -1279,6 +1489,15 @@
     "ru": "«История Грузии» (в 4 томах), т. IV (2012), с. 9.",
     "en": "'History of Georgia' (4 volumes), vol. IV (2012), p. 9.",
     "ka": "„საქართველოს ისტორია“ (ოთხტომეული), ტ. IV (2012), გვ. 9."
+   },
+   "place": {
+    "lng": 44.8075,
+    "lat": 41.6914,
+    "zoom": 16,
+    "ru": "Собор Сиони",
+    "en": "Sioni Cathedral",
+    "src": "coordinates of the page 'Tbilisi Sioni Cathedral' on English Wikipedia",
+    "ka": "სიონის ტაძარი"
    }
   },
   {
@@ -1318,6 +1537,25 @@
     "ka": "ამოცნობილი ტექსტი ხელით იკითხებოდა; ქალაქის ნაწილების რაოდენობა „8“, ამოცნობით, ავტორის არითმეტიკით შესწორდა 3-ად (თითოეულ ოთხ ნაწილზე 575 სახლი). ავტორი აღწერას არასრულად მიიჩნევს: მცხოვრებლები აღწერას ეწინააღმდეგებოდნენ. საქართველოს ერთადერთი არქიტექტორი გარდაიცვალა, მთელ ქვეყანაში ძლივს ათი ქვისმთლელი მოიძებნებოდა (თავად ციციანოვის დროს, 1802-1806)."
    },
    "ka": "ტიფლისის აღწერა 1803 წლის დასაწყისში: დაახლოებით 3000 სახლი და 20 000-მდე მცხოვრები, 15 ქართული, 24 სომხური, 1 ბერძნული და 1 კათოლიკური ეკლესია, 1 მეჩეთი; ქალაქის უბნები: მუხრანის, წავკისის, მთის და ავლაბრის; მშენებლობისას კედლების 2 არშინით უკან გადაწევა იყო საჭირო ქუჩების გასაფართოებლად"
+  },
+  {
+   "year": 1804,
+   "date": "21.05.1804",
+   "cat": "science",
+   "src": [
+    {
+     "label": "Н. Ф. Дубровин, «История войны и владычества русских на Кавказе» (1886): автор на ru.wikisource",
+     "url": "https://ru.wikisource.org/wiki/%D0%90%D0%B2%D1%82%D0%BE%D1%80:%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9_%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%94%D1%83%D0%B1%D1%80%D0%BE%D0%B2%D0%B8%D0%BD"
+    }
+   ],
+   "ru": "В Тифлисе заново устроено и открыто Тифлисское училище (его открытие одобрено указом 8 августа 1803 года); ему передана тифлисская типография, заведённая царём Ираклием II",
+   "en": "The Tiflis school is set up anew and opened in Tiflis (its opening was approved by the decree of 8 August 1803); the Tiflis printing house founded by King Erekle II is handed over to it",
+   "ka": "თბილისში ხელახლა მოეწყო და გაიხსნა თბილისის სასწავლებელი (მისი გახსნა 1803 წლის 8 აგვისტოს ბრძანებულებით დამტკიცდა); მას გადაეცა მეფე ერეკლე II-ის მიერ დაარსებული თბილისის სტამბა",
+   "note": {
+    "ru": "Н. Ф. Дубровин, т. IV (1886), с. 495-497. На с. 495: князь Цицианов, приехав в Тифлис, не нашёл ни учителей, ни учеников, ни помещения прежнего училища и решил начать образование с дворянства; на с. 496: дата указа, день открытия и передача типографии с рассказом о её истории; на с. 497: 28 ноября 1805 года Цицианов представил об открытии при училище классов полного гимназического курса.",
+    "en": "N. F. Dubrovin, vol. IV (1886), pp. 495-497. On p. 495: when Prince Tsitsianov came to Tiflis he found neither teachers, nor pupils, nor the premises of the former school and decided to begin the education with the nobility; on p. 496: the date of the decree, the day of the opening and the handing over of the printing house, with its history; on p. 497: on 28 November 1805 Tsitsianov proposed to open at the school the classes of the full gymnasium course.",
+    "ka": "ნ. ფ. დუბროვინი, ტ. IV (1886), გვ. 495-497. გვ. 495-ზე: თავადმა ციციანოვმა თბილისში ჩამოსვლისას ვერ ნახა ვერც მასწავლებლები, ვერც მოსწავლეები, ვერც წინანდელი სასწავლებლის შენობა და გადაწყვიტა განათლება თავადაზნაურობით დაეწყო; გვ. 496-ზე: ბრძანებულების თარიღი, გახსნის დღე და სტამბის გადაცემა მისი ისტორიით; გვ. 497-ზე: 1805 წლის 28 ნოემბერს ციციანოვმა სასწავლებელთან სრული გიმნაზიური კურსის კლასების გახსნა შესთავაზა."
+   }
   },
   {
    "year": 1804,
@@ -2018,7 +2256,16 @@
     "en": "Information is retold from the table and text of the article (read on screen; the translation from Georgian is mine). The number of dead is as in the article.",
     "ka": "ინფორმაცია გადმოცემულია სტატიის ცხრილისა და ტექსტის მიხედვით (წაკითხულია ეკრანზე; ქართულიდან თარგმანი ჩემია). დაღუპულთა რიცხვი სტატიაშია მითითებული."
    },
-   "ka": "წავკისისწყლის წყალდიდობამ მთლიანად დაანგრია აბანოთუბნის კვარტალი (10 დაღუპული)"
+   "ka": "წავკისისწყლის წყალდიდობამ მთლიანად დაანგრია აბანოთუბნის კვარტალი (10 დაღუპული)",
+   "place": {
+    "lng": 44.81111111,
+    "lat": 41.68777778,
+    "zoom": 16,
+    "ru": "Квартал Абанотубани",
+    "en": "Abanotubani district",
+    "ka": "აბანოთუბანი",
+    "src": "coordinates of the page 'Abanotubani' on English Wikipedia"
+   }
   },
   {
    "year": 1904,
@@ -2062,7 +2309,16 @@
    ],
    "ru": "Построено здание, в котором с 1917 года работает Тбилисская консерватория",
    "en": "The building of today's Tbilisi State Conservatoire is built (the conservatoire itself was founded on 1 May 1917)",
-   "ka": "აშენდა შენობა, რომელშიც 1917 წლიდან თბილისის სახელმწიფო კონსერვატორია მოღვაწეობს"
+   "ka": "აშენდა შენობა, რომელშიც 1917 წლიდან თბილისის სახელმწიფო კონსერვატორია მოღვაწეობს",
+   "place": {
+    "lng": 44.7951,
+    "lat": 41.6995,
+    "zoom": 16.5,
+    "ru": "Тбилисская консерватория",
+    "en": "Tbilisi State Conservatoire",
+    "ka": "თბილისის სახელმწიფო კონსერვატორია",
+    "src": "coordinates of the page 'Тбилисская государственная консерватория имени Вано Сараджишвили' on Russian Wikipedia"
+   }
   },
   {
    "year": 1905,
@@ -2073,7 +2329,16 @@
    ],
    "ru": "Впервые построен фуникулёр на Мтацминду (в 2012 году открыт заново после многолетнего перерыва)",
    "en": "The funicular up Mtatsminda is first built (reopened in 2012 after a multi-year closure)",
-   "ka": "პირველად აშენდა ფუნიკულიორი მთაწმინდაზე (2012 წელს ხელახლა გაიხსნა მრავალწლიანი შეჩერების შემდეგ)"
+   "ka": "პირველად აშენდა ფუნიკულიორი მთაწმინდაზე (2012 წელს ხელახლა გაიხსნა მრავალწლიანი შეჩერების შემდეგ)",
+   "place": {
+    "lng": 44.78917,
+    "lat": 41.695,
+    "zoom": 16,
+    "ru": "Тбилисский фуникулёр",
+    "en": "Tbilisi funicular",
+    "ka": "თბილისის ფუნიკულიორი",
+    "src": "coordinates of the page 'Тбилисский фуникулёр' on Russian Wikipedia (one point of the line)"
+   }
   },
   {
    "year": 1905,
@@ -2144,7 +2409,16 @@
    ],
    "ru": "На площади Паскевича-Эриванского сажают «Дерево свободы», площадь получает название площади Свободы",
    "en": "A 'Tree of Freedom' is planted on Paskevich-Erivansky Square and the square is renamed Freedom Square",
-   "ka": "პასკევიჩ-ერევნელის მოედანზე თავისუფლების ხე დარგეს და მოედანს თავისუფლების მოედანი უწოდეს"
+   "ka": "პასკევიჩ-ერევნელის მოედანზე თავისუფლების ხე დარგეს და მოედანს თავისუფლების მოედანი უწოდეს",
+   "place": {
+    "lng": 44.80166667,
+    "lat": 41.69333333,
+    "zoom": 16.5,
+    "ru": "Площадь Свободы",
+    "en": "Freedom Square",
+    "src": "coordinates of the page 'Freedom Square, Tbilisi' on English Wikipedia",
+    "ka": "თავისუფლების მოედანი"
+   }
   },
   {
    "year": 1918,
@@ -2276,7 +2550,16 @@
    "src": [
     "https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D0%B5%D1%81%D0%B0%D0%BB%D0%BE%D0%BC_%D0%B8_%D0%AD%D1%82%D0%B5%D1%80%D0%B8_(%D0%BE%D0%BF%D0%B5%D1%80%D0%B0)",
     "https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D0%BC%D0%BD_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
-   ]
+   ],
+   "place": {
+    "lng": 44.79616667,
+    "lat": 41.70130556,
+    "zoom": 16,
+    "ru": "Оперный театр",
+    "en": "The opera house",
+    "src": "coordinates of the page 'Georgian National Opera Theater' on English Wikipedia",
+    "ka": "ოპერისა და ბალეტის თეატრი"
+   }
   },
   {
    "year": 1919,
@@ -2312,7 +2595,16 @@
    ],
    "ru": "На базе Кавказского музея создан Государственный музей Грузии",
    "en": "The State Museum of Georgia is created on the basis of the Caucasian Museum",
-   "ka": "კავკასიის მუზეუმის ბაზაზე შეიქმნა საქართველოს სახელმწიფო მუზეუმი"
+   "ka": "კავკასიის მუზეუმის ბაზაზე შეიქმნა საქართველოს სახელმწიფო მუზეუმი",
+   "place": {
+    "lng": 44.8003,
+    "lat": 41.696,
+    "zoom": 16.5,
+    "ru": "Музей Грузии имени Симона Джанашиа",
+    "en": "Simon Janashia Museum of Georgia",
+    "ka": "სიმონ ჯანაშიას სახელობის საქართველოს მუზეუმი",
+    "src": "coordinates of the page 'Simon Janashia Museum of Georgia' on English Wikipedia; the page says the museum grew out of the Caucasian Museum and was renamed Museum of Georgia in 1919"
+   }
   },
   {
    "year": 1920,
@@ -2557,6 +2849,15 @@
     "ru": "«История Грузии» (в 4 томах), т. IV (2012), с. 276.",
     "en": "'History of Georgia' (4 volumes), vol. IV (2012), p. 276.",
     "ka": "„საქართველოს ისტორია“ (ოთხტომეული), ტ. IV (2012), გვ. 276."
+   },
+   "place": {
+    "lng": 44.78917,
+    "lat": 41.695,
+    "zoom": 16,
+    "ru": "Тбилисский фуникулёр",
+    "en": "Tbilisi funicular",
+    "ka": "თბილისის ფუნიკულიორი",
+    "src": "coordinates of the page 'Тбилисский фуникулёр' on Russian Wikipedia (one point of the line)"
    }
   },
   {
@@ -2729,7 +3030,16 @@
     "en": "Information is retold from the table and text of the article (read on screen; the translation from Georgian is mine). The number of dead is as in the article.",
     "ka": "ინფორმაცია გადმოცემულია სტატიის ცხრილისა და ტექსტის მიხედვით (წაკითხულია ეკრანზე; ქართულიდან თარგმანი ჩემია). დაღუპულთა რიცხვი სტატიაშია მითითებული."
    },
-   "ka": "წავკისისწყლის წყალდიდობამ მთიდან დატბორა აბანოთუბნის კვარტალი (10-ზე მეტი დაღუპული)"
+   "ka": "წავკისისწყლის წყალდიდობამ მთიდან დატბორა აბანოთუბნის კვარტალი (10-ზე მეტი დაღუპული)",
+   "place": {
+    "lng": 44.81111111,
+    "lat": 41.68777778,
+    "zoom": 16,
+    "ru": "Квартал Абанотубани",
+    "en": "Abanotubani district",
+    "ka": "აბანოთუბანი",
+    "src": "coordinates of the page 'Abanotubani' on English Wikipedia"
+   }
   },
   {
    "year": 1956,
@@ -2746,6 +3056,15 @@
     "ru": "ru.wikipedia: установлен в 1956 году, демонтирован 28 августа 1990; en.wikipedia: «символически снесён в августе 1991». Путеводитель 1961 года (Джавришвили) называет день открытия 21 апреля 1956 и вторым скульптором Г. Джапаридзе; в Википедии это не подтверждено.",
     "en": "ru.wikipedia: erected in 1956, dismantled on 28 August 1990; en.wikipedia: 'symbolically torn down in August 1991'. A 1961 guide (Javrishvili) gives 21 April 1956 as the day of the opening and G. Japaridze as a second sculptor; Wikipedia does not confirm this.",
     "ka": "ru.wikipedia: დადგმულია 1956 წელს, დემონტაჟდა 1990 წლის 28 აგვისტოს; en.wikipedia: „სიმბოლურად ჩამოაგდეს 1991 წლის აგვისტოში“. 1961 წლის გზამკვლევი (ჯავრიშვილი) გახსნის დღედ ასახელებს 1956 წლის 21 აპრილს და მეორე მოქანდაკედ გ. ჯაფარიძეს; ვიკიპედია ამას არ ადასტურებს."
+   },
+   "place": {
+    "lng": 44.80166667,
+    "lat": 41.69333333,
+    "zoom": 16.5,
+    "ru": "Площадь Свободы",
+    "en": "Freedom Square",
+    "src": "coordinates of the page 'Freedom Square, Tbilisi' on English Wikipedia",
+    "ka": "თავისუფლების მოედანი"
    }
   },
   {
@@ -2798,6 +3117,15 @@
     "ru": "«История Грузии» (в 4 томах), т. IV (2012), с. 368.",
     "en": "'History of Georgia' (4 volumes), vol. IV (2012), p. 368.",
     "ka": "„საქართველოს ისტორია“ (ოთხტომეული), ტ. IV (2012), გვ. 368."
+   },
+   "place": {
+    "lng": 44.80458333,
+    "lat": 41.68805556,
+    "zoom": 17,
+    "ru": "Статуя «Мать Картли» (Кеке Картли)",
+    "en": "Kartlis Deda (Mother of Georgia) statue",
+    "ka": "ქართლის დედა",
+    "src": "coordinates of the page 'Kartlis Deda' on English Wikipedia"
    }
   },
   {
@@ -3052,6 +3380,15 @@
     "ru": "Хронология и участники по английской Википедии. Фотографии тех дней (негативы, найденные Габриэлем Чубинидзе) смотрите в панели «Виды», 1992 год.",
     "en": "Dates and parties as in English Wikipedia. Photographs of those days (negatives found by Gabriel Chubinidze) are in the 'Views' panel, 1992.",
     "ka": "თარიღები და მხარეები ინგლისური ვიკიპედიის მიხედვით. იმ დღეების ფოტოები (გაბრიელ ჩუბინიძის მიერ ნაპოვნი ნეგატივები) იხილეთ პანელში „ხედები“, 1992 წელი."
+   },
+   "place": {
+    "lng": 44.79801,
+    "lat": 41.69669,
+    "zoom": 16.2,
+    "ru": "Проспект Руставели, у здания Парламента",
+    "en": "Rustaveli Avenue, by the Parliament building",
+    "src": "coordinates of the Parliament building from the heritage register (id 4845); the page names Rustaveli Avenue and the House of Government",
+    "ka": "რუსთაველის გამზირი, პარლამენტის შენობასთან"
    }
   },
   {

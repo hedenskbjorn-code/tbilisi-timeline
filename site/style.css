@@ -75,13 +75,7 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
 .pop h3 { margin:0 0 4px; font-size:14px; }
 .pop .k { color:var(--muted); }
 .pop div { margin-top:3px; }
-@media (max-width:640px) {
-  #side { top:52px; left:8px; right:8px; width:auto; max-height:34vh; }
-  #bottom { left:8px; right:8px; bottom:10px; }
-  #year { font-size:30px; }
-  #top h1 { font-size:14px; padding:5px 9px; }
-  #side { top:62px; }
-}
+@media (max-width:640px) { #year { font-size:30px; } }
 
 .photos { margin-top:8px; }
 .ph { margin:0 0 6px; }
@@ -144,14 +138,10 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
 .chip.primary { background:var(--accent); color:#fff; border-color:transparent; }
 .trap { position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
 .pop a.fb { color:var(--muted); font-size:11px; }
-#menu { display:none; }
 @media (max-width:640px) {
-  #menu { display:inline-block; padding:5px 10px; }
-  #fbOpen { padding:5px 8px; font-size:12px; }
   #top { padding:8px 8px 8px 8px; gap:6px; }
   #top h1 { display:none; }
   #fbOpen { white-space:nowrap; }
-  #lang { padding:5px 6px; }
   #side { display:none; top:52px; max-height:calc(100% - 52px - 112px); }
   body.panel-open #side { display:block; }
   #yearchip { display:block; }
@@ -471,3 +461,17 @@ input[type=range]:focus-visible { outline-offset:4px; }
   #btnSearch, #btnMore { min-width:40px; }
   #btnMore { padding:6px 6px; }
 }
+
+/* the red pin of the place of an event and the sheet with its card */
+.evpinwrap { width:30px; height:42px; position:relative; pointer-events:none; }
+.evpin { position:absolute; left:0; top:0; filter:drop-shadow(0 2px 3px #0007); transform-origin:50% 100%; animation:pindrop .5s cubic-bezier(.2,.9,.3,1.25); }
+.evring { position:absolute; left:50%; bottom:-6px; width:26px; height:10px; margin-left:-13px; border-radius:50%; border:2px solid #e03131; background:#e0313133; animation:pinring 1.8s ease-out infinite; }
+@keyframes pindrop { from { transform:translateY(-26px) scale(.85); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes pinring { from { transform:scale(.4); opacity:.9; } to { transform:scale(1.7); opacity:0; } }
+@media (prefers-reduced-motion: reduce) { .evpin, .evring { animation:none; } }
+#infoModal.sheet { background:transparent; pointer-events:none; align-items:flex-end; padding:0 8px calc(var(--bb) + 8px); }
+#infoModal.sheet .modalbox { pointer-events:auto; max-height:40vh; }
+@media (max-width:640px) { #infoModal.sheet { padding-bottom:calc(8px + var(--safe-bottom, 0px)); } #infoModal.sheet .modalbox { max-height:42vh; } }
+
+/* a finger leads the thumb of the slider: the marks of the events do not take touches meanwhile */
+body.sliding #evmarks button { pointer-events:none; }
