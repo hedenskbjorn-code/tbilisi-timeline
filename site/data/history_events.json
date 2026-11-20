@@ -1712,6 +1712,15 @@
     "ru": "Иосселиани, «Описание древностей города Тифлиса» (1866), с. 77. Сверено по изображению страницы. На странице сказано «построенная в 1754 году грузинским князем Гиви Амилахваром, под названием Шах-Кули-хан»; значение последней фразы автор там не объясняет. Другие источники не сверялись, в литературе возможны иные даты.",
     "en": "Ioseliani, 'Description of the antiquities of the city of Tiflis' (1866), p. 77. Checked against the image of the page. The page says 'built in 1754 by the Georgian prince Givi Amilakhvari, under the name Shah-Quli-Khan'; the author does not explain the last phrase there. Other sources were not compared, other dates are possible in the literature.",
     "ka": "პლატონ იოსელიანი, „თბილისის სიძველეთა აღწერა“ (1866), გვ. 77. შემოწმებულია გვერდის გამოსახულებით. გვერდზე ნათქვამია „აშენებულია 1754 წელს ქართველი თავადის გივი ამილახვრის მიერ, შაჰ-ყული-ხანის სახელწოდებით“; ბოლო ფრაზას ავტორი იქ არ განმარტავს. სხვა წყაროებთან არ შედარებულა, ლიტერატურაში სხვა თარიღებიც შეიძლება იყოს."
+   },
+   "place": {
+    "lng": 44.79930369,
+    "lat": 41.69796703,
+    "zoom": 17,
+    "ru": "Кашветская церковь",
+    "en": "Kashveti Church",
+    "src": "coordinates of the object 'ქაშუეთის ეკლესია' (id 4229) in the register of immovable cultural heritage of Georgia",
+    "ka": "ქაშუეთის ეკლესია"
    }
   },
   {
@@ -2358,6 +2367,15 @@
     "ru": "Иосселиани, «Описание древностей города Тифлиса» (1866), с. 161 (printed p. 165). Сверено по изображению страницы. Страница называет только дату и место убийства, обстоятельства не описывает; запись находится в списке погребённых в описании Сионского собора.",
     "en": "Ioseliani, 'Description of the antiquities of the city of Tiflis' (1866), p. 161 (printed p. 165). Checked against the image of the page. The page gives only the date and place of the killing and does not describe the circumstances; the entry is in the list of those buried in the description of Sioni Cathedral.",
     "ka": "პლატონ იოსელიანი, „თბილისის სიძველეთა აღწერა“ (1866), გვ. 161 (printed p. 165). შემოწმებულია გვერდის გამოსახულებით. გვერდზე მხოლოდ მკვლელობის თარიღი და ადგილია დასახელებული, გარემოებები აღწერილი არ არის; ჩანაწერი სიონის ტაძრის აღწერაში დაკრძალულთა სიაშია."
+   },
+   "place": {
+    "lng": 44.8075,
+    "lat": 41.6914,
+    "zoom": 16,
+    "ru": "Собор Сиони",
+    "en": "Sioni Cathedral",
+    "src": "coordinates of the page 'Tbilisi Sioni Cathedral' on English Wikipedia",
+    "ka": "სიონის ტაძარი"
    }
   },
   {
@@ -2622,12 +2640,20 @@
    "en": "From December Tiflis is the administrative centre of the Russian Caucasus Viceroyalty",
    "ka": "დეკემბრიდან თბილისი რუსეთის კავკასიის მეფისნაცვლობის ადმინისტრაციული ცენტრია",
    "src": [
-    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
+    "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8",
+    {
+     "label": "П. Иосселиани, «Описание древностей города Тифлиса» (1866): статья об авторе на ru.wikipedia (библиографическая запись)",
+     "url": "https://ru.wikipedia.org/wiki/%D0%98%D0%BE%D1%81%D0%B5%D0%BB%D0%B8%D0%B0%D0%BD%D0%B8%2C_%D0%9F%D0%BB%D0%B0%D1%82%D0%BE%D0%BD_%D0%98%D0%B3%D0%BD%D0%B0%D1%82%D1%8C%D0%B5%D0%B2%D0%B8%D1%87"
+    },
+    {
+     "label": "«Кавказский календарь на 1886 год», «Хронологический указатель главнейших событий на Кавказе»: статья «Кавказский календарь» на ru.wikipedia (библиографическая запись)",
+     "url": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C"
+    }
    ],
    "note": {
-    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
-    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
-    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+    "ru": "По статье ru.wikipedia «История Тбилиси» (декабрь 1844). По книгам даты разные: Иосселиани (1866), с. 270 (pdf 270), пишет о назначении в Тифлисе Наместников Кавказских «27 декабря 1844 г.»; Кавказский календарь на 1886 год, с. 173, ставит назначение Воронцова на 17 ноября 1844 года. Обе страницы сверены по изображению.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi' (December 1844). The books give different dates: Ioseliani (1866), p. 270 (pdf 270), writes about the appointment of the viceroys of the Caucasus in Tiflis 'on 27 December 1844'; the 'Kavkazsky kalendar' for 1886, p. 173, dates the appointment of Vorontsov to 17 November 1844. Both pages were checked against the image.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით (1844 წლის დეკემბერი). წიგნებში თარიღები განსხვავებულია: იოსელიანი (1866), გვ. 270 (pdf 270), წერს თბილისში კავკასიის მეფისნაცვლების დანიშვნაზე „1844 წლის 27 დეკემბერს“; „კავკასიის კალენდარი 1886 წლისთვის“, გვ. 173, ვორონცოვის დანიშვნას 1844 წლის 17 ნოემბრით ათარიღებს. ორივე გვერდი შემოწმებულია გამოსახულებით."
    }
   },
   {
@@ -2684,13 +2710,13 @@
      "url": "https://ru.wikipedia.org/wiki/%D0%98%D0%BE%D1%81%D0%B5%D0%BB%D0%B8%D0%B0%D0%BD%D0%B8%2C_%D0%9F%D0%BB%D0%B0%D1%82%D0%BE%D0%BD_%D0%98%D0%B3%D0%BD%D0%B0%D1%82%D1%8C%D0%B5%D0%B2%D0%B8%D1%87"
     }
    ],
-   "ru": "В Тифлис приезжает наместник граф М. С. Воронцов (назначен 27 декабря 1844 года)",
-   "en": "Viceroy Count M. S. Vorontsov arrives in Tiflis (appointed on 27 December 1844)",
-   "ka": "თბილისში ჩამოდის მეფისნაცვალი გრაფი მ. ვორონცოვი (დანიშნულია 1844 წლის 27 დეკემბერს)",
+   "ru": "В Тифлис приезжает наместник граф М. С. Воронцов (назначен в конце 1844 года)",
+   "en": "Viceroy Count M. S. Vorontsov arrives in Tiflis (appointed at the end of 1844)",
+   "ka": "თბილისში ჩამოდის მეფისნაცვალი გრაფი მ. ვორონცოვი (დანიშნულია 1844 წლის ბოლოს)",
    "note": {
-    "ru": "Иосселиани, «Описание древностей города Тифлиса» (1866), с. 270 (printed p. 276). Сверено по изображению страницы. Кавказский календарь на 1886 год (с. 173) ставит прибытие Воронцова 25 марта; расхождение не устранено. На той же странице: 6 декабря 1862 года наместником назначен вел. кн. Михаил Николаевич.",
-    "en": "Ioseliani, 'Description of the antiquities of the city of Tiflis' (1866), p. 270 (printed p. 276). Checked against the image of the page. The 'Kavkazsky kalendar' for 1886 (p. 173) dates Vorontsov's arrival to 25 March; the discrepancy has not been resolved. On the same page: on 6 December 1862 Grand Duke Mikhail Nikolayevich is appointed viceroy.",
-    "ka": "პლატონ იოსელიანი, „თბილისის სიძველეთა აღწერა“ (1866), გვ. 270 (printed p. 276). შემოწმებულია გვერდის გამოსახულებით. „კავკასიის კალენდარი 1886 წლისთვის“ (გვ. 173) ვორონცოვის ჩამოსვლას 25 მარტით ათარიღებს; შეუსაბამობა მოხსნილი არ არის. იმავე გვერდზე: 1862 წლის 6 დეკემბერს მეფისნაცვლად დაინიშნა დიდი მთავარი მიხეილ ნიკოლოზის ძე."
+    "ru": "Иосселиани, «Описание древностей города Тифлиса» (1866), с. 270 (printed p. 276). Сверено по изображению страницы. Кавказский календарь на 1886 год (с. 173) ставит прибытие Воронцова 25 марта; расхождение не устранено. На той же странице: 6 декабря 1862 года наместником назначен вел. кн. Михаил Николаевич. Дата назначения в источниках разная: Иосселиани (с. 270) пишет, что присоединилось «назначение в нём Наместников Кавказских… Это было 27 декабря 1844 г.»; Кавказский календарь на 1886 год (с. 173) ставит назначение Воронцова на 17 ноября 1844 года. Расхождение не устранено.",
+    "en": "Ioseliani, 'Description of the antiquities of the city of Tiflis' (1866), p. 270 (printed p. 276). Checked against the image of the page. The 'Kavkazsky kalendar' for 1886 (p. 173) dates Vorontsov's arrival to 25 March; the discrepancy has not been resolved. On the same page: on 6 December 1862 Grand Duke Mikhail Nikolayevich is appointed viceroy. The date of the appointment differs in the sources: Ioseliani (p. 270) writes that the appointment of the viceroys of the Caucasus in Tiflis 'was on 27 December 1844'; the 'Kavkazsky kalendar' for 1886 (p. 173) dates the appointment of Vorontsov to 17 November 1844. The discrepancy has not been resolved.",
+    "ka": "პლატონ იოსელიანი, „თბილისის სიძველეთა აღწერა“ (1866), გვ. 270 (printed p. 276). შემოწმებულია გვერდის გამოსახულებით. „კავკასიის კალენდარი 1886 წლისთვის“ (გვ. 173) ვორონცოვის ჩამოსვლას 25 მარტით ათარიღებს; შეუსაბამობა მოხსნილი არ არის. იმავე გვერდზე: 1862 წლის 6 დეკემბერს მეფისნაცვლად დაინიშნა დიდი მთავარი მიხეილ ნიკოლოზის ძე. დანიშვნის თარიღი წყაროებში განსხვავებულია: იოსელიანი (გვ. 270) წერს, რომ თბილისში კავკასიის მეფისნაცვლების დანიშვნა „1844 წლის 27 დეკემბერს“ მოხდა; „კავკასიის კალენდარი 1886 წლისთვის“ (გვ. 173) ვორონცოვის დანიშვნას 1844 წლის 17 ნოემბრით ათარიღებს. შეუსაბამობა მოხსნილი არ არის."
    }
   },
   {
@@ -2740,7 +2766,16 @@
    "ka": "აშენდა მშრალი ხიდი იტალიელი არქიტექტორ ჯ. სკუდიერის პროექტით: იგი მტკვრის ტოტზე გადადიოდა „მადატოვის კუნძულზე“; 1883 წლის 25 თებერვალს მასზე გაიარა ქალაქის პირველმა კონკის მარშრუტმა",
    "src": [
     "https://ru.wikipedia.org/wiki/%D0%A1%D1%83%D1%85%D0%BE%D0%B9_%D0%BC%D0%BE%D1%81%D1%82"
-   ]
+   ],
+   "place": {
+    "lng": 44.80257217,
+    "lat": 41.70047777,
+    "zoom": 17,
+    "ru": "Сухой мост",
+    "en": "Dry Bridge",
+    "src": "coordinates of the object 'მშრალი ხიდი' (id 4866) in the register of immovable cultural heritage of Georgia; the place is approximate",
+    "ka": "მშრალი ხიდი"
+   }
   },
   {
    "year": 1850,
@@ -2961,11 +2996,20 @@
     }
    ],
    "note": {
-    "ru": "Текст читался распознаванием (Tesseract), числа и даты проверены по контексту. Тогда же поднят вопрос о мощении главных улиц с выкупом земли у частных лиц для улицы между Ванкским собором и постройками князя Орбелиани.",
-    "en": "The text was read by character recognition (Tesseract); numbers and dates were checked against the context. At the same time the question of paving the main streets was raised, with the purchase of land from private owners for the street between the Vank cathedral and Prince Orbeliani's buildings.",
-    "ka": "ტექსტი წაკითხულია ამოცნობით (Tesseract), რიცხვები და თარიღები კონტექსტით გადამოწმებულია. იმავე დროს დაისვა მთავარი ქუჩების მოკირწყვლის საკითხი კერძო პირებისგან მიწის გამოსყიდვით ვანქის ტაძარსა და თავად ორბელიანის შენობებს შორის ქუჩისთვის."
+    "ru": "Сверено по изображению страницы (сборник «Весь Кавказъ», с. 56). Тогда же поднят вопрос о мощении главных улиц с выкупом земли у частных лиц для улицы между Ванкским собором и постройками князя Орбелиани.",
+    "en": "Checked against the image of the page (the collection 'Ves Kavkaz', p. 56). At the same time the question of paving the main streets was raised, with the purchase of land from private owners for the street between the Vank cathedral and Prince Orbeliani's buildings.",
+    "ka": "გვერდის გამოსახულებით შემოწმებულია (კრებული „მთელი კავკასია“, გვ. 56). იმავე დროს დაისვა მთავარი ქუჩების მოკირწყვლის საკითხი კერძო პირებისგან მიწის გამოსყიდვით ვანქის ტაძარსა და თავად ორბელიანის შენობებს შორის ქუჩისთვის."
    },
-   "ka": "მეფისნაცვალ თავად ბარიატინსკის განკარგულებით ყოფილი ჰიპოდრომის მქონე დიდი ცარიელი მოედანი ქალაქის ბაღად გადაკეთდა (დღევანდელი ალექსანდრეს ბაღი); წყალი კორგანოვის წყალსადენიდან მიიყვანეს"
+   "ka": "მეფისნაცვალ თავად ბარიატინსკის განკარგულებით ყოფილი იპოდრომის მქონე დიდი ცარიელი მოედანი ქალაქის ბაღად გადაკეთდა (დღევანდელი ალექსანდრეს ბაღი); წყალი კორგანოვის წყალსადენიდან მიიყვანეს",
+   "place": {
+    "lng": 44.80048702,
+    "lat": 41.69900739,
+    "zoom": 16.5,
+    "ru": "Александровский сад (ныне сад 9 апреля)",
+    "en": "Alexander Garden (now the 9 April Garden)",
+    "src": "coordinates of the object '9 აპრილის ბაღი (ყოფ. ალექსანდრეს ბაღი)' (id 3537) in the register of immovable cultural heritage of Georgia",
+    "ka": "9 აპრილის ბაღი (ყოფ. ალექსანდრეს ბაღი)"
+   }
   },
   {
    "year": 1860,
@@ -3027,9 +3071,9 @@
     }
    ],
    "note": {
-    "ru": "Текст читался распознаванием (Tesseract), числа и даты проверены по контексту.",
-    "en": "The text was read by character recognition (Tesseract); numbers and dates were checked against the context.",
-    "ka": "ტექსტი წაკითხულია ამოცნობით (Tesseract), რიცხვები და თარიღები კონტექსტით გადამოწმებულია."
+    "ru": "Сверено по изображению страницы (сборник «Весь Кавказъ», с. 56).",
+    "en": "Checked against the image of the page (the collection 'Ves Kavkaz', p. 56).",
+    "ka": "გვერდის გამოსახულებით შემოწმებულია (კრებული „მთელი კავკასია“, გვ. 56)."
    },
    "ka": "1862 წელს მოეწყო მიხეილის შოსე; მომდევნო წელს დაიწყო ალექსანდრეს ბაღის გარშემო ქუჩებისა და გოლოვინის პროსპექტის ნაწილის მოკირწყვლა; ქუჩების მოსაწესრიგებლად ხაზინამ სახლის მფლობელების ხარჯზე დაახლოებით 150 ათასი მანეთი დახარჯა"
   },
@@ -3122,9 +3166,9 @@
     }
    ],
    "note": {
-    "ru": "Текст читался распознаванием (Tesseract), числа и даты проверены по контексту. Вся эта система сохранялась до введения общего городового положения 1870 года.",
-    "en": "The text was read by character recognition (Tesseract); numbers and dates were checked against the context. This whole system remained until the general city regulation of 1870 was introduced.",
-    "ka": "ტექსტი წაკითხულია ამოცნობით (Tesseract), რიცხვები და თარიღები კონტექსტით გადამოწმებულია. ეს მთელი სისტემა 1870 წლის საერთო საქალაქო დებულების შემოღებამდე შენარჩუნდა."
+    "ru": "Сверено по изображению страницы (сборник «Весь Кавказъ», с. 57). Вся эта система сохранялась до введения общего городового положения 1870 года.",
+    "en": "Checked against the image of the page (the collection 'Ves Kavkaz', p. 57). This whole system remained until the general city regulation of 1870 was introduced.",
+    "ka": "გვერდის გამოსახულებით შემოწმებულია (კრებული „მთელი კავკასია“, გვ. 57). ეს მთელი სისტემა 1870 წლის საერთო საქალაქო დებულების შემოღებამდე შენარჩუნდა."
    },
    "ka": "უმაღლესად დამტკიცდა ტიფლისის ქალაქის საზოგადოებრივი მმართველობის ახალი დებულება: საერთო კრება 100 ხმოსნისგან ამომრჩეველთა ოთხი კატეგორიიდან; 1866 წლის დეკემბერში ჩატარდა არჩევნები, 31 დეკემბერს წარედგინა მეფისნაცვალს"
   },
@@ -4197,7 +4241,16 @@
    "ka": "მშრალი ხიდის ქვეშ მტკვრის ტოტი დააშრეს და ყოფილ კალაპოტზე ქუჩა გაიყვანეს (დღეს ზვიად გამსახურდიას ქუჩის ნაწილი); მას შემდეგ ხიდს მშრალს ეძახიან",
    "src": [
     "https://ru.wikipedia.org/wiki/%D0%A1%D1%83%D1%85%D0%BE%D0%B9_%D0%BC%D0%BE%D1%81%D1%82"
-   ]
+   ],
+   "place": {
+    "lng": 44.80257217,
+    "lat": 41.70047777,
+    "zoom": 17,
+    "ru": "Сухой мост",
+    "en": "Dry Bridge",
+    "src": "coordinates of the object 'მშრალი ხიდი' (id 4866) in the register of immovable cultural heritage of Georgia; the place is approximate",
+    "ka": "მშრალი ხიდი"
+   }
   },
   {
    "year": 1934,
@@ -4269,7 +4322,7 @@
   },
   {
    "year": 1936,
-   "date": "5.12.1936",
+   "date": "1936",
    "cat": "power",
    "src": [
     {
@@ -4281,9 +4334,9 @@
    "en": "Georgia enters the USSR as a union republic (5 December); in the same year the name of the city of Tiflis is changed to 'Tbilisi'",
    "ka": "საქართველო საბჭოთა კავშირში მოკავშირე რესპუბლიკად შედის (5 დეკემბერი); იმავე წელს ქალაქ ტფილისის სახელი იცვლება და ხდება „თბილისი“",
    "note": {
-    "ru": "Сборник статей на фарси «Взаимное историческое и культурное влияние Ирана и Грузии», pdf 239 (печатная с. 234). Сверено по изображению страницы. На странице: «5 декабря 1936 года Грузия как Советская Социалистическая Республика непосредственно вошла в Союз… В этот же год название города Тифлис было изменено на Тбилиси».",
-    "en": "A collection of articles in Persian 'Mutual historical and cultural influence of Iran and Georgia', pdf 239, printed p. 234. Checked against the image of the page. The page says: 'On 5 December 1936 Georgia entered the Union directly as a Soviet Socialist Republic... In the same year the name of the city of Tiflis was changed to Tbilisi'.",
-    "ka": "სტატიების კრებული სპარსულ ენაზე „ირანისა და საქართველოს ისტორიული და კულტურული ურთიერთგავლენა“, pdf 239 (ნაბეჭდი გვ. 234). შემოწმებულია გვერდის გამოსახულებით. გვერდზე ნათქვამია: „1936 წლის 5 დეკემბერს საქართველო უშუალოდ შევიდა კავშირში საბჭოთა სოციალისტურ რესპუბლიკად... იმავე წელს ქალაქ ტფილისის სახელი თბილისად შეიცვალა“."
+    "ru": "Сборник статей на фарси «Взаимное историческое и культурное влияние Ирана и Грузии», pdf 239 (печатная с. 234). Сверено по изображению страницы. На странице: «5 декабря 1936 года Грузия как Советская Социалистическая Республика непосредственно вошла в Союз… В этот же год название города Тифлис было изменено на Тбилиси». Страница называет для переименования только год («в этот же год»); 5 декабря относится к вхождению Грузии в Союз.",
+    "en": "A collection of articles in Persian 'Mutual historical and cultural influence of Iran and Georgia', pdf 239, printed p. 234. Checked against the image of the page. The page says: 'On 5 December 1936 Georgia entered the Union directly as a Soviet Socialist Republic... In the same year the name of the city of Tiflis was changed to Tbilisi'. The page gives only the year for the renaming ('in the same year'); 5 December is the date of the entry of Georgia into the Union.",
+    "ka": "სტატიების კრებული სპარსულ ენაზე „ირანისა და საქართველოს ისტორიული და კულტურული ურთიერთგავლენა“, pdf 239 (ნაბეჭდი გვ. 234). შემოწმებულია გვერდის გამოსახულებით. გვერდზე ნათქვამია: „1936 წლის 5 დეკემბერს საქართველო უშუალოდ შევიდა კავშირში საბჭოთა სოციალისტურ რესპუბლიკად... იმავე წელს ქალაქ ტფილისის სახელი თბილისად შეიცვალა“. გვერდზე გადარქმევისთვის მხოლოდ წელია დასახელებული („იმავე წელს“); 5 დეკემბერი საქართველოს კავშირში შესვლის თარიღია."
    }
   },
   {
@@ -4787,7 +4840,16 @@
    "ka": "აშენდა საქართველოს სსრ საავტომობილო გზების სამინისტროს შენობა გაგარინის ქუჩაზე (არქიტექტორები გიორგი ჩახავა და ზურაბ ჯალაღონია)",
    "src": [
     "https://ru.wikipedia.org/wiki/%D0%97%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%9C%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D0%B5%D1%80%D1%81%D1%82%D0%B2%D0%B0_%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%B4%D0%BE%D1%80%D0%BE%D0%B3_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D0%A1%D0%A1%D0%A0"
-   ]
+   ],
+   "place": {
+    "lng": 44.77084894,
+    "lat": 41.7357864,
+    "zoom": 17,
+    "ru": "Здание Министерства автомобильных дорог (ул. Гагарина, 39а)",
+    "en": "Building of the Ministry of Motor Roads (Gagarin St. 39a)",
+    "src": "coordinates of the object 'საქ. საავტ. გზების სამ.-ოს შენობა' (id 4944) in the register of immovable cultural heritage of Georgia",
+    "ka": "საქართველოს საავტომობილო გზების სამინისტროს შენობა (გაგარინის ქ. 39ა)"
+   }
   },
   {
    "year": 1976,

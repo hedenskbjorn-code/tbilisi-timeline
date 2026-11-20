@@ -8,9 +8,9 @@ Events of the timeline: 270. Every event has at least one link; where a book was
 ## Books and documents (the number of events that rely on the work)
 
 1. «საქართველოს ისტორია» (ოთხტომეული) / Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. История Грузии. Т. II–IV. 2012. — 38 event(s). Public link: [ka.wikisource](https://ka.wikisource.org/wiki/2012_-_%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90_(%E1%83%9D%E1%83%97%E1%83%AE%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)_-_%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%98_III). Copy of the author of the project: `desktop/tbilisi_books/sakartvelos_istoria_2012_t1.pdf ... t4.pdf`
-2. П. Иосселиани. Описание древностей города Тифлиса. 1866. — 14 event(s). Public link: [scan](https://archive.org/details/sat_and_21_yahoo). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/ioseliani_1866_opisanie_drevnostei_tiflisa.pdf`
+2. П. Иосселиани. Описание древностей города Тифлиса. 1866. — 15 event(s). Public link: [scan](https://archive.org/details/sat_and_21_yahoo). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/ioseliani_1866_opisanie_drevnostei_tiflisa.pdf`
 3. А. Амиранашвили, Ц. Басилашвили, Э. Элизбарашвили, О. Варазанашвили. Катастрофические паводки в окрестностях Тбилиси. Труды Института гидрометеорологии. — 11 event(s). Public link: none found. Copy of the author of the project: none
-4. Кавказский календарь на 1856 год; Кавказский календарь на 1886 год. — 10 event(s). Public link: [1856](https://archive.org/details/kavkazskijkalendarna1856god51); [1886](https://archive.org/details/kavkazskijkalendarna1886god60). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/kavkazskii_kalendar_1856.pdf`; `georgia-timeline/data/raw/books/ru/kavkazskii_kalendar_1886.pdf`
+4. Кавказский календарь на 1856 год; Кавказский календарь на 1886 год. — 11 event(s). Public link: [1856](https://archive.org/details/kavkazskijkalendarna1856god51); [1886](https://archive.org/details/kavkazskijkalendarna1886god60). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/kavkazskii_kalendar_1856.pdf`; `georgia-timeline/data/raw/books/ru/kavkazskii_kalendar_1886.pdf`
 5. «Картлис Цховреба». Русский перевод. Тбилиси, 2008. — 9 event(s). Public link: [scan](https://archive.org/details/KartlisCxovreba). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/kartlis_tskhovreba_ru.pdf`
 6. Весь Кавказъ. Сборник (Тифлис), Административный отдел; год 1903 взят из прежних ссылок проекта, на прочитанных страницах он не указан. — 8 event(s). Public link: none found. Copy of the author of the project: `georgia-timeline/data/raw/books/ru/ves_kavkaz_1908.pdf`
 7. Н. Ф. Дубровин. История войны и владычества русских на Кавказе. Т. II–IV. 1886. — 8 event(s). Public link: [т. II](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru0); [т. III](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru89); [т. IV](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru62). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/dubrovin_1886_t2.pdf`; `georgia-timeline/data/raw/books/ru/dubrovin_1886_t3.pdf`; `georgia-timeline/data/raw/books/ru/dubrovin_1886_t4.pdf`
@@ -47,7 +47,7 @@ Events of the timeline: 270. Every event has at least one link; where a book was
 | Site | Pages | Events |
 |---|---|---|
 | Wikipedia (en) | 59 | 97 |
-| Wikipedia (ru) | 28 | 84 |
+| Wikipedia (ru) | 28 | 86 |
 | Wikisource (ka) | 4 | 41 |
 | Wikipedia (ka) | 9 | 28 |
 | openlibrary.ge | 4 | 20 |
