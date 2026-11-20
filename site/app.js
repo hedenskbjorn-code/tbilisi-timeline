@@ -301,9 +301,25 @@
     if (dataReady) { setLoading("loadPlan", true); map.once("idle", hideLoading); }
   }
 
+  // the periods of the history of Georgia as the sections of the tests for the Georgian citizenship (2024): 4th-10th, 11th-15th, 16th-18th centuries, 19th century - 1921, from 1921.
+  // The select shows the period of the year on the slider; a choice jumps to the beginning of the period.
+  const EPOCHS = [364, 1001, 1501, 1801, 1921];
+  const epochOf = (y) => { let k = 0; for (let i = 0; i < EPOCHS.length; i++) if (y >= EPOCHS[i]) k = i; return k; };
+  function buildEpochs() {
+    const sel = $("epochSel");
+    if (!sel) return;
+    sel.textContent = "";
+    t().epochs.forEach((name, i) => { const o = document.createElement("option"); o.value = String(i); o.textContent = name; sel.appendChild(o); });
+    sel.setAttribute("aria-label", t().ariaEpoch);
+    sel.title = t().ariaEpoch;
+    sel.value = String(epochOf(year));
+  }
+  $("epochSel").addEventListener("change", (e) => { year = EPOCHS[+e.target.value]; update(); });
+
   function update() {
     ensureInWindow();
     $("year").textContent = year;
+    if ($("epochSel")) $("epochSel").value = String(epochOf(year));
     if ($("yearchip")) $("yearchip").textContent = year;
     if ($("tbYear")) $("tbYear").textContent = year;
     $("slider").value = Math.round(y2v(year));
@@ -401,6 +417,7 @@
     $("lang").setAttribute("aria-label", t().ariaLang);
     $("slider").setAttribute("aria-label", t().ariaYear);
     $("speed").setAttribute("aria-label", t().ariaSpeed);
+    buildEpochs();
     $("btnMore").setAttribute("aria-label", t().ariaMore); $("btnMore").title = t().ariaMore;
     $("vmPrev").setAttribute("aria-label", t().ariaPrev);
     $("vmNext").setAttribute("aria-label", t().ariaNext);

@@ -1,5 +1,29 @@
 [
  {
+  "version": "1.6.21",
+  "date": "2026-11-21",
+  "items": [
+   {
+    "t": "new",
+    "ru": "В панели времени появился выбор эпохи: IV–X, XI–XV, XVI–XVIII века, XIX век – 1921 и с 1921 года (разделы истории Грузии из тестов на гражданство). Выбор переносит на начало эпохи, а подпись показывает эпоху текущего года.",
+    "en": "The timeline bar has a period selector: 4th–10th, 11th–15th, 16th–18th centuries, 19th century – 1921 and from 1921 (the sections of the history of Georgia in the citizenship tests). A choice jumps to the beginning of the period, and the label shows the period of the current year.",
+    "ka": "დროის პანელში გაჩნდა ეპოქის არჩევა: IV–X, XI–XV, XVI–XVIII საუკუნეები, XIX საუკუნე – 1921 და 1921 წლიდან (საქართველოს ისტორიის ნაწილები მოქალაქეობის ტესტებში). არჩევანი ეპოქის დასაწყისზე გადაგიყვანთ, წარწერა კი მიმდინარე წლის ეპოქას აჩვენებს."
+   },
+   {
+    "t": "new",
+    "ru": "Шесть новых событий: смерть Георгия III и Тамар во дворце Исани (1184), свадьба Тамар и Давида Сослана в Дидубе (1188–1189), свидетельство Ибн аль-Азрака о Деметре I в соборной мечети (1153), триумфальное возвращение войска Мхаргрдзели в Тбилиси (1209–1210), смерть Тамар в крепости Агары (1213) и открытие нефтепровода Баку — Тбилиси — Джейхан (2005). К каждому дан источник; расхождения в датах показаны в заметках. К взятию Тбилиси в 1122 году добавлены условия Давида для мусульман города.",
+    "en": "Six new events: the death of George III and Tamar in the palace of Isani (1184), the wedding of Tamar and David Soslan at Didube (1188-1189), the account of Ibn al-Azraq about Demetre I in the cathedral mosque (1153), the triumphal return of the Mkhargrdzeli army to Tbilisi (1209-1210), the death of Tamar in the fortress of Agara (1213) and the opening of the Baku-Tbilisi-Ceyhan pipeline (2005). Each has its source; the disagreements about dates are shown in the notes. The capture of Tbilisi in 1122 now has the terms of David for the Muslims of the city.",
+    "ka": "ექვსი ახალი მოვლენა: გიორგი III-ის გარდაცვალება და თამარი ისნის სასახლეში (1184), თამარისა და დავით სოსლანის ქორწილი დიდუბეში (1188–1189), იბნ ალ-აზრაყის ცნობა დემეტრე I-ზე მთავარ მეჩეთში (1153), მხარგრძელების ლაშქრის საზეიმო დაბრუნება თბილისში (1209–1210), თამარის გარდაცვალება აგარანის ციხეში (1213) და ბაქო-თბილისი-ჯეიჰანის ნავთობსადენის გახსნა (2005). თითოეულს წყარო აქვს; თარიღებში არსებული განსხვავებები შენიშვნებშია ნაჩვენები. 1122 წელს თბილისის აღებას დაემატა დავითის პირობები ქალაქის მუსლიმებისთვის."
+   },
+   {
+    "t": "fix",
+    "ru": "На планшете шириной около 800 пикселей верхняя панель не помещалась в окно: теперь длинный заголовок сокращается.",
+    "en": "On a tablet about 800 pixels wide the top bar did not fit the window: a long title is now shortened.",
+    "ka": "დაახლოებით 800 პიქსელის სიგანის პლანშეტზე ზედა პანელი ფანჯარაში არ ეტეოდა: ახლა გრძელი სათაური მოკლდება."
+   }
+  ]
+ },
+ {
   "version": "1.6.20",
   "date": "2026-11-21",
   "items": [
