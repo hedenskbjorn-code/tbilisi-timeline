@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.6.13",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Событие 1832 года: выход № 2 «Литературных частей Тифлисских ведомостей» (по скану газеты). Событие об осаде Тбилисской крепости Абдул-бегом пока не добавлено: год в газете (1749) расходится с другими источниками.",
+    "en": "A 1832 event: issue No. 2 of the 'Literary parts of the Tiflis Gazette' appears (checked against the newspaper scan). The event about Abdul-beg's siege of the Tbilisi fortress is not added yet: the year in the newspaper (1749) disagrees with other sources.",
+    "ka": "დაემატა 1832 წლის მოვლენა: გამოდის „სალიტერატურონი ნაწილნი ტფილისის უწყებათანი“ № 2 (გაზეთის სკანით შემოწმებულია). აბდულ-ბეგის მიერ თბილისის ციხის ალყის მოვლენა ჯერ არ დამატებულა: გაზეთში მითითებული წელი (1749) სხვა წყაროებს არ ემთხვევა."
+   }
+  ]
+ },
+ {
   "version": "1.6.12",
   "date": "2026-11-20",
   "items": [
