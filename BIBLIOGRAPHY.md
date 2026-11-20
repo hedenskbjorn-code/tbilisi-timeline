@@ -7,40 +7,40 @@ Events of the timeline: 270. Every event has at least one link; where a book was
 
 ## Books and documents (the number of events that rely on the work)
 
-1. «საქართველოს ისტორია» (ოთხტომეული) / Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. История Грузии. Т. II–IV. 2012. — 38 event(s). Scan: [ka.wikisource](https://ka.wikisource.org/wiki/2012_-_%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90_(%E1%83%9D%E1%83%97%E1%83%AE%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)_-_%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%98_III)
-2. П. Иосселиани. Описание древностей города Тифлиса. 1866. — 14 event(s). Scan: [scan](https://archive.org/details/sat_and_21_yahoo)
-3. А. Амиранашвили, Ц. Басилашвили, Э. Элизбарашвили, О. Варазанашвили. Катастрофические паводки в окрестностях Тбилиси. Труды Института гидрометеорологии. — 11 event(s)
-4. Кавказский календарь на 1856 год; Кавказский календарь на 1886 год. — 10 event(s). Scan: [1856](https://archive.org/details/kavkazskijkalendarna1856god51); [1886](https://archive.org/details/kavkazskijkalendarna1886god60)
-5. «Картлис Цховреба». Русский перевод. Тбилиси, 2008. — 9 event(s). Scan: [scan](https://archive.org/details/KartlisCxovreba)
-6. Весь Кавказъ. Сборник (Тифлис), Административный отдел; год 1903 взят из прежних ссылок проекта, на прочитанных страницах он не указан. — 8 event(s)
-7. Н. Ф. Дубровин. История войны и владычества русских на Кавказе. Т. II–IV. 1886. — 8 event(s). Scan: [т. II](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru0); [т. III](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru89); [т. IV](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru62)
-8. Сборник статей на фарси «Взаимное историческое и культурное влияние Ирана и Грузии» (تأثیر متقابل تاریخی و فرهنگی ایران و گرجستان). — 8 event(s). Scan: [scan](https://archive.org/details/abu-abdurahman-kurdi-f_barid_20180203_1115)
-9. D. M. Lang. Georgia in the Reign of Giorgi the Brilliant (1314–1346). Bulletin of the School of Oriental and African Studies, 1955. — 6 event(s). Scan: [scan](https://archive.org/details/GeorgiaInTheReignOfGiorgiTheBrilliant1314-1346)
-10. D. M. Lang. Studies in the Numismatic History of Georgia in Transcaucasia. American Numismatic Society, 1955. — 6 event(s). Scan: [scan](https://archive.org/details/lang-1955-georgian-numismatics)
-11. В. А. Потто. Кавказская война. Т. 1–2. — 6 event(s)
-12. О. Варазанашвили, Н. Церетели, Э. Церетели. Historical Earthquakes in Georgia (up to 1900). Тбилиси, 2011. — 6 event(s)
-13. V. Woytinsky. La Georgia (una vera democrazia). 1920. — 5 event(s). Scan: [scan](https://archive.org/details/lageorgiaunaver00schrgoog)
-14. Д. Бакрадзе, Н. Берзенов. Тифлисъ въ историческомъ и этнографическомъ отношенiяхъ. Тифлис, 1870. — 5 event(s)
-15. А. Дюма. Кавказ (Le Caucase), 1859. — 3 event(s)
-16. ვახუშტი ბატონიშვილი. აღწერა აწინდელისა ქართლისა (აღწერა ტფილისისა) / Вахушти Багратиони. Описание города Тбилиси. — 3 event(s)
-17. M.-F. Brosset. Histoire de la Géorgie (1849); Rapports sur un voyage archéologique dans la Géorgie et dans l'Arménie (1850); М.-Ф. Броссе. История Грузии, грузинский перевод, т. II, 1900. — 2 event(s). Scan: [Histoire, 1849](https://archive.org/details/bub_gb_TmtpAAAAMAAJ); [Rapports, 1850](https://archive.org/details/Travel1847to1848BrossetRapports)
-18. Дворянские роды Грузии. Т. 4. 1998. — 2 event(s). Scan: [scan](https://archive.org/details/4-1998_202212)
-19. Тогошвили. Избранные труды по кавказоведению. Т. 1–2. 2014. — 2 event(s). Scan: [scan](https://archive.org/details/izbrannye_trudy_po_kavkazovedeniiu_tom_1_2)
-20. J. de Baye. Tiflis. Souvenirs d'une mission. Paris, 1900. — 1 event(s). Scan: [scan](https://archive.org/details/BSG_8MSUP605)
-21. O. Wardrop. The Kingdom of Georgia. London, 1888. — 1 event(s). Scan: [Project Gutenberg](https://www.gutenberg.org/ebooks/48403)
-22. Маджд ос-Салтане. Описание города Тбилиси (1894). Грузинский перевод и комментарии М. Мамацашвили. Тбилиси: Мецниереба, 1971. — 1 event(s)
-23. Путеводитель по Кавказскому военно-историческому музею. Тифлис. — 1 event(s)
-24. სალიტერატურონი ნაწილნი ტფილისის უწყებათანი (Литературные части Тифлисских ведомостей), 1832, № 2–3. — 1 event(s)
+1. «საქართველოს ისტორია» (ოთხტომეული) / Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. История Грузии. Т. II–IV. 2012. — 38 event(s). Public link: [ka.wikisource](https://ka.wikisource.org/wiki/2012_-_%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90_(%E1%83%9D%E1%83%97%E1%83%AE%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)_-_%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%98_III). Copy of the author of the project: `desktop/tbilisi_books/sakartvelos_istoria_2012_t1.pdf ... t4.pdf`
+2. П. Иосселиани. Описание древностей города Тифлиса. 1866. — 14 event(s). Public link: [scan](https://archive.org/details/sat_and_21_yahoo). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/ioseliani_1866_opisanie_drevnostei_tiflisa.pdf`
+3. А. Амиранашвили, Ц. Басилашвили, Э. Элизбарашвили, О. Варазанашвили. Катастрофические паводки в окрестностях Тбилиси. Труды Института гидрометеорологии. — 11 event(s). Public link: none found. Copy of the author of the project: none
+4. Кавказский календарь на 1856 год; Кавказский календарь на 1886 год. — 10 event(s). Public link: [1856](https://archive.org/details/kavkazskijkalendarna1856god51); [1886](https://archive.org/details/kavkazskijkalendarna1886god60). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/kavkazskii_kalendar_1856.pdf`; `georgia-timeline/data/raw/books/ru/kavkazskii_kalendar_1886.pdf`
+5. «Картлис Цховреба». Русский перевод. Тбилиси, 2008. — 9 event(s). Public link: [scan](https://archive.org/details/KartlisCxovreba). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/kartlis_tskhovreba_ru.pdf`
+6. Весь Кавказъ. Сборник (Тифлис), Административный отдел; год 1903 взят из прежних ссылок проекта, на прочитанных страницах он не указан. — 8 event(s). Public link: none found. Copy of the author of the project: `georgia-timeline/data/raw/books/ru/ves_kavkaz_1908.pdf`
+7. Н. Ф. Дубровин. История войны и владычества русских на Кавказе. Т. II–IV. 1886. — 8 event(s). Public link: [т. II](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru0); [т. III](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru89); [т. IV](https://archive.org/details/dubrovinnfistorijavojnyivladychestvaru62). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/dubrovin_1886_t2.pdf`; `georgia-timeline/data/raw/books/ru/dubrovin_1886_t3.pdf`; `georgia-timeline/data/raw/books/ru/dubrovin_1886_t4.pdf`
+8. Сборник статей на фарси «Взаимное историческое и культурное влияние Ирана и Грузии» (تأثیر متقابل تاریخی و فرهنگی ایران و گرجستان). — 8 event(s). Public link: [scan](https://archive.org/details/abu-abdurahman-kurdi-f_barid_20180203_1115). Copy of the author of the project: `georgia-timeline/data/raw/books/fa/iran_ve_gorjestan_tarih.pdf`
+9. D. M. Lang. Georgia in the Reign of Giorgi the Brilliant (1314–1346). Bulletin of the School of Oriental and African Studies, 1955. — 6 event(s). Public link: [scan](https://archive.org/details/GeorgiaInTheReignOfGiorgiTheBrilliant1314-1346). Copy of the author of the project: `georgia-timeline/data/raw/books/en/lang_giorgi_the_brilliant_1314_1346.pdf`
+10. D. M. Lang. Studies in the Numismatic History of Georgia in Transcaucasia. American Numismatic Society, 1955. — 6 event(s). Public link: [scan](https://archive.org/details/lang-1955-georgian-numismatics). Copy of the author of the project: `georgia-timeline/data/raw/books/en/lang_1955_georgian_numismatics.pdf`
+11. В. А. Потто. Кавказская война. Т. 1–2. — 6 event(s). Public link: [т. 1 (переизд. 1994)](https://archive.org/details/B-001-034-818-ALL); [т. 2 (переизд. 1993)](https://archive.org/details/1-potto-2). Copy of the author of the project: none
+12. О. Варазанашвили, Н. Церетели, Э. Церетели. Historical Earthquakes in Georgia (up to 1900). Тбилиси, 2011. — 6 event(s). Public link: none found. Copy of the author of the project: `desktop/Varazanashvili...Hist. Eq. in Georgia_En.pdf`
+13. V. Woytinsky. La Georgia (una vera democrazia). 1920. — 5 event(s). Public link: [scan](https://archive.org/details/lageorgiaunaver00schrgoog). Copy of the author of the project: `georgia-timeline/data/raw/books/it/woytinsky_1920_la_georgia.pdf`
+14. Д. Бакрадзе, Н. Берзенов. Тифлисъ въ историческомъ и этнографическомъ отношенiяхъ. Тифлис, 1870. — 5 event(s). Public link: none found. Copy of the author of the project: `desktop/Tiflis Bakradze.pdf`
+15. А. Дюма. Кавказ (Le Caucase), 1859. — 3 event(s). Public link: [Le Caucase (оригинал)](https://archive.org/details/lecaucasejournal00duma). Copy of the author of the project: none
+16. ვახუშტი ბატონიშვილი. აღწერა აწინდელისა ქართლისა (აღწერა ტფილისისა) / Вахушти Багратиони. Описание города Тбилиси. — 3 event(s). Public link: [ka.wikisource](https://ka.wikisource.org/wiki/%E1%83%90%E1%83%A6%E1%83%AC%E1%83%94%E1%83%A0%E1%83%90_%E1%83%90%E1%83%AC%E1%83%98%E1%83%9C%E1%83%93%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1%E1%83%90_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%9A%E1%83%98%E1%83%A1%E1%83%90). Copy of the author of the project: `desktop/tbilisi_books/vakhushti_1913.pdf`; `desktop/tbilisi_books/vakhushti_istoria_1885.pdf`
+17. M.-F. Brosset. Histoire de la Géorgie (1849); Rapports sur un voyage archéologique dans la Géorgie et dans l'Arménie (1850); М.-Ф. Броссе. История Грузии, грузинский перевод, т. II, 1900. — 2 event(s). Public link: [Histoire, 1849](https://archive.org/details/bub_gb_TmtpAAAAMAAJ); [Rapports, 1850](https://archive.org/details/Travel1847to1848BrossetRapports). Copy of the author of the project: `georgia-timeline/data/raw/books/fr/brosset_1849_histoire_de_la_georgie.pdf`; `georgia-timeline/data/raw/books/fr/brosset_1850_rapports_archeologiques.pdf`; `desktop/tbilisi_books/brosse_sakartvelos_istoria_t2_1900.pdf`
+18. Дворянские роды Грузии. Т. 4. 1998. — 2 event(s). Public link: [scan](https://archive.org/details/4-1998_202212). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/dvoryanskie_rody_t4_georgia_1998.pdf`
+19. Тогошвили. Избранные труды по кавказоведению. Т. 1–2. 2014. — 2 event(s). Public link: [scan](https://archive.org/details/izbrannye_trudy_po_kavkazovedeniiu_tom_1_2). Copy of the author of the project: `georgia-timeline/data/raw/books/ru/togoshvili_2014_t1_2.pdf`
+20. J. de Baye. Tiflis. Souvenirs d'une mission. Paris, 1900. — 1 event(s). Public link: [scan](https://archive.org/details/BSG_8MSUP605). Copy of the author of the project: `georgia-timeline/data/raw/books/fr/baye_1900_tiflis_souvenirs.pdf`
+21. O. Wardrop. The Kingdom of Georgia. London, 1888. — 1 event(s). Public link: [Project Gutenberg](https://www.gutenberg.org/ebooks/48403). Copy of the author of the project: `georgia-timeline/data/raw/books/en/wardrop_1888_kingdom_of_georgia.pdf`
+22. Маджд ос-Салтане. Описание города Тбилиси (1894). Грузинский перевод и комментарии М. Мамацашвили. Тбилиси: Мецниереба, 1971. — 1 event(s). Public link: [scan](https://dspace.nplg.gov.ge/handle/1234/406779). Copy of the author of the project: `desktop/Kalak Tbilisis Agtsera.pdf`
+23. Путеводитель по Кавказскому военно-историческому музею. Тифлис. — 1 event(s). Public link: none found. Copy of the author of the project: `georgia-timeline/data/raw/books/ru/putevoditel_kavkazskii_voenno_istoricheskii_muzei.pdf`
+24. სალიტერატურონი ნაწილნი ტფილისის უწყებათანი (Литературные части Тифлисских ведомостей), 1832, № 2–3. — 1 event(s). Public link: [№ 1](https://dspace.nplg.gov.ge/handle/1234/1719); [№ 2](https://dspace.nplg.gov.ge/handle/1234/380937); [№ 3](https://dspace.nplg.gov.ge/handle/1234/1720); [№ 4](https://dspace.nplg.gov.ge/handle/1234/380113); [№ 5](https://dspace.nplg.gov.ge/handle/1234/380114). Copy of the author of the project: `desktop/tbilisi_books/tbilisis_uckebani_1832_n2.pdf ... n5.pdf`
 
 ## Read, but no event relies on them yet
 
-1. B. Ferri. Istoria delle missioni de' chierici regolari teatini. 1704. Scan: [scan](https://archive.org/details/bub_gb_wAjrlgBz4hIC)
-2. A. Lamberti. Relatione della Colchide hoggi detta Mengrellia. 1654. Scan: [scan](https://archive.org/details/bub_gb_tYxmx3czaloC)
-3. יוסף יהודה טשארני. ספר המסעות בארץ קוקז ובמדינות אשר מעבר לקוקז (Й. Я. Чёрный, Книга путешествий по Кавказу и Закавказью), Санкт-Петербург, 1884. Scan: [hebrewbooks](https://www.hebrewbooks.org/46832)
-4. R. Abramovitsh. Der ṭeror gegen sotsyalisṭen in Rusland un in Gruzye. 1925 (на идише). Scan: [scan](https://archive.org/details/nybc202101)
-5. A. Pomerantz. Ḳavḳaz. 1943 (на идише). Scan: [scan](https://archive.org/details/nybc209214)
-6. Сборник сведений о Кавказе. 1871. Scan: [scan](https://archive.org/details/sborniksviedien00komigoog)
-7. Evliya Çelebi. Seyahatname. Cilt 2 (Istanbul, 1896). Scan: [scan](https://archive.org/details/evliyaelebisey02evliuoft)
+1. B. Ferri. Istoria delle missioni de' chierici regolari teatini. 1704. Public link: [scan](https://archive.org/details/bub_gb_wAjrlgBz4hIC) Copy of the author of the project: `georgia-timeline/data/raw/books/it/ferri_1704_istoria_missioni_teatini.pdf`
+2. A. Lamberti. Relatione della Colchide hoggi detta Mengrellia. 1654. Public link: [scan](https://archive.org/details/bub_gb_tYxmx3czaloC) Copy of the author of the project: `georgia-timeline/data/raw/books/it/lamberti_1654_relatione_colchide_mengrella.pdf`
+3. יוסף יהודה טשארני. ספר המסעות בארץ קוקז ובמדינות אשר מעבר לקוקז (Й. Я. Чёрный, Книга путешествий по Кавказу и Закавказью), Санкт-Петербург, 1884. Public link: [hebrewbooks](https://www.hebrewbooks.org/46832) Copy of the author of the project: `georgia-timeline/data/raw/books/he/Hebrewbooks_org_46832.pdf`
+4. R. Abramovitsh. Der ṭeror gegen sotsyalisṭen in Rusland un in Gruzye. 1925 (на идише). Public link: [scan](https://archive.org/details/nybc202101) Copy of the author of the project: `georgia-timeline/data/raw/books/yi/abramovitch_1925_teror_in_rusland_un_gruzye.pdf`
+5. A. Pomerantz. Ḳavḳaz. 1943 (на идише). Public link: [scan](https://archive.org/details/nybc209214) Copy of the author of the project: `georgia-timeline/data/raw/books/yi/pomerantz_1943_kavkaz.pdf`
+6. Сборник сведений о Кавказе. 1871. Public link: [scan](https://archive.org/details/sborniksviedien00komigoog) Copy of the author of the project: `georgia-timeline/data/raw/books/ru/zeidlits_1871_sbornik_svedenii_o_kavkaze.pdf`
+7. Evliya Çelebi. Seyahatname. Cilt 2 (Istanbul, 1896). Public link: [scan](https://archive.org/details/evliyaelebisey02evliuoft) Copy of the author of the project: `georgia-timeline/data/raw/books/tr/evliya_celebi_1896_seyahatname_c2.pdf`
 
 ## Web pages that the events link to
 
@@ -66,6 +66,12 @@ Events of the timeline: 270. Every event has at least one link; where a book was
 | Wikipedia (fr) | 1 | 1 |
 | www.facebook.com | 1 | 1 |
 | blogs.lse.ac.uk | 1 | 1 |
+
+## Known problems with links
+
+- `openlibrary.ge` (the collection 'Ves Kavkaz', the earthquake catalogue): the certificate of the site has expired, so a browser shows a warning; the pages could not be opened by the tool that checks links, therefore these links are NOT used in the list above (they are still in the links of 11 events).
+- The DOI `10.36073/1512-0902-2023-133-56-61` (the paper on the floods near Tbilisi, 11 events) does not resolve (HTTP 404, not found by Crossref); the paper itself could not be confirmed there.
+- The Bakradze-Berzenov book of 1870: a copy in the library of the University of Bonn was suggested by a search, but its page is closed by a bot check, so it is not listed.
 
 ## How the texts were read
 

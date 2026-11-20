@@ -51,6 +51,49 @@ BOOKS = [
     ("earthquakes", "О. Варазанашвили, Н. Церетели, Э. Церетели. Historical Earthquakes in Georgia (up to 1900). Тбилиси, 2011.", [], r"Historical Earthquakes"),
     ("floods", "А. Амиранашвили, Ц. Басилашвили, Э. Элизбарашвили, О. Варазанашвили. Катастрофические паводки в окрестностях Тбилиси. Труды Института гидрометеорологии.", [], r"Катастрофические паводки"),
 ]
+DSP = "https://dspace.nplg.gov.ge/handle/1234/"
+EXTRA = {
+    "uckebani": [("№ 1", DSP + "1719"), ("№ 2", DSP + "380937"), ("№ 3", DSP + "1720"), ("№ 4", DSP + "380113"), ("№ 5", DSP + "380114")],
+    "majd": [("scan", DSP + "406779")],
+    "potto": [("т. 1 (переизд. 1994)", ARCH + "B-001-034-818-ALL"), ("т. 2 (переизд. 1993)", ARCH + "1-potto-2")],
+    "dumas": [("Le Caucase (оригинал)", ARCH + "lecaucasejournal00duma")],
+    "vakhushti": [("ka.wikisource", "https://ka.wikisource.org/wiki/%E1%83%90%E1%83%A6%E1%83%AC%E1%83%94%E1%83%A0%E1%83%90_%E1%83%90%E1%83%AC%E1%83%98%E1%83%9C%E1%83%93%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1%E1%83%90_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%9A%E1%83%98%E1%83%A1%E1%83%90")],
+}
+# copies on the disk of the author of the project (paths relative to the folder of the project georgia-timeline, data/raw/books/..., or the folder tbilisi_books of the desktop); for the repository file only
+B = "georgia-timeline/data/raw/books/"
+TB = "desktop/tbilisi_books/"
+LOCAL = {
+    "dubrovin": [B + "ru/dubrovin_1886_t2.pdf", B + "ru/dubrovin_1886_t3.pdf", B + "ru/dubrovin_1886_t4.pdf"],
+    "kartlis": [B + "ru/kartlis_tskhovreba_ru.pdf"],
+    "istoria2012": [TB + "sakartvelos_istoria_2012_t1.pdf ... t4.pdf"],
+    "vakhushti": [TB + "vakhushti_1913.pdf", TB + "vakhushti_istoria_1885.pdf"],
+    "lang1955": [B + "en/lang_1955_georgian_numismatics.pdf"],
+    "lang_giorgi": [B + "en/lang_giorgi_the_brilliant_1314_1346.pdf"],
+    "togoshvili": [B + "ru/togoshvili_2014_t1_2.pdf"],
+    "rody": [B + "ru/dvoryanskie_rody_t4_georgia_1998.pdf"],
+    "brosset": [B + "fr/brosset_1849_histoire_de_la_georgie.pdf", B + "fr/brosset_1850_rapports_archeologiques.pdf", TB + "brosse_sakartvelos_istoria_t2_1900.pdf"],
+    "ioseliani": [B + "ru/ioseliani_1866_opisanie_drevnostei_tiflisa.pdf"],
+    "calendar": [B + "ru/kavkazskii_kalendar_1856.pdf", B + "ru/kavkazskii_kalendar_1886.pdf"],
+    "uckebani": [TB + "tbilisis_uckebani_1832_n2.pdf ... n5.pdf"],
+    "woytinsky": [B + "it/woytinsky_1920_la_georgia.pdf"],
+    "baye": [B + "fr/baye_1900_tiflis_souvenirs.pdf"],
+    "bakradze": ["desktop/Tiflis Bakradze.pdf"],
+    "allcaucasus": [B + "ru/ves_kavkaz_1908.pdf"],
+    "museum": [B + "ru/putevoditel_kavkazskii_voenno_istoricheskii_muzei.pdf"],
+    "majd": ["desktop/Kalak Tbilisis Agtsera.pdf"],
+    "wardrop": [B + "en/wardrop_1888_kingdom_of_georgia.pdf"],
+    "earthquakes": ["desktop/Varazanashvili...Hist. Eq. in Georgia_En.pdf"],
+    "irgor": [B + "fa/iran_ve_gorjestan_tarih.pdf"],
+    "ferri": [B + "it/ferri_1704_istoria_missioni_teatini.pdf"],
+    "lamberti": [B + "it/lamberti_1654_relatione_colchide_mengrella.pdf"],
+    "zeidlits": [B + "ru/zeidlits_1871_sbornik_svedenii_o_kavkaze.pdf"],
+    "evliya": [B + "tr/evliya_celebi_1896_seyahatname_c2.pdf"],
+    "tcherny": [B + "he/Hebrewbooks_org_46832.pdf"],
+    "abramovitch": [B + "yi/abramovitch_1925_teror_in_rusland_un_gruzye.pdf"],
+    "pomerantz": [B + "yi/pomerantz_1943_kavkaz.pdf"],
+}
+# no copy and no public link: potto (read as an electronic text), dumas (Russian translation, fb2), floods (the DOI given in the events does not resolve)
+
 # read in full or in part, but no event of the site relies on them (yet)
 CONSULTED = [
     ("ferri", "B. Ferri. Istoria delle missioni de' chierici regolari teatini. 1704.", [("scan", ARCH + "bub_gb_wAjrlgBz4hIC")]),
@@ -84,7 +127,7 @@ def main():
     books = []
     for bid, ref, links, rx in BOOKS:
         n = sum(1 for t in texts if re.search(rx, t))
-        books.append({"id": bid, "ref": ref, "links": [{"t": a, "u": b} for a, b in links], "events": n})
+        books.append({"id": bid, "ref": ref, "links": [{"t": a, "u": b} for a, b in links + [x for x in EXTRA.get(bid, []) if x[1] not in [y[1] for y in links]]], "events": n})
     books.sort(key=lambda b: (-b["events"], b["ref"]))
     consulted = [{"id": i, "ref": r, "links": [{"t": a, "u": b} for a, b in l], "events": 0} for i, r, l in CONSULTED]
     hosts = collections.Counter()
@@ -108,15 +151,21 @@ def main():
           "## Books and documents (the number of events that rely on the work)", ""]
     for i, b in enumerate(books, 1):
         ln = "; ".join(f"[{x['t']}]({x['u']})" for x in b["links"])
-        md.append(f"{i}. {b['ref']} — {b['events']} event(s)" + (f". Scan: {ln}" if ln else ""))
+        loc = "; ".join(f"`{x}`" for x in LOCAL.get(b["id"], []))
+        md.append(f"{i}. {b['ref']} — {b['events']} event(s)" + (f". Public link: {ln}" if ln else ". Public link: none found") + (f". Copy of the author of the project: {loc}" if loc else ". Copy of the author of the project: none"))
     md += ["", "## Read, but no event relies on them yet", ""]
     for i, b in enumerate(consulted, 1):
         ln = "; ".join(f"[{x['t']}]({x['u']})" for x in b["links"])
-        md.append(f"{i}. {b['ref']}" + (f" Scan: {ln}" if ln else ""))
+        loc = "; ".join(f"`{x}`" for x in LOCAL.get(b["id"], []))
+        md.append(f"{i}. {b['ref']}" + (f" Public link: {ln}" if ln else "") + (f" Copy of the author of the project: {loc}" if loc else ""))
     md += ["", "## Web pages that the events link to", "", "| Site | Pages | Events |", "|---|---|---|"]
     for w in web:
         md.append(f"| {w['name']} | {w['pages']} | {w['events']} |")
-    md += ["", "## How the texts were read", "",
+    md += ["", "## Known problems with links", "",
+           "- `openlibrary.ge` (the collection 'Ves Kavkaz', the earthquake catalogue): the certificate of the site has expired, so a browser shows a warning; the pages could not be opened by the tool that checks links, therefore these links are NOT used in the list above (they are still in the links of 11 events).",
+           "- The DOI `10.36073/1512-0902-2023-133-56-61` (the paper on the floods near Tbilisi, 11 events) does not resolve (HTTP 404, not found by Crossref); the paper itself could not be confirmed there.",
+           "- The Bakradze-Berzenov book of 1870: a copy in the library of the University of Bonn was suggested by a search, but its page is closed by a bot check, so it is not listed.", "",
+           "## How the texts were read", "",
            "- Wikipedia and Wikisource pages were opened and read; the link is given in the event. Where a page is only a bibliographic record of a book, the note says so.",
            "- Books: the text of a PDF (text layer, or OCR with Tesseract 5.4; Ottoman and Persian print with Kraken and the OpenITI models) was used only to find a place; "
            "every fact that is shown on the site was read on the image of the page, and the note of the event gives the page.",

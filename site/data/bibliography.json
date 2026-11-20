@@ -117,7 +117,16 @@
   {
    "id": "potto",
    "ref": "В. А. Потто. Кавказская война. Т. 1–2.",
-   "links": [],
+   "links": [
+    {
+     "t": "т. 1 (переизд. 1994)",
+     "u": "https://archive.org/details/B-001-034-818-ALL"
+    },
+    {
+     "t": "т. 2 (переизд. 1993)",
+     "u": "https://archive.org/details/1-potto-2"
+    }
+   ],
    "events": 6
   },
   {
@@ -146,13 +155,23 @@
   {
    "id": "dumas",
    "ref": "А. Дюма. Кавказ (Le Caucase), 1859.",
-   "links": [],
+   "links": [
+    {
+     "t": "Le Caucase (оригинал)",
+     "u": "https://archive.org/details/lecaucasejournal00duma"
+    }
+   ],
    "events": 3
   },
   {
    "id": "vakhushti",
    "ref": "ვახუშტი ბატონიშვილი. აღწერა აწინდელისა ქართლისა (აღწერა ტფილისისა) / Вахушти Багратиони. Описание города Тбилиси.",
-   "links": [],
+   "links": [
+    {
+     "t": "ka.wikisource",
+     "u": "https://ka.wikisource.org/wiki/%E1%83%90%E1%83%A6%E1%83%AC%E1%83%94%E1%83%A0%E1%83%90_%E1%83%90%E1%83%AC%E1%83%98%E1%83%9C%E1%83%93%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1%E1%83%90_%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%9A%E1%83%98%E1%83%A1%E1%83%90"
+    }
+   ],
    "events": 3
   },
   {
@@ -217,7 +236,12 @@
   {
    "id": "majd",
    "ref": "Маджд ос-Салтане. Описание города Тбилиси (1894). Грузинский перевод и комментарии М. Мамацашвили. Тбилиси: Мецниереба, 1971.",
-   "links": [],
+   "links": [
+    {
+     "t": "scan",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/406779"
+    }
+   ],
    "events": 1
   },
   {
@@ -229,7 +253,28 @@
   {
    "id": "uckebani",
    "ref": "სალიტერატურონი ნაწილნი ტფილისის უწყებათანი (Литературные части Тифлисских ведомостей), 1832, № 2–3.",
-   "links": [],
+   "links": [
+    {
+     "t": "№ 1",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/1719"
+    },
+    {
+     "t": "№ 2",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/380937"
+    },
+    {
+     "t": "№ 3",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/1720"
+    },
+    {
+     "t": "№ 4",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/380113"
+    },
+    {
+     "t": "№ 5",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/380114"
+    }
+   ],
    "events": 1
   }
  ],

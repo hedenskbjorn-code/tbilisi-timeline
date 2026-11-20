@@ -1,9 +1,9 @@
 (() => {
   "use strict";
   // The timeline starts at the earliest written evidence of the fortress (about 364, see "About"); the long early period is
-  // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-90, 1000-1700 -> 90-200, 1700-2026 -> 200-1000)
+  // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-150, 1000-1700 -> 150-350, 1700-2026 -> 350-1000); the early centuries have 71 events in 1336 years, the last 326 years 199, so they keep the larger part
   const MIN = 364, MAX = 2026, NEW_YEARS = 25;
-  const FULL_KNOTS = [[364, 0], [1000, 90], [1700, 200], [2026, 1000]];
+  const FULL_KNOTS = [[364, 0], [1000, 150], [1700, 350], [2026, 1000]];
   const ZOOM_W = [0, 1000, 600, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
   let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
   let runData = null;                                                  // the run route and its sights (data/run_trc2026.json), see addRun
@@ -1895,7 +1895,7 @@
     clearInterval(timer);
     playing = true; document.body.classList.add("playing");
     timer = setInterval(() => {
-      year = Math.min(MAX, year + (year < 1000 ? 25 : year < 1700 ? 10 : 1));
+      year = Math.min(MAX, year + (year < 1000 ? 15 : year < 1700 ? 8 : 1));   // about the same distance of the thumb per step in each part of the scale
       update();
       if (year >= MAX) stopPlay();
     }, SPEEDS[speedIx][1]);
