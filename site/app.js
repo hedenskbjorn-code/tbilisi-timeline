@@ -114,6 +114,8 @@
       showRun: "Tbilisi Running Club: маршрут City Run 2026 и что увидеть по пути (сегодняшний город)", runStats: (r, n) => `${r.length_km} км, высота ${r.ele_min}-${r.ele_max} м, ${n} достопримечательностей`, runKm: "Километр", runDist: "От трассы", runYear: "Дата по реестру", runWiki: "Википедия", runStart: "Старт и финиш", runList: "По порядку вдоль маршрута", runNote: "В список входят объекты данных сайта, чья точка лежит не дальше 150 м от трассы: национального значения, со статьёй в Википедии, церкви, мосты, театры, музеи, стены и крепости. Расстояние считается от точки объекта до линии трассы, поэтому крупные здания могут быть ближе. Это не проверка видимости.", runSrc: "Маршрут (геометрия)",
       topoPlanOpt: "1:2 000 · городской план (z17)", legDistEx: "Мтацминда", legSetEx: "Коджори", ariaLang: "Язык", ariaClose: "закрыть", fbContactPh: "email или telegram (необязательно)",
       showSci: "Наука и культура: институты, университеты, музеи, театры (появляются по годам)", sciKinds: { science: "Наука и образование", culture: "Культура" }, sciFounded: "Основано", sciBuilt: "Здание", sciFrom: "Появляется", sciSrc: "Источники", sciFaint: "бледная точка: здание ещё не построено или учреждение было в другом месте",
+      lcTitle: "Показать моё положение", nrBtnT: "Что рядом со мной", nrTitle: "Рядом со мной", nrHint: "Показаны объекты, существующие в выбранном году (с учётом фильтров), и события с местом на карте. Расстояние по прямой, стрелка показывает сторону света (вверху север). Положение используется только в вашем браузере и никуда не отправляется.", nrNone: "Рядом ничего не нашлось.", nrFar: "Вы далеко от Тбилиси: показано то, что ближе всего.", nrDenied: "Не удалось определить положение. Разрешите доступ к геолокации в браузере (для сайта) и включите геолокацию на телефоне.", nrAcc: "точность около", unitM: "м", unitKm: "км", nrEv: "событие",
+      glFail: "Не удалось запустить графику карты (WebGL). Обновление страницы здесь не поможет: полностью закройте браузер (все окна) и откройте снова, либо обновите драйвер видеокарты. В другом браузере (Edge, Chrome) сайт может открыться.", glSlow: "Карта долго не запускается. Если экран остаётся пустым, полностью закройте браузер и откройте снова или обновите драйвер видеокарты.", glReload: "Обновить страницу",
       loadMap: "Загрузка карты и данных…", loadPlan: "Загрузка плана…", loadFail: "Не удалось загрузить данные. Обновите страницу (Ctrl+F5).",
       topoAutoNote: "Сейчас топокарта включена автоматически (годы 1953–2005, вместо плана). Чтобы скрыть её, снимите галочку «С 1953 по 2005 год показывать топокарту вместо плана» ниже.",
       trRoutes62: "Маршруты по списку 1962 г.", trRoutes86: "Маршруты по списку 1986 г.",
@@ -278,6 +280,8 @@
       showRun: "Tbilisi Running Club: the City Run 2026 route and what to see on the way (today's city)", runStats: (r, n) => `${r.length_km} km, elevation ${r.ele_min}-${r.ele_max} m, ${n} sights`, runKm: "Kilometre", runDist: "From the route", runYear: "Date in the register", runWiki: "Wikipedia", runStart: "Start and finish", runList: "In order along the route", runNote: "The list holds the objects of the data of this site whose point lies within 150 m of the track: of national significance, with a Wikipedia article, churches, bridges, theatres, museums, walls and fortresses. The distance is from the point of the object to the line of the track, so large buildings may be closer. This is not a check of visibility.", runSrc: "Route (geometry)",
       topoPlanOpt: "1:2 000 · city plan (z17)", legDistEx: "Mtatsminda", legSetEx: "Kojori", ariaLang: "Language", ariaClose: "close", fbContactPh: "email or telegram (optional)",
       showSci: "Science and culture: institutes, universities, museums, theatres (appear by year)", sciKinds: { science: "Science and education", culture: "Culture" }, sciFounded: "Founded", sciBuilt: "Building", sciFrom: "Appears", sciSrc: "Sources", sciFaint: "a faint point: the building is not yet built or the institution was elsewhere",
+      lcTitle: "Show my location", nrBtnT: "What is near me", nrTitle: "Near me", nrHint: "The list shows the objects that exist in the chosen year (with the filters) and the events that have a place on the map. The distance is in a straight line, the arrow shows the direction (up is north). The position is used only in your browser and is sent nowhere.", nrNone: "Nothing was found nearby.", nrFar: "You are far from Tbilisi: the nearest things are shown.", nrDenied: "The position could not be found. Allow the access to the location for this site in the browser and switch the location on in the phone.", nrAcc: "accuracy about", unitM: "m", unitKm: "km", nrEv: "event",
+      glFail: "The map graphics (WebGL) could not be started. Reloading the page will not help here: close the browser completely (all windows) and open it again, or update the video driver. The site may open in another browser (Edge, Chrome).", glSlow: "The map takes long to start. If the screen stays empty, close the browser completely and open it again or update the video driver.", glReload: "Reload the page",
       loadMap: "Loading the map and data…", loadPlan: "Loading the plan…", loadFail: "The data could not be loaded. Reload the page (Ctrl+F5).",
       topoAutoNote: "The topographic map is on automatically now (the years 1953-2005, instead of a plan). To hide it, clear the box \"From 1953 to 2005 show the topographic map instead of a plan\" below.",
       trRoutes62: "Routes of the list of 1962", trRoutes86: "Routes of the list of 1986",
@@ -443,6 +447,8 @@
       showRun: "Tbilisi Running Club: City Run 2026-ის მარშრუტი და რა ჩანს გზაზე (დღევანდელი ქალაქი)", runStats: (r, n) => `${r.length_km} კმ, სიმაღლე ${r.ele_min}-${r.ele_max} მ, ${n} ღირსშესანიშნაობა`, runKm: "კილომეტრი", runDist: "ტრასიდან", runYear: "თარიღი რეესტრში", runWiki: "ვიკიპედია", runStart: "სტარტი და ფინიში", runList: "მარშრუტის გასწვრივ თანმიმდევრობით", runNote: "სიაში შედის საიტის მონაცემთა ობიექტები, რომელთა წერტილი ტრასიდან 150 მ-ს არ აცილდება: ეროვნული მნიშვნელობის, ვიკიპედიის სტატიით, ეკლესიები, ხიდები, თეატრები, მუზეუმები, გალავნები და ციხეები. მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა. ეს ხილვადობის შემოწმება არ არის.", runSrc: "მარშრუტი (გეომეტრია)",
       topoPlanOpt: "1:2 000 · ქალაქის გეგმა (z17)", legDistEx: "მთაწმინდა", legSetEx: "კოჯორი", ariaLang: "ენა", ariaClose: "დახურვა", fbContactPh: "ელფოსტა ან ტელეგრამი (არასავალდებულო)",
       showSci: "მეცნიერება და კულტურა: ინსტიტუტები, უნივერსიტეტები, მუზეუმები, თეატრები (ჩნდება წლების მიხედვით)", sciKinds: { science: "მეცნიერება და განათლება", culture: "კულტურა" }, sciFounded: "დაარსდა", sciBuilt: "შენობა", sciFrom: "ჩნდება", sciSrc: "წყაროები", sciFaint: "ფერმკრთალი წერტილი: შენობა ჯერ არ არის აშენებული ან დაწესებულება სხვაგან იყო",
+      lcTitle: "ჩემი მდებარეობის ჩვენება", nrBtnT: "რა არის ჩემ გვერდით", nrTitle: "ჩემ გვერდით", nrHint: "ნაჩვენებია ობიექტები, რომლებიც არჩეულ წელს არსებობს (ფილტრების გათვალისწინებით), და მოვლენები, რომლებსაც რუკაზე ადგილი აქვს. მანძილი წრფივია, ისარი მიმართულებას აჩვენებს (ზემოთ ჩრდილოეთია). მდებარეობა გამოიყენება მხოლოდ თქვენს ბრაუზერში და არსად იგზავნება.", nrNone: "ახლოს არაფერი მოიძებნა.", nrFar: "თბილისიდან შორს ხართ: ნაჩვენებია უახლოესი.", nrDenied: "მდებარეობის დადგენა ვერ მოხერხდა. ბრაუზერში დართეთ ნება გეოლოკაციაზე ამ საიტისთვის და ტელეფონზე ჩართეთ მდებარეობა.", nrAcc: "სიზუსტე დაახლოებით", unitM: "მ", unitKm: "კმ", nrEv: "მოვლენა",
+      glFail: "რუკის გრაფიკის (WebGL) გაშვება ვერ მოხერხდა. გვერდის განახლება აქ არ დაგეხმარებათ: მთლიანად დახურეთ ბრაუზერი (ყველა ფანჯარა) და ხელახლა გახსენით, ან განაახლეთ ვიდეოდრაივერი. სხვა ბრაუზერში (Edge, Chrome) საიტი შეიძლება გაიხსნას.", glSlow: "რუკა დიდხანს იტვირთება. თუ ეკრანი ცარიელი რჩება, მთლიანად დახურეთ ბრაუზერი და ხელახლა გახსენით ან განაახლეთ ვიდეოდრაივერი.", glReload: "გვერდის განახლება",
       loadMap: "რუკა და მონაცემები იტვირთება…", loadPlan: "გეგმა იტვირთება…", loadFail: "მონაცემების ჩატვირთვა ვერ მოხერხდა. განაახლეთ გვერდი (Ctrl+F5).",
       topoAutoNote: "ტოპოგრაფიული რუკა ახლა ავტომატურად არის ჩართული (1953–2005 წლები, გეგმის ნაცვლად). გასაქრობად მოხსენით ქვემოთ მოცემული ნიშნული „1953-2005 წლებში გეგმის ნაცვლად ტოპორუკის ჩვენება“.",
       trRoutes62: "მარშრუტები 1962 წლის სიით", trRoutes86: "მარშრუტები 1986 წლის სიით",
@@ -541,6 +547,22 @@
   }
   let baseStyle = baseParam === "off" ? offlineStyle() : baseParam === "bad" ? "https://tiles.invalid/styles/liberty" : BASE_STYLE_URL;
   let baseOffline = baseParam === "off", mapLoaded = false;
+  // WebGL guard: when the graphics of the browser cannot start (a driver update, a lost context) the map would stay black without a word; the page says what to do instead.
+  function glNote(key, blocking) {
+    if (document.getElementById("glnote")) return;
+    const n = document.createElement("div");
+    n.id = "glnote"; n.className = blocking ? "block" : "";
+    const p = document.createElement("p"); p.textContent = t()[key];
+    n.append(p);
+    if (!blocking) { const b = document.createElement("button"); b.type = "button"; b.textContent = t().glReload; b.onclick = () => location.reload(); n.append(b); }   // a reload does not cure a failed graphics driver: the blocking text asks for a restart of the browser instead
+    document.body.appendChild(n);
+  }
+  (function () {
+    let ok = false;
+    try { const c = document.createElement("canvas"); ok = !!(c.getContext("webgl2") || c.getContext("webgl")); } catch (e) {}
+    if (!ok) { glNote("glFail", true); window.__noGL = true; }
+  })();
+  if (window.__noGL) return;
   const map = new maplibregl.Map({
     container: "map",
     // OpenFreeMap vector tiles (free, no key; data © OpenStreetMap contributors, © OpenMapTiles; attribution added by MapLibre)
@@ -550,6 +572,9 @@
     zoom: (() => { const c = (new URLSearchParams(location.search).get("c") || "").split(",").map(Number); return c.length >= 3 && isFinite(c[2]) ? c[2] : 13.2; })(), minZoom: 9, maxZoom: 19, hash: false,
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+  map.once("load", () => { const n = document.getElementById("glnote"); if (n) n.remove(); });
+  map.getCanvas().addEventListener("webglcontextlost", () => glNote("glFail", false));
+  setTimeout(() => { if (!mapLoaded) glNote("glSlow", false); }, 25000);
   map.on("moveend", () => {                       // permalink: ?c=lng,lat,zoom (the year stays in the hash)
     try {
       const u = new URL(location.href), c = map.getCenter();
@@ -838,6 +863,7 @@
     $("lang").value = lang;
     if ($("loading") && !$("loading").hidden) $("loadingTxt").textContent = t()[loadKey];
     $("lang").setAttribute("aria-label", t().ariaLang);
+    if (typeof updateLocTitles === "function") updateLocTitles();
     document.querySelectorAll(".pclose").forEach((b) => b.setAttribute("aria-label", t().ariaClose));
     if ($("fbContactInput")) $("fbContactInput").placeholder = t().fbContactPh;
     updateVersionBtn();
@@ -1263,6 +1289,71 @@
         b.type = "button"; b.className = "chip"; b.style.cssText = "display:block;width:100%;text-align:left;margin:4px 0";
         b.textContent = (it.d < 1000 ? Math.round(it.d) + " m" : (it.d / 1000).toFixed(1) + " km") + " \u00B7 " + nm + (ad ? " \u00B7 " + ad : "");
         b.addEventListener("click", () => { closeInfo(); map.flyTo({ center: [it.lng, it.lat], zoom: 17, duration: 1000 }); popup(it.p, { lng: it.lng, lat: it.lat }); });
+        body.appendChild(b);
+      }
+    });
+  }
+  // "Where am I" and "what is near me" (phone, also in the installed PWA): the blue dot of the browser position and a list of the nearest objects and events.
+  // The position stays in the browser: nothing is sent anywhere. The list is built from the data that are already on the page.
+  let lastGeo = null;
+  const geoCtl = new maplibregl.GeolocateControl({ positionOptions: { enableHighAccuracy: true, timeout: 15000 }, trackUserLocation: true, showUserHeading: true, showAccuracyCircle: true });
+  map.addControl(geoCtl, "top-right");
+  geoCtl.on("geolocate", (e) => { lastGeo = { lat: e.coords.latitude, lng: e.coords.longitude, acc: e.coords.accuracy, t: Date.now() }; });
+  let nearBtn = null;
+  map.addControl({
+    onAdd() {
+      const box = document.createElement("div"); box.className = "maplibregl-ctrl maplibregl-ctrl-group";
+      nearBtn = document.createElement("button"); nearBtn.type = "button"; nearBtn.className = "nearctl"; nearBtn.textContent = "\uD83D\uDEB6";
+      nearBtn.addEventListener("click", askNear); box.appendChild(nearBtn); updateLocTitles(); return box;
+    },
+    onRemove() {},
+  }, "top-right");
+  function updateLocTitles() {
+    const g = document.querySelector(".maplibregl-ctrl-geolocate");
+    if (g) { g.title = t().lcTitle; g.setAttribute("aria-label", t().lcTitle); }
+    if (nearBtn) { nearBtn.title = t().nrBtnT; nearBtn.setAttribute("aria-label", t().nrBtnT); }
+  }
+  updateLocTitles();
+  function askNear() {
+    if (lastGeo && Date.now() - lastGeo.t < 30000) { showNear(lastGeo); return; }
+    const denied = () => openInfo((body) => { $("imTitle").textContent = t().nrTitle; infoLine(body, t().nrDenied); });
+    if (!navigator.geolocation) { denied(); return; }
+    navigator.geolocation.getCurrentPosition((g) => { lastGeo = { lat: g.coords.latitude, lng: g.coords.longitude, acc: g.coords.accuracy, t: Date.now() }; showNear(lastGeo); }, denied, { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 });
+  }
+  function showNear(pos) {
+    const L = t(), k = Math.cos(pos.lat * Math.PI / 180), list = [];
+    reopenInfo = () => showNear(pos);
+    const okTier = { nat: $("showNat").checked, mon: $("showMon").checked, obj: $("showObj").checked };
+    const dist = (lng, lat) => { const dx = (lng - pos.lng) * k * 111320, dy = (lat - pos.lat) * 111320; return { d: Math.hypot(dx, dy), br: (Math.atan2(dx, dy) * 180 / Math.PI + 360) % 360 }; };
+    for (const f of (monuments ? monuments.features : [])) {
+      const p = f.properties;
+      if (p.ye > year || !okTier[p.national ? "nat" : p.monument ? "mon" : "obj"] || !activeTypes.has(p.fn)) continue;
+      const [lng, lat] = f.geometry.coordinates;
+      list.push({ p, lng, lat, ...dist(lng, lat) });
+    }
+    for (const ev of histEvents) if (ev.place) list.push({ ev, lng: ev.place.lng, lat: ev.place.lat, ...dist(ev.place.lng, ev.place.lat) });
+    list.sort((a, b) => a.d - b.d);
+    const ARROWS = ["\u2191", "\u2197", "\u2192", "\u2198", "\u2193", "\u2199", "\u2190", "\u2196"];
+    const fmt = (d) => d < 1000 ? Math.round(d / 10) * 10 + " " + L.unitM : (d / 1000).toFixed(1) + " " + L.unitKm;
+    openInfo((body) => {
+      $("imTitle").textContent = L.nrTitle;
+      infoLine(body, L.nrHint + (pos.acc ? " (" + L.nrAcc + " " + Math.round(pos.acc) + " " + L.unitM + ")" : ""), "small");
+      if (!list.length) { infoLine(body, L.nrNone); return; }
+      if (list[0].d > 30000) infoLine(body, L.nrFar);
+      for (const it of list.slice(0, 15)) {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "chip"; b.style.cssText = "display:block;width:100%;text-align:left;margin:4px 0";
+        const head = ARROWS[Math.round(it.br / 45) % 8] + " " + fmt(it.d) + " \u00B7 ";
+        if (it.ev) {
+          const nm = it.ev.place[lang] || it.ev.place.en;
+          b.textContent = head + "\uD83D\uDCC5 " + it.ev.date + " \u00B7 " + nm;
+          b.addEventListener("click", () => { year = it.ev.year; update(); showHistEvent(it.ev); });
+        } else {
+          let nm = it.p.name || "", ad = it.p.address || "";
+          try { if (window.GeoTr) { nm = window.GeoTr.nameInfo(it.p.name, lang, it.p.wp).text || nm; ad = window.GeoTr.address(it.p.address, lang) || ad; } } catch (e) {}
+          b.textContent = head + nm + (ad ? " \u00B7 " + ad : "");
+          b.addEventListener("click", () => { closeInfo(); map.flyTo({ center: [it.lng, it.lat], zoom: 17, duration: 1000 }); popup(it.p, { lng: it.lng, lat: it.lat }); });
+        }
         body.appendChild(b);
       }
     });
