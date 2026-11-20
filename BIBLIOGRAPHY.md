@@ -41,6 +41,7 @@ Events of the timeline: 276. Every event has at least one link; where a book was
 5. A. Pomerantz. Ḳavḳaz. 1943 (на идише). Public link: [scan](https://archive.org/details/nybc209214) Copy of the author of the project: `georgia-timeline/data/raw/books/yi/pomerantz_1943_kavkaz.pdf`
 6. Сборник сведений о Кавказе. 1871. Public link: [scan](https://archive.org/details/sborniksviedien00komigoog) Copy of the author of the project: `georgia-timeline/data/raw/books/ru/zeidlits_1871_sbornik_svedenii_o_kavkaze.pdf`
 7. Evliya Çelebi. Seyahatname. Cilt 2 (Istanbul, 1896). Public link: [scan](https://archive.org/details/evliyaelebisey02evliuoft) Copy of the author of the project: `georgia-timeline/data/raw/books/tr/evliya_celebi_1896_seyahatname_c2.pdf`
+8. თ. ქუთათელაძე. საცხოვრებელი და საზოგადოებრივი შენობების ინტერიერების მონუმენტურ-დეკორატიული ფერწერა თბილისში XIX–XX საუკუნეების მიჯნაზე (Т. Кутателадзе. Монументально-декоративная живопись интерьеров жилых и общественных зданий Тбилиси XIX–XX веков; диссертация, Грузинский технический университет, 2015; таблица зданий с. 88–96, страница «Парадные Тбилиси»). Public link: [pdf](https://dspace.nplg.gov.ge/bitstream/1234/178167/1/Disertacia.pdf)
 
 ## Web pages that the events link to
 

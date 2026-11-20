@@ -78,13 +78,15 @@
   map.once("load", () => { const n = document.getElementById("glnote"); if (n) n.remove(); });
   map.getCanvas().addEventListener("webglcontextlost", () => glNote("glFail", false));
   setTimeout(() => { if (!mapLoaded) glNote("glSlow", false); }, 25000);
-  map.on("moveend", () => {                       // permalink: ?c=lng,lat,zoom (the year stays in the hash)
+  function syncUrl() {                           // permalink: ?c=lng,lat,zoom (the year stays in the hash), ?sw=the bar of the comparison
     try {
       const u = new URL(location.href), c = map.getCenter();
       u.searchParams.set("c", c.lng.toFixed(5) + "," + c.lat.toFixed(5) + "," + map.getZoom().toFixed(1));
+      if ($("showSwipe") && $("showSwipe").checked) u.searchParams.set("sw", swipeFrac.toFixed(2)); else u.searchParams.delete("sw");
       history.replaceState(null, "", u.pathname + u.search + u.hash);
     } catch (e) {}
-  });
+  }
+  map.on("moveend", syncUrl);
 
   function currentPlan(y) {
     // a plan is shown from its own year until the next plan (or PLAN_AFTER years if it is the last one)
@@ -212,7 +214,15 @@
     $("swl").hidden = $("swr").hidden = !on;
     if (!on) return;
     const w = $("map").clientWidth, x = Math.round(w * swipeFrac);
-    $("swl").textContent = "← " + t().swLeft; $("swr").textContent = t().swRight + " →";
+    const pl = currentPlan(year);
+    $("swlTxt").textContent = "← " + t().swPlanWord;
+    const sel = $("swPlan");
+    if (sel.options.length !== plans.length) { sel.textContent = ""; for (const p of plans) { const o = document.createElement("option"); o.value = String(p.year); o.textContent = String(p.year); sel.appendChild(o); } }
+    sel.setAttribute("aria-label", t().swPlanSel);
+    if (pl) sel.value = String(pl.year);
+    $("swAcc").textContent = pl && pl.accuracy_m ? "\u00B1" + Math.round(pl.accuracy_m) + " " + t().swM : "";
+    $("swr").textContent = t().swRight + " \u2192";
+    $("swipebar").setAttribute("aria-label", t().swBar); $("swipebar").setAttribute("aria-valuenow", String(Math.round(swipeFrac * 100)));
     $("swl").style.left = $("swr").style.left = x + "px";
     $("map2").style.clipPath = "inset(0 0 0 " + x + "px)";
     $("swipebar").style.left = x + "px";
@@ -233,6 +243,49 @@
     const move = (ev) => { const r = $("map").getBoundingClientRect(); swipeFrac = Math.min(0.97, Math.max(0.03, (ev.clientX - r.left) / r.width)); layoutSwipe(); };
     bar.addEventListener("pointerdown", (ev) => { bar.setPointerCapture(ev.pointerId); move(ev); ev.preventDefault(); });
     bar.addEventListener("pointermove", (ev) => { if (bar.hasPointerCapture(ev.pointerId)) move(ev); });
+    bar.addEventListener("pointerup", () => syncUrl());                 // the position of the bar goes to the address
+    bar.addEventListener("keydown", (ev) => {
+      const step = ev.shiftKey ? 0.1 : 0.02;
+      let f = null;
+      if (ev.key === "ArrowLeft") f = swipeFrac - step; else if (ev.key === "ArrowRight") f = swipeFrac + step;
+      else if (ev.key === "Home") f = 0.03; else if (ev.key === "End") f = 0.97;
+      if (f === null) return;
+      ev.preventDefault();
+      swipeFrac = Math.min(0.97, Math.max(0.03, f)); layoutSwipe(); syncUrl();
+    });
+    $("swPlan").addEventListener("change", (e) => { year = +e.target.value; update(); });
+    // the shared link: ?sw=0.5 opens the page with the bar on
+    const sw = parseFloat(new URLSearchParams(location.search).get("sw"));
+    if (isFinite(sw) && sw >= 0.03 && sw <= 0.97) { swipeFrac = sw; $("showSwipe").checked = true; }
+  }
+  // the buttons of the map: "then and now" (the bar on/off; a year without a plan jumps to the nearest plan) and "copy the link to this view"
+  map.addControl({
+    onAdd() {
+      const box = document.createElement("div"); box.className = "maplibregl-ctrl maplibregl-ctrl-group";
+      const b1 = document.createElement("button"); b1.type = "button"; b1.className = "thenctl"; b1.id = "thenBtn"; b1.textContent = "\u21C4";
+      b1.addEventListener("click", () => {
+        const cb = $("showSwipe"), turnOn = !cb.checked;
+        if (turnOn) {
+          if (!$("showPlan").checked) $("showPlan").checked = true;
+          if (!currentPlan(year) && plans.length) year = year < plans[0].year ? plans[0].year : plans[plans.length - 1].year;   // the nearest plan
+        }
+        cb.checked = turnOn; update(); syncUrl();
+      });
+      const b2 = document.createElement("button"); b2.type = "button"; b2.className = "linkctl"; b2.id = "linkBtn"; b2.textContent = "\uD83D\uDD17";
+      b2.addEventListener("click", async () => {
+        syncUrl();
+        const url = location.href;
+        try { await navigator.clipboard.writeText(url); b2.textContent = "\u2713"; setTimeout(() => { b2.textContent = "\uD83D\uDD17"; }, 1600); }
+        catch (e) { window.prompt(t().linkTitle, url); }
+      });
+      box.appendChild(b1); box.appendChild(b2); return box;
+    },
+    onRemove() {},
+  }, "top-right");
+  function updateThenTitles() {
+    const b1 = $("thenBtn"), b2 = $("linkBtn");
+    if (b1) { b1.title = t().thenTitle; b1.setAttribute("aria-label", t().thenTitle); b1.setAttribute("aria-pressed", String($("showSwipe").checked)); }
+    if (b2) { b2.title = t().linkTitle; b2.setAttribute("aria-label", t().linkTitle); }
   }
 
   // ---- "what was here": a click shows the clicked point cut out of every plan that covers it (plans are loaded one by one, only on demand)
@@ -313,13 +366,32 @@
     sel.setAttribute("aria-label", t().ariaEpoch);
     sel.title = t().ariaEpoch;
     sel.value = String(epochOf(year));
+    sel.dataset.e = String(epochOf(year));
   }
   $("epochSel").addEventListener("change", (e) => { year = EPOCHS[+e.target.value]; update(); });
+  // the band behind the slider: one coloured segment per period, so that it is clear where one period ends and the next begins; labels are numerals only (no translation)
+  const EPOCH_SHORT = ["IV\u2013X", "XI\u2013XV", "XVI\u2013XVIII", "XIX\u20131921", "1921\u2013"];
+  function buildEpochBand() {
+    const box = $("epochBand");
+    if (!box) return;
+    box.textContent = "";
+    const wpx = box.clientWidth || 300;
+    EPOCHS.forEach((s0, i) => {
+      const v0 = Math.max(0, y2v(s0)), v1 = Math.min(1000, i + 1 < EPOCHS.length ? y2v(EPOCHS[i + 1]) : 1000);
+      if (v1 <= v0 + 0.5) return;
+      const seg = document.createElement("i");
+      seg.style.left = (v0 / 10) + "%";
+      seg.style.width = ((v1 - v0) / 10) + "%";
+      seg.style.setProperty("--ep", `var(--ep${i})`);
+      if (((v1 - v0) / 1000) * wpx >= EPOCH_SHORT[i].length * 6.2 + 8) { const b = document.createElement("b"); b.textContent = EPOCH_SHORT[i]; seg.appendChild(b); }
+      box.appendChild(seg);
+    });
+  }
 
   function update() {
     ensureInWindow();
     $("year").textContent = year;
-    if ($("epochSel")) $("epochSel").value = String(epochOf(year));
+    if ($("epochSel")) { $("epochSel").value = String(epochOf(year)); $("epochSel").dataset.e = String(epochOf(year)); }
     if ($("yearchip")) $("yearchip").textContent = year;
     if ($("tbYear")) $("tbYear").textContent = year;
     $("slider").value = Math.round(y2v(year));
@@ -351,6 +423,7 @@
     updateRuleBar();
     updateStreets();
     updateSwipe();
+    updateThenTitles();
     updateLost();
     if (map.getLayer("admin-line")) map.setLayoutProperty("admin-line", "visibility", $("showAdmin").checked ? "visible" : "none");
     const oldOn = $("showAdmin").checked && year >= 1973 && year <= 2005;
@@ -416,6 +489,7 @@
     if ($("loading") && !$("loading").hidden) $("loadingTxt").textContent = t()[loadKey];
     $("lang").setAttribute("aria-label", t().ariaLang);
     $("slider").setAttribute("aria-label", t().ariaYear);
+    if ($("entrLink")) $("entrLink").href = "entrances/?lang=" + lang;
     $("speed").setAttribute("aria-label", t().ariaSpeed);
     buildEpochs();
     $("btnMore").setAttribute("aria-label", t().ariaMore); $("btnMore").title = t().ariaMore;
@@ -1890,7 +1964,7 @@
     map.on("mouseleave", "mon", () => { map.getCanvas().style.cursor = ""; });
 
     for (const id of ["stl-line", "stl-pt", "c94-pt", "c94-lb"]) if (map.getLayer(id)) map.moveLayer(id);   // overlays (old street names, 1894 objects) above the old plans
-    buildTicks();
+    buildTicks(); buildEpochBand();
     applyLang();
     try {                                              // a link with ?o=<id> opens that object card
       const oid = new URL(location.href).searchParams.get("o");
@@ -1972,7 +2046,7 @@
       zoomLo = lo; zoomHi = lo + w; KNOTS = [[zoomLo, 0], [zoomHi, 1000]];
     }
     $("slider").value = Math.round(y2v(year));
-    buildTicks(); buildEvMarks(); buildRulersBand(); updateZoomUi();
+    buildTicks(); buildEpochBand(); buildEvMarks(); buildRulersBand(); updateZoomUi();
   }
   // The window of a zoomed scale stays where it is while the year is inside it (a click on the scale, the slider, an event mark change only the year).
   // It moves when the year leaves it (playback, search, a jump: the window is centred on the year at once) and when the scale itself is dragged or the
@@ -2771,7 +2845,7 @@
   updateSearchUi();
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", update);
-  window.addEventListener("resize", () => { if (urbanSnaps.length || plans.length) buildTicks(); buildRulersBand(); });
+  window.addEventListener("resize", () => { if (urbanSnaps.length || plans.length) buildTicks(); buildEpochBand(); buildRulersBand(); });
   $("slider").value = Math.round(y2v(year));
   $("year").textContent = year;
 })();

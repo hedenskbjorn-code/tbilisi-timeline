@@ -103,6 +103,7 @@ CONSULTED = [
     ("pomerantz", "A. Pomerantz. Ḳavḳaz. 1943 (на идише).", [("scan", ARCH + "nybc209214")]),
     ("zeidlits", "Сборник сведений о Кавказе. 1871.", [("scan", ARCH + "sborniksviedien00komigoog")]),
     ("evliya", "Evliya Çelebi. Seyahatname. Cilt 2 (Istanbul, 1896).", [("scan", ARCH + "evliyaelebisey02evliuoft")]),
+    ("kutateladze", "თ. ქუთათელაძე. საცხოვრებელი და საზოგადოებრივი შენობების ინტერიერების მონუმენტურ-დეკორატიული ფერწერა თბილისში XIX–XX საუკუნეების მიჯნაზე (Т. Кутателадзе. Монументально-декоративная живопись интерьеров жилых и общественных зданий Тбилиси XIX–XX веков; диссертация, Грузинский технический университет, 2015; таблица зданий с. 88–96, страница «Парадные Тбилиси»).", [("pdf", "https://dspace.nplg.gov.ge/bitstream/1234/178167/1/Disertacia.pdf")]),
 ]
 HOSTS = {
     "en.wikipedia.org": "Wikipedia (en)", "ru.wikipedia.org": "Wikipedia (ru)", "ka.wikipedia.org": "Wikipedia (ka)", "fr.wikipedia.org": "Wikipedia (fr)",

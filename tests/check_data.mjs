@@ -115,6 +115,34 @@ if (T) {
   walk(T.ru, T.en, T.ka, "");
 }
 
+// ---- the route "Entrance halls of Tbilisi" (data/entrances.json) --------------------------------------------------
+const en = data["data/entrances.json"];
+if (en) {
+  for (const l of ["ru", "en", "ka"]) if (!String(en.door_note?.[l] || "").trim()) err(`entrances.json: door_note.${l} is missing`);
+  if (!Array.isArray(en.parts) || !en.parts.length) err("entrances.json: no parts");
+  for (const p of en.parts || []) {
+    if (!(p.route?.coords?.length >= 2)) err(`entrances.json ${p.id}: no route line`);
+    (p.stops || []).forEach((s, i) => {
+      const w = `entrances.json ${p.id} stop ${i + 1} (${s.address?.en})`;
+      if (s.n !== i + 1) err(`${w}: the numbers are not in the order`);
+      if (!(Number.isFinite(s.lat) && Number.isFinite(s.lon))) err(`${w}: no coordinates`);
+      if (!Array.isArray(s.src) || !s.src.length) err(`${w}: no source`);
+      else for (const x of s.src) if (!x.label || (x.url && !/^https?:\/\//.test(x.url))) err(`${w}: bad source ${JSON.stringify(x)}`);
+      // a photo only with the author, a free licence of Creative Commons (BY or BY-SA) and the page of the file
+      for (const ph of s.photos || []) {
+        if (!/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(ph.page || "")) err(`${w}: a photo without the page of the file`);
+        if (!String(ph.author || "").trim()) err(`${w}: a photo without the author (${ph.page})`);
+        if (!/^CC BY(-SA)? [0-9.]+$/.test(ph.license || "")) err(`${w}: a photo without a free licence (${ph.page}: ${ph.license})`);
+        if (!/^https:\/\/thumb\.wikimedia\.org\//.test(ph.thumb || "")) err(`${w}: a photo thumbnail is not on thumb.wikimedia.org (the policy of the page)`);
+      }
+      for (const k of ["name", "address", "year", "desc"]) for (const l of ["ru", "en", "ka"]) if (!String(s[k]?.[l] || "").trim()) err(`${w}: ${k}.${l} is missing`);
+      // a door code is never published: no sequences like "code 38" or a number next to the word code / lock
+      const all = JSON.stringify(s) + JSON.stringify(en.door_note);
+      if (/(код[а-я]* (замк|домофон)|door code[s]? (is|are|of) \d|კოდი[^.]{0,20}\d{2})/i.test(all.replace(/Кодов замков здесь нет/g, ""))) err(`${w}: looks like a door code`);
+    });
+  }
+}
+
 // ---- the events ---------------------------------------------------------------------------------------------------
 const ev = data["data/history_events.json"]?.events;
 if (ev) {

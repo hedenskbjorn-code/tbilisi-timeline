@@ -1,5 +1,35 @@
 [
  {
+  "version": "1.6.22",
+  "date": "2026-11-21",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Полоса времени раскрашена по эпохам: у каждой из пяти эпох свой цвет и подпись (IV–X, XI–XV, XVI–XVIII, XIX–1921, 1921–), видно, где одна кончается и начинается другая; тот же цвет стоит у списка эпох. При увеличении шкалы показаны только эпохи видимого отрезка.",
+    "en": "The time scale is coloured by period: each of the five periods has its own colour and label (IV–X, XI–XV, XVI–XVIII, XIX–1921, 1921–), so it is clear where one ends and the next begins; the same colour is at the period selector. When the scale is zoomed, only the periods of the visible stretch are shown.",
+    "ka": "დროის სკალა ეპოქების მიხედვით შეიღება: ხუთივე ეპოქას თავისი ფერი და წარწერა აქვს (IV–X, XI–XV, XVI–XVIII, XIX–1921, 1921–), ჩანს, სად მთავრდება ერთი და სად იწყება მეორე; იგივე ფერი აქვს ეპოქის არჩევის სიას. სკალის გადიდებისას მხოლოდ ხილული მონაკვეთის ეპოქები ჩანს."
+   },
+   {
+    "t": "new",
+    "ru": "На карте появилась кнопка «⇄ Тогда и сейчас» рядом с кнопками масштаба: она одним нажатием включает шторку (слева старый план, справа современная карта). Если на выбранный год плана нет (до 1735), сайт переходит к ближайшему плану. На шторке видны год плана с выбором из 12 планов и точность привязки в метрах; полосой шторки можно управлять стрелками клавиатуры.",
+    "en": "The map has a button '⇄ Then and now' next to the zoom buttons: one press turns on the swipe (the old plan on the left, today's map on the right). If the chosen year has no plan (before 1735), the site jumps to the nearest plan. The swipe shows the year of the plan with a choice of the 12 plans and the accuracy of the georeferencing in metres; the bar can be moved with the arrow keys.",
+    "ka": "რუკაზე მასშტაბის ღილაკების გვერდით გაჩნდა ღილაკი „⇄ მაშინ და ახლა“: ერთი დაჭერით ირთვება შედარება (მარცხნივ ძველი გეგმა, მარჯვნივ თანამედროვე რუკა). თუ არჩეული წლისთვის გეგმა არ არის (1735 წლამდე), საიტი უახლოეს გეგმაზე გადადის. შედარებაზე ჩანს გეგმის წელი 12 გეგმიდან არჩევის შესაძლებლობით და მიბმის სიზუსტე მეტრებში; ზოლის გადაადგილება კლავიატურის ისრებითაც შეიძლება."
+   },
+   {
+    "t": "new",
+    "ru": "Рядом ещё одна кнопка 🔗: она копирует ссылку на текущий вид (положение и масштаб карты, год и положение шторки), так что другой человек откроет ровно то же.",
+    "en": "Next to it is another button, 🔗: it copies the link to the current view (the position and zoom of the map, the year and the position of the swipe), so that another person opens exactly the same.",
+    "ka": "მის გვერდით არის კიდევ ერთი ღილაკი, 🔗: ის მიმდინარე ხედის ბმულს აკოპირებს (რუკის მდებარეობა და მასშტაბი, წელი და შედარების ზოლის მდებარეობა), ასე რომ სხვა ადამიანი ზუსტად იმავეს გახსნის."
+   },
+   {
+    "t": "new",
+    "ru": "Новая страница «Парадные Тбилиси» (адрес /entrances/): пешеходный маршрут по Сололаки мимо 10 старых жилых домов с парадными, от метро «Площадь Свободы» и обратно (3,4 км, около 45 минут). Порядок домов рассчитан по уличным путям так, чтобы идти как можно меньше. Есть карта, кнопка «Где я: ближайший дом» (положение остаётся в браузере), отметки «пройдено», файл GPX и ссылки для навигатора. Годы и авторы взяты из таблицы диссертации Т. Кутателадзе (2015) и реестра культурного наследия, расхождения указаны в карточках; коды замков не публикуются. Ссылка на страницу есть в панели «Справка».",
+    "en": "A new page 'Entrance Halls of Tbilisi' (the address /entrances/): a walking route through Sololaki past 10 old residential houses with entrance halls, from the metro station Freedom Square and back (3.4 km, about 45 minutes). The order of the houses is calculated along the streets so that you walk as little as possible. There is a map, the button 'Where am I: the nearest house' (the position stays in the browser), 'visited' marks, a GPX file and links for a navigator. The years and the architects are taken from the table of the dissertation of T. Kutateladze (2015) and from the heritage register, the differences are shown in the cards; door codes are not published. The link to the page is in the 'Info' panel.",
+    "ka": "ახალი გვერდი „თბილისური სადარბაზოები“ (მისამართი /entrances/): ფეხით მარშრუტი სოლოლაკში, სადარბაზოებიანი 10 ძველი საცხოვრებელი სახლის გვერდით, მეტროსადგურ „თავისუფლების მოედნიდან“ და უკან (3,4 კმ, დაახლოებით 45 წუთი). სახლების თანმიმდევრობა ქუჩების გასწვრივ ისეა გამოთვლილი, რომ რაც შეიძლება ნაკლები გავიაროთ. არის რუკა, ღილაკი „სად ვარ: უახლოესი სახლი“ (მდებარეობა ბრაუზერში რჩება), „გავლილია“ ნიშნები, GPX ფაილი და ბმულები ნავიგატორისთვის. წლები და არქიტექტორები აღებულია თ. ქუთათელაძის დისერტაციის (2015) ცხრილიდან და კულტურული მემკვიდრეობის რეესტრიდან, განსხვავებები ბარათებშია ნაჩვენები; საკეტების კოდები არ ქვეყნდება. გვერდის ბმული „ცნობარის“ პანელშია."
+   }
+  ]
+ },
+ {
   "version": "1.6.21",
   "date": "2026-11-21",
   "items": [
