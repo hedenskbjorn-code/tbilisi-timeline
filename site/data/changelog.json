@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.6.19",
+  "date": "2026-11-21",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "На планшетах (ширина 641-899 пикселей) панели «Инфо» и «Виды» больше не накладываются друг на друга: открытие одной закрывает другую. Маршрут на карте теперь вписывается с отступами по ширине экрана (на телефоне они были шире самого экрана). Карточка события или маршрута на телефоне закрывает открытую панель, как это делает всплывающее окно.",
+    "en": "On tablets (width 641-899 pixels) the panels Info and Views no longer lie over each other: opening one closes the other. The route on the map now fits with paddings in proportion to the width of the screen (on a phone they were wider than the screen itself). On a phone a card of an event or of the route closes the open panel, as a popup does.",
+    "ka": "პლანშეტებზე (სიგანე 641-899 პიქსელი) პანელები „ინფო“ და „ხედები“ აღარ ეფარება ერთმანეთს: ერთის გახსნა მეორეს ხურავს. რუკაზე მარშრუტი ახლა ეკრანის სიგანის პროპორციული ველებით ეტევა (ტელეფონზე ველები თვით ეკრანზე ფართო იყო). ტელეფონზე მოვლენის ან მარშრუტის ბარათი ღია პანელს ხურავს, როგორც ამას ამომხტარი ფანჯარა აკეთებს."
+   },
+   {
+    "t": "new",
+    "ru": "Доступность: ползунок времени сообщает программе чтения экрана год, а не число от 0 до 1000; у кнопки скорости подпись на выбранном языке; при закрытии окон («Инфо», «Виды», обратная связь) фокус возвращается на кнопку, которой окно открыли. На странице маршрута точки сделаны кнопками (работают с клавиатуры, у каждой есть подпись), и добавлена поддержка выреза экрана.",
+    "en": "Accessibility: the time slider tells a screen reader the year, not a number from 0 to 1000; the speed button has a label in the chosen language; when a window (Info, Views, feedback) is closed the focus goes back to the button that opened it. On the route page the points are buttons (they work from the keyboard and each has a label), and the notch of the screen is supported.",
+    "ka": "ხელმისაწვდომობა: დროის სლაიდერი ეკრანის წამკითხველს წელს აცნობებს და არა რიცხვს 0-დან 1000-მდე; სიჩქარის ღილაკს არჩეულ ენაზე აქვს წარწერა; ფანჯრის („ინფო“, „ხედები“, უკუკავშირი) დახურვისას ფოკუსი უბრუნდება ღილაკს, რომლითაც ფანჯარა გაიხსნა. მარშრუტის გვერდზე წერტილები ღილაკებია (მუშაობს კლავიატურით და თითოეულს აქვს წარწერა), ეკრანის ამოჭრაც გათვალისწინებულია."
+   }
+  ]
+ },
+ {
   "version": "1.6.18",
   "date": "2026-11-21",
   "items": [
