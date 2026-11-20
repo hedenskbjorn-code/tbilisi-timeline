@@ -1,6 +1,6 @@
-:root { --bg:#fbfaf7; --fg:#201c18; --muted:#6d655c; --panel:#fbfaf7ee; --line:#0002; --accent:#b4412c; --nat:#7a2bb4; --old:#3d5a80; }
+:root { --ep0:#e0cfa8; --ep1:#bdd5c4; --ep2:#bfd3e8; --ep3:#e6c4c4; --ep4:#d3c5e6; --bg:#fbfaf7; --fg:#201c18; --muted:#6d655c; --panel:#fbfaf7ee; --line:#0002; --accent:#b4412c; --nat:#7a2bb4; --old:#3d5a80; }
 @media (prefers-color-scheme: dark) {
-  :root { --bg:#17181b; --fg:#ece8e1; --muted:#a39b90; --panel:#1d1f23ee; --line:#fff2; --accent:#e0735c; --nat:#c08bf0; --old:#8fb0d8; }
+  :root { --ep0:#5e5236; --ep1:#38523f; --ep2:#35495f; --ep3:#603c3c; --ep4:#4b3f60; --bg:#17181b; --fg:#ece8e1; --muted:#a39b90; --panel:#1d1f23ee; --line:#fff2; --accent:#e0735c; --nat:#c08bf0; --old:#8fb0d8; }
 }
 * { box-sizing:border-box; }
 html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
@@ -64,7 +64,20 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
 #epochSel { flex:none; height:36px; max-width:150px; padding:0 6px; font-size:13px; }
 #zoomLbl { position:absolute; left:-8px; right:-8px; top:40px; text-align:center; font-size:11px; color:var(--muted); white-space:nowrap; pointer-events:none; }
 #sliderwrap { position:relative; flex:1; }
-#slider { width:100%; margin:0; }
+#slider { width:100%; margin:0; position:relative; z-index:1; background:transparent; }
+/* the track of the slider is the coloured band of the periods behind it; only the thumb is drawn (16 px wide: the ticks and the band keep the 8 px margin) */
+#slider { -webkit-appearance:none; appearance:none; height:22px; cursor:pointer; }
+#slider::-webkit-slider-runnable-track { background:transparent; height:22px; }
+#slider::-moz-range-track { background:transparent; height:22px; }
+#slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:16px; height:24px; margin-top:-1px; border-radius:6px; background:var(--accent); border:2px solid var(--bg); box-shadow:0 1px 4px #0006; }
+#slider::-moz-range-thumb { width:12px; height:20px; border-radius:6px; background:var(--accent); border:2px solid var(--bg); box-shadow:0 1px 4px #0006; }
+/* the periods of the history on the time scale: a coloured band behind the slider, one colour per period (the same periods as in the selector) */
+#epochBand { position:absolute; left:8px; right:8px; top:50%; height:16px; transform:translateY(-50%); border-radius:8px; overflow:hidden; pointer-events:none; z-index:0; }
+#epochBand i { position:absolute; top:0; bottom:0; display:block; font:600 10px/16px system-ui,sans-serif; font-style:normal; color:var(--fg); white-space:nowrap; overflow:hidden; text-align:center; background:var(--ep); }
+#epochBand i + i { box-shadow:inset 2px 0 0 var(--bg); }
+#epochBand i b { font-weight:600; opacity:.72; padding:0 3px; }
+#epochSel { border-left:7px solid var(--ep, var(--line)); }
+#epochSel[data-e="0"] { --ep:var(--ep0); } #epochSel[data-e="1"] { --ep:var(--ep1); } #epochSel[data-e="2"] { --ep:var(--ep2); } #epochSel[data-e="3"] { --ep:var(--ep3); } #epochSel[data-e="4"] { --ep:var(--ep4); }
 #ticks { position:absolute; left:0; right:0; top:22px; height:32px; font-size:11px; color:var(--muted); pointer-events:none; }
 #ticks span { position:absolute; transform:translateX(-50%); white-space:nowrap; pointer-events:auto; cursor:pointer; padding:0 2px; }
 #ticks span.r2 { top:15px; }
@@ -227,6 +240,9 @@ body.panel-open #yearchip { display:none; }
 /* swipe mode: captions on both sides of the bar so it is clear which side is which */
 .swlab { position:absolute; bottom:170px; z-index:3; padding:4px 10px; border-radius:8px; background:var(--panel); color:var(--fg); font-size:12px; font-weight:600; box-shadow:0 1px 6px #0003; pointer-events:none; white-space:nowrap; }
 #swl { transform:translateX(calc(-100% - 14px)); }
+#swl select { pointer-events:auto; margin:0 4px; font:inherit; font-weight:700; color:var(--fg); background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:1px 2px; }
+#swAcc { font-weight:500; opacity:.8; }
+#swipebar:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
 #swr { transform:translateX(14px); }
 .swlab[hidden] { display:none; }
 
@@ -383,6 +399,8 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #glnote p { margin:0 0 8px; }
 #glnote button { padding:5px 10px; cursor:pointer; }
 .maplibregl-ctrl button.nearctl { font-size:18px; line-height:29px; }
+.maplibregl-ctrl button.thenctl, .maplibregl-ctrl button.linkctl { font-size:17px; line-height:29px; }
+.maplibregl-ctrl button.thenctl[aria-pressed="true"] { background:var(--accent); color:#fff; }
 /* the buttons of the map (zoom, position, near me) lie below the header and the time bar, not under them */
 .maplibregl-ctrl-top-right { top:calc(56px + var(--tb) + 8px); }
 @media (max-width:640px) { .maplibregl-ctrl-top-right { top:calc(52px + var(--tb) + 8px); } }

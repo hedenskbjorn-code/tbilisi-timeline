@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entrance Halls of Tbilisi: a walking route through Sololaki</title>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="A walking route through Sololaki past the old residential entrance halls of Tbilisi: 10 houses of the late 19th - early 20th century in the order with the least walking, from the metro station Freedom Square and back (3.4 km, about 45 minutes), with dates, architects and sources.">
+<link rel="canonical" href="https://hedenskbjorn-code.github.io/tbilisi-timeline/entrances/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tbilisi through time">
+<meta property="og:title" content="Entrance Halls of Tbilisi: a walking route through Sololaki">
+<meta property="og:description" content="10 old houses of Sololaki with painted entrance halls, in the order with the least walking: 3.4 km, about 45 minutes from the metro station Freedom Square and back.">
+<meta property="og:url" content="https://hedenskbjorn-code.github.io/tbilisi-timeline/entrances/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="ka_GE">
+<meta name="twitter:card" content="summary">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://thumb.wikimedia.org https://upload.wikimedia.org; font-src 'self' data: https://tiles.openfreemap.org; connect-src 'self' https://tiles.openfreemap.org https://cloudflareinsights.com; worker-src blob:; child-src blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="entrances.css">
+</head>
+<body>
+<header id="top">
+  <a id="home" href="../">&larr; <span id="homeTxt"></span></a>
+  <h1 id="title"></h1>
+  <div class="spacer"></div>
+  <button id="share" class="chip" type="button"></button>
+  <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
+</header>
+<main>
+  <section id="list">
+    <div id="intro"></div>
+    <div id="tools">
+      <button id="locate" class="chip" type="button"></button>
+      <button id="gpx" class="chip" type="button"></button>
+    </div>
+    <div id="where" role="status" aria-live="polite" hidden></div>
+    <ol id="cards"></ol>
+    <footer id="credits"></footer>
+  </section>
+  <div id="map" role="application"></div>
+  <div id="loading" role="status" aria-live="polite"><span class="spin" aria-hidden="true"></span><span id="loadingTxt"></span></div>
+</main>
+<script src="../vendor/maplibre-gl.js"></script>
+<script src="entrances.js"></script>
+<!-- Cloudflare Web Analytics: loaded by ../stats.js (?nostats=1 switches it off in this browser) --><script defer src="../stats.js"></script>
+</body>
+</html>
