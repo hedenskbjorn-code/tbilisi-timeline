@@ -46,6 +46,16 @@ for (const p of listFiles(path.join(SITE, "data"), [".json", ".geojson"]).concat
   }
 }
 
+// ---- every local picture of the window "Views" has its small copy (tools/make_view_thumbs.py) ---------------------
+{
+  const views = data["data/views.json"];
+  if (Array.isArray(views)) for (const v of views) {
+    if (/^https?:/.test(v.image || "")) continue;
+    const name = path.basename(v.image).replace(/\.\w+$/, ".webp");
+    if (!fs.existsSync(path.join(SITE, "data", "views", "thumb", name))) err(`data/views.json: ${v.id} has no thumbnail data/views/thumb/${name} (run python tools/make_view_thumbs.py)`);
+  }
+}
+
 // ---- JavaScript syntax of the files of the site (not the vendor) ------------------------------------------
 for (const p of fs.readdirSync(SITE).filter((f) => f.endsWith(".js")).map((f) => path.join(SITE, f))) {
   try { new vm.Script(fs.readFileSync(p, "utf8"), { filename: p }); } catch (e) { err(`${rel(p)}: syntax error (${e.message})`); }
