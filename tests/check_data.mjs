@@ -120,11 +120,12 @@ const en = data["data/entrances.json"];
 if (en) {
   for (const l of ["ru", "en", "ka"]) if (!String(en.door_note?.[l] || "").trim()) err(`entrances.json: door_note.${l} is missing`);
   if (!Array.isArray(en.parts) || !en.parts.length) err("entrances.json: no parts");
+  let expectN = 1;
   for (const p of en.parts || []) {
     if (!(p.route?.coords?.length >= 2)) err(`entrances.json ${p.id}: no route line`);
     (p.stops || []).forEach((s, i) => {
       const w = `entrances.json ${p.id} stop ${i + 1} (${s.address?.en})`;
-      if (s.n !== i + 1) err(`${w}: the numbers are not in the order`);
+      if (s.n !== expectN++) err(`${w}: the numbers are not in the order (expected ${expectN - 1}, got ${s.n})`);
       if (!(Number.isFinite(s.lat) && Number.isFinite(s.lon))) err(`${w}: no coordinates`);
       if (!Array.isArray(s.src) || !s.src.length) err(`${w}: no source`);
       else for (const x of s.src) if (!x.label || (x.url && !/^https?:\/\//.test(x.url))) err(`${w}: bad source ${JSON.stringify(x)}`);
@@ -133,7 +134,7 @@ if (en) {
         if (!/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(ph.page || "")) err(`${w}: a photo without the page of the file`);
         if (!String(ph.author || "").trim()) err(`${w}: a photo without the author (${ph.page})`);
         if (!/^CC BY(-SA)? [0-9.]+$/.test(ph.license || "")) err(`${w}: a photo without a free licence (${ph.page}: ${ph.license})`);
-        if (!/^https:\/\/thumb\.wikimedia\.org\//.test(ph.thumb || "")) err(`${w}: a photo thumbnail is not on thumb.wikimedia.org (the policy of the page)`);
+        if (!/^https:\/\/(thumb|upload)\.wikimedia\.org\//.test(ph.thumb || "")) err(`${w}: a photo is not on thumb.wikimedia.org or upload.wikimedia.org (the policy of the page)`);
       }
       for (const k of ["name", "address", "year", "desc"]) for (const l of ["ru", "en", "ka"]) if (!String(s[k]?.[l] || "").trim()) err(`${w}: ${k}.${l} is missing`);
       // a door code is never published: no sequences like "code 38" or a number next to the word code / lock
