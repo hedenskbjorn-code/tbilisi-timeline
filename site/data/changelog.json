@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.6.23",
+  "date": "2026-11-21",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Страница «Парадные Тбилиси» дополнена: к Сололаки добавлены ещё две части, «Центр и проспект Агмашенебели» (6 домов) и «Вера» (4 дома); всего 20 домов с общей нумерацией. Каждая часть идёт от метро «Площадь Свободы» и обратно в порядке с наименьшей ходьбой (около 79 и 78 минут пешком); переключаются вкладками, часть можно открыть по адресу (?part=center, ?part=vera). Кнопка «Где я» теперь ищет ближайший дом по всем частям. Там, где реестр и диссертация расходятся (например, Грибоедова, 27), это сказано в карточке; добавлено 9 новых фото с Wikimedia Commons (автор и лицензия под каждым).",
+    "en": "The page 'Entrance Halls of Tbilisi' is complete: two more parts are added to Sololaki, 'The centre and Agmashenebeli Avenue' (6 houses) and 'Vera' (4 houses); 20 houses in all with common numbering. Each part runs from the metro station Freedom Square and back in the order with the least walking (about 79 and 78 minutes on foot); they are switched with tabs, a part can be opened by the address (?part=center, ?part=vera). The button 'Where am I' now looks for the nearest house in all the parts. Where the register and the dissertation differ (for example Griboedov 27), the card says so; 9 new photos from Wikimedia Commons are added (the author and the licence under each).",
+    "ka": "გვერდი „თბილისური სადარბაზოები“ შევსებულია: სოლოლაკს დაემატა კიდევ ორი ნაწილი, „ცენტრი და აღმაშენებლის გამზირი“ (6 სახლი) და „ვერა“ (4 სახლი); სულ 20 სახლი საერთო ნუმერაციით. თითოეული ნაწილი მეტროსადგურ „თავისუფლების მოედნიდან“ იწყება და უკან ბრუნდება ყველაზე ნაკლები სიარულის თანმიმდევრობით (ფეხით დაახლოებით 79 და 78 წუთი); ისინი ჩანართებით გადაირთვება, ნაწილის გახსნა მისამართითაც შეიძლება (?part=center, ?part=vera). ღილაკი „სად ვარ“ ახლა უახლოეს სახლს ყველა ნაწილში ეძებს. სადაც რეესტრი და დისერტაცია განსხვავდება (მაგალითად, გრიბოედოვის ქ. 27), ეს ბარათშია აღნიშნული; დაემატა Wikimedia Commons-ის 9 ახალი ფოტო (ავტორი და ლიცენზია თითოეულის ქვეშაა)."
+   }
+  ]
+ },
+ {
   "version": "1.6.22",
   "date": "2026-11-21",
   "items": [
