@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.6.8",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "Телефон: верхняя панель больше не вылезает за экран (на грузинском и русском язык переключения уходил за край). Главные кнопки (Справка, Фильтры, Виды, Поиск) остались в панели, а язык, версия, «Сообщить об ошибке», «Установить» и «Поддержать» собраны в меню «⋯».",
+    "en": "Phone: the top bar no longer runs beyond the screen (in Georgian and Russian the language selector went off the edge). The main buttons (Info, Filters, Views, Search) stay in the bar, and the language, the version, 'Report a problem', 'Install' and 'Support' are collected in the menu '...'.",
+    "ka": "ტელეფონი: ზედა პანელი აღარ გადის ეკრანის საზღვრებს გარეთ (ქართულსა და რუსულ ენაზე ენის გადამრთველი კიდეს მიღმა ექცეოდა). ძირითადი ღილაკები (ცნობა, ფილტრები, ხედები, ძიება) პანელში რჩება, ხოლო ენა, ვერსია, „შეცდომის შეტყობინება“, „დაყენება“ და „მხარდაჭერა“ მენიუშია „⋯“."
+   },
+   {
+    "t": "new",
+    "ru": "Телефон: кнопки и значки событий стали крупнее для пальца (от 40 px), у кластеров событий на шкале виден счётчик, а тап по объекту на карте сворачивает открытую панель, чтобы карточка получила высоту экрана. Добавлены отступы под вырез и жестовую полосу (safe area).",
+    "en": "Phone: the buttons and the event marks are bigger for a finger (from 40 px), the count of a cluster of events is shown on the scale, and a tap on an object of the map folds the open panel so that the card gets the height of the screen. Insets for the notch and the gesture bar (safe area) are added.",
+    "ka": "ტელეფონი: ღილაკები და მოვლენათა ნიშნულები თითისთვის უფრო მსხვილია (40 პიქსელიდან), სკალაზე მოვლენათა ჯგუფებს მრიცხველი ეტყობა, ხოლო რუკაზე ობიექტზე შეხება ღია პანელს კეცავს, რათა ბარათმა ეკრანის სიმაღლე მიიღოს. დაემატა დაცული ზონის (ამოჭრა და ჟესტების ზოლი) ველები."
+   }
+  ]
+ },
+ {
   "version": "1.6.7",
   "date": "2026-11-20",
   "items": [

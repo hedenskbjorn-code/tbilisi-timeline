@@ -399,6 +399,7 @@
     if ($("loading") && !$("loading").hidden) $("loadingTxt").textContent = t()[loadKey];
     $("lang").setAttribute("aria-label", t().ariaLang);
     $("slider").setAttribute("aria-label", t().ariaYear);
+    $("btnMore").setAttribute("aria-label", t().ariaMore); $("btnMore").title = t().ariaMore;
     $("vmPrev").setAttribute("aria-label", t().ariaPrev);
     $("vmNext").setAttribute("aria-label", t().ariaNext);
     if (typeof updateLocTitles === "function") updateLocTitles();
@@ -699,7 +700,7 @@
     if (!box) return;
     box.textContent = "";
     // markers that would overlap on the scale are merged into one marker with a count; a click on it lists the events
-    const W = Math.max(0, box.clientWidth - 16), GAP = 19;
+    const W = Math.max(0, box.clientWidth - 16), GAP = window.matchMedia("(max-width:640px)").matches ? 26 : 19;
     const items = histEvents.filter((ev) => ev.year >= zoomLo && ev.year <= zoomHi).map((ev) => ({ ev, x: 8 + W * (y2v(ev.year) / 1000) })).sort((a, b) => a.x - b.x || a.ev.year - b.ev.year);
     const groups = [];
     for (const it of items) {
@@ -1402,6 +1403,7 @@
     btns.filters.addEventListener("click", () => toggle("filters"));
     btns.views.addEventListener("click", () => toggle("views"));
     for (const b of document.querySelectorAll(".pclose")) b.addEventListener("click", () => toggle(b.dataset.panel, false));
+    window.TT_closePanels = () => { if (!mq.matches) return; let any = false; for (const k of KEYS) if (st[k]) { st[k] = false; any = true; } if (any) apply(); };
     apply();
   }
 
@@ -1462,6 +1464,7 @@
   }
 
   function popup(p, lngLat) {
+    if (window.TT_closePanels) window.TT_closePanels();          // a phone: the card takes the place of the open panel
     reopenPopup = () => popup(p, lngLat);
     const L = t();
     const el = document.createElement("div");
@@ -2283,6 +2286,22 @@
     });
   })();
   if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
+  // a phone: the less important buttons of the top bar (install, version, feedback, language) live in the menu "...": the bar does not fit otherwise
+  {
+    const mq = window.matchMedia("(max-width:640px)"), top = $("top"), menu = $("moreMenu"), group = $("topRight"), more = $("btnMore");
+    const close = () => { menu.hidden = true; more.setAttribute("aria-expanded", "false"); };
+    const place = () => {
+      if (mq.matches) { if (group.parentNode !== menu) menu.appendChild(group); }
+      else { if (group.parentNode !== top) top.insertBefore(group, menu); close(); }
+    };
+    more.addEventListener("click", (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; more.setAttribute("aria-expanded", String(!menu.hidden)); });
+    document.addEventListener("click", (e) => { if (!menu.hidden && !menu.contains(e.target) && e.target !== more) close(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { close(); more.focus(); } });
+    menu.addEventListener("click", (e) => { if (e.target.closest("button")) close(); });
+    $("lang").addEventListener("change", close);
+    if (mq.addEventListener) mq.addEventListener("change", place);
+    place();
+  }
   // the owner of the screen decides: the time scale folds to a small pill with the year, the line of rulers hides to a pill "Rulers"; the choice is remembered (not part of the filters)
   function uiGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function uiSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }

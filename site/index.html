@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Тбилиси во времени: интерактивная карта, 364–2026 (Tbilisi through time)</title>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="description" content="Интерактивная карта Тбилиси со шкалой времени (364–2026): старые планы, границы города, объекты реестра культурного наследия, события, правители, фотографии разных эпох. Некоммерческий любительский проект на открытых данных, не официальный сайт.">
@@ -52,13 +52,17 @@
   <button id="btnFilters" class="chip" data-i="btnFilters" aria-pressed="true"></button>
   <button id="btnViews" class="chip" data-i="btnViews" aria-pressed="false"></button>
   <button id="btnSearch" class="chip" type="button" aria-expanded="false">&#128269;</button>
+  <button id="btnMore" class="chip" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu">&#8943;</button>
   <h1 id="title"></h1>
   <div class="spacer"></div>
-  <button id="btnSupport" class="chip" type="button">&#10084;</button>
-  <button id="btnInstall" class="chip" type="button" hidden>&#128242;</button>
-  <button id="btnVersion" class="chip" type="button">v</button>
-  <button id="fbOpen" class="chip" data-i="fbBtn"></button>
-  <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
+  <div id="topRight">
+    <button id="btnSupport" class="chip" type="button">&#10084;</button>
+    <button id="btnInstall" class="chip" type="button" hidden>&#128242;</button>
+    <button id="btnVersion" class="chip" type="button">v</button>
+    <button id="fbOpen" class="chip" data-i="fbBtn"></button>
+    <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
+  </div>
+  <div id="moreMenu" hidden></div>
 </header>
 
 <div id="search" role="search" hidden>
