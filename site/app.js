@@ -694,14 +694,14 @@
     m.textContent = L.stMore;
     box.appendChild(m);
   }
-  const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", science: "\uD83D\uDD2C", other: "\uD83D\uDCCC" };
+  const EV_ICON = { unrest: "\uD83D\uDD6F\uFE0F", oldest: "\uD83C\uDFF0", build: "\uD83C\uDFD7\uFE0F", invasion: "\u2694\uFE0F", battle: "\uD83D\uDDE1\uFE0F", earthquake: "\uD83C\uDFDA\uFE0F", fire: "\uD83D\uDD25", flood: "\uD83C\uDF0A", power: "\uD83C\uDFDB\uFE0F", science: "\uD83D\uDD2C", other: "\uD83D\uDCCC" };
   function buildEvMarks() {
     const box = $("evmarks");
     if (!box) return;
     box.textContent = "";
     // markers that would overlap on the scale are merged into one marker with a count; a click on it lists the events
     const W = Math.max(0, box.clientWidth - 16), GAP = window.matchMedia("(max-width:640px)").matches ? 26 : 19;
-    const items = histEvents.filter((ev) => ev.year >= zoomLo && ev.year <= zoomHi).map((ev) => ({ ev, x: 8 + W * (y2v(ev.year) / 1000) })).sort((a, b) => a.x - b.x || a.ev.year - b.ev.year);
+    const items = histEvents.filter((ev) => (ev.cat !== "battle" || $("showBattles").checked) && ev.year >= zoomLo && ev.year <= zoomHi).map((ev) => ({ ev, x: 8 + W * (y2v(ev.year) / 1000) })).sort((a, b) => a.x - b.x || a.ev.year - b.ev.year);
     const groups = [];
     for (const it of items) {
       const g = groups[groups.length - 1];
@@ -772,6 +772,7 @@
     map.flyTo({ center: [ev.place.lng, ev.place.lat], zoom: ev.place.zoom || 16, padding: pad, duration: 1200 });
   }
   function showHistEvent(ev) {
+    if (ev.cat === "battle" && !$("showBattles").checked) { $("showBattles").checked = true; buildEvMarks(); }          // an opened battle must be visible on the scale
     reopenInfo = () => showHistEvent(ev);
     const L = t();
     showEventPlace(ev);
@@ -2453,6 +2454,7 @@
     showPopup("340px", lngLat, el);
   }
   $("showSci").addEventListener("change", updateScience);
+  $("showBattles").addEventListener("change", () => { if (histEvents.length) buildEvMarks(); });
 
   // religious buildings of different religions: points that appear in the year of the building and disappear when it was destroyed
   const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", lutheran: "#868e96", yazidi: "#74b816", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c" };
