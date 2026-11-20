@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.6.4",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "Свёрнутые панели теперь прижаты к правому краю, где находятся кнопки сворачивания: шкала времени складывается в плашку с годом на месте кнопки, кнопка «Правители» стоит справа и не закрывает открытые панели фильтров и видов.",
+    "en": "The folded panels now keep to the right edge, where the fold buttons are: the time scale folds into a pill with the year in place of the button, and the button 'Rulers' stands on the right and does not cover the open panels of filters and views.",
+    "ka": "ჩაკეცილი პანელები ახლა მარჯვენა კიდესთანაა, სადაც ჩაკეცვის ღილაკებია: დროის სკალა წელიწადიან ფირფიტად ღილაკის ადგილას იკეცება, ღილაკი „მმართველები“ მარჯვნივ დგას და ღია ფილტრებისა და ხედების პანელებს არ ფარავს."
+   }
+  ]
+ },
+ {
   "version": "1.6.3",
   "date": "2026-11-20",
   "items": [
