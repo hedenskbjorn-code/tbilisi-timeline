@@ -746,13 +746,30 @@
   }
   { let rz = null; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (histEvents.length) buildEvMarks(); }, 150); }); }
   let evMarker = null;
+  // a red pin on the map at the place of the event, the map flies there; the card of the event is a sheet at the bottom (the map stays in sight)
+  function pinElement(label) {
+    const wrap = document.createElement("div");
+    wrap.className = "evpinwrap"; wrap.setAttribute("role", "img"); wrap.setAttribute("aria-label", label);
+    const NS = "http://www.w3.org/2000/svg", svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 30 42"); svg.setAttribute("width", "30"); svg.setAttribute("height", "42"); svg.setAttribute("class", "evpin");
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", "M15 1C7.3 1 1.5 6.9 1.5 14.4c0 9.8 11.3 24.2 12.6 25.8a1.1 1.1 0 0 0 1.8 0c1.3-1.6 12.6-16 12.6-25.8C28.5 6.9 22.7 1 15 1z");
+    p.setAttribute("fill", "#e03131"); p.setAttribute("stroke", "#fff"); p.setAttribute("stroke-width", "2");
+    const c = document.createElementNS(NS, "circle");
+    c.setAttribute("cx", "15"); c.setAttribute("cy", "14.5"); c.setAttribute("r", "5.2"); c.setAttribute("fill", "#fff");
+    svg.append(p, c);
+    const ring = document.createElement("span"); ring.className = "evring";
+    wrap.append(ring, svg);
+    return wrap;
+  }
   function showEventPlace(ev) {
     if (evMarker) { evMarker.remove(); evMarker = null; }
     if (!ev.place) return;
-    const dot = document.createElement("div");
-    dot.className = "evpulse";
-    evMarker = new maplibregl.Marker({ element: dot }).setLngLat([ev.place.lng, ev.place.lat]).addTo(map);
-    map.flyTo({ center: [ev.place.lng, ev.place.lat], zoom: ev.place.zoom || 15, duration: 1200 });
+    const nm = ev.place[lang] || ev.place.en || "";
+    evMarker = new maplibregl.Marker({ element: pinElement(nm), anchor: "bottom" }).setLngLat([ev.place.lng, ev.place.lat]).addTo(map);
+    evMarker.getElement().setAttribute("aria-label", nm);        // MapLibre sets its own label "Map marker"
+    const pad = { top: Math.round($("timebar").getBoundingClientRect().bottom) + 16, bottom: Math.min(Math.round(window.innerHeight * 0.42), 380) + (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--bb"), 10) || 0), left: 16, right: 16 };
+    map.flyTo({ center: [ev.place.lng, ev.place.lat], zoom: ev.place.zoom || 16, padding: pad, duration: 1200 });
   }
   function showHistEvent(ev) {
     reopenInfo = () => showHistEvent(ev);
@@ -763,6 +780,7 @@
       infoLine(body, ev[lang] || ev.en, "");
       if (ev.note) infoLine(body, pickName(ev.note));
       if (ev.place) infoLine(body, "\uD83D\uDCCD " + (ev.place[lang] || ev.place.en));
+      else infoLine(body, "\uD83D\uDCCD " + L.evNoPlace, "small");
       if (ev.src.some((u) => /wikipedia/i.test(typeof u === "string" ? u : u.url))) infoLine(body, L.evNote);
       infoLine(body, L.evSrc + ":");
       for (const u of ev.src) {
@@ -774,17 +792,18 @@
         d.appendChild(a);
         body.appendChild(d);
       }
-    });
+    }, !!ev.place);
   }
 
   let photoInfo = null;
   // Details that do not belong on the card (licences, sources, register notes) live in a separate window opened by a button.
-  function openInfo(build) {
+  function openInfo(build, sheet) {
     $("imTitle").textContent = t().infoTitle;
     const body = $("imBody");
     body.textContent = "";
     body.className = "";
     build(body);
+    $("infoModal").classList.toggle("sheet", !!sheet);          // an event with a place: a sheet at the bottom, the map and the pin stay in sight
     $("infoModal").hidden = false;
   }
   function closeInfo() { reopenInfo = null; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } }
@@ -1913,6 +1932,42 @@
   }, { passive: false });
   updateZoomUi();
 
+  // A finger on the thumb of the slider (a phone): the marks of the events stop taking touches (body.sliding), and when the thumb is held near either end of the slider the window
+  // of years moves by itself (the faster, the nearer to the end), the thumb stays under the finger and the year changes with the window: no stop at the end of the visible span.
+  (function edgeScroll() {
+    const sl = $("slider"), ZONE = 120, MAXSPEED = 120;          // ZONE: the part of the slider (of 1000) at each end that scrolls; MAXSPEED: years per second at the very end
+    let on = false, raf = 0, last = 0, acc = 0, applied = 0;
+    function stop() { on = false; cancelAnimationFrame(raf); document.body.classList.remove("sliding"); }
+    function step(ts) {
+      if (!on) return;
+      raf = requestAnimationFrame(step);
+      const dt = Math.min(0.1, (ts - last) / 1000); last = ts;
+      if (zoomIx === 0) return;                                    // the whole history is on the slider: nothing is hidden
+      const v = +sl.value;
+      let depth = 0;
+      if (v <= ZONE) depth = -(ZONE - v) / ZONE; else if (v >= 1000 - ZONE) depth = (v - (1000 - ZONE)) / ZONE;
+      if (!depth) { acc = 0; return; }
+      const sp = Math.min(MAXSPEED, zoomHi - zoomLo);
+      acc += Math.sign(depth) * Math.pow(Math.abs(depth), 1.5) * sp * dt;
+      if (Math.abs(acc) < 1 || ts - applied < 60) return;          // the window is rebuilt at most every 60 ms
+      const d = Math.trunc(acc), lo = zoomLo + d;
+      if ((d < 0 && zoomLo <= MIN) || (d > 0 && zoomHi >= MAX)) { acc = 0; return; }
+      acc -= d; applied = ts;
+      applyWindow(lo);
+      sl.value = v;                                                // applyWindow puts the thumb to the old year: it must stay under the finger
+      const y = Math.min(MAX, Math.max(MIN, v2y(v)));
+      if (y !== year) { year = y; update(); }
+    }
+    sl.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "touch") return;
+      on = true; acc = 0; applied = 0; last = performance.now();
+      document.body.classList.add("sliding");
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(step);
+    });
+    window.addEventListener("pointerup", stop);
+    window.addEventListener("pointercancel", stop);
+  })();
+
   // the route of a run (TRC City Run 2026) and the architectural sights near it: a separate layer, independent of the year (the city of today)
   const RUN_COLOR = "#d9480f";
   function runGeo() {
@@ -2323,7 +2378,8 @@
     const tx = $("timebar").classList.contains("min") ? L.tbShow : L.tbHide; $("tbToggle").title = tx; $("tbToggle").setAttribute("aria-label", tx);
   }
   { const v = uiGet("ui_rb"); if (v === "on") $("showRulers").checked = true; if (v === "off") $("showRulers").checked = false; }
-  if (uiGet("ui_tb") === "min") setTbMin(true, false);
+  // a low screen (a phone lying on its side): the time scale starts folded to a pill with the year until the visitor has chosen
+  if (uiGet("ui_tb") === "min" || (uiGet("ui_tb") === null && window.innerHeight < 600)) setTbMin(true, false);
   updateFoldTitles();
 
   // science and culture: universities, institutes, libraries, museums, theatres; points that appear in the year (data/science.json); science is drawn larger and above culture
