@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.6.2",
+  "date": "2026-11-20",
+  "items": [
+   {
+    "t": "new",
+    "ru": "«Рядом со мной»: кнопка с точкой положения (синяя точка на карте) и кнопка 🚶 со списком 15 ближайших объектов и событий с местом: расстояние, сторона света, переход к карточке. Положение остаётся в вашем браузере и никуда не отправляется.",
+    "en": "'Near me': a button with the position dot (a blue dot on the map) and a 🚶 button with a list of the 15 nearest objects and events that have a place: the distance, the direction, a step to the card. The position stays in your browser and is sent nowhere.",
+    "ka": "„ჩემ გვერდით“: მდებარეობის წერტილის ღილაკი (ლურჯი წერტილი რუკაზე) და 🚶 ღილაკი 15 უახლოესი ობიექტისა და ადგილის მქონე მოვლენის სიით: მანძილი, მიმართულება, გადასვლა ბარათზე. მდებარეობა რჩება თქვენს ბრაუზერში და არსად იგზავნება."
+   },
+   {
+    "t": "fix",
+    "ru": "Если графика карты (WebGL) не запускается, вместо чёрного или белого экрана выводится понятное сообщение: нужно полностью закрыть браузер и открыть снова либо обновить драйвер видеокарты. Если карта долго не стартует, появляется подсказка.",
+    "en": "If the graphics of the map (WebGL) cannot start, a clear message is shown instead of a black or white screen: close the browser completely and open it again, or update the video driver. If the map takes long to start, a hint appears.",
+    "ka": "თუ რუკის გრაფიკა (WebGL) ვერ ეშვება, შავი ან თეთრი ეკრანის ნაცვლად გამოჩნდება გასაგები შეტყობინება: მთლიანად დახურეთ ბრაუზერი და ხელახლა გახსენით ან განაახლეთ ვიდეოდრაივერი. თუ რუკა დიდხანს იტვირთება, გამოჩნდება მინიშნება."
+   }
+  ]
+ },
+ {
   "version": "1.6.1",
   "date": "2026-11-20",
   "items": [

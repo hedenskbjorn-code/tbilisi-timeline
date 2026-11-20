@@ -386,3 +386,8 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #sliderwrap, #axis { user-select:none; -webkit-user-select:none; }
 #sliderwrap input { user-select:auto; }
 #fbTs { margin:8px 0; }
+#glnote { position:fixed; z-index:50; left:50%; top:12px; transform:translateX(-50%); width:min(520px, calc(100% - 32px)); padding:10px 12px; font-size:13px; line-height:1.4; background:var(--panel, #fff); color:var(--fg, #222); border:1px solid var(--muted, #999); border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+#glnote.block { top:50%; transform:translate(-50%, -50%); }
+#glnote p { margin:0 0 8px; }
+#glnote button { padding:5px 10px; cursor:pointer; }
+.maplibregl-ctrl button.nearctl { font-size:18px; line-height:29px; }
