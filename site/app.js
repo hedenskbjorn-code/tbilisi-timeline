@@ -2239,7 +2239,7 @@
       let st = null;
       el.addEventListener("pointerdown", (e) => {
         if (e.button !== 0 || (e.target.closest && e.target.closest("input,select,textarea,a"))) return;
-        st = { x: e.clientX, drag: false, id: e.pointerId, ctx: onStart(e) };
+        st = { x: e.clientX, drag: false, id: e.pointerId, ctx: null, e0: e };          // the start of a drag is prepared only when the pointer really moves: a plain click (an event mark) must not change the scale
       });
       el.addEventListener("pointermove", (e) => {
         if (!st) return;
@@ -2247,6 +2247,7 @@
         if (!st.drag) {
           if (Math.abs(dx) < THRESHOLD) return;
           st.drag = true;
+          st.ctx = onStart(st.e0);
           try { el.setPointerCapture(st.id); } catch (err) {}
           el.classList.add(grabCls);
         }
