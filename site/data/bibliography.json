@@ -22,7 +22,7 @@
      "u": "https://archive.org/details/sat_and_21_yahoo"
     }
    ],
-   "events": 14
+   "events": 15
   },
   {
    "id": "floods",
@@ -43,7 +43,7 @@
      "u": "https://archive.org/details/kavkazskijkalendarna1886god60"
     }
    ],
-   "events": 10
+   "events": 11
   },
   {
    "id": "kartlis",
@@ -368,7 +368,7 @@
    "host": "ru.wikipedia.org",
    "name": "Wikipedia (ru)",
    "pages": 28,
-   "events": 84
+   "events": 86
   },
   {
    "host": "ka.wikisource.org",
