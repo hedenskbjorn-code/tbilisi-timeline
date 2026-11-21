@@ -76,6 +76,8 @@
     zoom: (() => { const c = (new URLSearchParams(location.search).get("c") || "").split(",").map(Number); return c.length >= 3 && isFinite(c[2]) ? c[2] : 13.2; })(), minZoom: 9, maxZoom: 19, hash: false,
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+  // a read-only handle for the browser tests (tests/e2e): only with ?e2e=1 in the address
+  if (new URLSearchParams(location.search).has("e2e")) window.TT_E2E = { map, get year() { return year; }, get lang() { return lang; } };
   map.once("load", () => { const n = document.getElementById("glnote"); if (n) n.remove(); });
   map.getCanvas().addEventListener("webglcontextlost", () => glNote("glFail", false));
   setTimeout(() => { if (!mapLoaded) glNote("glSlow", false); }, 25000);
