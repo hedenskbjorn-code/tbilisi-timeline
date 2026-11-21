@@ -1,6 +1,6 @@
 """Put map points on the battles, sieges, storms and captures of the timeline that had none (site/data/history_events.json).
 Each point is a place named by the sources of the event; where the sources name no particular place, the point is the city as a whole
-(the coordinates of the page 'Tbilisi' on English Wikipedia). Events whose place is not established by any source (Rakhsi 1118, Botora 1120,
+(the coordinates of the page 'Tbilisi' on English Wikipedia). The Isani palace (1184, 1210) is put at the church of Metekhi, built on its territory (the chronicle). Events whose place is not established by any source (Rakhsi 1118, Botora 1120,
 Khunan 1222) and treaties or states of rule (1243, 1477) are left without a point on purpose.
 Coordinates were read from English Wikipedia and Wikidata through the API on 2026-11-21.
 The script is idempotent: an event that already has a point is not touched.
@@ -24,6 +24,13 @@ NARIKALA = {"lng": 44.80861111, "lat": 41.68777778, "zoom": 16, "ru": "Креп�
             "src": "coordinates of the page 'Narikala' on English Wikipedia", "ka": "ნარიყალას ციხე"}
 KRTSANISI = {"lng": 44.90277778, "lat": 41.60972222, "zoom": 14, "ru": "Крцаниси", "en": "Krtsanisi",
              "src": "coordinates of the page 'Battle of Krtsanisi' on English Wikipedia", "ka": "კრწანისი"}
+ISANI = {"lng": 44.81118, "lat": 41.69013, "zoom": 16,
+         "ru": "Метехи (Исанский дворец; место приблизительно)",
+         "en": "Metekhi (the Isani palace; the place is approximate)",
+         "ka": "მეტეხი (ისნის სასახლე; ადგილი მიახლოებითია)",
+         "src": "coordinates of the page 'Metekhi Church' on English Wikipedia; by Kartlis Tskhovreba (Russian translation, 2008) King Dimitri 'built in the palace of Isani a monastery for the Metekhi "
+                "Mother of God', so Metekhi stands on the territory of the Isani palace (commentary 22: Metekhi is a church on the rocky bank of the Kura; commentary 198: Isani is a district on the left bank); "
+                "the limits of the palace are not known"}
 SAINGILO = {"lng": 46.716666666667, "lat": 41.55, "zoom": 9.5,
             "ru": "Саингило (область; место боя приблизительно)",
             "en": "Saingilo (a region; the place of the battle is approximate)",
@@ -39,7 +46,8 @@ PLACES = [
     (1064, "Алп-Арслан (1064)", CITY),
     (1068, "Тбилиси разграблен сельджуками", CITY),
     (1104, "Битва при Эрцухи", SAINGILO),
-    (1210, "Закарий и Иване Мхаргрдзели", CITY),
+    (1184, "Умирает царь Георгий III", ISANI),               # the palace of Isani (Tamar), see ISANI
+    (1210, "Закарий и Иване Мхаргрдзели", ISANI),
     (1227, "Тбилиси освобождён от хорезмийцев", CITY),
     (1238, "Тбилиси захвачен монголами", CITY),
     (1297, "Монгольский полководец Хутлушах", CITY),
@@ -72,6 +80,12 @@ NOTES = [  # (year, beginning of the Russian text, language, old phrase, new phr
      "The pin is on the city as a whole: the place of the palace in Isani is not established."),
     (1210, "Закарий и Иване Мхаргрдзели", "ka", "ნიშანი არ არის: ისანში ადგილი დადგენილი არ არის.",
      "ნიშანი მთელ ქალაქზეა: ისანში სასახლის ადგილი დადგენილი არ არის."),
+    (1210, "Закарий и Иване Мхаргрдзели", "ru", "Булавка стоит на городе в целом: место дворца в Исани не установлено.", 'Булавка стоит у церкви Метехи: по «Картлис Цховреба» (рус. пер., 2008) царь Димитрий «выстроил во дворце Исани монастырь для пребывания в нём Метехской Богоматери», то есть Метехи построен на территории дворца; по примечанию издания, это храм на скалистом берегу Куры. Границы дворца неизвестны, поэтому место приблизительное.'),
+    (1210, "Закарий и Иване Мхаргрдзели", "en", "The pin is on the city as a whole: the place of the palace in Isani is not established.", "The pin is at the Metekhi church: by the Kartlis Tskhovreba (Russian translation, 2008) King Dimitri 'built in the palace of Isani a monastery for the Metekhi Mother of God', that is, Metekhi was built on the territory of the palace; by the commentary of the edition it is a church on the rocky bank of the Kura. The limits of the palace are not known, so the place is approximate."),
+    (1210, "Закарий и Иване Мхаргрдзели", "ka", "ნიშანი მთელ ქალაქზეა: ისანში სასახლის ადგილი დადგენილი არ არის.", 'ნიშანი მეტეხის ტაძართანაა: „ქართლის ცხოვრების“ (რუსული თარგმანი, 2008) მიხედვით, მეფე დიმიტრიმ „ისნის სასახლეში ააშენა მონასტერი მეტეხის ღვთისმშობლის დასადგომად“, ანუ მეტეხი სასახლის ტერიტორიაზე აშენდა; გამოცემის კომენტარის მიხედვით, ეს მტკვრის კლდოვან ნაპირზე მდებარე ტაძარია. სასახლის საზღვრები უცნობია, ამიტომ ადგილი მიახლოებითია.'),
+    (1184, "Умирает царь Георгий III", "ru", "Булавки нет: точное место дворца Исани не установлено в доступных источниках.", 'Булавка стоит у церкви Метехи: по «Картлис Цховреба» (рус. пер., 2008) царь Димитрий «выстроил во дворце Исани монастырь для пребывания в нём Метехской Богоматери», то есть Метехи построен на территории дворца; по примечанию издания, это храм на скалистом берегу Куры. Границы дворца неизвестны, поэтому место приблизительное.'),
+    (1184, "Умирает царь Георгий III", "en", "There is no pin: the exact place of the Isani palace is not established in the available sources.", "The pin is at the Metekhi church: by the Kartlis Tskhovreba (Russian translation, 2008) King Dimitri 'built in the palace of Isani a monastery for the Metekhi Mother of God', that is, Metekhi was built on the territory of the palace; by the commentary of the edition it is a church on the rocky bank of the Kura. The limits of the palace are not known, so the place is approximate."),
+    (1184, "Умирает царь Георгий III", "ka", "ნიშანი არ არის: ისნის სასახლის ზუსტი ადგილი ხელმისაწვდომ წყაროებში დადგენილი არ არის.", 'ნიშანი მეტეხის ტაძართანაა: „ქართლის ცხოვრების“ (რუსული თარგმანი, 2008) მიხედვით, მეფე დიმიტრიმ „ისნის სასახლეში ააშენა მონასტერი მეტეხის ღვთისმშობლის დასადგომად“, ანუ მეტეხი სასახლის ტერიტორიაზე აშენდა; გამოცემის კომენტარის მიხედვით, ეს მტკვრის კლდოვან ნაპირზე მდებარე ტაძარია. სასახლის საზღვრები უცნობია, ამიტომ ადგილი მიახლოებითია.'),
 ]
 
 
@@ -82,7 +96,8 @@ def main():
     for year, start, place in PLACES:
         hit = [e for e in ev if e["year"] == year and e["ru"].startswith(start)]
         assert len(hit) == 1, (year, start, len(hit))
-        if "place" not in hit[0]:
+        cur = hit[0].get("place")
+        if cur is None or (cur.get("ru") == CITY["ru"] and place is not CITY):         # a better place replaces the point of the whole city
             hit[0]["place"] = json.loads(json.dumps(place))
             added += 1
     fixed = 0
