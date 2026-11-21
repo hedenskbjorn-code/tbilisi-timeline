@@ -2554,9 +2554,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     });
   })();
   if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
-  // a phone: the less important buttons of the top bar (install, version, feedback, language) live in the menu "...": the bar does not fit otherwise
+  // a phone or a tablet (up to 1099 px): the less important buttons of the top bar (install, version, feedback, language, sections) live in the menu "...": the bar does not fit otherwise
   {
-    const mq = window.matchMedia("(max-width:640px)"), top = $("top"), menu = $("moreMenu"), group = $("topRight"), more = $("btnMore");
+    const mq = window.matchMedia("(max-width:1099px)"), top = $("top"), menu = $("moreMenu"), group = $("topRight"), more = $("btnMore");     // a phone or a tablet: the bar does not fit otherwise
     const close = () => { menu.hidden = true; more.setAttribute("aria-expanded", "false"); };
     const place = () => {
       if (mq.matches) { if (group.parentNode !== menu) menu.appendChild(group); }
