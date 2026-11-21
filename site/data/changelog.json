@@ -8,6 +8,12 @@
     "ru": "Страница открывается заметно быстрее: на медленной сети (1,6 Мбит/с) окно «Загрузка» закрывается за 9 секунд вместо 20, а объём первого экрана уменьшился с 3,7 до 1,5 МБ. Старые планы сначала показываются в лёгком виде, а при приближении (или сразу, в фоне, на экранах с плотной сеткой пикселей) заменяются полным файлом: качество при приближении прежнее.",
     "en": "The page opens much faster: on a slow network (1.6 Mbit/s) the 'Loading' window goes away in 9 seconds instead of 20, and the weight of the first screen fell from 3.7 to 1.5 MB. The old plans are shown in a light form first and are replaced by the full picture when you zoom in (or at once, in the background, on screens with a dense pixel grid): the quality when zoomed in is the same as before.",
     "ka": "გვერდი საგრძნობლად უფრო სწრაფად იხსნება: ნელ ქსელში (1,6 მბიტ/წმ) „ჩატვირთვის“ ფანჯარა 20-ის ნაცვლად 9 წამში ქრება, ხოლო პირველი ეკრანის მოცულობა 3,7 მბ-დან 1,5 მბ-მდე შემცირდა. ძველი გეგმები ჯერ მსუბუქი სახით ჩანს, ხოლო მიახლოებისას (ან პიქსელების მკვრივი ბადის მქონე ეკრანებზე დაუყოვნებლივ, ფონურ რეჟიმში) სრული ფაილით იცვლება: მიახლოებისას ხარისხი იგივე რჩება."
+   },
+   {
+    "t": "fix",
+    "ru": "Исправлено: на планшетах (ширина экрана 641–1099 пикселей) верхняя панель вылезала за край экрана, и язык, версия и список «Разделы» были недоступны; теперь эти кнопки лежат в меню «⋯», а меню открывается поверх панелей.",
+    "en": "Fixed: on tablets (screen width 641–1099 pixels) the top bar ran out of the screen and the language, the version and the list 'Sections' could not be reached; these buttons are now in the menu '⋯', and the menu opens above the panels.",
+    "ka": "გასწორდა: ტაბლეტებზე (ეკრანის სიგანე 641–1099 პიქსელი) ზედა პანელი ეკრანის კიდეს სცდებოდა და ენა, ვერსია და სია „განყოფილებები“ მიუწვდომელი იყო; ახლა ეს ღილაკები „⋯“ მენიუშია, მენიუ კი პანელების ზემოთ იხსნება."
    }
   ]
  },

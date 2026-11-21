@@ -988,6 +988,12 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   $("imClose").addEventListener("click", closeInfo);
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
+  // Esc closes the open card of the map; an open window (the info, the picture viewer, the form, the search, the menu) takes the key first (the capture phase runs before their own handlers)
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape" || !openPop) return;
+    if (!$("infoModal").hidden || !$("viewModal").hidden || !$("fbModal").hidden || !$("search").hidden || !$("moreMenu").hidden) return;
+    openPop.remove();
+  }, true);
   function infoLine(body, text, cls) { const d = document.createElement("div"); d.className = cls || "small"; d.textContent = text; body.appendChild(d); return d; }
   // "photo hunt": the ring layer and the list of the nearest objects without a photo (only where the photo form is switched on with ?club=1)
   const photoOn = () => !!(window.TT_PHOTO && window.TT_PHOTO.enabled());
@@ -1681,11 +1687,17 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       if (r.top < f.top) dy = r.top - f.top; else if (r.bottom > f.bottom) dy = r.bottom - f.bottom;
       if (dx || dy) map.panBy([dx, dy], { duration: 250 });
     };
-    requestAnimationFrame(() => requestAnimationFrame(fit));
+    // the card is fitted into the free area (between the bars) when the camera is still: during a flight (a card opened from the search) a pan would stop the flight,
+    // and a fit made on the way would be wrong at the end of it
+    const fitWhenStill = () => {
+      if (map.isMoving()) map.once("moveend", () => { if (openPop === pop) setTimeout(fit, 30); });
+      else fit();
+    };
+    requestAnimationFrame(() => requestAnimationFrame(fitWhenStill));
     if (window.ResizeObserver) {                      // photos load later and make the card taller: fit again
       const content = pop.getElement().querySelector(".maplibregl-popup-content");
       let t = null;
-      const ro = new ResizeObserver(() => { clearTimeout(t); t = setTimeout(fit, 60); });
+      const ro = new ResizeObserver(() => { clearTimeout(t); t = setTimeout(() => { if (!map.isMoving()) fit(); }, 60); });
       if (content) ro.observe(content);
       pop.on("close", () => ro.disconnect());
     }
