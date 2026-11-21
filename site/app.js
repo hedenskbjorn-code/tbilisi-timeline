@@ -1695,7 +1695,19 @@
   }
 
   // JSON loader with retries (a dropped connection must not leave a layer silently empty)
+  // The data files are requested all at once as soon as the script runs (they used to be requested one after another only after the base map had loaded);
+  // getJSON takes the request that is already on its way and falls back to its own retries if that one failed.
+  const prefetched = new Map();
+  function prefetchJSON(urls) {
+    for (const u of urls) {
+      const p = fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
+      p.catch(() => {});                                                 // the failure is handled by getJSON, nothing is left unhandled
+      prefetched.set(u, p);
+    }
+  }
   async function getJSON(url, tries = 4) {
+    const pre = prefetched.get(url);
+    if (pre) { prefetched.delete(url); try { return await pre; } catch (e) { /* retry below */ } }
     for (let k = 0; ; k++) {
       try {
         const r = await fetch(url);
@@ -1781,6 +1793,7 @@
     document.querySelectorAll("[data-i]").forEach((el) => { if (typeof t()[el.dataset.i] === "string") el.textContent = t()[el.dataset.i]; });
   } catch (e) { /* applyLang will do it */ }
   setLoading("loadMap");
+  prefetchJSON(["plans", "monuments", "city_area", "views", "names_i18n", "urban", "water", "density", "transport", "transport_events", "history_events", "population", "run_trc2026", "rulers_media", "rulers", "science", "religious", "city1894", "street_names", "street_geom", "admin", "admin_old", "districts", "district_history", "settlements", "lost"].map((n) => "data/" + n + ".json"));
 
   map.on("load", async () => {
     mapLoaded = true;
