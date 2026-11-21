@@ -1,0 +1,214 @@
+{
+ "ST": [
+  [
+   "Lado Asatiani Street",
+   [
+    "улица Ладо Асатиани",
+    "Lado Asatiani Street",
+    "ლადო ასათიანის ქუჩა"
+   ],
+   [
+    [
+     1841,
+     1843,
+     "Садовая улица",
+     "Sadovaya Street"
+    ],
+    [
+     1843,
+     1922,
+     "Бебутовская улица",
+     "Bebutovskaya Street"
+    ],
+    [
+     1922,
+     1923,
+     "улица Иосифа (Сосо) Иванидзе",
+     "Ioseb (Soso) Ivanidze Street"
+    ],
+    [
+     1923,
+     1991,
+     "улица Фридриха Энгельса",
+     "Friedrich Engels Street"
+    ]
+   ],
+   "ru.wikipedia: 1841 Садовая улица, 1843 Василя Бебутова (Бебутовская), 1922 Иосифа (Сосо) Иванидзе, с 1923 Фридриха Энгельса; современное название с 1991.",
+   "ru.wikipedia: 1841 Sadovaya Street, 1843 Vasil Bebutov (Bebutovskaya), 1922 Ioseb (Soso) Ivanidze, from 1923 Friedrich Engels; the present name since 1991.",
+   "https://ru.wikipedia.org/wiki/Улица_Ладо_Асатиани"
+  ],
+  [
+   "Shalva Dadiani Street",
+   [
+    "улица Шалвы Дадиани",
+    "Shalva Dadiani Street",
+    "შალვა დადიანის ქუჩა"
+   ],
+   [
+    [
+     1851,
+     1913,
+     "Вельяминовская улица",
+     "Velyaminovskaya Street"
+    ],
+    [
+     1923,
+     1929,
+     "улица Ладо Думбадзе",
+     "Lado Dumbadze Street"
+    ],
+    [
+     1929,
+     1933,
+     "улица Закфедерации",
+     "Transcaucasian Federation Street"
+    ],
+    [
+     1933,
+     1959,
+     "улица Ильи Чавчавадзе",
+     "Ilia Chavchavadze Street"
+    ]
+   ],
+   "ru.wikipedia: Вельяминовская (1851–1913), Ладо Думбадзе (1923–1929), Закфедерации (1929–1933), Ильи Чавчавадзе (1933–1959); нынешнее имя с 1959. Название в 1913–1923 годах в статье не названо.",
+   "ru.wikipedia: Velyaminovskaya (1851-1913), Lado Dumbadze (1923-1929), Transcaucasian Federation (1929-1933), Ilia Chavchavadze (1933-1959); the present name since 1959. The article does not name the street for 1913-1923.",
+   "https://ru.wikipedia.org/wiki/Улица_Шалвы_Дадиани"
+  ],
+  [
+   "Lado Gudiashvili Street",
+   [
+    "улица Ладо Гудиашвили",
+    "Lado Gudiashvili Street",
+    "ლადო გუდიაშვილის ქუჩა"
+   ],
+   [
+    [
+     1877,
+     1922,
+     "Меликовская улица (Лорис-Меликовская)",
+     "Melikovskaya Street (Loris-Melikovskaya)"
+    ],
+    [
+     1922,
+     1986,
+     "улица Ладо Кецховели",
+     "Lado Ketskhoveli Street"
+    ]
+   ],
+   "ru.wikipedia: первоначально Атаманская (год не назван), с 1877 Меликовская (Лорис-Меликовская), с 1922 по 1986 имя Ладо Кецховели; в 1992 переименована в честь Ладо Гудиашвили. Имя в 1986–1992 годах в статье не названо.",
+   "ru.wikipedia: originally Atamanskaya (the year is not named), from 1877 Melikovskaya (Loris-Melikovskaya), from 1922 to 1986 Lado Ketskhoveli; renamed in 1992 in honour of Lado Gudiashvili. The article does not name the street for 1986-1992.",
+   "https://ru.wikipedia.org/wiki/Улица_Ладо_Гудиашвили"
+  ],
+  [
+   "Kote Abkhazi Street",
+   [
+    "улица Котэ Абхази",
+    "Kote Abkhazi Street",
+    "კოტე აფხაზის ქუჩა"
+   ],
+   [
+    [
+     1876,
+     1944,
+     "Армянский базар",
+     "Armenian Bazaar"
+    ],
+    [
+     1944,
+     2006,
+     "улица Леселидзе",
+     "Leselidze Street"
+    ]
+   ],
+   "ru.wikipedia: до середины XIX века Шуабазари («Серединный базар», год не назван), с 1876 года Армянский базар, с 1944 имя Леселидзе; нынешнее имя с 29 декабря 2006.",
+   "ru.wikipedia: until the middle of the 19th century Shuabazari ('Middle Bazaar', the year is not named), from 1876 Armenian Bazaar, from 1944 Leselidze; the present name since 29 December 2006.",
+   "https://ru.wikipedia.org/wiki/Улица_Котэ_Абхази"
+  ],
+  [
+   "Galaktion Tabidze Street",
+   [
+    "улица Галактиона Табидзе",
+    "Galaktion Tabidze Street",
+    "გალაკტიონ ტაბიძის ქუჩა"
+   ],
+   [
+    [
+     1921,
+     1959,
+     "улица Акакия Церетели",
+     "Akaki Tsereteli Street"
+    ]
+   ],
+   "ru.wikipedia: дореволюционные названия Дамская и Гановская (годы не названы); с 1921 по 1959 имя Акакия Церетели, с 1959 нынешнее.",
+   "ru.wikipedia: the pre-revolutionary names Damskaya and Ganovskaya (the years are not named); from 1921 to 1959 Akaki Tsereteli, since 1959 the present name.",
+   "https://ru.wikipedia.org/wiki/Улица_Галактиона_Табидзе_(Тбилиси)"
+  ],
+  [
+   "Shota Rustaveli Avenue",
+   [
+    "проспект Шота Руставели",
+    "Shota Rustaveli Avenue",
+    "შოთა რუსთაველის გამზირი"
+   ],
+   [
+    [
+     1840,
+     1918,
+     "Головинский проспект",
+     "Golovinsky Prospekt"
+    ]
+   ],
+   "ka.wikipedia: с 1840-х годов Головинский проспект (точный год не назван, на карте условно с 1840); в 1918 году переименован в честь Шота Руставели (ru.wikipedia).",
+   "ka.wikipedia: from the 1840s Golovinsky Prospekt (the exact year is not named, on the map conventionally from 1840); renamed in 1918 in honour of Shota Rustaveli (ru.wikipedia).",
+   "https://ka.wikipedia.org/wiki/რუსთაველის_გამზირი"
+  ],
+  [
+   "Mikheil Burdzgla Street",
+   [
+    "улица Михаила Бурдзгла",
+    "Mikheil Burdzgla Street",
+    "მიხეილ ბურძგლას ქუჩა"
+   ],
+   [
+    [
+     1940,
+     1995,
+     "улица Отто Шмидта",
+     "Otto Schmidt Street"
+    ]
+   ],
+   "ka.wikipedia: улица возникла в 1940-х годах и получила имя Отто Шмидта (на карте условно с 1940); в 1995 году названа в честь Михаила Бурдзгла.",
+   "ka.wikipedia: the street arose in the 1940s and was named after Otto Schmidt (on the map conventionally from 1940); in 1995 it was named after Mikheil Burdzgla.",
+   "https://ka.wikipedia.org/wiki/მიხეილ_ბურძგლას_ქუჩა"
+  ],
+  [
+   "Sulkhan Tsintsadze Street",
+   [
+    "улица Сулхана Цинцадзе",
+    "Sulkhan Tsintsadze Street",
+    "სულხან ცინცაძის ქუჩა"
+   ],
+   [
+    [
+     1940,
+     1946,
+     "Ахметская улица",
+     "Akhmeta Street"
+    ],
+    [
+     1946,
+     1992,
+     "улица Сабуртало",
+     "Saburtalo Street"
+    ]
+   ],
+   "ka.wikipedia (статья «улица Сабуртало»): улица возникла в 1940-х годах; до 1946 года называлась Ахметской, затем улицей Сабуртало; в 1992 году разделена на две части (первая стала улицей Вахтанга Чабукиани, вторая улицей Сулхана Цинцадзе), в 1998 году часть улицы Цинцадзе получила имя Гиви Картозия. На карте подписана нынешняя улица Цинцадзе.",
+   "ka.wikipedia (the article 'Saburtalo Street'): the street arose in the 1940s; until 1946 it was called Akhmeta Street, then Saburtalo Street; in 1992 it was divided in two (the first part became Vakhtang Chabukiani Street, the second Sulkhan Tsintsadze Street), in 1998 a part of Tsintsadze Street was named after Givi Kartozia. The map labels the present Tsintsadze Street.",
+   "https://ka.wikipedia.org/wiki/საბურთალოს_ქუჩა"
+  ]
+ ],
+ "CLOG": [
+  "На карте появились исторические подписи ещё восьми улиц (Асатиани, Шалвы Дадиани, Ладо Гудиашвили, Котэ Абхази, Галактиона Табидзе, проспект Руставели, Бурдзгла, Сулхана Цинцадзе): прежние названия по годам, как их называют статьи Википедии.",
+  "Historical labels of eight more streets appear on the map (Asatiani, Shalva Dadiani, Lado Gudiashvili, Kote Abkhazi, Galaktion Tabidze, Rustaveli Avenue, Burdzgla, Sulkhan Tsintsadze): the earlier names by year, as the Wikipedia articles give them."
+ ]
+}

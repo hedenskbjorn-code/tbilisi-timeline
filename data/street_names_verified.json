@@ -423,5 +423,494 @@
    "Heydar Aliyev Right Bank Embankment": "only 2007 (named after Aliyev); 'Right bank' as a former name is NOT stated",
    "Noe Zhordania Embankment": "no page found"
   }
+ },
+ "additions_2026_11_22": {
+  "note": "Release 1.9.0: names and years as stated by the cited ru/ka Wikipedia pages (read through the API on 2026-11-22).",
+  "streets": [
+   {
+    "street_en": "Lado Asatiani Street",
+    "names": [
+     {
+      "name": "Садовая улица",
+      "from": 1841,
+      "to": 1843
+     },
+     {
+      "name": "Бебутовская улица",
+      "from": 1843,
+      "to": 1922
+     },
+     {
+      "name": "улица Иосифа (Сосо) Иванидзе",
+      "from": 1922,
+      "to": 1923
+     },
+     {
+      "name": "улица Фридриха Энгельса",
+      "from": 1923,
+      "to": 1991
+     }
+    ],
+    "note": "ru.wikipedia: 1841 Садовая улица, 1843 Василя Бебутова (Бебутовская), 1922 Иосифа (Сосо) Иванидзе, с 1923 Фридриха Энгельса; современное название с 1991.",
+    "src": "https://ru.wikipedia.org/wiki/Улица_Ладо_Асатиани"
+   },
+   {
+    "street_en": "Shalva Dadiani Street",
+    "names": [
+     {
+      "name": "Вельяминовская улица",
+      "from": 1851,
+      "to": 1913
+     },
+     {
+      "name": "улица Ладо Думбадзе",
+      "from": 1923,
+      "to": 1929
+     },
+     {
+      "name": "улица Закфедерации",
+      "from": 1929,
+      "to": 1933
+     },
+     {
+      "name": "улица Ильи Чавчавадзе",
+      "from": 1933,
+      "to": 1959
+     }
+    ],
+    "note": "ru.wikipedia: Вельяминовская (1851–1913), Ладо Думбадзе (1923–1929), Закфедерации (1929–1933), Ильи Чавчавадзе (1933–1959); нынешнее имя с 1959. Название в 1913–1923 годах в статье не названо.",
+    "src": "https://ru.wikipedia.org/wiki/Улица_Шалвы_Дадиани"
+   },
+   {
+    "street_en": "Lado Gudiashvili Street",
+    "names": [
+     {
+      "name": "Меликовская улица (Лорис-Меликовская)",
+      "from": 1877,
+      "to": 1922
+     },
+     {
+      "name": "улица Ладо Кецховели",
+      "from": 1922,
+      "to": 1986
+     }
+    ],
+    "note": "ru.wikipedia: первоначально Атаманская (год не назван), с 1877 Меликовская (Лорис-Меликовская), с 1922 по 1986 имя Ладо Кецховели; в 1992 переименована в честь Ладо Гудиашвили. Имя в 1986–1992 годах в статье не названо.",
+    "src": "https://ru.wikipedia.org/wiki/Улица_Ладо_Гудиашвили"
+   },
+   {
+    "street_en": "Kote Abkhazi Street",
+    "names": [
+     {
+      "name": "Армянский базар",
+      "from": 1876,
+      "to": 1944
+     },
+     {
+      "name": "улица Леселидзе",
+      "from": 1944,
+      "to": 2006
+     }
+    ],
+    "note": "ru.wikipedia: до середины XIX века Шуабазари («Серединный базар», год не назван), с 1876 года Армянский базар, с 1944 имя Леселидзе; нынешнее имя с 29 декабря 2006.",
+    "src": "https://ru.wikipedia.org/wiki/Улица_Котэ_Абхази"
+   },
+   {
+    "street_en": "Galaktion Tabidze Street",
+    "names": [
+     {
+      "name": "улица Акакия Церетели",
+      "from": 1921,
+      "to": 1959
+     }
+    ],
+    "note": "ru.wikipedia: дореволюционные названия Дамская и Гановская (годы не названы); с 1921 по 1959 имя Акакия Церетели, с 1959 нынешнее.",
+    "src": "https://ru.wikipedia.org/wiki/Улица_Галактиона_Табидзе_(Тбилиси)"
+   },
+   {
+    "street_en": "Shota Rustaveli Avenue",
+    "names": [
+     {
+      "name": "Головинский проспект",
+      "from": 1840,
+      "to": 1918
+     }
+    ],
+    "note": "ka.wikipedia: с 1840-х годов Головинский проспект (точный год не назван, на карте условно с 1840); в 1918 году переименован в честь Шота Руставели (ru.wikipedia).",
+    "src": "https://ka.wikipedia.org/wiki/რუსთაველის_გამზირი"
+   },
+   {
+    "street_en": "Mikheil Burdzgla Street",
+    "names": [
+     {
+      "name": "улица Отто Шмидта",
+      "from": 1940,
+      "to": 1995
+     }
+    ],
+    "note": "ka.wikipedia: улица возникла в 1940-х годах и получила имя Отто Шмидта (на карте условно с 1940); в 1995 году названа в честь Михаила Бурдзгла.",
+    "src": "https://ka.wikipedia.org/wiki/მიხეილ_ბურძგლას_ქუჩა"
+   },
+   {
+    "street_en": "Sulkhan Tsintsadze Street",
+    "names": [
+     {
+      "name": "Ахметская улица",
+      "from": 1940,
+      "to": 1946
+     },
+     {
+      "name": "улица Сабуртало",
+      "from": 1946,
+      "to": 1992
+     }
+    ],
+    "note": "ka.wikipedia (статья «улица Сабуртало»): улица возникла в 1940-х годах; до 1946 года называлась Ахметской, затем улицей Сабуртало; в 1992 году разделена на две части (первая стала улицей Вахтанга Чабукиани, вторая улицей Сулхана Цинцадзе), в 1998 году часть улицы Цинцадзе получила имя Гиви Картозия. На карте подписана нынешняя улица Цинцадзе.",
+    "src": "https://ka.wikipedia.org/wiki/საბურთალოს_ქუჩა"
+   }
+  ]
+ },
+ "additions_2026_11_22_renamed_1988_1991": {
+  "note": "From a blog list of the toponyms renamed in 1987-1991; each name, year and quote checked against the ka.wikipedia page (2026-11-22). Not added (no page year, or the year of the old name unknown): about 40 streets of the list, Archil Tsagareli Street (formerly Kronshtadtskaya) among them.",
+  "streets": [
+   {
+    "street_en": "Lado Gudiashvili Square",
+    "names": [
+     {
+      "name": "площадь Алавердова",
+      "from": 1923,
+      "to": 1988,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%93%E1%83%9D_%E1%83%92%E1%83%A3%E1%83%93%E1%83%98%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%9D%E1%83%94%E1%83%93%E1%83%90%E1%83%9C%E1%83%98",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Betlemi Street",
+    "names": [
+     {
+      "name": "улица Азизбекова",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%94%E1%83%97%E1%83%9A%E1%83%94%E1%83%9B%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Крцаниси"
+   },
+   {
+    "street_en": "Anton Katalikos Street",
+    "names": [
+     {
+      "name": "улица Иванидзе",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9C%E1%83%A2%E1%83%9D%E1%83%9C_%E1%83%99%E1%83%90%E1%83%97%E1%83%90%E1%83%9A%E1%83%98%E1%83%99%E1%83%9D%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Крцаниси"
+   },
+   {
+    "street_en": "Iakob Tsurtaveli Street",
+    "names": [
+     {
+      "name": "улица Хуцишвили",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%90%E1%83%99%E1%83%9D%E1%83%91_%E1%83%AA%E1%83%A3%E1%83%A0%E1%83%A2%E1%83%90%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Крцаниси"
+   },
+   {
+    "street_en": "Grigol Khandzteli Street",
+    "names": [
+     {
+      "name": "улица Мясникова",
+      "from": 1930,
+      "to": 1991,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A0%E1%83%98%E1%83%92%E1%83%9D%E1%83%9A_%E1%83%AE%E1%83%90%E1%83%9C%E1%83%AB%E1%83%97%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Крцаниси, Глдани"
+   },
+   {
+    "street_en": "Alexandre Dumas Street",
+    "names": [
+     {
+      "name": "улица Желябова",
+      "from": 1923,
+      "to": 1989,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%94%E1%83%A5%E1%83%A1%E1%83%90%E1%83%9C%E1%83%93%E1%83%A0%E1%83%94_%E1%83%93%E1%83%98%E1%83%A3%E1%83%9B%E1%83%90%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Крцаниси"
+   },
+   {
+    "street_en": "Abo Tbilieli Street",
+    "names": [
+     {
+      "name": "улица Кашена",
+      "from": 1922,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%91%E1%83%9D_%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда, Крцаниси"
+   },
+   {
+    "street_en": "Giorgi Leonidze Street",
+    "names": [
+     {
+      "name": "улица Кирова",
+      "from": 1935,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9A%E1%83%94%E1%83%9D%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Geronti Kikodze Street",
+    "names": [
+     {
+      "name": "улица Махарадзе",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%94%E1%83%A0%E1%83%9D%E1%83%9C%E1%83%A2%E1%83%98_%E1%83%A5%E1%83%98%E1%83%A5%E1%83%9D%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Vukol Beridze Street",
+    "names": [
+     {
+      "name": "улица Цхакая",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%A3%E1%83%99%E1%83%9D%E1%83%9A_%E1%83%91%E1%83%94%E1%83%A0%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Paolo Iashvili Street",
+    "names": [
+     {
+      "name": "улица Джапаридзе",
+      "from": 1934,
+      "to": 1990,
+      "from_kind": "doc"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%9D%E1%83%9A%E1%83%9D_%E1%83%98%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Giorgi Akhvlediani Street",
+    "names": [
+     {
+      "name": "улица Перовской",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%90%E1%83%AE%E1%83%95%E1%83%9A%E1%83%94%E1%83%93%E1%83%98%E1%83%90%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Dzmebi Zubalashvilebi Street",
+    "names": [
+     {
+      "name": "улица Атарбекова",
+      "from": 1926,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%AB%E1%83%9B%E1%83%94%E1%83%91%E1%83%98_%E1%83%96%E1%83%A3%E1%83%91%E1%83%90%E1%83%9A%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Erekle Tatishvili Street",
+    "names": [
+     {
+      "name": "улица Казбеги",
+      "from": 1903,
+      "to": 1991,
+      "from_kind": "doc"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%A0%E1%83%94%E1%83%99%E1%83%9A%E1%83%94_%E1%83%A2%E1%83%90%E1%83%A2%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Sololaki Alley",
+    "names": [
+     {
+      "name": "Комсомольская аллея",
+      "from": 1935,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%9A%E1%83%90%E1%83%99%E1%83%98%E1%83%A1_%E1%83%AE%E1%83%94%E1%83%98%E1%83%95%E1%83%90%E1%83%9C%E1%83%98",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Guram Rcheulishvili Street",
+    "names": [
+     {
+      "name": "улица Севастопольская",
+      "from": 1956,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%A0%E1%83%90%E1%83%9B_%E1%83%A0%E1%83%A9%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Мтацминда"
+   },
+   {
+    "street_en": "Alexander Kazbegi Avenue",
+    "names": [
+     {
+      "name": "улица Павлова",
+      "from": 1941,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%94%E1%83%A5%E1%83%A1%E1%83%90%E1%83%9C%E1%83%93%E1%83%A0%E1%83%94_%E1%83%A7%E1%83%90%E1%83%96%E1%83%91%E1%83%94%E1%83%92%E1%83%98%E1%83%A1_%E1%83%92%E1%83%90%E1%83%9B%E1%83%96%E1%83%98%E1%83%A0%E1%83%98",
+    "district": "Сабуртало, Ваке"
+   },
+   {
+    "street_en": "Ipolite Khvichia Street",
+    "names": [
+     {
+      "name": "улица Красных партизан",
+      "from": 1930,
+      "to": 1991,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9E%E1%83%9D%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94_%E1%83%AE%E1%83%95%E1%83%98%E1%83%A9%E1%83%98%E1%83%90%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Сабуртало"
+   },
+   {
+    "street_en": "Gabriel Episkoposi Street",
+    "names": [
+     {
+      "name": "улица Каляева",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%91%E1%83%A0%E1%83%98%E1%83%94%E1%83%9A_%E1%83%94%E1%83%9E%E1%83%98%E1%83%A1%E1%83%99%E1%83%9D%E1%83%9E%E1%83%9D%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Чугурети"
+   },
+   {
+    "street_en": "Kalistrate Tsintsadze Street",
+    "names": [
+     {
+      "name": "улица Мамацашвили",
+      "from": 1925,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%9A%E1%83%98%E1%83%A1%E1%83%A2%E1%83%A0%E1%83%90%E1%83%A2%E1%83%94_%E1%83%AA%E1%83%98%E1%83%9C%E1%83%AA%E1%83%90%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Крцаниси"
+   },
+   {
+    "street_en": "Elene Achvlediani Rise",
+    "names": [
+     {
+      "name": "подъём Кибальчича",
+      "from": 1923,
+      "to": 1988,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%9A%E1%83%94%E1%83%9C%E1%83%94_%E1%83%90%E1%83%AE%E1%83%95%E1%83%9A%E1%83%94%E1%83%93%E1%83%98%E1%83%90%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%90%E1%83%A6%E1%83%9B%E1%83%90%E1%83%A0%E1%83%97%E1%83%98",
+    "district": "Чугурети"
+   },
+   {
+    "street_en": "Terenti Graneli Street",
+    "names": [
+     {
+      "name": "улица 9 Января",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%94%E1%83%A0%E1%83%94%E1%83%9C%E1%83%A2%E1%83%98_%E1%83%92%E1%83%A0%E1%83%90%E1%83%9C%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Чугурети"
+   },
+   {
+    "street_en": "Dodo Abashidze Street",
+    "names": [
+     {
+      "name": "улица Мечникова",
+      "from": 1926,
+      "to": 1990,
+      "from_kind": "doc"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%93%E1%83%9D_%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Чугурети"
+   },
+   {
+    "street_en": "Kita Abashidze Street",
+    "names": [
+     {
+      "name": "улица Чубинашвили",
+      "from": 1983,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%98%E1%83%A2%E1%83%90_%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Чугурети"
+   },
+   {
+    "street_en": "Khornabuji Street",
+    "names": [
+     {
+      "name": "улица Ватутина",
+      "from": 1950,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%9C%E1%83%90%E1%83%91%E1%83%A3%E1%83%AF%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Надзаладеви"
+   },
+   {
+    "street_en": "David Garejeli Street",
+    "names": [
+     {
+      "name": "улица Черняховского",
+      "from": 1950,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%95%E1%83%98%E1%83%97_%E1%83%92%E1%83%90%E1%83%A0%E1%83%94%E1%83%AF%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Надзаладеви"
+   }
+  ]
  }
 }
