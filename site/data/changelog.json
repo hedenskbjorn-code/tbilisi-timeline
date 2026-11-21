@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.8.0",
+  "date": "2026-11-21",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Панель «Фильтры и слои» разбита на четыре сворачиваемых блока («Карты и планы», «Границы и улицы», «Слои по годам» и реестр) со счётчиком включённых пунктов; режим «Что здесь было» вынесен на карту, к кнопке шторки; легенда религиозных зданий показывает только конфессии выбранного года, в две колонки.",
+    "en": "The 'Filters and layers' panel is split into four collapsible blocks ('Maps and plans', 'Boundaries and streets', 'Layers by year' and the register) with a counter of the switched-on items; the 'What was here' mode has moved onto the map, next to the swipe button; the legend of the religious buildings shows only the denominations of the chosen year, in two columns.",
+    "ka": "პანელი „ფილტრები და ფენები“ დაყოფილია ოთხ ჩაკეცვად ბლოკად („რუკები და გეგმები“, „საზღვრები და ქუჩები“, „ფენები წლების მიხედვით“ და რეესტრი) ჩართული პუნქტების მთვლელით; რეჟიმი „რა იყო აქ“ გადატანილია რუკაზე, შედარების ღილაკთან; რელიგიური ნაგებობების პირობითი ნიშნები აჩვენებს მხოლოდ არჩეული წლის კონფესიებს, ორ სვეტად."
+   },
+   {
+    "t": "fix",
+    "ru": "Исправлено: кнопка «Сбросить фильтры» оставалась неактивной, когда слой включался сам (из карточки объекта или по ссылке).",
+    "en": "Fixed: the button 'Reset filters' stayed off when a layer was switched on by itself (from the card of an object or by a link).",
+    "ka": "გასწორდა: ღილაკი „ფილტრების განულება“ არააქტიური რჩებოდა, როცა ფენა თავად ირთვებოდა (ობიექტის ბარათიდან ან ბმულით)."
+   }
+  ]
+ },
+ {
   "version": "1.7.3",
   "date": "2026-11-21",
   "items": [
