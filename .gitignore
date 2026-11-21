@@ -25,3 +25,5 @@ site/dev_trace.js
 
 # OCR of scanned books (large, regenerable) and language data
 data/cache/
+
+node_modules/

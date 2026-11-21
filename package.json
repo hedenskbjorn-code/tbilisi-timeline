@@ -1,0 +1,12 @@
+{
+  "name": "tbilisi-timeline",
+  "private": true,
+  "description": "Tbilisi through time: tests of the browser behaviour (the site itself needs no build)",
+  "scripts": {
+    "test": "node tests/check_data.mjs && node --test tests/*.test.mjs",
+    "test:e2e": "node --test --test-concurrency=1 tests/e2e/*.test.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.65.1"
+  }
+}

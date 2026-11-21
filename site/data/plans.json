@@ -25,7 +25,9 @@
   ],
   "accuracy_m": 158,
   "boundary": "data/tiflis_1735_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1735_s.webp",
+  "overview_mpp": 6.31
  },
  {
   "id": "tiflis_1782",
@@ -53,7 +55,9 @@
   ],
   "accuracy_m": 59,
   "boundary": "data/tiflis_1782_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1782_s.webp",
+  "overview_mpp": 6.56
  },
  {
   "id": "tiflis_1785",
@@ -81,7 +85,9 @@
   ],
   "accuracy_m": 49,
   "boundary": "data/tiflis_1785_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1785_s.webp",
+  "overview_mpp": 3.36
  },
  {
   "id": "tiflis_1800",
@@ -109,7 +115,9 @@
   ],
   "accuracy_m": 52,
   "boundary": "data/tiflis_1800_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1800_s.webp",
+  "overview_mpp": 5.07
  },
  {
   "id": "tiflis_1802",
@@ -137,7 +145,9 @@
   ],
   "accuracy_m": 33,
   "boundary": "data/tiflis_1802_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1802_s.webp",
+  "overview_mpp": 4.65
  },
  {
   "id": "tiflis_1821",
@@ -164,7 +174,9 @@
    ]
   ],
   "accuracy_m": 100,
-  "boundary": null
+  "boundary": null,
+  "overview": "data/tiflis_1821_s.webp",
+  "overview_mpp": 8.01
  },
  {
   "id": "tiflis_1844",
@@ -192,7 +204,9 @@
   ],
   "accuracy_m": 49,
   "boundary": "data/tiflis_1844_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1844_s.webp",
+  "overview_mpp": 8.0
  },
  {
   "id": "tiflis_1850",
@@ -220,7 +234,9 @@
   ],
   "accuracy_m": 40,
   "boundary": "data/tiflis_1850_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1850_s.webp",
+  "overview_mpp": 8.0
  },
  {
   "id": "tiflis_1879",
@@ -248,7 +264,9 @@
   ],
   "accuracy_m": 60,
   "boundary": "data/tiflis_1879_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1879_s.webp",
+  "overview_mpp": 8.0
  },
  {
   "id": "tiflis_1887",
@@ -276,7 +294,9 @@
   ],
   "accuracy_m": 40,
   "boundary": "data/tiflis_1887_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1887_s.webp",
+  "overview_mpp": 8.0
  },
  {
   "id": "tiflis_1911",
@@ -304,7 +324,9 @@
   ],
   "accuracy_m": 56,
   "boundary": "data/tiflis_1911_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tiflis_1911_s.webp",
+  "overview_mpp": 8.0
  },
  {
   "id": "tbilisi_1913",
@@ -332,6 +354,8 @@
   ],
   "accuracy_m": 45,
   "boundary": "data/tbilisi_1913_boundary.geojson",
-  "boundary_partial": false
+  "boundary_partial": false,
+  "overview": "data/tbilisi_1913_s.webp",
+  "overview_mpp": 8.0
  }
 ]
