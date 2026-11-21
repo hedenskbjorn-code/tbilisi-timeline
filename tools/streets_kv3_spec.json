@@ -1,0 +1,875 @@
+{
+ "spec": [
+  {
+   "n": "2",
+   "key": "Ierusalimi Street",
+   "osm_ka": null,
+   "near": [
+    41.6905,
+    44.8064
+   ],
+   "district": "Old Tbilisi",
+   "now": {
+    "ru": "Иерусалимская улица",
+    "en": "Ierusalimi Street",
+    "ka": "იერუსალიმის ქუჩა"
+   },
+   "iv": [
+    [
+     1923,
+     1990,
+     {
+      "ru": "улица Рижинашвили",
+      "en": "Rizhinashvili Street",
+      "ka": "რიჟინაშვილის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ru.wikipedia.org/wiki/%D0%98%D0%B5%D1%80%D1%83%D1%81%D0%B0%D0%BB%D0%B8%D0%BC%D1%81%D0%BA%D0%B0%D1%8F_%D1%83%D0%BB%D0%B8%D1%86%D0%B0_%28%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8%29",
+   "pdf_page": 89,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1923 — улица Рижинашвили; 1990 — Иерусалимская улица. В 1990 вернулось прежнее название.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1923 — Rizhinashvili Street; 1990 — Ierusalimi Street. In 1990 the old name returned."
+   }
+  },
+  {
+   "n": "11",
+   "key": "Vladimer Vekua Street",
+   "osm_ka": null,
+   "near": [
+    41.6973,
+    44.8032
+   ],
+   "district": "Old Tbilisi",
+   "now": {
+    "ru": "улица Владимира Векуа",
+    "en": "Vladimer Vekua Street",
+    "ka": "ვლადიმერ ვეკუას ქუჩა"
+   },
+   "iv": [
+    [
+     1903,
+     1991,
+     {
+      "ru": "Русская улица",
+      "en": "Russian Street",
+      "ka": "რუსის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "plan"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%9A%E1%83%90%E1%83%93%E1%83%98%E1%83%9B%E1%83%94%E1%83%A0_%E1%83%95%E1%83%94%E1%83%99%E1%83%A3%E1%83%90%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "pdf_page": 132,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1903 (год плана или списка) — Русская улица; 1991 — улица Владимира Векуа. Новое имя в 1991 по ka.wikipedia.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1903 (the year of a plan or list) — Russian Street; 1991 — Vladimer Vekua Street. The new name in 1991 after ka.wikipedia."
+   }
+  },
+  {
+   "n": "18",
+   "key": "Mikheil Zandukeli Street",
+   "osm_ka": null,
+   "near": [
+    41.704,
+    44.7871
+   ],
+   "district": "Old Tbilisi",
+   "now": {
+    "ru": "улица Михаила Зандукели",
+    "en": "Mikheil Zandukeli Street",
+    "ka": "მიხეილ ზანდუკელის ქუჩა"
+   },
+   "iv": [
+    [
+     1923,
+     1938,
+     {
+      "ru": "улица Лошинадзе",
+      "en": "Loshinadze Street",
+      "ka": "ლოშინაძის ქუჩა"
+     }
+    ],
+    [
+     1938,
+     1946,
+     {
+      "ru": "улица Колхиды",
+      "en": "Kolkhida Street",
+      "ka": "კოლხიდის ქუჩა"
+     }
+    ],
+    [
+     1946,
+     1991,
+     {
+      "ru": "улица Джавахишвили",
+      "en": "Javakhishvili Street",
+      "ka": "ჯავახიშვილის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%AE%E1%83%94%E1%83%98%E1%83%9A_%E1%83%96%E1%83%90%E1%83%9C%E1%83%93%E1%83%A3%E1%83%99%E1%83%94%E1%83%9A%E1%83%98",
+   "pdf_page": 77,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1923 — улица Лошинадзе; 1938 — улица Колхиды; 1946 — улица Джавахишвили; 1991 — улица Михаила Зандукели.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1923 — Loshinadze Street; 1938 — Kolkhida Street; 1946 — Javakhishvili Street; 1991 — Mikheil Zandukeli Street."
+   }
+  },
+  {
+   "n": "21",
+   "key": "Pavle Ingorokva Street",
+   "osm_ka": null,
+   "near": [
+    41.6945,
+    44.797
+   ],
+   "district": "Mtatsminda",
+   "now": {
+    "ru": "улица Павла Ингороквы",
+    "en": "Pavle Ingorokva Street",
+    "ka": "პავლე ინგოროყვას ქუჩა"
+   },
+   "iv": [
+    [
+     1930,
+     1990,
+     {
+      "ru": "улица Дзержинского",
+      "en": "Dzerzhinsky Street",
+      "ka": "ძერჟინსკის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "dec"
+   ],
+   "src": "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%9F%D0%B0%D0%B2%D0%BB%D0%B0_%D0%98%D0%BD%D0%B3%D0%BE%D1%80%D0%BE%D0%BA%D0%B2%D1%8B",
+   "pdf_page": 90,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1930-е годы (точный год не назван, на карте условно с 1930) — улица Дзержинского; 1990 — улица Павла Ингороквы. До этого с 1923 улица Троцкого; ru.wikipedia относит имя Дзержинского к 1922 году.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the 1930s (the exact year is not named, on the map conventionally from 1930) — Dzerzhinsky Street; 1990 — Pavle Ingorokva Street. Before that from 1923 Trotsky Street; ru.wikipedia dates the name Dzerzhinsky to 1922."
+   }
+  },
+  {
+   "n": "27",
+   "key": "Vakhtang Kotetishvili Street",
+   "osm_ka": null,
+   "near": [
+    41.6967,
+    44.7954
+   ],
+   "district": "Mtatsminda",
+   "now": {
+    "ru": "улица Вахтанга Котетишвили",
+    "en": "Vakhtang Kotetishvili Street",
+    "ka": "ვახტანგ კოტეტიშვილის ქუჩა"
+   },
+   "iv": [
+    [
+     1923,
+     1990,
+     {
+      "ru": "улица Оболадзе",
+      "en": "Oboladze Street",
+      "ka": "ობოლაძის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "after"
+   ],
+   "src": "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3%D0%B0_%D0%9A%D0%BE%D1%82%D0%B5%D1%82%D0%B8%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+   "pdf_page": 99,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): после 1923 (год не назван, на карте условно с 1923) — улица Оболадзе; 1990 — улица Вахтанга Котетишвили. До 1923 Мтацминдская улица.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): after 1923 (the year is not named, on the map conventionally from 1923) — Oboladze Street; 1990 — Vakhtang Kotetishvili Street. Until 1923 Mtatsminda Street."
+   }
+  },
+  {
+   "n": "33",
+   "key": "Archil Tsagareli Street",
+   "osm_ka": null,
+   "near": [
+    41.7236,
+    44.7656
+   ],
+   "district": "Saburtalo",
+   "now": {
+    "ru": "улица Арчила Цагарели",
+    "en": "Archil Tsagareli Street",
+    "ka": "არჩილ ცაგარელის ქუჩა"
+   },
+   "iv": [
+    [
+     1941,
+     1991,
+     {
+      "ru": "Кронштадтская улица",
+      "en": "Kronshtadtskaya Street",
+      "ka": "კრონშტადტის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%A9%E1%83%98%E1%83%9A_%E1%83%AA%E1%83%90%E1%83%92%E1%83%90%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98",
+   "pdf_page": 194,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1941 — Кронштадтская улица; 1991 — улица Арчила Цагарели. Улица возникла в 1940-х годах.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1941 — Kronshtadtskaya Street; 1991 — Archil Tsagareli Street. The street arose in the 1940s."
+   }
+  },
+  {
+   "n": "34",
+   "key": "Zaza Panaskertel-Tsitsishvili Street",
+   "osm_ka": null,
+   "near": "all",
+   "district": "Saburtalo",
+   "now": {
+    "ru": "улица Заза Панаскертел-Цицишвили",
+    "en": "Zaza Panaskertel-Tsitsishvili Street",
+    "ka": "ზაზა ფანასკერტელ-ციციშვილის ქუჩა"
+   },
+   "iv": [
+    [
+     1983,
+     1990,
+     {
+      "ru": "улица Гамсахурдиа",
+      "en": "Gamsakhurdia Street",
+      "ka": "გამსახურდიას ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%90%E1%83%96%E1%83%90_%E1%83%A4%E1%83%90%E1%83%9C%E1%83%90%E1%83%A1%E1%83%99%E1%83%94%E1%83%A0%E1%83%A2%E1%83%94%E1%83%9A-%E1%83%AA%E1%83%98%E1%83%AA%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98",
+   "pdf_page": 77,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1983 — улица Гамсахурдиа; 1990 — улица Заза Панаскертел-Цицишвили.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1983 — Gamsakhurdia Street; 1990 — Zaza Panaskertel-Tsitsishvili Street."
+   }
+  },
+  {
+   "n": "36",
+   "key": "Haidar Abashidze Street",
+   "osm_ka": null,
+   "near": [
+    41.7324,
+    44.7611
+   ],
+   "district": "Saburtalo",
+   "now": {
+    "ru": "улица Хайдара Абашидзе",
+    "en": "Haidar Abashidze Street",
+    "ka": "ჰაიდარ აბაშიძის ქუჩა"
+   },
+   "iv": [
+    [
+     1930,
+     1990,
+     {
+      "ru": "улица Володарского",
+      "en": "Volodarsky Street",
+      "ka": "ვოლოდარსკის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "dec"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%B0%E1%83%90%E1%83%98%E1%83%93%E1%83%90%E1%83%A0_%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "pdf_page": 9,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1930-е годы (точный год не назван, на карте условно с 1930) — улица Володарского; 1990 — улица Хайдара Абашидзе. Прежде Львовский II переулок.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the 1930s (the exact year is not named, on the map conventionally from 1930) — Volodarsky Street; 1990 — Haidar Abashidze Street. Earlier Lvov 2nd Lane."
+   }
+  },
+  {
+   "n": "38",
+   "key": "Revaz Margiani Street",
+   "osm_ka": null,
+   "near": [
+    41.7268,
+    44.7273
+   ],
+   "district": "Saburtalo",
+   "now": {
+    "ru": "улица Реваза Маргиани",
+    "en": "Revaz Margiani Street",
+    "ka": "რევაზ მარგიანის ქუჩა"
+   },
+   "iv": [
+    [
+     1960,
+     1990,
+     {
+      "ru": "улица Яшвили",
+      "en": "Iashvili Street",
+      "ka": "იაშვილის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "dec"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%94%E1%83%95%E1%83%90%E1%83%96_%E1%83%9B%E1%83%90%E1%83%A0%E1%83%92%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+   "pdf_page": 106,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1960-е годы (точный год не назван, на карте условно с 1960) — улица Яшвили; 1990 — улица Реваза Маргиани.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the 1960s (the exact year is not named, on the map conventionally from 1960) — Iashvili Street; 1990 — Revaz Margiani Street."
+   }
+  },
+  {
+   "n": "39",
+   "key": "Mtavarangelozi Street",
+   "osm_ka": null,
+   "near": [
+    41.6942,
+    44.8177
+   ],
+   "district": "Isani",
+   "now": {
+    "ru": "улица Мтаварангелози",
+    "en": "Mtavarangelozi Street",
+    "ka": "მთავარანგელოზის ქუჩა"
+   },
+   "iv": [
+    [
+     1923,
+     1990,
+     {
+      "ru": "улица Робеспьера",
+      "en": "Robespierre Street",
+      "ka": "რობესპიერის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%97%E1%83%90%E1%83%95%E1%83%90%E1%83%A0%E1%83%90%E1%83%9C%E1%83%92%E1%83%94%E1%83%9A%E1%83%9D%E1%83%96%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "pdf_page": 117,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1923 — улица Робеспьера; 1990 — улица Мтаварангелози. С 1990 вновь прежнее название.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1923 — Robespierre Street; 1990 — Mtavarangelozi Street. Since 1990 the old name again."
+   }
+  },
+  {
+   "n": "40",
+   "key": "Peristsvaleba Street",
+   "osm_ka": null,
+   "near": [
+    41.6911,
+    44.8148
+   ],
+   "district": "Isani",
+   "now": {
+    "ru": "улица Перисцвалеба",
+    "en": "Peristsvaleba Street",
+    "ka": "ფერისცვალების ქუჩა"
+   },
+   "iv": [
+    [
+     1923,
+     1990,
+     {
+      "ru": "улица Фигнер",
+      "en": "Figner Street",
+      "ka": "ფიგნერის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AA%E1%83%95%E1%83%90%E1%83%9A%E1%83%94%E1%83%91%E1%83%90",
+   "pdf_page": 173,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1923 — улица Фигнер; 1990 — улица Перисцвалеба. В 1990 вернулось прежнее название.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1923 — Figner Street; 1990 — Peristsvaleba Street. In 1990 the old name returned."
+   }
+  },
+  {
+   "n": "42",
+   "key": "Irakli Paghava Street",
+   "osm_ka": null,
+   "near": [
+    41.6927,
+    44.8163
+   ],
+   "district": "Isani",
+   "now": {
+    "ru": "улица Ираклия Пагава",
+    "en": "Irakli Paghava Street",
+    "ka": "ირაკლი ფაღავას ქუჩა"
+   },
+   "iv": [
+    [
+     1923,
+     1990,
+     {
+      "ru": "улица Лены",
+      "en": "Lena Street",
+      "ka": "ლენის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%A0%E1%83%90%E1%83%99%E1%83%9A%E1%83%98_%E1%83%A4%E1%83%90%E1%83%A6%E1%83%90%E1%83%95%E1%83%90%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "pdf_page": 173,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1923 — улица Лены; 1990 — улица Ираклия Пагава. Названа в память о Ленском расстреле 1912 года; прежде имя князя Константина.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1923 — Lena Street; 1990 — Irakli Paghava Street. Named after the Lena shooting of 1912; earlier the name of Prince Konstantine."
+   }
+  },
+  {
+   "n": "55",
+   "key": "Gigo Zaziashvili Street",
+   "osm_ka": null,
+   "near": [
+    41.7183,
+    44.8062
+   ],
+   "district": "Didube-Chugureti",
+   "now": {
+    "ru": "улица Гиго Зазиашвили",
+    "en": "Gigo Zaziashvili Street",
+    "ka": "გიგო ზაზიაშვილის ქუჩა"
+   },
+   "iv": [
+    [
+     1923,
+     1990,
+     {
+      "ru": "улица Монтина",
+      "en": "Montin Street",
+      "ka": "მონტინის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%92%E1%83%9D_%E1%83%96%E1%83%90%E1%83%96%E1%83%98%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98",
+   "pdf_page": 77,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1923 — улица Монтина; 1990 — улица Гиго Зазиашвили.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1923 — Montin Street; 1990 — Gigo Zaziashvili Street."
+   }
+  },
+  {
+   "n": "56",
+   "key": "Giorgi Maruashvili Street",
+   "osm_ka": null,
+   "near": [
+    41.721,
+    44.8091
+   ],
+   "district": "Didube-Chugureti",
+   "now": {
+    "ru": "улица Гиорги Маруашвили",
+    "en": "Giorgi Maruashvili Street",
+    "ka": "გიორგი მარუაშვილის ქუჩა"
+   },
+   "iv": [
+    [
+     1969,
+     1990,
+     {
+      "ru": "улица Закомолдина",
+      "en": "Zakomoldin Street",
+      "ka": "ზაკომოლდინის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "after"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9B%E1%83%90%E1%83%A0%E1%83%A3%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98",
+   "pdf_page": 107,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): после 1969 (год не назван, на карте условно с 1969) — улица Закомолдина; 1990 — улица Гиорги Маруашвили. До 1969 Монтина IV переулок.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): after 1969 (the year is not named, on the map conventionally from 1969) — Zakomoldin Street; 1990 — Giorgi Maruashvili Street. Until 1969 Montin 4th Lane."
+   }
+  },
+  {
+   "n": "57",
+   "key": "Tsminda Nikolozi Street",
+   "osm_ka": null,
+   "near": [
+    41.7027,
+    44.8085
+   ],
+   "district": "Old Tbilisi",
+   "now": {
+    "ru": "улица Цминда Николози",
+    "en": "Tsminda Nikolozi Street",
+    "ka": "წმინდა ნიკოლოზის ქუჩა"
+   },
+   "iv": [
+    [
+     1923,
+     1990,
+     {
+      "ru": "улица Свердлова",
+      "en": "Sverdlov Street",
+      "ka": "სვერდლოვის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96%E1%83%98",
+   "pdf_page": 201,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1923 — улица Свердлова; 1990 — улица Цминда Николози. В 1903 году Екатерининская.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1923 — Sverdlov Street; 1990 — Tsminda Nikolozi Street. In 1903 Ekaterine Street."
+   }
+  },
+  {
+   "n": "59",
+   "key": "Sankt-Peterburg Street",
+   "osm_ka": "სანკტ-პეტერბურგის ქუჩა",
+   "near": [
+    41.7082,
+    44.7966
+   ],
+   "district": "Old Tbilisi",
+   "now": {
+    "ru": "Санкт-Петербургская улица",
+    "en": "Sankt-Peterburg Street",
+    "ka": "სანქტ-პეტერბურგის ქუჩა"
+   },
+   "iv": [
+    [
+     1924,
+     1934,
+     {
+      "ru": "Ленинградская улица",
+      "en": "Leningradskaya Street",
+      "ka": "ლენინგრადის ქუჩა"
+     }
+    ],
+    [
+     1934,
+     1948,
+     {
+      "ru": "Могилёвская улица",
+      "en": "Mogilevskaya Street",
+      "ka": "მოგილევსკის ქუჩა"
+     }
+    ],
+    [
+     1948,
+     1991,
+     {
+      "ru": "Ленинградская улица",
+      "en": "Leningradskaya Street",
+      "ka": "ლენინგრადის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact",
+    "exact",
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9C%E1%83%A5%E1%83%A2-%E1%83%9E%E1%83%94%E1%83%A2%E1%83%94%E1%83%A0%E1%83%91%E1%83%A3%E1%83%A0%E1%83%92%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "pdf_page": 155,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1924 — Ленинградская улица; 1934 — Могилёвская улица; 1948 — Ленинградская улица; 1991 — Санкт-Петербургская улица. До 1924: Мадера (1897), Петербургская (1900), Петроградская (1914).",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1924 — Leningradskaya Street; 1934 — Mogilevskaya Street; 1948 — Leningradskaya Street; 1991 — Sankt-Peterburg Street. Before 1924: Mader (1897), Petersburg (1900), Petrograd (1914)."
+   }
+  },
+  {
+   "n": "62",
+   "key": "Giorgi Chubinashvili Street",
+   "osm_ka": null,
+   "near": [
+    41.7149,
+    44.8005
+   ],
+   "district": "Chugureti",
+   "now": {
+    "ru": "улица Георгия Чубинашвили",
+    "en": "Giorgi Chubinashvili Street",
+    "ka": "გიორგი ჩუბინაშვილის ქუჩა"
+   },
+   "iv": [
+    [
+     1922,
+     1990,
+     {
+      "ru": "улица Орджоникидзе",
+      "en": "Ordzhonikidze Street",
+      "ka": "ორჯონიკიძის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%A9%E1%83%A3%E1%83%91%E1%83%98%E1%83%9C%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "pdf_page": 85,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1922 — улица Орджоникидзе; 1990 — улица Георгия Чубинашвили. В 1990 улицу Орджоникидзе разделили: один участок стал улицей Тевдоре Мгвдели, другой улицей Георгия Чубинашвили.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1922 — Ordzhonikidze Street; 1990 — Giorgi Chubinashvili Street. In 1990 Ordzhonikidze Street was divided: one section became Tevdore Mghvdeli Street, the other Giorgi Chubinashvili Street."
+   }
+  },
+  {
+   "n": "64",
+   "key": "Grigol Robakidze Avenue",
+   "osm_ka": null,
+   "near": "all",
+   "district": "Nadzaladevi",
+   "now": {
+    "ru": "проспект Григола Робакидзе",
+    "en": "Grigol Robakidze Avenue",
+    "ka": "გრიგოლ რობაქიძის გამზირი"
+   },
+   "iv": [
+    [
+     1967,
+     1990,
+     {
+      "ru": "проспект Дружбы",
+      "en": "Friendship Avenue",
+      "ka": "მეგობრობის გამზირი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A0%E1%83%98%E1%83%92%E1%83%9D%E1%83%9A_%E1%83%A0%E1%83%9D%E1%83%91%E1%83%90%E1%83%A5%E1%83%98%E1%83%AB%E1%83%94",
+   "pdf_page": 143,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1967 — проспект Дружбы; 1990 — проспект Григола Робакидзе.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1967 — Friendship Avenue; 1990 — Grigol Robakidze Avenue."
+   }
+  },
+  {
+   "n": "68",
+   "key": "Shota Iamanidze Street",
+   "osm_ka": null,
+   "near": [
+    41.7253,
+    44.7876
+   ],
+   "district": "Saburtalo",
+   "now": {
+    "ru": "улица Шоты Яманидзе",
+    "en": "Shota Iamanidze Street",
+    "ka": "შოთა იამანიძის ქუჩა"
+   },
+   "iv": [
+    [
+     1920,
+     1990,
+     {
+      "ru": "улица Кооперации",
+      "en": "Cooperation Street",
+      "ka": "კოოპერაციის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "dec"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%9D%E1%83%97%E1%83%90_%E1%83%98%E1%83%90%E1%83%9B%E1%83%90%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "pdf_page": 89,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1920-е годы (точный год не назван, на карте условно с 1920) — улица Кооперации; 1990 — улица Шоты Яманидзе. Улица возникла в 1920-х годах.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the 1920s (the exact year is not named, on the map conventionally from 1920) — Cooperation Street; 1990 — Shota Iamanidze Street. The street arose in the 1920s."
+   }
+  },
+  {
+   "n": "69",
+   "key": "Zurab Chavchavadze Street",
+   "osm_ka": "ზურაბ ჭავჭავძის ქუჩა",
+   "near": [
+    41.7118,
+    44.7971
+   ],
+   "district": "Mtatsminda",
+   "now": {
+    "ru": "улица Зураба Чавчавадзе",
+    "en": "Zurab Chavchavadze Street",
+    "ka": "ზურაბ ჭავჭავაძის ქუჩა"
+   },
+   "iv": [
+    [
+     1922,
+     1950,
+     {
+      "ru": "улица Або",
+      "en": "Abo Street",
+      "ka": "აბოს ქუჩა"
+     }
+    ],
+    [
+     1950,
+     1990,
+     {
+      "ru": "улица Шерозия",
+      "en": "Sherozia Street",
+      "ka": "შეროზიას ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact",
+    "dec"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%A3%E1%83%A0%E1%83%90%E1%83%91_%E1%83%AD%E1%83%90%E1%83%95%E1%83%AD%E1%83%90%E1%83%95%E1%83%90%E1%83%AB%E1%83%94",
+   "pdf_page": 203,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1922 — улица Або; 1950-е годы (точный год не назван, на карте условно с 1950) — улица Шерозия; 1990 — улица Зураба Чавчавадзе. До 1922: Ветцеля (1876), Ксении (1903).",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1922 — Abo Street; the 1950s (the exact year is not named, on the map conventionally from 1950) — Sherozia Street; 1990 — Zurab Chavchavadze Street. Before 1922: Vetzel (1876), Ksenia (1903)."
+   }
+  },
+  {
+   "n": "73",
+   "key": "Tornike Eristavi Street",
+   "osm_ka": null,
+   "near": [
+    41.7485,
+    44.7815
+   ],
+   "district": "Nadzaladevi",
+   "now": {
+    "ru": "улица Торнике Эристави",
+    "en": "Tornike Eristavi Street",
+    "ka": "თორნიკე ერისთავის ქუჩა"
+   },
+   "iv": [
+    [
+     1935,
+     1990,
+     {
+      "ru": "улица Магнитогорская",
+      "en": "Magnitogorsk Street",
+      "ka": "მაგნიტოგორსკის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%9D%E1%83%A0%E1%83%9C%E1%83%98%E1%83%99%E1%83%94_%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%97%E1%83%90%E1%83%95%E1%83%98",
+   "pdf_page": 88,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1935 — улица Магнитогорская; 1990 — улица Торнике Эристави.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1935 — Magnitogorsk Street; 1990 — Tornike Eristavi Street."
+   }
+  },
+  {
+   "n": "75",
+   "key": "Konstantine Iluridze Street",
+   "osm_ka": null,
+   "near": [
+    41.7467,
+    44.7994
+   ],
+   "district": "Nadzaladevi",
+   "now": {
+    "ru": "улица Константина Илуридзе",
+    "en": "Konstantine Iluridze Street",
+    "ka": "კონსტანტინე ილურიძის ქუჩა"
+   },
+   "iv": [
+    [
+     1930,
+     1990,
+     {
+      "ru": "улица Коллективизации",
+      "en": "Collectivization Street",
+      "ka": "კოლექტივიზაციის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "dec"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%9C%E1%83%A1%E1%83%A2%E1%83%90%E1%83%9C%E1%83%A2%E1%83%98%E1%83%9C%E1%83%94_%E1%83%98%E1%83%9A%E1%83%A3%E1%83%A0%E1%83%98%E1%83%AB%E1%83%94",
+   "pdf_page": 90,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1930-е годы (точный год не назван, на карте условно с 1930) — улица Коллективизации; 1990 — улица Константина Илуридзе. Улица возникла в 1930-х годах.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the 1930s (the exact year is not named, on the map conventionally from 1930) — Collectivization Street; 1990 — Konstantine Iluridze Street. The street arose in the 1930s."
+   }
+  },
+  {
+   "n": "77",
+   "key": "Samghereti Street",
+   "osm_ka": null,
+   "near": [
+    41.7325,
+    44.8228
+   ],
+   "district": "Isani-Samgori",
+   "now": {
+    "ru": "улица Самгерети",
+    "en": "Samghereti Street",
+    "ka": "სამღერეთის ქუჩა"
+   },
+   "iv": [
+    [
+     1940,
+     1990,
+     {
+      "ru": "Пионерская улица",
+      "en": "Pioner Street",
+      "ka": "პიონერის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "dec"
+   ],
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9B%E1%83%A6%E1%83%94%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "pdf_page": 155,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1940-е годы (точный год не назван, на карте условно с 1940) — Пионерская улица; 1990 — улица Самгерети. Улица возникла в 1940-х годах; прежде Пионерская II.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the 1940s (the exact year is not named, on the map conventionally from 1940) — Pioner Street; 1990 — Samghereti Street. The street arose in the 1940s; earlier Pioner 2nd Street."
+   }
+  }
+ ],
+ "extend": [
+  {
+   "key": "Tevdore Mghvdeli Street",
+   "iv": [
+    [
+     1922,
+     1990,
+     {
+      "ru": "улица Орджоникидзе",
+      "en": "Ordzhonikidze Street",
+      "ka": "ორჯონიკიძის ქუჩა"
+     }
+    ]
+   ],
+   "n": 62,
+   "pdf": 85
+  }
+ ],
+ "CL": [
+  "На карте появились исторические подписи ещё 28 улиц Тбилиси, переименованных в 1988–1991 годах (прежние советские названия по годам, как их называют статьи ka.wikipedia и энциклопедия «Тбилиси. Улицы, проспекты, площади», 2008).",
+  "Historical labels of 28 more Tbilisi streets renamed in 1988-1991 appear on the map (the earlier Soviet names by year, as the articles of ka.wikipedia and the encyclopedia 'Tbilisi. Streets, avenues, squares', 2008, give them)."
+ ]
+}
