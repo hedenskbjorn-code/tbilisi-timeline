@@ -1,5 +1,29 @@
 [
  {
+  "version": "1.7.1",
+  "date": "2026-11-21",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Добавлено 11 событий (914–1952): нашествие Саджидов, отделение Западной Грузии при Давиде VI (1259), воцарение и казнь Деметре II, назначение Давида VIII, походы Тимура 1387 и 1403 годов, воцарение Александра I, вход Баграта VI в Тбилиси (1466), воцарение Ираклия I (1688), начало строительства метро (1952). У пяти событий в примечании появилась сверка с «Картлис цховреба» с номерами страниц.",
+    "en": "Added 11 events (914-1952): the Sajid invasion, the separation of Western Georgia under David VI (1259), the accession and execution of Demetre II, the appointment of David VIII, Timur's campaigns of 1387 and 1403, the accession of Alexander I, Bagrat VI's entry into Tbilisi (1466), the accession of Heraclius I (1688), the start of the construction of the metro (1952). For five events the note now has a check against Kartlis Tskhovreba with page numbers.",
+    "ka": "დაემატა 11 მოვლენა (914–1952): საჯიდების შემოსევა, დასავლეთ საქართველოს გამოყოფა დავით VI-ის დროს (1259), დემეტრე II-ის გამეფება და სიკვდილით დასჯა, დავით VIII-ის დანიშვნა, თემურლენგის 1387 და 1403 წლების ლაშქრობები, ალექსანდრე I-ის გამეფება, ბაგრატ VI-ის შესვლა თბილისში (1466), ერეკლე I-ის გამეფება (1688), მეტროს მშენებლობის დაწყება (1952). ხუთი მოვლენის შენიშვნაში გაჩნდა „ქართლის ცხოვრებასთან“ შედარება გვერდების ნომრებით."
+   },
+   {
+    "t": "fix",
+    "ru": "Исправлены даты 12 объектов реестра по статьям Википедии (например, караван-сарай Арцруни: 1818 вместо 2000, кинотеатр «Аполло»: 1909 вместо 1825); у 11 учреждений в примечании указан год основания.",
+    "en": "Corrected the dates of 12 register objects from Wikipedia articles (for example, the Artsruni caravanserai: 1818 instead of 2000, the Apollo cinema: 1909 instead of 1825); the note of 11 institutions now gives the year of founding.",
+    "ka": "გასწორდა რეესტრის 12 ობიექტის თარიღები ვიკიპედიის სტატიების მიხედვით (მაგალითად, არწრუნის ქარვასლა: 2000-ის ნაცვლად 1818, კინოთეატრი „აპოლო“: 1825-ის ნაცვლად 1909); 11 დაწესებულების შენიშვნაში მითითებულია დაარსების წელი."
+   },
+   {
+    "t": "fix",
+    "ru": "Клавиша Esc закрывает открытую карточку на карте (а если открыто окно, то сначала окно); карточка, открытая из поиска, теперь не закрывает шкалу времени.",
+    "en": "The Esc key closes the open card on the map (and if a window is open, the window first); a card opened from the search no longer covers the time bar.",
+    "ka": "Esc კლავიში ხურავს რუკაზე გახსნილ ბარათს (ხოლო თუ ფანჯარაა გახსნილი, ჯერ ფანჯარას); ძებნიდან გახსნილი ბარათი ახლა აღარ ფარავს დროის სკალას."
+   }
+  ]
+ },
+ {
   "version": "1.7.0",
   "date": "2026-11-21",
   "items": [

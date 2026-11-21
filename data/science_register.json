@@ -243,7 +243,7 @@
  {
   "id": "reg3303",
   "kind": "culture",
-  "from": 1825,
+  "from": 1909,
   "lat": 41.715437,
   "lon": 44.7935,
   "name": {
@@ -252,9 +252,9 @@
    "ka": "კინოთეატრი \"აპოლო\""
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1801–1825; на шкале взят конец диапазона (1825). Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1801–1825; the end of the range (1825) is used on the timeline. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1801–1825; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1825). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1801–1825; на шкале взят конец диапазона (1825). Год основания учреждения реестр не указывает. Кинотеатр открыт в 1909 г. (по статье ka.wikipedia «აპოლო (თბილისი)»); год на шкале исправлен: реестр давал четверть века, оканчивающуюся 1825 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1801–1825; the end of the range (1825) is used on the timeline. The register does not give the year the institution was founded. The cinema was opened in 1909 (from the ka.wikipedia article 'აპოლო (თბილისი)'); the year on the scale is corrected: the register gave a quarter-century ending in 1825.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1801–1825; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1825). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. კინოთეატრი 1909 წელს გაიხსნა (ka.wikipedia-ს სტატიის „აპოლო (თბილისი)“ მიხედვით); დროის სკალაზე წელი გასწორებულია: რეესტრი 1825 წელს დასრულებულ მეოთხედ საუკუნეს უთითებდა."
   },
   "src": [],
   "regno": "4157",
@@ -439,9 +439,9 @@
    "ka": "რეზო გაბრიაძის თეატრ-სახელოსნო"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1876–1900; на шкале взят конец диапазона (1900). Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1876–1900; the end of the range (1900) is used on the timeline. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1876–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1876–1900; на шкале взят конец диапазона (1900). Год основания учреждения реестр не указывает. По статье ka.wikipedia «თბილისის მარიონეტების თეატრი»: театр основан в 1981 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1876–1900; the end of the range (1900) is used on the timeline. The register does not give the year the institution was founded. From the ka.wikipedia article 'თბილისის მარიონეტების თეატრი': the theatre was founded in 1981.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1876–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. ka.wikipedia-ს სტატიის „თბილისის მარიონეტების თეატრი“ მიხედვით: თეატრი 1981 წელს დაარსდა."
   },
   "src": [],
   "regno": "",
@@ -492,9 +492,9 @@
    "ka": "ბარათაშვილის სახლ-მუზეუმი"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1831–1870; на шкале взят конец диапазона (1870). Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1831–1870; the end of the range (1870) is used on the timeline. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1831–1870; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1870). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1831–1870; на шкале взят конец диапазона (1870). Год основания учреждения реестр не указывает. По статье ka.wikipedia «ნიკოლოზ ბარათაშვილის სახლ-მუზეუმი»: дом-музей открыт в 1982 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1831–1870; the end of the range (1870) is used on the timeline. The register does not give the year the institution was founded. From the ka.wikipedia article 'ნიკოლოზ ბარათაშვილის სახლ-მუზეუმი': the house-museum was opened in 1982.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1831–1870; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1870). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. ka.wikipedia-ს სტატიის „ნიკოლოზ ბარათაშვილის სახლ-მუზეუმი“ მიხედვით: სახლ-მუზეუმი 1982 წელს გაიხსნა."
   },
   "src": [],
   "regno": "5065",
@@ -653,9 +653,9 @@
    "ka": "\"სამეფო უბნის თეატრი\""
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1876–1900; на шкале взят конец диапазона (1900). Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1876–1900; the end of the range (1900) is used on the timeline. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1876–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1876–1900; на шкале взят конец диапазона (1900). Год основания учреждения реестр не указывает. По статье ka.wikipedia «სამეფო უბნის თეატრი»: театр открыт 18 июня 1997 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1876–1900; the end of the range (1900) is used on the timeline. The register does not give the year the institution was founded. From the ka.wikipedia article 'სამეფო უბნის თეატრი': the theatre was opened on 18 June 1997.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1876–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. ka.wikipedia-ს სტატიის „სამეფო უბნის თეატრი“ მიხედვით: თეატრი 1997 წლის 18 ივნისს გაიხსნა."
   },
   "src": [],
   "regno": "3780",
@@ -708,9 +708,9 @@
    "ka": "სახელმწიფო უნივერსიტეტის II კორპუსი"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1937. Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1937. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1937. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1937. Год основания учреждения реестр не указывает. По статье en.wikipedia «Tbilisi State University»: университет основан в 1918 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1937. The register does not give the year the institution was founded. From the en.wikipedia article 'Tbilisi State University': the university was founded in 1918.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1937. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. en.wikipedia-ს სტატიის „Tbilisi State University“ მიხედვით: უნივერსიტეტი 1918 წელს დაარსდა."
   },
   "src": [],
   "regno": "5314",
@@ -1086,9 +1086,9 @@
    "ka": "აბრეშუმის მუზეუმი"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1891. Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1891. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1891. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1891. Год основания учреждения реестр не указывает. По статье ka.wikipedia «აბრეშუმის სახელმწიფო მუზეუმი»: музей основан в 1887 г. (при Кавказской шелководческой станции).",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1891. The register does not give the year the institution was founded. From the ka.wikipedia article 'აბრეშუმის სახელმწიფო მუზეუმი': the museum was founded in 1887 (at the Caucasian silk-breeding station).",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1891. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. ka.wikipedia-ს სტატიის „აბრეშუმის სახელმწიფო მუზეუმი“ მიხედვით: მუზეუმი 1887 წელს დაარსდა (კავკასიის მეაბრეშუმეობის სადგურთან)."
   },
   "src": [],
   "regno": "5185",
@@ -1313,9 +1313,9 @@
    "ka": "გიორგი ჩიტაიას სახელობის ეთნოგრაფიული მუზეუმი ღია ცის ქვეშ"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1966. Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1966. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1966. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1966. Год основания учреждения реестр не указывает. По статье en.wikipedia «Tbilisi Open Air Museum of Ethnography»: музей основан в 1966 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1966. The register does not give the year the institution was founded. From the en.wikipedia article 'Tbilisi Open Air Museum of Ethnography': the museum was founded in 1966.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1966. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. en.wikipedia-ს სტატიის „Tbilisi Open Air Museum of Ethnography“ მიხედვით: მუზეუმი 1966 წელს დაარსდა."
   },
   "src": [],
   "regno": "",
@@ -1334,9 +1334,9 @@
    "ka": "იაკობ ნიკოლაძის სახლ-მუზეუმი"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания в реестре не указана. Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. The date of the building is not given in the register. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. რეესტრში შენობის თარიღი მითითებული არ არის. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания в реестре не указана. Год основания учреждения реестр не указывает. По статье ka.wikipedia «იაკობ ნიკოლაძის სახლ-მუზეუმი»: дом-музей основан в 1951 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. The date of the building is not given in the register. The register does not give the year the institution was founded. From the ka.wikipedia article 'იაკობ ნიკოლაძის სახლ-მუზეუმი': the house-museum was founded in 1951.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. რეესტრში შენობის თარიღი მითითებული არ არის. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. ka.wikipedia-ს სტატიის „იაკობ ნიკოლაძის სახლ-მუზეუმი“ მიხედვით: სახლ-მუზეუმი 1951 წელს დაარსდა."
   },
   "src": [],
   "regno": "7083",
@@ -1360,9 +1360,9 @@
    "ka": "თბილისის ვ. აბაშიძის სახელობის მუსიკალური კომედიისა და დრამის სახელმწიფო თეატრი"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания в реестре не указана. Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. The date of the building is not given in the register. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. რეესტრში შენობის თარიღი მითითებული არ არის. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания в реестре не указана. Год основания учреждения реестр не указывает. По статье ru.wikipedia «Тбилисский театр музыки и драмы имени Васо Абашидзе»: театр основан в 1926 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. The date of the building is not given in the register. The register does not give the year the institution was founded. From the ru.wikipedia article on the theatre: the theatre was founded in 1926.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. რეესტრში შენობის თარიღი მითითებული არ არის. რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. ru.wikipedia-ს სტატიის მიხედვით: თეატრი 1926 წელს დაარსდა."
   },
   "src": [],
   "regno": "",
@@ -1408,9 +1408,9 @@
    "ka": "თბილისის არქეოლოგიური მუზეუმი"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1801–2000; на шкале взят конец диапазона (2000). Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1801–2000; the end of the range (2000) is used on the timeline. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1801–2000; დროის სკალაზე აღებულია დიაპაზონის ბოლო (2000). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1801–2000; на шкале взят конец диапазона (2000). Год основания учреждения реестр не указывает. По статье ka.wikipedia «თბილისის არქეოლოგიური მუზეუმი»: музей основан в 1988 г.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1801–2000; the end of the range (2000) is used on the timeline. The register does not give the year the institution was founded. From the ka.wikipedia article 'თბილისის არქეოლოგიური მუზეუმი': the museum was founded in 1988.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1801–2000; დროის სკალაზე აღებულია დიაპაზონის ბოლო (2000). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. ka.wikipedia-ს სტატიის „თბილისის არქეოლოგიური მუზეუმი“ მიხედვით: მუზეუმი 1988 წელს დაარსდა."
   },
   "src": [],
   "regno": "",
