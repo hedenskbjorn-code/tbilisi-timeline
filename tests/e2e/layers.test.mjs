@@ -58,6 +58,25 @@ test("the plan of the year is on the map (1887)", async () => {
   assert.equal(await ev((id) => window.TT_E2E.map.getLayoutProperty("plan-" + id, "visibility"), p.id), "visible");
 });
 
+test("the plan shows its light copy first and the full picture when the map is zoomed in", async () => {
+  const plans = JSON.parse(fs.readFileSync(path.join(DATA, "plans.json"), "utf8"));
+  const p = plans.find((x) => x.year === 1887);
+  const url = () => ev((id) => window.TT_E2E.map.getSource("plan-" + id).url, p.id);
+  assert.ok((await url()).endsWith(p.overview), "the light copy is not used at the starting scale: " + (await url()));
+  await ev(() => window.TT_E2E.map.jumpTo({ zoom: 15.5 }));
+  await page.waitForFunction(([id, full]) => window.TT_E2E.map.getSource("plan-" + id).url.endsWith(full), [p.id, p.image], { timeout: 15000 });
+  await ev(() => window.TT_E2E.map.jumpTo({ zoom: 13.2 }));
+});
+
+test("on a screen with a dense pixel grid the full picture comes at once, after the first screen", async () => {
+  const plans = JSON.parse(fs.readFileSync(path.join(DATA, "plans.json"), "utf8"));
+  const p = plans.find((x) => x.year === 1887);
+  const pg = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1887`, { dpr: 2 });
+  await waitReady(pg);
+  await pg.waitForFunction(([id, full]) => window.TT_E2E.map.getSource("plan-" + id).url.endsWith(full), [p.id, p.image], { timeout: 20000 });
+  await pg.ctx.close();
+});
+
 test("no errors in the console after all of this", async () => {
   assert.deepEqual(realErrors(page), []);
 });

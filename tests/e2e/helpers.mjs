@@ -42,8 +42,8 @@ export async function launch() {
 }
 
 // a page with the collected errors of the console and of the page: page.errors
-export async function openPage(browser, url, { width = 1280, height = 800, throttle = null } = {}) {
-  const ctx = await browser.newContext({ viewport: { width, height }, serviceWorkers: "block", locale: "en-US" });
+export async function openPage(browser, url, { width = 1280, height = 800, throttle = null, dpr = 1 } = {}) {
+  const ctx = await browser.newContext({ viewport: { width, height }, serviceWorkers: "block", locale: "en-US", deviceScaleFactor: dpr });
   // hermetic: nothing but the local server is reachable (the tests must not depend on third-party hosts)
   await ctx.route((u) => !/^(127\.0\.0\.1|localhost)$/.test(u.hostname), (r) => r.abort());
   const page = await ctx.newPage();

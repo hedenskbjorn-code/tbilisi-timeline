@@ -1,5 +1,5 @@
 {
-  "note": "Budgets of the first screen of the main page (?base=off, gzip, without the tiles of the base map). To be lowered after the work on speed (plan 1887 is 2.4 MB, the first view took 21 s at 1.6 Mbit/s before it).",
-  "firstLoadKB": 4300,
-  "throttledSeconds": 40
+  "note": "Budgets of the first screen of the main page (?base=off, gzip, without the tiles of the base map). Measured on 2026-11-21: before the light copies of the plans 3670 KB and 19.7 s, after 1542 KB and 8.6 s (1.6 Mbit/s, 150 ms).",
+  "firstLoadKB": 1700,
+  "throttledSeconds": 12
 }

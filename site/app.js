@@ -1,3 +1,4 @@
+import { getJSON, prefetchJSON } from "./js/net.js";
 (() => {
   "use strict";
   // The timeline starts at the earliest written evidence of the fortress (about 364, see "About"); the long early period is
@@ -350,12 +351,32 @@
   }
   function ensurePlan(p) {
     if (map.getLayer("plan-" + p.id)) return;
-    map.addSource("plan-" + p.id, { type: "image", url: p.image, coordinates: p.corners });
+    map.addSource("plan-" + p.id, { type: "image", url: p.overview || p.image, coordinates: p.corners });      // the light copy first (see upgradePlans)
+    p._full = !p.overview;
     map.addLayer({ id: "plan-" + p.id, type: "raster", source: "plan-" + p.id, layout: { visibility: "none" },
                    paint: { "raster-opacity": planOpacity(), "raster-fade-duration": 0 } }, "admin-line");
     liftTransport();
     if (dataReady) { setLoading("loadPlan", true); map.once("idle", hideLoading); }
   }
+  // The first screen shows the light copy of a plan (p.overview, about 8 m per pixel, made by tools/make_plan_overviews.py): it is as sharp as the screen at the
+  // starting scale and 10 times lighter than the full picture. The full picture takes its place when it is needed: when the map is zoomed in until a pixel of the
+  // overview is bigger than a pixel of the screen, or at once (in the background, after the first screen) on a screen with a dense pixel grid. No quality is lost.
+  function planNeedsFull(p) {
+    const zNeed = Math.log2(156543.03 * Math.cos(41.7 * Math.PI / 180) / (p.overview_mpp || 8)) - 0.3;
+    return map.getZoom() + Math.log2(window.devicePixelRatio || 1) >= zNeed;
+  }
+  function upgradePlans() {
+    if (!dataReady) return;                                                  // the first screen first
+    for (const p of plans) {
+      if (p._full || !p.overview) continue;
+      const src = map.getSource("plan-" + p.id);
+      if (!src || map.getLayoutProperty("plan-" + p.id, "visibility") !== "visible" || !planNeedsFull(p)) continue;
+      p._full = true;
+      src.updateImage({ url: p.image, coordinates: p.corners });
+    }
+  }
+  map.on("zoomend", upgradePlans);
+  map.on("idle", upgradePlans);
 
   // the periods of the history of Georgia as the sections of the tests for the Georgian citizenship (2024): 4th-10th, 11th-15th, 16th-18th centuries, 19th century - 1921, from 1921.
   // The select shows the period of the year on the slider; a choice jumps to the beginning of the period.
@@ -1729,32 +1750,6 @@
     }), { id: p.id, name: p.name, reg: p.reg });
     addPhotoLink(el, "mon:" + p.id, !p.ph);
     setObjParam(p.id, showPopup("300px", lngLat, el));
-  }
-
-  // JSON loader with retries (a dropped connection must not leave a layer silently empty)
-  // The data files are requested all at once as soon as the script runs (they used to be requested one after another only after the base map had loaded);
-  // getJSON takes the request that is already on its way and falls back to its own retries if that one failed.
-  const prefetched = new Map();
-  function prefetchJSON(urls) {
-    for (const u of urls) {
-      const p = fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
-      p.catch(() => {});                                                 // the failure is handled by getJSON, nothing is left unhandled
-      prefetched.set(u, p);
-    }
-  }
-  async function getJSON(url, tries = 4) {
-    const pre = prefetched.get(url);
-    if (pre) { prefetched.delete(url); try { return await pre; } catch (e) { /* retry below */ } }
-    for (let k = 0; ; k++) {
-      try {
-        const r = await fetch(url);
-        if (!r.ok) throw new Error(r.status);
-        return await r.json();
-      } catch (e) {
-        if (k >= tries - 1) throw e;
-        await new Promise((res) => setTimeout(res, 400 * (k + 1)));
-      }
-    }
   }
 
   function goOffline() {
