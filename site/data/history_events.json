@@ -57,7 +57,12 @@
    ],
    "ru": "Иран упраздняет царскую власть в Картли и сажает в Тбилиси своего наместника (марзпана); одновременно в городе сидит картлийский эристав, который чеканит монету с грузинской надписью",
    "en": "Iran abolishes the kingship in Kartli and installs its own governor (marzban) in Tbilisi; at the same time the eristavi of Kartli sits in the city and strikes coins with a Georgian inscription",
-   "ka": "ირანმა ქართლში მეფობა გააუქმა და თბილისში თავისი მოხელე, მარზპანი დასვა; იმავდროულად ქართლის ერისმთავარი თბილისში იჯდა და ქართული წარწერით ფულს ჭრიდა"
+   "ka": "ირანმა ქართლში მეფობა გააუქმა და თბილისში თავისი მოხელე, მარზპანი დასვა; იმავდროულად ქართლის ერისმთავარი თბილისში იჯდა და ქართული წარწერით ფულს ჭრიდა",
+   "note": {
+    "ru": "Сверено по книге: «Картлис Цховреба», рус. пер. (Тбилиси, 2008), комм. 5 (с. 130): в 523 г. персы запретили иметь суверенного правителя в Иберии-Картли (со ссылкой на «Очерки истории Грузии», т. II, с. 247); в 532 г. Грузия была разделена между Ираном и Византией. Марзпан и чеканка монеты на этой странице не названы.",
+    "en": "Checked against the book: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), comm. 5 (p. 130): in 523 the Persians forbade a sovereign ruler in Iberia-Kartli (with a reference to 'Essays on the History of Georgia', vol. II, p. 247); in 532 Georgia was divided between Iran and Byzantium. The marzban and the coinage are not named on this page.",
+    "ka": "შედარებულია წიგნთან: „ქართლის ცხოვრება“, რუს. თარგმანი (თბილისი, 2008), კომ. 5 (გვ. 130): 523 წ. სპარსელებმა იბერია-ქართლში სუვერენული მმართველის ყოლა აკრძალეს (მითითებით „საქართველოს ისტორიის ნარკვევებზე“, ტ. II, გვ. 247); 532 წ. საქართველო ირანსა და ბიზანტიას შორის გაიყო. მარზპანი და მონეტის მოჭრა ამ გვერდზე დასახელებული არ არის."
+   }
   },
   {
    "year": 550,
@@ -260,6 +265,22 @@
    }
   },
   {
+   "year": 914,
+   "date": "914",
+   "cat": "invasion",
+   "src": [
+    "https://en.wikipedia.org/wiki/Sajid_invasion_of_Georgia"
+   ],
+   "ru": "Саджидский эмир Юсуф ибн Абу-с-Садж вторгается в грузинские земли: сначала доходит до Тбилиси, затем поворачивает на Кахети.",
+   "en": "The Sajid emir Yusuf ibn Abi'l-Saj invades Georgian lands: he first reaches Tbilisi, then turns towards Kakheti.",
+   "ka": "საჯიდების ამირა იუსუფ იბნ აბუ-ს-საჯი ქართულ მიწებზე იჭრება: ჯერ თბილისამდე აღწევს, შემდეგ კახეთისკენ უხვევს.",
+   "note": {
+    "ru": "По статье en.wikipedia «Sajid invasion of Georgia»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Sajid invasion of Georgia'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Sajid invasion of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
    "year": 1037,
    "date": "1037-1039",
    "cat": "battle",
@@ -299,7 +320,12 @@
    ],
    "ru": "Умирает тбилисский эмир Джафар; власть переходит к старейшинам города («тбилисским берам»): Тбилиси фактически становится городом-коммуной, власть старейшин сохраняется до 1122 года",
    "en": "The emir of Tbilisi Jafar dies; power passes to the elders of the city (the 'Tbilisi beri'): Tbilisi becomes in effect a city-commune, and the rule of the elders lasts until 1122",
-   "ka": "თბილისის ამირა ჯაფარი გარდაიცვალა; ხელისუფლება ქალაქის უხუცესებს, „თბილელ ბერებს“ გადაეცა: თბილისი არსებითად ქალაქ-კომუნად იქცა, ბერების ხელისუფლება 1122 წლამდე შენარჩუნდა"
+   "ka": "თბილისის ამირა ჯაფარი გარდაიცვალა; ხელისუფლება ქალაქის უხუცესებს, „თბილელ ბერებს“ გადაეცა: თბილისი არსებითად ქალაქ-კომუნად იქცა, ბერების ხელისუფლება 1122 წლამდე შენარჩუნდა",
+   "note": {
+    "ru": "Сверено по книге: «Картлис Цховреба», рус. пер. (Тбилиси, 2008), с. 155: когда царь Баграт осаждал Анакопию, к нему прибыли тбилисские бэры, «т. к. перед тем скончался тбилисский эмир Джафар», и обещали ему город. Год в этом фрагменте не назван.",
+    "en": "Checked against the book: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 155: while King Bagrat was besieging Anakopia, the beri of Tbilisi came to him, 'because the emir of Tbilisi, Jafar, had died before that', and promised him the city. The year is not named in this passage.",
+    "ka": "შედარებულია წიგნთან: „ქართლის ცხოვრება“, რუს. თარგმანი (თბილისი, 2008), გვ. 155: როდესაც მეფე ბაგრატი ანაკოფიას უტევდა, მასთან თბილისელი ბერები (ქალაქის უხუცესები) მივიდნენ, „რადგან მანამდე გარდაიცვალა თბილისის ამირა ჯაფარი“, და ქალაქი აღუთქვეს. წელი ამ ფრაგმენტში დასახელებული არ არის."
+   }
   },
   {
    "year": 1046,
@@ -312,9 +338,9 @@
     "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8"
    ],
    "note": {
-    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись. В статье царь назван «Баграт III»; по хронологии (Баграт III умер в 1014 году) это, скорее всего, Баграт IV: это моя оценка, она не проверена. Описание дано по «Летописи Картли» в цитате статьи.",
-    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked. The article calls the king 'Bagrat III'; by chronology (Bagrat III died in 1014) it is most likely Bagrat IV: this is my estimate, not checked. The description is from the Chronicle of Kartli as quoted in the article.",
-    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა. სტატიაში მეფე „ბაგრატ III“-ადაა დასახელებული; ქრონოლოგიით (ბაგრატ III გარდაიცვალა 1014 წელს) ეს, სავარაუდოდ, ბაგრატ IV-ა: ეს ჩემი შეფასებაა, შემოწმებული არ არის. აღწერა მოცემულია „ქართლის ცხოვრების“ მიხედვით, სტატიის ციტატაში."
+    "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись. В статье царь назван «Баграт III»; по хронологии (Баграт III умер в 1014 году) это, скорее всего, Баграт IV: это моя оценка, она не проверена. Описание дано по «Летописи Картли» в цитате статьи. Сверено по книге: «Картлис Цховреба», рус. пер. (Тбилиси, 2008), с. 155: царь пришёл в Тбилиси; городские бэры и дворцовые слуги вышли навстречу верхом на Дигомское поле, народ пешком; царя ввели в город. Год в этом фрагменте не назван.",
+    "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked. The article calls the king 'Bagrat III'; by chronology (Bagrat III died in 1014) it is most likely Bagrat IV: this is my estimate, not checked. The description is from the Chronicle of Kartli as quoted in the article. Checked against the book: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 155: the king came to Tbilisi; the city beri and the palace servants rode out to meet him on the Digomi field, the people on foot; the king was led into the city. The year is not named in this passage.",
+    "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა. სტატიაში მეფე „ბაგრატ III“-ადაა დასახელებული; ქრონოლოგიით (ბაგრატ III გარდაიცვალა 1014 წელს) ეს, სავარაუდოდ, ბაგრატ IV-ა: ეს ჩემი შეფასებაა, შემოწმებული არ არის. აღწერა მოცემულია „ქართლის ცხოვრების“ მიხედვით, სტატიის ციტატაში. შედარებულია წიგნთან: „ქართლის ცხოვრება“, რუს. თარგმანი (თბილისი, 2008), გვ. 155: მეფე თბილისში მივიდა; ქალაქის ბერები (უხუცესები) და სასახლის მსახურები ცხენებით შეეგებნენ დიღმის ველზე, ხალხი — ქვეითად; მეფე ქალაქში შეიყვანეს. წელი ამ ფრაგმენტში დასახელებული არ არის."
    },
    "place": {
     "lng": 44.80861111,
@@ -536,6 +562,11 @@
     "en": "Didgori valley",
     "ka": "დიდგორის ველი",
     "src": "coordinates of the page 'Battle of Didgori' on English Wikipedia"
+   },
+   "note": {
+    "ru": "Сверено по книге: «Картлис Цховреба», рус. пер. (Тбилиси, 2008), с. 192–193: двенадцатого августа войска противников собрались в Триалети, Манглиси и Дидгори, царь Давид «в первой же битве» рассеял их стан; «в следующем же году» он взял Тбилиси, «четыреста лет бывший во владении персов» (с. 193). Год в этом фрагменте не назван.",
+    "en": "Checked against the book: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), pp. 192-193: on the twelfth of August the enemy armies gathered in Trialeti, Manglisi and Didgori, King David 'in the very first battle' scattered their camp; 'in the very next year' he took Tbilisi, 'for four hundred years in the possession of the Persians' (p. 193). The year is not named in this passage.",
+    "ka": "შედარებულია წიგნთან: „ქართლის ცხოვრება“, რუს. თარგმანი (თბილისი, 2008), გვ. 192–193: თორმეტ აგვისტოს მოწინააღმდეგეთა ჯარები თრიალეთში, მანგლისსა და დიდგორში შეიკრიბნენ, მეფე დავითმა „პირველსავე ბრძოლაში“ დაფანტა მათი ბანაკი; „მომდევნო წელსვე“ მან აიღო თბილისი, „ოთხას წელს სპარსელთა მფლობელობაში მყოფი“ (გვ. 193). წელი ამ ფრაგმენტში დასახელებული არ არის."
    }
   },
   {
@@ -669,9 +700,9 @@
    "en": "The battle of Shamkor: the Georgian army commanded by David Soslan (in the reign of Queen Tamar) defeats the army of the Eldiguzid Abu Bakr",
    "ka": "შამქორის ბრძოლა: დავით სოსლანის სარდლობით ქართველთა ჯარმა (დედოფალ თამარის მეფობისას) ელდიგუზიდ აბუ ბაქრის ჯარი დაამარცხა",
    "note": {
-    "ru": "По статье en.wikipedia «Battle of Shamkor»: дата, участники и исход по статье; первоисточники не проверялись. Царица Тамара в бою лично не участвовала: войском командовал Давид Сослани. Булавка стоит на координатах страницы статьи. В доступных книгах не найдено, остаётся только статья en.wikipedia.",
-    "en": "From the en.wikipedia article 'Battle of Shamkor': the date, the participants and the result are those of the article; the primary sources were not checked. Queen Tamar did not take part in the battle in person: the army was commanded by David Soslan. The pin stands at the coordinates of the page of the article. Not found in the available books, only the en.wikipedia article remains.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Shamkor“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა. დედოფალი თამარი ბრძოლაში პირადად არ მონაწილეობდა: ჯარს დავით სოსლანი მეთაურობდა. ნიშანი სტატიის გვერდის კოორდინატებზე დგას. ხელმისაწვდომ წიგნებში ვერ მოიძებნა, რჩება მხოლოდ en.wikipedia-ს სტატია."
+    "ru": "По статье en.wikipedia «Battle of Shamkor»: дата, участники и исход по статье; первоисточники не проверялись. Царица Тамара в бою лично не участвовала: войском командовал Давид Сослани. Булавка стоит на координатах страницы статьи. Сверено по книге: «Картлис Цховреба», рус. пер. (Тбилиси, 2008), с. 272–273: войска Давида вступили в область Шамхорскую 1 июня, «с четверга на пятницу»; жители Шамхора вынесли ключи от города. Год в этом фрагменте не назван.",
+    "en": "From the en.wikipedia article 'Battle of Shamkor': the date, the participants and the result are those of the article; the primary sources were not checked. Queen Tamar did not take part in the battle in person: the army was commanded by David Soslan. The pin stands at the coordinates of the page of the article. Checked against the book: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), pp. 272-273: David's army entered the region of Shamkhor on 1 June, 'from Thursday to Friday'; the people of Shamkhor brought the keys of the city. The year is not named in this passage.",
+    "ka": "en.wikipedia-ს სტატიის „Battle of Shamkor“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა. დედოფალი თამარი ბრძოლაში პირადად არ მონაწილეობდა: ჯარს დავით სოსლანი მეთაურობდა. ნიშანი სტატიის გვერდის კოორდინატებზე დგას. შედარებულია წიგნთან: „ქართლის ცხოვრება“, რუს. თარგმანი (თბილისი, 2008), გვ. 272–273: დავითის ჯარები შამქორის მხარეში 1 ივნისს შევიდნენ, „ხუთშაბათიდან პარასკევზე“; შამქორის მცხოვრებლებმა ქალაქის გასაღებები გამოიტანეს. წელი ამ ფრაგმენტში დასახელებული არ არის."
    },
    "place": {
     "lng": 46.0189,
@@ -1030,6 +1061,38 @@
    }
   },
   {
+   "year": 1259,
+   "date": "1259",
+   "cat": "power",
+   "src": [
+    "https://en.wikipedia.org/wiki/David_VI_of_Georgia"
+   ],
+   "ru": "Давид VI Нарин, соправитель Давида VII Улу (с 1246), отделяется и до 1293 г. правит царством Западной Грузии; Давид VII остаётся царём уменьшенного Грузинского царства на востоке.",
+   "en": "David VI Narin, co-king with David VII Ulu (from 1246), secedes and rules the Kingdom of Western Georgia until 1293; David VII remains king of the reduced Kingdom of Georgia in the east.",
+   "ka": "დავით VI ნარინი, დავით VII ულუს თანამმართველი (1246 წლიდან), გამოეყოფა და 1293 წლამდე დასავლეთ საქართველოს სამეფოს მართავს; დავით VII აღმოსავლეთში შემცირებული საქართველოს სამეფოს მეფედ რჩება.",
+   "note": {
+    "ru": "По статье en.wikipedia «David VI of Georgia»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'David VI of Georgia'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „David VI of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1270,
+   "date": "1270",
+   "cat": "power",
+   "src": [
+    "https://en.wikipedia.org/wiki/Demetrius_II_of_Georgia"
+   ],
+   "ru": "Деметре II (род. 1259, сын Давида VII) становится царём Восточной Грузии (1270–1289) под властью монголов.",
+   "en": "Demetre II (born 1259, son of David VII) becomes king of Eastern Georgia (1270-1289) under Mongol rule.",
+   "ka": "დემეტრე II (დაბ. 1259, დავით VII-ის ძე) მონღოლთა ბატონობის ქვეშ აღმოსავლეთ საქართველოს მეფე ხდება (1270–1289).",
+   "note": {
+    "ru": "По статье en.wikipedia «Demetrius II of Georgia»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Demetrius II of Georgia'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Demetrius II of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
    "year": 1278,
    "date": "1278-1289",
    "cat": "oldest",
@@ -1052,6 +1115,38 @@
     "en": "Metekhi Church",
     "src": "coordinates of the page 'Metekhi Church' on English Wikipedia",
     "ka": "მეტეხის ტაძარი"
+   }
+  },
+  {
+   "year": 1289,
+   "date": "12.03.1289",
+   "cat": "power",
+   "src": [
+    "https://en.wikipedia.org/wiki/Demetrius_II_of_Georgia"
+   ],
+   "ru": "Царь Деметре II казнён монгольскими ильханами.",
+   "en": "King Demetre II is executed by the Mongol Ilkhans.",
+   "ka": "მეფე დემეტრე II მონღოლი ილხანების მიერ სიკვდილით დაისაჯა.",
+   "note": {
+    "ru": "По статье en.wikipedia «Demetrius II of Georgia»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Demetrius II of Georgia'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Demetrius II of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1293,
+   "date": "1293",
+   "cat": "power",
+   "src": [
+    "https://en.wikipedia.org/wiki/David_VIII_of_Georgia"
+   ],
+   "ru": "Ильхан Гайхату назначает Давида VIII царём Грузии за военную службу во время восстания в Руме (Малая Азия); его власть распространяется только на восточную часть царства.",
+   "en": "The Ilkhan Gaykhatu appoints David VIII king of Georgia as a reward for his military service during the uprising in Rum (Asia Minor); his rule extends only over the eastern part of the kingdom.",
+   "ka": "ილხანი ქეღათუ დავით VIII-ს საქართველოს მეფედ ნიშნავს რუმში (მცირე აზია) აჯანყების დროს გაწეული სამხედრო სამსახურისთვის; მისი ძალაუფლება მხოლოდ სამეფოს აღმოსავლეთ ნაწილზე ვრცელდება.",
+   "note": {
+    "ru": "По статье en.wikipedia «David VIII of Georgia»; первоисточники не проверялись. Дата по en.wikipedia (1293); по ka.wikipedia («დავით VIII») Давид участвовал в походе Гайхату-хана против восстания в Руме (Малая Азия) в 1291 (1292) и после этого был утверждён царём.",
+    "en": "From the en.wikipedia article 'David VIII of Georgia'; the primary sources were not checked. The date is from en.wikipedia (1293); according to ka.wikipedia ('დავით VIII') David took part in Gaykhatu's campaign against the uprising in Rum (Asia Minor) in 1291 (1292) and was confirmed king after it.",
+    "ka": "en.wikipedia-ს სტატიის „David VIII of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა. თარიღი en.wikipedia-ს მიხედვით (1293); ka.wikipedia-ს („დავით VIII“) მიხედვით, დავითი მონაწილეობდა ქეღათუ-ხანის ლაშქრობაში რუმში (მცირე აზია) აჯანყების წინააღმდეგ 1291 (1292) წელს და ამის შემდეგ მეფედ დამტკიცდა."
    }
   },
   {
@@ -1267,6 +1362,54 @@
    }
   },
   {
+   "year": 1387,
+   "date": "1387",
+   "cat": "invasion",
+   "src": [
+    "https://en.wikipedia.org/wiki/Timur%27s_invasions_of_Georgia"
+   ],
+   "ru": "Весной 1387 г. начинается новый поход Тимура на Грузию (после разорения Тбилиси в 1386 г.).",
+   "en": "In spring 1387 a new campaign of Timur against Georgia begins (after the sack of Tbilisi in 1386).",
+   "ka": "1387 წლის გაზაფხულზე თემურლენგის ახალი ლაშქრობა იწყება საქართველოზე (1386 წელს თბილისის აოხრების შემდეგ).",
+   "note": {
+    "ru": "По статье en.wikipedia «Timur's invasions of Georgia»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Timur's invasions of Georgia'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Timur's invasions of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1403,
+   "date": "1403",
+   "cat": "invasion",
+   "src": [
+    "https://en.wikipedia.org/wiki/Timur%27s_invasions_of_Georgia"
+   ],
+   "ru": "Тимур берёт крепость Биртвиси (август 1403) и посылает войска разорять пограничные области Грузии; по его историку, разрушено 700 городов.",
+   "en": "Timur captures the fortress of Birtvisi (August 1403) and sends his army to plunder the frontier regions of Georgia; his historian reports 700 towns destroyed.",
+   "ka": "თემურლენგი იღებს ბირთვისის ციხეს (1403 წლის აგვისტო) და ჯარებს საქართველოს სასაზღვრო მხარეების ასაოხრებლად გზავნის; მისი ისტორიკოსის ცნობით, განადგურებულია 700 ქალაქი.",
+   "note": {
+    "ru": "По статье en.wikipedia «Timur's invasions of Georgia»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Timur's invasions of Georgia'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Timur's invasions of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
+   "year": 1412,
+   "date": "1412",
+   "cat": "power",
+   "src": [
+    "https://en.wikipedia.org/wiki/Alexander_I_of_Georgia"
+   ],
+   "ru": "Александр I Великий становится царём Грузии (1412–1442); его правление отмечено масштабным восстановлением и строительством.",
+   "en": "Alexander I the Great becomes king of Georgia (1412-1442); his reign is marked by extensive reconstruction and building projects.",
+   "ka": "ალექსანდრე I დიდი საქართველოს მეფე ხდება (1412–1442); მისი მეფობა მასშტაბური აღდგენითა და მშენებლობით აღინიშნა.",
+   "note": {
+    "ru": "По статье en.wikipedia «Alexander I of Georgia»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Alexander I of Georgia'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Alexander I of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
+  },
+  {
    "year": 1440,
    "date": "1440",
    "cat": "invasion",
@@ -1291,6 +1434,22 @@
     "en": "Tbilisi (the whole city)",
     "ka": "თბილისი (მთელი ქალაქი)",
     "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
+   }
+  },
+  {
+   "year": 1466,
+   "date": "1466",
+   "cat": "power",
+   "src": [
+    "https://en.wikipedia.org/wiki/Kingdom_of_Georgia"
+   ],
+   "ru": "Баграт входит в Тбилиси и провозглашает себя царём Грузии (Баграт VI): в 1465 г. Георгий VIII взят в плен атабагом Самцхе Кваркваре II Джакели.",
+   "en": "Bagrat enters Tbilisi and proclaims himself King of Georgia (Bagrat VI): in 1465 George VIII was captured by Qvarqvare II Jaqeli, the atabeg of Samtskhe.",
+   "ka": "ბაგრატი თბილისში შედის და საქართველოს მეფედ (ბაგრატ VI) აცხადებს თავს: 1465 წელს გიორგი VIII სამცხის ათაბაგმა ყვარყვარე II ჯაყელმა ტყვედ ჩაიგდო.",
+   "note": {
+    "ru": "По статье en.wikipedia «Kingdom of Georgia»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Kingdom of Georgia'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Kingdom of Georgia“ მიხედვით; პირველწყაროები არ შემოწმებულა."
    }
   },
   {
@@ -1824,6 +1983,22 @@
     "ka": "კატალოგის ცხრილში 13 ივნისია (22:30), მოგზაურის ციტატაში 13 ივლისი. ავტორების შეფასება: MS 4,2, ინტენსივობა 6-7 (გვ. 48-49). პარამეტრები (მაგნიტუდა, ინტენსივობა, სიღრმე) ავტორებმა გამოთვალეს მაკროსეისმური აღწერების მიხედვით და ისინი სავარაუდოა."
    },
    "ka": "მიწისძვრა თბილისში: მეფე გიორგის კარზე ქორწილის დროს ღამით სახლები ირყეოდა, მხოლოდ დაბალი სახლები გადარჩა (იტალიელი მოგზაურის ფარლის მიხედვით)"
+  },
+  {
+   "year": 1688,
+   "date": "1688",
+   "cat": "power",
+   "src": [
+    "https://en.wikipedia.org/wiki/Heraclius_I_of_Kakheti"
+   ],
+   "ru": "Ираклий I (Назар-Али-хан) становится царём Картли (1688–1703) под покровительством сефевидского Ирана.",
+   "en": "Heraclius I (Nazar-Ali-Khan) becomes king of Kartli (1688-1703) under the protection of Safavid Iran.",
+   "ka": "ერეკლე I (ნაზარ-ალი-ხანი) სეფიანთა ირანის მფარველობით ქართლის მეფე ხდება (1688–1703).",
+   "note": {
+    "ru": "По статье en.wikipedia «Heraclius I of Kakheti»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Heraclius I of Kakheti'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Heraclius I of Kakheti“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   }
   },
   {
    "year": 1709,
@@ -4899,6 +5074,22 @@
     "ru": "Декабрь 1950 года указан на сайте института. В русской статье об Андроникашвили сказано, что он работал в Институте физики АН Грузинской ССР с 1942 года (директор с 1951), то есть источники расходятся.",
     "en": "December 1950 is given on the website of the institute. The Russian article on Andronikashvili says that he worked at the Institute of Physics of the Georgian SSR Academy from 1942 (director from 1951), so the sources differ.",
     "ka": "ინსტიტუტის ვებსაიტზე 1950 წლის დეკემბერია მითითებული. ანდრონიკაშვილის შესახებ რუსულ სტატიაში წერია, რომ ის საქართველოს სსრ მეცნიერებათა აკადემიის ფიზიკის ინსტიტუტში 1942 წლიდან მუშაობდა (დირექტორი 1951 წლიდან), ანუ წყაროები განსხვავდება."
+   }
+  },
+  {
+   "year": 1952,
+   "date": "1952",
+   "cat": "build",
+   "src": [
+    "https://en.wikipedia.org/wiki/Tbilisi_Metro"
+   ],
+   "ru": "Начато строительство Тбилисского метрополитена.",
+   "en": "Construction of the Tbilisi Metro begins.",
+   "ka": "დაიწყო თბილისის მეტროპოლიტენის მშენებლობა.",
+   "note": {
+    "ru": "По статье en.wikipedia «Tbilisi Metro»; первоисточники не проверялись.",
+    "en": "From the en.wikipedia article 'Tbilisi Metro'; the primary sources were not checked.",
+    "ka": "en.wikipedia-ს სტატიის „Tbilisi Metro“ მიხედვით; პირველწყაროები არ შემოწმებულა."
    }
   },
   {
