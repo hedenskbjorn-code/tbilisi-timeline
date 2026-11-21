@@ -16,7 +16,7 @@ const MIME = { ".html": "text/html;charset=utf-8", ".js": "text/javascript", ".m
   ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".webmanifest": "application/manifest+json", ".pbf": "application/x-protobuf", ".geojson": "application/json" };
 const ZIP = new Set([".html", ".js", ".mjs", ".json", ".css", ".svg", ".geojson", ".webmanifest"]);
 
-export function startServer() {
+export function startServer(port = 0, host = "127.0.0.1") {
   const srv = http.createServer((req, res) => {
     let p = decodeURIComponent(req.url.split("?")[0]);
     if (p.endsWith("/")) p += "index.html";
@@ -32,7 +32,7 @@ export function startServer() {
       res.end(d);
     });
   });
-  return new Promise((resolve) => srv.listen(0, "127.0.0.1", () => resolve({ srv, url: "http://127.0.0.1:" + srv.address().port })));
+  return new Promise((resolve) => srv.listen(port, host, () => resolve({ srv, url: "http://127.0.0.1:" + srv.address().port })));
 }
 
 export async function launch() {
