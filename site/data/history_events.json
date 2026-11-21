@@ -104,6 +104,15 @@
     "ru": "ru.wikipedia (История Тбилиси): в 626 году Ираклий и хазары осадили город и после нескольких месяцев осады захватили его. Расхождение источников: по книге летом 627 года объединённому войску византийцев и тюрков взять Тбилиси не удалось из-за отчаянного сопротивления защитников; город взят в 628 году (см. событие 628). «История Грузии» (в 4 томах), т. II (2012), с. 91.",
     "en": "ru.wikipedia (History of Tbilisi): in 626 Heraclius and the Khazars besieged the city and took it after several months of siege. The sources differ: according to the book the united army of the Byzantines and the Turks could not take Tbilisi in the summer of 627 because of the desperate resistance of the defenders; the city was taken in 628 (see the event of 628). 'History of Georgia' (4 volumes), vol. II (2012), p. 91.",
     "ka": "ru.wikipedia-ს („თბილისის ისტორია“) მიხედვით: 626 წელს ჰერაკლე და ხაზარები ქალაქს შემოადგნენ და რამდენიმეთვიანი ალყის შემდეგ აიღეს. წყაროები განსხვავდება: წიგნის მიხედვით 627 წლის ზაფხულს ბიზანტიელებისა და თურქების გაერთიანებულმა ლაშქარმა თბილისის აღება დამცველთა თავგანწირული ბრძოლის გამო ვერ მოახერხა; ქალაქი 628 წელს აიღეს (იხ. 628 წლის მოვლენა). „საქართველოს ისტორია“ (ოთხტომეული), ტ. II (2012), გვ. 91."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -199,7 +208,16 @@
    "src": [
     "https://en.wikipedia.org/wiki/History_of_Tbilisi"
    ],
-   "ka": "თბილისი დაარბიეს ხაზარებმა"
+   "ka": "თბილისი დაარბიეს ხაზარებმა",
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
+   }
   },
   {
    "year": 786,
@@ -230,7 +248,16 @@
     "en": "The Tbilisi page gives 852, History of Tbilisi: 853.",
     "ka": "გვერდი Tbilisi ასახელებს 852 წელს, History of Tbilisi: 853."
    },
-   "ka": "არაბი სარდალი ბუღა ალ-თურქი თბილისს თავს ესხმის"
+   "ka": "არაბი სარდალი ბუღა ალ-თურქი თბილისს თავს ესხმის",
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
+   }
   },
   {
    "year": 1037,
@@ -335,6 +362,15 @@
     "ru": "Иосселиани, «Описание древностей города Тифлиса» (1866), с. 19. Сверено по изображению страницы.",
     "en": "Ioseliani, 'Description of the antiquities of the city of Tiflis' (1866), p. 19. Checked against the image of the page.",
     "ka": "პლატონ იოსელიანი, „თბილისის სიძველეთა აღწერა“ (1866), გვ. 19. შემოწმებულია გვერდის გამოსახულებით."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -352,7 +388,16 @@
     "en": "The Tbilisi page: 1065, the city is subjugated by Alp Arslan.",
     "ka": "გვერდი Tbilisi: 1065, ქალაქი ალფ-არსლანმა დაიმორჩილა."
    },
-   "ka": "თბილისი დაარბიეს სელჯუკებმა (ალფ-არსლანი)"
+   "ka": "თბილისი დაარბიეს სელჯუკებმა (ალფ-არსლანი)",
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
+   }
   },
   {
    "year": 1104,
@@ -366,11 +411,20 @@
    ],
    "ru": "Битва при Эрцухи: царь Давид IV Строитель разбивает сельджукское войско (в статье противник назван Манучихр ибн Шавур)",
    "en": "The battle of Ertsukhi: King David IV the Builder defeats the Seljuk army (the article names the opponent as Manuchihr ibn Shavur)",
-   "ka": "ერცუხის ბრძოლა: მეფე დავით IV აღმაშენებელმა სელჩუკთა ჯარი დაამარცხა (სტატიაში მოწინააღმდეგედ მანუჩიჰრ იბნ შავურს ასახელებენ)",
+   "ka": "ერწუხის ბრძოლა: მეფე დავით IV აღმაშენებელმა სელჩუკთა ჯარი დაამარცხა (სტატიაში მოწინააღმდეგედ მანუჩიჰრ იბნ შავურს ასახელებენ)",
    "note": {
-    "ru": "По статье en.wikipedia «Battle of Ertsukhi»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). У статьи нет координат, булавки нет. Сверено по книгам: «Картлис Цховреба», рус. пер. (Тбилиси, 2008) с. 186 и комм. 62 (с. 207): битва при Эрцухи в 1104 году, Давид с малым войском разбил войско султана и атабага Гандзы; комментарий относит место к современному Саингило (Азербайджан), поэтому булавки нет. В книге противник назван иначе, чем в статье (султан и атабаг Гандзы, а не Манучихр ибн Шавур).",
-    "en": "From the en.wikipedia article 'Battle of Ertsukhi': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The article has no coordinates, so there is no pin. Checked against the books: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 186 and comm. 62 (p. 207): the battle of Ertsukhi in 1104, David with a small army defeated the army of the sultan and the atabeg of Ganja; the commentary places the site in present-day Saingilo (Azerbaijan), so there is no pin. The book names the opponent differently from the article (the sultan and the atabeg of Ganja, not Manuchihr ibn Shavur).",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Ertsukhi“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). სტატიას კოორდინატები არ აქვს, ამიტომ ნიშანი არ არის. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 186 და კომ. 62 (გვ. 207): ერცუხის ბრძოლა 1104 წელს, დავითმა მცირე ჯარით სულთნისა და განჯის ათაბაგის ჯარი დაამარცხა; კომენტარი ადგილს თანამედროვე საინგილოში (აზერბაიჯანი) ათავსებს, ამიტომ ნიშანი არ არის. წიგნში მოწინააღმდეგე სტატიისგან განსხვავებულადაა დასახელებული (სულთანი და განჯის ათაბაგი და არა მანუჩიჰრ იბნ შავური)."
+    "ru": "По статье en.wikipedia «Battle of Ertsukhi»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). У статьи нет координат. Сверено по книгам: «Картлис Цховреба», рус. пер. (Тбилиси, 2008) с. 186 и комм. 62 (с. 207): битва при Эрцухи в 1104 году, Давид с малым войском разбил войско султана и атабага Гандзы; комментарий относит место к современному Саингило (Азербайджан), булавка стоит в середине области Саингило (точка Закатальского района по Викиданным) и показывает место приблизительно: где именно был Эрцух, неизвестно. В книге противник назван иначе, чем в статье (султан и атабаг Гандзы, а не Манучихр ибн Шавур).",
+    "en": "From the en.wikipedia article 'Battle of Ertsukhi': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The article has no coordinates. Checked against the books: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 186 and comm. 62 (p. 207): the battle of Ertsukhi in 1104, David with a small army defeated the army of the sultan and the atabeg of Ganja; the commentary places the site in present-day Saingilo (Azerbaijan), the pin is in the middle of the region Saingilo (a point of Zaqatala District by Wikidata) and shows the place only approximately: where exactly Ertsukhi was is not known. The book names the opponent differently from the article (the sultan and the atabeg of Ganja, not Manuchihr ibn Shavur).",
+    "ka": "en.wikipedia-ს სტატიის „Battle of Ertsukhi“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). სტატიას კოორდინატები არ აქვს. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 186 და კომ. 62 (გვ. 207): ერწუხის ბრძოლა 1104 წელს, დავითმა მცირე ჯარით სულთნისა და განჯის ათაბაგის ჯარი დაამარცხა; კომენტარი ადგილს თანამედროვე საინგილოში (აზერბაიჯანი) ათავსებს; ნიშანი საინგილოს მხარის შუაშია (ზაქათალის რაიონის წერტილი Wikidata-ს მიხედვით) და ადგილს მიახლოებით აჩვენებს: ერწუხი ზუსტად სად იყო, უცნობია. წიგნში მოწინააღმდეგე სტატიისგან განსხვავებულადაა დასახელებული (სულთანი და განჯის ათაბაგი და არა მანუჩიჰრ იბნ შავური)."
+   },
+   "place": {
+    "lng": 46.716666666667,
+    "lat": 41.55,
+    "zoom": 9.5,
+    "ru": "Саингило (область; место боя приблизительно)",
+    "en": "Saingilo (a region; the place of the battle is approximate)",
+    "ka": "საინგილო (მხარე; ბრძოლის ადგილი მიახლოებითია)",
+    "src": "coordinates of the Wikidata item 'Zaqatala District' (Q147553): a point in the middle of the region Saingilo, which the commentary of Kartlis Tskhovreba (Russian translation, 2008, comm. 62) names as the place of Ertsukhi; the exact place is not known"
    }
   },
   {
@@ -389,7 +443,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Trialeti»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Точка условная: статья называет место «близ Триалети». Булавка стоит на координатах страницы статьи. Сверено по книгам: «Картлис Цховреба», рус. пер. (Тбилиси, 2008) с. 188: войско султана около ста тысяч; узнав вечером о нападении на Триалети, царь выступил с тысячью пятьюстами воинов, ехал всю ночь, на рассвете началась жестокая битва, к концу дня турки бежали. Год в книге на этой странице не назван (1110 по статье).",
     "en": "From the en.wikipedia article 'Battle of Trialeti': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The point is conventional: the article says 'near Trialeti'. The pin stands at the coordinates of the page of the article. Checked against the books: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 188: the sultan's army of about a hundred thousand; having learned in the evening of the attack on Trialeti, the king set out with fifteen hundred warriors, rode all night, a fierce battle began at dawn and by the end of the day the Turks fled. The year is not named in the book on this page (1110 by the article).",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Trialeti“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). წერტილი პირობითია: სტატია ადგილს „ტრიალეთთან ახლოს“ ასახელებს. ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 188: სულთნის ჯარი დაახლოებით ასი ათასი კაცი იყო; საღამოს ტრიალეთზე თავდასხმის ამბის გაგების შემდეგ მეფე ათას ხუთასი მეომრით გამოვიდა, მთელი ღამე იარა, განთიადზე სასტიკი ბრძოლა დაიწყო და დღის ბოლოსკენ თურქები გაიქცნენ. წელი წიგნში ამ გვერდზე დასახელებული არ არის (1110 სტატიის მიხედვით)."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Trialeti“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). წერტილი პირობითია: სტატია ადგილს „ტრიალეთთან ახლოს“ ასახელებს. ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 188: სულთნის ჯარი დაახლოებით ასი ათასი კაცი იყო; საღამოს ტრიალეთზე თავდასხმის ამბის გაგების შემდეგ მეფე ათას ხუთასი მეომრით გამოვიდა, მთელი ღამე იარა, განთიადზე სასტიკი ბრძოლა დაიწყო და დღის ბოლოსკენ თურქები გაიქცნენ. წელი წიგნში ამ გვერდზე დასახელებული არ არის (1110 სტატიის მიხედვით)."
    },
    "place": {
     "lng": 44.1667,
@@ -442,7 +496,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Rakhsi»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). У статьи нет координат, булавки нет. Сверено по книгам: «Картлис Цховреба», рус. пер. (Тбилиси, 2008) с. 189: в вербное воскресенье царь выступил по берегу Рахса (Аракса), встретил Пасху в Нахидури, напал на турок, стоявших на берегу Рахса, и истребил многих. Год и месяц в книге на этой странице не названы (1118, апрель по статье); место на реке точкой не определить.",
     "en": "From the en.wikipedia article 'Battle of Rakhsi': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The article has no coordinates, so there is no pin. Checked against the books: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 189: on Palm Sunday the king set out along the bank of the Rakhs (Araxes), celebrated Easter at Nakhiduri, attacked the Turks who stood on the bank of the Rakhs and destroyed many. The year and the month are not named in the book on this page (1118, April by the article); the place on the river cannot be fixed by a point.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Rakhsi“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). სტატიას კოორდინატები არ აქვს, ამიტომ ნიშანი არ არის. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 189: ბზობას მეფე რახსის (არაქსის) ნაპირის გასწვრივ გავიდა, აღდგომა ნახიდურში გადაიხადა, რახსის ნაპირზე მდგარ თურქებს თავს დაესხა და ბევრი გაწყვიტა. წელი და თვე წიგნში ამ გვერდზე დასახელებული არ არის (1118, აპრილი სტატიის მიხედვით); ადგილი მდინარეზე წერტილით ვერ განისაზღვრება."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Rakhsi“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). სტატიას კოორდინატები არ აქვს, ამიტომ ნიშანი არ არის. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 189: ბზობას მეფე რახსის (არაქსის) ნაპირის გასწვრივ გავიდა, აღდგომა ნახიდურში გადაიხადა, რახსის ნაპირზე მდგარ თურქებს თავს დაესხა და ბევრი გაწყვიტა. წელი და თვე წიგნში ამ გვერდზე დასახელებული არ არის (1118, აპრილი სტატიის მიხედვით); ადგილი მდინარეზე წერტილით ვერ განისაზღვრება."
    }
   },
   {
@@ -461,7 +515,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Botora»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). У статьи нет координат, булавки нет. Сверено по книгам: «Картлис Цховреба», рус. пер. (Тбилиси, 2008) с. 191 и комм. 103 (с. 209): турки спустились в Ботору на зимовье, 14 февраля царь неожиданно напал на них, лишь немногие спаслись, взято множество пленных и добычи; комментарий датирует битву 14 февраля 1120 года. Места Боторы комментарий не указывает, поэтому булавки нет.",
     "en": "From the en.wikipedia article 'Battle of Botora': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The article has no coordinates, so there is no pin. Checked against the books: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 191 and comm. 103 (p. 209): the Turks came down to Botora for the winter, on 14 February the king attacked them unexpectedly, only a few escaped, a great many prisoners and booty were taken; the commentary dates the battle to 14 February 1120. The commentary does not give the place of Botora, so there is no pin.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Botora“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). სტატიას კოორდინატები არ აქვს, ამიტომ ნიშანი არ არის. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 191 და კომ. 103 (გვ. 209): თურქები ბოტორაში გამოსაზამთრებლად ჩამოვიდნენ, 14 თებერვალს მეფე მოულოდნელად თავს დაესხა, მხოლოდ მცირედმა გაუსწრო, უთვალავი ტყვე და ნადავლი იგდეს ხელთ; კომენტარი ბრძოლას 1120 წლის 14 თებერვლით ათარიღებს. კომენტარი ბოტორის ადგილს არ ასახელებს, ამიტომ ნიშანი არ არის."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Botora“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). სტატიას კოორდინატები არ აქვს, ამიტომ ნიშანი არ არის. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 191 და კომ. 103 (გვ. 209): თურქები ბოტორაში გამოსაზამთრებლად ჩამოვიდნენ, 14 თებერვალს მეფე მოულოდნელად თავს დაესხა, მხოლოდ მცირედმა გაუსწრო, უთვალავი ტყვე და ნადავლი იგდეს ხელთ; კომენტარი ბრძოლას 1120 წლის 14 თებერვლით ათარიღებს. კომენტარი ბოტორის ადგილს არ ასახელებს, ამიტომ ნიშანი არ არის."
    }
   },
   {
@@ -636,7 +690,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Basiani»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Царица Тамара в бою лично не участвовала. Булавка стоит на координатах страницы статьи. Сверено по книгам: «Картлис Цховреба», рус. пер. (Тбилиси, 2008) с. 215 и комм. на с. 326: Рукн ад-Дин, возглавлявший объединение сельджуков, встречен в Басиани и разбит, умер в 1204 году, что согласуется с 1203–1204 годами.",
     "en": "From the en.wikipedia article 'Battle of Basiani': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). Queen Tamar did not take part in the battle in person. The pin stands at the coordinates of the page of the article. Checked against the books: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 215 and the commentary on p. 326: Rukn al-Din, who led the union of the Seljuks, was met at Basiani and defeated, and died in 1204, which agrees with 1203-1204.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Basiani“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). დედოფალი თამარი ბრძოლაში პირადად არ მონაწილეობდა. ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 215 და კომენტარი გვ. 326-ზე: სელჩუკთა გაერთიანების მეთაურ რუქნ ად-დინს ბასიანში შეხვდნენ და დაამარცხეს, ის 1204 წელს გარდაიცვალა, რაც 1203-1204 წლებს შეესაბამება."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Basiani“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). დედოფალი თამარი ბრძოლაში პირადად არ მონაწილეობდა. ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 215 და კომენტარი გვ. 326-ზე: სელჩუკთა გაერთიანების მეთაურ რუქნ ად-დინს ბასიანში შეხვდნენ და დაამარცხეს, ის 1204 წელს გარდაიცვალა, რაც 1203-1204 წლებს შეესაბამება."
    },
    "place": {
     "lng": 41.6756,
@@ -678,9 +732,18 @@
    "en": "Zakare and Ivane Mkhargrdzeli return to Tbilisi from the campaign into northern Iran (Tabriz, Miana): the queen greets them in triumph, the victors move to Isani, where she receives the booty and the nobles",
    "ka": "ზაქარია და ივანე მხარგრძელები თბილისში ბრუნდებიან ჩრდილოეთ ირანში (თავრიზი, მიანა) ლაშქრობიდან: დედოფალი მათ ზეიმით ხვდება, გამარჯვებულები ისანში გადადიან, სადაც იგი ნადავლსა და დიდებულებს იღებს",
    "note": {
-    "ru": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008), «История и восхваление венценосцев», с. 288–290: поход на Тавриз и Миану, возвращение в Тбилиси, «слышны были звуки труб и цевниц», затем «перешли в Исани, царица воссела на трон». Тот же рассказ есть в публичном переводе на vostlit.info (гл. 25–53). Года в летописи нет. По en.wikipedia набег на север Ирана датируется 1210 годом (статьи «Zakare II Zakarian» и «Ivane I Zakarian»), а статья «Tamar of Georgia» начинает кампанию с 1209 года (Ардебиль); поэтому поставлено 1209–1210. Тома II истории Грузии (2012) под рукой не было. Булавки нет: место в Исани не установлено.",
-    "en": "Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), 'The history and the eulogy of the crowned ones', pp. 288-290: the campaign against Tabriz and Miana, the return to Tbilisi, 'the sounds of trumpets and pipes were heard', then 'they moved to Isani, the queen sat on the throne'. The same account is in the public translation on vostlit.info (chapters 25-53). The chronicle gives no year. According to en.wikipedia the raid into northern Iran is dated 1210 (the articles 'Zakare II Zakarian' and 'Ivane I Zakarian'), while the article 'Tamar of Georgia' begins the campaign in 1209 (Ardabil); so 1209-1210 is given. Volume II of the history of Georgia (2012) was not at hand. There is no pin: the place in Isani is not established.",
-    "ka": "„ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), „ისტორიანი და აზმანი შარავანდედთანი“, გვ. 288–290: ლაშქრობა თავრიზისა და მიანის წინააღმდეგ, თბილისში დაბრუნება, „გაისმოდა საყვირებისა და სალამურების ხმა“, შემდეგ „ისანში გადავიდნენ, დედოფალი ტახტზე დაჯდა“. იგივე თხრობა ხელმისაწვდომია vostlit.info-ს საჯარო თარგმანში (თავები 25–53). მატიანეში წელი არ არის. en.wikipedia-ს მიხედვით ჩრდილოეთ ირანში თარეში 1210 წლით თარიღდება (სტატიები „Zakare II Zakarian“ და „Ivane I Zakarian“), სტატია „Tamar of Georgia“ კი ლაშქრობას 1209 წლიდან იწყებს (არდებილი); ამიტომ მითითებულია 1209–1210. საქართველოს ისტორიის II ტომი (2012) ხელთ არ გვქონდა. ნიშანი არ არის: ისანში ადგილი დადგენილი არ არის."
+    "ru": "«Картлис Цховреба», рус. пер. (Тбилиси, 2008), «История и восхваление венценосцев», с. 288–290: поход на Тавриз и Миану, возвращение в Тбилиси, «слышны были звуки труб и цевниц», затем «перешли в Исани, царица воссела на трон». Тот же рассказ есть в публичном переводе на vostlit.info (гл. 25–53). Года в летописи нет. По en.wikipedia набег на север Ирана датируется 1210 годом (статьи «Zakare II Zakarian» и «Ivane I Zakarian»), а статья «Tamar of Georgia» начинает кампанию с 1209 года (Ардебиль); поэтому поставлено 1209–1210. Тома II истории Грузии (2012) под рукой не было. Булавка стоит на городе в целом: место дворца в Исани не установлено.",
+    "en": "Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), 'The history and the eulogy of the crowned ones', pp. 288-290: the campaign against Tabriz and Miana, the return to Tbilisi, 'the sounds of trumpets and pipes were heard', then 'they moved to Isani, the queen sat on the throne'. The same account is in the public translation on vostlit.info (chapters 25-53). The chronicle gives no year. According to en.wikipedia the raid into northern Iran is dated 1210 (the articles 'Zakare II Zakarian' and 'Ivane I Zakarian'), while the article 'Tamar of Georgia' begins the campaign in 1209 (Ardabil); so 1209-1210 is given. Volume II of the history of Georgia (2012) was not at hand. The pin is on the city as a whole: the place of the palace in Isani is not established.",
+    "ka": "„ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), „ისტორიანი და აზმანი შარავანდედთანი“, გვ. 288–290: ლაშქრობა თავრიზისა და მიანის წინააღმდეგ, თბილისში დაბრუნება, „გაისმოდა საყვირებისა და სალამურების ხმა“, შემდეგ „ისანში გადავიდნენ, დედოფალი ტახტზე დაჯდა“. იგივე თხრობა ხელმისაწვდომია vostlit.info-ს საჯარო თარგმანში (თავები 25–53). მატიანეში წელი არ არის. en.wikipedia-ს მიხედვით ჩრდილოეთ ირანში თარეში 1210 წლით თარიღდება (სტატიები „Zakare II Zakarian“ და „Ivane I Zakarian“), სტატია „Tamar of Georgia“ კი ლაშქრობას 1209 წლიდან იწყებს (არდებილი); ამიტომ მითითებულია 1209–1210. საქართველოს ისტორიის II ტომი (2012) ხელთ არ გვქონდა. ნიშანი მთელ ქალაქზეა: ისანში სასახლის ადგილი დადგენილი არ არის."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -739,7 +802,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Khunan»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Место боя в статье указано неоднозначно (в тексте Шемаха, в координатах другое место), поэтому булавки нет. В доступных книгах битва 1222 года не найдена. Хунани по комм. 109 (с. 209) — город-крепость на правом берегу Мтквари недалеко от впадения Тауз-чая, но там речь о другой битве, мартовской битве Давида IV 1121 года.",
     "en": "From the en.wikipedia article 'Battle of Khunan': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The place is stated ambiguously in the article (Shemakha in the text, another place in the coordinates), so there is no pin. The battle of 1222 is not found in the available books. Khunani by comm. 109 (p. 209) is a fortress town on the right bank of the Mtkvari near the mouth of the Tauz-chay, but there the commentary speaks of another battle, the battle of David IV in March 1121.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Khunan“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). ადგილი სტატიაში გაურკვევლად არის მითითებული (ტექსტში შემახა, კოორდინატებში სხვა ადგილი), ამიტომ ნიშანი არ არის. ხელმისაწვდომ წიგნებში 1222 წლის ბრძოლა ვერ მოიძებნა. ხუნანი კომ. 109-ის (გვ. 209) მიხედვით მტკვრის მარჯვენა ნაპირზე, თაუზ-ჩაის შესართავთან ახლოს მდებარე ციხე-ქალაქია, მაგრამ იქ საუბარია სხვა ბრძოლაზე, დავით IV-ის 1121 წლის მარტის ბრძოლაზე."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Khunan“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). ადგილი სტატიაში გაურკვევლად არის მითითებული (ტექსტში შემახა, კოორდინატებში სხვა ადგილი), ამიტომ ნიშანი არ არის. ხელმისაწვდომ წიგნებში 1222 წლის ბრძოლა ვერ მოიძებნა. ხუნანი კომ. 109-ის (გვ. 209) მიხედვით მტკვრის მარჯვენა ნაპირზე, თაუზ-ჩაის შესართავთან ახლოს მდებარე ციხე-ქალაქია, მაგრამ იქ საუბარია სხვა ბრძოლაზე, დავით IV-ის 1121 წლის მარტის ბრძოლაზე."
    }
   },
   {
@@ -758,7 +821,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Garni»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Булавка стоит на координатах страницы статьи. Сверено по книгам: Ланг (1955), с. 35: в 1225 году Джелал ад-Дин нанёс грузинской армии при Гарни решающее поражение, в следующем году взял Тбилиси, и город оставался у хорезмийцев до 1230. «Картлис Цховреба», рус. пер. (Тбилиси, 2008) с. 339 и комм. 15 (с. 407): поражение грузин у Гарни (1225), Иване погиб, Шалву взяли в плен.",
     "en": "From the en.wikipedia article 'Battle of Garni': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The pin stands at the coordinates of the page of the article. Checked against the books: Lang (1955), p. 35: in 1225 Jalal al-Din inflicted a signal defeat on the Georgian army at Garni, the next year he took Tiflis, and the city remained in Khwarazmian hands until 1230. Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 339 and comm. 15 (p. 407): the defeat of the Georgians at Garni (1225), Ivane died, Shalva was taken prisoner.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Garni“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: ლენგი (1955), გვ. 35: 1225 წელს ჯალალ ად-დინმა გარნისთან ქართველთა არმიას გადამწყვეტი მარცხი მიაყენა, მომდევნო წელს თბილისი აიღო და ქალაქი 1230 წლამდე ხორეზმელების ხელში რჩებოდა. „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 339 და კომ. 15 (გვ. 407): ქართველთა მარცხი გარნისთან (1225), ივანე დაიღუპა, შალვა ტყვედ ჩავარდა."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Garni“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: ლენგი (1955), გვ. 35: 1225 წელს ჯალალ ად-დინმა გარნისთან ქართველთა არმიას გადამწყვეტი მარცხი მიაყენა, მომდევნო წელს თბილისი აიღო და ქალაქი 1230 წლამდე ხორეზმელების ხელში რჩებოდა. „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 339 და კომ. 15 (გვ. 407): ქართველთა მარცხი გარნისთან (1225), ივანე დაიღუპა, შალვა ტყვედ ჩავარდა."
    },
    "place": {
     "lng": 44.7167,
@@ -824,6 +887,15 @@
     "ru": "ka.wikipedia относит освобождение к концу 1226 года, книга называет февраль 1227 года; здесь взята дата книги. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 21-22. М.-Ф. Броссе (1849), введение, с. LXIX: повторный приход Джелал ад-Дина в Грузию датирован 1229 годом (первый, со взятием Тбилиси, — 1226).",
     "en": "ka.wikipedia puts the liberation at the end of 1226, the book names February 1227; the date of the book is used here. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 21-22. M.-F. Brosset (1849), introduction, p. LXIX: the second coming of Jalal al-Din to Georgia is dated 1229 (the first, with the taking of Tbilisi, 1226).",
     "ka": "ka.wikipedia განთავისუფლებას 1226 წლის მიწურულით ათარიღებს, წიგნში 1227 წლის თებერვალია დასახელებული; აქ წიგნის თარიღია გამოყენებული. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 21-22. მ.-ფ. ბროსე (1849), შესავალი, გვ. LXIX: ჯალალ ად-დინის საქართველოში მეორედ მოსვლა 1229 წლითაა დათარიღებული (პირველი, თბილისის აღებით, 1226 წელს)."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -842,7 +914,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Bolnisi»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Булавка стоит на городе Болниси: статья говорит «близ Болниси». Сверено по книгам: «Картлис Цховреба», рус. пер. (Тбилиси, 2008) с. 344: султан стоял лагерем в Сомхити, в Болнисском ущелье; царица Русудан собрала войско (амирспасалар Аваг и другие), которое вышло из Тбилиси; сначала грузины одолели, но когда бой разгорелся, пали многие и грузины бежали; султан вновь вошёл в Тбилиси. Год в книге на этой странице не назван (1228 по статье).",
     "en": "From the en.wikipedia article 'Battle of Bolnisi': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The pin stands at the town of Bolnisi: the article says 'near Bolnisi'. Checked against the books: Kartlis Tskhovreba, Russian translation (Tbilisi, 2008), p. 344: the sultan was camped in Somkhiti, in the Bolnisi gorge; Queen Rusudan assembled the army (the amirspasalar Avag and others), which set out from Tbilisi; at first the Georgians prevailed, but when the fight grew hotter many fell and the Georgians fled; the sultan entered Tbilisi again. The year is not named in the book on this page (1228 by the article).",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Bolnisi“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). ნიშანი ქალაქ ბოლნისზე დგას: სტატიაში წერია „ბოლნისთან ახლოს“. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 344: სულთანი სომხითში, ბოლნისის ხეობაში იდგა; დედოფალმა რუსუდანმა ჯარი შეკრიბა (ამირსპასალარი ავაგი და სხვები), რომელიც თბილისიდან გავიდა; თავდაპირველად ქართველები სძლევდნენ, მაგრამ როცა ბრძოლა გახურდა, ბევრი დაეცა და ქართველები გაიქცნენ; სულთანი ისევ თბილისში შევიდა. წელი წიგნში ამ გვერდზე დასახელებული არ არის (1228 სტატიის მიხედვით)."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Bolnisi“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). ნიშანი ქალაქ ბოლნისზე დგას: სტატიაში წერია „ბოლნისთან ახლოს“. წიგნებთან შემოწმებულია: „ქართლის ცხოვრება“, რუსული თარგმანი (თბილისი, 2008), გვ. 344: სულთანი სომხითში, ბოლნისის ხეობაში იდგა; დედოფალმა რუსუდანმა ჯარი შეკრიბა (ამირსპასალარი ავაგი და სხვები), რომელიც თბილისიდან გავიდა; თავდაპირველად ქართველები სძლევდნენ, მაგრამ როცა ბრძოლა გახურდა, ბევრი დაეცა და ქართველები გაიქცნენ; სულთანი ისევ თბილისში შევიდა. წელი წიგნში ამ გვერდზე დასახელებული არ არის (1228 სტატიის მიხედვით)."
    },
    "place": {
     "lng": 44.5333,
@@ -887,6 +959,15 @@
     "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
     "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
     "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -981,6 +1062,15 @@
     "ru": "Газан-хан узнал о выступлении Давида 7 ноября 1297 года и сразу послал полководца. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 50.",
     "en": "Ghazan Khan learned of David's revolt on 7 November 1297 and sent the commander at once. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 50.",
     "ka": "ყაზან ყაენმა დავითის განდგომის ამბავი 1297 წლის 7 ნოემბერს შეიტყო და სარდალი დაუყოვნებლივ გააგზავნა. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 50."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -1183,7 +1273,16 @@
     "en": "The Tbilisi page: 1440 (looted), History of Tbilisi: 1444 (destroyed). ru.wikipedia (History of Tbilisi): in March 1444 Jahan Shah invaded with an army of 20,000 and destroyed Tbilisi, then made a second campaign.",
     "ka": "გვერდი „Tbilisi“: 1440 (ძარცვა), „History of Tbilisi“: 1444 (დანგრევა). ru.wikipedia-ს („თბილისის ისტორია“) მიხედვით: 1444 წლის მარტში ჯაჰანშაჰი 20 000-იანი ჯარით შემოიჭრა და თბილისი დაანგრია, შემდეგ მეორე ლაშქრობაც წამოიწყო."
    },
-   "ka": "ჯაჰანშაჰი თბილისს თავს ესხმის და ძარცვავს"
+   "ka": "ჯაჰანშაჰი თბილისს თავს ესხმის და ძარცვავს",
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
+   }
   },
   {
    "year": 1477,
@@ -1226,6 +1325,15 @@
     "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
     "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
     "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -1299,6 +1407,15 @@
     "ru": "ka.wikipedia описывает сдачу иначе: Гулбаат спустился со стены крепости по верёвке и вручил шаху ключ от города. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 119.",
     "en": "ka.wikipedia describes the surrender differently: Gulbaat let himself down the wall of the fortress by a rope and handed the shah the key of the city. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 119.",
     "ka": "ka.wikipedia დანებებას სხვაგვარად აღწერს: გულბაათი ციხის კედლიდან თოკით ჩამოეშვა და შაჰს ქალაქის გასაღები მიართვა. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 119."
+   },
+   "place": {
+    "lng": 44.80861111,
+    "lat": 41.68777778,
+    "zoom": 16,
+    "ru": "Крепость Нарикала",
+    "en": "Narikala fortress",
+    "src": "coordinates of the page 'Narikala' on English Wikipedia",
+    "ka": "ნარიყალას ციხე"
    }
   },
   {
@@ -1315,6 +1432,15 @@
     "ru": "По статье ru.wikipedia «История Тбилиси»; первоисточники не проверялись.",
     "en": "From the ru.wikipedia article 'History of Tbilisi'; the primary sources were not checked.",
     "ka": "ru.wikipedia-ს სტატიის „თბილისის ისტორია“ მიხედვით; პირველწყაროები არ შემოწმებულა."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -1410,6 +1536,15 @@
     "ru": "По книге: 24 августа османы подошли к Тбилиси; Даудхан без боя оставил город, сжёг его и укрылся в крепости Лори. Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 130.",
     "en": "According to the book: on 24 August the Ottomans reached Tbilisi; Daud Khan left the city without a fight, burnt it and took refuge in the fortress of Lori. Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 130.",
     "ka": "წიგნის მიხედვით: 24 აგვისტოს ოსმალები თბილისს მოადგნენ; დაუდხანმა თბილისი უბრძოლველად მიატოვა, ქალაქი გადაწვა და ლორეს ციხეს შეაფარა თავი. ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 130."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -1472,7 +1607,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Nakhiduri»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). У статьи нет координат. Сражение 1599 года в доступных книгах не найдено. В «Картлис Цховреба» (с. 189) упомянут только Нахидури XII века (Пасха Давида IV); комм. 86 (с. 208) помещает Нахидури в Квемо Картли, к западу от Гардабани, на правом берегу Храми, на месте современного Арухло. Булавка стоит на странице «Arukhlo» из en.wikipedia (поселение к западу от одноимённого села), поэтому место приблизительное.",
     "en": "From the en.wikipedia article 'Battle of Nakhiduri': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The article has no coordinates. The battle of 1599 is not found in the available books. Kartlis Tskhovreba (p. 189) mentions only the Nakhiduri of the 12th century (the Easter of David IV); comm. 86 (p. 208) puts Nakhiduri in Kvemo Kartli, west of Gardabani, on the right bank of the Khrami, at the place of present-day Arukhlo. The pin stands at the page 'Arukhlo' of en.wikipedia (a settlement west of the village of the same name), so the place is approximate.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Nakhiduri“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). სტატიას კოორდინატები არ აქვს. 1599 წლის ბრძოლა ხელმისაწვდომ წიგნებში ვერ მოიძებნა. „ქართლის ცხოვრებაში“ (გვ. 189) მხოლოდ XII საუკუნის ნახიდურია ნახსენები (დავით IV-ის აღდგომა); კომ. 86 (გვ. 208) ნახიდურს ქვემო ქართლში, გარდაბნის დასავლეთით, ხრამის მარჯვენა ნაპირზე, თანამედროვე არუხლოს ადგილას ათავსებს. ნიშანი en.wikipedia-ს გვერდის „Arukhlo“ კოორდინატებზე დგას (ამავე სახელწოდების სოფლის დასავლეთით მდებარე დასახლება), ამიტომ ადგილი მიახლოებითია."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Nakhiduri“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). სტატიას კოორდინატები არ აქვს. 1599 წლის ბრძოლა ხელმისაწვდომ წიგნებში ვერ მოიძებნა. „ქართლის ცხოვრებაში“ (გვ. 189) მხოლოდ XII საუკუნის ნახიდურია ნახსენები (დავით IV-ის აღდგომა); კომ. 86 (გვ. 208) ნახიდურს ქვემო ქართლში, გარდაბნის დასავლეთით, ხრამის მარჯვენა ნაპირზე, თანამედროვე არუხლოს ადგილას ათავსებს. ნიშანი en.wikipedia-ს გვერდის „Arukhlo“ კოორდინატებზე დგას (ამავე სახელწოდების სოფლის დასავლეთით მდებარე დასახლება), ამიტომ ადგილი მიახლოებითია."
    },
    "place": {
     "lng": 44.6957,
@@ -1548,7 +1683,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Martkopi»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Правители из линии в бою лично не участвовали: войском командовал Георгий Саакадзе. Булавка стоит на координатах страницы статьи. Сверено по книгам: Тогошвили (2014), с. 230: Марткопское и Марабдское сражения в марте и июле 1625 года; с. 282: арагвское войско оказало Саакадзе энергичную поддержку в Марткопской битве.",
     "en": "From the en.wikipedia article 'Battle of Martkopi': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). No ruler of the line took part in the battle in person: the army was commanded by Giorgi Saakadze. The pin stands at the coordinates of the page of the article. Checked against the books: Togoshvili (2014), p. 230: the battles of Martkopi and Marabda in March and July 1625; p. 282: the army of Aragvi gave energetic support to Saakadze in the battle of Martkopi.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Martkopi“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). მმართველთა ხაზიდან არავინ მონაწილეობდა ბრძოლაში პირადად: ჯარს გიორგი სააკაძე მეთაურობდა. ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: ტოგოშვილი (2014), გვ. 230: მარტყოფისა და მარაბდის ბრძოლები 1625 წლის მარტსა და ივლისში; გვ. 282: არაგვის ჯარმა სააკაძეს მარტყოფის ბრძოლაში ენერგიული მხარდაჭერა აღმოუჩინა."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Martkopi“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). მმართველთა ხაზიდან არავინ მონაწილეობდა ბრძოლაში პირადად: ჯარს გიორგი სააკაძე მეთაურობდა. ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: ტოგოშვილი (2014), გვ. 230: მარტყოფისა და მარაბდის ბრძოლები 1625 წლის მარტსა და ივლისში; გვ. 282: არაგვის ჯარმა სააკაძეს მარტყოფის ბრძოლაში ენერგიული მხარდაჭერა აღმოუჩინა."
    },
    "place": {
     "lng": 45.0197,
@@ -1576,7 +1711,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Bazaleti»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Булавка стоит на координатах страницы статьи. Сверено по книгам: «Дворянские роды Грузии», т. 4 (1998), с. 267: эристав Зураб и Теймураз укрепились в Базалети и отразили нападение войск моурави (Саакадзе); ранены были и Теймураз, и Зураб, и Саакадзе; Саакадзе и Кайхосро ушли в Турцию. Года на этой странице нет (осень 1626 по статье).",
     "en": "From the en.wikipedia article 'Battle of Bazaleti': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The pin stands at the coordinates of the page of the article. Checked against the books: 'Noble families of Georgia', vol. 4 (1998), p. 267: the eristavi Zurab and Teimuraz fortified themselves at Bazaleti and beat off the attack of the army of the mouravi (Saakadze); Teimuraz, Zurab and Saakadze were wounded; Saakadze and Kaikhosro went to Turkey. The year is not on this page (the autumn of 1626 by the article).",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Bazaleti“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: „საქართველოს თავადაზნაურობა“, ტ. 4 (1998), გვ. 267: ერისთავი ზურაბი და თეიმურაზი ბაზალეთში გამაგრდნენ და მოურავის (სააკაძის) ჯარის თავდასხმა მოიგერიეს; დაიჭრნენ თეიმურაზიც, ზურაბიც და სააკაძეც; სააკაძე და ქაიხოსრო თურქეთში წავიდნენ. წელი ამ გვერდზე არ არის (1626 წლის შემოდგომა სტატიის მიხედვით)."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Bazaleti“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: „საქართველოს თავადაზნაურობა“, ტ. 4 (1998), გვ. 267: ერისთავი ზურაბი და თეიმურაზი ბაზალეთში გამაგრდნენ და მოურავის (სააკაძის) ჯარის თავდასხმა მოიგერიეს; დაიჭრნენ თეიმურაზიც, ზურაბიც და სააკაძეც; სააკაძე და ქაიხოსრო თურქეთში წავიდნენ. წელი ამ გვერდზე არ არის (1626 წლის შემოდგომა სტატიის მიხედვით)."
    },
    "place": {
     "lng": 44.678,
@@ -1746,6 +1881,15 @@
     "ru": "en.wikipedia: 12 июня 1723 года Константин II Кахетинский сдал Тбилиси османскому командующему Ибрагим-паше. Д. М. Ланг (1955), с. 98-99: османы открыли в Тифлисе монетный двор; здесь чеканили при Ахмеде III с 1138 года хиджры (1725-26) до 1730 года и при Махмуде I с 1730 года примерно до 1735; номинальным правителем при османах на время стал принявший ислам брат Вахтанга VI Иесе (Мустафа-паша).",
     "en": "en.wikipedia: on 12 June 1723 Constantine II of Kakheti surrendered Tbilisi to the Ottoman commander Ibrahim Pasha. D. M. Lang (1955), pp. 98-99: the Ottomans opened a mint in Tiflis; it struck coins under Ahmad III from A.H. 1138 (1725-26) until 1730 and under Mahmud I from 1730 until about 1735; nominal rule under the Ottomans was exercised for a time by Wakhtang VI's brother Iese, who became a Sunni (Mustafa Pasha).",
     "ka": "en.wikipedia: 1723 წლის 12 ივნისს კონსტანტინე II კახელმა თბილისი ოსმალთა სარდალ იბრაჰიმ-ფაშას გადასცა. დ. მ. ლენგი (1955), გვ. 98-99: ოსმალებმა თბილისში ზარაფხანა გახსნეს; აქ მონეტები აჰმედ III-ის დროს ჰიჯრის 1138 წლიდან (1725-26) 1730 წლამდე იჭრებოდა, მაჰმუდ I-ის დროს კი 1730 წლიდან დაახლოებით 1735 წლამდე; ოსმალთა ბატონობისას ნომინალურ მმართველად გარკვეული ხნით ვახტანგ VI-ის ძმა იესე გახდა, რომელმაც სუნიტობა მიიღო (მუსტაფა-ფაშა)."
+   },
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
    }
   },
   {
@@ -1946,7 +2090,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Kvareli»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Булавка стоит на городе Кварели, где находился замок. Сверено по книгам: «Дворянские роды Грузии», т. 4 (1998), с. 241: в 1755 году, по грамоте царя Ираклия II, Беспаз «сражался словно лев 23 дня», защищая крепость Кварели от осаждавших горцев во главе с Нурсал-беком. Число и месяц по статье.",
     "en": "From the en.wikipedia article 'Battle of Kvareli': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The pin stands at the town of Kvareli, where the castle was. Checked against the books: 'Noble families of Georgia', vol. 4 (1998), p. 241: in 1755, according to the charter of King Erekle II, Bespaz 'fought like a lion for 23 days' defending the fortress of Kvareli against the besieging highlanders led by Nursal Bey. The day and the month are by the article.",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Kvareli“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). ნიშანი ქალაქ ყვარელზე დგას, სადაც ციხე იყო. წიგნებთან შემოწმებულია: „საქართველოს თავადაზნაურობა“, ტ. 4 (1998), გვ. 241: 1755 წელს, მეფე ერეკლე II-ის სიგელის მიხედვით, ბესპაზი „23 დღე ლომივით იბრძოდა“ და ყვარლის ციხეს მოალყე მთიელებისგან, ნურსალ-ბეგის მეთაურობით, იცავდა. რიცხვი და თვე სტატიის მიხედვითაა."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Kvareli“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). ნიშანი ქალაქ ყვარელზე დგას, სადაც ციხე იყო. წიგნებთან შემოწმებულია: „საქართველოს თავადაზნაურობა“, ტ. 4 (1998), გვ. 241: 1755 წელს, მეფე ერეკლე II-ის სიგელის მიხედვით, ბესპაზი „23 დღე ლომივით იბრძოდა“ და ყვარლის ციხეს მოალყე მთიელებისგან, ნურსალ-ბეგის მეთაურობით, იცავდა. რიცხვი და თვე სტატიის მიხედვითაა."
    },
    "place": {
     "lng": 45.8153,
@@ -2050,7 +2194,7 @@
    "note": {
     "ru": "По статье en.wikipedia «Battle of Aspindza»: дата, участники и исход по статье; первоисточники не проверялись (кроме сверки по книгам ниже). Булавка стоит на координатах страницы статьи. Сверено по книгам: Тогошвили (2014), с. 255: письмо о победе над османами и дагестанцами в Аспиндзской битве (дата на этой странице не названа, 20 апреля 1770 по статье).",
     "en": "From the en.wikipedia article 'Battle of Aspindza': the date, the participants and the result are those of the article; the primary sources were not checked (apart from the check against the books below). The pin stands at the coordinates of the page of the article. Checked against the books: Togoshvili (2014), p. 255: a letter about the victory over the Ottomans and the Daghestanis in the battle of Aspindza (the date is not named on this page, 20 April 1770 by the article).",
-    "ka": "en.wikipedia-ს სტატიის „Battle of Aspindza“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემული წიგნებთან შემოწმების გარდა). ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: ტოგოშვილი (2014), გვ. 255: ოსმალებზე და დაღესტნელებზე გამარჯვების შესახებ წერილი ასპინძის ბრძოლაში (თარიღი ამ გვერდზე არ არის დასახელებული, 1770 წლის 20 აპრილი სტატიის მიხედვით)."
+    "ka": "en.wikipedia-ს სტატიის „Battle of Aspindza“ მიხედვით: თარიღი, მონაწილეები და შედეგი სტატიისაა; პირველწყაროები არ შემოწმებულა (ქვემოთ მოცემულ წიგნებთან შემოწმების გარდა). ნიშანი სტატიის გვერდის კოორდინატებზე დგას. წიგნებთან შემოწმებულია: ტოგოშვილი (2014), გვ. 255: ოსმალებზე და დაღესტნელებზე გამარჯვების შესახებ წერილი ასპინძის ბრძოლაში (თარიღი ამ გვერდზე არ არის დასახელებული, 1770 წლის 20 აპრილი სტატიის მიხედვით)."
    },
    "place": {
     "lng": 43.2497,
@@ -2216,6 +2360,15 @@
     "ru": "Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. «История Грузии», т. III (2012), с. 351.",
     "en": "Asatiani N., Otkhmezuri G., Samsonadze M., Jamburia G., 'History of Georgia', vol. III (2012), p. 351.",
     "ka": "ასათიანი ნ., ოთხმეზური გ., სამსონაძე მ., ჯამბურია გ., „საქართველოს ისტორია“, ტ. III (2012), გვ. 351."
+   },
+   "place": {
+    "lng": 44.90277778,
+    "lat": 41.60972222,
+    "zoom": 14,
+    "ru": "Крцаниси",
+    "en": "Krtsanisi",
+    "src": "coordinates of the page 'Battle of Krtsanisi' on English Wikipedia",
+    "ka": "კრწანისი"
    }
   },
   {
@@ -4283,7 +4436,16 @@
    "src": [
     "https://en.wikipedia.org/wiki/Tbilisi"
    ],
-   "ka": "მე-11 წითელი არმია შედის თბილისში"
+   "ka": "მე-11 წითელი არმია შედის თბილისში",
+   "place": {
+    "lng": 44.7925,
+    "lat": 41.7225,
+    "zoom": 13.2,
+    "ru": "Тбилиси (город целиком)",
+    "en": "Tbilisi (the whole city)",
+    "ka": "თბილისი (მთელი ქალაქი)",
+    "src": "coordinates of the page 'Tbilisi' on English Wikipedia (the city as a whole: the sources of the event name no particular place)"
+   }
   },
   {
    "year": 1921,
@@ -5155,7 +5317,16 @@
    "ka": "სამოქალაქო ომი: დამხობილი პრეზიდენტის გამსახურდიას მომხრეები (ზვიადისტები) დასავლეთ საქართველოში მთავრობის ჯარებს ებრძვიან; 1992 წლის 28 მარტს მათ დაიკავეს ზუგდიდი, სენაკი, ხობი, აბაშა და ფოთი, 1993 წლის 6 ნოემბერს კი თითქმის უბრძოლველად დაეცა მათი ბოლო ბურჯი — ზუგდიდი",
    "src": [
     "https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B6%D0%B4%D0%B0%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_%D0%B2%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B2_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
-   ]
+   ],
+   "place": {
+    "lng": 41.86666667,
+    "lat": 42.50833333,
+    "zoom": 13,
+    "ru": "Зугдиди",
+    "en": "Zugdidi",
+    "ka": "ზუგდიდი",
+    "src": "coordinates of the page 'Zugdidi' on English Wikipedia"
+   }
   },
   {
    "year": 1992,
@@ -5166,7 +5337,16 @@
    "ka": "აფხაზეთის ომი: 1992 წლის აგვისტოდან ბრძოლები ქართულ და აფხაზურ შეიარაღებულ ძალებს შორის საქართველოს ეროვნული გვარდიის შეყვანის შემდეგ; 1993 წლის 27 ივლისს სოჭში ხელი მოეწერა ცეცხლის შეწყვეტის შეთანხმებას, 16-27 სექტემბერს მიმდინარეობდა ბრძოლა სოხუმისთვის, 27 სექტემბერს ქალაქი აფხაზურმა ფორმირებებმა აიღეს; 1994 წლის 14 მაისს მოსკოვში ხელი მოეწერა ცეცხლის შეწყვეტის შეთანხმებას",
    "src": [
     "https://ru.wikipedia.org/wiki/%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B2_%D0%90%D0%B1%D1%85%D0%B0%D0%B7%D0%B8%D0%B8_(1992%E2%80%941993)"
-   ]
+   ],
+   "place": {
+    "lng": 41.0192,
+    "lat": 43.0036,
+    "zoom": 13,
+    "ru": "Сухуми (Сухум)",
+    "en": "Sukhumi",
+    "ka": "სოხუმი",
+    "src": "coordinates of the page 'Sukhumi' on English Wikipedia"
+   }
   },
   {
    "year": 1995,
@@ -5307,7 +5487,16 @@
    "ka": "ომი საქართველოში: 7-დან 8 აგვისტოს ღამეს ცხინვალზე იერიშით დაიწყო ომი; 26 აგვისტოს რუსეთის პრეზიდენტმა მედვედევმა ხელი მოაწერა ბრძანებულებას აფხაზეთისა და სამხრეთ ოსეთის დამოუკიდებლობის აღიარების შესახებ",
    "src": [
     "https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%93%D1%80%D1%83%D0%B7%D0%B8%D0%B8"
-   ]
+   ],
+   "place": {
+    "lng": 43.97,
+    "lat": 42.225,
+    "zoom": 13,
+    "ru": "Цхинвали",
+    "en": "Tskhinvali",
+    "ka": "ცხინვალი",
+    "src": "coordinates of the page 'Tskhinvali' on English Wikipedia"
+   }
   },
   {
    "year": 2010,

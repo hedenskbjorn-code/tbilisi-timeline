@@ -13,6 +13,10 @@ RU = "https://ru.wikipedia.org/wiki/"
 KA = "https://ka.wikipedia.org/wiki/"
 
 
+# photographs of the buildings (Wikimedia Commons, looked through by hand): {"objects": {building id: [titles]}, "info": {title: licence data}}
+PHOTOS = json.load(open(os.path.join(ROOT, "data", "religious_photos.json"), encoding="utf-8"))
+
+
 def N(ru, en, ka):
     return {"ru": ru, "en": en, "ka": ka}
 
@@ -261,11 +265,21 @@ def main():
             o["to"] = it["to"]
         if it.get("approx"):
             o["approx"] = True
+        if it["id"] in PHOTOS["objects"]:
+            o["ph"] = "|".join(PHOTOS["objects"][it["id"]])
         out.append(o)
     out.sort(key=lambda x: x["from"])
     p = os.path.join(ROOT, "site", "data", "religious.json")
     json.dump(out, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(len(out), "buildings ->", p)
+    # the licence data of the photographs go into site/data/photos.json (build_site_data.py does the same when it rebuilds that file)
+    pp = os.path.join(ROOT, "site", "data", "photos.json")
+    photos = json.load(open(pp, encoding="utf-8"))
+    used = {t for ts in PHOTOS["objects"].values() for t in ts}
+    for t in used:
+        photos[t] = PHOTOS["info"][t]
+    json.dump(photos, open(pp, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    print(len(used), "photographs of the buildings in", pp)
 
 
 if __name__ == "__main__":

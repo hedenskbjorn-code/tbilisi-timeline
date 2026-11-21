@@ -197,6 +197,10 @@ for f in src["features"]:
 json.dump({"type": "FeatureCollection", "features": feats},
           open(os.path.join(OUT, "monuments.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 
+# photographs of the religious buildings (data/religious_photos.json, put on the cards by tools/build_religious.py)
+_rp = os.path.join(ROOT, "data", "religious_photos.json")
+if os.path.exists(_rp):
+    used.update(json.load(open(_rp, encoding="utf-8"))["info"])
 json.dump(used, open(os.path.join(OUT, "photos.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 print("objects with photos:", sum(1 for f in feats if "ph" in f["properties"]), "files:", len(used))
 
@@ -240,12 +244,12 @@ def _round(c):
 
 urban = []
 ACC = {1735: 150, 1850: 40, 1911: 70, 1954: 700}      # rough positional accuracy in metres where it is worse than ~100 m (shown on the page)
-for pid, snap in (("tiflis_1735", 1735), ("tiflis_1782", 1782), ("tiflis_1785", 1785), ("tiflis_1800", 1800), ("tiflis_1802", 1802), ("tiflis_1844", 1844), ("tiflis_1850", 1850), ("tiflis_1879", 1879), ("tiflis_1884", 1884), ("tiflis_1887", 1887), ("tiflis_1911", 1911), ("tbilisi_1913", 1913), ("tbilisi_1954_ams", 1954)):
+for pid, snap in (("tiflis_1735", 1735), ("tiflis_1782", 1782), ("tiflis_1785", 1785), ("tiflis_1800", 1800), ("tiflis_1802", 1802), ("tiflis_1844", 1844), ("tiflis_1850", 1850), ("tiflis_1879", 1879), ("tiflis_1884", 1884), ("tiflis_1887", 1887), ("tiflis_1911", 1911), ("tbilisi_1913", 1913), ("khar_1924", 1924), ("khar_1934", 1934), ("tbilisi_1954_ams", 1954)):
     b = os.path.join(ROOT, "data", "boundaries", pid + ".geojson")
     if os.path.exists(b):
         for f in json.load(open(b, encoding="utf-8"))["features"]:
             urban.append({"type": "Feature", "geometry": {"type": f["geometry"]["type"], "coordinates": _round(f["geometry"]["coordinates"])},
-                          "properties": {"snap": snap, "src": "ams" if snap == 1954 else "traced", "kind": "city", "partial": bool(f["properties"].get("partial")), "acc": ACC.get(snap, 0)}})
+                          "properties": {"snap": snap, "src": "ams" if snap == 1954 else ("khar" if snap in (1924, 1934) else "traced"), "kind": "city", "partial": bool(f["properties"].get("partial")), "acc": 150 if snap in (1924, 1934) else ACC.get(snap, 0)}})
 g = os.path.join(ROOT, "data", "boundaries", "tbilisi_urban_gusv.geojson")
 if os.path.exists(g):
     for f in json.load(open(g, encoding="utf-8"))["features"]:
