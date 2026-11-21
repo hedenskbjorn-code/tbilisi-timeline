@@ -2461,6 +2461,32 @@
 }
 },
 {
+"id": "heraclius1",
+"from": 1688,
+"to": 1703,
+"grp": "wali",
+"name": {
+"ru": "Ираклий I (Назар-Али-хан)",
+"en": "Heraclius I (Nazar-Ali-Khan)",
+"ka": "ერეკლე I (ნაზარ-ალი-ხანი)"
+},
+"note": {
+"ru": "Царь Картли под покровительством сефевидского Ирана; с 1703 царь Кахети (1703-1709).",
+"en": "King of Kartli under the protection of Safavid Iran; from 1703 king of Kakheti (1703-1709).",
+"ka": "ქართლის მეფე სეფევიდური ირანის მფარველობის ქვეშ; 1703 წლიდან კახეთის მეფე (1703-1709)."
+},
+"src": [
+"https://en.wikipedia.org/wiki/List_of_monarchs_of_Georgia",
+"https://en.wikipedia.org/wiki/Kingdom_of_Kartli"
+],
+"date": "",
+"title": {
+"ru": "Царь Картли (вали Ирана/османов)",
+"en": "King of Kartli (a wali of Persia or the Ottomans)",
+"ka": "ქართლის მეფე (შაჰის/სულთნის ვალი)"
+}
+},
+{
 "id": "george11b",
 "from": 1703,
 "to": 1709.301,
