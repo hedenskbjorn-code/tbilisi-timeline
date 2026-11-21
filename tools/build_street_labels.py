@@ -4,6 +4,7 @@ take the OpenStreetMap ways (Overpass, ODbL; fetched once into data/raw/osm_tran
 Usage: python tools/build_street_labels.py
 """
 import json
+import math
 import os
 import sys
 import time
@@ -21,7 +22,19 @@ OSM = {
     "Mikheil Javakhishvili Street": "Mikheil Javakhishvili Street", "Ketevan Dedoplis Avenue": "Tsminda Ketevan Dedoflis Avenue", "Tevdore Mghvdeli Street": "Tevdore Mghvdeli Street",
     "Giorgi Tsabadze Street": "Giorgi Tsabadze Street", "Atsquri Street": "Atsquri Street", "Giorgi Chitaia Street": "Giorgi Chitaia Street",
     "Revaz Tabukashvili Street": "Revaz Tabukashvili Street", "Navtlughi Street": "Navtlughi Street",
+    # 1.8.2: the streets whose names the articles of Wikipedia give with years (the OSM names are the same as today's English ones, except Rustaveli)
+    "Lado Asatiani Street": "Lado Asatiani Street", "Shalva Dadiani Street": "Shalva Dadiani Street", "Lado Gudiashvili Street": "Lado Gudiashvili Street",
+    "Kote Abkhazi Street": "Kote Abkhazi Street", "Galaktion Tabidze Street": "Galaktion Tabidze Street", "Shota Rustaveli Avenue": "Shota Rustaveli Avenue",
+    "Mikheil Burdzgla Street": "Mikheil Burdzgla Street", "Sulkhan Tsintsadze Street": "Sulkhan Tsintsadze Street",
 }
+# OSM holds namesakes in other districts (a Lado Asatiani Street in seven places): for these streets only the chain of ways near the historical place is kept
+NEAR = {
+    "Lado Asatiani Street": (41.6897, 44.8008), "Galaktion Tabidze Street": (41.6913, 44.8012), "Lado Gudiashvili Street": (41.6961, 44.8011),
+    "Kote Abkhazi Street": (41.6920, 44.8055), "Sulkhan Tsintsadze Street": (41.7216, 44.7634), "Mikheil Burdzgla Street": (41.7232, 44.7611),
+}
+NEAR_M = 1500
+MORE_NAMES = ["Lado Asatiani Street", "Lado Gudiashvili Street", "Kote Abkhazi Street", "Galaktion Tabidze Street", "Mikheil Burdzgla Street", "Sulkhan Tsintsadze Street"]
+MORE_KA = ["ლადო ასათიანის ქუჩა", "ლადო გუდიაშვილის ქუჩა", "კოტე აფხაზის ქუჩა", "გალაკტიონ ტაბიძის ქუჩა", "გალაქტიონ ტაბიძის ქუჩა", "მიხეილ ბურძგლას ქუჩა", "სულხან ცინცაძის ქუჩა"]
 SQUARES = {"Freedom Square": "Freedom Square", "First Republic Square": "First Republic Square"}
 
 
@@ -43,6 +56,36 @@ def fetch():
             print("retry", str(e)[:60], flush=True)
             time.sleep(25 * (k + 1))
     sys.exit("giving up")
+
+
+def fetch_more():
+    """The streets of 1.8.2 (the first fetch above knows the older ones); cached in data/raw/osm_transport/street_labels_more.json, not committed."""
+    p = os.path.join(RAW, "street_labels_more.json")
+    if os.path.exists(p):
+        return
+    q = '[out:json][timeout:180];(way["highway"]["name:en"~"^(%s)$"]%s;way["highway"]["name"~"^(%s)$"]%s;);out geom tags;' % ("|".join(MORE_NAMES), B, "|".join(MORE_KA), B)
+    for k in range(5):
+        try:
+            d = urllib.request.urlopen(urllib.request.Request("https://overpass-api.de/api/interpreter", data=urllib.parse.urlencode({"data": q}).encode(),
+                                                              headers={"User-Agent": "tbilisi-timeline-hobby/1.0 (non-commercial hobby project)"}), timeout=240).read()
+            json.loads(d)
+            open(p, "wb").write(d)
+            return
+        except Exception as e:
+            print("retry", str(e)[:60], flush=True)
+            time.sleep(25 * (k + 1))
+    sys.exit("giving up")
+
+
+def near(chains, lat, lon):
+    """The chains whose centre lies within NEAR_M metres of the point (a namesake in another district is dropped)."""
+    keep = []
+    for c in chains:
+        la = sum(p[1] for p in c) / len(c)
+        lo = sum(p[0] for p in c) / len(c)
+        if math.hypot((lo - lon) * 83000, (la - lat) * 111000) <= NEAR_M:
+            keep.append(c)
+    return keep
 
 
 def join(lines):
@@ -71,10 +114,34 @@ def join(lines):
     return [l for l in lines if l]
 
 
+def kv_geometry(out):
+    """The streets renamed in 1988-1991 (tools/streets_kv_spec.json): the OSM ways are found by the Georgian name of today; the namesakes in other districts are dropped
+    by the point of the spec (NEAR_M metres), 'all' keeps every chain (a long avenue), a square becomes a point. Cache: data/raw/osm_transport/street_labels_kv.json, not committed."""
+    sp = json.load(open(os.path.join(ROOT, "tools", "streets_kv_spec.json"), encoding="utf-8"))["spec"]
+    byka = {}
+    for e in json.load(open(os.path.join(RAW, "street_labels_kv.json"), encoding="utf-8"))["elements"]:
+        if e["type"] == "way" and e.get("geometry") and e["tags"].get("name"):
+            byka.setdefault(e["tags"]["name"], {})[e["id"]] = [[round(p["lon"], 5), round(p["lat"], 5)] for p in e["geometry"]]
+    for s in sp:
+        w = byka.get(s["now"]["ka"])
+        if not w:
+            print("NO WAYS (kv):", s["key"])
+            continue
+        chains = join(w.values())
+        if s["near"] not in (None, "all"):
+            chains = near(chains, *s["near"])
+        if s["key"].endswith("Square"):
+            pts = [p for c in chains for p in c]
+            out[s["key"]] = {"type": "Point", "coordinates": [round(sum(p[0] for p in pts) / len(pts), 5), round(sum(p[1] for p in pts) / len(pts), 5)]}
+        else:
+            out[s["key"]] = {"type": "MultiLineString", "coordinates": chains}
+
+
 def main():
     fetch()
+    fetch_more()
     ways = {}
-    for fn in ("street_labels", "tram_streets", "avenues", "rustaveli"):
+    for fn in ("street_labels", "street_labels_more", "tram_streets", "avenues", "rustaveli"):
         fp = os.path.join(RAW, fn + ".json")
         if not os.path.exists(fp):
             continue
@@ -83,15 +150,19 @@ def main():
             if nm and e.get("geometry") and e["type"] == "way":
                 ways.setdefault(nm, {})[e["id"]] = [[round(p["lon"], 5), round(p["lat"], 5)] for p in e["geometry"]]
     kaw = {}
-    for e in json.load(open(os.path.join(RAW, "street_labels.json"), encoding="utf-8"))["elements"]:
-        if e["type"] == "way" and e.get("geometry") and e["tags"].get("name"):
-            kaw.setdefault(e["tags"]["name"], {})[e["id"]] = [[round(p["lon"], 5), round(p["lat"], 5)] for p in e["geometry"]]
+    for fn in ("street_labels", "street_labels_more"):
+        for e in json.load(open(os.path.join(RAW, fn + ".json"), encoding="utf-8"))["elements"]:
+            if e["type"] == "way" and e.get("geometry") and e["tags"].get("name"):
+                kaw.setdefault(e["tags"]["name"], {})[e["id"]] = [[round(p["lon"], 5), round(p["lat"], 5)] for p in e["geometry"]]
     kamap = {x["now"]["en"]: x["now"]["ka"] for x in json.load(open(os.path.join(ROOT, "site", "data", "street_names.json"), encoding="utf-8"))["streets"]}
     out = {}
     for now, osm in OSM.items():
         w = ways.get(osm) or kaw.get(kamap.get(now))
         if w:
-            out[now] = {"type": "MultiLineString", "coordinates": join(w.values())}
+            chains = join(w.values())
+            if now in NEAR:
+                chains = near(chains, *NEAR[now])
+            out[now] = {"type": "MultiLineString", "coordinates": chains}
         else:
             print("NO WAYS:", now)
     cent = {}
@@ -108,6 +179,7 @@ def main():
             out[now] = {"type": "Point", "coordinates": [round(c["lon"], 5), round(c["lat"], 5)]}
         else:
             print("NO POINT:", now)
+    kv_geometry(out)
     json.dump(out, open(os.path.join(ROOT, "site", "data", "street_geom.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     print(len(out), "geometries")
 

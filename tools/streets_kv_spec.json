@@ -1,0 +1,704 @@
+{
+ "spec": [
+  {
+   "n": "1",
+   "key": "Lado Gudiashvili Square",
+   "now": {
+    "ru": "площадь Ладо Гудиашвили",
+    "en": "Lado Gudiashvili Square",
+    "ka": "ლადო გუდიაშვილის მოედანი"
+   },
+   "old": {
+    "ru": "площадь Алавердова",
+    "en": "Alaverdov Square",
+    "ka": "ალავერდოვის მოედანი"
+   },
+   "from": 1923,
+   "to": 1988,
+   "from_kind": "exact",
+   "near": null,
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%93%E1%83%9D_%E1%83%92%E1%83%A3%E1%83%93%E1%83%98%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%9B%E1%83%9D%E1%83%94%E1%83%93%E1%83%90%E1%83%9C%E1%83%98",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — площадь Алавердова; 1988 — площадь Ладо Гудиашвили.",
+    "en": "ka.wikipedia: 1923 — Alaverdov Square; 1988 — Lado Gudiashvili Square."
+   }
+  },
+  {
+   "n": "4",
+   "key": "Betlemi Street",
+   "now": {
+    "ru": "улица Бетлеми",
+    "en": "Betlemi Street",
+    "ka": "ბეთლემის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Азизбекова",
+    "en": "Azizbekov Street",
+    "ka": "აზიზბეკოვის ქუჩა"
+   },
+   "from": 1923,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6894,
+    44.8071
+   ],
+   "district": "Крцаниси",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%94%E1%83%97%E1%83%9A%E1%83%94%E1%83%9B%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица Азизбекова; 1990 — улица Бетлеми.",
+    "en": "ka.wikipedia: 1923 — Azizbekov Street; 1990 — Betlemi Street."
+   }
+  },
+  {
+   "n": "5",
+   "key": "Anton Katalikos Street",
+   "now": {
+    "ru": "улица Антония Католикоса",
+    "en": "Anton Katalikos Street",
+    "ka": "ანტონ კათალიკოსის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Иванидзе",
+    "en": "Ivanidze Street",
+    "ka": "ივანიძის ქუჩა"
+   },
+   "from": 1923,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6927,
+    44.805
+   ],
+   "district": "Крцаниси",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9C%E1%83%A2%E1%83%9D%E1%83%9C_%E1%83%99%E1%83%90%E1%83%97%E1%83%90%E1%83%9A%E1%83%98%E1%83%99%E1%83%9D%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица Иванидзе; 1990 — улица Антония Католикоса.",
+    "en": "ka.wikipedia: 1923 — Ivanidze Street; 1990 — Anton Katalikos Street."
+   }
+  },
+  {
+   "n": "6",
+   "key": "Iakob Tsurtaveli Street",
+   "now": {
+    "ru": "улица Иакова Цуртавели",
+    "en": "Iakob Tsurtaveli Street",
+    "ka": "იაკობ ცურტაველის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Хуцишвили",
+    "en": "Khutsishvili Street",
+    "ka": "ხუციშვილის ქუჩა"
+   },
+   "from": 1923,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6863,
+    44.8159
+   ],
+   "district": "Крцаниси",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%90%E1%83%99%E1%83%9D%E1%83%91_%E1%83%AA%E1%83%A3%E1%83%A0%E1%83%A2%E1%83%90%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица Хуцишвили; 1990 — улица Иакова Цуртавели.",
+    "en": "ka.wikipedia: 1923 — Khutsishvili Street; 1990 — Iakob Tsurtaveli Street."
+   }
+  },
+  {
+   "n": "7",
+   "key": "Grigol Khandzteli Street",
+   "now": {
+    "ru": "улица Григория Хандзтели",
+    "en": "Grigol Khandzteli Street",
+    "ka": "გრიგოლ ხანძთელის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Мясникова",
+    "en": "Myasnikov Street",
+    "ka": "მიასნიკოვის ქუჩა"
+   },
+   "from": 1930,
+   "to": 1991,
+   "from_kind": "dec",
+   "near": [
+    41.6915,
+    44.8057
+   ],
+   "district": "Крцаниси, Глдани",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A0%E1%83%98%E1%83%92%E1%83%9D%E1%83%9A_%E1%83%AE%E1%83%90%E1%83%9C%E1%83%AB%E1%83%97%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: старое название (улица Мясникова) с 1930-х годов (точный год не назван, на карте условно с 1930); новое присвоено в 1991.",
+    "en": "ka.wikipedia: the old name (Myasnikov Street) from the 1930s (the exact year is not named, on the map conventionally from 1930); the new name was given in 1991."
+   }
+  },
+  {
+   "n": "8",
+   "key": "Alexandre Dumas Street",
+   "now": {
+    "ru": "улица Александра Дюма",
+    "en": "Alexandre Dumas Street",
+    "ka": "ალექსანდრე დიუმას ქუჩა"
+   },
+   "old": {
+    "ru": "улица Желябова",
+    "en": "Zhelyabov Street",
+    "ka": "ჟელიაბოვის ქუჩა"
+   },
+   "from": 1923,
+   "to": 1989,
+   "from_kind": "exact",
+   "near": [
+    41.6945,
+    44.8031
+   ],
+   "district": "Крцаниси",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%94%E1%83%A5%E1%83%A1%E1%83%90%E1%83%9C%E1%83%93%E1%83%A0%E1%83%94_%E1%83%93%E1%83%98%E1%83%A3%E1%83%9B%E1%83%90%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица Желябова; 1989 — улица Александра Дюма.",
+    "en": "ka.wikipedia: 1923 — Zhelyabov Street; 1989 — Alexandre Dumas Street."
+   }
+  },
+  {
+   "n": "9",
+   "key": "Abo Tbilieli Street",
+   "now": {
+    "ru": "улица Або Тбилели",
+    "en": "Abo Tbilieli Street",
+    "ka": "აბო თბილელის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Кашена",
+    "en": "Kashen Street",
+    "ka": "კაშენის ქუჩა"
+   },
+   "from": 1922,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6911,
+    44.8044
+   ],
+   "district": "Мтацминда, Крцаниси",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%91%E1%83%9D_%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1922 — улица Кашена; 1990 — улица Або Тбилели.",
+    "en": "ka.wikipedia: 1922 — Kashen Street; 1990 — Abo Tbilieli Street."
+   }
+  },
+  {
+   "n": "13",
+   "key": "Giorgi Leonidze Street",
+   "now": {
+    "ru": "улица Георгия Леонидзе",
+    "en": "Giorgi Leonidze Street",
+    "ka": "გიორგი ლეონიძის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Кирова",
+    "en": "Kirov Street",
+    "ka": "კიროვის ქუჩა"
+   },
+   "from": 1935,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6926,
+    44.7994
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9A%E1%83%94%E1%83%9D%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1935 — улица Кирова; 1990 — улица Георгия Леонидзе.",
+    "en": "ka.wikipedia: 1935 — Kirov Street; 1990 — Giorgi Leonidze Street."
+   }
+  },
+  {
+   "n": "14",
+   "key": "Geronti Kikodze Street",
+   "now": {
+    "ru": "улица Геронтия Кикодзе",
+    "en": "Geronti Kikodze Street",
+    "ka": "გერონტი ქიქოძის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Махарадзе",
+    "en": "Makharadze Street",
+    "ka": "მახარაძის ქუჩა"
+   },
+   "from": 1923,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6909,
+    44.7985
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%94%E1%83%A0%E1%83%9D%E1%83%9C%E1%83%A2%E1%83%98_%E1%83%A5%E1%83%98%E1%83%A5%E1%83%9D%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица Махарадзе; 1990 — улица Геронтия Кикодзе.",
+    "en": "ka.wikipedia: 1923 — Makharadze Street; 1990 — Geronti Kikodze Street."
+   }
+  },
+  {
+   "n": "17",
+   "key": "Vukol Beridze Street",
+   "now": {
+    "ru": "улица Вукола Беридзе",
+    "en": "Vukol Beridze Street",
+    "ka": "ვუკოლ ბერიძის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Цхакая",
+    "en": "Tskhakaya Street",
+    "ka": "ცხაკაიას ქუჩა"
+   },
+   "from": 1923,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6944,
+    44.7959
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%A3%E1%83%99%E1%83%9D%E1%83%9A_%E1%83%91%E1%83%94%E1%83%A0%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица Цхакая; 1990 — улица Вукола Беридзе.",
+    "en": "ka.wikipedia: 1923 — Tskhakaya Street; 1990 — Vukol Beridze Street."
+   }
+  },
+  {
+   "n": "19",
+   "key": "Paolo Iashvili Street",
+   "now": {
+    "ru": "улица Паоло Яшвили",
+    "en": "Paolo Iashvili Street",
+    "ka": "პაოლო იაშვილის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Джапаридзе",
+    "en": "Japaridze Street",
+    "ka": "ჯაფარიძის ქუჩა"
+   },
+   "from": 1934,
+   "to": 1990,
+   "from_kind": "doc",
+   "near": [
+    41.6915,
+    44.797
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%9D%E1%83%9A%E1%83%9D_%E1%83%98%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: старое название (улица Джапаридзе) засвидетельствовано в источнике 1934 года; новое присвоено в 1990.",
+    "en": "ka.wikipedia: the old name (Japaridze Street) is attested in a source of 1934; the new name was given in 1990."
+   }
+  },
+  {
+   "n": "22",
+   "key": "Giorgi Akhvlediani Street",
+   "now": {
+    "ru": "улица Георгия Ахвледиани",
+    "en": "Giorgi Akhvlediani Street",
+    "ka": "გიორგი ახვლედიანის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Перовской",
+    "en": "Perovskaya Street",
+    "ka": "პეროვსკაიას ქუჩა"
+   },
+   "from": 1923,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.7058,
+    44.7899
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%90%E1%83%AE%E1%83%95%E1%83%9A%E1%83%94%E1%83%93%E1%83%98%E1%83%90%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица Перовской; 1990 — улица Георгия Ахвледиани.",
+    "en": "ka.wikipedia: 1923 — Perovskaya Street; 1990 — Giorgi Akhvlediani Street."
+   }
+  },
+  {
+   "n": "23",
+   "key": "Dzmebi Zubalashvilebi Street",
+   "now": {
+    "ru": "улица Братьев Зубалашвили",
+    "en": "Dzmebi Zubalashvilebi Street",
+    "ka": "ძმები ზუბალაშვილების ქუჩა"
+   },
+   "old": {
+    "ru": "улица Атарбекова",
+    "en": "Atarbekov Street",
+    "ka": "ათარბეგოვის ქუჩა"
+   },
+   "from": 1926,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6996,
+    44.794
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%AB%E1%83%9B%E1%83%94%E1%83%91%E1%83%98_%E1%83%96%E1%83%A3%E1%83%91%E1%83%90%E1%83%9A%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1926 — улица Атарбекова; 1990 — улица Братьев Зубалашвили.",
+    "en": "ka.wikipedia: 1926 — Atarbekov Street; 1990 — Dzmebi Zubalashvilebi Street."
+   }
+  },
+  {
+   "n": "28",
+   "key": "Erekle Tatishvili Street",
+   "now": {
+    "ru": "улица Ираклия Татишвили",
+    "en": "Erekle Tatishvili Street",
+    "ka": "ერეკლე ტატიშვილის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Казбеги",
+    "en": "Kazbegi Street",
+    "ka": "ყაზბეგის ქუჩა"
+   },
+   "from": 1903,
+   "to": 1991,
+   "from_kind": "doc",
+   "near": [
+    41.706,
+    44.784
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%A0%E1%83%94%E1%83%99%E1%83%9A%E1%83%94_%E1%83%A2%E1%83%90%E1%83%A2%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: старое название (улица Казбеги) засвидетельствовано в источнике 1903 года; новое присвоено в 1991.",
+    "en": "ka.wikipedia: the old name (Kazbegi Street) is attested in a source of 1903; the new name was given in 1991."
+   }
+  },
+  {
+   "n": "29",
+   "key": "Sololaki Alley",
+   "now": {
+    "ru": "аллея Сололаки",
+    "en": "Sololaki Alley",
+    "ka": "სოლოლაკის ხეივანი"
+   },
+   "old": {
+    "ru": "Комсомольская аллея",
+    "en": "Komsomol Alley",
+    "ka": "კომკავშირის ხეივანი"
+   },
+   "from": 1935,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6881,
+    44.802
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%9A%E1%83%90%E1%83%99%E1%83%98%E1%83%A1_%E1%83%AE%E1%83%94%E1%83%98%E1%83%95%E1%83%90%E1%83%9C%E1%83%98",
+   "note": {
+    "ru": "ka.wikipedia: 1935 — Комсомольская аллея; 1990 — аллея Сололаки.",
+    "en": "ka.wikipedia: 1935 — Komsomol Alley; 1990 — Sololaki Alley."
+   }
+  },
+  {
+   "n": "31",
+   "key": "Guram Rcheulishvili Street",
+   "now": {
+    "ru": "улица Гурама Рчеулишвили",
+    "en": "Guram Rcheulishvili Street",
+    "ka": "გურამ რჩეულიშვილის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Севастопольская",
+    "en": "Sevastopol Street",
+    "ka": "სევასტოპოლის ქუჩა"
+   },
+   "from": 1956,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.7024,
+    44.7769
+   ],
+   "district": "Мтацминда",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%A0%E1%83%90%E1%83%9B_%E1%83%A0%E1%83%A9%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1956 — улица Севастопольская; 1990 — улица Гурама Рчеулишвили.",
+    "en": "ka.wikipedia: 1956 — Sevastopol Street; 1990 — Guram Rcheulishvili Street."
+   }
+  },
+  {
+   "n": "35",
+   "key": "Alexander Kazbegi Avenue",
+   "now": {
+    "ru": "проспект Александра Казбеги",
+    "en": "Alexander Kazbegi Avenue",
+    "ka": "ალექსანდრე ყაზბეგის გამზირი"
+   },
+   "old": {
+    "ru": "улица Павлова",
+    "en": "Pavlov Street",
+    "ka": "პავლოვის ქუჩა"
+   },
+   "from": 1941,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": "all",
+   "district": "Сабуртало, Ваке",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%94%E1%83%A5%E1%83%A1%E1%83%90%E1%83%9C%E1%83%93%E1%83%A0%E1%83%94_%E1%83%A7%E1%83%90%E1%83%96%E1%83%91%E1%83%94%E1%83%92%E1%83%98%E1%83%A1_%E1%83%92%E1%83%90%E1%83%9B%E1%83%96%E1%83%98%E1%83%A0%E1%83%98",
+   "note": {
+    "ru": "ka.wikipedia: 1941 — улица Павлова; 1990 — проспект Александра Казбеги.",
+    "en": "ka.wikipedia: 1941 — Pavlov Street; 1990 — Alexander Kazbegi Avenue."
+   }
+  },
+  {
+   "n": "37",
+   "key": "Ipolite Khvichia Street",
+   "now": {
+    "ru": "улица Иполите Хвичия",
+    "en": "Ipolite Khvichia Street",
+    "ka": "იპოლიტე ხვიჩიას ქუჩა"
+   },
+   "old": {
+    "ru": "улица Красных партизан",
+    "en": "Red Partisans Street",
+    "ka": "წითელი პარტიზანების ქუჩა"
+   },
+   "from": 1930,
+   "to": 1991,
+   "from_kind": "dec",
+   "near": [
+    41.7232,
+    44.7756
+   ],
+   "district": "Сабуртало",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9E%E1%83%9D%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94_%E1%83%AE%E1%83%95%E1%83%98%E1%83%A9%E1%83%98%E1%83%90%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: старое название (улица Красных партизан) с 1930-х годов (точный год не назван, на карте условно с 1930); новое присвоено в 1991.",
+    "en": "ka.wikipedia: the old name (Red Partisans Street) from the 1930s (the exact year is not named, on the map conventionally from 1930); the new name was given in 1991."
+   }
+  },
+  {
+   "n": "44",
+   "key": "Gabriel Episkoposi Street",
+   "now": {
+    "ru": "улица Габриэля Епископоси",
+    "en": "Gabriel Episkoposi Street",
+    "ka": "გაბრიელ ეპისკოპოსის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Каляева",
+    "en": "Kalyaev Street",
+    "ka": "კალიაევის ქუჩა"
+   },
+   "from": 1923,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6943,
+    44.8112
+   ],
+   "district": "Чугурети",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%91%E1%83%A0%E1%83%98%E1%83%94%E1%83%9A_%E1%83%94%E1%83%9E%E1%83%98%E1%83%A1%E1%83%99%E1%83%9D%E1%83%9E%E1%83%9D%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица Каляева; 1990 — улица Габриэля Епископоси.",
+    "en": "ka.wikipedia: 1923 — Kalyaev Street; 1990 — Gabriel Episkoposi Street."
+   }
+  },
+  {
+   "n": "45",
+   "key": "Kalistrate Tsintsadze Street",
+   "now": {
+    "ru": "улица Каллистрата Цинцадзе",
+    "en": "Kalistrate Tsintsadze Street",
+    "ka": "კალისტრატე ცინცაძის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Мамацашвили",
+    "en": "Mamatsashvili Street",
+    "ka": "მამაცაშვილის ქუჩა"
+   },
+   "from": 1925,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.6937,
+    44.8039
+   ],
+   "district": "Крцаниси",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%9A%E1%83%98%E1%83%A1%E1%83%A2%E1%83%A0%E1%83%90%E1%83%A2%E1%83%94_%E1%83%AA%E1%83%98%E1%83%9C%E1%83%AA%E1%83%90%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1925 — улица Мамацашвили; 1990 — улица Каллистрата Цинцадзе.",
+    "en": "ka.wikipedia: 1925 — Mamatsashvili Street; 1990 — Kalistrate Tsintsadze Street."
+   }
+  },
+  {
+   "n": "46",
+   "key": "Elene Achvlediani Rise",
+   "now": {
+    "ru": "подъём Елены Ахвледиани",
+    "en": "Elene Achvlediani Rise",
+    "ka": "ელენე ახვლედიანის აღმართი"
+   },
+   "old": {
+    "ru": "подъём Кибальчича",
+    "en": "Kibalchich Rise",
+    "ka": "კიბალჩიჩის აღმართი"
+   },
+   "from": 1923,
+   "to": 1988,
+   "from_kind": "exact",
+   "near": [
+    41.6973,
+    44.8104
+   ],
+   "district": "Чугурети",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%9A%E1%83%94%E1%83%9C%E1%83%94_%E1%83%90%E1%83%AE%E1%83%95%E1%83%9A%E1%83%94%E1%83%93%E1%83%98%E1%83%90%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%90%E1%83%A6%E1%83%9B%E1%83%90%E1%83%A0%E1%83%97%E1%83%98",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — подъём Кибальчича; 1988 — подъём Елены Ахвледиани.",
+    "en": "ka.wikipedia: 1923 — Kibalchich Rise; 1988 — Elene Achvlediani Rise."
+   }
+  },
+  {
+   "n": "48",
+   "key": "Terenti Graneli Street",
+   "now": {
+    "ru": "улица Терентия Гранели",
+    "en": "Terenti Graneli Street",
+    "ka": "ტერენტი გრანელის ქუჩა"
+   },
+   "old": {
+    "ru": "улица 9 Января",
+    "en": "9 January Street",
+    "ka": "9 იანვრის ქუჩა"
+   },
+   "from": 1923,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.7102,
+    44.8055
+   ],
+   "district": "Чугурети",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%94%E1%83%A0%E1%83%94%E1%83%9C%E1%83%A2%E1%83%98_%E1%83%92%E1%83%A0%E1%83%90%E1%83%9C%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1923 — улица 9 Января; 1990 — улица Терентия Гранели.",
+    "en": "ka.wikipedia: 1923 — 9 January Street; 1990 — Terenti Graneli Street."
+   }
+  },
+  {
+   "n": "54",
+   "key": "Dodo Abashidze Street",
+   "now": {
+    "ru": "улица Давида (Додо) Абашидзе",
+    "en": "Dodo Abashidze Street",
+    "ka": "დოდო აბაშიძის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Мечникова",
+    "en": "Mechnikov Street",
+    "ka": "მეჩნიკოვის ქუჩა"
+   },
+   "from": 1926,
+   "to": 1990,
+   "from_kind": "doc",
+   "near": [
+    41.707,
+    44.7967
+   ],
+   "district": "Чугурети",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%93%E1%83%9D_%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: старое название (улица Мечникова) засвидетельствовано в источнике 1926 года; новое присвоено в 1990.",
+    "en": "ka.wikipedia: the old name (Mechnikov Street) is attested in a source of 1926; the new name was given in 1990."
+   }
+  },
+  {
+   "n": "58",
+   "key": "Kita Abashidze Street",
+   "now": {
+    "ru": "улица Киты Абашидзе",
+    "en": "Kita Abashidze Street",
+    "ka": "კიტა აბაშიძის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Чубинашвили",
+    "en": "Chubinashvili Street",
+    "ka": "ჩუბინაშვილის ქუჩა"
+   },
+   "from": 1983,
+   "to": 1990,
+   "from_kind": "exact",
+   "near": [
+    41.71,
+    44.8024
+   ],
+   "district": "Чугурети",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%98%E1%83%A2%E1%83%90_%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: 1983 — улица Чубинашвили; 1990 — улица Киты Абашидзе.",
+    "en": "ka.wikipedia: 1983 — Chubinashvili Street; 1990 — Kita Abashidze Street."
+   }
+  },
+  {
+   "n": "76",
+   "key": "Khornabuji Street",
+   "now": {
+    "ru": "улица Хорнабужи",
+    "en": "Khornabuji Street",
+    "ka": "ხორნაბუჯის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Ватутина",
+    "en": "Vatutin Street",
+    "ka": "ვატუტინის ქუჩა"
+   },
+   "from": 1950,
+   "to": 1990,
+   "from_kind": "dec",
+   "near": [
+    41.7669,
+    44.7995
+   ],
+   "district": "Надзаладеви",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%9C%E1%83%90%E1%83%91%E1%83%A3%E1%83%AF%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: старое название (улица Ватутина) с 1950-х годов (точный год не назван, на карте условно с 1950); новое присвоено в 1990.",
+    "en": "ka.wikipedia: the old name (Vatutin Street) from the 1950s (the exact year is not named, on the map conventionally from 1950); the new name was given in 1990."
+   }
+  },
+  {
+   "n": "78",
+   "key": "David Garejeli Street",
+   "now": {
+    "ru": "улица Давида Гареджели",
+    "en": "David Garejeli Street",
+    "ka": "დავით გარეჯელის ქუჩა"
+   },
+   "old": {
+    "ru": "улица Черняховского",
+    "en": "Chernyakhovsky Street",
+    "ka": "ჩერნიახოვსკის ქუჩა"
+   },
+   "from": 1950,
+   "to": 1990,
+   "from_kind": "dec",
+   "near": [
+    41.7655,
+    44.7992
+   ],
+   "district": "Надзаладеви",
+   "src": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%95%E1%83%98%E1%83%97_%E1%83%92%E1%83%90%E1%83%A0%E1%83%94%E1%83%AF%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+   "note": {
+    "ru": "ka.wikipedia: старое название (улица Черняховского) с 1950-х годов (точный год не назван, на карте условно с 1950); новое присвоено в 1990.",
+    "en": "ka.wikipedia: the old name (Chernyakhovsky Street) from the 1950s (the exact year is not named, on the map conventionally from 1950); the new name was given in 1990."
+   }
+  }
+ ],
+ "CL": [
+  "На карте появились исторические подписи ещё 26 улиц Тбилиси, переименованных в 1988–1991 годах (прежние советские названия по годам, как их называют статьи ka.wikipedia).",
+  "Historical labels of 26 more Tbilisi streets renamed in 1988-1991 appear on the map (the earlier Soviet names by year, as the articles of ka.wikipedia give them)."
+ ]
+}

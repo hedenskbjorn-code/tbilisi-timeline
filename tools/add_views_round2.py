@@ -30,7 +30,7 @@ ITEMS = [
      "Мост в Тифлисе, Дж. Кеннан (1870-е)", "A bridge in Tiflis, G. Kennan (1870s)", "ხიდი ტფილისში, ჯ. კენანი (1870-იანი წლები)",
      A("Джордж Кеннан", "George Kennan", "ჯორჯ კენანი"), NOTE),
     ("Old Tbilisi Konka.jpg", "konka_viceregal_palace_1880s", 1885, 15,
-     "Конка и дворец наместника на Головинском проспекте (1880-е)", "A horse tram (konka) and the Viceregal Palace on Golovin Avenue (1880s)", "კონკა და მეფისნაცვლის სასახლე გოლოვინის პროსპექტზე (1880-იანი წლები)",
+     "Конка и дворец наместника на Головинском проспекте (1880-е)", "A horse tram (konka) and the Viceregal Palace on Golovin Avenue (1880s)", "კონკა და მეფისნაცვლის სასახლე გოლოვინის გამზირზე (1880-იანი წლები)",
      NOAUTH, NOTE),
     ("Ferry boat tiflis (Demidov, 1898).jpg", "demidov_ferry_1898", 1898, 10,
      "Паром в Тифлисе (по названию файла: Демидов, 1898)", "A ferry boat in Tiflis (by the file name: Demidov, 1898)", "ბორანი ტფილისში (ფაილის სახელით: დემიდოვი, 1898)",
