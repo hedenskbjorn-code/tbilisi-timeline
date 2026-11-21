@@ -11,6 +11,7 @@
   const s = document.createElement("script");
   s.type = "module";
   s.src = "https://static.cloudflareinsights.com/beacon.min.js";
-  s.setAttribute("data-cf-beacon", '{"token": "f4945adf4d994802bcb88c6ce54c4c32"}');
+  // "spa": false - the map changes the address (#year) while the slider moves; without this option the counter takes every change for a new page view (5.84k views for 32 visits on 2026-11-21)
+  s.setAttribute("data-cf-beacon", '{"token": "f4945adf4d994802bcb88c6ce54c4c32", "spa": false}');
   document.body.appendChild(s);
 })();
