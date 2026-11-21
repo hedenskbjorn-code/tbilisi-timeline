@@ -108,6 +108,20 @@ test("Esc closes an open window first and the card stays; the second Esc closes 
   await page.ctx.close();
 });
 
+test("events of the Isani palace (1184, 1210) have a pin at Metekhi with the place named as approximate", async () => {
+  for (const [q, year] of [["Isani", 1210], ["Isani", 1184]]) {
+    const page = await main();
+    await search(page, q);
+    const row = page.locator("#searchRes li").filter({ hasText: new RegExp(String(year)) }).first();
+    assert.ok((await row.count()) > 0, `no search row for ${year}`);
+    await row.click();
+    const pin = page.locator(".evpinwrap");
+    await pin.waitFor({ timeout: 15000 });
+    assert.match(await pin.getAttribute("aria-label"), /Metekhi \(the Isani palace; the place is approximate\)/);
+    await page.ctx.close();
+  }
+});
+
 test("the address ?o=<id> opens the card of the object of the register", async () => {
   const page = await main("#1930", "&o=3049");
   const pop = page.locator(".maplibregl-popup .pop");
