@@ -1,5 +1,41 @@
 [
  {
+  "version": "1.6.26",
+  "date": "2026-11-21",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Слой «Религиозные здания» дополнен 76 культовыми зданиями из реестра культурного наследия (церкви, монастыри, руины церквей; кладбища, курганы и музеи не включены): теперь их 109, среди них Александро-Невская церковь на Джавахишвили, 69. Конфессия указана только там, где её называет реестр, для остальных введена категория «Церковь (конфессия в реестре не указана)»; здания без даты показаны бледными точками с пометкой «дата неизвестна».",
+    "en": "The layer 'Religious buildings' now has 76 more worship buildings of the heritage register (churches, monasteries, ruins of churches; burial grounds, kurgans and museums are left out): 109 in all, among them the Alexander Nevsky Church at 69 Javakhishvili St. The denomination is given only where the register names it; the others are in the category 'Church (denomination not given in the register)'; buildings without a date are shown as pale points marked 'date unknown'.",
+    "ka": "„რელიგიური ნაგებობების“ ფენას დაემატა კულტურული მემკვიდრეობის რეესტრის 76 საკულტო ნაგებობა (ეკლესიები, მონასტრები, ეკლესიების ნანგრევები; სასაფლაოები, ყორღანები და მუზეუმები არ შედის): ახლა 109 ნაგებობაა, მათ შორის ალექსანდრე ნეველის ეკლესია ჯავახიშვილის ქ. №69-ში. კონფესია მითითებულია მხოლოდ იქ, სადაც რეესტრი მას ასახელებს; დანარჩენებისთვის შემოღებულია კატეგორია „ეკლესია (კონფესია რეესტრში მითითებული არ არის)“; უთარიღო ნაგებობები ნაჩვენებია ფერმკრთალი წერტილებით, აღნიშვნით „თარიღი უცნობია“."
+   },
+   {
+    "t": "new",
+    "ru": "Слой «Наука и культура» дополнен 58 объектами реестра (университеты, институты, библиотеки, музеи и дома-музеи, театры, кинотеатры, концертные залы): теперь их 88. Реестр знает дату здания, но не год основания учреждения; это указано в карточке.",
+    "en": "The layer 'Science and culture' has 58 more objects of the register (universities, institutes, libraries, museums and house-museums, theatres, cinemas, concert halls): 88 in all. The register knows the date of the building but not the year the institution was founded; the card says so.",
+    "ka": "„მეცნიერებისა და კულტურის“ ფენას დაემატა რეესტრის 58 ობიექტი (უნივერსიტეტები, ინსტიტუტები, ბიბლიოთეკები, მუზეუმები და სახლ-მუზეუმები, თეატრები, კინოთეატრები, საკონცერტო დარბაზები): ახლა 88 ობიექტია. რეესტრში მითითებულია შენობის თარიღი, მაგრამ არა დაწესებულების დაარსების წელი; ეს აღნიშნულია ბარათში."
+   },
+   {
+    "t": "new",
+    "ru": "Новый слой «Образование»: 24 школы и детских сада из реестра (по умолчанию выключен; включается в панели «Фильтры и слои»).",
+    "en": "A new layer 'Education': 24 schools and kindergartens of the register (off by default; turn it on in the panel 'Filters and layers').",
+    "ka": "ახალი ფენა „განათლება“: რეესტრის 24 სკოლა და საბავშვო ბაღი (ნაგულისხმევად გამორთულია; ირთვება პანელში „ფილტრები და ფენები“)."
+   },
+   {
+    "t": "new",
+    "ru": "В окно «Виды» добавлены три старых снимка Тбилиси до 1918 года (Федосеевская церковь около 1900 года, Головинский проспект с разгонной почтой, Эриванская площадь с караван-сараем Тамамшева): автор неизвестен, снимки общественное достояние, указаны ссылки на посты, откуда они взяты.",
+    "en": "The window 'Views' has three old pictures of Tbilisi from before 1918 (the Fedoseevskaya church about 1900, Golovinsky Avenue with the posting station, Erivan Square with the caravanserai of Tamamshev): the photographers are unknown, the pictures are public domain, and links to the posts they were taken from are given.",
+    "ka": "„ხედების“ ფანჯარაში დაემატა 1918 წლამდე გადაღებული თბილისის სამი ძველი ფოტო (ფედოსეეველთა ეკლესია, დაახლოებით 1900 წ., გოლოვინის პროსპექტი საფოსტო სადგურით, ერევნის მოედანი ტამამშევის ქარვასლით): ფოტოგრაფები უცნობია, ფოტოები საზოგადოებრივი საკუთრებაა, მითითებულია იმ პოსტების ბმულები, საიდანაც ისინი აღებულია."
+   },
+   {
+    "t": "fix",
+    "ru": "Исправлены фотографии в карточках четырёх религиозных зданий (Карапет, Земо Бетлеми, Мамадавити и один снимок Ходживанка): они не открывались.",
+    "en": "The photographs in the cards of four religious buildings (Karapet, Zemo Betlemi, Mamadaviti and one picture of Khojivank) did not open; fixed.",
+    "ka": "გასწორდა ოთხი რელიგიური ნაგებობის (კარაპეტი, ზემო ბეთლემი, მამადავითი და ხოჯივანქის ერთი ფოტო) ბარათების ფოტოები: ისინი არ იხსნებოდა."
+   }
+  ]
+ },
+ {
   "version": "1.6.25",
   "date": "2026-11-21",
   "items": [

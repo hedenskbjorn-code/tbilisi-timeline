@@ -1,0 +1,2214 @@
+[
+ {
+  "id": "reg2764",
+  "rel": "christian",
+  "from": 1570,
+  "date": "1531–1570",
+  "lat": 41.701108,
+  "lon": 44.809123,
+  "name": {
+   "ru": "Церковь Св. Нино",
+   "en": "St. Nino's Church",
+   "ka": "წმ. ნინოს ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1531–1570; на шкале взят конец диапазона (1570). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1531–1570; the end of the range (1570) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1531–1570; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1570). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "5169",
+  "rid": 2764,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Нино Чхеидзе/32",
+   "en": "Nino Chkheidze St./32",
+   "ka": "ჩხეიძე ნინოს ქ./32"
+  }
+ },
+ {
+  "id": "reg2841",
+  "rel": "christian",
+  "from": 1859,
+  "date": "1859",
+  "lat": 41.701499,
+  "lon": 44.807072,
+  "name": {
+   "ru": "Церковь Св. Николая",
+   "en": "St. Nicholas's Church",
+   "ka": "წმ. ნიკოლოზის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1859. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1859. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1859. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "4492",
+  "rid": 2841,
+  "addr": {
+   "ru": "ул. Коста Хетагурова/7",
+   "en": "Kosta Khetagurov St./7",
+   "ka": "ხეთაგუროვი კოსტას ქ./7"
+  }
+ },
+ {
+  "id": "reg2880",
+  "rel": "christian",
+  "from": 1925,
+  "date": "1901–1925",
+  "lat": 41.703775,
+  "lon": 44.8096,
+  "name": {
+   "ru": "Церковь Животворящего столпа",
+   "en": "Church of the Life-giving Pillar",
+   "ka": "კვირაცხოვლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1901–1925; на шкале взят конец диапазона (1925). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1901–1925; the end of the range (1925) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1901–1925; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1925). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 2880,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Чаисубани/7",
+   "en": "Chaisubani St./7",
+   "ka": "ჩაისუბნის ქ./7"
+  }
+ },
+ {
+  "id": "reg3049",
+  "rel": "russian",
+  "from": 1880,
+  "date": "1880",
+  "lat": 41.711331,
+  "lon": 44.801043,
+  "name": {
+   "ru": "Александро-Невская церковь",
+   "en": "Russian Orthodox Church",
+   "ka": "რუსული მართლმადიდებლური ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1880. Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1880. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1880. კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "5385",
+  "rid": 3049,
+  "addr": {
+   "ru": "ул. Иване Джавахишвили/69",
+   "en": "Ivane Javakhishvili St./69",
+   "ka": "ჯავახიშვილი ივანეს ქ./69"
+  },
+  "ph": "File:Sv.A.Nevskii.jpg|File:TC89 - Tbilisi, ruska crkva.jpg|File:Alexander Nevsky Church, Tbilisi (Photo A. Muhranoff, 2011).jpg"
+ },
+ {
+  "id": "reg3317",
+  "rel": "christian",
+  "from": 1990,
+  "date": "1990",
+  "lat": 41.69101,
+  "lon": 44.812338,
+  "name": {
+   "ru": "Женский монастырь",
+   "en": "Convent",
+   "ka": "დედათა მონასტერი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1990. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1990. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1990. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "5122",
+  "rid": 3317,
+  "addr": {
+   "ru": "пер. Чехова/2",
+   "en": "Chekhov Lane/2",
+   "ka": "ჩეხოვის შეს./2"
+  }
+ },
+ {
+  "id": "reg3362",
+  "rel": "armenian",
+  "from": 1900,
+  "date": "1801–1900",
+  "lat": 41.692566,
+  "lon": 44.81372,
+  "name": {
+   "ru": "Церковь Нор Эчмиадзин",
+   "en": "Ejmiatsin Church, Tbilisi",
+   "ka": "ეკლესია \"ეჩმიაძინი\""
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1801–1900; на шкале взят конец диапазона (1900). Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1801–1900; the end of the range (1900) is used on the timeline. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1801–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "3795",
+  "rid": 3362,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Армазская/3",
+   "en": "Armazi St./3",
+   "ka": "არმაზის ქ./3"
+  },
+  "ph": "File:Ceiling and Dome of Saint George's Church, Tbilisi.jpg|File:Epitaph near the entrance to the Ejmiatsin Church, Tbilisi.JPG"
+ },
+ {
+  "id": "reg3369",
+  "rel": "christian",
+  "from": 1800,
+  "date": "1776–1800",
+  "lat": 41.691687,
+  "lon": 44.812678,
+  "name": {
+   "ru": "Церковь Преображения",
+   "en": "Church of the Transfiguration",
+   "ka": "ფერისცვალების ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1776–1800; на шкале взят конец диапазона (1800). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1776–1800; the end of the range (1800) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1776–1800; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1800). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "4975",
+  "rid": 3369,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Урбниси/7",
+   "en": "Urbnisi St./7",
+   "ka": "ურბნისის ქ./7"
+  }
+ },
+ {
+  "id": "reg3386",
+  "rel": "armenian",
+  "from": 1845,
+  "date": "1845",
+  "lat": 41.691103,
+  "lon": 44.814635,
+  "name": {
+   "ru": "ეკლესია \"შამქარეცი\"",
+   "en": "ეკლესია \"შამქარეცი\"",
+   "ka": "ეკლესია \"შამქარეცი\""
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1845. Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1845. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1845. კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "4982",
+  "rid": 3386,
+  "addr": {
+   "ru": "ул. Перисцвалеба/21",
+   "en": "Peristsvaleba St./21",
+   "ka": "ფერისცვალების ქ./21"
+  },
+  "ph": "File:Church of the Red Gospel.jpg"
+ },
+ {
+  "id": "reg3393",
+  "rel": "christian",
+  "from": 1856,
+  "date": "1856",
+  "lat": 41.693646,
+  "lon": 44.813421,
+  "name": {
+   "ru": "Церковь Св. Марины",
+   "en": "St. Marina's Church",
+   "ka": "წმ. მარინეს . ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1856. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1856. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1856. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "4274",
+  "rid": 3393,
+  "addr": {
+   "ru": "ул. Душети/12",
+   "en": "Dusheti St./12",
+   "ka": "დუშეთის ქ./12"
+  }
+ },
+ {
+  "id": "reg3397",
+  "rel": "armenian",
+  "from": 1800,
+  "date": "1776–1800",
+  "lat": 41.693593,
+  "lon": 44.812058,
+  "name": {
+   "ru": "Григорианская церковь",
+   "en": "Gregorian (Armenian) Church",
+   "ka": "გრიგორიანული ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1776–1800; на шкале взят конец диапазона (1800). Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1776–1800; the end of the range (1800) is used on the timeline. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1776–1800; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1800). კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "4034",
+  "rid": 3397,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Гелатская/13.ул. Иори/30",
+   "en": "Gelati St./13.Iori St./30",
+   "ka": "გელათის ქ./13.იორის ქ./30"
+  }
+ },
+ {
+  "id": "reg3590",
+  "rel": "christian",
+  "from": 1853,
+  "date": "1853",
+  "lat": 41.684592,
+  "lon": 44.820018,
+  "name": {
+   "ru": "Церковь Св. Николая",
+   "en": "St. Nicholas's Church",
+   "ka": "წმ. ნიკოლოზის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1853. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1853. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1853. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "4332",
+  "rid": 3590,
+  "addr": {
+   "ru": "ул. Везирова/3",
+   "en": "Vezirov St./3",
+   "ka": "ვეზიროვის ქ./3"
+  },
+  "ph": "File:Tbilisi - Saint Nicholas Church in Kharpukhi - 2025-10.jpg"
+ },
+ {
+  "id": "reg3835",
+  "rel": "christian",
+  "from": 1570,
+  "date": "1531–1570",
+  "lat": 41.691149,
+  "lon": 44.812077,
+  "name": {
+   "ru": "Молельня",
+   "en": "Shrine",
+   "ka": "სალოცავი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1531–1570; на шкале взят конец диапазона (1570). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1531–1570; the end of the range (1570) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1531–1570; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1570). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "5425",
+  "rid": 3835,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Джорбенадзе/7",
+   "en": "Jorbenadze St./7",
+   "ka": "ჯორბენაძის ქ./7"
+  }
+ },
+ {
+  "id": "reg3957",
+  "rel": "armenian",
+  "from": 1861,
+  "date": "1861",
+  "lat": 41.697334,
+  "lon": 44.805839,
+  "name": {
+   "ru": "Колокольня Ванкской церкви",
+   "en": "Vank Church Bell Tower",
+   "ka": "ვანქის ეკლესიის სამრეკლო"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1861. Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1861. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1861. კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "3735",
+  "rid": 3957,
+  "addr": {
+   "ru": "ул. Атонели/3",
+   "en": "Atoneli St./3",
+   "ka": "ათონელის ქ./3"
+  },
+  "ph": "File:Giorgi Atoneli street 3, Bell tower (2).jpg|File:Giorgi Atoneli street 3, Bell tower.jpg"
+ },
+ {
+  "id": "reg4653",
+  "rel": "armenian",
+  "from": 1900,
+  "date": "1876–1900",
+  "lat": 41.701845,
+  "lon": 44.778122,
+  "name": {
+   "ru": "Церковь Святого Пантелеймона Целителя",
+   "en": "Church of St. Panteleimon the Healer",
+   "ka": "პანტელეიმონ მკურნალის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1876–1900; на шкале взят конец диапазона (1900). Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1876–1900; the end of the range (1900) is used on the timeline. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1876–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "4843",
+  "rid": 4653,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Гурама Рчеулишвили/12",
+   "en": "Guram Rcheulishvili St./12",
+   "ka": "რჩეულიშვილი გურამის ქ./12"
+  }
+ },
+ {
+  "id": "reg4920",
+  "rel": "christian",
+  "from": 1925,
+  "date": "1901–1925",
+  "lat": 41.702616,
+  "lon": 44.791695,
+  "name": {
+   "ru": "Бывшая церковь",
+   "en": "Former Church",
+   "ka": "ყოფილი ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1901–1925; на шкале взят конец диапазона (1925). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1901–1925; the end of the range (1925) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1901–1925; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1925). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "4835",
+  "rid": 4920,
+  "dapprox": true,
+  "addr": {
+   "ru": "пр. Руставели/48.3-й тупик Вано Сараджишвили/2",
+   "en": "Rustaveli Ave./48.Vano Sarajishvili 3rd Dead end/2",
+   "ka": "რუსთაველის გამზ./48.სარაჯიშვილი ვანოს III ჩიხი/2"
+  }
+ },
+ {
+  "id": "reg4945",
+  "rel": "christian",
+  "from": 1890,
+  "date": "1890",
+  "lat": 41.714474,
+  "lon": 44.811014,
+  "name": {
+   "ru": "Церковь Св. Нино",
+   "en": "St. Nino Church",
+   "ka": "წმ. ნინოს ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1890. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1890. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1890. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "4739",
+  "rid": 4945,
+  "addr": {
+   "ru": "подъём Норио/36",
+   "en": "Norio Ascent/36",
+   "ka": "ნორიოს აღმ./36"
+  }
+ },
+ {
+  "id": "reg5004",
+  "rel": "christian",
+  "from": 1880,
+  "date": "1880",
+  "lat": 41.729685,
+  "lon": 44.785824,
+  "name": {
+   "ru": "Церковь Рождества Пресвятой Богородицы",
+   "en": "Church of the Nativity of the Virgin Mary",
+   "ka": "ღვთისმშობლის შობის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1880. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1880. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1880. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "5237",
+  "rid": 5004,
+  "addr": {
+   "ru": "пр. Акакия Церетели/44",
+   "en": "Akaki Tsereteli Ave./44",
+   "ka": "წერეთელი აკაკის გამზ./44"
+  }
+ },
+ {
+  "id": "reg5010",
+  "rel": "christian",
+  "from": 1800,
+  "date": "1701–1800",
+  "lat": 41.662158,
+  "lon": 44.891427,
+  "name": {
+   "ru": "Церковь Св. Варвары",
+   "en": "St. Barbara Church",
+   "ka": "წმ. ბარბარეს ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1701–1800; на шкале взят конец диапазона (1800). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1701–1800; the end of the range (1800) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1701–1800; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1800). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "4032",
+  "rid": 5010,
+  "dapprox": true,
+  "addr": {
+   "ru": "Гардабанское шоссе/85",
+   "en": "Gardabani Hwy./85",
+   "ka": "გარდაბნის გზატკ./85"
+  }
+ },
+ {
+  "id": "reg5061",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.827688,
+  "lon": 44.828935,
+  "name": {
+   "ru": "Церковь Св. Григория Богослова",
+   "en": "Church of St. Gregory the Theologian",
+   "ka": "წმ. გრიგოლ ღვთისმეტყველის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "2516",
+  "rid": 5061,
+  "dapprox": true
+ },
+ {
+  "id": "reg5072",
+  "rel": "christian",
+  "from": 1800,
+  "date": "1601–1800",
+  "lat": 41.745491,
+  "lon": 44.671545,
+  "name": {
+   "ru": "Дворец и церкви в Тхинвала",
+   "en": "Tkhinvala Palace and Churches",
+   "ka": "თხინვალის სასახლე და ეკლესიები"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1601–1800; на шкале взят конец диапазона (1800). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1601–1800; the end of the range (1800) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1601–1800; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1800). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "2520",
+  "rid": 5072,
+  "dapprox": true
+ },
+ {
+  "id": "reg6551",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.835151,
+  "lon": 44.790596,
+  "name": {
+   "ru": "Церковь Апостола Петра",
+   "en": "Church of St. Peter the Apostle",
+   "ka": "პეტრე მოციქულის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 6551,
+  "undated": true
+ },
+ {
+  "id": "reg6659",
+  "rel": "christian",
+  "from": 1300,
+  "date": "1101–1300",
+  "lat": 41.68983,
+  "lon": 44.611418,
+  "name": {
+   "ru": "Грузинская Бетания",
+   "en": "Betania Monastery",
+   "ka": "ბეთანიის მონასტერი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1101–1300; на шкале взят конец диапазона (1300). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1101–1300; the end of the range (1300) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1101–1300; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1300). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "1564; 1565",
+  "rid": 6659,
+  "dapprox": true,
+  "ph": "File:2024-05-18 Betania Monastery 4.jpg|File:2024-05-18 Betania Monastery 5.jpg|File:2024-05-18 Betania Monastery 3.jpg"
+ },
+ {
+  "id": "reg6661",
+  "rel": "christian",
+  "from": 1196,
+  "date": "1196",
+  "lat": 41.690116,
+  "lon": 44.611285,
+  "name": {
+   "ru": "Грузинская Бетания",
+   "en": "Betania Monastery",
+   "ka": "ბეთანიის მონასტერი. წმ. გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1196. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1196. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1196. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "1564; 1565",
+  "rid": 6661,
+  "ph": "File:2024-05-18 Betania Monastery 4.jpg|File:2024-05-18 Betania Monastery 5.jpg|File:2024-05-18 Betania Monastery 3.jpg"
+ },
+ {
+  "id": "reg7089",
+  "rel": "christian",
+  "from": 1200,
+  "date": "1001–1200",
+  "lat": 41.80238,
+  "lon": 44.677116,
+  "name": {
+   "ru": "Церковь Св. Георгия в Джоиани",
+   "en": "Joiani St. George Church",
+   "ka": "ჯოიანის წმ. გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1001–1200; на шкале взят конец диапазона (1200). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1001–1200; the end of the range (1200) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1001–1200; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1200). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "7465",
+  "rid": 7089,
+  "dapprox": true
+ },
+ {
+  "id": "reg7269",
+  "rel": "lutheran",
+  "from": 1997,
+  "date": "1996–1997",
+  "lat": 41.710146,
+  "lon": 44.806473,
+  "name": {
+   "ru": "Евангелическо-лютеранская церковь",
+   "en": "Evangelical Lutheran Church",
+   "ka": "ევანგელისტურ-ლუთერანული ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1996–1997. Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1996–1997. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1996–1997. კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 7269,
+  "addr": {
+   "ru": "ул. Терентия Гранели/17",
+   "en": "Terenti Graneli St./17",
+   "ka": "გრანელი ტერენტის ქ./17"
+  },
+  "ph": "File:Ansicht lutherische Versöhnungskirche 2.jpg|File:Ansicht lutherische Versöhnungskirche 3.jpg"
+ },
+ {
+  "id": "reg7645",
+  "rel": "christian",
+  "from": 1800,
+  "date": "1301–1800",
+  "lat": 41.80756,
+  "lon": 44.689332,
+  "name": {
+   "ru": "Церковь Св. Нино",
+   "en": "St. Nino Church",
+   "ka": "წმ. ნინოს სახელობის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1301–1800; на шкале взят конец диапазона (1800). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1301–1800; the end of the range (1800) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1301–1800; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1800). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "7473",
+  "rid": 7645,
+  "dapprox": true,
+  "ph": "File:Telovani St Nino Church 1.JPG"
+ },
+ {
+  "id": "reg7942",
+  "rel": "christian",
+  "from": 1997,
+  "date": "1996–1997",
+  "lat": 41.687849,
+  "lon": 44.809075,
+  "name": {
+   "ru": "Церковь Святого Николая",
+   "en": "St. Nicholas Church at Narikala",
+   "ka": "ნარიყალას წმ.ნიკოლოზის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1996–1997. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1996–1997. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1996–1997. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 7942,
+  "ph": "File:Narikara (8).jpg"
+ },
+ {
+  "id": "reg7998",
+  "rel": "christian",
+  "from": 1864,
+  "date": "1863–1864",
+  "lat": 41.71119,
+  "lon": 44.800856,
+  "name": {
+   "ru": "Александро-Невская церковь",
+   "en": "St. Alexander Nevsky Church",
+   "ka": "წმ.ალექსანდრე ნეველის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1863–1864. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1863–1864. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1863–1864. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 7998,
+  "addr": {
+   "ru": "ул. Котэ Марджанишвили/65",
+   "en": "Kote Marjanishvili St./65",
+   "ka": "მარჯანიშვილი კოტეს ქ./65"
+  }
+ },
+ {
+  "id": "reg8052",
+  "rel": "christian",
+  "from": 1000,
+  "date": "701–1000",
+  "lat": 41.790674,
+  "lon": 44.651204,
+  "name": {
+   "ru": "Церковь Богоматери в Коби",
+   "en": "Kobi Church of the Mother of God",
+   "ka": "ქობის ღვთისმშობლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 701–1000; на шкале взят конец диапазона (1000). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 701–1000; the end of the range (1000) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 701–1000; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1000). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 8052,
+  "dapprox": true
+ },
+ {
+  "id": "reg8066",
+  "rel": "christian",
+  "from": 2001,
+  "date": "1996–2001",
+  "lat": 41.68564,
+  "lon": 44.813107,
+  "name": {
+   "ru": "Церковь Преображения Господня на горе Табори",
+   "en": "Church of the Transfiguration on Mount Tabor",
+   "ka": "მაცხოვრის ფერისცვალების ეკლესია თაბორის მთაზე"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1996–2001. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1996–2001. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1996–2001. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 8066
+ },
+ {
+  "id": "reg8238",
+  "rel": "christian",
+  "from": 1100,
+  "date": "901–1100",
+  "lat": 41.768461,
+  "lon": 44.748832,
+  "name": {
+   "ru": "Церковь Св. Георгия",
+   "en": "St. George's Church",
+   "ka": "წმ. გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 901–1100; на шкале взят конец диапазона (1100). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 901–1100; the end of the range (1100) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 901–1100; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1100). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "2517",
+  "rid": 8238,
+  "dapprox": true
+ },
+ {
+  "id": "reg10510",
+  "rel": "armenian",
+  "from": 1900,
+  "date": "1801–1900",
+  "lat": 41.82436,
+  "lon": 44.795709,
+  "name": {
+   "ru": "Церковь (армянская)",
+   "en": "Church (Armenian)",
+   "ka": "ეკლესია (სომხური)"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1801–1900; на шкале взят конец диапазона (1900). Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1801–1900; the end of the range (1900) is used on the timeline. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1801–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 10510,
+  "dapprox": true,
+  "approx": true
+ },
+ {
+  "id": "reg10532",
+  "rel": "christian",
+  "from": 1870,
+  "date": "1831–1870",
+  "lat": 41.772098,
+  "lon": 44.742272,
+  "name": {
+   "ru": "Церковь Животворящего столпа",
+   "en": "Church of the Life-giving Pillar",
+   "ka": "კვირაცხოვლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1831–1870; на шкале взят конец диапазона (1870). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1831–1870; the end of the range (1870) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1831–1870; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1870). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 10532,
+  "dapprox": true
+ },
+ {
+  "id": "reg13026",
+  "rel": "christian",
+  "from": 1000,
+  "date": "331–370",
+  "lat": 41.75773,
+  "lon": 44.750233,
+  "name": {
+   "ru": "Церковь Св. Георгия в Онадире",
+   "en": "Onadire St. George Church",
+   "ka": "ონადირეს წმ.გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (1000). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (1000) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1000). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "7160",
+  "rid": 13026,
+  "dapprox": true
+ },
+ {
+  "id": "reg15599",
+  "rel": "christian",
+  "from": 1863,
+  "date": "1863",
+  "lat": 41.765978,
+  "lon": 44.732667,
+  "name": {
+   "ru": "Церковь Тетри Гиорги",
+   "en": "Tetri Giorgi Church",
+   "ka": "ეკლესია თეთრი გიორგი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1863. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1863. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1863. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 15599,
+  "approx": true
+ },
+ {
+  "id": "reg15663",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.689942,
+  "lon": 44.611151,
+  "name": {
+   "ru": "Грузинская Бетания",
+   "en": "Betania Monastery",
+   "ka": "ბეთანიის მონასტერი. სამრეკლო"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "1564, 1565",
+  "rid": 15663,
+  "undated": true
+ },
+ {
+  "id": "reg16247",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.64357,
+  "lon": 44.719242,
+  "name": {
+   "ru": "Церковь Св. Георгия в Гуделиси",
+   "en": "Gudelisi St. George Church",
+   "ka": "გუდელისის წმ. გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "7391",
+  "rid": 16247,
+  "dapprox": true
+ },
+ {
+  "id": "reg17039",
+  "rel": "christian",
+  "from": 1900,
+  "date": "1851–1900",
+  "lat": 41.70524,
+  "lon": 44.797806,
+  "name": {
+   "ru": "Церковь на улице Узнадзе",
+   "en": "Church on Uznadze Street",
+   "ka": "ეკლესია უზნაძის ქუჩაზე"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1851–1900; на шкале взят конец диапазона (1900). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1851–1900; the end of the range (1900) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1851–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 17039,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Дмитрия Узнадзе/47",
+   "en": "Dimitri Uznadze St./47",
+   "ka": "უზნაძე დიმიტრის ქ./47"
+  }
+ },
+ {
+  "id": "reg17378",
+  "rel": "christian",
+  "from": 1825,
+  "date": "1801–1825",
+  "lat": 41.675706,
+  "lon": 44.852503,
+  "name": {
+   "ru": "Верхняя церковь Св. Варвары",
+   "en": "Upper Church of St. Barbara",
+   "ka": "ზემო წმ.ბარბარეს სახ. ტაძარი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1801–1825; на шкале взят конец диапазона (1825). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1801–1825; the end of the range (1825) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1801–1825; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1825). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 17378,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Богдана Хмельницкого/6",
+   "en": "Bogdan Khmelnitsky St./6",
+   "ka": "ბოგდან ხმელნიცკის ქ./6"
+  },
+  "ph": "File:2026-02-01 Graves at the Church of Saint Barbara in Navtlugi.jpg|File:2026-02-01 Benches at the Church of Saint Barbara in Navtlugi.jpg"
+ },
+ {
+  "id": "reg17828",
+  "rel": "christian",
+  "from": 2000,
+  "date": "331–2000",
+  "lat": 41.704507,
+  "lon": 44.800997,
+  "name": {
+   "ru": "Комплекс церкви Кукия",
+   "en": "Kukia Church Complex",
+   "ka": "კუკიის ეკლესიის კომპლექსი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–2000; на шкале взят конец диапазона (2000). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–2000; the end of the range (2000) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–2000; დროის სკალაზე აღებულია დიაპაზონის ბოლო (2000). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 17828,
+  "dapprox": true,
+  "addr": {
+   "ru": "пр. Давида Агмашенебели/38.ул. Сосо Церетели/5",
+   "en": "David Aghmashenebeli Ave./38.Soso Tsereteli St./5",
+   "ka": "აღმაშენებელი დავითის გამზ./38.წერეთელი სოსოს ქ./5"
+  }
+ },
+ {
+  "id": "reg17902",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.673768,
+  "lon": 44.700021,
+  "name": {
+   "ru": "Церковь Св. Георгия (Удзо Св. Георгий)",
+   "en": "St. George Church (Udzo St. George)",
+   "ka": "წმ. გიორგის ეკლესია / „უძოს წმ გიორგი“"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "1562",
+  "rid": 17902,
+  "dapprox": true,
+  "ph": "File:2025-09-14 Inscription at Saint George's church in Udzo Monastery.jpg|File:2023-02-18 Belltower of Udzo Monastery.jpg|File:2023-02-18 Snowmen in Udzo Monastery.jpg"
+ },
+ {
+  "id": "reg17904",
+  "rel": "christian",
+  "from": 1300,
+  "date": "1101–1300",
+  "lat": 41.690014,
+  "lon": 44.611515,
+  "name": {
+   "ru": "Монастырь Бетания: купольная церковь",
+   "en": "Betania Monastery: Domed Church",
+   "ka": "ბეთანიის მონასტერი. გუმბათიანი ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1101–1300; на шкале взят конец диапазона (1300). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1101–1300; the end of the range (1300) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1101–1300; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1300). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "1564; 1565",
+  "rid": 17904,
+  "dapprox": true,
+  "ph": "File:Betania Monastery of the Nativity of the Mother of God.Gate.jpg|File:Betania church3.jpg|File:Betania church2.jpg"
+ },
+ {
+  "id": "reg18508",
+  "rel": "christian",
+  "from": 1570,
+  "date": "331–1570",
+  "lat": 41.704034,
+  "lon": 44.742213,
+  "name": {
+   "ru": "Базилика Иври-Сиони",
+   "en": "Ivri Sioni Basilica Church",
+   "ka": "ივრის სიონის ბაზილიკური ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–1570; на шкале взят конец диапазона (1570). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–1570; the end of the range (1570) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–1570; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1570). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "2446",
+  "rid": 18508,
+  "dapprox": true,
+  "ph": "File:Tbilisi Open Air Museum of Ethnography 08.jpg|File:Tbilisi Open Air Museum of Ethnography 18.jpg|File:Tbilisi Open Air Museum of Ethnography 12.jpg"
+ },
+ {
+  "id": "reg18515",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.745734,
+  "lon": 44.671554,
+  "name": {
+   "ru": "Дворец и церкви в Тхинвала: церковь Св. Георгия",
+   "en": "Tkhinvala Palace and Churches: St. George Church",
+   "ka": "თხინვალის სასახლე და ეკლესიები. წმ. გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "2520",
+  "rid": 18515,
+  "dapprox": true
+ },
+ {
+  "id": "reg18516",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.745821,
+  "lon": 44.671473,
+  "name": {
+   "ru": "Дворец и церкви в Тхинвале: церковь Богоматери",
+   "en": "Tkhinvala Palace and Churches: Church of the Mother of God",
+   "ka": "თხინვალის სასახლე და ეკლესიები. ღვთისმშობლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "2520",
+  "rid": 18516,
+  "dapprox": true
+ },
+ {
+  "id": "reg18545",
+  "rel": "christian",
+  "from": 1300,
+  "date": "101–1300",
+  "lat": 41.688945,
+  "lon": 44.81034,
+  "name": {
+   "ru": "Церковь Сорока Мучеников",
+   "en": "Tbilisi Monastery of the Forty Martyrs of Sebaste",
+   "ka": "თბილისის წმ. ორმოც სებასტიელ მოწამეთა მონასტერი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 101–1300; на шкале взят конец диапазона (1300). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 101–1300; the end of the range (1300) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 101–1300; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1300). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "7602",
+  "rid": 18545,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Вахтанга Горгасали/3А.ул. Ботаническая/ул. Самгебро",
+   "en": "Vakhtang Gorgasali St./3A.Botanikuri St./Samghebro St.",
+   "ka": "გორგასალი ვახტანგის ქ./3ა.ბოტანიკურის ქ./.სამღებროს ქ./"
+  }
+ },
+ {
+  "id": "reg18597",
+  "rel": "christian",
+  "from": 1200,
+  "date": "1001–1200",
+  "lat": 41.797508,
+  "lon": 44.680779,
+  "name": {
+   "ru": "Церковь Богоматери на Дидгорском поле",
+   "en": "Church of the Mother of God at Didgori Field",
+   "ka": "დიდგორის ველის ღვთისმშობლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1001–1200; на шкале взят конец диапазона (1200). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1001–1200; the end of the range (1200) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1001–1200; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1200). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "6515",
+  "rid": 18597,
+  "dapprox": true
+ },
+ {
+  "id": "reg20087",
+  "rel": "christian",
+  "from": 900,
+  "date": "701–900",
+  "lat": 41.820267,
+  "lon": 44.82782,
+  "name": {
+   "ru": "Церковь Богоматери",
+   "en": "Church of the Mother of God",
+   "ka": "ეკლესია ღვთისმშობელი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 701–900; на шкале взят конец диапазона (900). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 701–900; the end of the range (900) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 701–900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (900). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 20087,
+  "dapprox": true
+ },
+ {
+  "id": "reg20117",
+  "rel": "christian",
+  "from": 1900,
+  "date": "1801–1900",
+  "lat": 41.771264,
+  "lon": 44.722157,
+  "name": {
+   "ru": "Церковь Св. Георгия в Кавти",
+   "en": "Kavti St. George Church",
+   "ka": "კავთის წმ. გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1801–1900; на шкале взят конец диапазона (1900). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1801–1900; the end of the range (1900) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1801–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "7161",
+  "rid": 20117,
+  "dapprox": true
+ },
+ {
+  "id": "reg20119",
+  "rel": "christian",
+  "from": 1700,
+  "date": "400–1700",
+  "lat": 41.803889,
+  "lon": 44.657469,
+  "name": {
+   "ru": "Руины церкви Св. Георгия",
+   "en": "Ruins of St. George Church",
+   "ka": "წმინდა გიორგის სახელობის ნაეკლესიარი"
+  },
+  "status": {
+   "ru": "руины или остатки (по реестру)",
+   "en": "ruins or remains (per the register)",
+   "ka": "ნანგრევები ან ნაშთები (რეესტრის მიხედვით)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 400–1700; на шкале взят конец диапазона (1700). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 400–1700; the end of the range (1700) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 400–1700; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1700). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 20119,
+  "dapprox": true
+ },
+ {
+  "id": "reg20138",
+  "rel": "christian",
+  "from": 900,
+  "date": "400–900",
+  "lat": 41.777233,
+  "lon": 44.729342,
+  "name": {
+   "ru": "Церковь Богородицы",
+   "en": "Church of the Mother of God",
+   "ka": "ღვთისმშობლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 400–900; на шкале взят конец диапазона (900). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 400–900; the end of the range (900) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 400–900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (900). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 20138,
+  "dapprox": true
+ },
+ {
+  "id": "reg20140",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.771749,
+  "lon": 44.736992,
+  "name": {
+   "ru": "Церковь Св. Марины",
+   "en": "St. Marina Church",
+   "ka": "წმ. მარინეს ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 20140,
+  "dapprox": true
+ },
+ {
+  "id": "reg23232",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.822585,
+  "lon": 44.784439,
+  "name": {
+   "ru": "Церковь Богородицы",
+   "en": "Church of the Mother of God",
+   "ka": "ღვთისმშობლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 23232,
+  "undated": true
+ },
+ {
+  "id": "reg23251",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.820986,
+  "lon": 44.781408,
+  "name": {
+   "ru": "Церковь Иоанна Крестителя",
+   "en": "Church of St. John the Baptist",
+   "ka": "ნათლისმცემლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 23251,
+  "undated": true,
+  "addr": {
+   "ru": "ул. Бичвинта",
+   "en": "Bichvinta St.",
+   "ka": "ბიჭვინთის ქ./"
+  }
+ },
+ {
+  "id": "reg24367",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.693539,
+  "lon": 44.82793,
+  "name": {
+   "ru": "Церковь Петра и Павла",
+   "en": "Church of Saints Peter and Paul",
+   "ka": "პეტრე-პავლეს სახელობის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24367,
+  "undated": true
+ },
+ {
+  "id": "reg24394",
+  "rel": "christian",
+  "from": 1900,
+  "date": "1801–1900",
+  "lat": 41.697134,
+  "lon": 44.708914,
+  "name": {
+   "ru": "Церковь Святого Георгия",
+   "en": "St. George Church",
+   "ka": "წმინდა გიორგის სახელობის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1801–1900; на шкале взят конец диапазона (1900). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1801–1900; the end of the range (1900) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1801–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24394,
+  "dapprox": true
+ },
+ {
+  "id": "reg24758",
+  "rel": "christian",
+  "from": 2014,
+  "date": "2014",
+  "lat": 41.727828,
+  "lon": 44.771639,
+  "name": {
+   "ru": "Церковь Св. Георгия в Сабуртало",
+   "en": "Saburtalo St. George Church",
+   "ka": "საბურთალოს წმ. გიორგის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 2014. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 2014. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 2014. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24758,
+  "addr": {
+   "ru": "ул. Жиули Шартава/20",
+   "en": "Zhiuli Shartava St./20",
+   "ka": "შარტავა ჟიულის ქ./20"
+  }
+ },
+ {
+  "id": "reg24759",
+  "rel": "christian",
+  "from": 2001,
+  "date": "1851–2001",
+  "lat": 41.689197,
+  "lon": 44.792312,
+  "name": {
+   "ru": "Церковь Вознесения",
+   "en": "Church of the Ascension",
+   "ka": "ამაღლების ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1851–2001. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1851–2001. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1851–2001. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24759,
+  "addr": {
+   "ru": "проезд Амаглеба",
+   "en": "Amaghleba Passage",
+   "ka": "ამაღლების გას./"
+  }
+ },
+ {
+  "id": "reg24762",
+  "rel": "christian",
+  "from": 2000,
+  "date": "1801–2000",
+  "lat": 41.725358,
+  "lon": 44.802003,
+  "name": {
+   "ru": "Церковь Иверской Богоматери в Надзаладеви",
+   "en": "Nadzaladevi Church of the Iveron Mother of God",
+   "ka": "ნაძალადევის ივერიის ღმრთისმშობლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1801–2000; на шкале взят конец диапазона (2000). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1801–2000; the end of the range (2000) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1801–2000; დროის სკალაზე აღებულია დიაპაზონის ბოლო (2000). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24762,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Эроси Манджгаладзе",
+   "en": "Erosi Manjgaladze St.",
+   "ka": "მანჯგალაძე ეროსის ქ./"
+  },
+  "ph": "File:Holy Virgin of Iveria Parish School of Tbilisi.jpg|File:Interior of Church of the Holy Virgin of Iveria of Tbilisi.jpg"
+ },
+ {
+  "id": "reg24768",
+  "rel": "christian",
+  "from": 1870,
+  "date": "1831–1870",
+  "lat": 41.688011,
+  "lon": 44.811988,
+  "name": {
+   "ru": "Остатки церкви Сурб Саркис",
+   "en": "Remains of Surb Sarkis Church",
+   "ka": "სურბ სარქისის ეკლესიის ნაშთი"
+  },
+  "status": {
+   "ru": "руины или остатки (по реестру)",
+   "en": "ruins or remains (per the register)",
+   "ka": "ნანგრევები ან ნაშთები (რეესტრის მიხედვით)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1831–1870; на шкале взят конец диапазона (1870). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1831–1870; the end of the range (1870) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1831–1870; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1870). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24768,
+  "dapprox": true,
+  "addr": {
+   "ru": "ул. Иосифа Гришашвили/18",
+   "en": "Ioseb Grishashvili St./18",
+   "ka": "გრიშაშვილი იოსების ქ./18"
+  }
+ },
+ {
+  "id": "reg24785",
+  "rel": "armenian",
+  "from": 364,
+  "date": "",
+  "lat": 41.670292,
+  "lon": 44.813076,
+  "name": {
+   "ru": "Армянская церковь Св. Богоматери в Крцаниси",
+   "en": "Krtsanisi Armenian Church of the Holy Mother of God",
+   "ka": "კრწანისის წმ. ღმრთისმშობლის სომხური ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24785,
+  "undated": true,
+  "addr": {
+   "ru": "ул. Крцаниси/82",
+   "en": "Krtsanisi St./82",
+   "ka": "კრწანისის ქ./82"
+  }
+ },
+ {
+  "id": "reg24798",
+  "rel": "christian",
+  "from": 2008,
+  "date": "1899–2008",
+  "lat": 41.714417,
+  "lon": 44.800554,
+  "name": {
+   "ru": "Церковь Казанской иконы Божией Матери",
+   "en": "Church of the Kazan Icon of the Mother of God",
+   "ka": "ყაზანის ღვთისმშობლის ხატის სახელობის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1899–2008. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1899–2008. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1899–2008. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24798,
+  "addr": {
+   "ru": "ул. Давида Клдиашвили/9-11/36/37.ул. Георгия Чубинашвили",
+   "en": "Davit Kldiashvili St./9-11/36/37.Giorgi Chubinashvili St.",
+   "ka": "კლდიაშვილი დავითის ქ./9-11/36/37.ჩუბინაშვილი გიორგის ქ./"
+  }
+ },
+ {
+  "id": "reg24799",
+  "rel": "christian",
+  "from": 1898,
+  "date": "1898",
+  "lat": 41.694955,
+  "lon": 44.818757,
+  "name": {
+   "ru": "Бывшая церковь Св. Архангела Михаила",
+   "en": "Former Church of St. Michael the Archangel",
+   "ka": "წმ. მიქაელ მთავარანგელოზის ყოფილი ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1898. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1898. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1898. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 24799,
+  "addr": {
+   "ru": "ул. Мтаварангелози/23",
+   "en": "Mtavarangelozi St./23",
+   "ka": "მთავარანგელოზის ქ./23"
+  }
+ },
+ {
+  "id": "reg26684",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.768574,
+  "lon": 44.748835,
+  "name": {
+   "ru": "Дохристианское святилище Дигмистави",
+   "en": "Dighmistavi Pre-Christian Shrine",
+   "ka": "დიღმისთავის წინაქრისტიანული სამლოცველო"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 26684,
+  "dapprox": true
+ },
+ {
+  "id": "reg26799",
+  "rel": "armenian",
+  "from": 364,
+  "date": "",
+  "lat": 41.67261,
+  "lon": 44.73989,
+  "name": {
+   "ru": "Церковь Богородицы",
+   "en": "Church of the Mother of God",
+   "ka": "ღვთისმშობლის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия определена по названию или описанию объекта в реестре.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is taken from the name or the description of the object in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+  },
+  "src": [],
+  "regno": "1573",
+  "rid": 26799,
+  "undated": true
+ },
+ {
+  "id": "reg26800",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.669853,
+  "lon": 44.742062,
+  "name": {
+   "ru": "Церковь Св. Марины",
+   "en": "St. Marina Church",
+   "ka": "წმ. მარინეს ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "1574",
+  "rid": 26800,
+  "undated": true
+ },
+ {
+  "id": "reg26802",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.674786,
+  "lon": 44.718762,
+  "name": {
+   "ru": "Святилище (ниши) церкви Квирацховели",
+   "en": "Kviratskhoveli Church Shrine (Nishi)",
+   "ka": "ეკლესია „კვირაცხოვლის“ ნიში"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "1575",
+  "rid": 26802,
+  "undated": true,
+  "approx": true
+ },
+ {
+  "id": "reg30940",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.800327,
+  "lon": 44.62386,
+  "name": {
+   "ru": "Руины церкви Кваратхеви",
+   "en": "Kvaratkhevi Church Ruins",
+   "ka": "კვარათხევის ნაეკლესიარი"
+  },
+  "status": {
+   "ru": "руины или остатки (по реестру)",
+   "en": "ruins or remains (per the register)",
+   "ka": "ნანგრევები ან ნაშთები (რეესტრის მიხედვით)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 30940,
+  "undated": true
+ },
+ {
+  "id": "reg30942",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.745679,
+  "lon": 44.671023,
+  "name": {
+   "ru": "Дворец и церкви в Тхинвале: колокольня и ворота",
+   "en": "Tkhinvala Palace and Churches: Bell Tower / Gatehouse",
+   "ka": "თხინვალის სასახლე და ეკლესიები. სამრეკლო/კარიბჭე"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "2520",
+  "rid": 30942,
+  "dapprox": true
+ },
+ {
+  "id": "reg30943",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.746479,
+  "lon": 44.67206,
+  "name": {
+   "ru": "Руины церкви Квирацховели",
+   "en": "Ruins of Kviratskhoveli Church",
+   "ka": "კვირაცხოვლის ეკლესიის ნანგრევი"
+  },
+  "status": {
+   "ru": "руины или остатки (по реестру)",
+   "en": "ruins or remains (per the register)",
+   "ka": "ნანგრევები ან ნაშთები (რეესტრის მიხედვით)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 30943,
+  "undated": true
+ },
+ {
+  "id": "reg38177",
+  "rel": "christian",
+  "from": 364,
+  "date": "",
+  "lat": 41.639131,
+  "lon": 44.669223,
+  "name": {
+   "ru": "Монастырский комплекс Кабени в Коджори",
+   "en": "Kojori Kabeni Monastery Complex",
+   "ka": "კოჯრის კაბენის მონასტრის კომპლექსი"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата в реестре не указана. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. The date is not given in the register. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. რეესტრში თარიღი მითითებული არ არის. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 38177,
+  "undated": true,
+  "ph": "File:2023-10-21 Kabeni Monastery.jpg"
+ },
+ {
+  "id": "reg38179",
+  "rel": "christian",
+  "from": 1213,
+  "date": "1184–1213",
+  "lat": 41.639263,
+  "lon": 44.668737,
+  "name": {
+   "ru": "Монастырский комплекс Кабени в Коджори: церковь Архангела Михаила",
+   "en": "Kojori Kabeni Monastery Complex: Church of St. Michael the Archangel",
+   "ka": "კოჯრის კაბენის მონასტრის კომპლექსი. მიქაელ მთავარანგელოზის სახელობის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1184–1213. Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1184–1213. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1184–1213. რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "1563",
+  "rid": 38179,
+  "ph": "File:2023-10-21 Kabeni Monastery.jpg"
+ },
+ {
+  "id": "reg38181",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.638914,
+  "lon": 44.669815,
+  "name": {
+   "ru": "Монастырский комплекс Кабени в Коджори: церковь Св. Симеона Столпника",
+   "en": "Kojori Kabeni Monastery Complex: Church of St. Simeon Stylites",
+   "ka": "კოჯრის კაბენის მონასტრის კომპლექსი/ სვიმეონ მესვეტის სახელობის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 38181,
+  "dapprox": true
+ },
+ {
+  "id": "reg38197",
+  "rel": "christian",
+  "from": 370,
+  "date": "331–370",
+  "lat": 41.639094,
+  "lon": 44.669856,
+  "name": {
+   "ru": "Монастырский комплекс Кабени в Коджори: руины церкви Успения Богоматери",
+   "en": "Kojori Kabeni Monastery Complex: Ruins of the Dormition of the Mother of God Church",
+   "ka": "კოჯრის კაბენის მონასტრის კომპლექსი. ღვთისმშობლის მიძინების სახელობის ნაეკლესიარი"
+  },
+  "status": {
+   "ru": "руины или остатки (по реестру)",
+   "en": "ruins or remains (per the register)",
+   "ka": "ნანგრევები ან ნაშთები (რეესტრის მიხედვით)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 331–370; на шкале взят конец диапазона (370). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 331–370; the end of the range (370) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 331–370; დროის სკალაზე აღებულია დიაპაზონის ბოლო (370). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 38197,
+  "dapprox": true
+ },
+ {
+  "id": "reg39414",
+  "rel": "christian",
+  "from": 1900,
+  "date": "1701–1900",
+  "lat": 41.741617,
+  "lon": 44.963848,
+  "name": {
+   "ru": "Церковь Богоматери",
+   "en": "Church of the Mother of God",
+   "ka": "ღვთისმშობლის სახელობის ეკლესია"
+  },
+  "status": {
+   "ru": "стоит (объект реестра)",
+   "en": "stands (a register object)",
+   "ka": "დგას (რეესტრის ობიექტი)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1701–1900; на шкале взят конец диапазона (1900). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1701–1900; the end of the range (1900) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1701–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 39414,
+  "dapprox": true
+ },
+ {
+  "id": "reg39415",
+  "rel": "christian",
+  "from": 1900,
+  "date": "1701–1900",
+  "lat": 41.741737,
+  "lon": 44.963081,
+  "name": {
+   "ru": "Руины церкви",
+   "en": "Church Ruins",
+   "ka": "ნაეკლესიარი"
+  },
+  "status": {
+   "ru": "руины или остатки (по реестру)",
+   "en": "ruins or remains (per the register)",
+   "ka": "ნანგრევები ან ნაშთები (რეესტრის მიხედვით)"
+  },
+  "note": {
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1701–1900; на шкале взят конец диапазона (1900). Конфессия в реестре не указана.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1701–1900; the end of the range (1900) is used on the timeline. The denomination is not given in the register.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1701–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). რეესტრში კონფესია მითითებული არ არის."
+  },
+  "src": [],
+  "regno": "",
+  "rid": 39415,
+  "dapprox": true
+ }
+]
