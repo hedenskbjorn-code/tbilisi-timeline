@@ -1176,9 +1176,9 @@
    "ka": "დანგრეულია 1951 წელს (ინფობოქსში 1952)"
   },
   "note": {
-   "ru": "Построена в 1522-1524 при шахе Исмаиле I, расширена в 1606 при шахе Аббасе. Снесена при строительстве нового моста у Метехи.",
-   "en": "Built in 1522-1524 under Shah Ismail I, enlarged in 1606 under Shah Abbas. Demolished when the new bridge by Metekhi was built.",
-   "ka": "აშენდა 1522-1524 წლებში შაჰ ისმაილ I-ის დროს, გაფართოვდა 1606 წელს შაჰ აბასის დროს. დაანგრიეს მეტეხთან ახალი ხიდის მშენებლობისას."
+   "ru": "Построена в 1522-1524 при шахе Исмаиле I, расширена в 1606 при шахе Аббасе. Снесена при строительстве нового моста у Метехи. По Абдуллину (2022, PDF с. 3): шиитская мечеть разрушена в начале 1950-х гг.",
+   "en": "Built in 1522-1524 under Shah Ismail I, enlarged in 1606 under Shah Abbas. Demolished when the new bridge by Metekhi was built. According to Abdullin (2022, PDF p. 3): the Shia mosque was destroyed in the early 1950s.",
+   "ka": "აშენდა 1522-1524 წლებში შაჰ ისმაილ I-ის დროს, გაფართოვდა 1606 წელს შაჰ აბასის დროს. დაანგრიეს მეტეხთან ახალი ხიდის მშენებლობისას. აბდულინის მიხედვით (2022, PDF გვ. 3): შიიტური მეჩეთი დაინგრა 1950-იანი წლების დასაწყისში."
   },
   "src": [
    "https://ru.wikipedia.org/wiki/Тбилисская_шиитская_мечеть",
@@ -1875,9 +1875,9 @@
    "ka": "მოქმედია (სუნიტურ-შიიტური)"
   },
   "note": {
-   "ru": "Первая мечеть XVIII века разрушена персидскими войсками в 1740-х; здание 1846-1851 (Джованни Скудьери); нынешнее кирпичное здание 1895 (на средства Тагиева); реставрация 1998. Единственная сохранившаяся мечеть Старого города.",
-   "en": "The first mosque of the 18th century was destroyed by Persian forces in the 1740s; the building of 1846-1851 (Giovanni Scudieri); the present brick building of 1895 (funded by Taghiyev); restored in 1998. The only surviving mosque in Old Town.",
-   "ka": "XVIII საუკუნის პირველი მეჩეთი სპარსელებმა 1740-იან წლებში დაანგრიეს; შენობა 1846-1851 (ჯოვანი სკუდიერი); დღევანდელი აგურის შენობა 1895 წლისაა (ტაღიევის დაფინანსებით); რესტავრაცია 1998 წელს."
+   "ru": "Первая мечеть XVIII века разрушена персидскими войсками в 1740-х; здание 1846-1851 (Джованни Скудьери); нынешнее кирпичное здание 1895 (на средства Тагиева); реставрация 1998. Единственная сохранившаяся мечеть Старого города. По Абдуллину (2022, PDF с. 3–4): суннитская мечеть построена в 1723–1735 гг., в 1740 г. разрушена персами, в 1851–1864 гг. восстановлена по проекту Дж. Скудьери (по en.wikipedia здание 1846–1851), в 1895 г. отремонтирована на средства З. Тагиева, в 1998 г. реставрирована.",
+   "en": "The first mosque of the 18th century was destroyed by Persian forces in the 1740s; the building of 1846-1851 (Giovanni Scudieri); the present brick building of 1895 (funded by Taghiyev); restored in 1998. The only surviving mosque in Old Town. According to Abdullin (2022, PDF pp. 3-4): the Sunni mosque was built in 1723-1735, destroyed by the Persians in 1740, rebuilt in 1851-1864 to the design of G. Scudieri (en.wikipedia gives 1846-1851 for the building), repaired in 1895 at the expense of Z. Tagiev and restored in 1998.",
+   "ka": "XVIII საუკუნის პირველი მეჩეთი სპარსელებმა 1740-იან წლებში დაანგრიეს; შენობა 1846-1851 (ჯოვანი სკუდიერი); დღევანდელი აგურის შენობა 1895 წლისაა (ტაღიევის დაფინანსებით); რესტავრაცია 1998 წელს. აბდულინის მიხედვით (2022, PDF გვ. 3–4): სუნიტური მეჩეთი აშენდა 1723–1735 წწ., 1740 წ. დაანგრიეს სპარსელებმა, 1851–1864 წწ. აღდგა ჯ. სკუდიერის პროექტით (en.wikipedia-ს მიხედვით შენობა 1846–1851 წწ.), 1895 წ. შეკეთდა ზ. თაღიევის სახსრებით, 1998 წ. რესტავრირებულია."
   },
   "src": [
    "https://en.wikipedia.org/wiki/Juma_Mosque,_Tbilisi"
@@ -2065,16 +2065,16 @@
   "approx": true
  },
  {
-  "id": "reg7998",
-  "rel": "christian",
+  "id": "reg3049",
+  "rel": "russian",
   "from": 1864,
   "date": "1863–1864",
-  "lat": 41.71119,
-  "lon": 44.800856,
+  "lat": 41.711331,
+  "lon": 44.801043,
   "name": {
    "ru": "Александро-Невская церковь",
-   "en": "St. Alexander Nevsky Church",
-   "ka": "წმ.ალექსანდრე ნეველის ეკლესია"
+   "en": "Russian Orthodox Church",
+   "ka": "რუსული მართლმადიდებლური ეკლესია"
   },
   "status": {
    "ru": "стоит (объект реестра)",
@@ -2082,18 +2082,19 @@
    "ka": "დგას (რეესტრის ობიექტი)"
   },
   "note": {
-   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1863–1864. Конфессия в реестре не указана.",
-   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1863–1864. The denomination is not given in the register.",
-   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1863–1864. რეესტრში კონფესია მითითებული არ არის."
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1880. Конфессия определена по названию или описанию объекта в реестре. Один и тот же храм записан в реестре дважды: объект 3049 (ул. Джавахишвили, 69; дата 1880, происхождение даты не выяснено) и объект 7998 (ул. Марджанишвили, 65; 1863–1864). По статье ru.wikipedia церковь построена в 1864 г. на пожертвования верующих и 5 000 руб. от Святейшего Синода (по ka.wikipedia в 1863–1864 гг.); в 1886 г. пристроена колокольня; в 1900 г. построена трапезная Николая Чудотворца в честь императора Николая II; в 1913 г. рядом возведена часовня в честь 300-летия дома Романовых. Карточка 7998 удалена как дубль.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1880. The denomination is taken from the name or the description of the object in the register. The same church is entered twice in the register: object 3049 (Javakhishvili St. 69; date 1880, the origin of the date is not known) and object 7998 (Marjanishvili St. 65; 1863-1864). According to the ru.wikipedia article the church was built in 1864 with the donations of the believers and 5,000 roubles from the Holy Synod (ka.wikipedia gives 1863-1864); a bell tower was added in 1886; the refectory of St. Nicholas the Wonderworker was built in 1900 in honour of Emperor Nicholas II; in 1913 a chapel in honour of the 300th anniversary of the Romanov dynasty was put up beside the church. The card 7998 has been removed as a duplicate.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1880. კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით. ერთი და იგივე ტაძარი რეესტრში ორჯერ არის ჩაწერილი: ობიექტი 3049 (ჯავახიშვილის ქ. 69; თარიღი 1880, თარიღის წარმომავლობა დადგენილი არ არის) და ობიექტი 7998 (მარჯანიშვილის ქ. 65; 1863–1864). ru.wikipedia-ს სტატიის მიხედვით ეკლესია აშენდა 1864 წ. მორწმუნეთა შემოწირულობებითა და რუსეთის წმინდა სინოდის 5 000 მანეთით (ka.wikipedia-ს მიხედვით 1863–1864 წწ.); 1886 წ. მიუშენდა სამრეკლო; 1900 წ. აშენდა წმინდა ნიკოლოზ საკვირველმოქმედის ტრაპეზი იმპერატორ ნიკოლოზ II-ის პატივსაცემად; 1913 წ. გვერდით აიგო სამლოცველო რომანოვების დინასტიის 300 წლისთავის პატივსაცემად. ბარათი 7998 წაშლილია როგორც დუბლი."
   },
   "src": [],
-  "regno": "",
-  "rid": 7998,
+  "regno": "5385",
+  "rid": 3049,
   "addr": {
-   "ru": "ул. Котэ Марджанишвили/65",
-   "en": "Kote Marjanishvili St./65",
-   "ka": "მარჯანიშვილი კოტეს ქ./65"
-  }
+   "ru": "ул. Иване Джавахишвили/69",
+   "en": "Ivane Javakhishvili St./69",
+   "ka": "ჯავახიშვილი ივანეს ქ./69"
+  },
+  "ph": "File:Sv.A.Nevskii.jpg|File:TC89 - Tbilisi, ruska crkva.jpg|File:Alexander Nevsky Church, Tbilisi (Photo A. Muhranoff, 2011).jpg"
  },
  {
   "id": "reg10532",
@@ -2124,7 +2125,7 @@
  },
  {
   "id": "reg24768",
-  "rel": "christian",
+  "rel": "armenian",
   "from": 1870,
   "date": "1831–1870",
   "lat": 41.688011,
@@ -2140,9 +2141,9 @@
    "ka": "ნანგრევები ან ნაშთები (რეესტრის მიხედვით)"
   },
   "note": {
-   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1831–1870; на шкале взят конец диапазона (1870). Конфессия в реестре не указана.",
-   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1831–1870; the end of the range (1870) is used on the timeline. The denomination is not given in the register.",
-   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1831–1870; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1870). რეესტრში კონფესია მითითებული არ არის."
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1831–1870; на шкале взят конец диапазона (1870). Конфессия в реестре не указана. По статье ka.wikipedia: армянская крестово-купольная церковь на правом берегу Куры, в старом районе Абанотубани; ныне разрушена.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1831–1870; the end of the range (1870) is used on the timeline. The denomination is not given in the register. According to the ka.wikipedia article: an Armenian cross-in-square church on the right bank of the Kura, in the old quarter Abanotubani; now destroyed.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1831–1870; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1870). რეესტრში კონფესია მითითებული არ არის. ka.wikipedia-ს სტატიის მიხედვით: სომხური ჯვარ-გუმბათოვანი ეკლესია მტკვრის მარჯვენა ნაპირზე, ძველ უბან აბანოთუბანში; ამჟამად დანგრეულია."
   },
   "src": [],
   "regno": "",
@@ -2209,38 +2210,6 @@
    "https://ru.wikipedia.org/wiki/Католическая_церковь_Святых_Петра_и_Павла_(Тбилиси)"
   ],
   "ph": "File:Catholic church in Tbilisi 02.jpg"
- },
- {
-  "id": "reg3049",
-  "rel": "russian",
-  "from": 1880,
-  "date": "1880",
-  "lat": 41.711331,
-  "lon": 44.801043,
-  "name": {
-   "ru": "Александро-Невская церковь",
-   "en": "Russian Orthodox Church",
-   "ka": "რუსული მართლმადიდებლური ეკლესია"
-  },
-  "status": {
-   "ru": "стоит (объект реестра)",
-   "en": "stands (a register object)",
-   "ka": "დგას (რეესტრის ობიექტი)"
-  },
-  "note": {
-   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1880. Конфессия определена по названию или описанию объекта в реестре.",
-   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1880. The denomination is taken from the name or the description of the object in the register.",
-   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1880. კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
-  },
-  "src": [],
-  "regno": "5385",
-  "rid": 3049,
-  "addr": {
-   "ru": "ул. Иване Джавахишвили/69",
-   "en": "Ivane Javakhishvili St./69",
-   "ka": "ჯავახიშვილი ივანეს ქ./69"
-  },
-  "ph": "File:Sv.A.Nevskii.jpg|File:TC89 - Tbilisi, ruska crkva.jpg|File:Alexander Nevsky Church, Tbilisi (Photo A. Muhranoff, 2011).jpg"
  },
  {
   "id": "reg5004",
@@ -2379,9 +2348,9 @@
    "ka": "დანგრეულია 1930 წელს; ადგილზე სახელმწიფო სახლია (დღეს საქართველოს პარლამენტი)"
   },
   "note": {
-   "ru": "Заложен 16 апреля 1871 (по ru 6 апреля) на Гунибской площади; в 1877 стройка остановлена, возобновлена в 1890, новый фундамент 1891; освящён 21 мая 1897 (архитектор Давид Гримм). Снесён по указанию Берии. Рядом в Александровском саду стояла малая часовня Александра Невского (заложена в 1888; к 1925 снята), см. статью на ka.wikipedia.",
-   "en": "Begun on 16 April 1871 (6 April per ru) on Gunib Square; suspended in 1877, resumed in 1890, new foundation in 1891; consecrated on 21 May 1897 (architect David Grimm). Demolished on Beria's order. Nearby in Alexander's Garden stood a small Alexander Nevsky chapel (founded in 1888; removed by 1925), see the ka.wikipedia article.",
-   "ka": "ჩაეყარა 1871 წლის 16 აპრილს ღუნიბის მოედანზე; 1877 წელს მშენებლობა შეჩერდა, 1890 წელს განახლდა, ახალი საძირკველი 1891 წელს; აკურთხეს 1897 წლის 21 მაისს (არქიტექტორი დავით გრიმი). დაანგრიეს ბერიას მითითებით. ახლოს ალექსანდრეს ბაღში იდგა ალექსანდრე ნეველის პატარა სამლოცველო (1888; 1925 წლისთვის მოხსნილია)."
+   "ru": "Заложен 16 апреля 1871 (по ru 6 апреля) на Гунибской площади; в 1877 стройка остановлена, возобновлена в 1890, новый фундамент 1891; освящён 21 мая 1897 (архитектор Давид Гримм). Снесён по указанию Берии. Рядом в Александровском саду стояла малая часовня Александра Невского (заложена в 1888; к 1925 снята), см. статью на ka.wikipedia. Снос начался 7 февраля 1930 г. и продлился до 1931 г.; в 1921 г. с купола сняли крест и установили пятиконечную звезду, в храме разместился «Союз воинствующих безбожников», до 1930 г. там был Дворец шахмат; на этом месте в 1934–1938 гг. строился 1-й корпус Правительства Грузинской ССР (Гогитидзе, 2019, PDF с. 2, 12–13).",
+   "en": "Begun on 16 April 1871 (6 April per ru) on Gunib Square; suspended in 1877, resumed in 1890, new foundation in 1891; consecrated on 21 May 1897 (architect David Grimm). Demolished on Beria's order. Nearby in Alexander's Garden stood a small Alexander Nevsky chapel (founded in 1888; removed by 1925), see the ka.wikipedia article. The demolition began on 7 February 1930 and lasted until 1931; in 1921 the cross was taken from the dome and a five-pointed star was put up, the 'Union of the Militant Godless' was placed in the church, until 1930 the Chess Palace was there; on this site the 1st block of the government of the Georgian SSR was built in 1934-1938 (Gogitidze, 2019, PDF pp. 2, 12-13).",
+   "ka": "ჩაეყარა 1871 წლის 16 აპრილს ღუნიბის მოედანზე; 1877 წელს მშენებლობა შეჩერდა, 1890 წელს განახლდა, ახალი საძირკველი 1891 წელს; აკურთხეს 1897 წლის 21 მაისს (არქიტექტორი დავით გრიმი). დაანგრიეს ბერიას მითითებით. ახლოს ალექსანდრეს ბაღში იდგა ალექსანდრე ნეველის პატარა სამლოცველო (1888; 1925 წლისთვის მოხსნილია). ნგრევა დაიწყო 1930 წლის 7 თებერვალს და გაგრძელდა 1931 წლამდე; 1921 წ. გუმბათიდან მოხსნეს ჯვარი და დადგეს ხუთქიმიანი ვარსკვლავი, ტაძარში განთავსდა „მებრძოლ უღმერთოთა კავშირი“, 1930 წლამდე იქ იყო ჭადრაკის სასახლე; ამ ადგილზე 1934–1938 წწ. შენდებოდა საქართველოს სსრ მთავრობის 1-ლი კორპუსი (გოგიტიძე, 2019, PDF გვ. 2, 12–13)."
   },
   "src": [
    "https://en.wikipedia.org/wiki/Alexander_Nevsky_Cathedral,_Tiflis",
@@ -2441,9 +2410,9 @@
    "ka": "დგას (რეესტრის ობიექტი)"
   },
   "note": {
-   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1801–1900; на шкале взят конец диапазона (1900). Конфессия определена по названию или описанию объекта в реестре.",
-   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1801–1900; the end of the range (1900) is used on the timeline. The denomination is taken from the name or the description of the object in the register.",
-   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1801–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით."
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1801–1900; на шкале взят конец диапазона (1900). Конфессия определена по названию или описанию объекта в реестре. По Парусовой (2020, PDF с. 3): церковь Св. Геворга (Эчмиадзин) построена в 1805 г. на средства местных жителей, перестраивалась с 1846 г. до конца 1850-х гг., реставрирована в 2006–2010 гг. (по ka.wikipedia построена в 1806–1808 гг.).",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1801–1900; the end of the range (1900) is used on the timeline. The denomination is taken from the name or the description of the object in the register. According to Parusova (2020, PDF p. 3): the church of St. Gevorg (Echmiadzin) was built in 1805 at the expense of local residents, rebuilt from 1846 to the end of the 1850s and restored in 2006-2010 (ka.wikipedia gives 1806-1808 for its construction).",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1801–1900; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1900). კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით. პარუსოვას მიხედვით (2020, PDF გვ. 3): წმ. გევორქის ეკლესია (ეჩმიაძინი) აშენდა 1805 წ. ადგილობრივი მცხოვრებლების სახსრებით, გადაკეთდა 1846 წლიდან 1850-იანი წლების ბოლომდე, რესტავრირდა 2006–2010 წწ. (ka.wikipedia-ს მიხედვით აშენდა 1806–1808 წწ.)."
   },
   "src": [],
   "regno": "3795",
@@ -3001,9 +2970,9 @@
    "ka": "დგას (რეესტრის ობიექტი)"
   },
   "note": {
-   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1851–2001. Конфессия в реестре не указана.",
-   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1851–2001. The denomination is not given in the register.",
-   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1851–2001. რეესტრში კონფესია მითითებული არ არის."
+   "ru": "Объект реестра культурного наследия Грузии. Дата по реестру: 1851–2001. Конфессия в реестре не указана. По статье ka.wikipedia: первая церковь Вознесения заложена 12 марта 1851 г., достроена 23 ноября 1852 г., снесена в 1968 г. при расширении Коджорской дороги; новая церковь (архитектор Реваз Джанашия) действует с 23 февраля 2003 г. Конфессия в статье не названа.",
+   "en": "An object of the register of immovable cultural heritage of Georgia. Date by the register: 1851–2001. The denomination is not given in the register. According to the ka.wikipedia article: the first Church of the Ascension was laid down on 12 March 1851, completed on 23 November 1852 and demolished in 1968 for the widening of the Kojori road; the new church (architect Revaz Janashia) has been in use since 23 February 2003. The article does not name the denomination.",
+   "ka": "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. თარიღი რეესტრის მიხედვით: 1851–2001. რეესტრში კონფესია მითითებული არ არის. ka.wikipedia-ს სტატიის მიხედვით: პირველი ამაღლების ეკლესია ჩაეყარა 1851 წლის 12 მარტს, დასრულდა 1852 წლის 23 ნოემბერს, დაინგრა 1968 წ. კოჯრის გზის გაფართოებისას; ახალი ეკლესია (არქიტექტორი რევაზ ჯანაშია) მოქმედებს 2003 წლის 23 თებერვლიდან. სტატიაში კონფესია დასახელებული არ არის."
   },
   "src": [],
   "regno": "",

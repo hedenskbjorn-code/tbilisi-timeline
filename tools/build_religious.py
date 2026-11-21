@@ -256,6 +256,10 @@ ITEMS = [
 ]
 
 
+_ap = os.path.join(ROOT, "data", "religious_addenda.json")
+ADDENDA = json.load(open(_ap, encoding="utf-8")) if os.path.exists(_ap) else {}
+
+
 def main():
     out = []
     for it in ITEMS:
@@ -267,6 +271,8 @@ def main():
             o["approx"] = True
         if it["id"] in PHOTOS["objects"]:
             o["ph"] = "|".join(PHOTOS["objects"][it["id"]])
+        if it["id"] in ADDENDA:        # sentences added to the note after the check against articles (data/religious_addenda.json)
+            o["note"] = {l: (o["note"][l].rstrip() + " " + ADDENDA[it["id"]][l]).strip() for l in ("ru", "en", "ka")}
         out.append(o)
     # the other worship buildings of the heritage register (tools/add_register_religious.py), after the curated ones
     reg_path = os.path.join(ROOT, "data", "religious_register.json")

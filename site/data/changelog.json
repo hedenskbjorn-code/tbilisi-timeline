@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.8.1",
+  "date": "2026-11-21",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Добавлено 8 событий по статьям CyberLeninka (1864, 1868, 1882, 1887, 1909, 1924, 1930, 1931–1932); в карточки Александро-Невского собора, мечетей, церкви Эчмиадзин и двух церквей реестра добавлены даты по статьям; даты Дворца искусств Грузии и Сухого моста уточнены по Википедии.",
+    "en": "Added 8 events from CyberLeninka articles (1864, 1868, 1882, 1887, 1909, 1924, 1930, 1931-1932); dates from the articles are added to the cards of the Alexander Nevsky cathedral, the mosques, the Echmiadzin church and two churches of the register; the dates of the Art Palace of Georgia and of the Dry Bridge are corrected from Wikipedia.",
+    "ka": "დაემატა 8 მოვლენა CyberLeninka-ს სტატიების მიხედვით (1864, 1868, 1882, 1887, 1909, 1924, 1930, 1931–1932); ალექსანდრე ნეველის ტაძრის, მეჩეთების, ეჩმიაძინის ეკლესიისა და რეესტრის ორი ეკლესიის ბარათებს დაემატა თარიღები სტატიების მიხედვით; საქართველოს ხელოვნების სასახლისა და მშრალი ხიდის თარიღები დაზუსტდა ვიკიპედიის მიხედვით."
+   },
+   {
+    "t": "fix",
+    "ru": "Слит дубль карточки Александро-Невской церкви в слое религиозных зданий: один и тот же храм был записан в реестре дважды.",
+    "en": "A duplicate card of the Alexander Nevsky church in the layer of the religious buildings is merged: the same church was entered twice in the register.",
+    "ka": "გაერთიანდა ალექსანდრე ნეველის ეკლესიის ბარათის დუბლი რელიგიური ნაგებობების ფენაში: ერთი და იგივე ტაძარი რეესტრში ორჯერ იყო ჩაწერილი."
+   }
+  ]
+ },
+ {
   "version": "1.8.0",
   "date": "2026-11-21",
   "items": [

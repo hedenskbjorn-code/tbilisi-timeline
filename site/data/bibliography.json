@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-20",
- "events": 288,
+ "events": 296,
  "books": [
   {
    "id": "istoria2012",
@@ -400,16 +400,16 @@
    "events": 20
   },
   {
+   "host": "doi.org",
+   "name": "DOI",
+   "pages": 5,
+   "events": 15
+  },
+  {
    "host": "archive.org",
    "name": "Internet Archive",
    "pages": 3,
    "events": 13
-  },
-  {
-   "host": "doi.org",
-   "name": "DOI",
-   "pages": 1,
-   "events": 11
   },
   {
    "host": "ru.wikisource.org",
@@ -433,6 +433,12 @@
    "host": "litres.com",
    "name": "litres.com",
    "pages": 1,
+   "events": 4
+  },
+  {
+   "host": "cyberleninka.ru",
+   "name": "cyberleninka.ru",
+   "pages": 2,
    "events": 4
   },
   {
