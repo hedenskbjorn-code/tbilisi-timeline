@@ -233,6 +233,24 @@ body.panel-open #yearchip { display:none; }
 .chip.mini:disabled { opacity:.45; cursor:default; }
 #filters .typesbtns { gap:6px; margin:6px 0 2px; }
 #filters .hint { margin:8px 0 0; padding:6px 8px; border-radius:6px; background:var(--line); color:var(--fg); }
+/* the panel "Filters and layers": four collapsible blocks with a counter of the switched-on items (the state is kept like that of the left panel) */
+#filters .phead { position:sticky; top:-10px; z-index:2; margin:-10px -14px 0; padding:10px 14px 4px; background:var(--panel); }
+#filters details.fsec { border-top:1px solid var(--line); margin-top:8px; padding-top:2px; }
+#filters details.fsec:first-of-type { border-top:0; }
+#filters details.fsec > summary { display:flex; align-items:center; gap:6px; cursor:pointer; font-weight:600; font-size:13px; padding:6px 0 2px; list-style:none; }
+#filters details.fsec > summary::-webkit-details-marker { display:none; }
+#filters details.fsec > summary::before { content:"\25B8"; display:inline-block; width:12px; color:var(--muted); transition:transform .15s; }
+#filters details.fsec[open] > summary::before { transform:rotate(90deg); }
+#filters details.fsec > summary:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+#filters details.fsec > summary .cnt { margin-left:auto; font-weight:400; font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; }
+/* the legend of a layer: hidden with the layer (the display of the class used to beat the attribute hidden); the religious one is a strip of dots that opens into two columns */
+.rellegend[hidden] { display:none; }
+.rellegend details > summary { display:flex; flex-wrap:wrap; gap:4px; cursor:pointer; list-style:none; padding:2px 0; }
+.rellegend details > summary::-webkit-details-marker { display:none; }
+.rellegend details > summary:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+.rellegend i.rdot { display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--c); border:1.5px solid #fff; box-shadow:0 0 0 1px #0004; }
+.rellegend .rlist { display:grid; grid-template-columns:1fr 1fr; gap:2px 8px; margin:4px 0 2px; }
+.rellegend .rlist .wide { grid-column:1 / -1; }
 #side .pclose { position:absolute; top:4px; right:6px; }
 #side { position:absolute; }
 #btnInfo[aria-pressed=false], #btnFilters[aria-pressed=false] { opacity:.65; }

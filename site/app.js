@@ -282,12 +282,15 @@ import { getJSON, prefetchJSON } from "./js/net.js";
         try { await navigator.clipboard.writeText(url); b2.textContent = "\u2713"; setTimeout(() => { b2.textContent = "\uD83D\uDD17"; }, 1600); }
         catch (e) { window.prompt(t().linkTitle, url); }
       });
-      box.appendChild(b1); box.appendChild(b2); return box;
+      const b3 = document.createElement("button"); b3.type = "button"; b3.className = "thenctl"; b3.id = "hereBtn"; b3.textContent = "\uD83D\uDCCD";
+      b3.addEventListener("click", () => { const cb = $("showHere"); cb.checked = !cb.checked; cb.dispatchEvent(new Event("change", { bubbles: true })); });
+      box.appendChild(b1); box.appendChild(b3); box.appendChild(b2); return box;
     },
     onRemove() {},
   }, "top-right");
   function updateThenTitles() {
-    const b1 = $("thenBtn"), b2 = $("linkBtn");
+    const b1 = $("thenBtn"), b2 = $("linkBtn"), b3 = $("hereBtn");
+    if (b3) { b3.title = t().showHere; b3.setAttribute("aria-label", t().showHere); b3.setAttribute("aria-pressed", String($("showHere").checked)); }
     if (b1) { b1.title = t().thenTitle; b1.setAttribute("aria-label", t().thenTitle); b1.setAttribute("aria-pressed", String($("showSwipe").checked)); }
     if (b2) { b2.title = t().linkTitle; b2.setAttribute("aria-label", t().linkTitle); }
   }
@@ -943,7 +946,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }
   function showHistEvent(ev) {
     if (window.TT_closePanels) window.TT_closePanels();          // a phone: the card takes the place of the open panel
-    if (ev.cat === "battle" && !$("showBattles").checked) { $("showBattles").checked = true; buildEvMarks(); }          // an opened battle must be visible on the scale
+    if (ev.cat === "battle" && !$("showBattles").checked) { $("showBattles").checked = true; buildEvMarks(); syncFilterUi(); }          // an opened battle must be visible on the scale
     reopenInfo = () => showHistEvent(ev);
     const L = t();
     showEventPlace(ev);
@@ -2072,6 +2075,19 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (hint) hint.hidden = ($("showNat").checked || $("showMon").checked || $("showObj").checked) && activeTypes.size > 0;
     const rb = $("filtersReset");
     if (rb) rb.disabled = filtersAtDefault();
+    for (const sec of document.querySelectorAll("#filters details.fsec")) {      // "switched on / all" of every block (a half-ticked box of the automatic topographic map counts as on)
+      const cnt = sec.querySelector(".cnt");
+      if (!cnt) continue;
+      let on = 0, all = 0;
+      for (const cb of sec.querySelectorAll("input[type=checkbox]")) {
+        let off = false;                                                    // hidden inside the block (a row that appears on demand); the panel itself may be closed (a phone)
+        for (let e = cb; e && e !== sec; e = e.parentElement) if (e.hidden) { off = true; break; }
+        if (off) continue;
+        all++;
+        if (cb.checked || cb.indeterminate) on++;
+      }
+      cnt.textContent = on + "/" + all;
+    }
   }
   function setAllTypes(on) {
     activeTypes.clear();
@@ -2102,6 +2118,12 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   $("typesAll").addEventListener("click", () => setAllTypes(true));
   $("typesNone").addEventListener("click", () => setAllTypes(false));
   $("filtersReset").addEventListener("click", resetFilters);
+  for (const sec of document.querySelectorAll("#filters details.fsec")) {
+    const id = sec.dataset.sec;
+    if (id in secState) sec.open = !!secState[id];
+    else if (window.innerWidth <= 900) sec.open = id === "f-layers";
+    sec.querySelector("summary").addEventListener("click", () => setTimeout(() => { secState[id] = sec.open; try { localStorage.setItem("sec", JSON.stringify(secState)); } catch (e) {} }, 0));      // saved on a click of the visitor only
+  }
   $("filters").addEventListener("input", syncFilterUi);
   $("filters").addEventListener("change", syncFilterUi);
   function refreshCard() {
@@ -2275,7 +2297,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
     updateRun(false);
   }
-  function syncLegend(chkId, boxId) { const b = $(boxId); if (b) b.hidden = !$(chkId).checked; }
+  function syncLegend(chkId, boxId) { const b = $(boxId); if (b) b.hidden = !$(chkId).checked; syncFilterUi(); }
   function updateRun(fit) {
     syncLegend("showRun", "runLegend");
     if (!map.getLayer("run-line")) return;
@@ -2828,8 +2850,36 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     map.on("mouseleave", "rel-pt", () => { map.getCanvas().style.cursor = ""; });
     updateReligious();
   }
-  function updateReligious() {
+  let relLegendKey = "", relLegendOpen = false;
+  function buildRelLegend() {
+    const box = $("relLegend");
+    if (!box) return;
+    const present = new Set();
+    for (const r of religious) if (r.from <= year && (r.to === undefined || r.to > year)) present.add(r.rel);      // the same rule as the filter of the layer
+    const keys = Object.keys(REL_COLOR).filter((k) => present.has(k));
+    const key = lang + "|" + keys.join(",");
+    if (key !== relLegendKey) {
+      relLegendKey = key;
+      box.textContent = "";
+      if (keys.length) {
+        const d = document.createElement("details"), sm = document.createElement("summary"), list = document.createElement("div");
+        d.open = relLegendOpen;
+        d.addEventListener("toggle", () => { relLegendOpen = d.open; });
+        sm.setAttribute("aria-label", t().legTitle); sm.title = t().legTitle;
+        list.className = "rlist";
+        for (const k of keys) {
+          const dot = document.createElement("i"); dot.className = "rdot"; dot.style.setProperty("--c", REL_COLOR[k]); sm.appendChild(dot);
+          const s = document.createElement("span"); s.textContent = t().relNames[k]; s.style.setProperty("--c", REL_COLOR[k]);
+          if (k === "christian") s.className = "wide";
+          list.appendChild(s);
+        }
+        d.appendChild(sm); d.appendChild(list); box.appendChild(d);
+      }
+    }
     syncLegend("showRel", "relLegend");
+  }
+  function updateReligious() {
+    buildRelLegend();
     if (!map.getLayer("rel-pt")) return;
     const on = $("showRel").checked;
     for (const id of ["rel-pt", "rel-lb"]) {
@@ -2839,12 +2889,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
   }
   function updateRelUi() {
-    const box = $("relLegend");
-    if (box) {
-      box.textContent = "";
-      for (const k of Object.keys(REL_COLOR)) { const s = document.createElement("span"); s.textContent = t().relNames[k]; s.style.setProperty("--c", REL_COLOR[k]); box.appendChild(s); }
-      syncLegend("showRel", "relLegend");
-    }
+    buildRelLegend();
     const src = map && map.getSource && map.getSource("rel");
     if (src) src.setData({ type: "FeatureCollection", features: religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
       properties: { id: r.id, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", undated: !!r.undated, label: r.name[lang] || r.name.en } })) });
@@ -3010,7 +3055,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     update();
     if (r.kind === "e") { showHistEvent(r.ev); return; }
     if (r.kind === "u") {
-      $("showRulers").checked = true; buildRulersBand(); updateRuleLine();
+      $("showRulers").checked = true; buildRulersBand(); updateRuleLine(); syncFilterUi();
       showRulerCard(r.u);
       return;
     }

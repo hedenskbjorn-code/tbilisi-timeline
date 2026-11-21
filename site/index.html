@@ -107,64 +107,75 @@
 </aside>
 <aside id="filters">
   <div class="phead"><span data-i="filtersTitle"></span><span class="pacts"><button type="button" id="filtersReset" class="chip mini" data-i="filtersReset" disabled></button><button class="pclose" data-panel="filters" aria-label="close">×</button></span></div>
-  <label class="row"><input type="checkbox" id="showPlan" checked> <span data-i="showPlan"></span></label>
-  <label class="row col">
-    <span data-i="planOpacity"></span> <output id="opv">65%</output>
-    <input type="range" id="op" min="0" max="100" value="65">
-  </label>
-  <label class="row"><input type="checkbox" id="showTopo"> <span data-i="showTopo"></span></label>
-  <div class="row col" id="topobox" hidden>
-    <div class="small" id="topoAutoNote" hidden data-i="topoAutoNote"></div>
-    <select id="topoSel" class="chip" aria-label="topo">
-      <option value="t2" data-i="topoPlanOpt"></option>
-      <option value="t10">1:10 000 · 1952–2007</option>
-      <option value="t25" selected>1:25 000 · 1953–2004</option>
-      <option value="t50">1:50 000 · 1973–1990</option>
-      <option value="t100">1:100 000 · 1978–1990</option>
-    </select>
-    <input type="range" id="topoOp" min="0" max="100" value="80" aria-label="opacity">
-    <div class="small" data-i="topoNote"></div>
-  </div>
-  <label class="row sub"><input type="checkbox" id="autoTopo" checked> <span data-i="autoTopo"></span></label>
-  <label class="row"><input type="checkbox" id="showBnd" checked> <span data-i="showBnd"></span></label>
-  <label class="row"><input type="checkbox" id="showAdmin" checked> <span data-i="showAdmin"></span></label>
-  <label class="row"><input type="checkbox" id="showDistricts" checked> <span data-i="showDistricts"></span></label>
-  <label class="row"><input type="checkbox" id="showSettle" checked> <span data-i="showSettle"></span></label>
-  <label class="row"><input type="checkbox" id="showWater" checked> <span data-i="showWater"></span></label>
-  <label class="row"><input type="checkbox" id="showDensity"> <span data-i="showDensity"></span></label>
-  <label class="row"><input type="checkbox" id="showTransport" checked> <span data-i="showTransport"></span></label>
-  <label class="row"><input type="checkbox" id="roadLabels" checked> <span data-i="roadLabels"></span></label>
-  <label class="row"><input type="checkbox" id="showStLabels" checked> <span data-i="showStLabels"></span></label>
-  <label class="row"><input type="checkbox" id="showStreets"> <span data-i="showStreets"></span></label>
-  <label class="row"><input type="checkbox" id="showSwipe"> <span data-i="showSwipe"></span></label>
-  <label class="row"><input type="checkbox" id="showHere"> <span data-i="showHere"></span></label>
-  <label class="row"><input type="checkbox" id="show94" checked> <span data-i="show94"></span></label>
-  <label class="row"><input type="checkbox" id="showRel" checked> <span data-i="showRel"></span></label>
-  <div id="relLegend" class="small rellegend"></div>
-  <label class="row"><input type="checkbox" id="showSci" checked> <span data-i="showSci"></span></label>
-  <div id="sciLegend" class="small rellegend"></div>
-  <label class="row"><input type="checkbox" id="showEdu"> <span data-i="showEdu"></span></label>
-  <div id="eduLegend" class="small rellegend" hidden></div>
-  <label class="row"><input type="checkbox" id="showBattles" checked> <span data-i="showBattles"></span></label>
-  <label class="row"><input type="checkbox" id="showRulers"> <span data-i="showRulers"></span></label>
-  <label class="row"><input type="checkbox" id="showRun"> <span data-i="showRun"></span></label>
-  <div id="runLegend" class="small rellegend" hidden></div>
-  <label class="row"><input type="checkbox" id="showLost" checked> <span data-i="showLost"></span></label>
-  <label class="row sub"><input type="checkbox" id="showGhost"> <span data-i="showGhost"></span></label>
-  <div id="tiers"><div class="small tiers-title" data-i="showFilter"></div>
-    <label class="row"><input type="checkbox" id="showNat" checked> <span data-i="showNat"></span></label>
-    <label class="row"><input type="checkbox" id="showMon" checked> <span data-i="showMon"></span></label>
-    <label class="row"><input type="checkbox" id="showObj" checked> <span data-i="showObj"></span></label>
-  <label class="row" id="rowNoPhoto" hidden><input type="checkbox" id="showNoPhoto"> <span id="noPhotoL"></span></label>
-  <div class="row" id="rowNear" hidden><button type="button" id="btnNear" class="chip"></button></div>
-  </div>
   <div id="emptyObjects" class="small hint" data-i="emptyObjects" role="status" hidden></div>
 
-  <div id="types"><div class="small types-title" data-i="typesTitle"></div>
-    <div class="row typesbtns"><button type="button" id="typesAll" class="chip mini" data-i="typesAll"></button><button type="button" id="typesNone" class="chip mini" data-i="typesNone"></button></div>
-    <div id="typelist"></div></div>
+  <details class="fsec" data-sec="f-base">
+    <summary><span data-i="secBase"></span><span class="cnt"></span></summary>
+    <label class="row"><input type="checkbox" id="showPlan" checked> <span data-i="showPlan"></span></label>
+    <label class="row col">
+      <span data-i="planOpacity"></span> <output id="opv">65%</output>
+      <input type="range" id="op" min="0" max="100" value="65">
+    </label>
+    <label class="row"><input type="checkbox" id="showTopo"> <span data-i="showTopo"></span></label>
+    <div class="row col" id="topobox" hidden>
+      <div class="small" id="topoAutoNote" hidden data-i="topoAutoNote"></div>
+      <select id="topoSel" class="chip" aria-label="topo">
+        <option value="t2" data-i="topoPlanOpt"></option>
+        <option value="t10">1:10 000 · 1952–2007</option>
+        <option value="t25" selected>1:25 000 · 1953–2004</option>
+        <option value="t50">1:50 000 · 1973–1990</option>
+        <option value="t100">1:100 000 · 1978–1990</option>
+      </select>
+      <input type="range" id="topoOp" min="0" max="100" value="80" aria-label="opacity">
+      <div class="small" data-i="topoNote"></div>
+    </div>
+    <label class="row sub"><input type="checkbox" id="autoTopo" checked> <span data-i="autoTopo"></span></label>
+  </details>
+  <details class="fsec" data-sec="f-city">
+    <summary><span data-i="secBounds"></span><span class="cnt"></span></summary>
+    <label class="row"><input type="checkbox" id="showBnd" checked> <span data-i="showBnd"></span></label>
+    <label class="row"><input type="checkbox" id="showAdmin" checked> <span data-i="showAdmin"></span></label>
+    <label class="row"><input type="checkbox" id="showDistricts" checked> <span data-i="showDistricts"></span></label>
+    <label class="row"><input type="checkbox" id="showSettle" checked> <span data-i="showSettle"></span></label>
+    <label class="row"><input type="checkbox" id="showWater" checked> <span data-i="showWater"></span></label>
+    <label class="row"><input type="checkbox" id="showDensity"> <span data-i="showDensity"></span></label>
+    <label class="row"><input type="checkbox" id="showTransport" checked> <span data-i="showTransport"></span></label>
+    <label class="row"><input type="checkbox" id="roadLabels" checked> <span data-i="roadLabels"></span></label>
+    <label class="row"><input type="checkbox" id="showStLabels" checked> <span data-i="showStLabels"></span></label>
+    <label class="row"><input type="checkbox" id="showStreets"> <span data-i="showStreets"></span></label>
+  </details>
+  <details class="fsec" data-sec="f-layers" open>
+    <summary><span data-i="secLayers"></span><span class="cnt"></span></summary>
+    <label class="row"><input type="checkbox" id="show94" checked> <span data-i="show94"></span></label>
+    <label class="row"><input type="checkbox" id="showRel" checked> <span data-i="showRel"></span></label>
+    <div id="relLegend" class="small rellegend"></div>
+    <label class="row"><input type="checkbox" id="showSci" checked> <span data-i="showSci"></span></label>
+    <div id="sciLegend" class="small rellegend"></div>
+    <label class="row"><input type="checkbox" id="showEdu"> <span data-i="showEdu"></span></label>
+    <div id="eduLegend" class="small rellegend" hidden></div>
+    <label class="row"><input type="checkbox" id="showLost" checked> <span data-i="showLost"></span></label>
+    <label class="row sub"><input type="checkbox" id="showGhost"> <span data-i="showGhost"></span></label>
+    <label class="row"><input type="checkbox" id="showRun"> <span data-i="showRun"></span></label>
+    <div id="runLegend" class="small rellegend" hidden></div>
+    <label class="row"><input type="checkbox" id="showBattles" checked> <span data-i="showBattles"></span></label>
+    <label class="row"><input type="checkbox" id="showRulers"> <span data-i="showRulers"></span></label>
+  </details>
+  <details class="fsec" data-sec="f-reg">
+    <summary><span data-i="showFilter"></span><span class="cnt"></span></summary>
+    <div id="tiers">
+      <label class="row"><input type="checkbox" id="showNat" checked> <span data-i="showNat"></span></label>
+      <label class="row"><input type="checkbox" id="showMon" checked> <span data-i="showMon"></span></label>
+      <label class="row"><input type="checkbox" id="showObj" checked> <span data-i="showObj"></span></label>
+      <label class="row" id="rowNoPhoto" hidden><input type="checkbox" id="showNoPhoto"> <span id="noPhotoL"></span></label>
+      <div class="row" id="rowNear" hidden><button type="button" id="btnNear" class="chip"></button></div>
+    </div>
+    <div id="types"><div class="small types-title" data-i="typesTitle"></div>
+      <div class="row typesbtns"><button type="button" id="typesAll" class="chip mini" data-i="typesAll"></button><button type="button" id="typesNone" class="chip mini" data-i="typesNone"></button></div>
+      <div id="typelist"></div></div>
+  </details>
+  <div hidden><input type="checkbox" id="showSwipe"><input type="checkbox" id="showHere"></div>
 
-  <details id="legendbox">
+<details id="legendbox">
     <summary data-i="legTitle"></summary>
     <div class="legend">
       <div class="lg-h" data-i="legObjects"></div>
