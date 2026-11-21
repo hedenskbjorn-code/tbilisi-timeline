@@ -1,3 +1,4 @@
+import { getJSON, prefetchJSON } from "./js/net.js";
 (() => {
   "use strict";
   // The timeline starts at the earliest written evidence of the fortress (about 364, see "About"); the long early period is
@@ -76,6 +77,8 @@
     zoom: (() => { const c = (new URLSearchParams(location.search).get("c") || "").split(",").map(Number); return c.length >= 3 && isFinite(c[2]) ? c[2] : 13.2; })(), minZoom: 9, maxZoom: 19, hash: false,
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+  // a read-only handle for the browser tests (tests/e2e): only with ?e2e=1 in the address
+  if (new URLSearchParams(location.search).has("e2e")) window.TT_E2E = { map, get year() { return year; }, get lang() { return lang; } };
   map.once("load", () => { const n = document.getElementById("glnote"); if (n) n.remove(); });
   map.getCanvas().addEventListener("webglcontextlost", () => glNote("glFail", false));
   setTimeout(() => { if (!mapLoaded) glNote("glSlow", false); }, 25000);
@@ -348,12 +351,32 @@
   }
   function ensurePlan(p) {
     if (map.getLayer("plan-" + p.id)) return;
-    map.addSource("plan-" + p.id, { type: "image", url: p.image, coordinates: p.corners });
+    map.addSource("plan-" + p.id, { type: "image", url: p.overview || p.image, coordinates: p.corners });      // the light copy first (see upgradePlans)
+    p._full = !p.overview;
     map.addLayer({ id: "plan-" + p.id, type: "raster", source: "plan-" + p.id, layout: { visibility: "none" },
                    paint: { "raster-opacity": planOpacity(), "raster-fade-duration": 0 } }, "admin-line");
     liftTransport();
     if (dataReady) { setLoading("loadPlan", true); map.once("idle", hideLoading); }
   }
+  // The first screen shows the light copy of a plan (p.overview, about 8 m per pixel, made by tools/make_plan_overviews.py): it is as sharp as the screen at the
+  // starting scale and 10 times lighter than the full picture. The full picture takes its place when it is needed: when the map is zoomed in until a pixel of the
+  // overview is bigger than a pixel of the screen, or at once (in the background, after the first screen) on a screen with a dense pixel grid. No quality is lost.
+  function planNeedsFull(p) {
+    const zNeed = Math.log2(156543.03 * Math.cos(41.7 * Math.PI / 180) / (p.overview_mpp || 8)) - 0.3;
+    return map.getZoom() + Math.log2(window.devicePixelRatio || 1) >= zNeed;
+  }
+  function upgradePlans() {
+    if (!dataReady) return;                                                  // the first screen first
+    for (const p of plans) {
+      if (p._full || !p.overview) continue;
+      const src = map.getSource("plan-" + p.id);
+      if (!src || map.getLayoutProperty("plan-" + p.id, "visibility") !== "visible" || !planNeedsFull(p)) continue;
+      p._full = true;
+      src.updateImage({ url: p.image, coordinates: p.corners });
+    }
+  }
+  map.on("zoomend", upgradePlans);
+  map.on("idle", upgradePlans);
 
   // the periods of the history of Georgia as the sections of the tests for the Georgian citizenship (2024): 4th-10th, 11th-15th, 16th-18th centuries, 19th century - 1921, from 1921.
   // The select shows the period of the year on the slider; a choice jumps to the beginning of the period.
@@ -965,6 +988,12 @@
   $("imClose").addEventListener("click", closeInfo);
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
+  // Esc closes the open card of the map; an open window (the info, the picture viewer, the form, the search, the menu) takes the key first (the capture phase runs before their own handlers)
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape" || !openPop) return;
+    if (!$("infoModal").hidden || !$("viewModal").hidden || !$("fbModal").hidden || !$("search").hidden || !$("moreMenu").hidden) return;
+    openPop.remove();
+  }, true);
   function infoLine(body, text, cls) { const d = document.createElement("div"); d.className = cls || "small"; d.textContent = text; body.appendChild(d); return d; }
   // "photo hunt": the ring layer and the list of the nearest objects without a photo (only where the photo form is switched on with ?club=1)
   const photoOn = () => !!(window.TT_PHOTO && window.TT_PHOTO.enabled());
@@ -1658,11 +1687,17 @@
       if (r.top < f.top) dy = r.top - f.top; else if (r.bottom > f.bottom) dy = r.bottom - f.bottom;
       if (dx || dy) map.panBy([dx, dy], { duration: 250 });
     };
-    requestAnimationFrame(() => requestAnimationFrame(fit));
+    // the card is fitted into the free area (between the bars) when the camera is still: during a flight (a card opened from the search) a pan would stop the flight,
+    // and a fit made on the way would be wrong at the end of it
+    const fitWhenStill = () => {
+      if (map.isMoving()) map.once("moveend", () => { if (openPop === pop) setTimeout(fit, 30); });
+      else fit();
+    };
+    requestAnimationFrame(() => requestAnimationFrame(fitWhenStill));
     if (window.ResizeObserver) {                      // photos load later and make the card taller: fit again
       const content = pop.getElement().querySelector(".maplibregl-popup-content");
       let t = null;
-      const ro = new ResizeObserver(() => { clearTimeout(t); t = setTimeout(fit, 60); });
+      const ro = new ResizeObserver(() => { clearTimeout(t); t = setTimeout(() => { if (!map.isMoving()) fit(); }, 60); });
       if (content) ro.observe(content);
       pop.on("close", () => ro.disconnect());
     }
@@ -1727,32 +1762,6 @@
     }), { id: p.id, name: p.name, reg: p.reg });
     addPhotoLink(el, "mon:" + p.id, !p.ph);
     setObjParam(p.id, showPopup("300px", lngLat, el));
-  }
-
-  // JSON loader with retries (a dropped connection must not leave a layer silently empty)
-  // The data files are requested all at once as soon as the script runs (they used to be requested one after another only after the base map had loaded);
-  // getJSON takes the request that is already on its way and falls back to its own retries if that one failed.
-  const prefetched = new Map();
-  function prefetchJSON(urls) {
-    for (const u of urls) {
-      const p = fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
-      p.catch(() => {});                                                 // the failure is handled by getJSON, nothing is left unhandled
-      prefetched.set(u, p);
-    }
-  }
-  async function getJSON(url, tries = 4) {
-    const pre = prefetched.get(url);
-    if (pre) { prefetched.delete(url); try { return await pre; } catch (e) { /* retry below */ } }
-    for (let k = 0; ; k++) {
-      try {
-        const r = await fetch(url);
-        if (!r.ok) throw new Error(r.status);
-        return await r.json();
-      } catch (e) {
-        if (k >= tries - 1) throw e;
-        await new Promise((res) => setTimeout(res, 400 * (k + 1)));
-      }
-    }
   }
 
   function goOffline() {
@@ -2557,9 +2566,9 @@
     });
   })();
   if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
-  // a phone: the less important buttons of the top bar (install, version, feedback, language) live in the menu "...": the bar does not fit otherwise
+  // a phone or a tablet (up to 1099 px): the less important buttons of the top bar (install, version, feedback, language, sections) live in the menu "...": the bar does not fit otherwise
   {
-    const mq = window.matchMedia("(max-width:640px)"), top = $("top"), menu = $("moreMenu"), group = $("topRight"), more = $("btnMore");
+    const mq = window.matchMedia("(max-width:1099px)"), top = $("top"), menu = $("moreMenu"), group = $("topRight"), more = $("btnMore");     // a phone or a tablet: the bar does not fit otherwise
     const close = () => { menu.hidden = true; more.setAttribute("aria-expanded", "false"); };
     const place = () => {
       if (mq.matches) { if (group.parentNode !== menu) menu.appendChild(group); }

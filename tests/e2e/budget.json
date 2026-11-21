@@ -1,0 +1,5 @@
+{
+  "note": "Budgets of the first screen of the main page (?base=off, gzip, without the tiles of the base map). Measured on 2026-11-21: before the light copies of the plans 3670 KB and 19.7 s, after 1542 KB and 8.6 s (1.6 Mbit/s, 150 ms).",
+  "firstLoadKB": 1700,
+  "throttledSeconds": 12
+}
