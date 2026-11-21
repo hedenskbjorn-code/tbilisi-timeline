@@ -474,6 +474,21 @@ input[type=range]:focus-visible { outline-offset:4px; }
   #bottom { bottom:calc(10px + var(--safe-bottom)); left:max(8px, env(safe-area-inset-left)); right:max(8px, env(safe-area-inset-right)); }
   #rbShow { bottom:calc(62px + var(--safe-bottom)); right:max(8px, env(safe-area-inset-right)); }
 }
+
+/* a tablet (641-1099 px): the right group of the top bar does not fit in one line (Georgian needs up to 1099 px), so it lives in the menu "..." as on a phone;
+   the other rules of the phone (sheets, short bar) are not used here */
+@media (min-width:641px) and (max-width:1099px) {
+  #top { z-index:8; }                                       /* above the time bar and the panels: the open menu must not hide behind them */
+  #btnMore { display:inline-block; min-width:44px; min-height:40px; font-size:20px; line-height:1; padding:6px 10px; }
+  #moreMenu { position:absolute; top:100%; right:max(8px, env(safe-area-inset-right)); z-index:20; width:min(260px, calc(100% - 16px)); padding:8px; border-radius:10px; background:var(--panel); box-shadow:0 4px 18px #0006; display:flex; flex-direction:column; gap:8px; pointer-events:auto; }
+  #moreMenu[hidden] { display:none; }
+  #moreMenu #topRight { flex-direction:column; align-items:stretch; gap:8px; }
+  #moreMenu .chip, #moreMenu select { width:100%; min-height:44px; font-size:14px; text-align:left; padding:8px 12px; box-sizing:border-box; }
+  #moreMenu #btnSupport { display:block; }
+  #moreMenu #fbOpen { font-size:14px; padding:8px 12px; }
+  #moreMenu #fbOpen::before { content:none; }
+  #moreMenu #btnSupport::after, #moreMenu #btnInstall::after { content:attr(title); margin-left:10px; font-size:14px; }          /* the icon buttons get their text in the menu */
+}
 /* very narrow phones (320-360 px): the four buttons and the menu button still fit in Georgian */
 @media (max-width:360px) {
   #top { gap:4px; }
