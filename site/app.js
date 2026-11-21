@@ -414,6 +414,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
 
   function update() {
     ensureInWindow();
+    syncFilterUi();
     $("year").textContent = year;
     if ($("epochSel")) { $("epochSel").value = String(epochOf(year)); $("epochSel").dataset.e = String(epochOf(year)); }
     if ($("yearchip")) $("yearchip").textContent = year;
@@ -2050,6 +2051,59 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
   });
+  // ---- the panel "Filters and layers": all / none of the types, a hint for an empty choice, "Reset filters"
+  // The defaults are those of the markup (checked, value, selected), except the band of rulers: the script turns it on for a wide screen (see below).
+  function filterDefaults() {
+    const d = {};
+    for (const el of document.querySelectorAll("#filters input[type=checkbox][id]")) d[el.id] = el.defaultChecked;
+    d.showRulers = window.innerWidth > 900;
+    return d;
+  }
+  function filtersAtDefault() {
+    const d = filterDefaults();
+    for (const el of document.querySelectorAll("#filters input[type=checkbox][id]")) if (el.checked !== d[el.id]) return false;
+    for (const el of document.querySelectorAll("#filters input[type=range]")) if (el.value !== el.defaultValue) return false;
+    const sel = $("topoSel");
+    if (sel && !sel.options[sel.selectedIndex].defaultSelected) return false;
+    return activeTypes.size === TYPES.length;
+  }
+  function syncFilterUi() {
+    const hint = $("emptyObjects");        // no status or no type chosen: no register object is shown, say so
+    if (hint) hint.hidden = ($("showNat").checked || $("showMon").checked || $("showObj").checked) && activeTypes.size > 0;
+    const rb = $("filtersReset");
+    if (rb) rb.disabled = filtersAtDefault();
+  }
+  function setAllTypes(on) {
+    activeTypes.clear();
+    if (on) for (const k of TYPES) activeTypes.add(k);
+    buildTypes();
+    update();
+  }
+  function resetFilters() {
+    const d = filterDefaults();
+    for (const el of document.querySelectorAll("#filters input[type=checkbox][id]")) {
+      if (el.id === "showRulers" || el.checked === d[el.id]) continue;
+      el.checked = d[el.id];
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    if ($("showRulers").checked !== d.showRulers) setRulersOn(d.showRulers);
+    for (const el of document.querySelectorAll("#filters input[type=range]")) {
+      if (el.value === el.defaultValue) continue;
+      el.value = el.defaultValue;
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+    const sel = $("topoSel");
+    if (sel) {
+      const i = Array.from(sel.options).findIndex((o) => o.defaultSelected);
+      if (i >= 0 && sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event("change", { bubbles: true })); }
+    }
+    setAllTypes(true);
+  }
+  $("typesAll").addEventListener("click", () => setAllTypes(true));
+  $("typesNone").addEventListener("click", () => setAllTypes(false));
+  $("filtersReset").addEventListener("click", resetFilters);
+  $("filters").addEventListener("input", syncFilterUi);
+  $("filters").addEventListener("change", syncFilterUi);
   function refreshCard() {
     try {
       if (!$("infoModal").hidden && reopenInfo) { reopenInfo(); return; }
@@ -2221,7 +2275,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
     updateRun(false);
   }
+  function syncLegend(chkId, boxId) { const b = $(boxId); if (b) b.hidden = !$(chkId).checked; }
   function updateRun(fit) {
+    syncLegend("showRun", "runLegend");
     if (!map.getLayer("run-line")) return;
     const on = $("showRun").checked;
     for (const id of ["run-casing", "run-line", "run-start", "run-pt", "run-num", "run-lb"]) map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
@@ -2238,7 +2294,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }
   function updateRunUi() {
     const box = $("runLegend");
-    if (box) box.textContent = runData ? t().runStats(runData.route, runData.sights.length) : "";
+    if (box) { box.textContent = runData ? t().runStats(runData.route, runData.sights.length) : ""; syncLegend("showRun", "runLegend"); }
     const src = map && map.getSource && map.getSource("run");
     if (src && runData) src.setData(runGeo());
   }
@@ -2629,6 +2685,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateScience();
   }
   function updateScience() {
+    syncLegend("showSci", "sciLegend");
     if (!map.getLayer("sci-pt")) return;
     const on = $("showSci").checked;
     for (const id of ["sci-pt", "sci-lb"]) {
@@ -2645,6 +2702,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (box) {
       box.textContent = "";
       for (const k of Object.keys(SCI_COLOR)) { const s = document.createElement("span"); s.textContent = t().sciKinds[k]; s.style.setProperty("--c", SCI_COLOR[k]); box.appendChild(s); }
+      syncLegend("showSci", "sciLegend");
     }
     const src = map && map.getSource && map.getSource("sci");
     if (src) src.setData({ type: "FeatureCollection", features: sciFeats() });
@@ -2703,6 +2761,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateEducation();
   }
   function updateEducation() {
+    syncLegend("showEdu", "eduLegend");
     if (!map.getLayer("edu-pt")) return;
     const on = $("showEdu").checked;
     for (const id of ["edu-pt", "edu-lb"]) {
@@ -2716,6 +2775,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (box) {
       box.textContent = "";
       for (const k of Object.keys(EDU_COLOR)) { const s = document.createElement("span"); s.textContent = t().eduKinds[k]; s.style.setProperty("--c", EDU_COLOR[k]); box.appendChild(s); }
+      syncLegend("showEdu", "eduLegend");
     }
     const src = map && map.getSource && map.getSource("edu");
     if (src) src.setData({ type: "FeatureCollection", features: eduFeats() });
@@ -2769,6 +2829,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateReligious();
   }
   function updateReligious() {
+    syncLegend("showRel", "relLegend");
     if (!map.getLayer("rel-pt")) return;
     const on = $("showRel").checked;
     for (const id of ["rel-pt", "rel-lb"]) {
@@ -2782,6 +2843,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (box) {
       box.textContent = "";
       for (const k of Object.keys(REL_COLOR)) { const s = document.createElement("span"); s.textContent = t().relNames[k]; s.style.setProperty("--c", REL_COLOR[k]); box.appendChild(s); }
+      syncLegend("showRel", "relLegend");
     }
     const src = map && map.getSource && map.getSource("rel");
     if (src) src.setData({ type: "FeatureCollection", features: religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },

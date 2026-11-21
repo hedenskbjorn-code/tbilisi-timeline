@@ -106,7 +106,7 @@
   <div id="vgrid"></div>
 </aside>
 <aside id="filters">
-  <div class="phead"><span data-i="filtersTitle"></span><button class="pclose" data-panel="filters" aria-label="close">×</button></div>
+  <div class="phead"><span data-i="filtersTitle"></span><span class="pacts"><button type="button" id="filtersReset" class="chip mini" data-i="filtersReset" disabled></button><button class="pclose" data-panel="filters" aria-label="close">×</button></span></div>
   <label class="row"><input type="checkbox" id="showPlan" checked> <span data-i="showPlan"></span></label>
   <label class="row col">
     <span data-i="planOpacity"></span> <output id="opv">65%</output>
@@ -140,15 +140,15 @@
   <label class="row"><input type="checkbox" id="showHere"> <span data-i="showHere"></span></label>
   <label class="row"><input type="checkbox" id="show94" checked> <span data-i="show94"></span></label>
   <label class="row"><input type="checkbox" id="showRel" checked> <span data-i="showRel"></span></label>
+  <div id="relLegend" class="small rellegend"></div>
   <label class="row"><input type="checkbox" id="showSci" checked> <span data-i="showSci"></span></label>
   <div id="sciLegend" class="small rellegend"></div>
   <label class="row"><input type="checkbox" id="showEdu"> <span data-i="showEdu"></span></label>
-  <div id="eduLegend" class="small rellegend"></div>
+  <div id="eduLegend" class="small rellegend" hidden></div>
   <label class="row"><input type="checkbox" id="showBattles" checked> <span data-i="showBattles"></span></label>
   <label class="row"><input type="checkbox" id="showRulers"> <span data-i="showRulers"></span></label>
   <label class="row"><input type="checkbox" id="showRun"> <span data-i="showRun"></span></label>
-  <div id="runLegend" class="small rellegend"></div>
-  <div id="relLegend" class="small rellegend"></div>
+  <div id="runLegend" class="small rellegend" hidden></div>
   <label class="row"><input type="checkbox" id="showLost" checked> <span data-i="showLost"></span></label>
   <label class="row sub"><input type="checkbox" id="showGhost"> <span data-i="showGhost"></span></label>
   <div id="tiers"><div class="small tiers-title" data-i="showFilter"></div>
@@ -158,10 +158,13 @@
   <label class="row" id="rowNoPhoto" hidden><input type="checkbox" id="showNoPhoto"> <span id="noPhotoL"></span></label>
   <div class="row" id="rowNear" hidden><button type="button" id="btnNear" class="chip"></button></div>
   </div>
+  <div id="emptyObjects" class="small hint" data-i="emptyObjects" role="status" hidden></div>
 
-  <div id="types"><div class="small types-title" data-i="typesTitle"></div><div id="typelist"></div></div>
+  <div id="types"><div class="small types-title" data-i="typesTitle"></div>
+    <div class="row typesbtns"><button type="button" id="typesAll" class="chip mini" data-i="typesAll"></button><button type="button" id="typesNone" class="chip mini" data-i="typesNone"></button></div>
+    <div id="typelist"></div></div>
 
-  <details id="legendbox" open>
+  <details id="legendbox">
     <summary data-i="legTitle"></summary>
     <div class="legend">
       <div class="lg-h" data-i="legObjects"></div>
