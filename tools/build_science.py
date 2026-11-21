@@ -257,6 +257,10 @@ def main():
     for o in out:
         assert all(o["name"][l] and o["note"][l] for l in ("ru", "en", "ka")), o["id"]
         assert 41.6 < o["lat"] < 41.9 and 44.6 < o["lon"] < 45.1, o["id"]
+    # more institutions from the heritage register (tools/add_register_layers.py), after the curated ones
+    reg_path = os.path.join(ROOT, "data", "science_register.json")
+    if os.path.exists(reg_path):
+        out.extend(json.load(open(reg_path, encoding="utf-8")))
     p = os.path.join(ROOT, "site", "data", "science.json")
     open(p, "wb").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
     print("items:", len(out), "science:", sum(1 for o in out if o["kind"] == "science"), "culture:", sum(1 for o in out if o["kind"] == "culture"))

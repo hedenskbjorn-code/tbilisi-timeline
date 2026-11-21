@@ -1101,6 +1101,39 @@
   "page": "https://commons.wikimedia.org/wiki/File:St.-David_monastery,_Tbilisi_(de_Baye)-1.JPG"
  },
  {
+  "id": "fb_fedoseevskaya_1900",
+  "year": 1900,
+  "from": 1895,
+  "window": 20,
+  "image": "data/views/fb_fedoseevskaya_1900.webp",
+  "title": {
+   "ru": "Федосеевская церковь в начале улицы Грибоедова, около 1900 года",
+   "en": "The Fedoseevskaya church at the beginning of Griboedov Street, about 1900",
+   "ka": "ფედოსეეველთა ეკლესია გრიბოედოვის ქუჩის დასაწყისში, დაახლოებით 1900 წელი"
+  },
+  "author": {
+   "ru": "автор снимка неизвестен; из поста Дмитрия Зверева в Facebook (2025)",
+   "en": "photographer unknown; from a Facebook post by Dmitry Zverev (2025)",
+   "ka": "ფოტოგრაფი უცნობია; დმიტრი ზვერევის Facebook-პოსტიდან (2025)"
+  },
+  "note": {
+   "ru": "Верхний, старый снимок коллажа «тогда и сейчас» из поста; нижний, современный кадр не используется. Год («около 1900») назван в посте.",
+   "en": "The upper, old picture of the collage 'then and now' of the post; the lower, modern picture is not used. The year ('about 1900') is named in the post.",
+   "ka": "პოსტის კოლაჟის „მაშინ და ახლა“ ზედა, ძველი ფოტო; ქვედა, თანამედროვე კადრი არ გამოიყენება. წელი („დაახლოებით 1900“) პოსტშია დასახელებული."
+  },
+  "license": {
+   "ru": "общественное достояние (снимок до 1918 года, автор неизвестен)",
+   "en": "public domain (made before 1918, photographer unknown)",
+   "ka": "საზოგადოებრივი საკუთრება (გადაღებულია 1918 წლამდე, ავტორი უცნობია)"
+  },
+  "page": "https://www.facebook.com/photo/?fbid=25741006405587497&set=gm.1963455220874591",
+  "page_label": {
+   "ru": "пост на Facebook",
+   "en": "post on Facebook",
+   "ka": "პოსტი Facebook-ზე"
+  }
+ },
+ {
   "id": "prokudin_havlabar",
   "year": 1905,
   "window": 50,
@@ -1145,6 +1178,72 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Standseilbahn_Tiflis_1905.jpg"
+ },
+ {
+  "id": "fb_golovinsky_prospekt",
+  "year": 1905,
+  "from": 1900,
+  "window": 15,
+  "image": "data/views/fb_golovinsky_prospekt.webp",
+  "title": {
+   "ru": "Головинский проспект и разгонная почта (открытка «Военно-Грузинская дорога. Тифлисъ»)",
+   "en": "Golovinsky Avenue and the posting station (a postcard 'Georgian Military Road. Tiflis')",
+   "ka": "გოლოვინის პროსპექტი და საფოსტო სადგური (ღია ბარათი „საქართველოს სამხედრო გზა. ტფილისი“)"
+  },
+  "author": {
+   "ru": "автор снимка неизвестен; из альбома «Старый Тифлисъ» Николая Демурчяна в Facebook (2015)",
+   "en": "photographer unknown; from the album 'Old Tiflis' of Nikolay Demourchyan on Facebook (2015)",
+   "ka": "ფოტოგრაფი უცნობია; ნიკოლაი დემურჩიანის ალბომიდან „ძველი ტფილისი“ Facebook-ზე (2015)"
+  },
+  "note": {
+   "ru": "Открытка с надписью «Военно-Грузинская дорога. Тифлисъ. Головинскiй проспектъ и разгонная почта». Проспект носил имя Головина до 1918 года. Дата в источнике не названа; по надписи и виду старого снимка он сделан до 1918 года, на шкале показан приблизительно.",
+   "en": "A postcard with the caption 'Georgian Military Road. Tiflis. Golovinsky Avenue and the posting station'. The avenue bore the name of Golovin until 1918. The source gives no date; by the caption and the look of an old picture it was made before 1918, shown approximately on the timeline.",
+   "ka": "ღია ბარათი წარწერით „საქართველოს სამხედრო გზა. ტფილისი. გოლოვინის პროსპექტი და საფოსტო სადგური“. პროსპექტი გოლოვინის სახელს 1918 წლამდე ატარებდა. წყარო თარიღს არ ასახელებს; წარწერისა და ძველი ფოტოს იერის მიხედვით ის 1918 წლამდეა გადაღებული, დროის სკალაზე მიახლოებით არის ნაჩვენები."
+  },
+  "license": {
+   "ru": "общественное достояние (снимок до 1918 года, автор неизвестен)",
+   "en": "public domain (made before 1918, photographer unknown)",
+   "ka": "საზოგადოებრივი საკუთრება (გადაღებულია 1918 წლამდე, ავტორი უცნობია)"
+  },
+  "page": "https://www.facebook.com/photo/?fbid=215467338787454&set=a.215467285454126",
+  "page_label": {
+   "ru": "пост на Facebook",
+   "en": "post on Facebook",
+   "ka": "პოსტი Facebook-ზე"
+  }
+ },
+ {
+  "id": "fb_erivan_square",
+  "year": 1905,
+  "from": 1900,
+  "window": 15,
+  "image": "data/views/fb_erivan_square.webp",
+  "title": {
+   "ru": "Эриванская площадь и караван-сарай Габриела Тамамшева; слева Дворцовая площадь, церкви Камоянц и Кашвети",
+   "en": "Erivan Square and the caravanserai of Gabriel Tamamshev; on the left the Palace Square and the churches Kamoyants and Kashveti",
+   "ka": "ერევნის მოედანი და გაბრიელ ტამამშევის ქარვასლა; მარცხნივ სასახლის მოედანი, კამოიანცისა და ქაშვეთის ეკლესიები"
+  },
+  "author": {
+   "ru": "автор снимка неизвестен; из альбома «Старый Тифлисъ» Николая Демурчяна в Facebook (2015)",
+   "en": "photographer unknown; from the album 'Old Tiflis' of Nikolay Demourchyan on Facebook (2015)",
+   "ka": "ფოტოგრაფი უცნობია; ნიკოლაი დემურჩიანის ალბომიდან „ძველი ტფილისი“ Facebook-ზე (2015)"
+  },
+  "note": {
+   "ru": "Подпись в источнике: «Тифлисъ. Эриванская площадь. В центре Караван-сарай Габриела Тамамшева. Слева Дворцовая площадь, церкви Камоянц (Святого Георгия) и Квашвети». Дата в источнике не названа; по надписи и виду старого снимка он сделан до 1918 года, на шкале показан приблизительно.",
+   "en": "Caption in the source: 'Tiflis. Erivan Square. In the centre the caravanserai of Gabriel Tamamshev. On the left the Palace Square, the churches Kamoyants (St. George) and Kvashveti'. The source gives no date; by the caption and the look of an old picture it was made before 1918, shown approximately on the timeline.",
+   "ka": "წარწერა წყაროში: „ტფილისი. ერევნის მოედანი. ცენტრში გაბრიელ ტამამშევის ქარვასლა. მარცხნივ სასახლის მოედანი, კამოიანცის (წმ. გიორგის) და კვაშვეთის ეკლესიები“. წყარო თარიღს არ ასახელებს; წარწერისა და ძველი ფოტოს იერის მიხედვით ის 1918 წლამდეა გადაღებული, დროის სკალაზე მიახლოებით არის ნაჩვენები."
+  },
+  "license": {
+   "ru": "общественное достояние (снимок до 1918 года, автор неизвестен)",
+   "en": "public domain (made before 1918, photographer unknown)",
+   "ka": "საზოგადოებრივი საკუთრება (გადაღებულია 1918 წლამდე, ავტორი უცნობია)"
+  },
+  "page": "https://www.facebook.com/photo/?fbid=243041886029999&set=a.215467285454126",
+  "page_label": {
+   "ru": "пост на Facebook",
+   "en": "post on Facebook",
+   "ka": "პოსტი Facebook-ზე"
+  }
  },
  {
   "id": "prokudin_east",

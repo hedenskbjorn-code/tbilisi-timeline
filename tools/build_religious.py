@@ -268,6 +268,10 @@ def main():
         if it["id"] in PHOTOS["objects"]:
             o["ph"] = "|".join(PHOTOS["objects"][it["id"]])
         out.append(o)
+    # the other worship buildings of the heritage register (tools/add_register_religious.py), after the curated ones
+    reg_path = os.path.join(ROOT, "data", "religious_register.json")
+    if os.path.exists(reg_path):
+        out.extend(json.load(open(reg_path, encoding="utf-8")))
     out.sort(key=lambda x: x["from"])
     p = os.path.join(ROOT, "site", "data", "religious.json")
     json.dump(out, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
