@@ -76,3 +76,11 @@ button.mk { padding:0; cursor:pointer; }
 .oldrow input { flex:1 1 100%; }
 .oldpanel .small { font-size:12px; color:var(--muted); }
 body.og .oldctl { display:none; }
+@media (max-width: 520px) {
+  #top { gap:6px; padding:0 8px; }
+  #logo { display:none; }
+  #pagesSel { flex:1 1 auto; min-width:110px; max-width:none; text-overflow:ellipsis; }
+  #share { font-size:0; padding:6px 10px; }                  /* only the icon: the long label does not fit a phone */
+  #share::before { content:"🔗"; font-size:16px; }
+  #lang { min-width:0; max-width:104px; padding:6px 4px; }
+}

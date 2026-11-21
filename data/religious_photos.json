@@ -1,0 +1,479 @@
+{
+ "note": "Photographs of the religious buildings (layer 'Religious buildings'): Wikimedia Commons files taken from the lead pictures and Wikidata image (P18) of the Wikipedia articles of the buildings; every picture was looked through on 2026-11-21 (the building itself, historical pictures for the lost ones, no people close up). Read by tools/build_religious.py (field ph) and tools/build_site_data.py (photos.json).",
+ "objects": {
+  "atashgah": [
+   "File:ათეშგა, III-VII საუკუნეების.jpg"
+  ],
+  "anchiskhati": [
+   "File:Church of Anchiskhati.2.jpg"
+  ],
+  "sioni": [
+   "File:Tbilisi Sioni Cathedral 09.23.jpg"
+  ],
+  "lurji": [
+   "File:Churches of St. Andrew and of John the Apostle, Tbilisi (Photo A. Muhranoff, 2011).jpg"
+  ],
+  "surb_gevorg": [
+   "File:Saint Gevorg Armenian Church in Old Tbilisi seen from Samghebro Street, 5.jpg",
+   "File:Saint Gevorg Armenian Church, Old Tbilisi - Սուրբ Գևորգ հայկական եկեղեցի, Հին Թբիլիսի.jpg"
+  ],
+  "metekhi": [
+   "File:Tbilisi The Metekhi Church of Assumption IMG 8842 1920.jpg"
+  ],
+  "norashen": [
+   "File:2014 Tbilisi, Kościół Matki Boskiej Noraszen (01).jpg",
+   "File:Norashen Holy Mother of God Armenian Church 0009.jpg"
+  ],
+  "vank": [
+   "File:Armenian monastery of Tbilisi 1.jpg",
+   "File:Armenian monastery of Tbilisi 2.png"
+  ],
+  "shia_mosque": [
+   "File:Tatar mosque in Tiflis photo.jpg"
+  ],
+  "kari": [
+   "File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (04).jpg"
+  ],
+  "khojivank": [
+   "File:Khojivank Armenian Pantheon 2.jpg",
+   "File:Armenian Pantheon of Tbilisi.JPG"
+  ],
+  "surb_nshan": [
+   "File:Raffi kojian-Surb Nshan-161445468.jpg"
+  ],
+  "kvemo_betlemi": [
+   "File:Kusants armenian church.jpg",
+   "File:Tbilisi, Bethlehem Quarter.jpg"
+  ],
+  "kldisubani": [
+   "File:St.George of Kldisubani.jpg"
+  ],
+  "mughni": [
+   "File:Էջմիածին եկեղեցի, Թիֆլիս.JPG",
+   "File:Saint Gevorg of Mughni Armenian Church, Old Tbilisi, XIX century, photo made by D. Ermakov.jpg"
+  ],
+  "catholic_cathedral": [
+   "File:Tbilisi Catholical church St. Maria.png"
+  ],
+  "jvari_mama": [
+   "File:2014 Tbilisi, Cerkiew Dżwaris Mama (13).jpg",
+   "File:Tbilisi Jvris mama church common view.jpg"
+  ],
+  "nino": [
+   "File:წმინდა ნინოს ეკლესია کلیسای سنت نینو در تفلیس 02.jpg"
+  ],
+  "juma": [
+   "File:Juma Mosque of Tbilisi.jpg"
+  ],
+  "old_trinity": [
+   "File:Sameba.jpg"
+  ],
+  "peter_paul_catholic": [
+   "File:Catholic church in Tbilisi 02.jpg"
+  ],
+  "lutheran_pp": [
+   "File:Peter-Paul Kirche (Tbilisi).jpeg"
+  ],
+  "alexander_nevsky": [
+   "File:Alexander Nevsky Cathedral, Tbilisi (ტფილისის სამხედრო ტაძარი).jpg"
+  ],
+  "kashveti": [
+   "File:Kashveti1-2.jpg",
+   "File:Kashveti1.jpg"
+  ],
+  "great_synagogue": [
+   "File:თბილისის დიდი სინაგოგა.jpg",
+   "File:Tbilisi Synagogue (1).jpg"
+  ],
+  "michael_tver": [
+   "File:წმინდა მიხეილ ტვერელის ეკლესია.jpg"
+  ],
+  "yazidi_temple": [
+   "File:Qub Siltan Ezid.jpg"
+  ],
+  "karapet": [
+   "File:Armenian St. Karapet church in Tbilisi (before 1917).jpg"
+  ],
+  "zemo_betlemi": [
+   "File:Holy Mother of God Church of Bethlehem, Tbilisi.jpg"
+  ],
+  "mamadaviti": [
+   "File:Mama-Daviti Church, Tbilisi.jpg"
+  ],
+  "sameba": [
+   "File:Tbilisi Holy Trinity Cathedral (Sameba) IMG 8956 1920.jpg",
+   "File:Sameba1.jpg"
+  ]
+ },
+ "info": {
+  "File:ათეშგა, III-VII საუკუნეების.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/%E1%83%90%E1%83%97%E1%83%94%E1%83%A8%E1%83%92%E1%83%90%2C_III-VII_%E1%83%A1%E1%83%90%E1%83%A3%E1%83%99%E1%83%A3%E1%83%9C%E1%83%94%E1%83%94%E1%83%91%E1%83%98%E1%83%A1.jpg/500px-%E1%83%90%E1%83%97%E1%83%94%E1%83%A8%E1%83%92%E1%83%90%2C_III-VII_%E1%83%A1%E1%83%90%E1%83%A3%E1%83%99%E1%83%A3%E1%83%9C%E1%83%94%E1%83%94%E1%83%91%E1%83%98%E1%83%A1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:%E1%83%90%E1%83%97%E1%83%94%E1%83%A8%E1%83%92%E1%83%90,_III-VII_%E1%83%A1%E1%83%90%E1%83%A3%E1%83%99%E1%83%A3%E1%83%9C%E1%83%94%E1%83%94%E1%83%91%E1%83%98%E1%83%A1.jpg",
+   "author": "Lasha ge",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 528
+  },
+  "File:Church of Anchiskhati.2.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Church_of_Anchiskhati.2.jpg/500px-Church_of_Anchiskhati.2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Church_of_Anchiskhati.2.jpg",
+   "author": "კოლხი",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 333
+  },
+  "File:Tbilisi Sioni Cathedral 09.23.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Tbilisi_Sioni_Cathedral_09.23.jpg/500px-Tbilisi_Sioni_Cathedral_09.23.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Sioni_Cathedral_09.23.jpg",
+   "author": "Supanut Arunoprayote",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "w": 500,
+   "h": 400
+  },
+  "File:Churches of St. Andrew and of John the Apostle, Tbilisi (Photo A. Muhranoff, 2011).jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Churches_of_St._Andrew_and_of_John_the_Apostle%2C_Tbilisi_%28Photo_A._Muhranoff%2C_2011%29.jpg/500px-Churches_of_St._Andrew_and_of_John_the_Apostle%2C_Tbilisi_%28Photo_A._Muhranoff%2C_2011%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Churches_of_St._Andrew_and_of_John_the_Apostle,_Tbilisi_(Photo_A._Muhranoff,_2011).jpg",
+   "author": "Aleksey Muhranoff",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "w": 500,
+   "h": 380
+  },
+  "File:Saint Gevorg Armenian Church in Old Tbilisi seen from Samghebro Street, 5.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Saint_Gevorg_Armenian_Church_in_Old_Tbilisi_seen_from_Samghebro_Street%2C_5.jpg/500px-Saint_Gevorg_Armenian_Church_in_Old_Tbilisi_seen_from_Samghebro_Street%2C_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Saint_Gevorg_Armenian_Church_in_Old_Tbilisi_seen_from_Samghebro_Street,_5.jpg",
+   "author": "Alexey Komarov",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 750
+  },
+  "File:Saint Gevorg Armenian Church, Old Tbilisi - Սուրբ Գևորգ հայկական եկեղեցի, Հին Թբիլիսի.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Saint_Gevorg_Armenian_Church%2C_Old_Tbilisi_-_%D5%8D%D5%B8%D6%82%D6%80%D5%A2_%D4%B3%D6%87%D5%B8%D6%80%D5%A3_%D5%B0%D5%A1%D5%B5%D5%AF%D5%A1%D5%AF%D5%A1%D5%B6_%D5%A5%D5%AF%D5%A5%D5%B2%D5%A5%D6%81%D5%AB%2C_%D5%80%D5%AB%D5%B6_%D4%B9%D5%A2%D5%AB%D5%AC%D5%AB%D5%BD%D5%AB.jpg/500px-Saint_Gevorg_Armenian_Church%2C_Old_Tbilisi_-_%D5%8D%D5%B8%D6%82%D6%80%D5%A2_%D4%B3%D6%87%D5%B8%D6%80%D5%A3_%D5%B0%D5%A1%D5%B5%D5%AF%D5%A1%D5%AF%D5%A1%D5%B6_%D5%A5%D5%AF%D5%A5%D5%B2%D5%A5%D6%81%D5%AB%2C_%D5%80%D5%AB%D5%B6_%D4%B9%D5%A2%D5%AB%D5%AC%D5%AB%D5%BD%D5%AB.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Saint_Gevorg_Armenian_Church,_Old_Tbilisi_-_%D5%8D%D5%B8%D6%82%D6%80%D5%A2_%D4%B3%D6%87%D5%B8%D6%80%D5%A3_%D5%B0%D5%A1%D5%B5%D5%AF%D5%A1%D5%AF%D5%A1%D5%B6_%D5%A5%D5%AF%D5%A5%D5%B2%D5%A5%D6%81%D5%AB,_%D5%80%D5%AB%D5%B6_%D4%B9%D5%A2%D5%AB%D5%AC%D5%AB%D5%BD%D5%AB.jpg",
+   "author": "GeoO",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 667
+  },
+  "File:Tbilisi The Metekhi Church of Assumption IMG 8842 1920.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Tbilisi_The_Metekhi_Church_of_Assumption_IMG_8842_1920.jpg/500px-Tbilisi_The_Metekhi_Church_of_Assumption_IMG_8842_1920.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_The_Metekhi_Church_of_Assumption_IMG_8842_1920.jpg",
+   "author": "Alexxx1979",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 345
+  },
+  "File:2014 Tbilisi, Kościół Matki Boskiej Noraszen (01).jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/2014_Tbilisi%2C_Ko%C5%9Bci%C3%B3%C5%82_Matki_Boskiej_Noraszen_%2801%29.jpg/500px-2014_Tbilisi%2C_Ko%C5%9Bci%C3%B3%C5%82_Matki_Boskiej_Noraszen_%2801%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:2014_Tbilisi,_Ko%C5%9Bci%C3%B3%C5%82_Matki_Boskiej_Noraszen_(01).jpg",
+   "author": "Marcin Konsek",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 873
+  },
+  "File:Norashen Holy Mother of God Armenian Church 0009.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Norashen_Holy_Mother_of_God_Armenian_Church_0009.jpg/500px-Norashen_Holy_Mother_of_God_Armenian_Church_0009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Norashen_Holy_Mother_of_God_Armenian_Church_0009.jpg",
+   "author": "Alsandro at Georgian Wikipedia",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 554
+  },
+  "File:Armenian monastery of Tbilisi 1.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Armenian_monastery_of_Tbilisi_1.jpg/500px-Armenian_monastery_of_Tbilisi_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Armenian_monastery_of_Tbilisi_1.jpg",
+   "author": "Dmitri Yermakov",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 347
+  },
+  "File:Armenian monastery of Tbilisi 2.png": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Armenian_monastery_of_Tbilisi_2.png/500px-Armenian_monastery_of_Tbilisi_2.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Armenian_monastery_of_Tbilisi_2.png",
+   "author": "Unknown photographerUnknown photographer",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 388
+  },
+  "File:Tatar mosque in Tiflis photo.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Tatar_mosque_in_Tiflis_photo.jpg/500px-Tatar_mosque_in_Tiflis_photo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Tatar_mosque_in_Tiflis_photo.jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 375
+  },
+  "File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (04).jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/2014_Tbilisi%2C_Cerkiew_na_ulicy_Ioane_Szawteli_%2804%29.jpg/500px-2014_Tbilisi%2C_Cerkiew_na_ulicy_Ioane_Szawteli_%2804%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:2014_Tbilisi,_Cerkiew_na_ulicy_Ioane_Szawteli_(04).jpg",
+   "author": "Marcin Konsek",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 393
+  },
+  "File:Khojivank Armenian Pantheon 2.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/3/39/Khojivank_Armenian_Pantheon_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Khojivank_Armenian_Pantheon_2.jpg",
+   "author": "National Archives of Armenia",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 372
+  },
+  "File:Armenian Pantheon of Tbilisi.JPG": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Armenian_Pantheon_of_Tbilisi.JPG/500px-Armenian_Pantheon_of_Tbilisi.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Armenian_Pantheon_of_Tbilisi.JPG",
+   "author": "Serouj",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "w": 500,
+   "h": 333
+  },
+  "File:Raffi kojian-Surb Nshan-161445468.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Raffi_kojian-Surb_Nshan-161445468.jpg/500px-Raffi_kojian-Surb_Nshan-161445468.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Raffi_kojian-Surb_Nshan-161445468.jpg",
+   "author": "RaffiKojian",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "w": 500,
+   "h": 375
+  },
+  "File:Kusants armenian church.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Kusants_armenian_church.jpg/500px-Kusants_armenian_church.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Kusants_armenian_church.jpg",
+   "author": "o",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "w": 500,
+   "h": 750
+  },
+  "File:Tbilisi, Bethlehem Quarter.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Tbilisi%2C_Bethlehem_Quarter.jpg/500px-Tbilisi%2C_Bethlehem_Quarter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi,_Bethlehem_Quarter.jpg",
+   "author": "Alix Kroeger from Brussels, Belgium",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "w": 500,
+   "h": 795
+  },
+  "File:St.George of Kldisubani.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/St.George_of_Kldisubani.jpg/500px-St.George_of_Kldisubani.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:St.George_of_Kldisubani.jpg",
+   "author": "George Melashvili",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "w": 500,
+   "h": 771
+  },
+  "File:Էջմիածին եկեղեցի, Թիֆլիս.JPG": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/%D4%B7%D5%BB%D5%B4%D5%AB%D5%A1%D5%AE%D5%AB%D5%B6_%D5%A5%D5%AF%D5%A5%D5%B2%D5%A5%D6%81%D5%AB%2C_%D4%B9%D5%AB%D6%86%D5%AC%D5%AB%D5%BD.JPG/500px-%D4%B7%D5%BB%D5%B4%D5%AB%D5%A1%D5%AE%D5%AB%D5%B6_%D5%A5%D5%AF%D5%A5%D5%B2%D5%A5%D6%81%D5%AB%2C_%D4%B9%D5%AB%D6%86%D5%AC%D5%AB%D5%BD.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:%D4%B7%D5%BB%D5%B4%D5%AB%D5%A1%D5%AE%D5%AB%D5%B6_%D5%A5%D5%AF%D5%A5%D5%B2%D5%A5%D6%81%D5%AB,_%D4%B9%D5%AB%D6%86%D5%AC%D5%AB%D5%BD.JPG",
+   "author": "Սէրուժ Ուրիշեան (Serouj Ourishian)",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "w": 500,
+   "h": 333
+  },
+  "File:Saint Gevorg of Mughni Armenian Church, Old Tbilisi, XIX century, photo made by D. Ermakov.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Saint_Gevorg_of_Mughni_Armenian_Church%2C_Old_Tbilisi%2C_XIX_century%2C_photo_made_by_D._Ermakov.jpg/500px-Saint_Gevorg_of_Mughni_Armenian_Church%2C_Old_Tbilisi%2C_XIX_century%2C_photo_made_by_D._Ermakov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Saint_Gevorg_of_Mughni_Armenian_Church,_Old_Tbilisi,_XIX_century,_photo_made_by_D._Ermakov.jpg",
+   "author": "Dmitri Yermakov",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 682
+  },
+  "File:Tbilisi Catholical church St. Maria.png": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Tbilisi_Catholical_church_St._Maria.png/500px-Tbilisi_Catholical_church_St._Maria.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Catholical_church_St._Maria.png",
+   "author": "Temuri",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 667
+  },
+  "File:2014 Tbilisi, Cerkiew Dżwaris Mama (13).jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/2014_Tbilisi%2C_Cerkiew_D%C5%BCwaris_Mama_%2813%29.jpg/500px-2014_Tbilisi%2C_Cerkiew_D%C5%BCwaris_Mama_%2813%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:2014_Tbilisi,_Cerkiew_D%C5%BCwaris_Mama_(13).jpg",
+   "author": "Marcin Konsek",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 824
+  },
+  "File:Tbilisi Jvris mama church common view.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Tbilisi_Jvris_mama_church_common_view.jpg/500px-Tbilisi_Jvris_mama_church_common_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Jvris_mama_church_common_view.jpg",
+   "author": "Surprizi",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 667
+  },
+  "File:წმინდა ნინოს ეკლესია کلیسای سنت نینو در تفلیس 02.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%9C%E1%83%9D%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90_%DA%A9%D9%84%DB%8C%D8%B3%D8%A7%DB%8C_%D8%B3%D9%86%D8%AA_%D9%86%DB%8C%D9%86%D9%88_%D8%AF%D8%B1_%D8%AA%D9%81%D9%84%DB%8C%D8%B3_02.jpg/500px-%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%9C%E1%83%9D%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90_%DA%A9%D9%84%DB%8C%D8%B3%D8%A7%DB%8C_%D8%B3%D9%86%D8%AA_%D9%86%DB%8C%D9%86%D9%88_%D8%AF%D8%B1_%D8%AA%D9%81%D9%84%DB%8C%D8%B3_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%9C%E1%83%9D%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90_%DA%A9%D9%84%DB%8C%D8%B3%D8%A7%DB%8C_%D8%B3%D9%86%D8%AA_%D9%86%DB%8C%D9%86%D9%88_%D8%AF%D8%B1_%D8%AA%D9%81%D9%84%DB%8C%D8%B3_02.jpg",
+   "author": "Mostafameraji",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 281
+  },
+  "File:Juma Mosque of Tbilisi.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Juma_Mosque_of_Tbilisi.jpg/500px-Juma_Mosque_of_Tbilisi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Juma_Mosque_of_Tbilisi.jpg",
+   "author": "Reda Kerbush",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 375
+  },
+  "File:Sameba.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Sameba.jpg/500px-Sameba.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Sameba.jpg",
+   "author": "Paata Vardanashvili from Tbilisi, Georgia",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "w": 500,
+   "h": 619
+  },
+  "File:Catholic church in Tbilisi 02.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Catholic_church_in_Tbilisi_02.jpg/500px-Catholic_church_in_Tbilisi_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Catholic_church_in_Tbilisi_02.jpg",
+   "author": "Soghomon Matevosyan",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 333
+  },
+  "File:Peter-Paul Kirche (Tbilisi).jpeg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Peter-Paul_Kirche_%28Tbilisi%29.jpeg/500px-Peter-Paul_Kirche_%28Tbilisi%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Peter-Paul_Kirche_(Tbilisi).jpeg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 395
+  },
+  "File:Alexander Nevsky Cathedral, Tbilisi (ტფილისის სამხედრო ტაძარი).jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Alexander_Nevsky_Cathedral%2C_Tbilisi_%28%E1%83%A2%E1%83%A4%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AE%E1%83%94%E1%83%93%E1%83%A0%E1%83%9D_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98%29.jpg/500px-Alexander_Nevsky_Cathedral%2C_Tbilisi_%28%E1%83%A2%E1%83%A4%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AE%E1%83%94%E1%83%93%E1%83%A0%E1%83%9D_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Alexander_Nevsky_Cathedral,_Tbilisi_(%E1%83%A2%E1%83%A4%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AE%E1%83%94%E1%83%93%E1%83%A0%E1%83%9D_%E1%83%A2%E1%83%90%E1%83%AB%E1%83%90%E1%83%A0%E1%83%98).jpg",
+   "author": "Dmitri Yermakov",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 339
+  },
+  "File:Kashveti1-2.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Kashveti1-2.jpg/500px-Kashveti1-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Kashveti1-2.jpg",
+   "author": "Paata Vardanashvili, Rabanus Flavus (derivative work)",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "w": 500,
+   "h": 416
+  },
+  "File:Kashveti1.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Kashveti1.jpg/500px-Kashveti1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Kashveti1.jpg",
+   "author": "Paata Vardanashvili",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "w": 500,
+   "h": 406
+  },
+  "File:თბილისის დიდი სინაგოგა.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%93%E1%83%98%E1%83%93%E1%83%98_%E1%83%A1%E1%83%98%E1%83%9C%E1%83%90%E1%83%92%E1%83%9D%E1%83%92%E1%83%90.jpg/500px-%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%93%E1%83%98%E1%83%93%E1%83%98_%E1%83%A1%E1%83%98%E1%83%9C%E1%83%90%E1%83%92%E1%83%9D%E1%83%92%E1%83%90.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%93%E1%83%98%E1%83%93%E1%83%98_%E1%83%A1%E1%83%98%E1%83%9C%E1%83%90%E1%83%92%E1%83%9D%E1%83%92%E1%83%90.jpg",
+   "author": "Tamar kurtanidze",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 375
+  },
+  "File:Tbilisi Synagogue (1).jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Tbilisi_Synagogue_%281%29.jpg/500px-Tbilisi_Synagogue_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Synagogue_(1).jpg",
+   "author": "DAVID HOLT from London, England",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "w": 500,
+   "h": 375
+  },
+  "File:წმინდა მიხეილ ტვერელის ეკლესია.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9B%E1%83%98%E1%83%AE%E1%83%94%E1%83%98%E1%83%9A_%E1%83%A2%E1%83%95%E1%83%94%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90.jpg/500px-%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9B%E1%83%98%E1%83%AE%E1%83%94%E1%83%98%E1%83%9A_%E1%83%A2%E1%83%95%E1%83%94%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9B%E1%83%98%E1%83%AE%E1%83%94%E1%83%98%E1%83%9A_%E1%83%A2%E1%83%95%E1%83%94%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%94%E1%83%99%E1%83%9A%E1%83%94%E1%83%A1%E1%83%98%E1%83%90.jpg",
+   "author": "Varsika",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 319
+  },
+  "File:Qub Siltan Ezid.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Qub_Siltan_Ezid.jpg/500px-Qub_Siltan_Ezid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Qub_Siltan_Ezid.jpg",
+   "author": "Axmed 07",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 667
+  },
+  "File:Armenian St. Karapet church in Tbilisi (before 1917).jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/2/2c/Armenian_St._Karapet_church_in_Tbilisi_%28before_1917%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Armenian_St._Karapet_church_in_Tbilisi_(before_1917).jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "license_url": null,
+   "w": 500,
+   "h": 645
+  },
+  "File:Holy Mother of God Church of Bethlehem, Tbilisi.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/4/42/Holy_Mother_of_God_Church_of_Bethlehem%2C_Tbilisi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Holy_Mother_of_God_Church_of_Bethlehem,_Tbilisi.jpg",
+   "author": "Ian.Climacus",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "w": 500,
+   "h": 586
+  },
+  "File:Mama-Daviti Church, Tbilisi.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/2/2a/Mama-Daviti_Church%2C_Tbilisi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Mama-Daviti_Church,_Tbilisi.jpg",
+   "author": "Paata Vardanashvili from Tbilisi, Georgia",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "w": 500,
+   "h": 666
+  },
+  "File:Tbilisi Holy Trinity Cathedral (Sameba) IMG 8956 1920.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Tbilisi_Holy_Trinity_Cathedral_%28Sameba%29_IMG_8956_1920.jpg/500px-Tbilisi_Holy_Trinity_Cathedral_%28Sameba%29_IMG_8956_1920.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Holy_Trinity_Cathedral_(Sameba)_IMG_8956_1920.jpg",
+   "author": "Alexxx1979",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 759
+  },
+  "File:Sameba1.jpg": {
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Sameba1.jpg/500px-Sameba1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "page": "https://commons.wikimedia.org/wiki/File:Sameba1.jpg",
+   "author": "Goichev",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "w": 500,
+   "h": 833
+  }
+ }
+}

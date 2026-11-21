@@ -1,5 +1,5 @@
 {
- "note": "Photos chosen by hand for an object instead of the photos found by coordinates. 2026-11-18: the owner found that the Atashgah (register id 3564) showed pictures of the street nearby; replaced by pictures of the temple itself from Commons category 'Atashgah of Tbilisi' (all looked through: the temple, no people). The photos listed here are not shown on other objects.",
+ "note": "Photos chosen by hand for an object instead of the photos found by coordinates. 2026-11-18: the owner found that the Atashgah (register id 3564) showed pictures of the street nearby; replaced by pictures of the temple itself from Commons category 'Atashgah of Tbilisi' (all looked through: the temple, no people). The photos listed here are not shown on other objects. 2026-11-21: owner found that the church of St. Abo (6506) showed a view of Narikala (found 8 m away by coordinates) and the monument of Vakhtang Gorgasali (25104) had no photo (only panoramas were found by coordinates, and they were dropped). Replaced by photos from the Commons categories 'Saint Abo of Tiflis' church' and 'Vakhtang Gorgasali's statue, Tbilisi' (every picture looked through: the object itself, no people close up). Applied to site/data without a full rebuild by tools/apply_photo_overrides.py.",
  "objects": {
   "3564": [
    "File:Ateshgah of Tbilisi 2026 01.jpg",
@@ -29,6 +29,19 @@
    "File:2024-05-18 Betania Monastery 4.jpg",
    "File:2024-05-18 Betania Monastery 5.jpg",
    "File:2024-05-18 Betania Monastery 3.jpg"
+  ],
+  "25104": [
+   "File:Metekhi church and Vakhtang Gorgasali's statue Tbilisi.jpg",
+   "File:Vakhtang Metekhi Tbilisi.jpg",
+   "File:Statue of Gorgasali.JPG",
+   "File:Vakhtang Gorgasali monument - panoramio.jpg",
+   "File:Tbilisi, Georgia — Metekhi Church, King Gorgasali Monument, Abo Tbileli Church.jpg"
+  ],
+  "6506": [
+   "File:AboChurch.jpg",
+   "File:Iglesia de San Abo de Tiflis, Tiflis, Georgia, 2016-09-29, DD 83.jpg",
+   "File:Tbilisi, Georgia — Abo of Tiflis church.jpg",
+   "File:Tbilisi, Georgia — Abo of Tiflis church area (1).jpg"
   ]
  }
 }

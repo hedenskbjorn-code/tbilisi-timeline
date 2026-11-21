@@ -129,7 +129,7 @@
     let snap = null;
     for (const s of urbanSnaps) if (s <= year) snap = s;
     const on = $("showBnd").checked && snap !== null;
-    const traced = ["==", ["get", "src"], "traced"];
+    const traced = ["in", ["get", "src"], ["literal", ["traced", "khar"]]];                // hand-traced and digitised outlines are approximate: dashed
     const filters = {
       "urban-fill": ["==", ["get", "snap"], snap === null ? -1 : snap],
       "urban-line": ["all", ["==", ["get", "snap"], snap === null ? -1 : snap], ["!", traced]],
@@ -490,6 +490,13 @@
     $("lang").setAttribute("aria-label", t().ariaLang);
     $("slider").setAttribute("aria-label", t().ariaYear);
     if ($("entrLink")) $("entrLink").href = "entrances/?lang=" + lang;
+    { const sel = $("pagesSel");                                               // the sections of the site: the map, the walking route, the running route
+      if (sel) {
+        sel.textContent = "";
+        sel.setAttribute("aria-label", t().ariaPages); sel.title = t().ariaPages;
+        for (const [v, k] of [["./", "navMap"], ["entrances/", "navEntr"], ["run/", "navRun"]]) { const o = document.createElement("option"); o.value = v; o.textContent = t()[k]; sel.appendChild(o); }
+        sel.value = "./";
+      } }
     $("speed").setAttribute("aria-label", t().ariaSpeed);
     buildEpochs();
     $("btnMore").setAttribute("aria-label", t().ariaMore); $("btnMore").title = t().ariaMore;
@@ -1122,6 +1129,21 @@
       fig.appendChild(a);
       a.title = [f.author || "", f.license || ""].filter(Boolean).join(" · ");
       box.appendChild(fig);
+    });
+  }
+  // the line under the photographs of a card: author, licence and the page of the file on Commons
+  async function fillPhotoCredits(box, p) {
+    try { if (!photoInfo) photoInfo = await getJSON("data/photos.json"); } catch (e) { return; }
+    const titles = String(p.ph).split("|").filter((x) => photoInfo[x] && photoInfo[x].thumb);
+    if (!titles.length) return;
+    box.appendChild(document.createTextNode(t().infoPhotos + ": "));
+    titles.forEach((ti, i) => {
+      const f = photoInfo[ti];
+      if (i) box.appendChild(document.createTextNode("; "));
+      box.appendChild(document.createTextNode([f.author || "?", f.license || ""].filter(Boolean).join(" · ") + " · "));
+      const a = document.createElement("a");
+      a.href = f.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Commons";
+      box.appendChild(a);
     });
   }
   async function photoCredits(body, p) {
@@ -1784,6 +1806,7 @@
     });
   }
   $("btnVersion").addEventListener("click", showChangelog);
+  $("pagesSel").addEventListener("change", (e) => { if (e.target.value !== "./") location.href = e.target.value + "?lang=" + lang; });
 
   // the labels of the page at once, before the data are there (applyLang does the whole job later)
   try {
@@ -2686,6 +2709,14 @@
     if (r.approx) row(L.relApprox, "≈");
     if (r.to !== undefined) row(L.relGone, String(r.to));
     row(L.relStatus, r.status[lang] || r.status.en);
+    if (r.ph) {                                                                  // photographs of Wikimedia Commons (data/photos.json), as in the card of an object of the register
+      const pp = { ph: r.ph, name: r.name[lang] || r.name.en };
+      addPhotos(el, pp);
+      const cr = document.createElement("div");
+      cr.className = "small phcred";
+      el.appendChild(cr);
+      fillPhotoCredits(cr, pp);
+    }
     const n = document.createElement("div");
     n.className = "small";
     n.textContent = r.note[lang] || r.note.en;

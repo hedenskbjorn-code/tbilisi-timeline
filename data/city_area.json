@@ -1,6 +1,6 @@
 {
   "source": "Kharebava N., 'Mapping of Spatial-temporal Changes of Landcover (LULC) in Tbilisi', PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024 (areas of the city boundary as read from historical plans by the author; chapters 4.x and section on urban growth, pp. ~83-104 of the PDF)",
-  "note": "src 'kh' = the thesis (read from the PDF by the project's assistant). src 'sec' = a secondary report relayed by an external AI (Gemini) from the monograph Sh. Kakuria, 'Population of Tbilisi 1803-1970' (1979) and the Great Soviet Encyclopedia, 3rd ed. (1976); NOT checked against the originals. The thesis also gives 26,070 ha for 1960 (260.7 km2); it is consistent with the 1970 figure of 265 km2 and is now used. 354 km2 (1999) is kept until 2005, 502 km2 since 27 Dec 2006 (Parliament resolution; the act itself could not be opened).",
+  "note": "src 'kh' = the thesis (read from the PDF by the project's assistant). src 'sec' = a secondary report relayed by an external AI (Gemini) from the monograph Sh. Kakuria, 'Population of Tbilisi 1803-1970' (1979) and the Great Soviet Encyclopedia, 3rd ed. (1976); NOT checked against the originals. The thesis also gives 26,070 ha for 1960 (260.7 km2); it is consistent with the 1970 figure of 265 km2 and is now used. 354 km2 (1999) is kept until 2005, 502 km2 since 27 Dec 2006 (Parliament resolution; the act itself could not be opened). 2026-11-21: 1924 (42 km2) and 1934 (43 km2) are the areas of the city boundary digitised from the maps 'land use in the modern boundaries of Tbilisi' of the same thesis (tools/digitize_thesis_maps.py, about 30 m per pixel); the same method gives 29.3 km2 for 1913 against 29 km2 in the text of the thesis.",
   "areas": [
     {"year": 1735, "km2": 2, "src": "kh"},
     {"year": 1800, "km2": 3, "src": "kh"},
@@ -8,6 +8,8 @@
     {"year": 1844, "km2": 13, "src": "kh"},
     {"year": 1887, "km2": 28, "src": "kh"},
     {"year": 1913, "km2": 29, "src": "kh"},
+    {"year": 1924, "km2": 42, "src": "kh"},
+    {"year": 1934, "km2": 43, "src": "kh"},
     {"year": 1960, "km2": 260.7, "src": "kh"},
     {"year": 1970, "km2": 265, "src": "sec"},
     {"year": 1975, "km2": 348.6, "src": "sec"},

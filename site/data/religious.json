@@ -23,7 +23,8 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Atashgah_of_Tbilisi"
-  ]
+  ],
+  "ph": "File:ათეშგა, III-VII საუკუნეების.jpg"
  },
  {
   "id": "anchiskhati",
@@ -49,7 +50,8 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Anchiskhati_Basilica"
-  ]
+  ],
+  "ph": "File:Church of Anchiskhati.2.jpg"
  },
  {
   "id": "sioni",
@@ -75,7 +77,8 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Tbilisi_Sioni_Cathedral"
-  ]
+  ],
+  "ph": "File:Tbilisi Sioni Cathedral 09.23.jpg"
  },
  {
   "id": "lurji",
@@ -102,7 +105,8 @@
   "src": [
    "https://en.wikipedia.org/wiki/Lurji_Monastery",
    "https://ru.wikipedia.org/wiki/Лурджи_(Синий)_монастырь"
-  ]
+  ],
+  "ph": "File:Churches of St. Andrew and of John the Apostle, Tbilisi (Photo A. Muhranoff, 2011).jpg"
  },
  {
   "id": "surb_gevorg",
@@ -129,7 +133,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_Сурб_Геворг_(Тбилиси)",
    "https://en.wikipedia.org/wiki/Saint_George%27s_Church,_Tbilisi"
-  ]
+  ],
+  "ph": "File:Saint Gevorg Armenian Church in Old Tbilisi seen from Samghebro Street, 5.jpg|File:Saint Gevorg Armenian Church, Old Tbilisi - Սուրբ Գևորգ հայկական եկեղեցի, Հին Թբիլիսի.jpg"
  },
  {
   "id": "metekhi",
@@ -155,7 +160,8 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Metekhi_Church"
-  ]
+  ],
+  "ph": "File:Tbilisi The Metekhi Church of Assumption IMG 8842 1920.jpg"
  },
  {
   "id": "norashen",
@@ -182,7 +188,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_Норашен_(Тбилиси)",
    "https://en.wikipedia.org/wiki/Norashen_Church"
-  ]
+  ],
+  "ph": "File:2014 Tbilisi, Kościół Matki Boskiej Noraszen (01).jpg|File:Norashen Holy Mother of God Armenian Church 0009.jpg"
  },
  {
   "id": "vank",
@@ -210,7 +217,8 @@
    "https://ru.wikipedia.org/wiki/Ванкский_собор_(Тбилиси)",
    "https://en.wikipedia.org/wiki/Vank_Monastery,_Tbilisi"
   ],
-  "to": 1930
+  "to": 1930,
+  "ph": "File:Armenian monastery of Tbilisi 1.jpg|File:Armenian monastery of Tbilisi 2.png"
  },
  {
   "id": "shia_mosque",
@@ -238,7 +246,8 @@
    "https://ru.wikipedia.org/wiki/Тбилисская_шиитская_мечеть",
    "https://ka.wikipedia.org/wiki/თბილისის_შაჰ-ისმაილის_მეჩეთი"
   ],
-  "to": 1951
+  "to": 1951,
+  "ph": "File:Tatar mosque in Tiflis photo.jpg"
  },
  {
   "id": "kari",
@@ -264,7 +273,8 @@
   },
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_Святого_Георгия_Кари"
-  ]
+  ],
+  "ph": "File:2014 Tbilisi, Cerkiew na ulicy Ioane Szawteli (04).jpg"
  },
  {
   "id": "khojivank",
@@ -291,7 +301,8 @@
   "src": [
    "https://en.wikipedia.org/wiki/Khojivank_Pantheon_of_Tbilisi"
   ],
-  "to": 1934
+  "to": 1934,
+  "ph": "File:Khojivank Armenian Pantheon 2.jpg|File:Armenian Pantheon of Tbilisi.JPG"
  },
  {
   "id": "surb_nshan",
@@ -318,7 +329,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Сурб_Ншан_(Тбилиси)",
    "https://en.wikipedia.org/wiki/Surb_Nshan_Church,_Tbilisi"
-  ]
+  ],
+  "ph": "File:Raffi kojian-Surb Nshan-161445468.jpg"
  },
  {
   "id": "karapet",
@@ -345,7 +357,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_Святого_Карапета_(Тбилиси)",
    "https://en.wikipedia.org/wiki/Saint_Karapet_Church,_Tbilisi"
-  ]
+  ],
+  "ph": "File:Armenian St. Karapet church in Tbilisi (before 1917).jpg"
  },
  {
   "id": "zemo_betlemi",
@@ -372,7 +385,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Земо_Бетлеми",
    "https://en.wikipedia.org/wiki/Holy_Mother_of_God_Church_of_Bethlehem,_Tbilisi"
-  ]
+  ],
+  "ph": "File:Holy Mother of God Church of Bethlehem, Tbilisi.jpg"
  },
  {
   "id": "kvemo_betlemi",
@@ -399,7 +413,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Квемо_Бетлеми",
    "https://en.wikipedia.org/wiki/Lower_Bethlehemi_Church"
-  ]
+  ],
+  "ph": "File:Kusants armenian church.jpg|File:Tbilisi, Bethlehem Quarter.jpg"
  },
  {
   "id": "kldisubani",
@@ -426,7 +441,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_Карапи_Святого_Георгия_(Клдисубани)",
    "https://en.wikipedia.org/wiki/Church_of_Saint_George_(Kldisubani)"
-  ]
+  ],
+  "ph": "File:St.George of Kldisubani.jpg"
  },
  {
   "id": "mughni",
@@ -453,7 +469,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_Мугни_Сурб_Геворг",
    "https://en.wikipedia.org/wiki/Saint_Gevorg_of_Mughni_Church,_Tbilisi"
-  ]
+  ],
+  "ph": "File:Էջմիածին եկեղեցի, Թիֆլիս.JPG|File:Saint Gevorg of Mughni Armenian Church, Old Tbilisi, XIX century, photo made by D. Ermakov.jpg"
  },
  {
   "id": "catholic_cathedral",
@@ -480,7 +497,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Католический_собор_Вознесения_Богородицы_Девы_Марии_(Тбилиси)",
    "https://en.wikipedia.org/wiki/Cathedral_of_the_Assumption_of_the_Virgin,_Tbilisi"
-  ]
+  ],
+  "ph": "File:Tbilisi Catholical church St. Maria.png"
  },
  {
   "id": "jvari_mama",
@@ -507,7 +525,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Джварис_Мама",
    "https://ka.wikipedia.org/wiki/თბილისის_ჯვარის_მამის_ეკლესია"
-  ]
+  ],
+  "ph": "File:2014 Tbilisi, Cerkiew Dżwaris Mama (13).jpg|File:Tbilisi Jvris mama church common view.jpg"
  },
  {
   "id": "nicholas_military",
@@ -562,7 +581,8 @@
   },
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_равноапостольной_Нины_(Тбилиси)"
-  ]
+  ],
+  "ph": "File:წმინდა ნინოს ეკლესია کلیسای سنت نینو در تفلیس 02.jpg"
  },
  {
   "id": "juma",
@@ -588,7 +608,8 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Juma_Mosque,_Tbilisi"
-  ]
+  ],
+  "ph": "File:Juma Mosque of Tbilisi.jpg"
  },
  {
   "id": "old_trinity",
@@ -614,7 +635,8 @@
   },
   "src": [
    "https://ru.wikipedia.org/wiki/Старая_Троицкая_церковь_(Тбилиси)"
-  ]
+  ],
+  "ph": "File:Sameba.jpg"
  },
  {
   "id": "mamadaviti",
@@ -641,7 +663,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_Святого_Давида_(Тбилиси)",
    "https://en.wikipedia.org/wiki/Mtatsminda_Pantheon"
-  ]
+  ],
+  "ph": "File:Mama-Daviti Church, Tbilisi.jpg"
  },
  {
   "id": "peter_paul_catholic",
@@ -668,7 +691,8 @@
   "src": [
    "https://en.wikipedia.org/wiki/St._Peter_and_St._Paul%27s_Church,_Tbilisi",
    "https://ru.wikipedia.org/wiki/Католическая_церковь_Святых_Петра_и_Павла_(Тбилиси)"
-  ]
+  ],
+  "ph": "File:Catholic church in Tbilisi 02.jpg"
  },
  {
   "id": "nevsky_chapel",
@@ -724,7 +748,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Лютеранская_церковь_Святых_Петра_и_Павла_(Тбилиси)"
   ],
-  "to": 1940
+  "to": 1940,
+  "ph": "File:Peter-Paul Kirche (Tbilisi).jpeg"
  },
  {
   "id": "alexander_nevsky",
@@ -754,7 +779,8 @@
    "https://ka.wikipedia.org/wiki/ტფილისის_სამხედრო_ტაძარი",
    "https://ka.wikipedia.org/wiki/თბილისის_წმინდა_ალექსანდრე_ნეველის_სამლოცველო"
   ],
-  "to": 1930
+  "to": 1930,
+  "ph": "File:Alexander Nevsky Cathedral, Tbilisi (ტფილისის სამხედრო ტაძარი).jpg"
  },
  {
   "id": "kashveti",
@@ -780,7 +806,8 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Kashveti_Church"
-  ]
+  ],
+  "ph": "File:Kashveti1-2.jpg|File:Kashveti1.jpg"
  },
  {
   "id": "great_synagogue",
@@ -807,7 +834,8 @@
   "src": [
    "https://ru.wikipedia.org/wiki/Большая_синагога_(Тбилиси)",
    "https://en.wikipedia.org/wiki/Great_Synagogue_(Tbilisi)"
-  ]
+  ],
+  "ph": "File:თბილისის დიდი სინაგოგა.jpg|File:Tbilisi Synagogue (1).jpg"
  },
  {
   "id": "michael_tver",
@@ -833,7 +861,8 @@
   },
   "src": [
    "https://ru.wikipedia.org/wiki/Церковь_Михаила_Тверского_(Тбилиси)"
-  ]
+  ],
+  "ph": "File:წმინდა მიხეილ ტვერელის ეკლესია.jpg"
  },
  {
   "id": "sameba",
@@ -859,7 +888,8 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Holy_Trinity_Cathedral_of_Tbilisi"
-  ]
+  ],
+  "ph": "File:Tbilisi Holy Trinity Cathedral (Sameba) IMG 8956 1920.jpg|File:Sameba1.jpg"
  },
  {
   "id": "yazidi_temple",
@@ -885,6 +915,7 @@
   },
   "src": [
    "https://en.wikipedia.org/wiki/Sultan_Ezid_Temple"
-  ]
+  ],
+  "ph": "File:Qub Siltan Ezid.jpg"
  }
 ]
