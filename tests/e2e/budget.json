@@ -1,0 +1,5 @@
+{
+  "note": "Budgets of the first screen of the main page (?base=off, gzip, without the tiles of the base map). To be lowered after the work on speed (plan 1887 is 2.4 MB, the first view took 21 s at 1.6 Mbit/s before it).",
+  "firstLoadKB": 4300,
+  "throttledSeconds": 40
+}
