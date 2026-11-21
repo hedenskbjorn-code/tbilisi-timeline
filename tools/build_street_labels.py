@@ -117,13 +117,14 @@ def join(lines):
 def kv_geometry(out):
     """The streets renamed in 1988-1991 (tools/streets_kv_spec.json): the OSM ways are found by the Georgian name of today; the namesakes in other districts are dropped
     by the point of the spec (NEAR_M metres), 'all' keeps every chain (a long avenue), a square becomes a point. Cache: data/raw/osm_transport/street_labels_kv.json, not committed."""
-    sp = json.load(open(os.path.join(ROOT, "tools", "streets_kv_spec.json"), encoding="utf-8"))["spec"]
-    byka = {}
-    for e in json.load(open(os.path.join(RAW, "street_labels_kv.json"), encoding="utf-8"))["elements"]:
-        if e["type"] == "way" and e.get("geometry") and e["tags"].get("name"):
-            byka.setdefault(e["tags"]["name"], {})[e["id"]] = [[round(p["lon"], 5), round(p["lat"], 5)] for p in e["geometry"]]
+    sp, byka = [], {}
+    for n in ("", "2", "3"):  # the batches of 1.8.2 and 1.8.3
+        sp += json.load(open(os.path.join(ROOT, "tools", "streets_kv%s_spec.json" % n), encoding="utf-8"))["spec"]
+        for e in json.load(open(os.path.join(RAW, "street_labels_kv%s.json" % n), encoding="utf-8"))["elements"]:
+            if e["type"] == "way" and e.get("geometry") and e["tags"].get("name"):
+                byka.setdefault(e["tags"]["name"], {})[e["id"]] = [[round(p["lon"], 5), round(p["lat"], 5)] for p in e["geometry"]]
     for s in sp:
-        w = byka.get(s["now"]["ka"])
+        w = byka.get(s.get("osm_ka") or s["now"]["ka"])
         if not w:
             print("NO WAYS (kv):", s["key"])
             continue

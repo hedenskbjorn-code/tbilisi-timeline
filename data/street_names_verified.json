@@ -912,5 +912,432 @@
     "district": "Надзаладеви"
    }
   ]
+ },
+ "additions_2026_11_22_renamed_1988_1991_part2": {
+  "note": "Release 1.8.3: the years found by the second round (see data/street_renamed_1987_1991.json); each quote compared with the page text.",
+  "streets": [
+   {
+    "street_en": "Bezhan Kalandadze Street",
+    "names": [
+     {
+      "name": "улица Нариманова",
+      "from": 1970,
+      "to": 1990
+     },
+     {
+      "name": "улица Бевреты",
+      "from": 1990,
+      "to": 2005
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%94%E1%83%9F%E1%83%90%E1%83%9C_(%E1%83%9F%E1%83%90%E1%83%9C%E1%83%98)_%E1%83%99%E1%83%90%E1%83%9A%E1%83%90%E1%83%9C%E1%83%93%E1%83%90%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Isani"
+   },
+   {
+    "street_en": "Dzmebi Kakabadzeebi Street",
+    "names": [
+     {
+      "name": "улица Георгия Леонидзе",
+      "from": 1967,
+      "to": 1990
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%AB%E1%83%9B%E1%83%94%E1%83%91%E1%83%98_%E1%83%99%E1%83%90%E1%83%99%E1%83%90%E1%83%91%E1%83%90%E1%83%AB%E1%83%94%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Mtatsminda"
+   },
+   {
+    "street_en": "9th April Street",
+    "names": [
+     {
+      "name": "улица Читадзе",
+      "from": 1922,
+      "to": 1989
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%98%E1%83%9D_%E1%83%A9%E1%83%98%E1%83%A2%E1%83%90%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Mtatsminda"
+   },
+   {
+    "street_en": "Mikheil Tsinamdzghvrishvili Street",
+    "names": [
+     {
+      "name": "улица Цеткин",
+      "from": 1922,
+      "to": 1990
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%AE%E1%83%94%E1%83%98%E1%83%9A_%E1%83%AC%E1%83%98%E1%83%9C%E1%83%90%E1%83%9B%E1%83%AB%E1%83%A6%E1%83%95%E1%83%A0%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90_(%E1%83%A9%E1%83%A3%E1%83%A6%E1%83%A3%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1_%E1%83%A0%E1%83%90%E1%83%98%E1%83%9D%E1%83%9C%E1%83%98)",
+    "district": "Chugureti"
+   },
+   {
+    "street_en": "Tamar Mepe Avenue",
+    "names": [
+     {
+      "name": "улица Челюскинцев",
+      "from": 1935,
+      "to": 1989
+     }
+    ],
+    "src": "https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82_%D0%A6%D0%B0%D1%80%D0%B8%D1%86%D1%8B_%D0%A2%D0%B0%D0%BC%D0%B0%D1%80",
+    "district": "Chugureti"
+   }
+  ]
+ },
+ "additions_2026_11_22_renamed_1988_1991_part3": {
+  "note": "Release 1.8.3: from the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008); the quotes were compared with the text of the PDF (see data/street_renamed_1987_1991.json, field enc2008).",
+  "streets": [
+   {
+    "street_en": "Ierusalimi Street",
+    "names": [
+     {
+      "name": "улица Рижинашвили",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ru.wikipedia.org/wiki/%D0%98%D0%B5%D1%80%D1%83%D1%81%D0%B0%D0%BB%D0%B8%D0%BC%D1%81%D0%BA%D0%B0%D1%8F_%D1%83%D0%BB%D0%B8%D1%86%D0%B0_%28%D0%A2%D0%B1%D0%B8%D0%BB%D0%B8%D1%81%D0%B8%29",
+    "district": "Old Tbilisi",
+    "enc2008_pdf_page": 89
+   },
+   {
+    "street_en": "Vladimer Vekua Street",
+    "names": [
+     {
+      "name": "Русская улица",
+      "from": 1903,
+      "to": 1991,
+      "from_kind": "plan"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%9A%E1%83%90%E1%83%93%E1%83%98%E1%83%9B%E1%83%94%E1%83%A0_%E1%83%95%E1%83%94%E1%83%99%E1%83%A3%E1%83%90%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Old Tbilisi",
+    "enc2008_pdf_page": 132
+   },
+   {
+    "street_en": "Mikheil Zandukeli Street",
+    "names": [
+     {
+      "name": "улица Лошинадзе",
+      "from": 1923,
+      "to": 1938,
+      "from_kind": "exact"
+     },
+     {
+      "name": "улица Колхиды",
+      "from": 1938,
+      "to": 1946,
+      "from_kind": "exact"
+     },
+     {
+      "name": "улица Джавахишвили",
+      "from": 1946,
+      "to": 1991,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%AE%E1%83%94%E1%83%98%E1%83%9A_%E1%83%96%E1%83%90%E1%83%9C%E1%83%93%E1%83%A3%E1%83%99%E1%83%94%E1%83%9A%E1%83%98",
+    "district": "Old Tbilisi",
+    "enc2008_pdf_page": 77
+   },
+   {
+    "street_en": "Pavle Ingorokva Street",
+    "names": [
+     {
+      "name": "улица Дзержинского",
+      "from": 1930,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%9F%D0%B0%D0%B2%D0%BB%D0%B0_%D0%98%D0%BD%D0%B3%D0%BE%D1%80%D0%BE%D0%BA%D0%B2%D1%8B",
+    "district": "Mtatsminda",
+    "enc2008_pdf_page": 90
+   },
+   {
+    "street_en": "Vakhtang Kotetishvili Street",
+    "names": [
+     {
+      "name": "улица Оболадзе",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "after"
+     }
+    ],
+    "src": "https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%86%D0%B0_%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3%D0%B0_%D0%9A%D0%BE%D1%82%D0%B5%D1%82%D0%B8%D1%88%D0%B2%D0%B8%D0%BB%D0%B8",
+    "district": "Mtatsminda",
+    "enc2008_pdf_page": 99
+   },
+   {
+    "street_en": "Archil Tsagareli Street",
+    "names": [
+     {
+      "name": "Кронштадтская улица",
+      "from": 1941,
+      "to": 1991,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%A9%E1%83%98%E1%83%9A_%E1%83%AA%E1%83%90%E1%83%92%E1%83%90%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98",
+    "district": "Saburtalo",
+    "enc2008_pdf_page": 194
+   },
+   {
+    "street_en": "Zaza Panaskertel-Tsitsishvili Street",
+    "names": [
+     {
+      "name": "улица Гамсахурдиа",
+      "from": 1983,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%90%E1%83%96%E1%83%90_%E1%83%A4%E1%83%90%E1%83%9C%E1%83%90%E1%83%A1%E1%83%99%E1%83%94%E1%83%A0%E1%83%A2%E1%83%94%E1%83%9A-%E1%83%AA%E1%83%98%E1%83%AA%E1%83%98%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98",
+    "district": "Saburtalo",
+    "enc2008_pdf_page": 77
+   },
+   {
+    "street_en": "Haidar Abashidze Street",
+    "names": [
+     {
+      "name": "улица Володарского",
+      "from": 1930,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%B0%E1%83%90%E1%83%98%E1%83%93%E1%83%90%E1%83%A0_%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Saburtalo",
+    "enc2008_pdf_page": 9
+   },
+   {
+    "street_en": "Revaz Margiani Street",
+    "names": [
+     {
+      "name": "улица Яшвили",
+      "from": 1960,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%94%E1%83%95%E1%83%90%E1%83%96_%E1%83%9B%E1%83%90%E1%83%A0%E1%83%92%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+    "district": "Saburtalo",
+    "enc2008_pdf_page": 106
+   },
+   {
+    "street_en": "Mtavarangelozi Street",
+    "names": [
+     {
+      "name": "улица Робеспьера",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%97%E1%83%90%E1%83%95%E1%83%90%E1%83%A0%E1%83%90%E1%83%9C%E1%83%92%E1%83%94%E1%83%9A%E1%83%9D%E1%83%96%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Isani",
+    "enc2008_pdf_page": 117
+   },
+   {
+    "street_en": "Peristsvaleba Street",
+    "names": [
+     {
+      "name": "улица Фигнер",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AA%E1%83%95%E1%83%90%E1%83%9A%E1%83%94%E1%83%91%E1%83%90",
+    "district": "Isani",
+    "enc2008_pdf_page": 173
+   },
+   {
+    "street_en": "Irakli Paghava Street",
+    "names": [
+     {
+      "name": "улица Лены",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%A0%E1%83%90%E1%83%99%E1%83%9A%E1%83%98_%E1%83%A4%E1%83%90%E1%83%A6%E1%83%90%E1%83%95%E1%83%90%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Isani",
+    "enc2008_pdf_page": 173
+   },
+   {
+    "street_en": "Gigo Zaziashvili Street",
+    "names": [
+     {
+      "name": "улица Монтина",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%92%E1%83%9D_%E1%83%96%E1%83%90%E1%83%96%E1%83%98%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98",
+    "district": "Didube-Chugureti",
+    "enc2008_pdf_page": 77
+   },
+   {
+    "street_en": "Giorgi Maruashvili Street",
+    "names": [
+     {
+      "name": "улица Закомолдина",
+      "from": 1969,
+      "to": 1990,
+      "from_kind": "after"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9B%E1%83%90%E1%83%A0%E1%83%A3%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98",
+    "district": "Didube-Chugureti",
+    "enc2008_pdf_page": 107
+   },
+   {
+    "street_en": "Tsminda Nikolozi Street",
+    "names": [
+     {
+      "name": "улица Свердлова",
+      "from": 1923,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90_%E1%83%9C%E1%83%98%E1%83%99%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%96%E1%83%98",
+    "district": "Old Tbilisi",
+    "enc2008_pdf_page": 201
+   },
+   {
+    "street_en": "Sankt-Peterburg Street",
+    "names": [
+     {
+      "name": "Ленинградская улица",
+      "from": 1924,
+      "to": 1934,
+      "from_kind": "exact"
+     },
+     {
+      "name": "Могилёвская улица",
+      "from": 1934,
+      "to": 1948,
+      "from_kind": "exact"
+     },
+     {
+      "name": "Ленинградская улица",
+      "from": 1948,
+      "to": 1991,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9C%E1%83%A5%E1%83%A2-%E1%83%9E%E1%83%94%E1%83%A2%E1%83%94%E1%83%A0%E1%83%91%E1%83%A3%E1%83%A0%E1%83%92%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Old Tbilisi",
+    "enc2008_pdf_page": 155
+   },
+   {
+    "street_en": "Giorgi Chubinashvili Street",
+    "names": [
+     {
+      "name": "улица Орджоникидзе",
+      "from": 1922,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%A9%E1%83%A3%E1%83%91%E1%83%98%E1%83%9C%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Chugureti",
+    "enc2008_pdf_page": 85
+   },
+   {
+    "street_en": "Grigol Robakidze Avenue",
+    "names": [
+     {
+      "name": "проспект Дружбы",
+      "from": 1967,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A0%E1%83%98%E1%83%92%E1%83%9D%E1%83%9A_%E1%83%A0%E1%83%9D%E1%83%91%E1%83%90%E1%83%A5%E1%83%98%E1%83%AB%E1%83%94",
+    "district": "Nadzaladevi",
+    "enc2008_pdf_page": 143
+   },
+   {
+    "street_en": "Shota Iamanidze Street",
+    "names": [
+     {
+      "name": "улица Кооперации",
+      "from": 1920,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%9D%E1%83%97%E1%83%90_%E1%83%98%E1%83%90%E1%83%9B%E1%83%90%E1%83%9C%E1%83%98%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Saburtalo",
+    "enc2008_pdf_page": 89
+   },
+   {
+    "street_en": "Zurab Chavchavadze Street",
+    "names": [
+     {
+      "name": "улица Або",
+      "from": 1922,
+      "to": 1950,
+      "from_kind": "exact"
+     },
+     {
+      "name": "улица Шерозия",
+      "from": 1950,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%A3%E1%83%A0%E1%83%90%E1%83%91_%E1%83%AD%E1%83%90%E1%83%95%E1%83%AD%E1%83%90%E1%83%95%E1%83%90%E1%83%AB%E1%83%94",
+    "district": "Mtatsminda",
+    "enc2008_pdf_page": 203
+   },
+   {
+    "street_en": "Tornike Eristavi Street",
+    "names": [
+     {
+      "name": "улица Магнитогорская",
+      "from": 1935,
+      "to": 1990,
+      "from_kind": "exact"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%9D%E1%83%A0%E1%83%9C%E1%83%98%E1%83%99%E1%83%94_%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%97%E1%83%90%E1%83%95%E1%83%98",
+    "district": "Nadzaladevi",
+    "enc2008_pdf_page": 88
+   },
+   {
+    "street_en": "Konstantine Iluridze Street",
+    "names": [
+     {
+      "name": "улица Коллективизации",
+      "from": 1930,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%9C%E1%83%A1%E1%83%A2%E1%83%90%E1%83%9C%E1%83%A2%E1%83%98%E1%83%9C%E1%83%94_%E1%83%98%E1%83%9A%E1%83%A3%E1%83%A0%E1%83%98%E1%83%AB%E1%83%94",
+    "district": "Nadzaladevi",
+    "enc2008_pdf_page": 90
+   },
+   {
+    "street_en": "Samghereti Street",
+    "names": [
+     {
+      "name": "Пионерская улица",
+      "from": 1940,
+      "to": 1990,
+      "from_kind": "dec"
+     }
+    ],
+    "src": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9B%E1%83%A6%E1%83%94%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
+    "district": "Isani-Samgori",
+    "enc2008_pdf_page": 155
+   }
+  ]
  }
 }
