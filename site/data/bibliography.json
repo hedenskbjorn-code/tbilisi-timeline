@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-20",
- "events": 287,
+ "events": 288,
  "books": [
   {
    "id": "istoria2012",
@@ -372,14 +372,14 @@
   {
    "host": "en.wikipedia.org",
    "name": "Wikipedia (en)",
-   "pages": 72,
-   "events": 117
+   "pages": 73,
+   "events": 119
   },
   {
    "host": "ru.wikipedia.org",
    "name": "Wikipedia (ru)",
    "pages": 28,
-   "events": 90
+   "events": 91
   },
   {
    "host": "ka.wikisource.org",
