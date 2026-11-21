@@ -2,6 +2,7 @@
 
 Reads : data/tbilisi_monuments.geojson, data/warped/*.webp|json, data/boundaries/*.geojson
 NOTE: this script rewrites site/data/lost.json; always run tools/add_lost_repl_i18n.py after it (English and Georgian descriptions of the lost sites).
+NOTE: it also rewrites site/data/plans.json without the light copies of the plans: always run tools/make_plan_overviews.py after it.
 Writes: site/data/monuments.json  (slim GeoJSON: no long descriptions, coordinates rounded)
         site/data/plans.json      (plan list: year, image, corners, boundary file)
         site/data/<plan>.webp, site/data/<plan>_boundary.geojson  (copies)

@@ -1,6 +1,7 @@
 // Checks of the data and of the texts of the site; run by hand (node tests/check_data.mjs) and by the workflow before every deploy.
 // They stop the deploy when a translation is missing, when a Georgian text is not Georgian (Cyrillic, English), when a file that the page
 // needs is missing or a JSON file is broken. No dependencies: only Node.
+import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -56,9 +57,22 @@ for (const p of listFiles(path.join(SITE, "data"), [".json", ".geojson"]).concat
   }
 }
 
+// ---- the plans: every plan has a light copy for the first screen (tools/make_plan_overviews.py) ----------
+for (const p of JSON.parse(fs.readFileSync(path.join(SITE, "data", "plans.json"), "utf8"))) {
+  if (!p.overview || !fs.existsSync(path.join(SITE, p.overview))) err(`data/plans.json: the plan ${p.id} has no light copy (run python tools/make_plan_overviews.py)`);
+  else if (fs.statSync(path.join(SITE, p.overview)).size >= fs.statSync(path.join(SITE, p.image)).size) err(`data/plans.json: the light copy of ${p.id} is not lighter than the plan`);
+}
+
 // ---- JavaScript syntax of the files of the site (not the vendor) ------------------------------------------
-for (const p of fs.readdirSync(SITE).filter((f) => f.endsWith(".js")).map((f) => path.join(SITE, f))) {
+// the entry app.js and the files of site/js are ES modules (checked by node --check as modules), the other files are classic scripts
+const MODULES = ["app.js", ...(fs.existsSync(path.join(SITE, "js")) ? fs.readdirSync(path.join(SITE, "js"), { recursive: true }).filter((f) => String(f).endsWith(".js")).map((f) => "js/" + String(f).split(path.sep).join("/")) : [])];
+for (const f of fs.readdirSync(SITE).filter((f) => f.endsWith(".js") && f !== "app.js")) {
+  const p = path.join(SITE, f);
   try { new vm.Script(fs.readFileSync(p, "utf8"), { filename: p }); } catch (e) { err(`${rel(p)}: syntax error (${e.message})`); }
+}
+for (const f of MODULES) {
+  const r = spawnSync(process.execPath, ["--check", "--input-type=module"], { input: fs.readFileSync(path.join(SITE, f), "utf8"), encoding: "utf8" });
+  if (r.status !== 0) err(`${f}: syntax error as a module (${(r.stderr || "").split(String.fromCharCode(10)).find((l) => /Error/.test(l)) || "see node --check"})`);
 }
 
 // ---- the rule for a text in three languages ---------------------------------------------------------------
@@ -196,8 +210,13 @@ const scripts = [...html.matchAll(/<script[^>]*\ssrc="([^"]+)"/g)].map((m) => m[
 for (const s of scripts) if (!fs.existsSync(path.join(SITE, s))) err(`index.html: the script ${s} does not exist`);
 if (scripts.indexOf("i18n.js") < 0 || scripts.indexOf("i18n.js") > scripts.indexOf("app.js")) err("index.html: i18n.js must be loaded before app.js");
 const sw = fs.readFileSync(path.join(SITE, "sw.js"), "utf8");
+for (const f of MODULES) {                                  // every module that is imported exists; the shell of the service worker holds all the modules (the site works offline)
+  const code = fs.readFileSync(path.join(SITE, f), "utf8");
+  for (const m of code.matchAll(/(?:import|export)[^"';]*?from\s*"(\.[^"]+)"/g)) if (!fs.existsSync(path.join(SITE, path.dirname(f), m[1]))) err(`${f}: the module ${m[1]} does not exist`);
+}
 const shell = JSON.parse((sw.match(/const SHELL = (\[[^\]]*\])/) || [])[1] || "[]");
 for (const f of shell) if (f !== "./" && !fs.existsSync(path.join(SITE, f))) err(`sw.js: the file ${f} of the shell does not exist`);
+for (const f of MODULES) if (!shell.includes(f)) err(`sw.js: the module ${f} is not in the shell of the service worker`);
 for (const s of scripts) if (!s.startsWith("vendor/") && !shell.includes(s)) warns.push(`sw.js: ${s} is not in the shell (it will not work offline)`);
 for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v.image) && !fs.existsSync(path.join(SITE, v.image))) err(`views.json ${v.id}: the image ${v.image} does not exist`);
 
