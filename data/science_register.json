@@ -162,7 +162,7 @@
  {
   "id": "reg3016",
   "kind": "culture",
-  "from": 1825,
+  "from": 1895,
   "lat": 41.715878,
   "lon": 44.794281,
   "name": {
@@ -171,9 +171,9 @@
    "ka": "საქართველოს თეატრის, მუსიკის, კინოსა და ქორეოგრაფიის სახელმწიფო მუზეუმი"
   },
   "note": {
-   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1801–1825; на шкале взят конец диапазона (1825). Год основания учреждения реестр не указывает.",
-   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1801–1825; the end of the range (1825) is used on the timeline. The register does not give the year the institution was founded.",
-   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1801–1825; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1825). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს."
+   "ru": "Здание: объект реестра культурного наследия Грузии. Дата здания по реестру: 1801–1825; на шкале взят конец диапазона (1825). Год основания учреждения реестр не указывает. По статье ka.wikipedia: музей основан в 1927 г. (Давид Арсенишвили); здание построено в 1895 г. по проекту архитектора Пауля Штерна; год на шкале исправлен с 1825 (значение реестра по умолчанию) на 1895.",
+   "en": "The building is an object of the register of immovable cultural heritage of Georgia. Date of the building by the register: 1801–1825; the end of the range (1825) is used on the timeline. The register does not give the year the institution was founded. According to the ka.wikipedia article: the museum was founded in 1927 (David Arsenishvili); the building was built in 1895 to the design of the architect Paul Stern; the year on the scale is corrected from 1825 (the default value of the register) to 1895.",
+   "ka": "შენობა საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტია. შენობის თარიღი რეესტრის მიხედვით: 1801–1825; დროის სკალაზე აღებულია დიაპაზონის ბოლო (1825). რეესტრი დაწესებულების დაარსების წელს არ ასახელებს. ka.wikipedia-ს სტატიის მიხედვით: მუზეუმი დაარსდა 1927 წ. (დავით არსენიშვილი); შენობა აშენდა 1895 წ. არქიტექტორ პაულ შტერნის პროექტით; სკალაზე წელი გასწორდა 1825-დან (რეესტრის ნაგულისხმევი მნიშვნელობა) 1895-ზე."
   },
   "src": [],
   "regno": "4473",
