@@ -75,6 +75,16 @@
    "en": "the boundary is approximate",
    "ka": "საზღვარი მიახლოებითია"
   },
+  "dict_note": {
+   "ru": "Словарное значение слова (не источник происхождения топонима).",
+   "en": "Dictionary meaning of the word (not a source of the toponym's origin).",
+   "ka": "სიტყვის ლექსიკური მნიშვნელობა (არ არის ტოპონიმის წარმოშობის წყარო)."
+  },
+  "enc": {
+   "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008), стр.",
+   "en": "Encyclopedia \"Tbilisi. Streets, avenues, squares\" (2008), p.",
+   "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008), გვ."
+  },
   "area_note": {
    "ru": "Показана территория Центрального парка по данным OpenStreetMap; ипподром занимал больше (по georgia.travel около 36 га, в прошлом до 57 га).",
    "en": "The territory of the Central Park is shown (OpenStreetMap); the hippodrome was larger (about 36 ha according to georgia.travel, up to 57 ha in the past).",

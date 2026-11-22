@@ -95,6 +95,28 @@ test("the former hippodrome is an area with a contour, the opening year, the pla
   await page.keyboard.press("Escape");
 });
 
+test("the second search of the origin: Vashlijvari says it means the apple cross, the encyclopedia page is shown for the Didube pantheon, the word of a dictionary is marked", async () => {
+  await page.check("#showPlaces");
+  const v = PL.items.find((x) => x.n.en === "Vashlijvari");
+  assert.ok(v && v.e && /apple/i.test(v.e.en) && v.s.eq.q.includes("apple cross"), "the origin of Vashlijvari with its quote");
+  let { pop } = await openCard(v.id);
+  assert.match(await pop.innerText(), /Origin of the name: .*apple cross/i);
+  const d = PL.items.find((x) => x.s.eq && x.s.eq.p);
+  assert.ok(d, "a place whose origin comes from the encyclopedia");
+  ({ pop } = await openCard(d.id));
+  assert.match(await pop.innerText(), new RegExp("Encyclopedia .* " + d.s.eq.p));
+  const w = PL.items.find((x) => x.s.eq && x.s.eq.k === "dictionary");
+  assert.ok(w, "a place whose explanation is the meaning of a common word");
+  ({ pop } = await openCard(w.id));
+  assert.ok((await pop.innerText()).includes(PL.ui.dict_note.en), "the note that it is a dictionary meaning");
+  await page.keyboard.press("Escape");
+});
+
+test("every origin of a name has a quote of its source, 69 places have an origin", async () => {
+  assert.equal(PL.items.filter((x) => x.e).length, 69);
+  for (const x of PL.items) if (x.e) assert.ok(x.s.eq && x.s.eq.q && (x.s.eq.u || x.s.eq.p), x.id);
+});
+
 test("the check box turns the layer off", async () => {
   await page.uncheck("#showPlaces");
   assert.equal(await page.evaluate(() => window.TT_E2E.map.getLayoutProperty("places-pt", "visibility")), "none");
