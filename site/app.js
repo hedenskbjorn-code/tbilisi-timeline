@@ -11,7 +11,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   let rulersMedia = null;                                              // portraits of the rulers and flags of the states (data/rulers_media.json, made by tools/fetch_rulers_media.py)
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
   let reopenPopup = null, reopenInfo = null, openPop = null;          // the open card (a popup or the modal) and how to build it again, when the language is switched
-  let placesLoading = null;
+  let placesLoading = null, placesFailedAt = 0, placesTimer = null;
   let places = null;                                                   // local names (data/places.json, loaded when the layer is switched on or the search is opened), see ensurePlaces
   let education = [];                                                  // schools and kindergartens of the register (data/education.json), see addEducation
   let science = [];                                                    // science and culture buildings (data/science.json), see addScience
@@ -1269,6 +1269,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       a.href = f.page; a.target = "_blank"; a.rel = "noopener";
       const img = document.createElement("img");
       img.src = f.thumb; img.loading = "lazy"; img.alt = p.name || "";
+      if (f.w && f.h) { img.width = f.w; img.height = f.h; }                    // the size from the data: the card does not jump when the picture arrives (CLS)
       a.appendChild(img);
       fig.appendChild(a);
       a.title = [f.author || "", f.license || ""].filter(Boolean).join(" · ");
@@ -3000,7 +3001,10 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   // local names: districts, gardens, hills, bridges, cemeteries with what the name means (Wikipedia, quotes checked); the file is loaded when the layer is switched on or the search is opened
   const PL_COLOR = { district: "#d6336c", garden: "#2b8a3e", hill: "#8d5524", bridge: "#1c7ed6", cemetery: "#495057", market: "#f08c00", bath: "#0ca678", area: "#7048e8" };
   function ensurePlaces() {
-    if (!placesLoading) placesLoading = getJSON("data/places.json", 1).then((d) => { places = d; searchIndex = null; addPlaces(); updatePlacesUi(); if (!$("search").hidden) renderSearch(); }).catch((e) => { console.error("places", e && e.message); places = { items: [], ui: {} }; placesLoading = null; });
+    if (placesLoading) return placesLoading;
+    const wait = 3000 - (Date.now() - placesFailedAt);                // after a failure (getJSON has tried four times) the next try is not earlier than after 3 s: it is made by a timer when the layer is still wanted
+    if (wait > 0) { if (!placesTimer) placesTimer = setTimeout(() => { placesTimer = null; if (!places && ($("showPlaces").checked || !$("search").hidden)) ensurePlaces(); }, wait + 50); return null; }
+    placesLoading = getJSON("data/places.json").then((d) => { places = d; searchIndex = null; addPlaces(); updatePlacesUi(); if (!$("search").hidden) renderSearch(); }).catch((e) => { console.error("places", e && e.message); places = null; placesLoading = null; placesFailedAt = Date.now(); });
     return placesLoading;
   }
   const PU = (k) => (places && places.ui && places.ui[k] && (places.ui[k][lang] || places.ui[k].en)) || "";
@@ -3086,7 +3090,10 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   const mpU = (k, key) => { const m = MP[key].data; return (m && m.ui && m.ui[k] && (m.ui[k][lang] || m.ui[k].en)) || ""; };
   function mpLoad(key) {
     const m = MP[key];
-    if (!m.loading) m.loading = getJSON(m.file, 1).then((d) => { m.data = d; m.byId = new Map(d.items.map((c) => [c.id, c])); searchIndex = null; mpAdd(key); updateMPUi(); }).catch((e) => { console.error(key, e && e.message); m.data = { items: [], streets: {}, photos: {}, ui: {} }; m.loading = null; });
+    if (m.loading) return m.loading;
+    const wait = 3000 - (Date.now() - (m.failedAt || 0));            // as for the places: a new try after a failure not earlier than after 3 s, by a timer while the layer is switched on
+    if (wait > 0) { if (!m.timer) m.timer = setTimeout(() => { m.timer = null; if (!m.data && $(m.chk).checked) mpLoad(key); }, wait + 50); return null; }
+    m.loading = getJSON(m.file).then((d) => { m.data = d; m.byId = new Map(d.items.map((c) => [c.id, c])); searchIndex = null; mpAdd(key); updateMPUi(); }).catch((e) => { console.error(key, e && e.message); m.data = null; m.loading = null; m.failedAt = Date.now(); });
     return m.loading;
   }
   function mpName(key, c) {
@@ -3162,7 +3169,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const f = c.ph && d.photos[c.ph];
     if (f && f.thumb) {
       const fig = document.createElement("figure"), a = document.createElement("a"), img = document.createElement("img");
-      fig.className = "ph main"; a.href = f.page; a.target = "_blank"; a.rel = "noopener"; img.src = f.thumb; img.loading = "lazy"; img.alt = mpName(key, c); a.appendChild(img); fig.appendChild(a);
+      fig.className = "ph main"; a.href = f.page; a.target = "_blank"; a.rel = "noopener"; img.src = f.thumb; img.loading = "lazy"; img.alt = mpName(key, c); if (f.w && f.h) { img.width = f.w; img.height = f.h; } a.appendChild(img); fig.appendChild(a);
       const box = document.createElement("div"); box.className = "photos"; box.appendChild(fig); el.appendChild(box);
       const cr = add("", "small phcred");
       cr.appendChild(document.createTextNode(U("photo") + " · " + [f.author || "?", f.license || ""].filter(Boolean).join(" · ") + " · "));

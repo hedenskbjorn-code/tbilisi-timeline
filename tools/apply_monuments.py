@@ -45,7 +45,7 @@ def main():
                 n = {"ka": "", "ru": "", "en": ""}
             t = ph_title(x["image"])
             if t and photos.get(t) and photos[t]["thumb"]:
-                ph[t] = {k: photos[t][k] for k in ("thumb", "page", "author", "license")}
+                ph[t] = {k: photos[t][k] for k in ("thumb", "page", "author", "license", "w", "h")}
             else:
                 t = ""
             it = {"id": x["id"], "lon": x["lon"], "lat": x["lat"], "n": n, "y": x["year"], "ph": t, "w": x["wiki"], "st": x["st"] or ""}
