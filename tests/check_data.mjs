@@ -170,12 +170,59 @@ if (ev) {
     if (!/^[0-9][0-9.\- ]*$/.test(String(x.date))) err(`${w}: date "${x.date}" is not numeric`);
     if (cats.size && !cats.has(x.cat)) err(`${w}: unknown category "${x.cat}"`);
     if (!Array.isArray(x.src) || !x.src.length) err(`${w}: no source`);
-    else for (const s of x.src) { const u = typeof s === "string" ? s : s?.url; if (!/^https?:\/\//.test(u || "")) err(`${w}: bad source ${JSON.stringify(s)}`); }
+    else for (const s of x.src) {
+      const u = typeof s === "string" ? s : s?.url;
+      // a book without a link is allowed: {"label": "<the reference>, PDF p. N", "book": true}; the label must name a page
+      if (s && typeof s === "object" && s.book === true && !s.url) { if (!/(\bp\.|\bс\.|გვ\.)\s*\d/.test(s.label || "")) err(`${w}: a book source without a page ${JSON.stringify(s)}`); continue; }
+      if (!/^https?:\/\//.test(u || "")) err(`${w}: bad source ${JSON.stringify(s)}`);
+    }
     if (x.note) {
       for (const l of ["ru", "en", "ka"]) if (!x.note[l] || !String(x.note[l]).trim()) err(`${w}: note.${l} is missing`);
     }
     if (x.place && !(Number.isFinite(x.place.lng) && Number.isFinite(x.place.lat))) err(`${w}: place without coordinates`);
   });
+}
+
+// ---- the street names ------------------------------------------------------------------------------------------
+const sn = data["data/street_names.json"]?.streets, sg = data["data/street_geom.json"];
+if (sn && sg) {
+  const keys = new Set();
+  const cyr = /[Ѐ-ӿ]/;
+  sn.forEach((s, i) => {
+    const w = `street_names[${i}] (${s.now?.en})`;
+    for (const l of ["ru", "en", "ka"]) if (!s.now?.[l] || !String(s.now[l]).trim()) err(`${w}: now.${l} is missing`);
+    for (const l of ["en", "ka"]) if (cyr.test(s.now?.[l] || "")) err(`${w}: Cyrillic in now.${l}`);
+    const key = s.geom || s.now?.en;
+    if (keys.has(key)) err(`${w}: the key of the geometry "${key}" is used twice`);
+    keys.add(key);
+    // the geometry is required unless the street is marked "nogeom" (no line in OpenStreetMap: it has the card and the search only)
+    if (!s.nogeom && !sg[key]) err(`${w}: no geometry "${key}" (mark the street nogeom if there is no line)`);
+    if (s.nogeom && sg[key]) err(`${w}: marked nogeom but has a geometry`);
+    let prevTo = -1e9;
+    (s.iv || []).forEach((iv, j) => {
+      if (!(Number.isInteger(iv[0]) && Number.isInteger(iv[1]) && iv[0] < iv[1])) err(`${w}: interval ${j} has bad years ${JSON.stringify(iv.slice(0, 2))}`);
+      if (iv[2]) {
+        for (const l of ["ru", "en", "ka"]) if (!iv[2][l]) err(`${w}: interval ${j} has no name in ${l}`);
+        for (const l of ["en", "ka"]) if (cyr.test(iv[2][l] || "")) err(`${w}: Cyrillic in the ${l} name of interval ${j}`);
+      }
+      if (iv[0] < prevTo - 0 && iv[2] && s.iv[j - 1]?.[2] && iv[0] < s.iv[j - 1][1]) err(`${w}: intervals ${j - 1} and ${j} overlap`);
+      prevTo = iv[1];
+    });
+    for (const u of s.undated || []) for (const l of ["ru", "en", "ka"]) if (!u[l]) err(`${w}: an undated name without ${l}`);
+    if (s.note) err(`${w}: the note belongs in street_notes.json (tools/split_street_notes.py)`);
+    if (!s.src && !s.book) err(`${w}: no source (src or book)`);
+    if (s.src && !/^https?:\/\//.test(s.src)) err(`${w}: bad src`);
+    if (s.book && !/PDF p\. \d+/.test(s.book)) err(`${w}: the book without a page`);
+  });
+  for (const k of Object.keys(sg)) if (!keys.has(k)) err(`street_geom: the geometry "${k}" belongs to no street (squares and the like are listed in street_names too)`);
+  // the notes of the streets (loaded when a card is opened): one per street key, three languages, no Cyrillic in en/ka
+  const sno = data["data/street_notes.json"]?.notes;
+  if (!sno) err("street_notes.json is missing");
+  else for (const [k, n] of Object.entries(sno)) {
+    if (!keys.has(k)) err(`street_notes: the note "${k}" belongs to no street`);
+    for (const l of ["ru", "en", "ka"]) if (!n[l] || !String(n[l]).trim()) err(`street_notes "${k}": note.${l} is missing`);
+    for (const l of ["en", "ka"]) if (cyr.test(n[l] || "")) err(`street_notes "${k}": Cyrillic in note.${l}`);
+  }
 }
 
 // ---- the changelog ---------------------------------------------------------------------------------------------

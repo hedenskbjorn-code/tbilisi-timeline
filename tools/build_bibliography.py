@@ -28,6 +28,12 @@ BOOKS = [
     ("istoria2012", "«საქართველოს ისტორია» (ოთხტომეული) / Асатиани Н., Отхмезури Г., Самсонадзе М., Джамбурия Г. История Грузии. Т. II–IV. 2012.",
      [("ka.wikisource", "https://ka.wikisource.org/wiki/2012_-_%E1%83%A1%E1%83%90%E1%83%A5%E1%83%90%E1%83%A0%E1%83%97%E1%83%95%E1%83%94%E1%83%9A%E1%83%9D%E1%83%A1_%E1%83%98%E1%83%A1%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98%E1%83%90_(%E1%83%9D%E1%83%97%E1%83%AE%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)_-_%E1%83%A2%E1%83%9D%E1%83%9B%E1%83%98_III")],
      r"საქართველოს ისტორია|Асатиани|История Грузии» \(в 4|История Грузии» \(ოთხ"),
+    # the textbooks of the history of Georgia (read in the text: the pages in the events are the PDF pages); no link: the books are not published
+    ("history2006", "საქართველოს ისტორია, ტ. I. თბილისი: თსუ გამომცემლობა, 2006 (History of Georgia, vol. 1).", [], r"History of Georgia, vol\. 1"),
+    ("mus2012", "დ. მუსხელიშვილი, მ. სამსონაძე, ა. დაუშვილი. საქართველოს ისტორია უძველესი დროიდან 2009 წლამდე. თბილისი, 2012.", [], r"Muskhelishvili"),
+    ("ben1999", "ა. ბენდიანიშვილი. საქართველოს ისტორია 1801–1921. თბილისი, 1999.", [], r"Bendianishvili"),
+    ("kacharava1973", "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973.", [], r"Качарава"),
+    ("school9", "საქართველოს ისტორია, IX კლასი (სასკოლო სახელმძღვანელო). თბილისი: ილიაუნის გამომცემლობა.", [], r"History of Georgia, 9th grade"),
     ("vakhushti", "ვახუშტი ბატონიშვილი. აღწერა აწინდელისა ქართლისა (აღწერა ტფილისისა) / Вахушти Багратиони. Описание города Тбилиси.", [], r"Вахушти|Vakhushti|აღწერა აწინდელისა"),
     ("lang1955", "D. M. Lang. Studies in the Numismatic History of Georgia in Transcaucasia. American Numismatic Society, 1955.", [("scan", ARCH + "lang-1955-georgian-numismatics")], r"Studies in the Numismatic|Ланг \(1955\)|Ланг, 1955"),
     ("lang_giorgi", "D. M. Lang. Georgia in the Reign of Giorgi the Brilliant (1314–1346). Bulletin of the School of Oriental and African Studies, 1955.", [("scan", ARCH + "GeorgiaInTheReignOfGiorgiTheBrilliant1314-1346")], r"Giorgi the Brilliant"),
@@ -116,7 +122,7 @@ def labels(e):
     out = []
     for s in e["src"]:
         out.append(s if isinstance(s, str) else s["label"])
-        out.append(s if isinstance(s, str) else s["url"])
+        out.append(s if isinstance(s, str) else s.get("url", ""))   # a book without a link has no url
     out.append(e.get("note", {}).get("ru", ""))
     return " \n ".join(urllib.parse.unquote(x) for x in out)
 
@@ -135,7 +141,9 @@ def main():
     pages = collections.defaultdict(set)
     for e in events:
         for s in e["src"]:
-            u = s if isinstance(s, str) else s["url"]
+            u = s if isinstance(s, str) else s.get("url", "")
+            if not u:
+                continue
             h = re.sub(r"^https?://([^/]+)/.*", r"\1", u)
             hosts[h] += 1
             pages[h].add(u)

@@ -1,0 +1,788 @@
+{
+ "events": [
+  {
+   "id": "T01",
+   "date": "591",
+   "year": 591,
+   "cat": "power",
+   "ru": "Мирный договор Византии с Ираном: по Себеосу, шах Хосров II Парвиз, воцарившийся (591–628) лишь с помощью Византии, признал её влияние в Армении и Картли вплоть до Тбилиси",
+   "en": "The peace treaty of Byzantium with Iran: according to Sebeos, Shah Khosrow II Parviz, who came to the throne (591-628) only with Byzantine help, recognised Byzantine influence in Armenia and Kartli as far as Tbilisi",
+   "note": {
+    "ru": "Учебник: год договора в распознанном тексте искажён («59…»); 591 — год воцарения Хосрова II и заключения мира по en.wikipedia.",
+    "en": "Textbook: the year of the treaty is garbled in the recognised text ('59...'); 591 is the year of the accession of Khosrow II and of the peace after en.wikipedia."
+   },
+   "src": [
+    {
+     "label": "History of Georgia, vol. 1 (საქართველოს ისტორია, ტ. I), Tbilisi: TSU Press, 2006, PDF p. 158",
+     "book": true
+    },
+    {
+     "label": "en.wikipedia: Byzantine–Sasanian War of 572–591",
+     "url": "https://en.wikipedia.org/wiki/Byzantine–Sasanian_War_of_572–591"
+    }
+   ]
+  },
+  {
+   "id": "T02",
+   "date": "772",
+   "year": 772,
+   "cat": "other",
+   "ru": "В «Мученичестве Або Тбилели» Иоанна Сабанисдзе (772 год) впервые в грузинских письменных источниках упомянут тбилисский эмир (имя не названо)",
+   "en": "In the 'Martyrdom of Abo of Tbilisi' by Ioane Sabanisdze (772) the emir of Tbilisi is mentioned for the first time in Georgian written sources (his name is not given)",
+   "note": {
+    "ru": "Первым названным по имени тбилисским эмиром учебник называет Исмаила ибн Шуаба (ок. 809–813).",
+    "en": "The textbook names Ismail ibn Shuaib (c. 809-813) as the first emir of Tbilisi known by name."
+   },
+   "src": [
+    {
+     "label": "History of Georgia, vol. 1 (საქართველოს ისტორია, ტ. I), Tbilisi: TSU Press, 2006, PDF p. 232",
+     "book": true
+    },
+    {
+     "label": "en.wikipedia: Abo of Tiflis",
+     "url": "https://en.wikipedia.org/wiki/Abo_of_Tiflis"
+    }
+   ]
+  },
+  {
+   "id": "T03",
+   "date": "7.1701",
+   "year": 1701,
+   "cat": "other",
+   "ru": "Французский ботаник Жозеф Питтон де Турнефор, бывший в Тбилиси в июле 1701 года, отметил хорошие сады города и пригородов; сад и птичник во дворце картлийского царя, по его словам, стоило увидеть",
+   "en": "The French botanist Joseph Pitton de Tournefort, who was in Tbilisi in July 1701, noted the good gardens of the city and its suburbs; the garden and aviary of the palace of the king of Kartli, in his words, were worth seeing",
+   "note": {
+    "ru": "По Турнефору, сады были ухожены гораздо лучше, чем в Османской империи (учебник).",
+    "en": "According to Tournefort the gardens were kept much better than in the Ottoman Empire (the textbook)."
+   },
+   "src": [
+    {
+     "label": "History of Georgia, 9th grade textbook (საქართველოს ისტორია, IX კლასი), Ilia State University Press, part 16, PDF p. 33",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T04",
+   "date": "1840",
+   "year": 1840,
+   "cat": "power",
+   "ru": "Положение 1840 года позволило верхним слоям населения Тбилиси создать городской совет (городскую думу) в составе городского головы и шести гласных",
+   "en": "The statute of 1840 allowed the upper strata of the population of Tbilisi to create a town council of a mayor and six deputies",
+   "note": {
+    "ru": "Городского голову формально выбирало всё население, гласных — домовладельцы, купцы и ремесленники (учебник).",
+    "en": "The mayor was formally elected by the whole population, the deputies by house owners, merchants and craftsmen (the textbook)."
+   },
+   "src": [
+    {
+     "label": "A. Bendianishvili, History of Georgia 1801–1921 (საქართველოს ისტორია 1801–1921), Tbilisi 1999, PDF p. 83",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T05",
+   "date": "1853",
+   "year": 1853,
+   "cat": "build",
+   "ru": "Предприниматель-немец К. Мейцнер налаживает в селе Дре близ Тбилиси крупное суконное производство с машинным трудом",
+   "en": "The German entrepreneur K. Meitzner sets up a large machine cloth factory in the village of Dre near Tbilisi",
+   "note": {
+    "ru": "На мануфактуре стояли две чесальные машины, машина на 120 веретён и прядильные станки (учебник).",
+    "en": "The factory had two carding machines, a machine for 120 spindles and spinning frames (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 23",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T06",
+   "date": "1857",
+   "year": 1857,
+   "cat": "other",
+   "ru": "Открыто еженедельное курьерское почтовое сообщение между Тбилиси и Одессой",
+   "en": "A weekly courier mail between Tbilisi and Odessa is opened",
+   "note": {
+    "ru": "Учебник: между Тбилиси и Владикавказом почта ходила ежедневно; в тот же период в Грузии построена первая телеграфная линия (год не назван).",
+    "en": "The textbook: the mail between Tbilisi and Vladikavkaz ran daily; in the same period the first telegraph line was built in Georgia (the year is not named)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 24",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T07",
+   "date": "1858",
+   "year": 1858,
+   "cat": "build",
+   "ru": "В Тбилиси открыта табачная фабрика Бозарджянца",
+   "en": "The tobacco factory of Bozarjyants is opened in Tbilisi",
+   "note": {
+    "ru": "В 1894 году рабочие этой фабрики бастовали (учебник).",
+    "en": "In 1894 the workers of this factory went on strike (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 24",
+     "book": true
+    },
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 90",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T08",
+   "date": "1863",
+   "year": 1863,
+   "cat": "power",
+   "ru": "На губернском дворянском собрании в Тбилиси за проект Д. Кипиани по условиям освобождения крестьян голосуют 536 помещиков («проект большинства»); 14 помещиков составляют проект меньшинства",
+   "en": "At the provincial assembly of the nobility in Tbilisi 536 landowners vote for the project of D. Kipiani on the terms of the emancipation of the peasants (the 'project of the majority'); 14 landowners draw up the project of the minority",
+   "note": {
+    "ru": "Крестьян к разработке условий освобождения не допустили (учебник).",
+    "en": "The peasants were not admitted to the working out of the terms of the emancipation (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 11",
+     "book": true
+    },
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 12",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T09",
+   "date": "1865",
+   "year": 1865,
+   "cat": "build",
+   "ru": "Английский капиталист Рукс основывает в Тбилиси большой механический завод",
+   "en": "The English capitalist Rooks founds a large mechanical works in Tbilisi",
+   "note": {
+    "ru": "Тогда же в Тбилиси работал чугунолитейный завод (учебник).",
+    "en": "An iron foundry also worked in Tbilisi at that time (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 24",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T10",
+   "date": "1870",
+   "year": 1870,
+   "cat": "science",
+   "ru": "«Тергдалеулни» учреждают в Тбилиси публичную библиотеку, официально известную как «Ивановская библиотека»; через неё среди молодёжи распространялись запрещённые книги демократического и социалистического содержания",
+   "en": "The 'Tergdaleulni' found a public library in Tbilisi, officially known as the 'Ivanov Library'; through it banned books of democratic and socialist content were spread among the young",
+   "note": {
+    "ru": "",
+    "en": ""
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 94",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T11",
+   "date": "1870",
+   "year": 1870,
+   "cat": "build",
+   "ru": "Купец Г. Мирзоев открывает в Тбилиси большую текстильную фабрику с английскими паровыми машинами: свыше 600 рабочих, 300 ткацких станков, 11 тысяч веретён",
+   "en": "The merchant G. Mirzoev opens a large textile factory in Tbilisi with English steam engines: over 600 workers, 300 looms, 11,000 spindles",
+   "note": {
+    "ru": "Фабрика выпускала миткаль, рипс, фланель и полотно (учебник).",
+    "en": "The factory made calico, rep, flannel and linen (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 27",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T12",
+   "date": "1875",
+   "year": 1875,
+   "cat": "build",
+   "ru": "Капиталист Г. Адельханов строит в Тбилиси кожевенный завод с паровыми машинами",
+   "en": "The capitalist G. Adelkhanov builds a tannery with steam engines in Tbilisi",
+   "note": {
+    "ru": "В 1885 году при заводе открыта механическая обувная мастерская (50 тысяч пар сапог в год) (учебник).",
+    "en": "In 1885 a mechanical shoe workshop (50,000 pairs of boots a year) was opened at the works (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 27",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T13",
+   "date": "1875",
+   "year": 1875,
+   "cat": "power",
+   "ru": "Илью Чавчавадзе избирают председателем правления Тбилисского дворянского земельного банка",
+   "en": "Ilia Chavchavadze is elected chairman of the board of the Tbilisi Noble Land Bank",
+   "note": {
+    "ru": "Часть средств банка Чавчавадзе использовал для помощи национальным культурным учреждениям (учебник).",
+    "en": "Chavchavadze used a part of the funds of the bank to help national cultural institutions (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 57",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T14",
+   "date": "1881",
+   "year": 1881,
+   "cat": "power",
+   "ru": "Тбилисское самоуправление с разрешения правительства выпускает первый облигационный заём; второй — в 1887 году на 1 500 000 рублей",
+   "en": "With the permission of the government the self-government of Tbilisi issues its first bond loan; the second in 1887 for 1,500,000 roubles",
+   "note": {
+    "ru": "Такое право получили только самоуправления Тбилиси, Батуми и Поти (учебник).",
+    "en": "Only the self-governments of Tbilisi, Batumi and Poti obtained this right (the textbook)."
+   },
+   "src": [
+    {
+     "label": "A. Bendianishvili, History of Georgia 1801–1921 (საქართველოს ისტორია 1801–1921), Tbilisi 1999, PDF p. 130",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T15",
+   "date": "1883",
+   "year": 1883,
+   "cat": "build",
+   "ru": "В Тбилиси организованы Главные мастерские Закавказской железной дороги: одно из крупнейших капиталистических предприятий Грузии (свыше 3000 рабочих)",
+   "en": "The Main Workshops of the Transcaucasian Railway are set up in Tbilisi: one of the largest capitalist enterprises of Georgia (over 3,000 workers)",
+   "note": {
+    "ru": "Мастерские перенесены из Хашури в связи с окончанием строительства дороги Баку — Батуми (учебник).",
+    "en": "The workshops were moved from Khashuri when the Baku-Batumi railway was completed (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 25",
+     "book": true
+    },
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 29",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T16",
+   "date": "1901",
+   "year": 1901,
+   "cat": "science",
+   "ru": "В Тбилиси открыто художественное училище повышенного типа; оно воспитало многих талантливых грузинских художников",
+   "en": "A higher art school is opened in Tbilisi; it trained many talented Georgian artists",
+   "note": {
+    "ru": "До 1900-х годов таких училищ в Тбилиси не было; вопрос об открытии поднял И. Репин в статье в газете «Кавказ» (1897) (учебник).",
+    "en": "Until the 1900s there were no such schools in Tbilisi; the question was raised by I. Repin in an article in the newspaper 'Kavkaz' (1897) (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 222",
+     "book": true
+    },
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 223",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T17",
+   "date": "17.01.1906",
+   "year": 1906,
+   "cat": "unrest",
+   "ru": "Рабочий-железнодорожник Арсен Джорджиашвили бомбой убивает в Тбилиси начальника штаба Кавказской армии генерала Грязнова, организатора карательных экспедиций",
+   "en": "The railway worker Arsen Jorjiashvili kills with a bomb in Tbilisi General Gryaznov, the chief of staff of the Caucasus Army and organiser of punitive expeditions",
+   "note": {
+    "ru": "Джорджиашвили был повешен (учебник); по ka.wikipedia — по поручению Сильвестра Джибладзе.",
+    "en": "Jorjiashvili was hanged (the textbook); according to ka.wikipedia, on the order of Silibistro Jibladze."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 145",
+     "book": true
+    },
+    {
+     "label": "ka.wikipedia: არსენ ჯორჯიაშვილი",
+     "url": "https://ka.wikipedia.org/wiki/არსენ_ჯორჯიაშვილი"
+    }
+   ]
+  },
+  {
+   "id": "T18",
+   "date": "13.06.1907",
+   "year": 1907,
+   "cat": "unrest",
+   "ru": "Тифлисская экспроприация: на Эриванской площади боевой отряд Камо (Л. Тер-Петросяна) нападает на конвой, перевозивший деньги Государственного банка",
+   "en": "The Tiflis expropriation: on Erivan Square a combat squad of Kamo (L. Ter-Petrosyan) attacks the escort carrying the money of the State Bank",
+   "note": {
+    "ru": "Учебник называет эту операцию одной из самых дерзких в истории России.",
+    "en": "The textbook calls this operation one of the boldest in the history of Russia."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 435",
+     "book": true
+    },
+    {
+     "label": "ru.wikipedia: Тифлисская экспроприация",
+     "url": "https://ru.wikipedia.org/wiki/Тифлисская_экспроприация"
+    }
+   ]
+  },
+  {
+   "id": "T19",
+   "date": "1907-1914",
+   "year": 1907,
+   "cat": "science",
+   "ru": "В Тбилиси (как и в Кутаиси, Батуми, Гори и других городах) начинают действовать народные университеты",
+   "en": "People's universities begin to work in Tbilisi (as in Kutaisi, Batumi, Gori and other towns)",
+   "note": {
+    "ru": "Основание первого тбилисского народного университета (1907) по ka.wikipedia связано с именем И. Накашидзе.",
+    "en": "According to ka.wikipedia the first people's university of Tbilisi (1907) was founded on the initiative of I. Nakashidze."
+   },
+   "src": [
+    {
+     "label": "A. Bendianishvili, History of Georgia 1801–1921 (საქართველოს ისტორია 1801–1921), Tbilisi 1999, PDF p. 222",
+     "book": true
+    },
+    {
+     "label": "ka.wikipedia: თბილისის სახალხო უნივერსიტეტები",
+     "url": "https://ka.wikipedia.org/wiki/თბილისის_სახალხო_უნივერსიტეტები"
+    }
+   ]
+  },
+  {
+   "id": "T20",
+   "date": "1908",
+   "year": 1908,
+   "cat": "science",
+   "ru": "Филармоническое общество открывает в Тбилиси музыкальную школу; директором приглашён композитор Захарий Палиашвили",
+   "en": "The Philharmonic Society opens a music school in Tbilisi; the composer Zakaria Paliashvili is invited as its director",
+   "note": {
+    "ru": "",
+    "en": ""
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 222",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T21",
+   "date": "1913",
+   "year": 1913,
+   "cat": "other",
+   "ru": "В Тбилиси поставлен третий акт оперы Захария Палиашвили «Абесалом и Этери»: пресса назвала это «настоящим праздником грузинского искусства»",
+   "en": "The third act of Zakaria Paliashvili's opera 'Abesalom and Eteri' is staged in Tbilisi: the press called it 'a real feast of Georgian art'",
+   "note": {
+    "ru": "По этому учебнику вся опера поставлена в 1918 году на сцене Тифлисского казённого театра; в других источниках базы премьера — 21 февраля 1919.",
+    "en": "According to this textbook the whole opera was staged in 1918 on the stage of the Tiflis State Theatre; other sources of the database give the premiere as 21 February 1919."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 222",
+     "book": true
+    },
+    {
+     "label": "en.wikipedia: Abesalom da Eteri",
+     "url": "https://en.wikipedia.org/wiki/Abesalom_da_Eteri"
+    }
+   ]
+  },
+  {
+   "id": "T22",
+   "date": "1916",
+   "year": 1916,
+   "cat": "other",
+   "ru": "В Тбилиси учреждено «Общество грузинских работников искусства»: оно устраивало выставки Г. Габашвили, А. Мревлишвили, М. Тоидзе и других",
+   "en": "The 'Society of Georgian Art Workers' is founded in Tbilisi: it organised exhibitions of G. Gabashvili, A. Mrevlishvili, M. Toidze and others",
+   "note": {
+    "ru": "",
+    "en": ""
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 223",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T23",
+   "date": "1917",
+   "year": 1917,
+   "cat": "science",
+   "ru": "Тифлисская музыкальная школа преобразована в Тбилисскую консерваторию",
+   "en": "The Tiflis music school is transformed into the Tbilisi Conservatoire",
+   "note": {
+    "ru": "По en.wikipedia консерватория основана 1 мая 1917 года.",
+    "en": "According to en.wikipedia the conservatoire was founded on 1 May 1917."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 222",
+     "book": true
+    },
+    {
+     "label": "en.wikipedia: Tbilisi State Conservatoire",
+     "url": "https://en.wikipedia.org/wiki/Tbilisi_State_Conservatoire"
+    }
+   ]
+  },
+  {
+   "id": "T24",
+   "date": "11.03.1917",
+   "year": 1917,
+   "cat": "other",
+   "ru": "В Тбилиси выходит первый номер большевистской газеты «Кавказский рабочий» (редактор С. Кавтарадзе)",
+   "en": "The first issue of the Bolshevik newspaper 'Kavkazsky Rabochiy' (editor S. Kavtaradze) comes out in Tbilisi",
+   "note": {
+    "ru": "Газета создана тбилисскими большевиками и была популярна по всему Закавказью (учебник).",
+    "en": "The newspaper was created by the Tbilisi Bolsheviks and was popular all over Transcaucasia (the textbook)."
+   },
+   "src": [
+    {
+     "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 178",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T25",
+   "date": "19.03.1917",
+   "year": 1917,
+   "cat": "other",
+   "ru": "В Сионском соборе Тбилиси епископ Леонид торжественно обращается к народу после восстановления автокефалии Грузинской церкви",
+   "en": "In the Sioni Cathedral of Tbilisi Bishop Leonid solemnly addresses the people after the restoration of the autocephaly of the Georgian Church",
+   "note": {
+    "ru": "Автокефалию восстановил церковный собор, созванный 12 марта 1917 года в Мцхете на Светицховели; он избрал католикосом Кириона II (учебник).",
+    "en": "The autocephaly was restored by the church council called on 12 March 1917 at Svetitskhoveli in Mtskheta; it elected Kirion II as catholicos (the textbook)."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 441",
+     "book": true
+    },
+    {
+     "label": "ru.wikipedia: Кирион II",
+     "url": "https://ru.wikipedia.org/wiki/Кирион_II"
+    }
+   ]
+  },
+  {
+   "id": "T26",
+   "date": "18.02.1921-22.02.1921",
+   "year": 1921,
+   "cat": "battle",
+   "ru": "Ожесточённые бои на подступах к Тбилиси, у Коджори и Табахмела: юнкера военного училища отбивают большевистскую армию",
+   "en": "Fierce battles on the approaches to Tbilisi, near Kojori and Tabakhmela: the cadets of the military school beat back the Bolshevik army",
+   "note": {
+    "ru": "Несмотря на успех, главнокомандующий Г. Квинитадзе счёл оборону Тбилиси невозможной, и правительство отдало приказ оставить столицу; 25 февраля в город вошла Красная армия (учебник).",
+    "en": "In spite of the success the commander-in-chief G. Kvinitadze considered the defence of Tbilisi impossible and the government ordered to leave the capital; on 25 February the Red Army entered the city (the textbook)."
+   },
+   "src": [
+    {
+     "label": "History of Georgia, 9th grade textbook (საქართველოს ისტორია, IX კლასი), Ilia State University Press, part 20, PDF p. 29",
+     "book": true
+    },
+    {
+     "label": "en.wikipedia: Soviet invasion of Georgia",
+     "url": "https://en.wikipedia.org/wiki/Soviet_invasion_of_Georgia"
+    }
+   ]
+  },
+  {
+   "id": "T27",
+   "date": "6.1921",
+   "year": 1921,
+   "cat": "power",
+   "ru": "В Тбилиси проходит первая конференция тбилисских коммунистов: делегаты признают, что меньшевики ещё занимают все должности, а организация слаба",
+   "en": "The first conference of the Tbilisi communists takes place in Tbilisi: the delegates admit that the Mensheviks still hold all the posts and that the organisation is weak",
+   "note": {
+    "ru": "На конференции отмечено и недовольство среди рабочих (учебник).",
+    "en": "The conference also noted the discontent among the workers (the textbook)."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 459",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T28",
+   "date": "2.07.1921-6.07.1921",
+   "year": 1921,
+   "cat": "power",
+   "ru": "В Тбилиси по приглашению Орджоникидзе приезжает Сталин: 2 июля он на заседании Кавбюро, 6 июля выступает в Казённом театре перед тбилисским партактивом",
+   "en": "Stalin comes to Tbilisi at the invitation of Ordzhonikidze: on 2 July he attends a meeting of the Kavburo, on 6 July he speaks in the State Theatre to the party activists of Tbilisi",
+   "note": {
+    "ru": "Учебник: Сталин приехал, судя по всему, в начале июля 1921 года (спор о территориях республик Закавказья).",
+    "en": "The textbook: Stalin apparently arrived in early July 1921 (a dispute over the territories of the Transcaucasian republics)."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 460",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T29",
+   "date": "1927",
+   "year": 1927,
+   "cat": "power",
+   "ru": "По инициативе Нико Николадзе в Тбилиси проходит большое собрание грузинской творческой интеллигенции: она подтверждает лояльность советской власти",
+   "en": "At the initiative of Niko Nikoladze a large meeting of the Georgian creative intelligentsia takes place in Tbilisi: it confirms its loyalty to the Soviet power",
+   "note": {
+    "ru": "Резолюция собрания: интересы страны надо совместить с системой, в которую Грузия «вошла приговором истории» (учебник; инициатива Николадзе — «официально так выглядит»).",
+    "en": "The resolution of the meeting: the national interests are to be reconciled with the system in which Georgia has been placed 'by the verdict of history' (the textbook; the initiative of Nikoladze is, as the textbook puts it, 'what officially appears')."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 473",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T30",
+   "date": "1937",
+   "year": 1937,
+   "cat": "unrest",
+   "ru": "В Тбилиси и других городах идут показательные процессы над «вредителями»: в 1937 году открытый процесс Б. Мдивани, М. Торошелидзе, М. Окуджавы и других; только в Тбилиси в тюрьмах 2000 заключённых",
+   "en": "Show trials of 'wreckers' are held in Tbilisi and other cities: in 1937 an open trial of B. Mdivani, M. Toroshelidze, M. Okujava and others; there are 2,000 prisoners in Tbilisi alone",
+   "note": {
+    "ru": "Репрессии унесли организаторов советизации Грузии и деятелей культуры: М. Джавахишвили, Т. Табидзе, П. Яшвили, Е. Микеладзе и других (учебник).",
+    "en": "The repressions killed organisers of the Sovietisation of Georgia and figures of culture: M. Javakhishvili, T. Tabidze, P. Iashvili, E. Mikeladze and others (the textbook)."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 481",
+     "book": true
+    },
+    {
+     "label": "ru.wikipedia: Большой террор",
+     "url": "https://ru.wikipedia.org/wiki/Большой_террор"
+    }
+   ]
+  },
+  {
+   "id": "T31",
+   "date": "12.1937",
+   "year": 1937,
+   "cat": "other",
+   "ru": "В декабре в Тбилиси пышно отмечают 750-летие «Витязя в тигровой шкуре» Шота Руставели",
+   "en": "In December the 750th anniversary of Shota Rustaveli's 'The Knight in the Panther's Skin' is celebrated lavishly in Tbilisi",
+   "note": {
+    "ru": "Подготовка шла по прямому указанию Сталина; вышли новые переводы поэмы (Б. Пастернак, Ш. Нуцубидзе и др.) и новые иллюстрации (учебник).",
+    "en": "The preparation went on at the direct instruction of Stalin; new translations of the poem (B. Pasternak, Sh. Nutsubidze and others) and new illustrations appeared (the textbook)."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 491",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T32",
+   "date": "1941",
+   "year": 1941,
+   "cat": "unrest",
+   "ru": "Выпускники, аспиранты и студенты Тбилисского университета создают подпольную организацию «Национальный комитет обороны Грузии» (руководил писатель Леван Готуа)",
+   "en": "Graduates, postgraduates and students of Tbilisi University create the secret organisation 'National Defence Committee of Georgia' (headed by the writer Levan Gotua)",
+   "note": {
+    "ru": "В сентябре заговорщиков (33 человека) арестовали; почти все подверглись репрессиям (учебник).",
+    "en": "In September the conspirators (33 people) were arrested; almost all were repressed (the textbook)."
+   },
+   "src": [
+    {
+     "label": "History of Georgia, 9th grade textbook (საქართველოს ისტორია, IX კლასი), Ilia State University Press, part 04, PDF p. 14",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T33",
+   "date": "30.12.1956",
+   "year": 1956,
+   "cat": "other",
+   "ru": "Тбилиси начинает телевещание",
+   "en": "Tbilisi begins television broadcasting",
+   "note": {
+    "ru": "",
+    "en": ""
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 507",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T34",
+   "date": "1964",
+   "year": 1964,
+   "cat": "other",
+   "ru": "Тбилисское «Динамо» впервые становится чемпионом СССР по футболу",
+   "en": "Dinamo Tbilisi becomes the champion of the USSR in football for the first time",
+   "note": {
+    "ru": "Во второй раз «Динамо» выиграло чемпионат в 1978 году (ru.wikipedia).",
+    "en": "Dinamo won the championship the second time in 1978 (ru.wikipedia)."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 515",
+     "book": true
+    },
+    {
+     "label": "ru.wikipedia: Динамо (футбольный клуб, Тбилиси)",
+     "url": "https://ru.wikipedia.org/wiki/Динамо_(футбольный_клуб,_Тбилиси)"
+    }
+   ]
+  },
+  {
+   "id": "T35",
+   "date": "1972",
+   "year": 1972,
+   "cat": "power",
+   "ru": "ЦК КПСС принимает постановление о работе Тбилисского городского комитета компартии Грузии; секретарём ЦК компартии Грузии избран Эдуард Шеварднадзе",
+   "en": "The Central Committee of the CPSU adopts a resolution on the work of the Tbilisi city committee of the Communist Party of Georgia; Eduard Shevardnadze is elected secretary of the Central Committee of the Communist Party of Georgia",
+   "note": {
+    "ru": "Новое руководство начало с кампании против коррупции и арестов (учебник).",
+    "en": "The new leadership began with a campaign against corruption and with arrests (the textbook)."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 512",
+     "book": true
+    },
+    {
+     "label": "en.wikipedia: Eduard Shevardnadze",
+     "url": "https://en.wikipedia.org/wiki/Eduard_Shevardnadze"
+    }
+   ]
+  },
+  {
+   "id": "T36",
+   "date": "5.1981",
+   "year": 1981,
+   "cat": "power",
+   "ru": "В Тбилиси прилетает Л. И. Брежнев на торжества к 60-летию установления советской власти в Грузии",
+   "en": "L. I. Brezhnev flies to Tbilisi for the celebrations of the 60th anniversary of the establishment of the Soviet power in Georgia",
+   "note": {
+    "ru": "Учебник отмечает, что Брежнев был уже глубоко пожилым человеком.",
+    "en": "The textbook notes that Brezhnev was already a very old man."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 514",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T37",
+   "date": "13.03.1990-15.03.1990",
+   "year": 1990,
+   "cat": "power",
+   "ru": "В Тбилиси проходит конференция национально-освободительного движения: создан Национальный форум, объявивший бойкот советским выборам 25 марта",
+   "en": "A conference of the national-liberation movement takes place in Tbilisi: the National Forum is created and declares a boycott of the Soviet elections of 25 March",
+   "note": {
+    "ru": "Форум потребовал признать Грузию оккупированной страной и вывести иностранные войска; в конце апреля его покинули несколько партий, в том числе З. Гамсахурдиа (учебник).",
+    "en": "The Forum demanded that Georgia be recognised as an occupied country and foreign troops withdrawn; at the end of April several parties, among them that of Z. Gamsakhurdia, left it (the textbook)."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 522",
+     "book": true
+    },
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 523",
+     "book": true
+    }
+   ]
+  },
+  {
+   "id": "T38",
+   "date": "1997",
+   "year": 1997,
+   "cat": "power",
+   "ru": "Министр иностранных дел России Е. М. Примаков привозит в Тбилиси непризнанного президента Абхазии В. Ардзинбу",
+   "en": "The Russian Foreign Minister E. M. Primakov brings the unrecognised president of Abkhazia V. Ardzinba to Tbilisi",
+   "note": {
+    "ru": "Учебник называет это иллюзией внешнеполитических успехов Грузии.",
+    "en": "The textbook calls it an illusion of foreign-policy successes of Georgia."
+   },
+   "src": [
+    {
+     "label": "D. Muskhelishvili, M. Samsonadze, A. Daushvili, History of Georgia from ancient times to 2009 (საქართველოს ისტორია: უძველესი დროიდან 2009 წლამდე), Tbilisi 2012, PDF p. 534",
+     "book": true
+    }
+   ]
+  }
+ ],
+ "updates": [
+  {
+   "id": "U01",
+   "year": 853,
+   "date": "5.08.853",
+   "note": {
+    "ru": "Точная дата по настенной надписи Атенского Сиони: 5 августа 853 года (суббота); Буга аль-Турки сжёг город и казнил эмира Саака (Исхака) (учебник «История Грузии», т. 1, 2006, PDF с. 231).",
+    "en": "The exact date after the wall inscription of Ateni Sioni: 5 August 853 (a Saturday); Buga al-Turki burned the city and executed the emir Sahak (Ishaq) (the textbook 'History of Georgia', vol. 1, 2006, PDF p. 231)."
+   },
+   "src": {
+    "label": "History of Georgia, vol. 1 (საქართველოს ისტორია, ტ. I), Tbilisi: TSU Press, 2006, PDF p. 231",
+    "book": true
+   }
+  },
+  {
+   "id": "U02",
+   "year": 1918,
+   "date": "26.01.1918",
+   "note": {
+    "ru": "Университет торжественно открыт 26 января 1918 года, в день памяти царя Давида Строителя; первый ректор — П. Меликишвили, заслуга в основании принадлежит И. Джавахишвили; первый корпус построен стараниями Дворянского земельного банка (учебники: Качарава и др., 1973, PDF с. 224; ИХ «История Грузии», IX класс, часть 20, PDF с. 7).",
+    "en": "The university was solemnly opened on 26 January 1918, on the memorial day of King David the Builder; the first rector was P. Melikishvili, the merit of the foundation belongs to I. Javakhishvili; the first building was built through the efforts of the Noble Land Bank (the textbooks: Kacharava and others, 1973, PDF p. 224; 'History of Georgia', 9th grade, part 20, PDF p. 7)."
+   },
+   "src": {
+    "label": "Ю. Качарава, А. Киквидзе, П. Ратиани, А. Сургуладзе. История Грузии (учебное пособие). Тбилиси: Ганатлеба, 1973, PDF p. 224",
+    "book": true
+   }
+  }
+ ],
+ "CL": [
+  "Добавлено 38 событий по учебникам истории Грузии (с 591 по 1997 год: фабрики и самоуправление XIX века, события 1906–1921, 1937, 1956–1990); даты 853 и 1918 годов уточнены; источники-книги показываются в карточке событий текстом со страницей.",
+  "Added 38 events from the textbooks of the history of Georgia (from 591 to 1997: factories and self-government of the 19th century, events of 1906-1921, 1937, 1956-1990); the dates of 853 and 1918 are made more exact; the book sources are shown in the card of an event as text with the page."
+ ]
+}

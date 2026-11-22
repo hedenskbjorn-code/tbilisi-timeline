@@ -130,6 +130,56 @@ test("the address ?o=<id> opens the card of the object of the register", async (
   await page.ctx.close();
 });
 
+test("search finds a street by a former name and opens its card; a street without a line on the map has the card too", async () => {
+  const page = await main("#1960");
+  await search(page, "Kronshtadtskaya");
+  const row = page.locator("#searchRes li").filter({ hasText: "Tsagareli" }).first();
+  assert.ok((await row.count()) > 0, "the street is found by the former name");
+  await row.click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  let body = await page.locator("#imBody").innerText();
+  assert.match(body, /Archil Tsagareli Street/);
+  assert.match(body, /1941–1991 · Kronshtadtskaya Street/, "the former name with the years");
+  assert.match(body, /PDF p\. 194/, "the book with the page");
+  await page.keyboard.press("Escape");
+  await search(page, "Cholokashvili Avenue");               // the avenue has no line in OSM under this name: nogeom
+  const row2 = page.locator("#searchRes li").filter({ hasText: /Ilia Chavchavadze|Chavchavadze/ }).first();
+  assert.ok((await row2.count()) > 0, "the street without a line is found by a former name too");
+  await row2.click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  body = await page.locator("#imBody").innerText();
+  assert.match(body, /Earlier called \(the year is not named\)/, "the names without a year are in the card");
+  await page.ctx.close();
+});
+
+test("the list of the old street names shows the encyclopedia as text with the page where the street has no link", async () => {
+  const page = await main("#1960");
+  const txt = await page.locator("#stnames").textContent();
+  assert.match(txt, /Kutuzov/, "the Kutuzov Street of 1960 is in the list");
+  assert.match(txt, /\[Tbilisi\. Streets, avenues, squares[^\]]*PDF p\. 40\]/, "the book reference with the page stands as text");
+  const hrefs = await page.locator("#stnames a").evaluateAll((as) => as.map((a) => a.getAttribute("href")));
+  assert.ok(hrefs.length > 0 && hrefs.every((h) => /^https?:/.test(h)), "the streets with a source have a real link");
+  await page.ctx.close();
+});
+
+test("the card of an event from a textbook shows the book with the page as text, a Wikipedia source stays a link", async () => {
+  for (const [q, year, bookOnly] of [["Primakov", 1997, true], ["Erivan Square", 1907, false]]) {
+    const page = await main(`#${year}`);
+    await search(page, q);
+    const row = page.locator("#searchRes li").filter({ hasText: new RegExp(String(year)) }).first();
+    assert.ok((await row.count()) > 0, `no search row for ${q}`);
+    await row.click();
+    await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+    const body = page.locator("#imBody");
+    assert.match(await body.innerText(), /Muskhelishvili[^\n]*PDF p\. \d+/, "the book reference with the page is in the card");
+    const links = await body.locator("a").evaluateAll((as) => as.map((a) => a.textContent));
+    assert.ok(!links.some((t) => /Muskhelishvili/.test(t)), "the book is not a link");
+    if (bookOnly) assert.equal(links.length, 0, "an event with a book source only has no link");
+    else assert.ok(links.some((t) => /wikipedia/i.test(t)), "the Wikipedia source is still a link");
+    await page.ctx.close();
+  }
+});
+
 test("the list of sections leads to the other pages and keeps the language", async () => {
   const page = await main("#1887");
   await page.selectOption("#pagesSel", "entrances/");

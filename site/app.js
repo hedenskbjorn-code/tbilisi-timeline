@@ -803,8 +803,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const feats = [];
     if ($("showStLabels").checked) {
       for (const st of stNames) {
-        const g = stGeom[st.now.en], iv = st.iv.find((x) => year >= x[0] && year < x[1] && x[2]);
-        if (g && iv) feats.push({ type: "Feature", geometry: g, properties: { t: pickName(iv[2]) } });
+        const g = stGeom[st.geom || st.now.en], iv = st.iv.find((x) => year >= x[0] && year < x[1] && x[2]);
+        if (g && iv) feats.push({ type: "Feature", geometry: g, properties: { t: pickName(iv[2]), k: stNames.indexOf(st) } });
       }
     }
     src.setData({ type: "FeatureCollection", features: feats });
@@ -834,6 +834,33 @@ import { getJSON, prefetchJSON } from "./js/net.js";
                    layout: { "symbol-placement": "line", "text-field": ["get", "t"], "text-font": ["Noto Sans Bold"], "text-size": 16, "text-letter-spacing": 0.04, "text-max-angle": 40, "symbol-spacing": 350, "text-allow-overlap": true, "text-ignore-placement": true }, paint });
     map.addLayer({ id: "stl-pt", type: "symbol", source: "stlabels", filter: ["==", ["geometry-type"], "Point"],
                    layout: { "text-field": ["get", "t"], "text-font": ["Noto Sans Bold"], "text-size": 15, "text-anchor": "center", "text-allow-overlap": true, "text-ignore-placement": true }, paint });
+    for (const id of ["stl-line", "stl-pt"]) {                    // a click on the name of a street opens the card of the street
+      map.on("click", id, (e) => { const f = e.features && e.features[0]; if (f && stNames[f.properties.k]) showStreetCard(stNames[f.properties.k]); });
+      map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
+      map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
+    }
+  }
+  // the card of a street: the name today, every former name with its years (also the names without a year), the note and the source (a link or a book with the page)
+  let stNotes = null;                                             // the notes of the streets: street_notes.json, loaded when the first card is opened
+  async function showStreetCard(s, fly) {
+    if (!stNotes) { try { stNotes = (await getJSON("data/street_notes.json", 2)).notes; } catch (e) { stNotes = {}; } }
+    reopenInfo = () => showStreetCard(s);
+    const L = t(), now = s.now[lang] || s.now.en, note = stNotes[s.geom || s.now.en];
+    openInfo((body) => {
+      infoLine(body, now, "");
+      for (const iv of s.iv) if (iv[2]) infoLine(body, iv[0] + "–" + (iv[1] >= 9999 ? "" : iv[1]) + " · " + pickName(iv[2]), "small");
+      if (s.undated && s.undated.length) infoLine(body, L.stUndated + ": " + s.undated.map((u) => pickName(u)).join("; "), "small");
+      if (note) infoLine(body, pickName(note));
+      infoLine(body, L.evSrc + ":");
+      if (s.src) { const d = infoLine(body, "", "small"), a = document.createElement("a"); a.href = s.src; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURI(s.src); d.appendChild(a); }
+      if (s.book) infoLine(body, s.book, "small");
+    }, false, now);
+    const g = stGeom[s.geom || s.now.en];
+    if (fly && g) {
+      const pts = g.type === "Point" ? [g.coordinates] : g.coordinates.flat();
+      const b = pts.reduce((a, p) => [Math.min(a[0], p[0]), Math.min(a[1], p[1]), Math.max(a[2], p[0]), Math.max(a[3], p[1])], [180, 90, -180, -90]);
+      map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: 80, maxZoom: 17, duration: 1200 });
+    }
   }
   function updateStNames() {
     updateStLabelsLayer();
@@ -843,7 +870,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const L = t(), rows = [];
     for (const s of stNames) {
       const iv = s.iv.find((x) => year >= x[0] && year < x[1] && x[2]);
-      if (iv) rows.push([pickName(iv[2]), s.now[lang] || s.now.en, s.src]);
+      if (iv) rows.push([pickName(iv[2]), s.now[lang] || s.now.en, s.src, s.book, s]);
     }
     box.textContent = "";
     box.hidden = !rows.length;
@@ -851,15 +878,23 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const h = document.createElement("div");
     h.textContent = L.stTitle;
     box.appendChild(h);
-    for (const [old, now, src] of rows) {
+    for (const [old, now, src, book, st] of rows) {
       const d = document.createElement("div");
+      d.style.cursor = "pointer";
+      d.addEventListener("click", (e) => { if (!e.target.closest("a")) showStreetCard(st, true); });   // the card of the street
       const b = document.createElement("b");
       b.textContent = old;
       d.appendChild(b);
       d.appendChild(document.createTextNode(" \u2192 " + L.stNow + ": " + now + " "));
-      const a = document.createElement("a");
-      a.href = src; a.target = "_blank"; a.rel = "noopener"; a.className = "src"; a.textContent = "[src]";
-      d.appendChild(a);
+      if (src) {
+        const a = document.createElement("a");
+        a.href = src; a.target = "_blank"; a.rel = "noopener"; a.className = "src"; a.textContent = "[src]";
+        d.appendChild(a);
+      } else if (book) {                                          // a book without a link: the reference with the page, as plain text
+        const sp = document.createElement("span");
+        sp.className = "src"; sp.textContent = "[" + book + "]";
+        d.appendChild(sp);
+      }
       box.appendChild(d);
     }
     const m = document.createElement("div");
@@ -956,11 +991,16 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       if (ev.note) infoLine(body, pickName(ev.note));
       if (ev.place) infoLine(body, "\uD83D\uDCCD " + (ev.place[lang] || ev.place.en));
       else infoLine(body, "\uD83D\uDCCD " + L.evNoPlace, "small");
-      if (ev.src.some((u) => /wikipedia/i.test(typeof u === "string" ? u : u.url))) infoLine(body, L.evNote);
+      if (ev.src.some((u) => /wikipedia/i.test(typeof u === "string" ? u : u.url || ""))) infoLine(body, L.evNote);
       infoLine(body, L.evSrc + ":");
       for (const u of ev.src) {
         const d = document.createElement("div");
         d.className = "small";
+        if (typeof u !== "string" && !u.url) {                  // a book without a link: the reference with the page, as plain text
+          d.textContent = u.label;
+          body.appendChild(d);
+          continue;
+        }
         const a = document.createElement("a");
         const url = typeof u === "string" ? u : u.url;
         a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = typeof u === "string" ? decodeURI(u) : u.label + " \u2014 " + decodeURI(url);
@@ -2941,6 +2981,12 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     for (const c of science) idx.push({ kind: "s", c, key: normQ([c.name.ru, c.name.en, c.name.ka, c.founded, c.built, c.from, T.ru.sciKinds[c.kind], T.en.sciKinds[c.kind]].join(" ")) });
     for (const c of education) idx.push({ kind: "d", c, key: normQ([c.name.ru, c.name.en, c.name.ka, c.built, c.from, T.ru.eduKinds[c.kind], T.en.eduKinds[c.kind]].join(" ")) });
     for (const r of religious) idx.push({ kind: "r", r, key: normQ([r.name.ru, r.name.en, r.name.ka, r.date, t().relNames[r.rel], T.en.relNames[r.rel]].join(" ")) });
+    for (const st of stNames) {                                 // streets: the name today and every former name (also the ones without a year) in three languages
+      const nm = [st.now.ru, st.now.en, st.now.ka];
+      for (const iv of st.iv) if (iv[2]) nm.push(iv[2].ru, iv[2].en, iv[2].ka);
+      for (const u of st.undated || []) nm.push(u.ru, u.en, u.ka);
+      idx.push({ kind: "t", st, key: normQ(nm.join(" ")) });
+    }
     return idx;
   }
   function updateSearchUi() {
@@ -3012,6 +3058,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       else if (r.kind === "d") { a.textContent = "\uD83C\uDFEB " + (r.c.name[lang] || r.c.name.en); b.textContent = [L.eduKinds[r.c.kind], r.c.undated ? L.relUndated : (r.c.built || r.c.from)].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "r") { a.textContent = "\u26EA " + (r.r.name[lang] || r.r.name.en); b.textContent = [L.relNames[r.r.rel], r.r.date, r.r.to ? L.relGone + " " + r.r.to : ""].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "e") { a.textContent = (EV_ICON[r.ev.cat] || EV_ICON.other) + " " + (r.ev[lang] || r.ev.en); b.textContent = r.ev.date + " \u00B7 " + (L.evCats[r.ev.cat] || ""); }
+      else if (r.kind === "t") {
+        a.textContent = "\uD83D\uDEE3 " + (r.st.now[lang] || r.st.now.en);
+        const old = [...r.st.iv.filter((iv) => iv[2]).map((iv) => pickName(iv[2])), ...(r.st.undated || []).map((u) => pickName(u))];
+        b.textContent = old.slice(0, 4).join(" \u00B7 ") + (old.length > 4 ? " ..." : "");
+      }
       else {
         const p = r.f.properties, tr = window.GeoTr;
         let nm = p.name, ad = p.address;
@@ -3050,10 +3101,12 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     else if (r.kind === "s") target = Math.max(year, r.c.from);
     else if (r.kind === "d") target = Math.max(year, r.c.from);
     else if (r.kind === "r") target = (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
+    else if (r.kind === "t") { const own = r.st.iv.find((iv) => iv[2] && year >= iv[0] && year < iv[1]); target = own ? year : (r.st.iv.find((iv) => iv[2]) || [year])[0]; }
     else target = Math.max(year, r.f.properties.ye);
     year = target;
     update();
     if (r.kind === "e") { showHistEvent(r.ev); return; }
+    if (r.kind === "t") { showStreetCard(r.st, true); return; }
     if (r.kind === "u") {
       $("showRulers").checked = true; buildRulersBand(); updateRuleLine(); syncFilterUi();
       showRulerCard(r.u);
