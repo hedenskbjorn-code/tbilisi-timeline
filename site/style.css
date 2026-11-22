@@ -195,7 +195,7 @@ body.panel-open #yearchip { display:none; }
 
 .sw-density { height:10px; background:linear-gradient(90deg,#fff3b0,#fdd976 20%,#fd8d3c 45%,#f03b20 65%,#bd0026 85%,#6e0028); border:1px solid #0003; }
 
-.sw-transport { height:0; border-top:4px solid #e03131; box-shadow:0 5px 0 #2f9e44, 0 10px 0 #f08c00, 0 15px 0 #7048e8; margin-bottom:16px; }
+.lsw { flex:none; width:28px; height:12px; }
 #trevents { margin:6px 0 2px; color:var(--muted); }
 #trevents div { margin:3px 0; }
 #trevents b { color:var(--fg); font-weight:600; }

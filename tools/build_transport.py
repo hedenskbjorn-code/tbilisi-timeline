@@ -227,6 +227,114 @@ def main():
     avenue(["avenues"], lambda t: t.get("name:en") == "Ilia Chavchavadze Avenue", "chavchavadze", 1930, 9999,
            {"name_en": "Ilia Chavchavadze Avenue", "name_ru": "Проспект Ильи Чавчавадзе (в 1935-1957 ул. Нико Марра)", "name_ka": "ილია ჭავჭავაძის გამზირი"},
            "construction began in the 1930s (infobox, en Wikipedia); named after Niko Marr 1935-1957", [WP + "Ilia_Chavchavadze_Avenue"])
+    # ---------------- main roads (2026-11-22): the avenues, the main streets and the highways of the lists of tools/mainroads_task.py, with the year of the ENCYCLOPEDIA of 2008
+    # (data/cache/mainroads_verified.json: the phrase "originated ...", kind "avenue": the sign of an avenue) or the earliest document of the article (mainroads_verified2.json: a plan, a list,
+    # kind "road": a thin line, the year is the first mention, not the origin). The roads without a year are not drawn (see sources.md). Geometry: data/raw/osm_roads/main_roads.json
+    # (tools/fetch_main_roads_osm.py), only the ways inside the present city boundary (the middle of a way), so the highways end at the border.
+    ring = json.load(open(os.path.join(OUT, "admin.json"), encoding="utf-8"))["features"][0]["geometry"]["coordinates"][0]
+
+    def inside(x, y):
+        c = False
+        for i in range(len(ring) - 1):
+            (x1, y1), (x2, y2) = ring[i], ring[i + 1]
+            if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
+                c = not c
+        return c
+
+    def mid_inside(g):
+        return inside(sum(p["lon"] for p in g) / len(g), sum(p["lat"] for p in g) / len(g))
+    def rdp(pts, tol=1.5):
+        """Douglas-Peucker in metres (the first screen is limited in weight; 1.5 m is far below what the line width of the map shows)"""
+        import math as _m
+        k = _m.cos(_m.radians(41.7)) * 111320
+        xy = [((x - pts[0][0]) * k, (y - pts[0][1]) * 111320) for x, y in pts]
+        keep = [False] * len(pts)
+        keep[0] = keep[-1] = True
+        stack = [(0, len(pts) - 1)]
+        while stack:
+            i, j = stack.pop()
+            (x1, y1), (x2, y2) = xy[i], xy[j]
+            dx, dy = x2 - x1, y2 - y1
+            n = _m.hypot(dx, dy) or 1e-9
+            best, bi = 0, -1
+            for m in range(i + 1, j):
+                d = abs(dy * (xy[m][0] - x1) - dx * (xy[m][1] - y1)) / n
+                if d > best:
+                    best, bi = d, m
+            if best > tol and bi > 0:
+                keep[bi] = True
+                stack += [(i, bi), (bi, j)]
+        return [pts[i] for i in range(len(pts)) if keep[i]]
+    def chain(lines):
+        """the ways that meet end to end become one line (fewer points: the shared end point is stored once)"""
+        lines = [list(l) for l in lines]
+        done = False
+        while not done:
+            done = True
+            for i in range(len(lines)):
+                for j in range(len(lines)):
+                    if i == j:
+                        continue
+                    a, b = lines[i], lines[j]
+                    if a[-1] == b[0]:
+                        lines[i] = a + b[1:]
+                    elif a[-1] == b[-1]:
+                        lines[i] = a + b[::-1][1:]
+                    else:
+                        continue
+                    del lines[j]
+                    done = False
+                    break
+                if not done:
+                    break
+        return lines
+    mr_ways = json.load(open(os.path.join(ROOT, "data", "raw", "osm_roads", "main_roads.json"), encoding="utf-8"))["elements"]
+    V1 = {x["key"]: x for x in json.load(open(os.path.join(ROOT, "data", "cache", "mainroads_verified.json"), encoding="utf-8"))["ok"]}
+    V2 = {x["key"]: x for x in json.load(open(os.path.join(ROOT, "data", "cache", "mainroads_verified2.json"), encoding="utf-8"))["ok"]}
+    BOOK = "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008), PDF p. %d: %s"
+    HWC = {"motorway", "trunk", "primary", "secondary", "tertiary", "unclassified"}
+    MAIN = {"tamar": (["Tamar Mepe Avenue"], "проспект Тамар Мепе", "Tamar Mepe Avenue", "თამარ მეფის გამზირი"),
+            "moscow": (["Moscow Avenue"], "Московский проспект", "Moscow Avenue", "მოსკოვის გამზირი"),
+            "vazha": (["Vazha-Pshavela Avenue"], "проспект Важа-Пшавела", "Vazha-Pshavela Avenue", "ვაჟა-ფშაველას გამზირი"),
+            "pekini": (["Pekini Avenue", "Konstantine Gamsakhurdia Avenue"], "проспект Пекини (Гамсахурдиа)", "Pekini (Gamsakhurdia) Avenue", "პეკინის გამზირი (გამსახურდიას გამზირი)"),
+            "kakheti": (["Kakheti Highway"], "Кахетинское шоссе", "Kakheti Highway", "კახეთის გზატკეცილი"),
+            "guramishvili": (["David Guramishvili Avenue"], "проспект Давида Гурамишвили", "David Guramishvili Avenue", "დავით გურამიშვილის გამზირი"),
+            "dedoplis": (["Tsminda Ketevan Dedoflis Avenue"], "проспект Кетеван Дедоплис", "Ketevan Dedoplis Avenue", "წმინდა ქეთევან დედოფლის გამზირი"),
+            "kostava": (["Merab Kostava Street"], "улица Мераба Костава", "Merab Kostava Street", "მერაბ კოსტავას ქუჩა"),
+            "tsereteli": (["Akaki Tsereteli Avenue"], "проспект Акакия Церетели", "Akaki Tsereteli Avenue", "აკაკი წერეთლის გამზირი"),
+            "melikishvili": (["Petre Melikishvili Avenue"], "проспект Петре Меликишвили", "Petre Melikishvili Avenue", "პეტრე მელიქიშვილის გამზირი"),
+            "kazbegi": (["Alexander Kazbegi Avenue"], "проспект Александра Казбеги", "Alexander Kazbegi Avenue", "ალექსანდრე ყაზბეგის გამზირი"),
+            "gorgasali": (["Vakhtang Gorgasali Street"], "улица Вахтанга Горгасали", "Vakhtang Gorgasali Street", "ვახტანგ გორგასალის ქუჩა"),
+            "tsabadze": (["Giorgi Tsabadze Street"], "улица Георгия Цабадзе", "Giorgi Tsabadze Street", "გიორგი ცაბაძის ქუჩა")}
+    n_main = {}
+    for key, (osm_names, nru, nen, nka) in MAIN.items():
+        v = V1.get(key) or V2.get(key)
+        if not v:
+            continue
+        # an avenue sign only for the origin that names a year or a decade (or a part of the XX century); a century of the XIX or earlier gives a road from the first document of the article
+        origin = key in V1 and (V1[key]["kind"] in ("year", "decade") or (V1[key]["kind"] == "century_part" and V1[key]["from"] >= 1900))
+        v = V1[key] if origin else (V2.get(key) or V1[key])
+        ways = [e for e in mr_ways if e["tags"].get("name:en") in osm_names and e["tags"].get("highway") in HWC and "geometry" in e and mid_inside(e["geometry"])]
+        if origin:
+            y0, note = v["from"], BOOK % (v["page"], v["quote"]) + " (the exact year is not given: the beginning of the period named; the sign of an avenue from this year)"
+        else:
+            y0, note = v["year"], BOOK % (v["page"], v["quote"]) + " (the first document named in the article, NOT the year of the origin; the street is drawn as a road from this year)"
+        if ways:                     # one feature per road (MultiLineString): a feature per way would add half a megabyte to the first screen
+            feats.append(feat({"type": "MultiLineString", "coordinates": [rdp(l) for l in chain(line(e["geometry"]) for e in ways)]}, id="main_" + key, kind="avenue" if origin else "road", y0=y0, name_en=nen, name_ru=nru,
+                              name_ka=nka, note=note, src=[]))
+        n_main[key] = len(ways)
+    # the avenues already drawn (from the page of Wikipedia): the same ways as a road before the avenue (the first document of the encyclopedia)
+    for key, y1 in (("rustaveli", 1840),):               # (Chavchavadze: the road of 1925 would last 5 years, only the avenue of 1930 is drawn)
+        v = V2.get(key)
+        if not v:
+            continue
+        old = [x for x in feats if str(x["properties"].get("id", "")).startswith(key + "_") and x["properties"]["kind"] == "avenue"]
+        if old:
+            p = dict(old[0]["properties"])
+            p.update(id="road_" + key, kind="road", y0=v["year"], y1=y1, note=BOOK % (v["page"], v["quote"]) + " (the first document named in the article: a road on the line of the later avenue, drawn as a road until the avenue)")
+            feats.append({"type": "Feature", "geometry": {"type": "MultiLineString", "coordinates": [rdp(l) for l in chain(x["geometry"]["coordinates"] for x in old)]}, "properties": p})
+        n_main[key + "_road"] = len(old)
+    print("main roads (ways inside the city):", n_main)
     # ---------------- horse tram (konka) 1883-1910: only what ru.wikipedia says (the first line ran along Mikhailovsky = today's Aghmashenebeli Avenue); drawn on the avenue ways, so the endpoints are approximate
     for e in load("avenues"):
         if e["tags"].get("name:en") == "David Aghmashenebeli Avenue" and "geometry" in e:
@@ -249,7 +357,7 @@ def main():
     TRAM_OSM = {
         "dadiani": ["Tsotne Dadiani Street"], "eristavi": ["Tornike Eristavi Street"], "tsereteli": ["Akaki Tsereteli Avenue"], "tsabadze": ["Giorgi Tsabadze Street"],
         "mghvdeli": ["Tevdore Mghvdeli Street"], "abastumani": ["Abastumani Street"], "tsinam": ["Mikheil Tsinamdzghvrishvili Street"], "khudadov": ["Nikoloz Khudadov Street"],
-        "tseronisi": ["Tseronisi Street"], "akhtala": ["Akhtala Street"], "kakhiani": ["Nikoloz Kakhiani Street"], "lotkini": ["Lotkini Mta Street"],
+        "tseronisi": ["Tseronisi Street"], "akhtala": ["Akhtala Street"], "kakhiani": ["Nikoloz Kakhiani Street"], "lotkini": ["Lotkini Street (now Vasil Tamarashvili Street in OSM)"],
         "guramishvili": ["David Guramishvili Avenue"], "sarajishvili": ["David Sarajishvili Street"], "libani": ["Libani Street"], "moscow": ["Moscow Avenue"],
         "navtlughi": ["Navtlughi Street"], "salosi": ["Beri Gabriel Salosi Avenue"], "purtseladze": ["Anton Purtseladze Street"], "atoneli": ["Giorgi Atoneli Street"],
         "gogiberidze": ["Mose Gogiberidze Street"], "javakhishvili": ["Ivane Javakhishvili Street"], "sheshelidze": ["Tengiz Sheshelidze Street"],
@@ -259,6 +367,13 @@ def main():
         "anapa": ["Anapis 414 Divizia Street"], "zghvi": ["Tbilisi Zghvi Street"],
         "uridia": ["Revaz Uridia Street"], "makhaldiani": ["Vakhtang Makhaldiani Lane"], "rkinigza": ["Rkinigza Street"], "holbrooke": ["Richard Holbrooke Street"], "khmelnitsky": ["Bogdan Khmelnitski Street"],
     }
+    # Ways picked by hand (2026-11-22, see sources.md): the old Lotkini Street is the present Alexi-Meskhishvili Street of the encyclopedia of 2008 (PDF p. 15: from Likani Street to Lotkini Gorge);
+    # in OSM the stretch from the junction with Kakhiani Street to the start of Lotkini Gorge is named Vasil Tamarashvili Street (ways 1134264978, 1293979096). Lotkini Mta Street is another street higher up the hill.
+    LOTKINI_WAYS = {1134264978, 1293979096}
+    # Streets drawn only where the route of the list runs (the street itself is longer): route 2 of 1986 = Uridia (east to the junction at 44.82757) - the short link of Khudadov (44.82757 -> 44.83006) - Tseronisi back west to Akhtala
+    # (the ways join end to end); route 6 / route 4 of 1962 reach Kakhiani Street at its crossing with Uridia (node 44.80878, 41.72961), so the stretch of Kakhiani south of it is not drawn.
+    TRAM_ONLY = {"khudadov": {1134264964, 1133504974, 1484539403}, "kakhiani": {487811705}}
+    TRAM_SKIP = {"tseronisi": {58502835}}                    # the way west of the junction with Akhtala Street
     CHECK_URBAN = {"alley"}      # streets whose pieces in open country are dropped (checked on the topographic map and the outlines of the built-up area, 2026-11-19)
     NOT_MATCHED = {"zghvi"}                                  # streets with no usable OSM way: nothing is drawn (Tbilisi Sea Ascent != Tbilisi Zghvi Street at 44.840, 41.765)
     R1986 = {1: "dadiani eristavi tsereteli tsabadze mghvdeli abastumani tsinam", 2: "dadiani uridia khudadov tseronisi akhtala", 3: "tsereteli eristavi guramishvili zghvi anapa",
@@ -284,6 +399,11 @@ def main():
     for e in load("tram_streets") + (load("tram_streets_extra") if os.path.exists(extra) else []):
         if "geometry" in e:
             ways_tram.setdefault(e["tags"].get("name:en"), []).append(e)
+    rc = json.load(open(os.path.join(ROOT, "data", "raw", "osm_roads", "roads_center.json"), encoding="utf-8"))["elements"]
+    for e in rc:
+        if e.get("id") in LOTKINI_WAYS and "geometry" in e:
+            e = dict(e, tags=dict(e["tags"], **{"name:en": "Lotkini Street (now Vasil Tamarashvili Street in OSM)"}))
+            ways_tram.setdefault(e["tags"]["name:en"], []).append(e)
     miss = []
     dropped_tram = []
     konka_core = [c for f in feats if str(f["properties"].get("id", "")).startswith("konka_") for c in f["geometry"]["coordinates"]]
@@ -296,6 +416,12 @@ def main():
             else:
                 merged.append([a0, b0])
         ws = [w for nm in TRAM_OSM[k] for w in ways_tram.get(nm, [])]
+        if k in TRAM_ONLY:
+            dropped_tram.extend((k + " (not on the route)", w["id"], way_len(w["geometry"])) for w in ws if w["id"] not in TRAM_ONLY[k])
+            ws = [w for w in ws if w["id"] in TRAM_ONLY[k]]
+        if k in TRAM_SKIP:
+            dropped_tram.extend((k + " (not on the route)", w["id"], way_len(w["geometry"])) for w in ws if w["id"] in TRAM_SKIP[k])
+            ws = [w for w in ws if w["id"] not in TRAM_SKIP[k]]
         if not ws:
             miss.append(k)
         if k in NOT_MATCHED:                                   # no street of this name lies where the routes of the lists run: nothing is drawn rather than a wrong street
@@ -342,7 +468,7 @@ def main():
             if len(o["path"]) < 4:
                 continue
             nline += 1
-            feats.append(feat({"type": "LineString", "coordinates": [pll(x, y) for x, y in o["path"]]}, id="tram1913_" + o["id"], kind="tram", y0=1913, y1=1923,
+            feats.append(feat({"type": "LineString", "coordinates": [pll(x, y) for x, y in o["path"]]}, id="tram1913_" + o["id"], kind="tram", prec=1, y0=1913, y1=1923,
                               name_en="Tram line on the plan of 1913", name_ru="Трамвайная линия на плане 1913 года", name_ka="ტრამვაის ხაზი 1913 წლის გეგმაზე",
                               note="DRAWN ON THE 1913 PLAN (legend: 'line of the tram'). The points were read from the plan by an AI (Gemini) and snapped to the printed red line by a program, then checked by eye; the line can deviate by tens of metres and some stretches (for example in Avlabari and along the river) are uncertain. Streets as printed on the plan: " + "; ".join(o.get("streets") or []) + ". Years: the plan is of 1913; the lines are shown while the plan is shown (1913-1922).",
                               src=["https://commons.wikimedia.org/wiki/File:Map_of_Tbilisi_1913.jpg"]))

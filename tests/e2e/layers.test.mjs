@@ -19,7 +19,7 @@ test.after(async () => { await page.ctx.close(); await browser.close(); server.s
 const ev = (fn, arg) => page.evaluate(fn, arg);
 
 test("the layers of the map exist", async () => {
-  const missing = await ev(() => ["rel-pt", "sci-pt", "edu-pt", "urban-fill", "urban-line-approx", "mon", "tr-line"].filter((i) => !window.TT_E2E.map.getLayer(i)));
+  const missing = await ev(() => ["rel-pt", "sci-pt", "edu-pt", "urban-fill", "urban-line-approx", "mon", "tr-line", "tr-casing", "tr-ticks", "tr-pt-m", "tr-funic", "tr-cable"].filter((i) => !window.TT_E2E.map.getLayer(i)));
   assert.deepEqual(missing, []);
 });
 

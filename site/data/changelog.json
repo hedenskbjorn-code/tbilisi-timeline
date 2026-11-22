@@ -1,5 +1,53 @@
 [
  {
+  "version": "1.8.5",
+  "date": "2026-11-22",
+  "items": [
+   {
+    "t": "new",
+    "ru": "В карточке улицы появился раздел «На улице»: здания, памятники, храмы, утраченные места и мемориальные адреса по энциклопедии «Тбилиси. Улицы, проспекты, площади» (2008); 360 объектов на 123 улицах, ещё 19 улиц добавлены только с карточкой.",
+    "en": "The card of a street has a new section \"On the street\": buildings, monuments, churches, lost places and memorial addresses from the encyclopedia \"Tbilisi. Streets, avenues, squares\" (2008); 360 objects on 123 streets, 19 more streets are added with a card only.",
+    "ka": "ქუჩის ბარათში დაემატა განყოფილება „ქუჩაზე“: შენობები, ძეგლები, ტაძრები, დაკარგული ადგილები და მემორიალური მისამართები ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008)-ის მიხედვით; 360 ობიექტი 123 ქუჩაზე, კიდევ 19 ქუჩა დაემატა მხოლოდ ბარათით."
+   },
+   {
+    "t": "fix",
+    "ru": "Трамвай: исправлена привязка старой улицы Лоткини (теперь улица Алекси-Месхишвили, в OpenStreetMap этот участок называется улицей Васила Тамарашвили), маршрут № 2 больше не рисуется по лишним участкам улицы Худадова, у улицы Кахиани убран южный хвост.",
+    "en": "Tram: the old Lotkini Street is matched correctly (now Alexi-Meskhishvili Street; in OpenStreetMap this stretch is named Vasil Tamarashvili Street), route 2 is no longer drawn along the extra parts of Khudadov Street, the south tail of Kakhiani Street is removed.",
+    "ka": "ტრამვაი: გასწორდა ძველი ლოტკინის ქუჩის მიბმა (დღეს ალექსი-მესხიშვილის ქუჩაა, OpenStreetMap-ში ამ მონაკვეთს ვასილ თამარაშვილის ქუჩა ჰქვია), № 2 მარშრუტი აღარ იხატება ნიკოლოზ ხუდადოვის ქუჩის ზედმეტ მონაკვეთებზე, ნიკოლოზ კახიანის ქუჩას მოშორდა სამხრეთის კუდი."
+   },
+   {
+    "t": "fix",
+    "ru": "Пояснение «трамвай ходил, но линии на карте не нарисованы» теперь показывается и для 1923 года.",
+    "en": "The note \"there was a tram, but its lines are not drawn on the map\" is now shown for 1923 too.",
+    "ka": "განმარტება „ტრამვაი დადიოდა, მაგრამ ხაზები რუკაზე დატანილი არ არის“ ახლა 1923 წლისთვისაც ჩანს."
+   },
+   {
+    "t": "new",
+    "ru": "Знаки транспорта на карте приведены к знакам топографических карт (ГУГК, 1983): проспекты с окантовкой и заливкой, тонкая трамвайная линия со штрихами, метро с буквой «М», фуникулёр и канатная дорога разными знаками; легенда показывает каждый знак отдельной строкой. Трамвай по спискам маршрутов нарисован светлее: улица показана целиком, настоящий путь неизвестен.",
+    "en": "The signs of the transport on the map follow the signs of the topographic maps (GUGK, 1983): avenues with a casing and a fill, a thin tram line with cross ticks, the metro with the letter \"M\", the funicular and the cable car as different signs; the legend shows every sign in its own row. The tram of the route lists is drawn paler: the street is shown along its whole length, the real track is not known.",
+    "ka": "რუკაზე ტრანსპორტის ნიშნები ტოპოგრაფიული რუკების (GUGK, 1983) ნიშნებს დაუახლოვდა: გამზირები კონტურითა და შევსებით, ტრამვაის თხელი ხაზი შტრიხებით, მეტრო ასოთი „M“, ფუნიკულიორი და საბაგირო გზა სხვადასხვა ნიშნით; პირობითი ნიშნები თითოეულ ნიშანს ცალკე სტრიქონად აჩვენებს. მარშრუტების სიების მიხედვით დახატული ტრამვაი უფრო ღია ფერშია: ქუჩა მთლიანადაა ნაჩვენები, ნამდვილი გზა უცნობია."
+   },
+   {
+    "t": "new",
+    "ru": "Фильтр «Объекты реестра» убран: объекты реестра теперь включаются слоями «Здания и наследие» (жилые дома-памятники, общественные здания, религиозные, наука и культура, образование, оборона и крепости, прочие постройки, утраченные); объекты, которые уже показывает тематический слой (192), не рисуются дважды. Слои истории и транспорта собраны в отдельный блок.",
+    "en": "The filter \"Register objects\" is removed: the register objects are now switched by the layers \"Buildings and heritage\" (residential monuments, public buildings, religious, science and culture, education, defence and fortresses, other structures, lost buildings); the objects that a thematic layer already shows (192) are not drawn twice. The layers of history and transport are in a block of their own.",
+    "ka": "ფილტრი „რეესტრის ობიექტები“ მოიხსნა: რეესტრის ობიექტები ახლა ირთვება ფენებით „შენობები და მემკვიდრეობა“ (საცხოვრებელი ძეგლ-სახლები, საზოგადოებრივი შენობები, რელიგიური, მეცნიერება და კულტურა, განათლება, თავდაცვა და ციხესიმაგრეები, სხვა ნაგებობები, დაკარგული); ობიექტები, რომლებსაც თემატური ფენა უკვე აჩვენებს (192), ორჯერ აღარ იხატება. ისტორიისა და ტრანსპორტის ფენები ცალკე ბლოკშია თავმოყრილი."
+   },
+   {
+    "t": "new",
+    "ru": "Добавлено приветственное окно при первом входе: краткое знакомство с картой, число объектов, событий и улиц, кнопка «Больше не показывать».",
+    "en": "Added a welcome window on the first visit: a short introduction to the map, the counts of objects, events and streets, and a \"Do not show again\" button.",
+    "ka": "პირველი შემოსვლისას დაემატა მისალმების ფანჯარა: რუკის მოკლე გაცნობა, ობიექტების, მოვლენებისა და ქუჩების რაოდენობა და ღილაკი „მეტჯერ აღარ მაჩვენო“."
+   },
+   {
+    "t": "new",
+    "ru": "Слой главных дорог расширен: проспекты Казбеги, Москвы, Важа-Пшавела и Пекини-Гамсахурдиа и улица Горгасали (по энциклопедии 2008 года) и главные дороги с годом первого упоминания на плане, карте или в списке (Тамар Мепе, Кахетинское шоссе, Цабадзе, Гурамишвили, Дедоплис, Костава, Церетели, Мелихишвили, а также Руставели до того, как он стал проспектом); шоссе обрываются на границе города.",
+    "en": "The layer of main roads is extended: Kazbegi, Moscow, Vazha-Pshavela and Pekini-Gamsakhurdia avenues and Gorgasali Street (by the encyclopedia of 2008) and main roads with the year of the first mention on a plan, a map or in a list (Tamar Mepe, Kakheti Highway, Tsabadze, Guramishvili, Dedoplis, Kostava, Tsereteli, Melikishvili, and Rustaveli before it became an avenue); the highways end at the city border.",
+    "ka": "მთავარი გზების ფენა გაფართოვდა: ყაზბეგის, მოსკოვის, ვაჟა-ფშაველასა და პეკინი-გამსახურდიას გამზირები და გორგასლის ქუჩა (2008 წლის ენციკლოპედიის მიხედვით) და მთავარი გზები გეგმაზე, რუკაზე ან სიაში პირველი ხსენების წლით (თამარ მეფის, კახეთის გზატკეცილი, ცაბაძის, გურამიშვილის, დედოფლის, კოსტავას, წერეთლის, მელიქიშვილის, ასევე რუსთაველის — სანამ გამზირი გახდებოდა); გზატკეცილები ქალაქის საზღვარზე წყდება."
+   }
+  ]
+ },
+ {
   "version": "1.8.4",
   "date": "2026-11-22",
   "items": [

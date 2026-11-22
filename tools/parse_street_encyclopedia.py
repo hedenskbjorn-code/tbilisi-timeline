@@ -40,8 +40,9 @@ def entries():
                 cut = j + 1
         name = " ".join(toks[cut:])
         body = body[body.find(toks[cut]):] if toks[cut] in body else body
+        long_body = body[:4500]                                   # the long text (the objects of the long streets stand late in the entry) for the pass about the objects
         body = body[:1500]
-        out.append({"id": "E%04d" % (i + 1), "page": int(pg[0]) if pg else None, "name": name, "district": m.group(2).strip(), "text": fix_digits(body), "text_raw": body})
+        out.append({"id": "E%04d" % (i + 1), "page": int(pg[0]) if pg else None, "name": name, "district": m.group(2).strip(), "text": fix_digits(body), "text_raw": body, "text_long": fix_digits(long_body), "text_long_raw": long_body})
     return out
 
 
@@ -174,8 +175,31 @@ def full_pass():
     print("full pass: %d entries in %d batches" % (len(pick), n))
 
 
+OBJ_HINT = re.compile("არქიტ|მოქანდაკე|ბიუსტი|ძეგლი|მემორიალურ|ეკლესია|ტაძარი|მონასტერ|სინაგოგა|მეჩეთი|ცხოვრობდა|გაუქმდა|აღარ არსებობს|დაინგრა|დააპროექტა|მიწისმზომელ|თეატრი|მუზეუმი|უნივერსიტეტი|სასტუმრო|ბანკი|სკოლა|შენობა|სახლი|ციხე|ხიდი")
+
+
+def objects_pass():
+    """The pass about the objects on the streets (enc5_batch_NN.md): every entry whose long text has a word about a building, a monument, a church, a lost place, a resident or a surveyor;
+    the rules are in enc5_objects_TASK_for_gemini.md. 40 entries per batch."""
+    ents = json.load(open(OUT, encoding="utf-8"))
+    d = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+    pick = [e for e in ents if OBJ_HINT.search(e["text_long"])]
+    per = 40
+    n = (len(pick) + per - 1) // per
+    for b in range(n):
+        p = os.path.join(d, "enc5_batch_%02d.md" % (b + 1))
+        assert "--force" in sys.argv or not os.path.exists(p), "refusing to overwrite " + p + " (use --force)"
+        lines = ["# Объекты на улицах, партия %d из %d: статьи энциклопедии (полный текст статьи, годы исправлены)\n" % (b + 1, n)]
+        for e in pick[b * per:(b + 1) * per]:
+            lines.append("## %s | PDF p. %s | район: %s | заголовок (OCR): %s\n\n```\n%s\n```\n" % (e["id"], e["page"], e["district"], e["name"], e["text_long"]))
+        open(p, "w", encoding="utf-8").write("\n".join(lines))
+    print("objects pass: %d entries in %d batches" % (len(pick), n))
+
+
 if __name__ == "__main__":
-    if "--full-pass" in sys.argv:
+    if "--objects-pass" in sys.argv:
+        objects_pass()
+    elif "--full-pass" in sys.argv:
         full_pass()
     elif "--third-pass" in sys.argv:
         third_pass()

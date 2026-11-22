@@ -152,6 +152,58 @@ test("search finds a street by a former name and opens its card; a street withou
   await page.ctx.close();
 });
 
+test("the card of a street has the section 'On the street' with the buildings of the encyclopedia (the person, the role, the year)", async () => {
+  const page = await main("#1960");
+  await search(page, "Betlemi Rise");
+  const row = page.locator("#searchRes li").filter({ hasText: "Betlemi" }).first();
+  assert.ok((await row.count()) > 0, "the street is found");
+  await row.click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  const body = await page.locator("#imBody").innerText();
+  assert.match(body, /On the street:/);
+  assert.match(body, /Building/);
+  assert.match(body, /Petkhaini Staircase · Timote Beloi \(architect\) · 1850/, "the object with the person, the role and the year");
+  await page.ctx.close();
+});
+
+test("the legend of the transport has a row with a sign for every kind of line, the tram of the plan of 1913 is not paler than the tram scheme", async () => {
+  const page = await main("#1990");
+  const rows = await page.locator("#legendbox .legend svg.lsw").count();
+  assert.equal(rows, 9, "metro, railway, tram, tram scheme, avenue, main road, bridge, funicular, cable car");
+  const o = await page.evaluate(() => { const m = window.TT_E2E.map; return { alpha: m.getPaintProperty("tr-line", "line-opacity"), ticks: m.getPaintProperty("tr-ticks", "line-dasharray"), funic: m.getPaintProperty("tr-funic", "line-dasharray"), cable: m.getPaintProperty("tr-cable", "line-dasharray") }; });
+  assert.deepEqual(o.alpha[0], "case");
+  assert.ok(o.alpha[2] < o.alpha[3] && JSON.stringify(o.alpha).includes("prec"), "the tram scheme is paler than the lines read from the plan (property prec)");
+  assert.notDeepEqual(o.funic, o.cable, "the funicular and the cable car are different signs");
+  assert.ok(o.ticks && o.ticks.length === 2, "the tram has cross ticks");
+  await page.ctx.close();
+});
+
+test("the welcome window: short, with the numbers filled in, off in the tests and after a link; 'Do not show again' is remembered", async () => {
+  const quiet = await main("#1887");
+  assert.equal(await quiet.evaluate(() => document.getElementById("infoModal").hidden), true, "not shown in the tests without ?welcome=1");
+  await quiet.ctx.close();
+  const page = await main("#1887", "&welcome=1");
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  assert.equal(await page.locator("#imTitle").innerText(), 'Welcome to "Tbilisi through time"!');
+  const body = await page.locator("#imBody").innerText();
+  assert.doesNotMatch(body, /\{(objects|events|streets)\}/, "the numbers are filled in");
+  assert.match(body, /\d[\d\s ]* heritage objects, \d+ events and \d+ streets/);
+  assert.match(body, /Report a problem/, "the name of the button of the form is the real one");
+  assert.ok(body.length < 700, "the text is short: " + body.length);
+  await page.locator("#imBody button", { hasText: "Do not show again" }).click();
+  assert.equal(await page.evaluate(() => document.getElementById("infoModal").hidden), true);
+  assert.equal(await page.evaluate(() => localStorage.getItem("welcome")), "1");
+  await page.ctx.close();
+});
+
+test("the years without tram lines on the map (1923-1961, 1905-1912) say that there was a tram", async () => {
+  const page = await main("#1923");
+  assert.match(await page.locator("#trevents").textContent(), /There was a tram in these years/, "1923: the first year after the plan of 1913");
+  await page.evaluate(() => { location.hash = "#1940"; });
+  await page.waitForFunction(() => /about 84 km/.test(document.getElementById("trevents").textContent), null, { timeout: 15000 });
+  await page.ctx.close();
+});
+
 test("the list of the old street names shows the encyclopedia as text with the page where the street has no link", async () => {
   const page = await main("#1960");
   const txt = await page.locator("#stnames").textContent();

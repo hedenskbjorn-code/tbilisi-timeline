@@ -223,6 +223,25 @@ if (sn && sg) {
     for (const l of ["ru", "en", "ka"]) if (!n[l] || !String(n[l]).trim()) err(`street_notes "${k}": note.${l} is missing`);
     for (const l of ["en", "ka"]) if (cyr.test(n[l] || "")) err(`street_notes "${k}": Cyrillic in note.${l}`);
   }
+  // the objects on the streets (loaded when a card is opened): the key of a street, the kind and the role from the lists, three languages, no Cyrillic in en/ka, years as numbers
+  const sob = data["data/street_objects.json"]?.objects;
+  const OK = ["building", "monument", "church", "vanished", "memorial", "planner"], OR = ["architect", "sculptor", "resident", "surveyor", "builder", "founder", "namesake", "other"];
+  if (!sob) err("street_objects.json is missing");
+  else for (const [k, list] of Object.entries(sob)) {
+    if (!keys.has(k)) err(`street_objects: the objects of "${k}" belong to no street`);
+    list.forEach((o, i) => {
+      const w = `street_objects "${k}"[${i}]`;
+      if (!OK.includes(o.k)) err(`${w}: kind ${o.k}`);
+      if (o.r != null && !OR.includes(o.r)) err(`${w}: role ${o.r}`);
+      if (o.y != null && !(Array.isArray(o.y) && o.y.length >= 1 && o.y.length <= 2 && o.y.every(Number.isInteger))) err(`${w}: bad years`);
+      for (const f of ["n", "p"]) {
+        if (f === "p" && o.p == null) continue;
+        for (const l of ["ru", "en", "ka"]) if (!o[f]?.[l] || !String(o[f][l]).trim()) err(`${w}: ${f}.${l} is missing`);
+        for (const l of ["en", "ka"]) if (cyr.test(o[f]?.[l] || "")) err(`${w}: Cyrillic in ${f}.${l}`);
+      }
+      if (/პროსპექტ/.test(o.n?.ka || "")) err(`${w}: the calque of "prospect" in the Georgian name`);
+    });
+  }
 }
 
 // ---- the changelog ---------------------------------------------------------------------------------------------

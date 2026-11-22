@@ -34,8 +34,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   const $ = (id) => document.getElementById(id);
   const t = () => T[lang];
 
-  const TYPES = ["residential", "religious", "defense", "culture", "public", "transport", "memorial", "rural", "other"];
-  const activeTypes = new Set(TYPES);
+  // The objects of the register are drawn by the layers of the panel (no list of the register): a check box of a layer switches the register objects with its purpose (fn)
+  // on or off. The objects that a thematic layer already shows carry "dup" and are not drawn (tools/mark_register_dups.py).
+  const FN_BOXES = { showResid: ["residential"], showPublic: ["public"], showRel: ["religious"], showSci: ["culture"], showEdu: ["culture"], showDef: ["defense"], showOtherB: ["memorial", "rural", "transport", "other"] };
+  const activeFns = () => { const s = new Set(); for (const [id, fns] of Object.entries(FN_BOXES)) if ($(id).checked) for (const k of fns) s.add(k); return s; };
+  const regVisible = (p, fns) => !(p.ye > year) && !p.dup && fns.has(p.fn);
   let plans = [], monuments = null, undated = 0, areas = [];
   let urbanSnaps = [], urbanMeta = {}, distHist = null, distModern = [];
   let year = 1887;
@@ -104,26 +107,14 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   function getCss(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || "#b4412c"; }
 
   function filterExpr() {
-    const f = ["all", ["<=", ["get", "ye"], year]];
-    const tiers = [];                                   // a ticked box SHOWS that group
-    if ($("showNat").checked) tiers.push("nat");
-    if ($("showMon").checked) tiers.push("mon");
-    if ($("showObj").checked) tiers.push("obj");
-    f.push(["in", ["case", ["get", "national"], "nat", ["get", "monument"], "mon", "obj"], ["literal", tiers]]);
-    if (activeTypes.size < TYPES.length) f.push(["in", ["get", "fn"], ["literal", [...activeTypes]]]);
+    const f = ["all", ["<=", ["get", "ye"], year], ["!=", ["get", "dup"], 1], ["in", ["get", "fn"], ["literal", [...activeFns()]]]];
     return f;
   }
 
   function countVisible() {
-    const okTier = { nat: $("showNat").checked, mon: $("showMon").checked, obj: $("showObj").checked };
+    const fns = activeFns();
     let n = 0;
-    for (const f of monuments.features) {
-      const p = f.properties;
-      if (p.ye > year) continue;
-      if (!okTier[p.national ? "nat" : p.monument ? "mon" : "obj"]) continue;
-      if (!activeTypes.has(p.fn)) continue;
-      n++;
-    }
+    for (const f of monuments.features) if (regVisible(f.properties, fns)) n++;
     return n;
   }
 
@@ -349,8 +340,10 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   // plan rasters are added to the map only when a plan is first needed (keeps the first page load light)
   // transport (tram, metro, railway, bridges, avenues) lies above the old plans and the topographic map: layers added later go in just under "admin-line", i.e. above the transport
   // that was added earlier, so the transport is lifted again after every plan or topographic map is added (found out 2026-11-19: the tram was hidden under the topographic map)
+  // the layers of the transport, from the bottom: the casing of the avenues, the lines, the cross ticks of the tram, the metro stations (circle, letter), the funicular, the cable car
+  const TR_IDS = ["tr-casing", "tr-line", "tr-ticks", "tr-pt", "tr-pt-m", "tr-funic", "tr-cable"];
   function liftTransport() {
-    for (const id of ["tr-line", "tr-aerial", "tr-pt"]) if (map.getLayer(id) && map.getLayer("admin-line")) map.moveLayer(id, "admin-line");
+    for (const id of TR_IDS) if (map.getLayer(id) && map.getLayer("admin-line")) map.moveLayer(id, "admin-line");
   }
   function ensurePlan(p) {
     if (map.getLayer("plan-" + p.id)) return;
@@ -548,7 +541,6 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateSciUi();
     updateEduUi();
     $("note").textContent = t().note(undated);
-    buildTypes();
     buildAbout();
     buildHow();
     update();
@@ -623,21 +615,6 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       p.className = "small";
       p.textContent = para;
       box.appendChild(p);
-    }
-  }
-
-  function buildTypes() {
-    const box = $("typelist");
-    box.textContent = "";
-    for (const k of TYPES) {
-      const lab = document.createElement("label");
-      lab.className = "row";
-      const cb = document.createElement("input");
-      cb.type = "checkbox"; cb.checked = activeTypes.has(k);
-      cb.addEventListener("change", () => { if (cb.checked) activeTypes.add(k); else activeTypes.delete(k); update(); });
-      lab.appendChild(cb);
-      lab.appendChild(document.createTextNode(" " + t().types[k]));
-      box.appendChild(lab);
     }
   }
 
@@ -842,8 +819,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }
   // the card of a street: the name today, every former name with its years (also the names without a year), the note and the source (a link or a book with the page)
   let stNotes = null;                                             // the notes of the streets: street_notes.json, loaded when the first card is opened
+  let stObjects = null;                                           // the objects on the streets (buildings, monuments, ...): street_objects.json, loaded with the first card
+  const OBJ_KINDS = ["building", "monument", "church", "memorial", "vanished", "planner"];
   async function showStreetCard(s, fly) {
     if (!stNotes) { try { stNotes = (await getJSON("data/street_notes.json", 2)).notes; } catch (e) { stNotes = {}; } }
+    if (!stObjects) { try { stObjects = (await getJSON("data/street_objects.json", 2)).objects; } catch (e) { stObjects = {}; } }
     reopenInfo = () => showStreetCard(s);
     const L = t(), now = s.now[lang] || s.now.en, note = stNotes[s.geom || s.now.en];
     openInfo((body) => {
@@ -851,6 +831,23 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       for (const iv of s.iv) if (iv[2]) infoLine(body, iv[0] + "–" + (iv[1] >= 9999 ? "" : iv[1]) + " · " + pickName(iv[2]), "small");
       if (s.undated && s.undated.length) infoLine(body, L.stUndated + ": " + s.undated.map((u) => pickName(u)).join("; "), "small");
       if (note) infoLine(body, pickName(note));
+      const objs = stObjects[s.geom || s.now.en];
+      if (objs && objs.length) {                                  // "On the street": by kind, each with the person (the role), the years and the house number
+        infoLine(body, L.objTitle + ":", "");
+        for (const k of OBJ_KINDS) {
+          const list = objs.filter((o) => o.k === k);
+          if (!list.length) continue;
+          infoLine(body, L.objKinds[k], "small");
+          for (const o of list) {
+            const parts = [k === "planner" ? "" : pickName(o.n)];
+            if (o.p) parts.push(pickName(o.p) + (o.r ? " (" + L.objRoles[o.r] + ")" : ""));
+            else if (o.r && k !== "planner") parts.push(L.objRoles[o.r]);
+            if (o.y) parts.push(o.y.join("–"));
+            if (o.a) parts.push("№ " + o.a);
+            infoLine(body, "• " + parts.filter(Boolean).join(" · "), "small");
+          }
+        }
+      }
       infoLine(body, L.evSrc + ":");
       if (s.src) { const d = infoLine(body, "", "small"), a = document.createElement("a"); a.href = s.src; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURI(s.src); d.appendChild(a); }
       if (s.book) infoLine(body, s.book, "small");
@@ -1038,6 +1035,36 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (!$("infoModal").hidden || !$("viewModal").hidden || !$("fbModal").hidden || !$("search").hidden || !$("moreMenu").hidden) return;
     openPop.remove();
   }, true);
+  // the welcome window: a short friendly text at the first visit. Not shown: in the tests (only with ?welcome=1), after a link to a year or to an object, after "Do not show again" (localStorage),
+  // twice in one session (sessionStorage). "Start" and a closed window do not switch it off for good.
+  function maybeWelcome() {
+    const sp = new URLSearchParams(location.search), force = sp.get("welcome") === "1";
+    let never = false, seen = false;
+    try { never = localStorage.getItem("welcome") === "1"; seen = sessionStorage.getItem("welcome") === "1"; } catch (e) {}
+    if (!force && (sp.has("e2e") || sp.has("o") || (h >= MIN && h <= MAX) || never || seen)) return;
+    try { sessionStorage.setItem("welcome", "1"); } catch (e) {}
+    const L = t(), n = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    const streets = stNames.filter((x) => x.iv.some((v) => v[2]) || (x.undated && x.undated.length)).length;
+    const fill = (txt) => txt.replace("{objects}", n(monuments ? monuments.features.length : 0)).replace("{events}", n(histEvents.length)).replace("{streets}", n(streets));
+    openInfo((body) => {
+      infoLine(body, L.welIntro, "");
+      for (const k of ["welI1", "welI2", "welI3"]) infoLine(body, "• " + fill(L[k]), "small");
+      infoLine(body, L.welHonest, "small");
+      infoLine(body, L.welReport, "small");
+      const row = document.createElement("div");
+      row.className = "row";
+      const ok = document.createElement("button"), no = document.createElement("button");
+      ok.type = no.type = "button";
+      ok.className = "chip primary";
+      no.className = "chip";
+      ok.textContent = L.welOk;
+      no.textContent = L.welNever;
+      ok.addEventListener("click", closeInfo);
+      no.addEventListener("click", () => { try { localStorage.setItem("welcome", "1"); } catch (e) {} closeInfo(); });
+      row.append(ok, no);
+      body.appendChild(row);
+    }, false, L.welTitle);
+  }
   function infoLine(body, text, cls) { const d = document.createElement("div"); d.className = cls || "small"; d.textContent = text; body.appendChild(d); return d; }
   // "photo hunt": the ring layer and the list of the nearest objects without a photo (only where the photo form is switched on with ?club=1)
   const photoOn = () => !!(window.TT_PHOTO && window.TT_PHOTO.enabled());
@@ -1110,11 +1137,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   function showNear(pos) {
     const L = t(), k = Math.cos(pos.lat * Math.PI / 180), list = [];
     reopenInfo = () => showNear(pos);
-    const okTier = { nat: $("showNat").checked, mon: $("showMon").checked, obj: $("showObj").checked };
+    const fns = activeFns();
     const dist = (lng, lat) => { const dx = (lng - pos.lng) * k * 111320, dy = (lat - pos.lat) * 111320; return { d: Math.hypot(dx, dy), br: (Math.atan2(dx, dy) * 180 / Math.PI + 360) % 360 }; };
     for (const f of (monuments ? monuments.features : [])) {
       const p = f.properties;
-      if (p.ye > year || !okTier[p.national ? "nat" : p.monument ? "mon" : "obj"] || !activeTypes.has(p.fn)) continue;
+      if (!regVisible(p, fns)) continue;
       const [lng, lat] = f.geometry.coordinates;
       list.push({ p, lng, lat, ...dist(lng, lat) });
     }
@@ -1506,7 +1533,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   function trGapNote() {
     const L = t();
     if (year >= 1905 && year <= 1912) return L.trGapEarly;
-    if (year >= 1924 && year <= 1961) {
+    if (year >= 1923 && year <= 1961) {                         // the lines of the plan of 1913 are drawn up to 1922, from 1923 there are none
       const a = Object.keys(TRAM_KM).map(Number).reduce((best, k) => (Math.abs(k - year) < Math.abs(best - year) ? k : best));
       return L.trGapMid(TRAM_KM[a], a);
     }
@@ -1514,12 +1541,13 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }
   function updateTransport() {
     const on = $("showTransport").checked;
-    const AER = ["match", ["get", "kind"], ["funicular", "cablecar"], true, false];
-    for (const id of ["tr-line", "tr-pt", "tr-aerial"]) {
+    const LINE = ["!=", ["geometry-type"], "Point"], kind = (...k) => ["match", ["get", "kind"], k, true, false];
+    const BASE = { "tr-casing": ["all", LINE, kind("avenue")], "tr-line": ["all", LINE, ["!", kind("funicular", "cablecar")]], "tr-ticks": ["all", LINE, kind("tram")],
+      "tr-pt": ["==", ["geometry-type"], "Point"], "tr-pt-m": ["==", ["geometry-type"], "Point"], "tr-funic": ["all", LINE, kind("funicular")], "tr-cable": ["all", LINE, kind("cablecar")] };
+    for (const id of TR_IDS) {
       if (!map.getLayer(id)) continue;
       map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
-      const base = id === "tr-pt" ? ["==", ["geometry-type"], "Point"] : id === "tr-aerial" ? ["all", ["!=", ["geometry-type"], "Point"], AER] : ["all", ["!=", ["geometry-type"], "Point"], ["!", AER]];
-      map.setFilter(id, ["all", base, trFilter()]);
+      map.setFilter(id, ["all", BASE[id], trFilter()]);
     }
     const box = $("trevents");
     if (!box) return;
@@ -1558,7 +1586,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
     actions(el, () => openInfo((body) => {
       if (p.note) infoLine(body, p.note);
-      infoLine(body, "Wikipedia:");
+      if (srcs.length) infoLine(body, "Wikipedia:");
       srcs.forEach((u) => { const d = document.createElement("div"); d.className = "small"; const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u); d.appendChild(a); body.appendChild(d); });
       infoLine(body, "OpenStreetMap contributors (ODbL): geometry");
     }), { id: p.id, name: p.name_en, reg: "-" });
@@ -1942,24 +1970,31 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       const tr = await getJSON("data/transport.json", 2);
       map.addSource("transport", { type: "geojson", data: tr });
       const metroColor = ["match", ["get", "line"], "2", "#2f9e44", "#e03131"];     // line 1 (Akhmeteli-Varketili) red, line 2 (Saburtalo) green
-      const kindColor = ["match", ["get", "kind"], "metro_line", metroColor, "railway", "#868e96", "avenue", "#f08c00", "bridge", "#1c7ed6", "tram", "#5a2d0c", "#495057"];
-      map.addLayer({ id: "tr-line", type: "line", source: "transport", filter: ["!=", ["geometry-type"], "Point"], layout: { visibility: "none", "line-cap": "round" },
-                     paint: { "line-color": kindColor, "line-width": ["match", ["get", "kind"], "railway", 2, "avenue", 3, 3.5], "line-offset": ["match", ["get", "kind"], "tram", 4, 0], "line-opacity": 0.9 } });
-      map.addLayer({ id: "tr-pt", type: "circle", source: "transport", filter: ["==", ["geometry-type"], "Point"], layout: { visibility: "none" },
-                     paint: { "circle-radius": 5, "circle-color": "#fff", "circle-stroke-color": metroColor, "circle-stroke-width": 2.5 } });
-      map.addLayer({ id: "tr-aerial", type: "line", source: "transport", filter: ["!=", ["geometry-type"], "Point"], layout: { visibility: "none", "line-cap": "butt" },     // funicular and cable car: violet dashed (not confused with the green metro line)
-                     paint: { "line-color": "#7048e8", "line-width": 3.5, "line-dasharray": [1.6, 1.2] } });
-      for (const id of ["tr-line", "tr-pt", "tr-aerial"]) {
+      const kindColor = ["match", ["get", "kind"], "metro_line", metroColor, "railway", "#343a40", "avenue", "#f08c00", "road", "#e8a33d", "bridge", "#1c7ed6", "tram", "#5a2d0c", "#495057"];
+      // the signs follow the topographic maps (conditional signs for the maps 1:25000-1:100000, 1983, tables 14 and 15): the avenue is a road with a dark casing and an orange fill (sign 106),
+      // the railway a solid dark line (90), the tram the thinnest line with cross ticks (94), the funicular a thin line of long dashes (95.2), the cable car dashes and dots (95.1),
+      // the metro station a circle with the letter M (103). The tram drawn from the route lists (street along its whole length) is paler than the lines read from the plan of 1913 ("prec").
+      const trAlpha = ["case", ["all", ["==", ["get", "kind"], "tram"], ["!", ["has", "prec"]]], 0.5, 0.92];
+      const LINE = ["!=", ["geometry-type"], "Point"], POINT = ["==", ["geometry-type"], "Point"];
+      const add = (id, type, filter, layout, paint) => map.addLayer({ id, type, source: "transport", filter, layout: { visibility: "none", ...layout }, paint });
+      add("tr-casing", "line", LINE, { "line-cap": "round" }, { "line-color": "#3d2b10", "line-width": 5.5 });
+      add("tr-line", "line", LINE, { "line-cap": "round" }, { "line-color": kindColor, "line-width": ["match", ["get", "kind"], "railway", 2, "avenue", 3, "road", 2.2, "tram", 1.3, 3.5], "line-offset": ["match", ["get", "kind"], "tram", 4, 0], "line-opacity": trAlpha });
+      add("tr-ticks", "line", LINE, { "line-cap": "butt" }, { "line-color": "#5a2d0c", "line-width": 5, "line-offset": 4, "line-dasharray": [0.25, 1.1], "line-opacity": trAlpha });
+      add("tr-pt", "circle", POINT, {}, { "circle-radius": 7, "circle-color": "#fff", "circle-stroke-color": metroColor, "circle-stroke-width": 2 });
+      add("tr-pt-m", "symbol", POINT, { "text-field": "M", "text-font": ["Noto Sans Bold"], "text-size": 10, "text-allow-overlap": true, "text-ignore-placement": true }, { "text-color": metroColor });
+      add("tr-funic", "line", LINE, { "line-cap": "butt" }, { "line-color": "#7048e8", "line-width": 2.2, "line-dasharray": [5, 1.2] });
+      add("tr-cable", "line", LINE, { "line-cap": "butt" }, { "line-color": "#7048e8", "line-width": 2.4, "line-dasharray": [3, 1.2, 0.5, 1.2] });
+      for (const id of TR_IDS.filter((x) => x !== "tr-casing" && x !== "tr-ticks" && x !== "tr-pt-m")) {
         map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
         map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
       }
       // one click handler for all transport: the lines lie on one another (the tram is drawn 4 px beside the street, an avenue, a bridge and a railway can run along it), so
       // the object of the highest rank within a few pixels is taken: a tram before a metro line, a bridge before an avenue (found out 2026-11-19: on Chavchavadze Avenue the avenue took the click)
-      const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue"];
+      const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue", "road"];
       const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "run-pt", "lost-dot", "settle-dot"];
       map.on("click", (e) => {
         const near = (r) => [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
-        const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-aerial"].filter((id) => map.getLayer(id)) });
+        const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-funic", "tr-cable"].filter((id) => map.getLayer(id)) });
         if (!hits.length) return;
         const exact = POINT_LAYERS.filter((id) => map.getLayer(id));
         if (exact.length && map.queryRenderedFeatures(e.point, { layers: exact }).length) return;      // a point object right under the click has its own card
@@ -2081,6 +2116,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     } catch (e) {}
     dataReady = true;
     loadChangelog();
+    maybeWelcome();
     if (map.loaded()) hideLoading(); else map.once("idle", hideLoading);
   });
 
@@ -2089,7 +2125,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (hy >= MIN && hy <= MAX && hy !== year) { year = hy; update(); }
   });
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showEdu", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showNat", "showMon", "showObj", "showNoPhoto"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showEdu", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showResid", "showPublic", "showDef", "showOtherB", "showNoPhoto"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
@@ -2108,11 +2144,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     for (const el of document.querySelectorAll("#filters input[type=range]")) if (el.value !== el.defaultValue) return false;
     const sel = $("topoSel");
     if (sel && !sel.options[sel.selectedIndex].defaultSelected) return false;
-    return activeTypes.size === TYPES.length;
+    return true;
   }
   function syncFilterUi() {
-    const hint = $("emptyObjects");        // no status or no type chosen: no register object is shown, say so
-    if (hint) hint.hidden = ($("showNat").checked || $("showMon").checked || $("showObj").checked) && activeTypes.size > 0;
     const rb = $("filtersReset");
     if (rb) rb.disabled = filtersAtDefault();
     for (const sec of document.querySelectorAll("#filters details.fsec")) {      // "switched on / all" of every block (a half-ticked box of the automatic topographic map counts as on)
@@ -2128,12 +2162,6 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       }
       cnt.textContent = on + "/" + all;
     }
-  }
-  function setAllTypes(on) {
-    activeTypes.clear();
-    if (on) for (const k of TYPES) activeTypes.add(k);
-    buildTypes();
-    update();
   }
   function resetFilters() {
     const d = filterDefaults();
@@ -2153,10 +2181,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       const i = Array.from(sel.options).findIndex((o) => o.defaultSelected);
       if (i >= 0 && sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event("change", { bubbles: true })); }
     }
-    setAllTypes(true);
   }
-  $("typesAll").addEventListener("click", () => setAllTypes(true));
-  $("typesNone").addEventListener("click", () => setAllTypes(false));
   $("filtersReset").addEventListener("click", resetFilters);
   for (const sec of document.querySelectorAll("#filters details.fsec")) {
     const id = sec.dataset.sec;

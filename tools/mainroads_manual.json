@@ -1,0 +1,38 @@
+{
+ "note": "Rows of the second pass added by Claude (2026-11-22) for the roads whose article gives only a century of the origin: the first document of the same article (a plan of 1900, a map of 1895); the quotes are cut from the page text and are checked like the rows of Gemini (tools/verify_mainroads2.py).",
+ "rows": [
+  {
+   "key": "tamar",
+   "status": "ok",
+   "skip_reason": "",
+   "page": 84,
+   "ka_heading": "თამარ მეფის გამზირი",
+   "doc_quote": "თბილისის 1900 წ. გეგმაზე ვაგზლის (ყოფ. ბულვარის ქუჩის) და პასაჟ „კროშკას' ქუჩების სახელით იყო დატანილი",
+   "doc_printed": "თბილისის 1900 წ. გეგმაზე ვაგზლის (ყოფ. ბულვარის ქუჩის) და პასაჟ „კროშკას' ქუჩების სახელით იყო დატანილი",
+   "doc_kind": "plan",
+   "year": 1900
+  },
+  {
+   "key": "kakheti",
+   "status": "ok",
+   "skip_reason": "",
+   "page": 95,
+   "ka_heading": "კახეთის გზატკეცილი",
+   "doc_quote": "თბილისის 1895 წ. რუკაზე დატანილია როგორც ნავთლუღის გზატკეცილი",
+   "doc_printed": "თბილისის 1895 წ. რუკაზე დატანილია როგორც ნავთლუღის გზატკეცილი",
+   "doc_kind": "map",
+   "year": 1895
+  },
+  {
+   "key": "tsabadze",
+   "status": "ok",
+   "skip_reason": "",
+   "page": 194,
+   "ka_heading": "გიორგი ცაბაძის ქუჩა",
+   "doc_quote": "წარმოიქმნა XIX ს-ში. თავდაპირველად მიხეილის შე- 4 სახვევი ერქვა. თბილისის 1876 წ. გომში: დატანილია როგორც მუშთაიდის შესახვევი. 1897 წ. გეგმაზე – ქუჩ.",
+   "doc_printed": "1897 წ. გეგმაზე – ქუჩა.",
+   "doc_kind": "plan",
+   "year": 1897
+  }
+ ]
+}
