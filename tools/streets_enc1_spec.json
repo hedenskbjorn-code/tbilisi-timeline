@@ -18871,6 +18871,410 @@
    }
   },
   {
+   "id": "E0087",
+   "geom": "Nikoloz Baratashvili Square",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ძველი თბილისის რ-ნი (ზემო უძანი)",
+   "near": null,
+   "now": {
+    "ru": "площадь Николоза Бараташвили",
+    "en": "Nikoloz Baratashvili Square",
+    "ka": "ნიკოლოზ ბარათაშვილის მოედანი"
+   },
+   "iv": [],
+   "from_kinds": [],
+   "origin": null,
+   "undated": [
+    {
+     "ru": "Мухранская площадь",
+     "en": "Mukhrani Square",
+     "ka": "მუხრანის მოედანი"
+    }
+   ],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 26",
+   "pdf_page": 26,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): Ранее называлась (год не назван): Мухранская площадь.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): Earlier called (the year is not named): Mukhrani Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): ადრე ერქვა (წელი დასახელებული არ არის): მუხრანის მოედანი."
+   }
+  },
+  {
+   "id": "E0117",
+   "geom": "Besiki Square [E0117]",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ძველი თბილისის რ-ნი (მთაწმინდა)",
+   "near": null,
+   "now": {
+    "ru": "площадь Бесики",
+    "en": "Besiki Square",
+    "ka": "ბესიკის მოედანი"
+   },
+   "iv": [
+    [
+     1800,
+     1923,
+     {
+      "ru": "Давидовская площадь",
+      "en": "Daviti Square",
+      "ka": "დავითის მოედანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "origin"
+   ],
+   "origin": 1800,
+   "undated": [],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 32",
+   "pdf_page": 32,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): с возникновения улицы (на карте условно с 1800) — Давидовская площадь; 1923 — площадь Бесики.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): from the origin of the street (on the map conventionally from 1800) — Daviti Square; 1923 — Besiki Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): წარმოქმნიდან (რუკაზე პირობითად 1800-დან) — დავითის მოედანი; 1923 — ბესიკის მოედანი."
+   }
+  },
+  {
+   "id": "E0227",
+   "geom": "Decembrists Square",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ძველი თბილისის რ-ნი (ხარფუნი)",
+   "near": null,
+   "now": {
+    "ru": "площадь Декабристов",
+    "en": "Decembrists Square",
+    "ka": "დეკაბრისტების მოედანი"
+   },
+   "iv": [
+    [
+     1850,
+     1923,
+     {
+      "ru": "Екатерининская площадь",
+      "en": "Ekaterine Square",
+      "ka": "ეკატერინეს მოედანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "origin"
+   ],
+   "origin": 1850,
+   "undated": [],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 57",
+   "pdf_page": 57,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): с возникновения улицы (на карте условно с 1850) — Екатерининская площадь; 1923 — площадь Декабристов.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): from the origin of the street (on the map conventionally from 1850) — Ekaterine Square; 1923 — Decembrists Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): წარმოქმნიდან (რუკაზე პირობითად 1850-დან) — ეკატერინეს მოედანი; 1923 — დეკაბრისტების მოედანი."
+   }
+  },
+  {
+   "id": "E0271",
+   "geom": "Rose Revolution Square [E0271]",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ძველი თბილისის რ-ნი (ვერე)",
+   "near": null,
+   "now": {
+    "ru": "площадь Революции роз",
+    "en": "Rose Revolution Square",
+    "ka": "ვარდების რევოლუციის მოედანი"
+   },
+   "iv": [
+    [
+     1980,
+     2005,
+     {
+      "ru": "площадь Республики",
+      "en": "Republic Square",
+      "ka": "რესპუბლიკის მოედანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "origin"
+   ],
+   "origin": 1980,
+   "undated": [],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 70",
+   "pdf_page": 70,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): с возникновения улицы (на карте условно с 1980) — площадь Республики; 2005 — площадь Революции роз.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): from the origin of the street (on the map conventionally from 1980) — Republic Square; 2005 — Rose Revolution Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): წარმოქმნიდან (რუკაზე პირობითად 1980-დან) — რესპუბლიკის მოედანი; 2005 — ვარდების რევოლუციის მოედანი."
+   }
+  },
+  {
+   "id": "E0278",
+   "geom": "Vakhtang Gorgasali Square [E0278]",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ძველი თბილისის რ-ნი (კა- ლა)",
+   "near": null,
+   "now": {
+    "ru": "площадь Вахтанга Горгасали",
+    "en": "Vakhtang Gorgasali Square",
+    "ka": "ვახტანგ გორგასლის მოედანი"
+   },
+   "iv": [
+    [
+     1735,
+     1750,
+     {
+      "ru": "Цихис-мейдан (Крепостной майдан)",
+      "en": "Tsikhis Meidani",
+      "ka": "ციხის მეიდანი"
+     }
+    ],
+    [
+     1750,
+     1841,
+     {
+      "ru": "Нижний майдан",
+      "en": "Kvemo Meidani",
+      "ka": "ქვემო მეიდანი"
+     }
+    ],
+    [
+     1841,
+     1851,
+     {
+      "ru": "Майдан",
+      "en": "Meidani",
+      "ka": "მეიდანი"
+     }
+    ],
+    [
+     1851,
+     1903,
+     {
+      "ru": "Татарский майдан",
+      "en": "Tatris Maidani",
+      "ka": "თათრის მაიდანი"
+     }
+    ],
+    [
+     1903,
+     1958,
+     {
+      "ru": "Майдан",
+      "en": "Maidani",
+      "ka": "მაიდანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "plan",
+    "exact",
+    "plan",
+    "plan",
+    "plan"
+   ],
+   "origin": 1600,
+   "undated": [],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 71",
+   "pdf_page": 71,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1735 (год плана или списка) — Цихис-мейдан (Крепостной майдан); 1750 — Нижний майдан; 1841 (год плана или списка) — Майдан; 1851 (год плана или списка) — Татарский майдан; 1903 (год плана или списка) — Майдан; 1958 — площадь Вахтанга Горгасали.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1735 (the year of a plan or list) — Tsikhis Meidani; 1750 — Kvemo Meidani; 1841 (the year of a plan or list) — Meidani; 1851 (the year of a plan or list) — Tatris Maidani; 1903 (the year of a plan or list) — Maidani; 1958 — Vakhtang Gorgasali Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): 1735 (გეგმის ან სიის წელი) — ციხის მეიდანი; 1750 — ქვემო მეიდანი; 1841 (გეგმის ან სიის წელი) — მეიდანი; 1851 (გეგმის ან სიის წელი) — თათრის მაიდანი; 1903 (გეგმის ან სიის წელი) — მაიდანი; 1958 — ვახტანგ გორგასლის მოედანი."
+   }
+  },
+  {
+   "id": "E0547",
+   "geom": "Grigol Orbeliani Square [E0547]",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ძველი თბილისის რ-ნი (ორ- ბელიანთუშანი)",
+   "near": null,
+   "now": {
+    "ru": "площадь Григола Орбелиани",
+    "en": "Grigol Orbeliani Square",
+    "ka": "გრიგოლ ორბელიანის მოედანი"
+   },
+   "iv": [
+    [
+     1828,
+     1876,
+     {
+      "ru": "Почтовая площадь",
+      "en": "Post Square",
+      "ka": "ფოსტის მოედანი"
+     }
+    ],
+    [
+     1876,
+     1903,
+     {
+      "ru": "Солдатский базар",
+      "en": "Saldatis Bazari",
+      "ka": "სალდათის ბაზარი"
+     }
+    ],
+    [
+     1903,
+     1930,
+     {
+      "ru": "площадь Русского базара",
+      "en": "Russian Bazaar Square",
+      "ka": "რუსის ბაზრის მოედანი"
+     }
+    ],
+    [
+     1930,
+     1992,
+     {
+      "ru": "Колхозная площадь",
+      "en": "Kolkhoz Square",
+      "ka": "კოლმეურნეობის მოედანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact",
+    "plan",
+    "plan",
+    "dec"
+   ],
+   "origin": 1800,
+   "undated": [],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 132",
+   "pdf_page": 132,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1828 — Почтовая площадь; 1876 (год плана или списка) — Солдатский базар; 1903 (год плана или списка) — площадь Русского базара; 1930-е годы (точный год не назван, на карте условно с 1930) — Колхозная площадь; 1992 — площадь Григола Орбелиани.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1828 — Post Square; 1876 (the year of a plan or list) — Saldatis Bazari; 1903 (the year of a plan or list) — Russian Bazaar Square; the 1930s (the exact year is not named, on the map conventionally from 1930) — Kolkhoz Square; 1992 — Grigol Orbeliani Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): 1828 — ფოსტის მოედანი; 1876 (გეგმის ან სიის წელი) — სალდათის ბაზარი; 1903 (გეგმის ან სიის წელი) — რუსის ბაზრის მოედანი; 1930-იანი წლები (ზუსტი წელი დასახელებული არ არის, რუკაზე პირობითად 1930-დან) — კოლმეურნეობის მოედანი; 1992 — გრიგოლ ორბელიანის მოედანი."
+   }
+  },
+  {
+   "id": "E0557",
+   "geom": "26 May Square [E0557]",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ვაკე-საბურთალოს რ-ნი (ბა- ბურთალო)",
+   "near": null,
+   "now": {
+    "ru": "площадь 26 Мая",
+    "en": "26 May Square",
+    "ka": "ოცდაექვსი მაისის მოედანი"
+   },
+   "iv": [
+    [
+     1977,
+     1992,
+     {
+      "ru": "площадь Конституции",
+      "en": "Constitution Square",
+      "ka": "კონსტიტუციის მოედანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "after"
+   ],
+   "origin": null,
+   "undated": [
+    {
+     "ru": "площадь Орджоникидзе",
+     "en": "Orjonikidze Square",
+     "ka": "ორჯონიკიძის მოედანი"
+    }
+   ],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 136",
+   "pdf_page": 136,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): после 1977 (год не назван, на карте условно с 1977) — площадь Конституции; 1992 — площадь 26 Мая. Ранее называлась (год не назван): площадь Орджоникидзе.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): after 1977 (the year is not named, on the map conventionally from 1977) — Constitution Square; 1992 — 26 May Square. Earlier called (the year is not named): Orjonikidze Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): 1977 წლის შემდეგ (ზუსტი წელი დასახელებული არ არის, რუკაზე პირობითად 1977-დან) — კონსტიტუციის მოედანი; 1992 — ოცდაექვსი მაისის მოედანი. ადრე ერქვა (წელი დასახელებული არ არის): ორჯონიკიძის მოედანი."
+   }
+  },
+  {
+   "id": "E0573",
+   "geom": "Zurab Zhvania Square",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ეაკე-საბურთალოს რ-ნი",
+   "near": null,
+   "now": {
+    "ru": "площадь Зураба Жвания",
+    "en": "Zurab Zhvania Square",
+    "ka": "ზურაბ ჟვანიას მოედანი"
+   },
+   "iv": [
+    [
+     1970,
+     2005,
+     {
+      "ru": "площадь Гагарина",
+      "en": "Gagarin Square",
+      "ka": "გაგარინის მოედანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "dec"
+   ],
+   "origin": null,
+   "undated": [],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 139",
+   "pdf_page": 139,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1970-е годы (точный год не назван, на карте условно с 1970) — площадь Гагарина; 2005 — площадь Зураба Жвания.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the 1970s (the exact year is not named, on the map conventionally from 1970) — Gagarin Square; 2005 — Zurab Zhvania Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): 1970-იანი წლები (ზუსტი წელი დასახელებული არ არის, რუკაზე პირობითად 1970-დან) — გაგარინის მოედანი; 2005 — ზურაბ ჟვანიას მოედანი."
+   }
+  },
+  {
+   "id": "E0888",
+   "geom": "Ivane Javakhishvili Square [E0888]",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ძველი თბილისის რ-ნი (ჩუ- ღურეთი)",
+   "near": null,
+   "now": {
+    "ru": "площадь Иване Джавахишвили",
+    "en": "Ivane Javakhishvili Square",
+    "ka": "ივანე ჯავახიშვილის მოედანი"
+   },
+   "iv": [
+    [
+     1850,
+     1922,
+     {
+      "ru": "Николаевская площадь",
+      "en": "Nikoloz Square",
+      "ka": "ნიკოლოზის მოედანი"
+     }
+    ],
+    [
+     1922,
+     1990,
+     {
+      "ru": "площадь Калинина",
+      "en": "Kalinin Square",
+      "ka": "კალინინის მოედანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "origin",
+    "exact"
+   ],
+   "origin": 1850,
+   "undated": [],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 209",
+   "pdf_page": 209,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): с возникновения улицы (на карте условно с 1850) — Николаевская площадь; 1922 — площадь Калинина; 1990 — площадь Иване Джавахишвили.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): from the origin of the street (on the map conventionally from 1850) — Nikoloz Square; 1922 — Kalinin Square; 1990 — Ivane Javakhishvili Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): წარმოქმნიდან (რუკაზე პირობითად 1850-დან) — ნიკოლოზის მოედანი; 1922 — კალინინის მოედანი; 1990 — ივანე ჯავახიშვილის მოედანი."
+   }
+  },
+  {
    "id": "E0071",
    "geom": "Mirza Fatali Akhundov Street",
    "osm_ka": null,
@@ -19031,6 +19435,52 @@
     "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1903 (год плана или списка) — Круговой тупик; 1955 — Орхевская улица.",
     "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1903 (the year of a plan or list) — Tsriuli Dead End; 1955 — Orkhevi Street.",
     "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): 1903 (გეგმის ან სიის წელი) — წრიული ჩიხი; 1955 — ორხევის ქუჩა."
+   }
+  },
+  {
+   "id": "E0343",
+   "geom": "Jerusalem Square",
+   "osm_ka": null,
+   "nogeom": true,
+   "district": "ძველი თბილისის რ-ნი (ქვემო უშა- ნი)",
+   "near": null,
+   "now": {
+    "ru": "Иерусалимская площадь",
+    "en": "Jerusalem Square",
+    "ka": "იერუსალიმის მოედანი"
+   },
+   "iv": [
+    [
+     1841,
+     1925,
+     {
+      "ru": "Георгиевская площадь",
+      "en": "Georgievsky Square",
+      "ka": "გეორგიევსკის მოედანი"
+     }
+    ],
+    [
+     1925,
+     1994,
+     {
+      "ru": "Тонетская площадь",
+      "en": "Toneti Square",
+      "ka": "თონეთის მოედანი"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "plan",
+    "exact"
+   ],
+   "origin": 1800,
+   "undated": [],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 89",
+   "pdf_page": 89,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1841 (год плана или списка) — Георгиевская площадь; 1925 — Тонетская площадь; 1994 — Иерусалимская площадь.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1841 (the year of a plan or list) — Georgievsky Square; 1925 — Toneti Square; 1994 — Jerusalem Square.",
+    "ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): 1841 (გეგმის ან სიის წელი) — გეორგიევსკის მოედანი; 1925 — თონეთის მოედანი; 1994 — იერუსალიმის მოედანი."
    }
   }
  ],

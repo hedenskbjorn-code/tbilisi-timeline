@@ -1,0 +1,6 @@
+{
+ "note": "Corrections of typos of OSM in the names of monuments and plaques (id -> the full name in ka / ru / en). Decision of the owner 2026-11-23 ('most likely they are all typos, apply'); the corrected Georgian forms are those that Gemini named in its table of doubts (the Georgian text only through Gemini). Applied by tools/apply_monuments.py after the names of tools/verify_monuments_names.py. Not changed although they were in the table: Kimanuel Davitashvili and Erakli Dvalidze (the English field of OSM has the same spelling as the Georgian one, so it is not a typo of one field) and Givi Kindareli (only a guess 'Kandareli', no second source).",
+ "m:OSM_n2887030695": {"ka": "სამი ლოთი კაცი", "ru": "Три пьяных мужчины", "en": "Three Drunk Men"},
+ "m:OSM_n12020492769": {"ka": "განთიადი", "ru": "Рассвет", "en": "Dawn"},
+ "p:node14155455263": {"ka": "ალექსანდრე სერგოს-ძე აბულაძე", "ru": "Александр Сергоевич Абуладзе", "en": "Aleksandre Abuladze"}
+}

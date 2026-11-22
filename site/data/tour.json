@@ -50,9 +50,9 @@
     "ka": "რუკა"
    },
    "text": {
-    "ru": "Нажимайте на точки, линии и названия улиц: откроется карточка с описанием и источником. Масштаб: колесо мыши, жесты или кнопки + и −.",
-    "en": "Click the dots, the lines and the names of the streets to open a card with the description and the source. Zoom: the mouse wheel, gestures or the + and − buttons.",
-    "ka": "დააწკაპუნეთ წერტილებზე, ხაზებსა და ქუჩების სახელებზე: გაიხსნება ბარათი აღწერითა და წყაროთი. მასშტაბი: მაუსის ბორბლით, ჟესტებით ან + და − ღილაკებით."
+    "ru": "Нажимайте на точки, линии и названия улиц: откроется карточка с описанием и источником. Фото в карточке ведёт на страницу файла на Викискладе. Масштаб: колесо мыши, жесты или кнопки + и −.",
+    "en": "Click the dots, the lines and the names of the streets to open a card with the description and the source. The photo in a card leads to the page of the file on Wikimedia Commons. Zoom: the mouse wheel, gestures or the + and − buttons.",
+    "ka": "დააწკაპუნეთ წერტილებზე, ხაზებსა და ქუჩების სახელებზე: გაიხსნება ბარათი აღწერითა და წყაროთი. ბარათში მოცემული ფოტო ვიკისაწყობში ფაილის გვერდზე გადაგიყვანთ. მასშტაბი: მაუსის ბორბლით, ჟესტებით ან + და − ღილაკებით."
    }
   },
   {
@@ -69,6 +69,21 @@
     "ru": "«Фильтры» включают слои: здания и наследие, храмы, наука, история, трамвай и другой транспорт. «Поиск» (🔍) находит объекты, улицы, в том числе по прежним названиям, и события.",
     "en": "\"Filters\" switch the layers: buildings and heritage, churches, science, history, the tram and other transport. \"Search\" (🔍) finds objects, streets, also by their former names, and events.",
     "ka": "„ფილტრები“ რთავს ფენებს: შენობები და მემკვიდრეობა, ტაძრები, მეცნიერება, ისტორია, ტრამვაი და სხვა ტრანსპორტი. „ძიება“ (🔍) პოულობს ობიექტებს, ქუჩებს — მათ შორის ძველი სახელწოდებებით — და მოვლენებს."
+   }
+  },
+  {
+   "ids": [
+    "btnViews"
+   ],
+   "title": {
+    "ru": "Виды и фото",
+    "en": "Views and photos",
+    "ka": "ხედები და ფოტოები"
+   },
+   "text": {
+    "ru": "«Виды» показывают исторические рисунки города (не планы) к выбранному году; «Все виды» снимает привязку к году. Нажмите на картинку: она откроется крупно, листайте кнопками ‹ › или клавишами ← →.",
+    "en": "\"Views\" show the historical drawings of the city (not plans) for the chosen year; \"All views\" drops the year. Click a picture to open it large and flip through with the buttons ‹ › or the keys ← →.",
+    "ka": "„ხედები“ აჩვენებს ქალაქის ისტორიულ ნახატებს (არა გეგმებს) არჩეული წლისთვის; „ყველა ხედი“ ხსნის წელზე მიბმას. დააწკაპუნეთ სურათზე: ის დიდად გაიხსნება, გადაფურცლეთ ღილაკებით ‹ › ან კლავიშებით ← →."
    }
   },
   {

@@ -1,0 +1,370 @@
+{
+ "items": [
+  {
+   "id": "area-saburtalo-hippodrome",
+   "k": "area",
+   "lon": 44.75346,
+   "lat": 41.71983,
+   "n": {
+    "ru": "Бывший Сабурталинский (Делисский) ипподром, территория Центрального парка",
+    "en": "Former Saburtalo (Delisi) Hippodrome, the territory of the Central Park",
+    "ka": "ყოფილი საბურთალოს (დელისის) იპოდრომი, ცენტრალური პარკის ტერიტორია"
+   },
+   "a": {
+    "ru": "Старый ипподром в Сабуртало вдоль улицы Тамарашвили, открыт в 1959 году. В 1995 году территория приватизирована, в 2007 году у озера Лиси открылся «Новый ипподром», к 2009 году большую часть бетонных трибун убрали. В 2020 году фонд «Карту» выкупил значительную часть территории и передал городу; на ней планируется Центральный парк. Год, когда прекратились скачки, в источниках не назван.",
+    "en": "The Old Hippodrome in Saburtalo along Tamarashvili Street, opened in 1959. The area was privatized in 1995, in 2007 the “New Hippodrome” opened near Lisi Lake, and by 2009 most of the concrete stands had been removed. In 2020 the Cartu Foundation bought a large part of the territory and donated it to the city; the Central Park is planned here. The sources do not say in which year the races stopped.",
+    "ka": "ძველი იპოდრომი საბურთალოზე, თამარაშვილის ქუჩის გასწვრივ, გაიხსნა 1959 წელს. 1995 წელს ტერიტორია პრივატიზდა, 2007 წელს ლისის ტბასთან გაიხსნა „ახალი იპოდრომი“, ხოლო 2009 წლისთვის ბეტონის ტრიბუნების დიდი ნაწილი აიღეს. 2020 წელს ფონდმა „ქართუმ“ ტერიტორიის მნიშვნელოვანი ნაწილი შეისყიდა და ქალაქს გადასცა; აქ ცენტრალური პარკის მოწყობა იგეგმება. წყაროებში არ არის მითითებული, რომელ წელს შეწყდა დოღი."
+   },
+   "e": null,
+   "ne": 1,
+   "s": {
+    "l": "en",
+    "u": "https://georgia.travel/family-attractions/tbilisi-hippodrome",
+    "aq": "In the 1840s, the Didube Hippodrome opened, serving as the main hub for horse riders for over a century, until the opening of the Delisi Hippodrome in 1959.",
+    "eq": null
+   },
+   "x": {
+    "q": [
+     {
+      "l": "en",
+      "u": "https://georgia.travel/family-attractions/tbilisi-hippodrome",
+      "q": "The Old Hippodrome, also called “Delisi Hippodrome,” is located in the Saburtalo district, along Tamarashvili Street."
+     },
+     {
+      "l": "en",
+      "u": "https://georgia.travel/family-attractions/tbilisi-hippodrome",
+      "q": "In 1995, the area was privatized and became the property of Jockey Club Inc."
+     },
+     {
+      "l": "en",
+      "u": "https://georgia.travel/family-attractions/tbilisi-hippodrome",
+      "q": "In 2007, the so-called “New Hippodrome” opened near Lisi Lake, and heavy construction started around the Old Hippodrome, significantly reducing the forest cover. By 2009, most of the concrete stands had been removed, as their fragility posed a public danger."
+     },
+     {
+      "l": "en",
+      "u": "https://georgia.travel/family-attractions/tbilisi-hippodrome",
+      "q": "In 2020, the “Cartu Fund” purchased a large part of the hippodrome space from private owners and donated it to the city."
+     },
+     {
+      "l": "en",
+      "u": "https://georgia.travel/family-attractions/tbilisi-hippodrome",
+      "q": "Historical sources attest that the hippodrome was initially even larger, spanning 57 hectares and bordered by the Vera Valley."
+     }
+    ]
+   },
+   "g": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        44.75758,
+        41.71861
+       ],
+       [
+        44.75746,
+        41.7189
+       ],
+       [
+        44.7574,
+        41.71906
+       ],
+       [
+        44.75737,
+        41.71917
+       ],
+       [
+        44.75736,
+        41.71922
+       ],
+       [
+        44.75743,
+        41.71923
+       ],
+       [
+        44.75742,
+        41.7193
+       ],
+       [
+        44.75744,
+        41.71943
+       ],
+       [
+        44.75753,
+        41.7196
+       ],
+       [
+        44.75761,
+        41.71979
+       ],
+       [
+        44.75764,
+        41.71994
+       ],
+       [
+        44.75763,
+        41.7201
+       ],
+       [
+        44.75757,
+        41.72027
+       ],
+       [
+        44.75742,
+        41.72048
+       ],
+       [
+        44.75736,
+        41.7205
+       ],
+       [
+        44.75722,
+        41.72056
+       ],
+       [
+        44.75706,
+        41.72065
+       ],
+       [
+        44.75707,
+        41.72066
+       ],
+       [
+        44.75711,
+        41.72071
+       ],
+       [
+        44.75705,
+        41.72074
+       ],
+       [
+        44.757,
+        41.72076
+       ],
+       [
+        44.75684,
+        41.72083
+       ],
+       [
+        44.75658,
+        41.72091
+       ],
+       [
+        44.75626,
+        41.72095
+       ],
+       [
+        44.75569,
+        41.72096
+       ],
+       [
+        44.75489,
+        41.72097
+       ],
+       [
+        44.75427,
+        41.72103
+       ],
+       [
+        44.75423,
+        41.72099
+       ],
+       [
+        44.75418,
+        41.721
+       ],
+       [
+        44.75414,
+        41.721
+       ],
+       [
+        44.75412,
+        41.72104
+       ],
+       [
+        44.75262,
+        41.72116
+       ],
+       [
+        44.75198,
+        41.72119
+       ],
+       [
+        44.75166,
+        41.72123
+       ],
+       [
+        44.75152,
+        41.72125
+       ],
+       [
+        44.7512,
+        41.72127
+       ],
+       [
+        44.75082,
+        41.72131
+       ],
+       [
+        44.75073,
+        41.72131
+       ],
+       [
+        44.7506,
+        41.72131
+       ],
+       [
+        44.75047,
+        41.72129
+       ],
+       [
+        44.75029,
+        41.72126
+       ],
+       [
+        44.75015,
+        41.72121
+       ],
+       [
+        44.75002,
+        41.72116
+       ],
+       [
+        44.74991,
+        41.7211
+       ],
+       [
+        44.74984,
+        41.72106
+       ],
+       [
+        44.74973,
+        41.72098
+       ],
+       [
+        44.74964,
+        41.7209
+       ],
+       [
+        44.74956,
+        41.72082
+       ],
+       [
+        44.74948,
+        41.72073
+       ],
+       [
+        44.74939,
+        41.72062
+       ],
+       [
+        44.7493,
+        41.72049
+       ],
+       [
+        44.74922,
+        41.7204
+       ],
+       [
+        44.74915,
+        41.72032
+       ],
+       [
+        44.74909,
+        41.72027
+       ],
+       [
+        44.74902,
+        41.72021
+       ],
+       [
+        44.74895,
+        41.72017
+       ],
+       [
+        44.74915,
+        41.72005
+       ],
+       [
+        44.74917,
+        41.71995
+       ],
+       [
+        44.74921,
+        41.71977
+       ],
+       [
+        44.74923,
+        41.71973
+       ],
+       [
+        44.74932,
+        41.71955
+       ],
+       [
+        44.74942,
+        41.71934
+       ],
+       [
+        44.7496,
+        41.71917
+       ],
+       [
+        44.7498,
+        41.71901
+       ],
+       [
+        44.74997,
+        41.71889
+       ],
+       [
+        44.75021,
+        41.71881
+       ],
+       [
+        44.75068,
+        41.71875
+       ],
+       [
+        44.75333,
+        41.71888
+       ],
+       [
+        44.75333,
+        41.71886
+       ],
+       [
+        44.75333,
+        41.71879
+       ],
+       [
+        44.75334,
+        41.71855
+       ],
+       [
+        44.75338,
+        41.71829
+       ],
+       [
+        44.75371,
+        41.71831
+       ],
+       [
+        44.7563,
+        41.71843
+       ],
+       [
+        44.75729,
+        41.71855
+       ],
+       [
+        44.75758,
+        41.71861
+       ]
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

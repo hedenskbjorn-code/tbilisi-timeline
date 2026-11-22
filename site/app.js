@@ -11,6 +11,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   let rulersMedia = null;                                              // portraits of the rulers and flags of the states (data/rulers_media.json, made by tools/fetch_rulers_media.py)
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
   let reopenPopup = null, reopenInfo = null, openPop = null;          // the open card (a popup or the modal) and how to build it again, when the language is switched
+  let placesLoading = null;
+  let places = null;                                                   // local names (data/places.json, loaded when the layer is switched on or the search is opened), see ensurePlaces
   let education = [];                                                  // schools and kindergartens of the register (data/education.json), see addEducation
   let science = [];                                                    // science and culture buildings (data/science.json), see addScience
   let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
@@ -441,6 +443,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateReligious();
     updateScience();
     updateEducation();
+    updatePlaces();
+    updateMP("mon");
+    updateMP("plq");
     updateNoPhoto();
     updateRuleBar();
     updateStreets();
@@ -540,6 +545,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateRunUi();
     updateSciUi();
     updateEduUi();
+    updatePlacesUi();
+    updateMPUi();
     $("note").textContent = t().note(undated);
     buildAbout();
     buildHow();
@@ -773,7 +780,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (typeof o === "string") { if (o[0] !== "{") return o; try { o = JSON.parse(o); } catch (e) { return o; } }
     return o ? o[lang] || o.en || o.ru || "" : "";
   };
-  let stNames = [], stGeom = {};
+  let stNames = [], stGeom = {}, trStations = [];                 // trStations: the stations of the metro (for the search)
   function updateStLabelsLayer() {
     const src = map.getSource("stlabels");
     if (!src) return;
@@ -817,6 +824,29 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
     }
   }
+  // the namesake (in whose honour or after what the object is named; data/namesakes.json, loaded when a card or a popup is opened): the name, the years, the description of the encyclopedia of 2008 with its
+  // page, a link to Wikipedia only where the link is confirmed (tools/verify_namesakes.py)
+  let namesakes = null;
+  async function loadNamesakes() {
+    if (!namesakes) { try { namesakes = await getJSON("data/namesakes.json", 1); } catch (e) { namesakes = { streets: {}, objects: {}, ui: {} }; } }
+    return namesakes;
+  }
+  function addNamesake(parent, it) {
+    const U = (k) => ((namesakes.ui || {})[k] && ((namesakes.ui[k][lang]) || namesakes.ui[k].en)) || "";
+    const d = document.createElement("div");
+    d.className = "small";
+    const yrs = it.y ? " (" + (it.y[0] != null ? it.y[0] : "?") + "\u2013" + (it.y[1] != null ? it.y[1] : "") + ")" : "";
+    const desc = it.d && (it.d[lang] || it.d.en);
+    d.textContent = U("named") + ": " + (it.n[lang] || it.n.en) + yrs + (desc ? " \u2014 " + desc : "") + " ";
+    const l = it.w && [lang, "en", "ru", "ka"].find((x) => it.w[x]);
+    if (l) { const a = document.createElement("a"); a.href = "https://" + l + ".wikipedia.org/wiki/" + encodeURIComponent(it.w[l].replace(/ /g, "_")); a.target = "_blank"; a.rel = "noopener"; a.textContent = U("wiki") + " (" + l + ")"; d.appendChild(a); }
+    parent.appendChild(d);
+    if (it.p) { const b = document.createElement("div"); b.className = "small"; b.textContent = U("book") + " " + it.p; parent.appendChild(b); }
+  }
+  async function addNamesakeTo(parent, id) {                       // for a popup that is already on the screen: the line comes when the file is loaded
+    const ns = await loadNamesakes();
+    if (ns.objects[id]) addNamesake(parent, ns.objects[id]);
+  }
   // the card of a street: the name today, every former name with its years (also the names without a year), the note and the source (a link or a book with the page)
   let stNotes = null;                                             // the notes of the streets: street_notes.json, loaded when the first card is opened
   let stObjects = null;                                           // the objects on the streets (buildings, monuments, ...): street_objects.json, loaded with the first card
@@ -824,6 +854,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   async function showStreetCard(s, fly) {
     if (!stNotes) { try { stNotes = (await getJSON("data/street_notes.json", 2)).notes; } catch (e) { stNotes = {}; } }
     if (!stObjects) { try { stObjects = (await getJSON("data/street_objects.json", 2)).objects; } catch (e) { stObjects = {}; } }
+    const nsAll = await loadNamesakes();
     reopenInfo = () => showStreetCard(s);
     const L = t(), now = s.now[lang] || s.now.en, note = stNotes[s.geom || s.now.en];
     openInfo((body) => {
@@ -831,6 +862,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       for (const iv of s.iv) if (iv[2]) infoLine(body, iv[0] + "–" + (iv[1] >= 9999 ? "" : iv[1]) + " · " + pickName(iv[2]), "small");
       if (s.undated && s.undated.length) infoLine(body, L.stUndated + ": " + s.undated.map((u) => pickName(u)).join("; "), "small");
       if (note) infoLine(body, pickName(note));
+      const nsItem = nsAll.streets[s.geom || s.now.en];
+      if (nsItem) addNamesake(body, nsItem);
       const objs = stObjects[s.geom || s.now.en];
       if (objs && objs.length) {                                  // "On the street": by kind, each with the person (the role), the years and the house number
         infoLine(body, L.objTitle + ":", "");
@@ -1578,22 +1611,78 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
   }
 
-  function transportPopup(p, lngLat) {
+  // the former names of the stations of the metro (data/metro_names.json, loaded when the card of a station is opened)
+  let metroNames = null;
+  async function loadMetroNames() {
+    if (!metroNames) { try { metroNames = await getJSON("data/metro_names.json", 1); } catch (e) { metroNames = { stations: {}, ui: {} }; } }
+    return metroNames;
+  }
+  // the stations of the metro that were planned and not built: no position on the map, a list with the place, the state and the source
+  function openPlannedStations() {
+    const M = metroNames || { planned: [], ui: {} }, U = (k) => (M.ui[k] && (M.ui[k][lang] || M.ui[k].en)) || "";
+    openInfo((body) => {
+      infoLine(body, U("planned_intro"));
+      let g = "";
+      for (const s of M.planned) {
+        if (s.g !== g) { g = s.g; infoLine(body, U("g_" + g), "").style.fontWeight = "600"; }
+        const st = s.y ? U("s_stopped").replace("{y}", s.y) : U("s_none");
+        infoLine(body, "• " + (s.n[lang] || s.n.en) + " · " + st + " · " + U("place") + ": " + (s.pl[lang] || s.pl.en), "small");
+        const d = infoLine(body, U("source") + ": ", "small"), a = document.createElement("a");
+        a.href = s.src.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURI(s.src.u).replace(/^https?:\/\//, "").slice(0, 70); d.appendChild(a);
+      }
+    }, false, U("planned_title"));
+  }
+  async function transportPopup(p, lngLat) {
     reopenPopup = () => transportPopup(p, lngLat);
     const L = t();
     const el = document.createElement("div");
     el.className = "pop";
     const h3 = document.createElement("h3");
-    h3.textContent = p["name_" + lang] || p.name_en || p.name_ru || "—";
+    const nowName = p["name_" + lang] || p.name_en || p.name_ru || "—";
+    h3.textContent = nowName;
     el.appendChild(h3);
     const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); };
+    let former = [], MU = {};
+    if (p.kind === "metro_station") {                              // the name of the selected year first, the list of the former names below
+      const M = await loadMetroNames();
+      former = M.stations[p.id] || [];
+      MU = M.ui || {};
+      const old = former.find((f) => f.to.length && year < Math.min(...f.to) && (f.from == null || year >= f.from));
+      if (old) { h3.textContent = old.n[lang] || old.n.en; add((MU.now ? MU.now[lang] || MU.now.en : "now") + ": " + nowName, "small"); }
+    }
     add((L.trKinds[p.kind] || p.kind) + " · " + L.trPeriod(+p.y0, +p.y1, +p.y2, +p.y3));
     if (p.r62) add(L.trRoutes62 + ": " + p.r62);                       // the numbers of the routes that name the street in the list of 1962 / 1986
     if (p.r86) add(L.trRoutes86 + ": " + p.r86);
     let srcs = [];
     try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
+    const U = (k) => (MU[k] && (MU[k][lang] || MU[k].en)) || "";
+    if (former.length) {
+      add(U("former") + ":", "small");
+      for (const f of former) {
+        const upto = U("until").replace(/:$/, ""), ty = f.to.join(" / ");
+        const yrs = f.from != null ? f.from + "–" + ty : lang === "ka" ? ty + " " + upto : upto + " " + ty;      // Georgian: "1992 წლამდე" (the word after the number)
+        add("• " + (f.n[lang] || f.n.en) + " · " + yrs + (f.to.length > 1 ? " (" + U("differ") + ")" : ""), "small");
+      }
+    }
+    const projRows = (p.kind === "metro_station" && (metroNames.project || {})[p.id]) || [];     // the names of the station at the design stage / during construction (Wikipedia, quote checked)
+    for (const f of projRows) add("• " + U(f.k) + ": " + (f.n[lang] || f.n.en), "small");
+    if (p.kind === "metro_station" && (metroNames.planned || []).length) {                  // the list of the stations that were planned and not built
+      const d = document.createElement("div"), a = document.createElement("a");
+      d.className = "small"; a.href = "#"; a.textContent = U("planned_btn");
+      a.addEventListener("click", (ev) => { ev.preventDefault(); openPlannedStations(); });
+      d.appendChild(a); el.appendChild(d);
+    }
+    const linkLine = (body, u) => { const d = infoLine(body, "", "small"), a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURI(u); d.appendChild(a); };
     actions(el, () => openInfo((body) => {
       if (p.note) infoLine(body, p.note);
+      for (const f of projRows) { infoLine(body, (f.n[lang] || f.n.en) + ":"); if (f.src.u) linkLine(body, f.src.u); else infoLine(body, U("enc") + " " + f.src.p, "small"); }
+      for (const f of former) {                                    // the sources of the former names: the encyclopedia with the page (text) or the page of a site (link)
+        infoLine(body, (f.n[lang] || f.n.en) + ":");
+        for (const x of f.src) {
+          if (x.t === "enc") infoLine(body, U("enc") + " " + x.p, "small");
+          else { const d = infoLine(body, "", "small"), a = document.createElement("a"); a.href = x.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURI(x.u); d.appendChild(a); }
+        }
+      }
       if (srcs.length) infoLine(body, "Wikipedia:");
       srcs.forEach((u) => { const d = document.createElement("div"); d.className = "small"; const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u); d.appendChild(a); body.appendChild(d); });
       infoLine(body, "OpenStreetMap contributors (ODbL): geometry");
@@ -1842,6 +1931,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }), { id: p.id, name: p.name, reg: p.reg });
     addPhotoLink(el, "mon:" + p.id, !p.ph);
     setObjParam(p.id, showPopup("300px", lngLat, el));
+    addNamesakeTo(el, "M" + p.id);
   }
 
   function goOffline() {
@@ -1876,21 +1966,23 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (el) el.hidden = true;
     clearTimeout(loadTimer);
   }
-  // version and the log of changes (data/changelog.json: the first entry is the current version); the button in the header opens it in the modal window
-  let changelog = null;
+  // version and the log of changes: the button shows the version from the small data/version.json (made by tools/build_version.py from the first entry of the log: the log itself is 180 KB and is
+  // loaded only when the button is pressed, so it does not weigh on the first screen); the button opens the log in the modal window
+  let changelog = null, curVersion = null;
   async function loadChangelog() {
-    try { changelog = await getJSON("data/changelog.json", 1); } catch (e) { changelog = null; }
+    try { curVersion = (await getJSON("data/version.json", 1)).version; } catch (e) { curVersion = null; }
     updateVersionBtn();
   }
   function updateVersionBtn() {
     const b = $("btnVersion");
     if (!b) return;
-    b.textContent = changelog && changelog.length ? "v" + changelog[0].version.replace(/\.0$/, "") : "v?";
+    b.textContent = curVersion ? "v" + curVersion.replace(/\.0$/, "") : "v?";
     b.title = t().chgTitle;
     b.setAttribute("aria-label", t().chgTitle);
   }
-  function showChangelog() {
+  async function showChangelog() {
     reopenInfo = () => showChangelog();
+    if (!changelog) { try { changelog = await getJSON("data/changelog.json", 1); } catch (e) { changelog = null; } }
     const L = t();
     openInfo((body) => {
       $("imTitle").textContent = L.chgTitle;
@@ -1976,6 +2068,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     } catch (e) { /* no density layer */ }
     try {                                            // transport: metro, railway, funicular, avenues, bridges (dates from Wikipedia, see sources)
       const tr = await getJSON("data/transport.json", 2);
+      trStations = tr.features.filter((f) => f.properties.kind === "metro_station");
       map.addSource("transport", { type: "geojson", data: tr });
       const metroColor = ["match", ["get", "line"], "2", "#2f9e44", "#e03131"];     // line 1 (Akhmeteli-Varketili) red, line 2 (Saburtalo) green
       const kindColor = ["match", ["get", "kind"], "metro_line", metroColor, "railway", "#343a40", "avenue", "#f08c00", "road", "#e8a33d", "bridge", "#1c7ed6", "tram", "#5a2d0c", "#495057"];
@@ -2833,6 +2926,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     c.src.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u.replace("https://", "")).slice(0, 60); if (i) s.appendChild(document.createTextNode(" \u00B7 ")); s.appendChild(a); });
     el.appendChild(s);
     showPopup("340px", lngLat, el);
+    addNamesakeTo(el, "SCI:" + c.id);
   }
 
   // education: schools and kindergartens of the heritage register (data/education.json); points that appear in the year of the building
@@ -2901,7 +2995,183 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     s.appendChild(document.createTextNode(L.sciSrc + ": " + L.relRegSrc + " " + (c.regno ? L.relRegNo + " " + c.regno : L.relRegId + " " + c.rid)));
     el.appendChild(s);
     showPopup("340px", lngLat, el);
+    addNamesakeTo(el, "EDU:" + c.id);
   }
+  // local names: districts, gardens, hills, bridges, cemeteries with what the name means (Wikipedia, quotes checked); the file is loaded when the layer is switched on or the search is opened
+  const PL_COLOR = { district: "#d6336c", garden: "#2b8a3e", hill: "#8d5524", bridge: "#1c7ed6", cemetery: "#495057", market: "#f08c00", bath: "#0ca678", area: "#7048e8" };
+  function ensurePlaces() {
+    if (!placesLoading) placesLoading = getJSON("data/places.json", 1).then((d) => { places = d; searchIndex = null; addPlaces(); updatePlacesUi(); if (!$("search").hidden) renderSearch(); }).catch((e) => { console.error("places", e && e.message); places = { items: [], ui: {} }; placesLoading = null; });
+    return placesLoading;
+  }
+  const PU = (k) => (places && places.ui && places.ui[k] && (places.ui[k][lang] || places.ui[k].en)) || "";
+  const placeFeats = () => places.items.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k, label: c.n[lang] || c.n.en } }));
+  function addPlaces() {
+    if (!places || !places.items.length || !map.isStyleLoaded() || map.getSource("places")) return;
+    map.addSource("places", { type: "geojson", data: { type: "FeatureCollection", features: placeFeats() } });
+    map.addSource("places-area", { type: "geojson", data: { type: "FeatureCollection", features: places.items.filter((c) => c.g).map((c) => ({ type: "Feature", geometry: c.g, properties: { id: c.id } })) } });
+    map.addLayer({ id: "places-area-fill", type: "fill", source: "places-area", layout: { visibility: "none" }, paint: { "fill-color": PL_COLOR.area, "fill-opacity": 0.18 } });
+    map.addLayer({ id: "places-area-line", type: "line", source: "places-area", layout: { visibility: "none" }, paint: { "line-color": PL_COLOR.area, "line-width": 2, "line-dasharray": [3, 2] } });
+    const col = ["match", ["get", "kind"]];
+    for (const [k, c] of Object.entries(PL_COLOR)) col.push(k, c);
+    col.push("#555");
+    map.addLayer({ id: "places-pt", type: "circle", source: "places", layout: { visibility: "none" },
+      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 4, 17, 8], "circle-color": col, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: "places-lb", type: "symbol", source: "places", minzoom: 13, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true },
+      paint: { "text-color": "#7a1f45", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    map.on("click", "places-pt", (e) => {
+      const f = e.features && e.features[0], c = f && places.items.find((x) => x.id === f.properties.id);
+      if (c) popupPlace(c, e.lngLat);
+    });
+    map.on("mouseenter", "places-pt", () => { map.getCanvas().style.cursor = "pointer"; });
+    map.on("mouseleave", "places-pt", () => { map.getCanvas().style.cursor = ""; });
+    updatePlaces();
+  }
+  function updatePlaces() {
+    const on = $("showPlaces").checked;
+    if (on && !places) ensurePlaces();
+    syncLegend("showPlaces", "placesLegend");
+    if (places && !map.getSource("places")) addPlaces();
+    if (!map.getLayer("places-pt")) return;
+    for (const id of ["places-area-fill", "places-area-line", "places-pt", "places-lb"]) { map.setLayoutProperty(id, "visibility", on ? "visible" : "none"); map.moveLayer(id); }
+  }
+  function updatePlacesUi() {
+    const box = $("placesLegend");
+    if (box) {
+      box.textContent = "";
+      const kinds = places ? [...new Set(places.items.map((c) => c.k))] : [];
+      for (const k of Object.keys(PL_COLOR)) if (kinds.includes(k)) { const s = document.createElement("span"); s.textContent = PU("kind_" + k); s.style.setProperty("--c", PL_COLOR[k]); box.appendChild(s); }
+      syncLegend("showPlaces", "placesLegend");
+    }
+    const src = map && map.getSource && map.getSource("places");
+    if (src && places) src.setData({ type: "FeatureCollection", features: placeFeats() });
+  }
+  function popupPlace(c, lngLat) {
+    reopenPopup = () => popupPlace(c, lngLat);
+    const el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = c.n[lang] || c.n.en;
+    el.appendChild(h3);
+    const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); return d; };
+    add(PU("kind_" + c.k), "k");
+    add(c.a[lang] || c.a.en);
+    const e = add("", "");
+    if (c.e) { const kk = document.createElement("span"); kk.className = "k"; kk.textContent = PU("etym") + ": "; e.appendChild(kk); e.appendChild(document.createTextNode(c.e[lang] || c.e.en)); }
+    else if (c.ne) e.remove();                                      // an entry for which the question of the etymology is not asked (the former hippodrome)
+    else { e.className = "small"; e.textContent = PU("no_etym"); }
+    if (c.g) add(PU("area_note"), "small");                         // the contour of an area is not the exact boundary of the object of the past
+    const s = add("", "src");
+    s.appendChild(document.createTextNode(PU("src") + ": "));
+    const a = document.createElement("a");
+    a.href = c.s.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikipedia (" + c.s.l + ")";
+    s.appendChild(a);
+    actions(el, () => openInfo((body) => {
+      infoLine(body, (c.n[lang] || c.n.en) + ":");
+      infoLine(body, PU("quote") + " (" + c.s.l + "): “" + c.s.aq + "”", "small");
+      if (c.s.eq) infoLine(body, PU("etym") + " — " + PU("quote") + " (" + c.s.eq.l + "): “" + c.s.eq.q + "”", "small");
+      for (const x of (c.x && c.x.q) || []) infoLine(body, PU("quote") + " (" + x.l + "): “" + x.q + "”", "small");
+      for (const u of new Set([c.s.u, c.s.eq && c.s.eq.u].filter(Boolean))) { const d = infoLine(body, "", "small"), l = document.createElement("a"); l.href = u; l.target = "_blank"; l.rel = "noopener"; l.textContent = decodeURI(u); d.appendChild(l); }
+      infoLine(body, PU("attr"), "small");
+      infoLine(body, "OpenStreetMap contributors (ODbL): geometry");
+    }), { id: c.id, name: c.n.en, reg: "-" });
+    showPopup("340px", lngLat, el);
+  }
+  // monuments, sculptures and memorial plaques: two lazy layers (data/sculptures.json, data/plaques.json), clustered; a monument appears in the year of its installation, a plaque in the first year of the life that
+  // its inscription names (never the year of the plaque); the objects without a year are shown by a sub box; an object without a name is labelled by its type and the nearest street
+  const MON_COLOR = { sculpture: "#e67700", bust: "#862e9c", monument: "#1864ab", statue: "#c92a2a", memorial: "#343a40", relief: "#0b7285" }, PLQ_COLOR = "#a61e4d";
+  const MP = { mon: { file: "data/sculptures.json", chk: "showMon", sub: "showMonUndated", leg: "monLegend" }, plq: { file: "data/plaques.json", chk: "showPlq", sub: "showPlqUndated", leg: "plqLegend" } };
+  const mpU = (k, key) => { const m = MP[key].data; return (m && m.ui && m.ui[k] && (m.ui[k][lang] || m.ui[k].en)) || ""; };
+  function mpLoad(key) {
+    const m = MP[key];
+    if (!m.loading) m.loading = getJSON(m.file, 1).then((d) => { m.data = d; m.byId = new Map(d.items.map((c) => [c.id, c])); searchIndex = null; mpAdd(key); updateMPUi(); }).catch((e) => { console.error(key, e && e.message); m.data = { items: [], streets: {}, photos: {}, ui: {} }; m.loading = null; });
+    return m.loading;
+  }
+  function mpName(key, c) {
+    const nm = c.n[lang] || c.n.en || c.n.ru || c.n.ka;
+    if (nm) return nm;
+    const s = c.st && MP[key].data.streets[c.st];
+    return (mpU("k_" + (key === "plq" ? "plaque" : c.k), key)) + (s ? ", " + (s[lang] || s.en) : "");
+  }
+  function mpVisible(key, c) { return c.y != null ? c.y <= year : $(MP[key].sub).checked; }
+  function mpFeats(key) {
+    return MP[key].data.items.filter((c) => mpVisible(key, c)).map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k || "plaque", label: mpName(key, c), undated: c.y == null } }));
+  }
+  function mpAdd(key) {
+    const m = MP[key];
+    if (!m.data || !m.data.items.length || !map.isStyleLoaded() || map.getSource(key + "s")) return;
+    const col = key === "mon" ? ["match", ["get", "kind"], ...Object.entries(MON_COLOR).flat(), "#555"] : PLQ_COLOR, base = key === "mon" ? "#1864ab" : PLQ_COLOR;
+    map.addSource(key + "s", { type: "geojson", cluster: true, clusterMaxZoom: 15, clusterRadius: 38, data: { type: "FeatureCollection", features: mpFeats(key) } });
+    map.addLayer({ id: key + "-cl", type: "circle", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none" }, paint: { "circle-color": base, "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 13, 10, 17, 40, 22], "circle-stroke-color": "#fff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: key + "-cn", type: "symbol", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none", "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 12 }, paint: { "text-color": "#fff" } });
+    map.addLayer({ id: key + "-pt", type: "circle", source: key + "s", filter: ["!", ["has", "point_count"]], layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 4, 17, 8], "circle-color": col, "circle-stroke-color": "#fff", "circle-stroke-width": 2, "circle-opacity": ["case", ["get", "undated"], 0.55, 1] } });
+    map.addLayer({ id: key + "-lb", type: "symbol", source: key + "s", minzoom: 16, filter: ["!", ["has", "point_count"]], layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#212529", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    map.on("click", key + "-pt", (e) => { const f = e.features && e.features[0], c = f && m.byId.get(f.properties.id); if (c) popupMP(key, c, e.lngLat); });
+    map.on("click", key + "-cl", (e) => {
+      const f = map.queryRenderedFeatures(e.point, { layers: [key + "-cl"] })[0];
+      map.getSource(key + "s").getClusterExpansionZoom(f.properties.cluster_id).then((z) => map.easeTo({ center: f.geometry.coordinates, zoom: z + 0.5 }));
+    });
+    for (const l of [key + "-pt", key + "-cl"]) { map.on("mouseenter", l, () => { map.getCanvas().style.cursor = "pointer"; }); map.on("mouseleave", l, () => { map.getCanvas().style.cursor = ""; }); }
+    m.sig = null;
+    updateMP(key);
+  }
+  function updateMP(key) {
+    const m = MP[key], on = $(m.chk).checked;
+    $(m.sub).closest("label").hidden = !on;
+    if (on && !m.data) mpLoad(key);
+    syncLegend(m.chk, m.leg);
+    if (m.data && !map.getSource(key + "s")) mpAdd(key);
+    if (!map.getSource(key + "s")) return;
+    const sig = [year, $(m.sub).checked, lang].join("|");
+    if (on && m.sig !== sig) { m.sig = sig; map.getSource(key + "s").setData({ type: "FeatureCollection", features: mpFeats(key) }); }
+    for (const l of ["cl", "cn", "pt", "lb"]) { map.setLayoutProperty(key + "-" + l, "visibility", on ? "visible" : "none"); map.moveLayer(key + "-" + l); }
+  }
+  function updateMPUi() {
+    for (const key of ["mon", "plq"]) {
+      const box = $(MP[key].leg), m = MP[key];
+      if (box) {
+        box.textContent = "";
+        const kinds = m.data ? [...new Set(m.data.items.map((c) => c.k))].filter(Boolean) : [];
+        for (const k of Object.keys(MON_COLOR)) if (key === "mon" && kinds.includes(k)) { const s = document.createElement("span"); s.textContent = mpU("k_" + k, key); s.style.setProperty("--c", MON_COLOR[k]); box.appendChild(s); }
+        if (key === "plq" && m.data) { const s = document.createElement("span"); s.textContent = mpU("k_plaque", key); s.style.setProperty("--c", PLQ_COLOR); box.appendChild(s); }
+        syncLegend(m.chk, m.leg);
+      }
+      if (m.sig) m.sig = null;
+      updateMP(key);
+    }
+  }
+  function popupMP(key, c, lngLat) {
+    const m = MP[key], d = m.data, U = (k) => mpU(k, key);
+    reopenPopup = () => popupMP(key, c, lngLat);
+    const el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = mpName(key, c);
+    el.appendChild(h3);
+    const add = (txt, cls) => { const x = document.createElement("div"); if (cls) x.className = cls; x.textContent = txt; el.appendChild(x); return x; };
+    const row = (k, v) => { if (!v) return; const x = add("", ""), kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; x.appendChild(kk); x.appendChild(document.createTextNode(v)); };
+    add(U("k_" + (key === "plq" ? "plaque" : c.k)), "k");
+    if (key === "mon") row(U("year"), c.y != null ? String(c.y) : U("year_unknown"));
+    else if (c.y != null) add(U("lived_from").replace("{y}", c.y), "small");
+    if (key === "mon") { row(U("sculptor"), c.sc); row(U("architect"), c.ar); row(U("material"), c.mat ? U("mat_" + c.mat) : ""); }
+    const s = c.st && d.streets[c.st];
+    if (s) row(U("where"), s[lang] || s.en);
+    if (key === "plq" && c.ins) add(U("inscription") + ": " + c.ins, "small");
+    const f = c.ph && d.photos[c.ph];
+    if (f && f.thumb) {
+      const fig = document.createElement("figure"), a = document.createElement("a"), img = document.createElement("img");
+      fig.className = "ph main"; a.href = f.page; a.target = "_blank"; a.rel = "noopener"; img.src = f.thumb; img.loading = "lazy"; img.alt = mpName(key, c); a.appendChild(img); fig.appendChild(a);
+      const box = document.createElement("div"); box.className = "photos"; box.appendChild(fig); el.appendChild(box);
+      const cr = add("", "small phcred");
+      cr.appendChild(document.createTextNode(U("photo") + " · " + [f.author || "?", f.license || ""].filter(Boolean).join(" · ") + " · "));
+      const l = document.createElement("a"); l.href = f.page; l.target = "_blank"; l.rel = "noopener"; l.textContent = "Commons"; cr.appendChild(l);
+    }
+    const wl = [lang, "en", "ka", "ru"].find((l2) => c.w && c.w[l2]);
+    if (wl) { const x = add("", "src"), a = document.createElement("a"); a.href = c.w[wl]; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikipedia (" + wl + ")"; x.appendChild(a); }
+    actions(el, () => openInfo((body) => { infoLine(body, mpName(key, c) + ":"); infoLine(body, U("attr"), "small"); infoLine(body, "OpenStreetMap contributors (ODbL): geometry"); }), { id: (key === "mon" ? "MON:" : "PLQ:") + c.id, name: c.n.en || "", reg: "-" });
+    showPopup("320px", lngLat, el);
+  }
+  for (const id of ["showMon", "showMonUndated", "showPlq", "showPlqUndated"]) $(id).addEventListener("change", () => updateMP(id.startsWith("showMon") ? "mon" : "plq"));
+  $("showPlaces").addEventListener("change", updatePlaces);
   $("showSci").addEventListener("change", updateScience);
   $("showEdu").addEventListener("change", updateEducation);
   $("showBattles").addEventListener("change", () => { if (histEvents.length) buildEvMarks(); });
@@ -3020,6 +3290,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       for (const u of st.undated || []) nm.push(u.ru, u.en, u.ka);
       idx.push({ kind: "t", st, key: normQ(nm.join(" ")) });
     }
+    for (const f of trStations) { const p = f.properties; idx.push({ kind: "m", f, key: normQ([p.name_ru, p.name_en, p.name_ka].join(" ")) }); }      // the stations of the metro
+    for (const c of (places ? places.items : [])) idx.push({ kind: "p", c, key: normQ([c.n.ru, c.n.en, c.n.ka].join(" ")) });                           // local names
+    for (const key of ["mon", "plq"]) for (const c of (MP[key].data ? MP[key].data.items : [])) if (c.n.ru || c.n.en || c.n.ka) idx.push({ kind: key === "mon" ? "k" : "q", key2: key, c, key: normQ([c.n.ru, c.n.en, c.n.ka].join(" ")) });      // monuments and plaques that are loaded and have a name
     return idx;
   }
   function updateSearchUi() {
@@ -3091,6 +3364,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       else if (r.kind === "d") { a.textContent = "\uD83C\uDFEB " + (r.c.name[lang] || r.c.name.en); b.textContent = [L.eduKinds[r.c.kind], r.c.undated ? L.relUndated : (r.c.built || r.c.from)].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "r") { a.textContent = "\u26EA " + (r.r.name[lang] || r.r.name.en); b.textContent = [L.relNames[r.r.rel], r.r.date, r.r.to ? L.relGone + " " + r.r.to : ""].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "e") { a.textContent = (EV_ICON[r.ev.cat] || EV_ICON.other) + " " + (r.ev[lang] || r.ev.en); b.textContent = r.ev.date + " \u00B7 " + (L.evCats[r.ev.cat] || ""); }
+      else if (r.kind === "m") { const mp = r.f.properties; a.textContent = "\u24C2 " + (mp["name_" + lang] || mp.name_en); b.textContent = L.trKinds.metro_station + " \u00B7 " + L.trPeriod(+mp.y0, 9999, -1, -1); }
+      else if (r.kind === "p") { a.textContent = "\uD83D\uDCCD " + (r.c.n[lang] || r.c.n.en); b.textContent = PU("kind_" + r.c.k); }
+      else if (r.kind === "k" || r.kind === "q") { a.textContent = (r.kind === "k" ? "\uD83D\uDDFF " : "\uD83D\uDD16 ") + mpName(r.key2, r.c); b.textContent = [mpU("k_" + (r.kind === "q" ? "plaque" : r.c.k), r.key2), r.c.y != null ? r.c.y : ""].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "t") {
         a.textContent = "\uD83D\uDEE3 " + (r.st.now[lang] || r.st.now.en);
         const old = [...r.st.iv.filter((iv) => iv[2]).map((iv) => pickName(iv[2])), ...(r.st.undated || []).map((u) => pickName(u))];
@@ -3122,6 +3398,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   function closeSearch() { $("search").hidden = true; $("btnSearch").setAttribute("aria-expanded", "false"); }
   function openSearch() {
     $("search").hidden = false; $("btnSearch").setAttribute("aria-expanded", "true");
+    if (!places) ensurePlaces();                                   // the local names join the search as soon as their file is loaded
     $("searchQ").focus(); $("searchQ").select();
     if ($("searchQ").value) renderSearch();
   }
@@ -3134,12 +3411,36 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     else if (r.kind === "s") target = Math.max(year, r.c.from);
     else if (r.kind === "d") target = Math.max(year, r.c.from);
     else if (r.kind === "r") target = (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
+    else if (r.kind === "m") target = Math.max(year, r.f.properties.y0);
+    else if (r.kind === "p") target = year;
+    else if (r.kind === "k" || r.kind === "q") target = r.c.y != null ? Math.max(year, r.c.y) : year;
     else if (r.kind === "t") { const own = r.st.iv.find((iv) => iv[2] && year >= iv[0] && year < iv[1]); target = own ? year : (r.st.iv.find((iv) => iv[2]) || [year])[0]; }
     else target = Math.max(year, r.f.properties.ye);
     year = target;
     update();
     if (r.kind === "e") { showHistEvent(r.ev); return; }
     if (r.kind === "t") { showStreetCard(r.st, true); return; }
+    if (r.kind === "m") {
+      const c = r.f.geometry.coordinates;
+      map.flyTo({ center: c, zoom: Math.max(map.getZoom(), 16), duration: 1200 });
+      transportPopup({ ...r.f.properties, src: JSON.stringify(r.f.properties.src || []) }, { lng: c[0], lat: c[1] });
+      return;
+    }
+    if (r.kind === "k" || r.kind === "q") {
+      const m = MP[r.key2];
+      $(m.chk).checked = true; if (r.c.y == null) $(m.sub).checked = true; updateMP(r.key2);
+      if (openPop) openPop.remove();
+      map.flyTo({ center: [r.c.lon, r.c.lat], zoom: Math.max(map.getZoom(), 17), duration: 1200 });
+      popupMP(r.key2, r.c, { lng: r.c.lon, lat: r.c.lat });
+      return;
+    }
+    if (r.kind === "p") {
+      $("showPlaces").checked = true; updatePlaces();
+      if (openPop) openPop.remove();
+      map.flyTo({ center: [r.c.lon, r.c.lat], zoom: Math.max(map.getZoom(), 15.5), duration: 1200 });
+      popupPlace(r.c, { lng: r.c.lon, lat: r.c.lat });
+      return;
+    }
     if (r.kind === "u") {
       $("showRulers").checked = true; buildRulersBand(); updateRuleLine(); syncFilterUi();
       showRulerCard(r.u);

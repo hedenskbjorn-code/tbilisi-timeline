@@ -1,0 +1,102 @@
+{
+ "Rose Revolution Square": {
+  "lon": 44.79075,
+  "lat": 41.70434,
+  "how": "streets"
+ },
+ "26 May Square": {
+  "lon": 44.77664,
+  "lat": 41.72035,
+  "how": "metro"
+ },
+ "Erekle II Square": {
+  "lon": 44.80584,
+  "lat": 41.69378,
+  "how": "streets"
+ },
+ "Shota Rustaveli Square": {
+  "lon": 44.78965,
+  "lat": 41.7035,
+  "how": "metro"
+ },
+ "Niko Pirosmani Square": {
+  "lon": 44.80243,
+  "lat": 41.71636,
+  "how": "stops"
+ },
+ "Heroes Square": {
+  "lon": 44.78248,
+  "lat": 41.71317,
+  "how": "osm"
+ },
+ "Station Square": {
+  "lon": 44.79777,
+  "lat": 41.72254,
+  "how": "metro"
+ },
+ "Zurab Zhvania Square": {
+  "lon": 44.76763,
+  "lat": 41.73141,
+  "how": "osm"
+ },
+ "Giorgi (Gigo) Gabashvili Square": {
+  "lon": 44.74534,
+  "lat": 41.72549,
+  "how": "metro"
+ },
+ "Delisi Square": {
+  "lon": 44.74534,
+  "lat": 41.72549,
+  "how": "metro"
+ },
+ "Europe Square": {
+  "lon": 44.81122,
+  "lat": 41.69106,
+  "how": "osm"
+ },
+ "Puris Square": {
+  "lon": 44.80532,
+  "lat": 41.69032,
+  "how": "osm"
+ },
+ "Dekabristebi Square": {
+  "lon": 44.81949,
+  "lat": 41.68435,
+  "how": "manual"
+ },
+ "Solomon Dodashvili Square": {
+  "lon": 44.83914,
+  "lat": 41.67678,
+  "how": "manual"
+ },
+ "Nikoloz Baratashvili Square": {
+  "lon": 44.80644,
+  "lat": 41.69663,
+  "how": "manual"
+ },
+ "Jerusalem Square": {
+  "lon": 44.80624,
+  "lat": 41.69027,
+  "how": "manual"
+ },
+ "Agdgoma Square": {
+  "lon": 44.80647,
+  "lat": 41.6959,
+  "how": "manual"
+ },
+ "Dolabauri Square": {
+  "lon": 44.83398,
+  "lat": 41.68478,
+  "how": "manual"
+ },
+ "Kvaliti Square": {
+  "lon": 44.81823,
+  "lat": 41.70117,
+  "how": "manual"
+ },
+ "Tskhra Dzma Square": {
+  "lon": 44.81264,
+  "lat": 41.71882,
+  "how": "manual"
+ }
+}

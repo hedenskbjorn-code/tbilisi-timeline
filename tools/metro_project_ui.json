@@ -1,0 +1,62 @@
+{
+ "ui": {
+  "project": {
+   "ru": "На стадии проекта",
+   "en": "At the design stage",
+   "ka": "დაპროექტების ეტაპზე"
+  },
+  "working": {
+   "ru": "Во время строительства",
+   "en": "During construction",
+   "ka": "მშენებლობის დროს"
+  },
+  "planned_btn": {
+   "ru": "Не построенные станции метро",
+   "en": "Metro stations that were not built",
+   "ka": "მეტროს აუშენებელი სადგურები"
+  },
+  "planned_title": {
+   "ru": "Не построенные станции метро",
+   "en": "Metro stations that were not built",
+   "ka": "მეტროს აუშენებელი სადგურები"
+  },
+  "planned_intro": {
+   "ru": "Станции, которые были запланированы, но не построены (по данным Википедии; на карте их положение не показано).",
+   "en": "Stations that were planned but not built (according to Wikipedia; their position is not shown on the map).",
+   "ka": "სადგურები, რომლებიც დაგეგმილი იყო, მაგრამ არ აშენებულა (ვიკიპედიის მონაცემებით; რუკაზე მათი მდებარეობა ნაჩვენები არ არის)."
+  },
+  "g_ext1": {
+   "ru": "Продление линии 1 (Ахметели–Варкетили)",
+   "en": "Extension of line 1 (Akhmeteli–Varketili)",
+   "ka": "ხაზი 1-ის გაგრძელება (ახმეტელი–ვარკეთილი)"
+  },
+  "g_l3": {
+   "ru": "Проект линии 3 (Руставели–Вазисубани)",
+   "en": "Project of line 3 (Rustaveli–Vazisubani)",
+   "ka": "ხაზი 3-ის პროექტი (რუსთაველი–ვაზისუბანი)"
+  },
+  "s_stopped": {
+   "ru": "работы остановлены в {y} году",
+   "en": "work stopped in {y}",
+   "ka": "სამუშაოები შეჩერდა {y} წელს"
+  },
+  "s_none": {
+   "ru": "не построена",
+   "en": "not built",
+   "ka": "არ აშენებულა"
+  },
+  "place": {
+   "ru": "Где",
+   "en": "Where",
+   "ka": "სად"
+  },
+  "source": {
+   "ru": "Источник",
+   "en": "Source",
+   "ka": "წყარო"
+  }
+ },
+ "manual_ka": {
+  "tu_project": "სპორტის სასახლე (სპორტული)"
+ }
+}

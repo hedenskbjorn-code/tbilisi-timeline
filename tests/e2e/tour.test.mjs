@@ -22,21 +22,28 @@ test("the welcome window offers the tour; the tour lights the real elements, ste
   await page.waitForSelector("#tourHole", { timeout: 10000 });
   assert.equal(await page.evaluate(() => document.getElementById("infoModal").hidden), true, "the welcome window is closed");
   let c = await card(page);
-  assert.match(c.txt, /1 of 5/);
+  assert.match(c.txt, /1 of 6/);
   assert.ok(inside(await hole(page), await center(page, "timebar")), "step 1 lights the time scale");
   await page.click("#tourCard button.chip.primary");
-  assert.match((await card(page)).txt, /2 of 5/);
+  assert.match((await card(page)).txt, /2 of 6/);
+  assert.match((await card(page)).txt, /Wikimedia Commons/, "the photo of a card leads to Commons");
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /3 of 5/);
+  assert.match(c.txt, /3 of 6/);
   const h3 = await hole(page);
   assert.ok(inside(h3, await center(page, "btnFilters")) && inside(h3, await center(page, "btnSearch")), "step 3 lights both buttons");
   await page.click("#tourCard button.chip.primary");
+  c = await card(page);
+  assert.match(c.txt, /4 of 6/);
+  assert.match(c.txt, /Views and photos/, "the step of the views");
+  assert.match(c.txt, /flip through/, "the flipping of the pictures is explained");
+  assert.ok(inside(await hole(page), await center(page, "btnViews")), "step 4 lights the button Views");
+  await page.click("#tourCard button.chip.primary");
   const h4 = await hole(page);
-  for (const id of ["thenBtn", "hereBtn", "linkBtn"]) assert.ok(inside(h4, await center(page, id)), "step 4 lights " + id);
+  for (const id of ["thenBtn", "hereBtn", "linkBtn"]) assert.ok(inside(h4, await center(page, id)), "step 5 lights " + id);
   assert.match((await card(page)).txt, /plan of 1735–1913/, "the swipe is said to need an old plan");
   await page.click("#tourCard button.chip.primary");
-  assert.match((await card(page)).txt, /5 of 5/);
+  assert.match((await card(page)).txt, /6 of 6/);
   assert.match(await page.locator("#tourCard button.chip.primary").innerText(), /Done/);
   await page.click("#tourCard button.chip.primary");
   assert.equal(await page.locator("#tour").count(), 0, "the tour is gone");
@@ -50,7 +57,7 @@ test("Esc closes the tour; the button '?' starts it again; Back goes one step ba
   await page.waitForSelector("#tourHole", { timeout: 10000 });
   await page.click("#tourCard button.chip.primary");
   await page.click("#tourCard button.chip:not(.primary)");
-  assert.match((await card(page)).txt, /1 of 5/, "Back");
+  assert.match((await card(page)).txt, /1 of 6/, "Back");
   await page.keyboard.press("Escape");
   assert.equal(await page.locator("#tour").count(), 0, "Esc");
   await page.ctx.close();
@@ -76,5 +83,20 @@ test("on a phone the card stays inside the screen at every step and the tour ope
   }
   assert.ok(n >= 3, "at least three steps on a phone: " + n);
   assert.equal(await filtersOpen(), f0, "the tour did not open the panel of the filters");
+  await page.ctx.close();
+});
+
+test("the button of the tour is the first control of the panel Info (not in the footer); the button of the version is in the panel, not in the top bar", async () => {
+  const page = await openPage(browser, url());
+  await waitReady(page);
+  const o = await page.evaluate(() => {
+    const side = document.getElementById("side"), first = [...side.querySelectorAll("button:not(.pclose)")][0];
+    const tb = document.getElementById("btnTour").getBoundingClientRect(), sb = side.getBoundingClientRect();
+    return { first: first && first.id, tourTop: tb.top - sb.top, inTop: !!document.querySelector("#top #btnVersion"), inSide: !!document.querySelector("#side #btnVersion") };
+  });
+  assert.equal(o.first, "btnTour", "the first button of the panel");
+  assert.ok(o.tourTop < 160, "it is seen without scrolling: " + o.tourTop);
+  assert.equal(o.inTop, false, "no version button in the top bar");
+  assert.equal(o.inSide, true);
   await page.ctx.close();
 });

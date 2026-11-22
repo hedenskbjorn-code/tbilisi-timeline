@@ -1,0 +1,174 @@
+{
+ "ui": {
+  "layer_mon": {
+   "ru": "Памятники и скульптуры",
+   "en": "Monuments and sculptures",
+   "ka": "ძეგლები და სკულპტურები"
+  },
+  "layer_plq": {
+   "ru": "Мемориальные доски",
+   "en": "Memorial plaques",
+   "ka": "მემორიალური დაფები"
+  },
+  "sub_undated_mon": {
+   "ru": "показывать и объекты без года установки",
+   "en": "also show objects without an installation year",
+   "ka": "დადგმის წლის გარეშე არსებული ობიექტების ჩვენებაც"
+  },
+  "sub_undated_plq": {
+   "ru": "показывать и доски без года",
+   "en": "also show plaques without a year",
+   "ka": "წლის გარეშე არსებული დაფების ჩვენებაც"
+  },
+  "k_sculpture": {
+   "ru": "Скульптура",
+   "en": "Sculpture",
+   "ka": "სკულპტურა"
+  },
+  "k_bust": {
+   "ru": "Бюст",
+   "en": "Bust",
+   "ka": "ბიუსტი"
+  },
+  "k_monument": {
+   "ru": "Памятник",
+   "en": "Monument",
+   "ka": "ძეგლი"
+  },
+  "k_statue": {
+   "ru": "Статуя",
+   "en": "Statue",
+   "ka": "ქანდაკება"
+  },
+  "k_memorial": {
+   "ru": "Мемориал",
+   "en": "Memorial",
+   "ka": "მემორიალი"
+  },
+  "k_relief": {
+   "ru": "Барельеф",
+   "en": "Relief",
+   "ka": "ბარელიეფი"
+  },
+  "k_plaque": {
+   "ru": "Мемориальная доска",
+   "en": "Memorial plaque",
+   "ka": "მემორიალური დაფა"
+  },
+  "year": {
+   "ru": "Год установки",
+   "en": "Installed",
+   "ka": "დადგმის წელი"
+  },
+  "year_unknown": {
+   "ru": "год неизвестен",
+   "en": "year unknown",
+   "ka": "წელი უცნობია"
+  },
+  "sculptor": {
+   "ru": "Скульптор",
+   "en": "Sculptor",
+   "ka": "მოქანდაკე"
+  },
+  "architect": {
+   "ru": "Архитектор",
+   "en": "Architect",
+   "ka": "არქიტექტორი"
+  },
+  "material": {
+   "ru": "Материал",
+   "en": "Material",
+   "ka": "მასალა"
+  },
+  "where": {
+   "ru": "Расположение",
+   "en": "Location",
+   "ka": "მდებარეობა"
+  },
+  "inscription": {
+   "ru": "Надпись",
+   "en": "Inscription",
+   "ka": "წარწერა"
+  },
+  "lived_from": {
+   "ru": "Связана с домом с {y} года (первый год жизни, названный в надписи)",
+   "en": "Linked to the house since {y} (the first year of residence named in the inscription)",
+   "ka": "სახლს უკავშირდება {y} წლიდან (წარწერაში მითითებული ცხოვრების პირველი წელი)"
+  },
+  "photo": {
+   "ru": "Фото: Wikimedia Commons",
+   "en": "Photo: Wikimedia Commons",
+   "ka": "ფოტო: Wikimedia Commons"
+  },
+  "src": {
+   "ru": "Источник",
+   "en": "Source",
+   "ka": "წყარო"
+  },
+  "attr": {
+   "ru": "Данные: OpenStreetMap (ODbL), Wikidata, Википедия, Wikimedia Commons; энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008).",
+   "en": "Data: OpenStreetMap (ODbL), Wikidata, Wikipedia, Wikimedia Commons; the encyclopedia “Tbilisi. Streets, avenues, squares” (2008).",
+   "ka": "მონაცემები: OpenStreetMap (ODbL), Wikidata, ვიკიპედია, Wikimedia Commons; ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008)."
+  },
+  "mat_bronze": {
+   "ru": "бронза",
+   "en": "bronze",
+   "ka": "ბრინჯაო"
+  },
+  "mat_stone": {
+   "ru": "камень",
+   "en": "stone",
+   "ka": "ქვა"
+  },
+  "mat_metal": {
+   "ru": "металл",
+   "en": "metal",
+   "ka": "ლითონი"
+  },
+  "mat_concrete": {
+   "ru": "бетон",
+   "en": "concrete",
+   "ka": "ბეტონი"
+  },
+  "mat_copper": {
+   "ru": "медь",
+   "en": "copper",
+   "ka": "სპილენძი"
+  },
+  "mat_marble": {
+   "ru": "мрамор",
+   "en": "marble",
+   "ka": "მარმარილო"
+  },
+  "mat_cast_iron": {
+   "ru": "чугун",
+   "en": "cast iron",
+   "ka": "თუჯი"
+  },
+  "mat_steel": {
+   "ru": "сталь",
+   "en": "steel",
+   "ka": "ფოლადი"
+  },
+  "mat_basalt": {
+   "ru": "базальт",
+   "en": "basalt",
+   "ka": "ბაზალტი"
+  },
+  "mat_plaster": {
+   "ru": "гипс",
+   "en": "plaster",
+   "ka": "თაბაშირი"
+  },
+  "mat_wood": {
+   "ru": "дерево",
+   "en": "wood",
+   "ka": "ხე"
+  },
+  "mat_aluminium": {
+   "ru": "алюминий",
+   "en": "aluminium",
+   "ka": "ალუმინი"
+  }
+ }
+}

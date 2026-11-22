@@ -1,0 +1,53 @@
+{
+ "note": "Positions of the eight squares that the rules of tools/square_points.py did not find: given by Gemini (2026-11-22) and checked by Claude against the OSM streets named in the entries of the encyclopedia and the district polygons.",
+ "points": {
+  "Dekabristebi Square": {
+   "lon": 44.81949,
+   "lat": 41.68435,
+   "how": "manual",
+   "check": "checked: 0 m from Lortkipanidze and Sabanisdze streets of the entry"
+  },
+  "Solomon Dodashvili Square": {
+   "lon": 44.83914,
+   "lat": 41.67678,
+   "how": "manual",
+   "check": "partly checked: on the OSM square of Beri Gabriel Salosi, 150 m from the Dimitri Gulia bridge; the streets Baghdati and Rtveladze of the entry are not in the OSM data at hand"
+  },
+  "Nikoloz Baratashvili Square": {
+   "lon": 44.80644,
+   "lat": 41.69663,
+   "how": "manual",
+   "check": "checked: 0 m from Ioane Shavteli Street, 111 m from Gamsakhurdia Embankment"
+  },
+  "Jerusalem Square": {
+   "lon": 44.80624,
+   "lat": 41.69027,
+   "how": "manual",
+   "check": "checked: 19 m and 20 m from Jerusalem and Hovhannes Tumanyan streets"
+  },
+  "Agdgoma Square": {
+   "lon": 44.80647,
+   "lat": 41.6959,
+   "how": "manual",
+   "check": "checked: 1 m from Ioane Shavteli and Nakashidze streets, 38 m from Chakhrukhadze Street"
+  },
+  "Dolabauri Square": {
+   "lon": 44.83398,
+   "lat": 41.68478,
+   "how": "manual",
+   "check": "partly checked: 124 m from Bochorma Street of the entry"
+  },
+  "Kvaliti Square": {
+   "lon": 44.81823,
+   "lat": 41.70117,
+   "how": "manual",
+   "check": "checked: 1 m from Akhalubani and Kvaliti streets"
+  },
+  "Tskhra Dzma Square": {
+   "lon": 44.81264,
+   "lat": 41.71882,
+   "how": "manual",
+   "check": "checked: 0 m from Abashi Street and from the OSM square Tskhra Dzma Kherkheulidze"
+  }
+ }
+}

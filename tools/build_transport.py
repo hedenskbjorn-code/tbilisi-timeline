@@ -115,6 +115,10 @@ def far_pieces(ways, limit=1000, join=40, core=None):
 def main():
     feats = []
     # ---------------- metro
+    # Russian names of the stations whose name:ru in OSM is only a transliteration of the Georgian one: the translations (the Russian Wikipedia, "Tbilisi metro": "Государственный университет",
+    # "Политехнический институт", "Вокзальная-II", "Вагзлис моедани (Вокзальная площадь)"; the English names of the stations are translations too); the owner's remark of 2026-11-22
+    RU_STATION = {"Akhmeteli Theatre": "Театр Ахметели", "Station Square-1": "Вокзальная площадь-1", "Station Square-2": "Вокзальная площадь-2", "Liberty Square": "Площадь Свободы",
+                  "Technical University": "Технический университет", "Medical University": "Медицинский университет", "State University": "Государственный университет"}
     LINE1 = ["Akhmeteli Theatre", "Sarajishvili", "Guramishvili", "Ghrmaghele", "Didube", "Gotsiridze", "Nadzaledevi", "Station Square-1", "Marjanishvili",
              "Rustaveli", "Liberty Square", "Avlabari", "300 Aragveli", "Isani", "Samgori", "Varketili"]
     LINE2 = ["Station Square-2", "Tsereteli", "Technical University", "Medical University", "Delisi", "Vazha-Pshavela", "State University"]
@@ -149,7 +153,7 @@ def main():
             if nm in st:
                 (lon, lat), t = st[nm]
                 feats.append(feat({"type": "Point", "coordinates": [round(lon, 5), round(lat, 5)]}, id="metrost_" + nm, kind="metro_station", line=ln,
-                                  name_en=nm if nm != "Nadzaledevi" else "Nadzaladevi", name_ru=t.get("name:ru") or "", name_ka=t.get("name:ka") or "", y0=YEAR[nm], note=NOTE.get(nm, ""), src=S_METRO))
+                                  name_en=nm if nm != "Nadzaledevi" else "Nadzaladevi", name_ru=RU_STATION.get(nm) or t.get("name:ru") or "", name_ka=t.get("name:ka") or "", y0=YEAR[nm], note=NOTE.get(nm, ""), src=S_METRO))
     # ---------------- railway: main line through Tbilisi, west of the central station from 1872, east of it from 1883
     CENTRAL = 44.7995
     SR = [WP + "Georgian_Railway", WP + "Transcaucasus_Railway", WP + "Tbilisi_railway_station"]
@@ -243,8 +247,8 @@ def main():
 
     def mid_inside(g):
         return inside(sum(p["lon"] for p in g) / len(g), sum(p["lat"] for p in g) / len(g))
-    def rdp(pts, tol=1.5):
-        """Douglas-Peucker in metres (the first screen is limited in weight; 1.5 m is far below what the line width of the map shows)"""
+    def rdp(pts, tol=2.0):
+        """Douglas-Peucker in metres (the first screen is limited in weight; 2 m is far below what the line width of the map shows)"""
         import math as _m
         k = _m.cos(_m.radians(41.7)) * 111320
         xy = [((x - pts[0][0]) * k, (y - pts[0][1]) * 111320) for x, y in pts]
@@ -296,7 +300,7 @@ def main():
     MAIN = {"tamar": (["Tamar Mepe Avenue"], "проспект Тамар Мепе", "Tamar Mepe Avenue", "თამარ მეფის გამზირი"),
             "moscow": (["Moscow Avenue"], "Московский проспект", "Moscow Avenue", "მოსკოვის გამზირი"),
             "vazha": (["Vazha-Pshavela Avenue"], "проспект Важа-Пшавела", "Vazha-Pshavela Avenue", "ვაჟა-ფშაველას გამზირი"),
-            "pekini": (["Pekini Avenue", "Konstantine Gamsakhurdia Avenue"], "проспект Пекини (Гамсахурдиа)", "Pekini (Gamsakhurdia) Avenue", "პეკინის გამზირი (გამსახურდიას გამზირი)"),
+            "pekini": (["Pekini Avenue"], "проспект Пекини", "Pekini Avenue", "პეკინის გამზირი"),
             "kakheti": (["Kakheti Highway"], "Кахетинское шоссе", "Kakheti Highway", "კახეთის გზატკეცილი"),
             "guramishvili": (["David Guramishvili Avenue"], "проспект Давида Гурамишвили", "David Guramishvili Avenue", "დავით გურამიშვილის გამზირი"),
             "dedoplis": (["Tsminda Ketevan Dedoflis Avenue"], "проспект Кетеван Дедоплис", "Ketevan Dedoplis Avenue", "წმინდა ქეთევან დედოფლის გამზირი"),

@@ -244,8 +244,24 @@ if (sn && sg) {
   }
 }
 
+// ---- the names of the metro stations: the Russian name is a translation, not a transliteration of the Georgian one (the remark of the owner, 2026-11-22: "Сахельмципо университети") ----------
+{
+  const TRANSLIT = /(моедани|университети|театри|гамзири|институти|сахелмцип|вагзлис)/i;
+  for (const f of data["data/transport.json"]?.features || []) {
+    const p = f.properties;
+    if (p.kind !== "metro_station") continue;
+    if (!p.name_ru || !/[А-Яа-я]/.test(p.name_ru)) err(`transport.json ${p.id}: name_ru is empty or not Russian`);
+    else if (TRANSLIT.test(p.name_ru)) err(`transport.json ${p.id}: name_ru "${p.name_ru}" is a transliteration of the Georgian name (give the translation)`);
+  }
+}
+
 // ---- the changelog ---------------------------------------------------------------------------------------------
 const cl = data["data/changelog.json"];
+{
+  const vj = data["data/version.json"];                  // the button of the version reads this small file (python tools/build_version.py)
+  if (!vj) err("data/version.json is missing (python tools/build_version.py)");
+  else if (Array.isArray(cl) && cl.length && (vj.version !== cl[0].version || vj.date !== cl[0].date)) err(`data/version.json (${vj.version}, ${vj.date}) differs from the first entry of the changelog (${cl[0].version}, ${cl[0].date}); run python tools/build_version.py`);
+}
 if (Array.isArray(cl)) {
   const ver = (v) => String(v).split(".").map(Number);
   const cmp = (a, b) => { for (let i = 0; i < 3; i++) if (a[i] !== b[i]) return a[i] - b[i]; return 0; };
@@ -268,6 +284,51 @@ if (pop?.points) {
     if (!Number.isFinite(p.v)) err(`population[${i}]: no value`);
     if (p.s && !pop.sources?.[p.s]) err(`population[${i}]: unknown source "${p.s}"`);
   });
+}
+
+// ---- the layer "Local names" (data/places.json, made by tools/apply_places.py) ------------------------------------
+{
+  const pl = data["data/places.json"];
+  const KINDS = ["district", "garden", "hill", "bridge", "cemetery", "market", "bath", "area"];
+  if (!pl) err("data/places.json is missing (python tools/apply_places.py)");
+  else {
+    const ids = new Set();
+    for (const k of KINDS) for (const l of ["ru", "en"]) if (!pl.ui?.["kind_" + k]?.[l]) err(`places.json: the string kind_${k} (${l}) is missing`);
+    for (const k of ["etym", "no_etym", "src", "quote", "attr"]) for (const l of ["ru", "en"]) if (!pl.ui?.[k]?.[l]) err(`places.json: the string ${k} (${l}) is missing`);
+    pl.items.forEach((c, i) => {
+      const w = `places.json[${i}] ${c.id}`;
+      if (ids.has(c.id)) err(`${w}: duplicate id`); ids.add(c.id);
+      if (!KINDS.includes(c.k)) err(`${w}: unknown kind ${c.k}`);
+      if (!(c.lon > 44.6 && c.lon < 45.1 && c.lat > 41.6 && c.lat < 41.9)) err(`${w}: the point is outside Tbilisi`);
+      for (const f of ["n", "a"]) for (const l of ["ru", "en", "ka"]) if (!c[f]?.[l] || !String(c[f][l]).trim()) err(`${w}: ${f}.${l} is missing`);
+      if (c.e) for (const l of ["ru", "en", "ka"]) if (!c.e[l]) err(`${w}: e.${l} is missing`);
+      for (const f of ["n", "a", "e"]) if (c[f]) for (const l of ["en", "ka"]) if (CY.test(c[f][l] || "")) err(`${w}: Cyrillic in ${f}.${l}`);
+      if (!c.s?.u?.startsWith("https://") || !c.s.aq) err(`${w}: the source of the description (link and quote) is missing`);
+      if (c.e && !(c.s.eq?.u && c.s.eq.q)) err(`${w}: an etymology without a quote of the source`);
+      if (!c.e && c.s.eq) err(`${w}: a quote of the etymology without the etymology`);
+    });
+  }
+}
+
+// ---- monuments, sculptures and plaques (data/sculptures.json, data/plaques.json, made by tools/apply_monuments.py) --
+for (const [file, kinds] of [["data/sculptures.json", ["sculpture", "bust", "monument", "statue", "memorial", "relief"]], ["data/plaques.json", null]]) {
+  const f = data[file];
+  if (!f) { err(`${file} is missing (python tools/apply_monuments.py)`); continue; }
+  const ids = new Set();
+  for (const k of ["layer_mon", "layer_plq", "k_plaque", "year_unknown", "where", "photo", "attr"]) for (const l of ["ru", "en"]) if (!f.ui?.[k]?.[l]) err(`${file}: the string ${k} (${l}) is missing`);
+  f.items.forEach((c, i) => {
+    const w = `${file}[${i}] ${c.id}`;
+    if (ids.has(c.id)) err(`${w}: duplicate id`); ids.add(c.id);
+    if (kinds && !kinds.includes(c.k)) err(`${w}: unknown kind ${c.k}`);
+    if (kinds && !f.ui?.["k_" + c.k]?.en) err(`${w}: no string for the kind ${c.k}`);
+    if (!(c.lon > 44.66 && c.lon < 45.02 && c.lat > 41.62 && c.lat < 41.86)) err(`${w}: the point is outside Tbilisi`);
+    for (const l of ["en", "ka"]) if (CY.test(c.n?.[l] || "")) err(`${w}: Cyrillic in n.${l}`);
+    if (c.y != null && !(Number.isInteger(c.y) && c.y > 1000 && c.y < 2100)) err(`${w}: the year ${c.y}`);
+    if (!kinds && c.y != null && !String(c.ins || "").includes(String(c.y))) err(`${w}: the first year of life ${c.y} is not in the inscription`);
+    if (c.ph && !(f.photos?.[c.ph]?.thumb && f.photos[c.ph].license && f.photos[c.ph].page)) err(`${w}: the photo ${c.ph} has no thumbnail, licence or page`);
+    if (c.st && !f.streets?.[c.st]) err(`${w}: the street ${c.st} is not in the list`);
+  });
+  for (const [k, s] of Object.entries(f.streets || {})) for (const l of ["ru", "en", "ka"]) if (!s[l]) err(`${file}: the street ${k} has no ${l}`);
 }
 
 // ---- the files that the page needs ------------------------------------------------------------------------------

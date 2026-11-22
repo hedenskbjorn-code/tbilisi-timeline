@@ -50,7 +50,8 @@ test("on a tablet the language, version and sections are in the menu (...) and t
   await page.waitForSelector("#moreMenu:not([hidden])");
   assert.equal(await page.locator("#moreMenu #lang").count(), 1);
   assert.equal(await page.locator("#moreMenu #pagesSel").count(), 1);
-  assert.equal(await page.locator("#moreMenu #btnVersion").count(), 1);
+  assert.equal(await page.locator("#moreMenu #btnVersion").count(), 0, "the version button lives in the panel Info");
+  assert.equal(await page.locator("#side #btnVersion").count(), 1);
   // the menu is on top: the element at its centre belongs to the menu (not to the time bar or to a panel), and every item can be reached
   const topmost = await page.evaluate(() => {
     const r = document.getElementById("moreMenu").getBoundingClientRect();
