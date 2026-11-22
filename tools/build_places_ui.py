@@ -24,6 +24,7 @@ RU_EN = {
     "attr": ("Описание и происхождение названия взяты из статей Википедии (лицензия CC BY-SA), положение точки из OpenStreetMap.",
              "The description and the origin of the name are taken from Wikipedia articles (CC BY-SA licence); the position of the point is from OpenStreetMap."),
     "area_approx": ("граница приблизительная", "the boundary is approximate"),
+    "dict_note": ("Словарное значение слова (не источник происхождения топонима).", "Dictionary meaning of the word (not a source of the toponym's origin)."),
 }
 
 
@@ -35,7 +36,9 @@ def main():
         assert set(ka) == set(RU_EN), set(ka) ^ set(RU_EN)
         for k, v in ka.items():
             assert not re.search("[А-Яа-яЁё]", v) and "პროსპექტ" not in v, k
-    ui = {k: {"ru": a, "en": b, **({"ka": ka[k]} if ka else {})} for k, (a, b) in RU_EN.items()}
+    ui = {k: {"ru": a, "en": b, **({"ka": ka[k]} if k in ka else {})} for k, (a, b) in RU_EN.items()}
+    mu = json.load(open(os.path.join(R, "tools", "metro_ui.json"), encoding="utf-8"))      # the line "Encyclopedia ..., p." is the same as in the card of a metro station (three languages)
+    ui["enc"] = mu["enc"] if "enc" in mu else mu["ui"]["enc"]
     mp = os.path.join(R, "for_gemini", "from_desktop", "places_manual_result.json")           # the card of the former hippodrome (tools/places_hippodrome.py): name, text, the note about the contour
     mk = json.load(open(mp, encoding="utf-8")) if os.path.exists(mp) else {}
     ui["area_note"] = {"ru": "Показана территория Центрального парка по данным OpenStreetMap; ипподром занимал больше (по georgia.travel около 36 га, в прошлом до 57 га).",

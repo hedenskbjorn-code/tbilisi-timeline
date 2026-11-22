@@ -3059,16 +3059,19 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (c.e) { const kk = document.createElement("span"); kk.className = "k"; kk.textContent = PU("etym") + ": "; e.appendChild(kk); e.appendChild(document.createTextNode(c.e[lang] || c.e.en)); }
     else if (c.ne) e.remove();                                      // an entry for which the question of the etymology is not asked (the former hippodrome)
     else { e.className = "small"; e.textContent = PU("no_etym"); }
+    if (c.e && c.s.eq && c.s.eq.k === "dictionary") add(PU("dict_note"), "small");     // the meaning of a common word, not a source of the origin of the toponym
     if (c.g) add(PU("area_note"), "small");                         // the contour of an area is not the exact boundary of the object of the past
     const s = add("", "src");
     s.appendChild(document.createTextNode(PU("src") + ": "));
-    const a = document.createElement("a");
-    a.href = c.s.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikipedia (" + c.s.l + ")";
-    s.appendChild(a);
+    const srcLabel = (u, l) => { const h = new URL(u).hostname; return /wikipedia\.org$/.test(h) ? "Wikipedia (" + (l || h.split(".")[0]) + ")" : h.replace(/^www\./, ""); };
+    const links = [[c.s.u, c.s.l]];
+    if (c.s.eq && c.s.eq.u && c.s.eq.u !== c.s.u) links.push([c.s.eq.u, c.s.eq.l]);               // the origin of the name may come from another page than the description
+    links.forEach(([u, l], i) => { if (i) s.appendChild(document.createTextNode("; ")); const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = srcLabel(u, l); s.appendChild(a); });
+    if (c.s.eq && c.s.eq.p) s.appendChild(document.createTextNode("; " + PU("enc") + " " + c.s.eq.p));
     actions(el, () => openInfo((body) => {
       infoLine(body, (c.n[lang] || c.n.en) + ":");
       infoLine(body, PU("quote") + " (" + c.s.l + "): “" + c.s.aq + "”", "small");
-      if (c.s.eq) infoLine(body, PU("etym") + " — " + PU("quote") + " (" + c.s.eq.l + "): “" + c.s.eq.q + "”", "small");
+      if (c.s.eq) infoLine(body, PU("etym") + " — " + PU("quote") + " (" + c.s.eq.l + (c.s.eq.p ? ", " + PU("enc") + " " + c.s.eq.p : "") + "): “" + c.s.eq.q + "”", "small");
       for (const x of (c.x && c.x.q) || []) infoLine(body, PU("quote") + " (" + x.l + "): “" + x.q + "”", "small");
       for (const u of new Set([c.s.u, c.s.eq && c.s.eq.u].filter(Boolean))) { const d = infoLine(body, "", "small"), l = document.createElement("a"); l.href = u; l.target = "_blank"; l.rel = "noopener"; l.textContent = decodeURI(u); d.appendChild(l); }
       infoLine(body, PU("attr"), "small");

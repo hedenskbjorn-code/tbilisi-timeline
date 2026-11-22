@@ -304,7 +304,8 @@ if (pop?.points) {
       if (c.e) for (const l of ["ru", "en", "ka"]) if (!c.e[l]) err(`${w}: e.${l} is missing`);
       for (const f of ["n", "a", "e"]) if (c[f]) for (const l of ["en", "ka"]) if (CY.test(c[f][l] || "")) err(`${w}: Cyrillic in ${f}.${l}`);
       if (!c.s?.u?.startsWith("https://") || !c.s.aq) err(`${w}: the source of the description (link and quote) is missing`);
-      if (c.e && !(c.s.eq?.u && c.s.eq.q)) err(`${w}: an etymology without a quote of the source`);
+      if (c.e && !((c.s.eq?.u || Number.isInteger(c.s.eq?.p)) && c.s.eq.q)) err(`${w}: an etymology without a quote of the source (a page of a site or a page of the encyclopedia)`);
+      if (c.s.eq?.u && !/^https:\/\/((ka|ru|en)\.(wikipedia|wiktionary)\.org|(www\.)?georgianencyclopedia\.ge|(www\.)?ena\.ge)\//.test(c.s.eq.u)) err(`${w}: the source of the etymology is not on an allowed site: ${c.s.eq.u}`);
       if (!c.e && c.s.eq) err(`${w}: a quote of the etymology without the etymology`);
     });
   }
