@@ -1,0 +1,25 @@
+{
+ "note": "Rows of the first pass added by Claude (2026-11-22) after a check of the page text: the articles that the index of the entries lacks or that Gemini could not read (the reviewer gave the pages 74 and 181, the quotes stand in the OCR text of the pages).",
+ "rows": [
+  {
+   "key": "kazbegi",
+   "status": "ok",
+   "skip_reason": "",
+   "page": 181,
+   "ka_heading": "ალექსანდრე ყაზბეგის გამზირი",
+   "origin_quote": "ალექსანდრე ყაზბეგის გამ%ირი. ვაკე-საბურთალოს რ-ნი (საბურთალო): პეკინის გამზირიდან პეტრე ქავთარაძის ქუჩამდე. წარმოიქმნა XX ს. 40-იან წლებში.",
+   "origin_printed": "ალექსანდრე ყაზბეგის გამზირი. ვაკე-საბურთალოს რ-ნი (საბურთალო): პეკინის გამზირიდან პეტრე ქავთარაძის ქუჩამდე. წარმოიქმნა XX ს. 40-იან წლებში.",
+   "origin_kind": "decade"
+  },
+  {
+   "key": "gorgasali",
+   "status": "ok",
+   "skip_reason": "",
+   "page": 74,
+   "ka_heading": "ვახტანგ გორგასლის ქუჩა",
+   "origin_quote": "ვორონცოვის ქუჩა გაიხსნა 1850 წ.",
+   "origin_printed": "ვორონცოვის ქუჩა გაიხსნა 1850 წ.",
+   "origin_kind": "year"
+  }
+ ]
+}

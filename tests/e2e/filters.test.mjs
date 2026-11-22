@@ -1,6 +1,6 @@
-// The panel "Filters and layers": four collapsible blocks with counters (the state is remembered, a phone opens one block), the modes "swipe" and
+// The panel "Filters and layers": four collapsible blocks (maps, boundaries, buildings and heritage, history and transport) with counters (the state is remembered, a phone opens one block), the modes "swipe" and
 // "what was here" are buttons on the map, legends follow their layers (and are really hidden), the religious legend shows the denominations of the year,
-// check boxes stand at the first line of a label, "All / Clear all" for the types, the hint for an empty choice, "Reset filters".
+// check boxes stand at the first line of a label, the register objects follow the layers (no list of the register), "Reset filters".
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -26,8 +26,8 @@ const secs = () => ev(() => Object.fromEntries([...document.querySelectorAll("#f
 const counter = (sid) => ev((s) => document.querySelector(`#filters details.fsec[data-sec="${s}"] .cnt`).textContent, sid);
 
 test("four blocks: only the layers by year are open (a wide screen and a phone alike), the rest closed; every block has a counter", async () => {
-  assert.deepEqual(await secs(), { "f-base": false, "f-city": false, "f-layers": true, "f-reg": false });
-  for (const s of ["f-base", "f-city", "f-layers", "f-reg"]) assert.match(await counter(s), /^\d+\/\d+$/, s);
+  assert.deepEqual(await secs(), { "f-base": false, "f-city": false, "f-layers": true, "f-hist": false });
+  for (const s of ["f-base", "f-city", "f-layers", "f-hist"]) assert.match(await counter(s), /^\d+\/\d+$/, s);
   assert.equal(await ev(() => document.querySelector("#secCity > summary").textContent), "The city in this year", "the title of the left panel keeps its own key");
   await openAll();
 });
@@ -36,7 +36,7 @@ test("a phone opens one block (layers by year)", async () => {
   const p2 = await openPage(browser, URL_(), { width: 390, height: 844 });
   await waitReady(p2);
   const st = await p2.evaluate(() => Object.fromEntries([...document.querySelectorAll("#filters details.fsec")].map((d) => [d.dataset.sec, d.open])));
-  assert.deepEqual(st, { "f-base": false, "f-city": false, "f-layers": true, "f-reg": false });
+  assert.deepEqual(st, { "f-base": false, "f-city": false, "f-layers": true, "f-hist": false });
   const cnt = await p2.evaluate(() => [...document.querySelectorAll("#filters details.fsec .cnt")].map((c) => c.textContent));   // the panel itself is closed on a phone, the counters still count
   assert.equal(cnt.length, 4);
   for (const c of cnt) assert.match(c, /^[1-9]\d*\/\d+$/, "a counter of a closed panel: " + c);
@@ -134,30 +134,23 @@ test("the legend box is collapsed by default", async () => {
   assert.equal(await ev(() => document.getElementById("legendbox").open), false);
 });
 
-test("'Clear all' unchecks the nine types, shows the hint, 'All' brings them back", async () => {
-  const types = () => ev(() => [...document.querySelectorAll("#typelist input[type=checkbox]")].map((c) => c.checked));
-  assert.equal((await types()).length, 9);
-  assert.equal(await hidden("emptyObjects"), true);
-  await page.click("#typesNone");
-  assert.deepEqual((await types()).filter(Boolean), []);
-  assert.equal(await hidden("emptyObjects"), false);
-  assert.equal(await shown("emptyObjects"), true);
-  assert.equal(await ev(() => JSON.stringify(window.TT_E2E.map.getFilter("mon")).includes('"literal",[]')), true, "the map filter holds an empty set of types");
-  await page.click("#typesAll");
-  assert.equal((await types()).every(Boolean), true);
-  assert.equal(await hidden("emptyObjects"), true);
-});
-
-test("the hint also shows when all three statuses are unchecked, and it is seen with the block closed", async () => {
-  for (const id of ["showNat", "showMon", "showObj"]) await page.setChecked("#" + id, false);
-  assert.equal(await hidden("emptyObjects"), false);
-  await ev(() => { document.querySelector('#filters details.fsec[data-sec="f-reg"]').open = false; });
-  assert.equal(await shown("emptyObjects"), true, "the hint is outside the blocks");
-  await openAll();
-  await page.setChecked("#showMon", true);
-  assert.equal(await hidden("emptyObjects"), true);
-  await page.setChecked("#showNat", true);
-  await page.setChecked("#showObj", true);
+test("the register objects follow the check boxes of the layers: no list of the register, the duplicates of the layers are not drawn", async () => {
+  assert.equal(await ev(() => document.getElementById("typelist")), null, "the list of the types of the register is gone");
+  const flt = () => ev(() => JSON.stringify(window.TT_E2E.map.getFilter("mon")));
+  const f0 = await flt();
+  assert.ok(f0.includes('"dup"'), "the objects that a layer already shows are left out");
+  assert.ok(f0.includes("residential") && f0.includes("religious") && f0.includes("culture") && f0.includes("memorial"), "all the purposes at the start");
+  await page.setChecked("#showResid", false);
+  assert.ok(!(await flt()).includes("residential"), "the residential layer is off");
+  await page.setChecked("#showResid", true);
+  await page.setChecked("#showOtherB", false);
+  const f1 = await flt();
+  assert.ok(!f1.includes("memorial") && !f1.includes("rural") && !f1.includes("transport") && f1.includes("defense"), "the group of the other structures is off, the defence stays");
+  await page.setChecked("#showOtherB", true);
+  assert.equal(await ev(() => document.getElementById("showNatOnly")), null, "no box for the national significance: the colour of the point shows it");
+  await page.setChecked("#showRel", false);
+  assert.ok(!(await flt()).includes("religious"), "the layer of religious buildings switches its register objects too");
+  await page.setChecked("#showRel", true);
 });
 
 test("'Reset filters' is off at the start, turns on with any change and brings back the defaults", async () => {
@@ -167,7 +160,7 @@ test("'Reset filters' is off at the start, turns on with any change and brings b
   await page.setChecked("#showEdu", true);                  // default off
   await page.setChecked("#showRulers", !wide);              // the default depends on the width
   await ev(() => { const o = document.getElementById("op"); o.value = 20; o.dispatchEvent(new Event("input", { bubbles: true })); });
-  await page.click("#typelist label:first-child input");    // one type off
+  await page.setChecked("#showResid", false);               // one layer off
   assert.equal(await ev(() => document.getElementById("filtersReset").disabled), false);
   await page.click("#filtersReset");
   assert.equal(await checked("showBnd"), true);
@@ -175,7 +168,7 @@ test("'Reset filters' is off at the start, turns on with any change and brings b
   assert.equal(await checked("showRulers"), wide);
   assert.equal(await ev(() => document.getElementById("op").value), "65");
   assert.equal(await ev(() => document.getElementById("opv").textContent), "65%");
-  assert.equal(await ev(() => [...document.querySelectorAll("#typelist input")].every((c) => c.checked)), true);
+  assert.equal(await checked("showResid"), true);
   assert.equal(await ev(() => window.TT_E2E.map.getLayoutProperty("edu-pt", "visibility")), "none");
   assert.equal(await ev(() => document.getElementById("filtersReset").disabled), true, "off again");
 });
