@@ -1,0 +1,346 @@
+{
+ "spec": [
+  {
+   "key": "David Gamrekeli Street",
+   "near": "all",
+   "district": "Saburtalo",
+   "now": {
+    "ru": "улица Давида Гамрекели",
+    "en": "David Gamrekeli Street",
+    "ka": "დავით გამრეკელის ქუჩა"
+   },
+   "iv": [
+    [
+     1941,
+     1992,
+     {
+      "ru": "улица Кутузова",
+      "en": "Kutuzov Street",
+      "ka": "კუტუზოვის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "exact"
+   ],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 40",
+   "pdf_page": 40,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): 1941 — улица Кутузова; 1992 — улица Давида Гамрекели. Улица возникла в 1940-х годах.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): 1941 — Kutuzov Street; 1992 — David Gamrekeli Street. The street arose in the 1940s."
+   },
+   "id": "S01"
+  },
+  {
+   "key": "Georgy Tovstonogov Street",
+   "near": [
+    41.7141,
+    44.7966
+   ],
+   "district": "Old Tbilisi",
+   "now": {
+    "ru": "улица Георгия Товстоногова",
+    "en": "Georgy Tovstonogov Street",
+    "ka": "გიორგი ტოვსტონოგოვის ქუჩა"
+   },
+   "iv": [
+    [
+     1903,
+     1923,
+     {
+      "ru": "улица Татьяны",
+      "en": "Tatiana Street",
+      "ka": "ტატიანას ქუჩა"
+     }
+    ],
+    [
+     1923,
+     1992,
+     {
+      "ru": "улица 25 Февраля, затем 26 Мая",
+      "en": "25 February Street, later 26 May Street",
+      "ka": "25 თებერვლის ქუჩა, შემდეგ 26 მაისის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "plan",
+    "exact"
+   ],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 168",
+   "pdf_page": 168,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): улица Татьяны (дочери Николая II) в списке 1903 года; 1923 — улица 25 Февраля, затем 26 Мая (год не назван); 1992 — улица Георгия Товстоногова.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): Tatiana Street (after the daughter of Nicholas II) in the list of 1903; 1923 — 25 February Street, later 26 May Street (the year is not named); 1992 — Giorgi Tovstonogov Street."
+   },
+   "id": "S02"
+  },
+  {
+   "key": "Erosi Manjgaladze Street",
+   "near": [
+    41.7292,
+    44.7997
+   ],
+   "district": "Nadzaladevi",
+   "now": {
+    "ru": "улица Эроси Манджгаладзе",
+    "en": "Erosi Manjgaladze Street",
+    "ka": "ეროსი მანჯგალაძის ქუჩა"
+   },
+   "iv": [
+    [
+     1903,
+     1950,
+     {
+      "ru": "Магистральная улица",
+      "en": "Magistral Street",
+      "ka": "მაგისტრალის ქუჩა"
+     }
+    ],
+    [
+     1950,
+     1990,
+     {
+      "ru": "улица Топуридзе",
+      "en": "Topuridze Street",
+      "ka": "თოფურიძის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "plan",
+    "dec"
+   ],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 106",
+   "pdf_page": 106,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): в списке 1903 года — Магистральная улица; 1950-е годы — улица В. Топуридзе (точный год не назван, на карте условно с 1950); 1990-е годы — улица Эроси Манджгаладзе (год не назван, на карте условно с 1990).",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): in the list of 1903 Magistral Street; the 1950s — V. Topuridze Street (the exact year is not named, on the map conventionally from 1950); the 1990s — Erosi Manjgaladze Street (the year is not named, on the map conventionally from 1990)."
+   },
+   "id": "S03"
+  },
+  {
+   "key": "Giorgi Mazniashvili Street",
+   "near": [
+    41.7076,
+    44.8028
+   ],
+   "district": "Old Tbilisi",
+   "now": {
+    "ru": "улица Георгия Мазниашвили",
+    "en": "Giorgi Mazniashvili Street",
+    "ka": "გიორგი მაზნიაშვილის ქუჩა"
+   },
+   "iv": [
+    [
+     1851,
+     1923,
+     {
+      "ru": "Рейтовская улица",
+      "en": "Reut Street",
+      "ka": "რეუტის ქუჩა"
+     }
+    ],
+    [
+     1923,
+     1991,
+     {
+      "ru": "улица Мерквиладзе, затем Чкондидели",
+      "en": "Merkviladze Street, later Chkondideli Street",
+      "ka": "მერკვილაძის ქუჩა, შემდეგ ჭყონდიდელის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "plan",
+    "exact"
+   ],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 105",
+   "pdf_page": 105,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): Рейтовская улица (план 1851 года); с 1923 — улица А. Мерквиладзе, затем улица Георгия Чкондидели (год не назван); 1991 — улица генерала Георгия Мазниашвили, жившего на этой улице. В 1991 году улица Чкондидели в Надзаладеви получила имя Чкондидели (до того имя Мазниашвили).",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): Reut Street (plan of 1851); from 1923 A. Merkviladze Street, later Giorgi Chkondideli Street (the year is not named); 1991 — General Giorgi Mazniashvili Street, he lived on this street. In 1991 the street in Nadzaladevi received the name Chkondideli (before that it bore the name Mazniashvili)."
+   },
+   "id": "S04"
+  },
+  {
+   "key": "Giorgi Chqondideli Street",
+   "near": [
+    41.7429,
+    44.7903
+   ],
+   "district": "Nadzaladevi",
+   "now": {
+    "ru": "улица Георгия Чкондидели",
+    "en": "Giorgi Chqondideli Street",
+    "ka": "გიორგი ჭყონდიდელის ქუჩა"
+   },
+   "iv": [
+    [
+     1930,
+     1991,
+     {
+      "ru": "улица Пятилетки, затем Мазниашвили",
+      "en": "Five-Year Plan Street, later Mazniashvili Street",
+      "ka": "ხუთწლედის ქუჩა, შემდეგ მაზნიაშვილის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "dec"
+   ],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 41",
+   "pdf_page": 41,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): улица возникла в 1930-х годах (точный год не назван, на карте условно с 1930); прежде улица Пятилетки, затем улица Г. Мазниашвили (год не назван); 1991 — улица Георгия Чкондидели. В 1991 году имена этой улицы и улицы Мазниашвили в Мтацминда поменялись местами.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the street arose in the 1930s (the exact year is not named, on the map conventionally from 1930); earlier Five-Year Plan Street, later G. Mazniashvili Street (the year is not named); 1991 — Giorgi Chkondideli Street. In 1991 the names of this street and of Mazniashvili Street in Mtatsminda were swapped."
+   },
+   "id": "S05"
+  },
+  {
+   "key": "Kote and Soso Tsereteli Street",
+   "near": [
+    41.7045,
+    44.8007
+   ],
+   "district": "Old Tbilisi",
+   "now": {
+    "ru": "улица Коте и Сосо Церетели",
+    "en": "Kote and Soso Tsereteli Street",
+    "ka": "კოტე და სოსო წერეთლების ქუჩა"
+   },
+   "iv": [
+    [
+     1876,
+     1923,
+     {
+      "ru": "улица Исарлова",
+      "en": "Isarlov Street",
+      "ka": "ისარლოვის ქუჩა"
+     }
+    ],
+    [
+     1923,
+     1934,
+     {
+      "ru": "улица Рисакова",
+      "en": "Risakov Street",
+      "ka": "რისაკოვის ქუჩა"
+     }
+    ],
+    [
+     1934,
+     1990,
+     {
+      "ru": "улица Гриневицкого",
+      "en": "Grinevitsky Street",
+      "ka": "გრინევიცკის ქუჩა"
+     }
+    ],
+    [
+     1990,
+     1997,
+     {
+      "ru": "улица Колхети",
+      "en": "Kolkheti Street",
+      "ka": "კოლხეთის ქუჩა"
+     }
+    ]
+   ],
+   "from_kinds": [
+    "plan",
+    "plan",
+    "plan",
+    "exact"
+   ],
+   "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 200",
+   "pdf_page": 200,
+   "note": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008): названия по планам — Исарлова (1876), Н. Рисакова (1923), И. Гриневицкого (1934); 1990 — улица Колхети; 1997 — улица Сосо Церетели. Нынешнее название (Коте и Сосо Церетели) — по OpenStreetMap.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the names after the plans — Isarlov (1876), N. Risakov (1923), I. Grinevitsky (1934); 1990 — Kolkheti Street; 1997 — Soso Tsereteli Street. The present name (Kote and Soso Tsereteli) is after OpenStreetMap."
+   },
+   "id": "S06"
+  }
+ ],
+ "extend": [
+  {
+   "id": "X01",
+   "key": "Galaktion Tabidze Street",
+   "op": "set",
+   "arg": [
+    1921,
+    1959,
+    1923,
+    1959
+   ],
+   "note_add": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008) (PDF с. 167) и ka.wikipedia: имя Акакия Церетели с 1923 года (ru.wikipedia называет 1921); прежде Ганская улица (список 1841 года).",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008) (PDF p. 167) and ka.wikipedia: the name of Akaki Tsereteli from 1923 (ru.wikipedia gives 1921); earlier Gani Street (the list of 1841)."
+   }
+  },
+  {
+   "id": "X02",
+   "key": "Giorgi Leonidze Street",
+   "op": "add",
+   "arg": [
+    [
+     1922,
+     1935,
+     {
+      "ru": "улица Исполкома (Агмаскомская)",
+      "en": "Executive Committee Street (Aghmaskom)",
+      "ka": "აღმასკომის ქუჩა"
+     }
+    ]
+   ],
+   "note_add": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008) (PDF с. 102): 1922 — улица Исполкома (Агмаскомская), так и на плане 1934 года; 1935 — улица Кирова.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008) (PDF p. 102): 1922 — Executive Committee Street (Aghmaskom), also so on the plan of 1934; 1935 — Kirov Street."
+   }
+  },
+  {
+   "id": "X03",
+   "key": "Tsotne Dadiani Street",
+   "op": "add",
+   "arg": [
+    [
+     1910,
+     1922,
+     {
+      "ru": "улица Черкезова (Черкезишвили)",
+      "en": "Cherkezov (Cherkezishvili) Street",
+      "ka": "ჩერქეზოვის (ჩერქეზიშვილის) ქუჩა"
+     }
+    ]
+   ],
+   "note_add": {
+    "ru": "В 1910 году улица получила имя В. Черкезова (Черкезишвили) (Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008), PDF с. 53).",
+    "en": "In 1910 the street received the name of V. Cherkezov (Cherkezishvili) (Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008), PDF p. 53)."
+   }
+  },
+  {
+   "id": "X04",
+   "key": "Revaz Tabukashvili Street",
+   "op": "add",
+   "arg": [
+    [
+     1934,
+     1990,
+     {
+      "ru": "улица Дзнеладзе",
+      "en": "Dzneladze Street",
+      "ka": "ძნელაძის ქუჩა"
+     }
+    ]
+   ],
+   "note_add": {
+    "ru": "Энциклопедия «Тбилиси. Улицы, проспекты, площади» (2008) (PDF с. 81): имя Б. Дзнеладзе по плану 1934 года; 1990 — Иоане Петрици, 1992 — Реваз Табукашвили.",
+    "en": "Encyclopedia 'Tbilisi. Streets, avenues, squares' (2008) (PDF p. 81): the name of B. Dzneladze after the plan of 1934; 1990 — Ioane Petritsi, 1992 — Revaz Tabukashvili."
+   }
+  }
+ ],
+ "CL": [
+  "На карте появились исторические подписи ещё шести улиц Тбилиси (Гамрекели, Товстоногова, Манджгаладзе, Мазниашвили, Чкондидели, Коте и Сосо Церетели) по энциклопедии «Тбилиси. Улицы, проспекты, площади» (2008); у трёх улиц добавлены прежние названия, а у улицы Галактиона Табидзе дата имени Акакия Церетели исправлена на 1923 год.",
+  "Historical labels of six more Tbilisi streets (Gamrekeli, Tovstonogov, Manjgaladze, Mazniashvili, Chkondideli, Kote and Soso Tsereteli) appear on the map after the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008); earlier names are added to three streets, and the date of the name of Akaki Tsereteli on Galaktion Tabidze Street is corrected to 1923."
+ ]
+}

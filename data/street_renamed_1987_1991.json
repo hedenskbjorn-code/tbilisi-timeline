@@ -700,13 +700,13 @@
   },
   {
    "n": 50,
-   "status": "verified_enc2008_not_yet_added",
+   "status": "done",
    "ka_old": "მერკვილაძის ქუჩა",
    "ka_new": "გიორგი ჭყონდიდელის ქუჩა",
    "ru_new_gemini": "улица Георгия Чкондидели",
    "en_new_gemini": "Giorgi Chqondideli Street",
    "district_gemini": "не проверено",
-   "reason": "no ka.wikipedia page or no year on it; ask Gemini for the encyclopedia 'Tbilisi: streets, avenues, squares' (2008) or an official act",
+   "reason": "added in 1.8.4 from the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008)",
    "enc2008": {
     "pdf_page": 105,
     "text_says": "Reut 1851; from 1923 A. Merkviladze, then Giorgi Chkondideli (no year); 1991 G. Mazniashvili",
@@ -752,13 +752,13 @@
   },
   {
    "n": 53,
-   "status": "verified_enc2008_not_yet_added",
+   "status": "done",
    "ka_old": "გრინევიცკის ქუჩა",
    "ka_new": "კოლხეთის ქუჩა",
    "ru_new_gemini": "улица Колхети",
    "en_new_gemini": "Kolkheti Street",
    "district_gemini": "не проверено",
-   "reason": "no ka.wikipedia page or no year on it; ask Gemini for the encyclopedia 'Tbilisi: streets, avenues, squares' (2008) or an official act",
+   "reason": "added in 1.8.4 from the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008)",
    "enc2008": {
     "pdf_page": 200,
     "text_says": "Isarlov 1876; N. Risakov 1923 plan; I. Grinevitsky 1934 plan; 1990 Kolkheti St.; 1997 S. Tsereteli (the present name)",
@@ -948,13 +948,13 @@
   },
   {
    "n": 66,
-   "status": "no_year",
+   "status": "done",
    "ka_old": "25 თებერვლის ქუჩა",
    "ka_new": "26 მაისის ქუჩა",
    "ru_new_gemini": "улица 26 Мая",
    "en_new_gemini": "26th May Street",
    "district_gemini": "не проверено",
-   "reason": "no ka.wikipedia page or no year on it; ask Gemini for the encyclopedia 'Tbilisi: streets, avenues, squares' (2008) or an official act",
+   "reason": "added in 1.8.4 from the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008)",
    "enc2008_not_confirmed": "1923 25 February St., then 26 May St. (no year), 1992 G. Tovstonogov: the year of the new name is not named"
   },
   {
@@ -1032,7 +1032,7 @@
   },
   {
    "n": 72,
-   "status": "verified_enc2008_not_yet_added",
+   "status": "done",
    "ka_old": "ხუთწლედის ქუჩა",
    "ka_new": "გიორგი მაზნიაშვილის ქუჩა",
    "ru_new_gemini": "улица Георгия Мазниашвили",
@@ -1041,7 +1041,7 @@
    "rename_year": "1991",
    "rename_src": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98_%E1%83%9B%E1%83%90%E1%83%96%E1%83%9C%E1%83%98%E1%83%90%E1%83%A8%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
    "rename_quote": "ამ ქუჩაზე ცხოვრობდა გენერალი გიორგი მაზნიაშვილი, რის გამოც 1991 წელს ქუჩას მისი სახელი ეწოდა",
-   "reason": "the page gives the year of the new name, not of the old one",
+   "reason": "added in 1.8.4 from the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008)",
    "enc2008": {
     "pdf_page": 41,
     "text_says": "30s Khutsvledi St., then G. Mazniashvili; 1991 G. Chkondideli (the names of nos. 50 and 72 were swapped in 1991)",
@@ -1065,7 +1065,7 @@
   },
   {
    "n": 74,
-   "status": "verified_enc2008_not_yet_added",
+   "status": "done",
    "ka_old": "თოფურიძის ქუჩა",
    "ka_new": "ეროსი მანჯგალაძის ქუჩა",
    "ru_new_gemini": "улица Эроси Манджгаладзе",
@@ -1074,7 +1074,7 @@
    "rename_year": "1990",
    "rename_src": "https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%A0%E1%83%9D%E1%83%A1%E1%83%98_%E1%83%9B%E1%83%90%E1%83%9C%E1%83%AF%E1%83%92%E1%83%90%E1%83%9A%E1%83%90%E1%83%AB%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%A3%E1%83%A9%E1%83%90",
    "rename_quote": "წლებში ვალენტინ თოფურიძის სახელი დაერქვა, 1990-იან წლებში — ეროსი მანჯგალაძისა",
-   "reason": "the page says only 'in the 1990s' for the renaming; the old name Topuridze is from the 1950s",
+   "reason": "added in 1.8.4 from the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008)",
    "enc2008": {
     "pdf_page": 46,
     "text_says": "50s V. Topuridze; 1990s E. Manjgaladze",
@@ -1174,6 +1174,18 @@
    "ka_new": "ნაძალადევი",
    "status": "no_year",
    "reason": "no page found"
+  }
+ ],
+ "added_by_owner": [
+  {
+   "ka_old": "კუტუზოვის ქუჩა",
+   "ka_new": "დავით გამრეკელის ქუჩა",
+   "status": "done",
+   "enc2008": {
+    "pdf_page": 40,
+    "text_says": "Vake-Saburtalo; the street arose in the 1940s; 1941 M. Kutuzov; 1992 D. Gamrekeli (the renaming year is 1992, outside 1987-1991)"
+   },
+   "given": "2026-11-22 by the owner (Gamrekeli Street, formerly Kutuzov Street); checked against the book text"
   }
  ]
 }

@@ -260,7 +260,7 @@ def main():
         "uridia": ["Revaz Uridia Street"], "makhaldiani": ["Vakhtang Makhaldiani Lane"], "rkinigza": ["Rkinigza Street"], "holbrooke": ["Richard Holbrooke Street"], "khmelnitsky": ["Bogdan Khmelnitski Street"],
     }
     CHECK_URBAN = {"alley"}      # streets whose pieces in open country are dropped (checked on the topographic map and the outlines of the built-up area, 2026-11-19)
-    NOT_MATCHED = {}                                         # streets with no usable OSM way: nothing is drawn (none now: Pirosmani Street was matched wrongly, see far_pieces)
+    NOT_MATCHED = {"zghvi"}                                  # streets with no usable OSM way: nothing is drawn (Tbilisi Sea Ascent != Tbilisi Zghvi Street at 44.840, 41.765)
     R1986 = {1: "dadiani eristavi tsereteli tsabadze mghvdeli abastumani tsinam", 2: "dadiani uridia khudadov tseronisi akhtala", 3: "tsereteli eristavi guramishvili zghvi anapa",
              4: "dadiani guramishvili zghvi anapa", 5: "purtseladze atoneli gogiberidze javakhishvili tsinam tsereteli", 6: "dadiani makhaldiani rkinigza uridia kakhiani lotkini",
              7: "moscow dedoplis navtlughi holbrooke salosi khmelnitsky", 8: "eristavi guramishvili sheshelidze khizanishvili", 9: "tsereteli beliashvili alley",

@@ -118,7 +118,7 @@ def kv_geometry(out):
     """The streets renamed in 1988-1991 (tools/streets_kv_spec.json): the OSM ways are found by the Georgian name of today; the namesakes in other districts are dropped
     by the point of the spec (NEAR_M metres), 'all' keeps every chain (a long avenue), a square becomes a point. Cache: data/raw/osm_transport/street_labels_kv.json, not committed."""
     sp, byka = [], {}
-    for n in ("", "2", "3"):  # the batches of 1.8.2 and 1.8.3
+    for n in ("", "2", "3", "4"):  # the batches of 1.8.2, 1.8.3 and 1.8.4
         sp += json.load(open(os.path.join(ROOT, "tools", "streets_kv%s_spec.json" % n), encoding="utf-8"))["spec"]
         for e in json.load(open(os.path.join(RAW, "street_labels_kv%s.json" % n), encoding="utf-8"))["elements"]:
             if e["type"] == "way" and e.get("geometry") and e["tags"].get("name"):
@@ -136,6 +136,30 @@ def kv_geometry(out):
             out[s["key"]] = {"type": "Point", "coordinates": [round(sum(p[0] for p in pts) / len(pts), 5), round(sum(p[1] for p in pts) / len(pts), 5)]}
         else:
             out[s["key"]] = {"type": "MultiLineString", "coordinates": chains}
+
+
+def enc_geometry(out):
+    """The streets of the encyclopedia (tools/streets_enc1_spec.json, made by tools/build_enc_spec.py): the OSM ways by the Georgian name (osm_ka); a namesake in another place is dropped by the point
+    of the spec (NEAR_M metres), 'all' keeps every chain. The key of the geometry is spec.geom. Cache: data/raw/osm_transport/street_labels_enc.json, not committed."""
+    sp_path = os.path.join(ROOT, "tools", "streets_enc1_spec.json")
+    if not os.path.exists(sp_path):
+        return
+    sp = json.load(open(sp_path, encoding="utf-8"))["spec"]
+    byka = {}
+    for e in json.load(open(os.path.join(RAW, "street_labels_enc.json"), encoding="utf-8"))["elements"]:
+        if e["type"] == "way" and e.get("geometry") and e["tags"].get("name"):
+            byka.setdefault(e["tags"]["name"], {})[e["id"]] = [[round(p["lon"], 5), round(p["lat"], 5)] for p in e["geometry"]]
+    for s in sp:
+        if s.get("nogeom"):                                    # no usable line in OSM: the street has the card and the search only
+            continue
+        w = byka.get(s["osm_ka"])
+        if not w:
+            print("NO WAYS (enc):", s["geom"])
+            continue
+        chains = join(w.values())
+        if s["near"] not in (None, "all"):
+            chains = near(chains, *s["near"])
+        out[s["geom"]] = {"type": "MultiLineString", "coordinates": chains}
 
 
 def main():
@@ -181,6 +205,7 @@ def main():
         else:
             print("NO POINT:", now)
     kv_geometry(out)
+    enc_geometry(out)
     json.dump(out, open(os.path.join(ROOT, "site", "data", "street_geom.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     print(len(out), "geometries")
 

@@ -1,5 +1,6 @@
 """OCR of a scanned PDF book with pypdfium2 (page rendering, handles JBIG2 layers) and Tesseract (data/cache/tessdata: rus, kat, eng).
 Output: data/cache/ocr/<name>/p0001.txt ... and <name>.txt (all pages). Resumable, one page at a time.
+OCR_PSM=3 turns on the page segmentation with columns (the encyclopedia of the streets is in two columns); the default is 6.
 Usage: python -P tools/ocr_book.py <pdf> <name> <lang> [first last]      e.g. python -P tools/ocr_book.py "C:/.../Tiflis Bakradze.pdf" bakradze rus 1 10
 """
 import os
@@ -28,7 +29,7 @@ def main():
         img = pdf_doc[i - 1].render(scale=3.0).to_pil().convert("L")
         ip = os.path.join(out, "tmp_%d.png" % os.getpid())
         img.save(ip)
-        r = subprocess.run([TESS, ip, tp[:-4], "-l", lang, "--tessdata-dir", TESSDATA, "--psm", "6"], capture_output=True, text=True)
+        r = subprocess.run([TESS, ip, tp[:-4], "-l", lang, "--tessdata-dir", TESSDATA, "--psm", os.environ.get("OCR_PSM", "6")], capture_output=True, text=True)
         if r.returncode != 0:
             print("page", i, "tesseract error", r.stderr[:100], flush=True)
         if i % 10 == 0:
