@@ -1,0 +1,108 @@
+{
+ "ui": {
+  "prev": {
+   "ru": "Назад",
+   "en": "Back",
+   "ka": "უკან"
+  },
+  "skip": {
+   "ru": "Пропустить",
+   "en": "Skip",
+   "ka": "გამოტოვება"
+  },
+  "next": {
+   "ru": "Далее",
+   "en": "Next",
+   "ka": "შემდეგ"
+  },
+  "done": {
+   "ru": "Готово",
+   "en": "Done",
+   "ka": "მზადაა"
+  },
+  "of": {
+   "ru": "из",
+   "en": "of",
+   "ka": "/"
+  }
+ },
+ "steps": [
+  {
+   "ids": [
+    "timebar"
+   ],
+   "title": {
+    "ru": "Время",
+    "en": "Time",
+    "ka": "დრო"
+   },
+   "text": {
+    "ru": "Двигайте ползунок или нажмите ▶: год меняет карту, слои и события. Список эпох переносит сразу в нужный период.",
+    "en": "Drag the slider or press ▶: the year changes the map, the layers and the events. The list of eras jumps straight to a period.",
+    "ka": "ამოძრავეთ სლაიდერი ან დააჭირეთ ▶-ს: წელი ცვლის რუკას, ფენებსა და მოვლენებს. ეპოქების სია მაშინვე საჭირო პერიოდში გადაგიყვანთ."
+   }
+  },
+  {
+   "rect": "map",
+   "title": {
+    "ru": "Карта",
+    "en": "Map",
+    "ka": "რუკა"
+   },
+   "text": {
+    "ru": "Нажимайте на точки, линии и названия улиц: откроется карточка с описанием и источником. Масштаб: колесо мыши, жесты или кнопки + и −.",
+    "en": "Click the dots, the lines and the names of the streets to open a card with the description and the source. Zoom: the mouse wheel, gestures or the + and − buttons.",
+    "ka": "დააწკაპუნეთ წერტილებზე, ხაზებსა და ქუჩების სახელებზე: გაიხსნება ბარათი აღწერითა და წყაროთი. მასშტაბი: მაუსის ბორბლით, ჟესტებით ან + და − ღილაკებით."
+   }
+  },
+  {
+   "ids": [
+    "btnFilters",
+    "btnSearch"
+   ],
+   "title": {
+    "ru": "Слои и поиск",
+    "en": "Layers and search",
+    "ka": "ფენები და ძიება"
+   },
+   "text": {
+    "ru": "«Фильтры» включают слои: здания и наследие, храмы, наука, история, трамвай и другой транспорт. «Поиск» (🔍) находит объекты, улицы, в том числе по прежним названиям, и события.",
+    "en": "\"Filters\" switch the layers: buildings and heritage, churches, science, history, the tram and other transport. \"Search\" (🔍) finds objects, streets, also by their former names, and events.",
+    "ka": "„ფილტრები“ რთავს ფენებს: შენობები და მემკვიდრეობა, ტაძრები, მეცნიერება, ისტორია, ტრამვაი და სხვა ტრანსპორტი. „ძიება“ (🔍) პოულობს ობიექტებს, ქუჩებს — მათ შორის ძველი სახელწოდებებით — და მოვლენებს."
+   }
+  },
+  {
+   "ids": [
+    "thenBtn",
+    "hereBtn",
+    "linkBtn"
+   ],
+   "title": {
+    "ru": "Кнопки на карте",
+    "en": "Buttons on the map",
+    "ka": "ღილაკები რუკაზე"
+   },
+   "text": {
+    "ru": "⇄ «Тогда и сейчас»: шторка между старым планом и современной картой (работает, когда включён старинный план 1735–1913). 📍 «Что было здесь»: клик по карте показывает эту точку на всех планах. 🔗 копирует ссылку на текущий вид.",
+    "en": "⇄ \"Then and now\": a swipe between the old plan and today's map (it works when an old plan of 1735–1913 is on). 📍 \"What was here\": a click on the map shows that point on every plan. 🔗 copies the link to the current view.",
+    "ka": "⇄ „მაშინ და ახლა“: ფარდა ძველ გეგმასა და თანამედროვე რუკას შორის (მუშაობს, როცა ჩართულია 1735–1913 წლების ძველი გეგმა). 📍 „რა იყო აქ“: რუკაზე დაწკაპუნება ამ წერტილს ყველა გეგმაზე აჩვენებს. 🔗 აკოპირებს მიმდინარე ხედის ბმულს."
+   }
+  },
+  {
+   "ids": [
+    "btnInfo",
+    "btnMore"
+   ],
+   "title": {
+    "ru": "Справка и меню",
+    "en": "Help and menu",
+    "ka": "ცნობა და მენიუ"
+   },
+   "text": {
+    "ru": "«Справка»: о проекте, источниках и повторный запуск этого тура. «⋯»: язык и «Сообщить об ошибке». Условные знаки: «Легенда» внизу панели «Фильтры».",
+    "en": "\"Info\": about the project, the sources and a new start of this tour. \"⋯\": the language and \"Report a problem\". The signs: \"Legend\" at the bottom of the \"Filters\" panel.",
+    "ka": "„ცნობა“: პროექტის შესახებ, წყაროები და ამ ტურის ხელახლა გაშვება. „⋯“: ენა და „შეცდომის შეტყობინება“. პირობითი ნიშნები: „პირობითი ნიშნები“ პანელ „ფილტრების“ ბოლოში."
+   }
+  }
+ ]
+}

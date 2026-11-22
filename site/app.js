@@ -1035,6 +1035,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (!$("infoModal").hidden || !$("viewModal").hidden || !$("fbModal").hidden || !$("search").hidden || !$("moreMenu").hidden) return;
     openPop.remove();
   }, true);
+  // the guided tour (site/tour.js, data/tour.json): loaded when it is asked for, from the welcome window or from the button "?" of the menu
+  async function runTour() {
+    try { (await import("./js/tour.js")).startTour({ lang }); } catch (e) { console.error("tour", e && e.message); }
+  }
+  $("btnTour").addEventListener("click", runTour);
   // the welcome window: a short friendly text at the first visit. Not shown: in the tests (only with ?welcome=1), after a link to a year or to an object, after "Do not show again" (localStorage),
   // twice in one session (sessionStorage). "Start" and a closed window do not switch it off for good.
   function maybeWelcome() {
@@ -1053,15 +1058,18 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       infoLine(body, L.welReport, "small");
       const row = document.createElement("div");
       row.className = "row";
-      const ok = document.createElement("button"), no = document.createElement("button");
-      ok.type = no.type = "button";
-      ok.className = "chip primary";
-      no.className = "chip";
+      row.style.cssText = "display:flex;flex-wrap:wrap;gap:8px";
+      const tour = document.createElement("button"), ok = document.createElement("button"), no = document.createElement("button");
+      tour.type = ok.type = no.type = "button";
+      tour.className = "chip primary";
+      ok.className = no.className = "chip";
+      tour.textContent = L.tourBtn;
       ok.textContent = L.welOk;
       no.textContent = L.welNever;
+      tour.addEventListener("click", () => { closeInfo(); runTour(); });
       ok.addEventListener("click", closeInfo);
       no.addEventListener("click", () => { try { localStorage.setItem("welcome", "1"); } catch (e) {} closeInfo(); });
-      row.append(ok, no);
+      row.append(tour, ok, no);
       body.appendChild(row);
     }, false, L.welTitle);
   }

@@ -3,7 +3,7 @@
 const VERSION = "tt-v6";
 const SHARE_CACHE = "tt-share";
 const BASE = self.registration.scope;                                  // ends with "/"
-const SHELL = ["./", "index.html", "app.js", "js/net.js", "i18n.js", "photo.js", "pwa.js", "support.js", "stats.js", "config.js", "style.css", "translit.js", "vendor/maplibre-gl.js", "vendor/maplibre-gl.css", "manifest.webmanifest", "img/pwa/icon-192.png"];
+const SHELL = ["./", "index.html", "app.js", "js/net.js", "js/tour.js", "i18n.js", "photo.js", "pwa.js", "support.js", "stats.js", "config.js", "style.css", "translit.js", "vendor/maplibre-gl.js", "vendor/maplibre-gl.css", "manifest.webmanifest", "img/pwa/icon-192.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => Promise.all(SHELL.map((u) => c.add(new Request(new URL(u, BASE), { cache: "reload" })).catch(() => {})))).then(() => self.skipWaiting()));
