@@ -9453,6 +9453,42 @@
     "undated": [],
     "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 133",
     "district": "ძველი თბილისის რ-ნი (ჩუღურეთი)"
+   },
+   {
+    "id": "E0087",
+    "street_en": "Nikoloz Baratashvili Square",
+    "names": [],
+    "undated": [
+     "Мухранская площадь"
+    ],
+    "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 26",
+    "district": "ძველი თბილისის რ-ნი (ზემო უძანი)"
+   },
+   {
+    "id": "E0573",
+    "street_en": "Zurab Zhvania Square",
+    "names": [
+     {
+      "name": "площадь Гагарина",
+      "from": 1970,
+      "to": 2005,
+      "from_kind": "dec"
+     }
+    ],
+    "undated": [],
+    "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 139",
+    "district": "ეაკე-საბურთალოს რ-ნი"
+   },
+   {
+    "id": "E0343",
+    "street_en": "Jerusalem Square",
+    "names": [],
+    "undated": [
+     "Георгиевская площадь",
+     "Тонетская площадь"
+    ],
+    "book": "Tbilisi. Streets, avenues, squares (თბილისი. ქუჩები, გამზირები, მოედნები), 2008, PDF p. 89",
+    "district": "ძველი თბილისის რ-ნი (ქვემო უშა- ნი)"
    }
   ]
  }

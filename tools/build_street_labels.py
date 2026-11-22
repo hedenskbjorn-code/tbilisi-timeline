@@ -162,6 +162,15 @@ def enc_geometry(out):
         out[s["geom"]] = {"type": "MultiLineString", "coordinates": chains}
 
 
+def square_geometry(out):
+    """the points of the squares that have no line in OSM (tools/square_points.py made tools/square_points.json: the way of every position is in it)"""
+    p = os.path.join(ROOT, "tools", "square_points.json")
+    if not os.path.exists(p):
+        return
+    for key, v in json.load(open(p, encoding="utf-8")).items():
+        out[key] = {"type": "Point", "coordinates": [v["lon"], v["lat"]]}
+
+
 def main():
     fetch()
     fetch_more()
@@ -206,6 +215,7 @@ def main():
             print("NO POINT:", now)
     kv_geometry(out)
     enc_geometry(out)
+    square_geometry(out)
     json.dump(out, open(os.path.join(ROOT, "site", "data", "street_geom.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     print(len(out), "geometries")
 

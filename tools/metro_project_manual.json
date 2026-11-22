@@ -1,0 +1,11 @@
+{
+ "note": "Rows that the answer of Gemini missed, found by reading the pages of the stations (infobox 'Проектное название' on ru.wikipedia). The quote stands verbatim on the page (the verifier checks it again). 'ka' of a row comes from tools/metro_project_ui.json (key ka_key, the Georgian text only through Gemini). 'held': stations whose project name is not published (the only source is a page that marks the claim as 'источник не указан').",
+ "stations": {
+  "metrost_Technical University": [
+   {"ru": "Дворец спорта (Спортивная)", "en": "Palace of Sports (Sportivnaya)", "ka_key": "tu_project", "year": null, "kind": "project", "source": "web",
+    "page": 0, "url": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82_%28%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F_%D0%BC%D0%B5%D1%82%D1%80%D0%BE%29",
+    "quote": "Проектное название Дворец спорта (Спортивная)"}
+  ]
+ },
+ "held": []
+}

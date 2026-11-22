@@ -1,5 +1,89 @@
 [
  {
+  "version": "1.8.7",
+  "date": "2026-11-23",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Новый слой «Местные названия»: районы, сады и парки, холмы, мосты и кладбища, названия которых понятны местным жителям, а иностранцам нет (например, парк Муштаиди). 93 места с описанием и, там где источник это называет, с происхождением названия (45 мест); цитата и ссылка на статью Википедии открываются по кнопке «Источники и подробности».",
+    "en": "A new layer \"Local names\": quarters, gardens and parks, hills, bridges and cemeteries whose names are clear to the locals but not to foreigners (for example, Mushtaidi Garden). 93 places with a description and, where the source gives it, the origin of the name (45 places); the quotation and the link to the Wikipedia article open with the button \"Sources and details\".",
+    "ka": "ახალი ფენა „ადგილობრივი სახელწოდებები“: უბნები, ბაღები და პარკები, ბორცვები, ხიდები და სასაფლაოები, რომელთა სახელები ადგილობრივებისთვის გასაგებია, უცხოელებისთვის კი — არა (მაგალითად, მუშთაიდის ბაღი). 93 ადგილი აღწერით და, სადაც წყარო ამას უთითებს, სახელის წარმოშობით (45 ადგილი); ციტატა და ვიკიპედიის სტატიის ბმული იხსნება ღილაკით „წყაროები და დეტალები“."
+   },
+   {
+    "t": "new",
+    "ru": "Территория бывшего Сабурталинского (Делисского) ипподрома отмечена контуром в слое «Местные названия»: ипподром открыт в 1959 году, в 2020 году территория передана городу, здесь планируется Центральный парк.",
+    "en": "The territory of the former Saburtalo (Delisi) Hippodrome is marked by a contour in the layer \"Local names\": the hippodrome opened in 1959, in 2020 the territory was handed over to the city, and the Central Park is planned here.",
+    "ka": "ყოფილი საბურთალოს (დელისის) იპოდრომის ტერიტორია კონტურით არის მონიშნული ფენაში „ადგილობრივი სახელწოდებები“: იპოდრომი 1959 წელს გაიხსნა, 2020 წელს ტერიტორია ქალაქს გადაეცა, აქ ცენტრალური პარკის მოწყობა იგეგმება."
+   },
+   {
+    "t": "new",
+    "ru": "Новые слои «Памятники и скульптуры» (564 объекта) и «Мемориальные доски» (813). Памятник появляется на карте в год установки, доска в первый год жизни, названный в надписи; при малом масштабе точки собираются в кластеры. В карточке тип, скульптор, материал, улица и фото с Викисклада с автором и лицензией. Объекты без года включаются отдельной галочкой.",
+    "en": "New layers \"Monuments and sculptures\" (564 objects) and \"Memorial plaques\" (813). A monument appears on the map in the year of its installation, a plaque in the first year of life named in the inscription; at a small scale the points gather into clusters. The card shows the type, the sculptor, the material, the street and a photograph from Wikimedia Commons with the author and the licence. The objects without a year are shown by a separate check box.",
+    "ka": "ახალი ფენები: „ძეგლები და სკულპტურები“ (564 ობიექტი) და „მემორიალური დაფები“ (813). ძეგლი რუკაზე დადგმის წელს ჩნდება, დაფა — წარწერაში მითითებული ცხოვრების პირველ წელს; მცირე მასშტაბზე წერტილები კლასტერებად ერთიანდება. ბარათში მითითებულია ტიპი, მოქანდაკე, მასალა, ქუჩა და ფოტო ვიკისაწყობიდან (Wikimedia Commons) ავტორისა და ლიცენზიის ჩვენებით. წლის გარეშე არსებული ობიექტები ცალკე მოსანიშნით ირთვება."
+   },
+   {
+    "t": "new",
+    "ru": "Станции метро: у пяти станций показаны проектные и рабочие названия (например, у «Самгори» «Навтлуги»); в карточке станции открывается список из 20 не построенных станций метро с источниками.",
+    "en": "Metro stations: five stations show their project and working names (for example, Samgori: \"Navtlughi\"); the card of a station opens a list of 20 metro stations that were not built, with the sources.",
+    "ka": "მეტროს სადგურები: ხუთ სადგურს ნაჩვენები აქვს საპროექტო და სამუშაო სახელწოდებები (მაგალითად, „სამგორს“ — „ნავთლუღი“); სადგურის ბარათიდან იხსნება მეტროს 20 აუშენებელი სადგურის სია წყაროებით."
+   },
+   {
+    "t": "new",
+    "ru": "Названия станций метро по-русски переведены вместо транслитерации с грузинского, станции находятся поиском.",
+    "en": "The Russian names of the metro stations are translated instead of being a transliteration of the Georgian, and the stations can be found by search.",
+    "ka": "მეტროს სადგურების რუსული სახელწოდებები ქართულიდან ტრანსლიტერაციის ნაცვლად თარგმნილია, სადგურები იძებნება ძიებით."
+   },
+   {
+    "t": "new",
+    "ru": "20 площадей получили точку на карте: карточка площади открывается, карта подъезжает к ней.",
+    "en": "20 squares got a point on the map: the card of a square opens and the map goes to it.",
+    "ka": "20 მოედანმა რუკაზე წერტილი მიიღო: მოედნის ბარათი იხსნება, რუკა კი მასთან გადადის."
+   },
+   {
+    "t": "new",
+    "ru": "265 улиц и площадей без истории переименований получили карточку: в честь кого названы, страница книги, поиск.",
+    "en": "265 streets and squares without a history of renamings got a card: in whose honour they are named, the page of the book, the search.",
+    "ka": "გადარქმევების ისტორიის არმქონე 265 ქუჩასა და მოედანს ბარათი დაემატა: ვის სახელს ატარებს, წიგნის გვერდი, ძიება."
+   },
+   {
+    "t": "new",
+    "ru": "В карточках улиц, площадей и некоторых объектов (школы, музеи «имени…») написано, в честь кого или чего они названы: описание из энциклопедии 2008 года со страницей книги и ссылка на Википедию там, где она подтверждена.",
+    "en": "The cards of streets, squares and some objects (schools, museums named after someone) say in whose honour or after what they are named: the description of the encyclopedia of 2008 with the page of the book and a link to Wikipedia where it is confirmed.",
+    "ka": "ქუჩების, მოედნებისა და ზოგიერთი ობიექტის (სკოლების, მუზეუმების) ბარათებში მითითებულია, ვის ან რის პატივსაცემად დაერქვა სახელი: აღწერა 2008 წლის ენციკლოპედიიდან წიგნის გვერდის მითითებით და ბმული ვიკიპედიაზე, სადაც ის დადასტურებულია."
+   },
+   {
+    "t": "new",
+    "ru": "Станции метро: прежние названия с годами и источниками (энциклопедия 2008 года, Википедия); в карточке станции название на выбранный год.",
+    "en": "Metro stations: former names with the years and the sources (the encyclopedia of 2008, Wikipedia); the card of a station shows the name of the selected year.",
+    "ka": "მეტროსადგურები: ძველი სახელწოდებები წლებითა და წყაროებით (2008 წლის ენციკლოპედია, ვიკიპედია); სადგურის ბარათში ჩანს არჩეული წლისთვის არსებული სახელწოდება."
+   },
+   {
+    "t": "new",
+    "ru": "Площади: добавлены прежние названия (площадь Бараташвили: Мухранская, площадь Жвания: площадь Гагарина, Иерусалимская: Георгиевская и Тонетская), у площади Джавахишвили добавлена Николаевская.",
+    "en": "Squares: former names added (Baratashvili Square: Mukhrani Square, Zhvania Square: Gagarin Square, Jerusalem Square: Georgievsky and Toneti), Nikolaevskaya is added to Javakhishvili Square.",
+    "ka": "მოედნები: დაემატა ძველი სახელწოდებები (ბარათაშვილის მოედანი: მუხრანის მოედანი, ჟვანიას მოედანი: გაგარინის მოედანი, იერუსალიმის მოედანი: გეორგიევსკისა და თონეთის), ჯავახიშვილის მოედანს დაემატა ნიკოლოზის მოედანი."
+   },
+   {
+    "t": "fix",
+    "ru": "Проспект Пекини больше не рисуется вместе с проспектом Гамсахурдиа: это другая улица.",
+    "en": "Pekini Avenue is no longer drawn together with Gamsakhurdia Avenue: it is another street.",
+    "ka": "პეკინის გამზირი აღარ იხატება გამსახურდიას გამზირთან ერთად: ეს სხვა ქუჩაა."
+   },
+   {
+    "t": "new",
+    "ru": "Кнопка «Как пользоваться» стала первой в панели «Справка»; кнопка версии перенесена в эту панель; журнал изменений загружается только по нажатию (сайт открывается быстрее).",
+    "en": "The button \"Quick tour\" is the first in the panel \"Info\"; the button of the version is moved into that panel; the log of changes is loaded only when it is asked for (the site opens faster).",
+    "ka": "ღილაკი „როგორ ვისარგებლოთ“ პირველი გახდა პანელში „ცნობა“; ვერსიის ღილაკი ამ პანელში გადავიდა; ცვლილებების ჟურნალი მხოლოდ მოთხოვნით იტვირთება (საიტი უფრო სწრაფად იხსნება)."
+   },
+   {
+    "t": "new",
+    "ru": "В туре по сайту добавлен шаг про «Виды» и листание картинок; в карточке объекта описано, что фото ведёт на Викисклад.",
+    "en": "The tour of the site has a new step about the \"Views\" and the flipping of the pictures; it says that the photo of a card leads to Wikimedia Commons.",
+    "ka": "საიტის გზამკვლევს დაემატა ნაბიჯი „ხედებისა“ და სურათების გადაფურცვლის შესახებ; ასევე მითითებულია, რომ ბარათის ფოტო ვიკისაწყობზე გადადის."
+   }
+  ]
+ },
+ {
   "version": "1.8.6",
   "date": "2026-11-22",
   "items": [
@@ -53,9 +137,9 @@
    },
    {
     "t": "new",
-    "ru": "Слой главных дорог расширен: проспекты Казбеги, Москвы, Важа-Пшавела и Пекини-Гамсахурдиа и улица Горгасали (по энциклопедии 2008 года) и главные дороги с годом первого упоминания на плане, карте или в списке (Тамар Мепе, Кахетинское шоссе, Цабадзе, Гурамишвили, Дедоплис, Костава, Церетели, Мелихишвили, а также Руставели до того, как он стал проспектом); шоссе обрываются на границе города.",
-    "en": "The layer of main roads is extended: Kazbegi, Moscow, Vazha-Pshavela and Pekini-Gamsakhurdia avenues and Gorgasali Street (by the encyclopedia of 2008) and main roads with the year of the first mention on a plan, a map or in a list (Tamar Mepe, Kakheti Highway, Tsabadze, Guramishvili, Dedoplis, Kostava, Tsereteli, Melikishvili, and Rustaveli before it became an avenue); the highways end at the city border.",
-    "ka": "მთავარი გზების ფენა გაფართოვდა: ყაზბეგის, მოსკოვის, ვაჟა-ფშაველასა და პეკინი-გამსახურდიას გამზირები და გორგასლის ქუჩა (2008 წლის ენციკლოპედიის მიხედვით) და მთავარი გზები გეგმაზე, რუკაზე ან სიაში პირველი ხსენების წლით (თამარ მეფის, კახეთის გზატკეცილი, ცაბაძის, გურამიშვილის, დედოფლის, კოსტავას, წერეთლის, მელიქიშვილის, ასევე რუსთაველის — სანამ გამზირი გახდებოდა); გზატკეცილები ქალაქის საზღვარზე წყდება."
+    "ru": "Слой главных дорог расширен: проспекты Казбеги, Москвы, Важа-Пшавела и Пекини и улица Горгасали (по энциклопедии 2008 года) и главные дороги с годом первого упоминания на плане, карте или в списке (Тамар Мепе, Кахетинское шоссе, Цабадзе, Гурамишвили, Дедоплис, Костава, Церетели, Мелихишвили, а также Руставели до того, как он стал проспектом); шоссе обрываются на границе города.",
+    "en": "The layer of main roads is extended: Kazbegi, Moscow, Vazha-Pshavela and Pekini avenues and Gorgasali Street (by the encyclopedia of 2008) and main roads with the year of the first mention on a plan, a map or in a list (Tamar Mepe, Kakheti Highway, Tsabadze, Guramishvili, Dedoplis, Kostava, Tsereteli, Melikishvili, and Rustaveli before it became an avenue); the highways end at the city border.",
+    "ka": "მთავარი გზების ფენა გაფართოვდა: ყაზბეგის, მოსკოვის, ვაჟა-ფშაველასა და პეკინის გამზირები და გორგასლის ქუჩა (2008 წლის ენციკლოპედიის მიხედვით) და მთავარი გზები გეგმაზე, რუკაზე ან სიაში პირველი ხსენების წლით (თამარ მეფის, კახეთის გზატკეცილი, ცაბაძის, გურამიშვილის, დედოფლის, კოსტავას, წერეთლის, მელიქიშვილის, ასევე რუსთაველის — სანამ გამზირი გახდებოდა); გზატკეცილები ქალაქის საზღვარზე წყდება."
    }
   ]
  },

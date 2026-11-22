@@ -58,7 +58,6 @@
   <div id="topRight">
     <button id="btnSupport" class="chip" type="button">&#10084;</button>
     <button id="btnInstall" class="chip" type="button" hidden>&#128242;</button>
-    <button id="btnVersion" class="chip" type="button">v</button>
     <button id="fbOpen" class="chip" data-i="fbBtn"></button>
     <select id="pagesSel" class="chip"></select>
     <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
@@ -77,6 +76,7 @@
     <div id="year">1887</div>
     <div id="count"></div>
   </div>
+  <button id="btnTour" class="chip primary" type="button" data-i="tourBtn"></button>
   <details class="sec" id="secCity" data-sec="city" open><summary data-i="secCity"></summary>
     <div id="planline"></div>
     <div id="bndline"></div>
@@ -98,7 +98,7 @@
   <p class="small"><a href="entrances/" id="entrLink" target="_blank" rel="noopener" data-i="entrLink"></a></p>
   <p id="note" class="small"></p>
   <details id="about"><summary data-i="aboutTitle"></summary><div id="abouttext"></div><button type="button" id="btnBiblio" class="chip" data-i="biblioBtn"></button></details>
-  <button id="btnTour" class="chip" type="button" data-i="tourBtn" style="margin-top:8px"></button>
+  <button id="btnVersion" class="chip" type="button" style="margin-top:8px">v</button>
   <button id="btnSupportSide" class="chip supportside" type="button"></button>
 </aside>
 <aside id="views" hidden>
@@ -153,6 +153,14 @@
     <div id="sciLegend" class="small rellegend"></div>
     <label class="row"><input type="checkbox" id="showEdu"> <span data-i="showEdu"></span></label>
     <div id="eduLegend" class="small rellegend" hidden></div>
+    <label class="row"><input type="checkbox" id="showPlaces"> <span data-i="showPlaces"></span></label>
+    <div id="placesLegend" class="small rellegend" hidden></div>
+    <label class="row"><input type="checkbox" id="showMon"> <span data-i="showMon"></span></label>
+    <label class="row sub" hidden><input type="checkbox" id="showMonUndated"> <span data-i="showMonUndated"></span></label>
+    <div id="monLegend" class="small rellegend" hidden></div>
+    <label class="row"><input type="checkbox" id="showPlq"> <span data-i="showPlq"></span></label>
+    <label class="row sub" hidden><input type="checkbox" id="showPlqUndated"> <span data-i="showPlqUndated"></span></label>
+    <div id="plqLegend" class="small rellegend" hidden></div>
     <label class="row"><input type="checkbox" id="showDef" checked> <span data-i="showDef"></span></label>
     <label class="row"><input type="checkbox" id="showOtherB" checked> <span data-i="showOtherB"></span></label>
     <label class="row"><input type="checkbox" id="showLost" checked> <span data-i="showLost"></span></label>

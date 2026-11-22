@@ -1,0 +1,47 @@
+{
+ "note": "Rows added by Claude (2026-11-22) after a look at the scan of the PDF: the OCR lost a digit; text_fix repairs the entry before the check. E0343 (Jerusalem Square, PDF p. 89, book p. 91): 1841 the list names it Georgievsky Square, 1925 Toneti Square, 1994 Jerusalem Square.",
+ "text_fix": {
+  "E0343": [
+   [
+    "925 თონე",
+    "1925 თონე"
+   ]
+  ]
+ },
+ "rows": [
+  {
+   "id": "E0343",
+   "status": "ok",
+   "skip_reason": "",
+   "ka_now": "იერუსალიმის მოედანი",
+   "ru_now": "Иерусалимская площадь",
+   "en_now": "Jerusalem Square",
+   "origin": {
+    "from": 1800,
+    "quote": "წარმო- იქმნა XIX ს. L ნახევარში."
+   },
+   "intervals": [
+    {
+     "from": 1841,
+     "to": 1925,
+     "kind": "plan",
+     "ka": "გეორგიევსკის მოედანი",
+     "ru": "Георгиевская площадь",
+     "en": "Georgievsky Square",
+     "quote": "1841 წ. შედგენილ თბილისის ქუჩებისა და მოედნების სიაში შეტანილია როგორც გეორგიევსკის მოედანი"
+    },
+    {
+     "from": 1925,
+     "to": 1994,
+     "kind": "exact",
+     "ka": "თონეთის მოედანი",
+     "ru": "Тонетская площадь",
+     "en": "Toneti Square",
+     "quote": "1925 თონე- თის მოედანი დაერქვა"
+    }
+   ],
+   "undated": [],
+   "note_ka": "ენციკლოპედია „თბილისი. ქუჩები, გამზირები, მოედნები“ (2008): 1841 (გეგმის ან სიის წელი) — გეორგიევსკის მოედანი; 1925 — თონეთის მოედანი; 1994 — იერუსალიმის მოედანი."
+  }
+ ]
+}

@@ -52,11 +52,25 @@ def main():
     d = read(NAMES)
     notes = read(NOTES)["notes"] if os.path.exists(NOTES) else {}
     have = {key_of(x) for x in d["streets"]}
+    have_ka = {norm(x["now"]["ka"]): x for x in d["streets"]}              # the same street under another key (a second run gives a key with the id): its intervals are merged, not added twice
     new = 0
+    merged_same = 0
     for s in sp:
         assert not CYR.search(s["now"]["ka"] + s["note"]["ka"] + "".join(i[2]["ka"] for i in s["iv"])), "Cyrillic in the Georgian text of " + s["id"]
         key = s["geom"]
         if key in have:
+            continue
+        ex = have_ka.get(norm(s["now"]["ka"]))
+        if ex is not None:
+            for iv in s["iv"]:
+                if not any(iv[0] < b and a < iv[1] for a, b, _ in ex["iv"]):
+                    ex["iv"].append(iv)
+                    merged_same += 1
+            ex["iv"].sort(key=lambda a: a[0])
+            for u in s["undated"]:
+                if not any(x["ka"] == u["ka"] for x in ex.get("undated", [])):
+                    ex.setdefault("undated", []).append(u)
+                    merged_same += 1
             continue
         e = {"now": s["now"]}
         if s["geom"] != s["now"]["en"]:
@@ -101,7 +115,7 @@ def main():
     add["streets"].extend({"id": s["id"], "street_en": s["geom"], "names": [{"name": i[2]["ru"], "from": i[0], "to": i[1], "from_kind": s["from_kinds"][j]} for j, i in enumerate(s["iv"])],
                            "undated": [u["ru"] for u in s["undated"]], "book": s["book"], "district": s["district"]} for s in sp if s["id"] not in seen)
     write(VERIFIED, v)
-    print("streets added: %d (already there: %d), changes in the streets that were on the map: %d; %s" % (new, len(sp) - new, merged, "dry run, nothing written" if DRY else "written"))
+    print("streets added: %d (already there: %d), changes in the streets that were on the map: %d (+%d in the same street found by its Georgian name); %s" % (new, len(sp) - new, merged, merged_same, "dry run, nothing written" if DRY else "written"))
 
 
 if __name__ == "__main__":

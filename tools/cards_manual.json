@@ -1,0 +1,33 @@
+{
+ "note": "Rows added by Claude (2026-11-22) for the rows that the check of the likeness rejected or that Gemini skipped for the lack of the type of the street in the task: the headings are read in the text of the entries.",
+ "rows": [
+  {
+   "id": "E0281",
+   "ka_now": "ილია ვეკუას ქუჩა",
+   "ru_now": "улица Ильи Векуа",
+   "en_now": "Ilia Vekua Street",
+   "why": "Gemini read the heading by the scan: the OCR has \"ილია მეპუას\" (the letters of ვ and კ are spoilt), the likeness 0.67 is below the limit; the name is that of the encyclopedia"
+  },
+  {
+   "id": "E0237",
+   "ka_now": "დიდხევის დაღმართი",
+   "ru_now": "спуск Дидхеви",
+   "en_now": "Didkhevi Descent",
+   "why": "Gemini skipped it: the type of the street (descent) was not in the list of the task; the heading is clear"
+  },
+  {
+   "id": "E0283",
+   "ka_now": "ვერის ბაღის დაღმართი",
+   "ru_now": "спуск Верийского сада",
+   "en_now": "Vera Garden Descent",
+   "why": "Gemini skipped it: the type (descent) was not in the list; the OCR has ბალის for ბაღის"
+  },
+  {
+   "id": "E0462",
+   "ka_now": "მარო მაყაშვილის აღმართი",
+   "ru_now": "подъём Маро Макашвили",
+   "en_now": "Maro Makashvili Ascent",
+   "why": "Gemini skipped it: the type (ascent) was not in the list; the heading is clear"
+  }
+ ]
+}

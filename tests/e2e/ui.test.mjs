@@ -196,6 +196,96 @@ test("the welcome window: short, with the numbers filled in, off in the tests an
   await page.ctx.close();
 });
 
+test("the card of a metro station shows the name of the selected year first and the former names with their sources", async () => {
+  const tr = JSON.parse(fs.readFileSync(path.join(DATA, "transport.json"), "utf8"));
+  const st = tr.features.find((f) => f.properties.id === "metrost_Liberty Square");
+  const page = await main("#1980");
+  const pt = await page.evaluate((c) => { const m = window.TT_E2E.map; m.jumpTo({ center: c, zoom: 16 }); return new Promise((r) => m.once("idle", () => r(m.project(c)))); }, st.geometry.coordinates);
+  const box = await page.locator("#map canvas").first().boundingBox();
+  await page.mouse.click(box.x + pt.x, box.y + pt.y);
+  const pop = page.locator(".maplibregl-popup .pop");
+  await pop.waitFor({ timeout: 15000 });
+  const txt = await pop.innerText();
+  assert.match(txt, /Lenin Square/, "in 1980 the station is Lenin Square: " + txt);
+  assert.match(txt, /now: Liberty Square/);
+  assert.match(txt, /Former names:/);
+  assert.match(txt, /Lenin Square · until 1991/, "the year of the change with the source");
+  await page.ctx.close();
+});
+
+test("the card of a metro station shows the project name with its source and opens the list of the stations that were not built", async () => {
+  const tr = JSON.parse(fs.readFileSync(path.join(DATA, "transport.json"), "utf8"));
+  const st = tr.features.find((f) => f.properties.id === "metrost_Samgori");
+  const page = await main("#1980");
+  const pt = await page.evaluate((c) => { const m = window.TT_E2E.map; m.jumpTo({ center: c, zoom: 16 }); return new Promise((r) => m.once("idle", () => r(m.project(c)))); }, st.geometry.coordinates);
+  const box = await page.locator("#map canvas").first().boundingBox();
+  await page.mouse.click(box.x + pt.x, box.y + pt.y);
+  const pop = page.locator(".maplibregl-popup .pop");
+  await pop.waitFor({ timeout: 15000 });
+  assert.match(await pop.innerText(), /At the design stage: Navtlughi/, "the project name");
+  await pop.locator("a", { hasText: "Metro stations that were not built" }).click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  const body = await page.locator("#imBody").innerText();
+  assert.equal(await page.locator("#imTitle").innerText(), "Metro stations that were not built");
+  assert.match(body, /Didi Dighomi · not built · Where: Didi Dighomi/);
+  assert.match(body, /Rustaveli-2 · work stopped in 1992/);
+  assert.equal(await page.locator("#imBody a").count(), 20, "a link to the source for every station");
+  await page.ctx.close();
+});
+
+test("a square has a point on the map: the card of Heroes Square opens and the map goes to it", async () => {
+  const page = await main("#1960");
+  await search(page, "Heroes Square");
+  await page.locator("#searchRes li").filter({ hasText: "🛣" }).filter({ hasText: /Heroes Square/ }).first().click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  assert.match(await page.locator("#imBody").innerText(), /Named after: First Heroes of the Soviet Union/);
+  await page.keyboard.press("Escape");
+  await page.waitForTimeout(1800);
+  const c = await page.evaluate(() => window.TT_E2E.map.getCenter());
+  assert.ok(Math.abs(c.lng - 44.78248) < 0.003 && Math.abs(c.lat - 41.71317) < 0.003, "the map is at the square: " + JSON.stringify(c));
+  await page.ctx.close();
+});
+
+test("the card of a street says in whose honour it is named: the description of the book with its page and a link to Wikipedia only where it is confirmed", async () => {
+  const page = await main("#1960");
+  await search(page, "Kita Abashidze");
+  await page.locator("#searchRes li").filter({ hasText: "🛣" }).filter({ hasText: "Abashidze" }).first().click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  const body = await page.locator("#imBody").innerText();
+  assert.match(body, /Named after: Kita Abashidze \(1870–1917\)/, body);
+  assert.match(body, /Encyclopedia "Tbilisi\. Streets, avenues, squares" \(2008\), p\. 247/);
+  const href = await page.locator("#imBody a", { hasText: /^Wikipedia \(/ }).first().getAttribute("href");
+  assert.equal(href, "https://en.wikipedia.org/wiki/Kita_Abashidze");
+  await page.keyboard.press("Escape");
+  await search(page, "Haidar Abashidze");                     // a person with no confirmed link: the description without a link
+  await page.locator("#searchRes li").filter({ hasText: "🛣" }).filter({ hasText: "Haidar Abashidze" }).first().click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  assert.match(await page.locator("#imBody").innerText(), /Named after: Haidar Abashidze \(1893–1966\)/);
+  assert.equal(await page.locator("#imBody a", { hasText: /^Wikipedia \(/ }).count(), 0, "no link without a confirmation");
+  await page.keyboard.press("Escape");
+  await search(page, "Soso Abzianidze");                      // a street without a history of names: a card without a line, with the namesake and the page of the book
+  await page.locator("#searchRes li").filter({ hasText: "🛣" }).filter({ hasText: "Abzianidze" }).first().click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
+  const b2 = await page.locator("#imBody").innerText();
+  assert.match(b2, /Soso \(Koba\) Abzianidze Street/);
+  assert.match(b2, /Named after: Soso Abzianidze/);
+  assert.match(b2, /PDF p\. 10/, "the page of the book of the street");
+  await page.ctx.close();
+});
+
+test("the metro stations are found by search in Russian by the translated names, and there is no transliteration of the Georgian name", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru#2020`);
+  await waitReady(page);
+  await search(page, "Государственный университет");
+  const rows = await page.locator("#searchRes li").allInnerTexts();
+  assert.ok(rows.some((t) => /Государственный университет/.test(t) && /станция метро/i.test(t)), "the station is found: " + rows.join(" | "));
+  assert.ok(!rows.some((t) => /Сахельмципо/.test(t)), "no transliteration");
+  await page.locator("#searchRes li").filter({ hasText: "Ⓜ" }).first().click();
+  await page.locator(".maplibregl-popup .pop").waitFor({ timeout: 15000 });
+  assert.match(await page.locator(".maplibregl-popup .pop h3").innerText(), /Государственный университет/);
+  await page.ctx.close();
+});
+
 test("the years without tram lines on the map (1923-1961, 1905-1912) say that there was a tram", async () => {
   const page = await main("#1923");
   assert.match(await page.locator("#trevents").textContent(), /There was a tram in these years/, "1923: the first year after the plan of 1913");

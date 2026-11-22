@@ -1,0 +1,4 @@
+{
+ "note": "Corrections of the names of the places (key of the candidate -> language -> name) where the name of OSM / the answer of Gemini is not the form of the article of Wikipedia or the form that the visitors search. Applied by tools/apply_places.py.",
+ "garden:w/56660039": {"ru": "Парк Муштаиди", "en": "Mushtaidi Garden"}
+}

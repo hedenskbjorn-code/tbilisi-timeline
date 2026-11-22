@@ -1,0 +1,84 @@
+{
+ "ui": {
+  "layer": {
+   "ru": "Местные названия: районы, сады, холмы, мосты (что значит название)",
+   "en": "Local names: quarters, gardens, hills, bridges (what the name means)",
+   "ka": "ადგილობრივი სახელწოდებები: უბნები, ბაღები, ბორცვები, ხიდები (რას ნიშნავს სახელი)"
+  },
+  "kind_district": {
+   "ru": "Район, квартал, посёлок",
+   "en": "Quarter, neighbourhood, settlement",
+   "ka": "უბანი, კვარტალი, დასახლება"
+  },
+  "kind_garden": {
+   "ru": "Сад или парк",
+   "en": "Garden or park",
+   "ka": "ბაღი ან პარკი"
+  },
+  "kind_hill": {
+   "ru": "Холм или гора",
+   "en": "Hill or mountain",
+   "ka": "ბორცვი ან მთა"
+  },
+  "kind_bridge": {
+   "ru": "Мост",
+   "en": "Bridge",
+   "ka": "ხიდი"
+  },
+  "kind_cemetery": {
+   "ru": "Кладбище или пантеон",
+   "en": "Cemetery or pantheon",
+   "ka": "სასაფლაო ან პანთეონი"
+  },
+  "kind_market": {
+   "ru": "Рынок",
+   "en": "Market",
+   "ka": "ბაზარი"
+  },
+  "kind_bath": {
+   "ru": "Баня",
+   "en": "Bath",
+   "ka": "აბანო"
+  },
+  "kind_area": {
+   "ru": "Территория",
+   "en": "Area",
+   "ka": "ტერიტორია"
+  },
+  "etym": {
+   "ru": "Откуда название",
+   "en": "Origin of the name",
+   "ka": "საიდან მომდინარეობს სახელი"
+  },
+  "no_etym": {
+   "ru": "Происхождение названия в источнике не названо",
+   "en": "The source does not say where the name comes from",
+   "ka": "წყაროში სახელის წარმოშობა მითითებული არ არის"
+  },
+  "src": {
+   "ru": "Источник",
+   "en": "Source",
+   "ka": "წყარო"
+  },
+  "quote": {
+   "ru": "Цитата",
+   "en": "Quotation",
+   "ka": "ციტატა"
+  },
+  "attr": {
+   "ru": "Описание и происхождение названия взяты из статей Википедии (лицензия CC BY-SA), положение точки из OpenStreetMap.",
+   "en": "The description and the origin of the name are taken from Wikipedia articles (CC BY-SA licence); the position of the point is from OpenStreetMap.",
+   "ka": "აღწერა და სახელწოდების წარმოშობა აღებულია ვიკიპედიის სტატიებიდან (ლიცენზია CC BY-SA), წერტილის მდებარეობა — OpenStreetMap-იდან."
+  },
+  "area_approx": {
+   "ru": "граница приблизительная",
+   "en": "the boundary is approximate",
+   "ka": "საზღვარი მიახლოებითია"
+  },
+  "area_note": {
+   "ru": "Показана территория Центрального парка по данным OpenStreetMap; ипподром занимал больше (по georgia.travel около 36 га, в прошлом до 57 га).",
+   "en": "The territory of the Central Park is shown (OpenStreetMap); the hippodrome was larger (about 36 ha according to georgia.travel, up to 57 ha in the past).",
+   "ka": "ნაჩვენებია ცენტრალური პარკის ტერიტორია OpenStreetMap-ის მონაცემებით; იპოდრომი უფრო დიდ ფართობს იკავებდა (georgia.travel-ის მიხედვით დაახლოებით 36 ჰა-ს, წარსულში — 57 ჰა-მდე)."
+  }
+ }
+}

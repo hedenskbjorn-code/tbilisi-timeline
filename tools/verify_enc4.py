@@ -125,7 +125,13 @@ def main():
         ids = [r.get("id") for r in rows if isinstance(r, dict)]
         print(os.path.basename(fp), "rows", len(rows), "| missing", [i for i in want if i not in ids], "| extra", [i for i in ids if i not in want], "| duplicates", sorted({i for i in ids if ids.count(i) > 1}))
         for r in rows:
-            if not isinstance(r, dict) or r.get("id") not in ents or r["id"] in seen:
+            if not isinstance(r, dict) or r.get("id") not in ents:
+                continue
+            if r["id"] in seen:                     # a later pass (for example the pack of the squares) may turn an earlier "skip" or a rejected row into an accepted answer
+                if r.get("status") == "ok" and any(x["id"] == r["id"] for x in skip + rej) and not check(ents[r["id"]], r):
+                    skip[:] = [x for x in skip if x["id"] != r["id"]]
+                    rej[:] = [x for x in rej if x["id"] != r["id"]]
+                    ok.append({**r, "page": ents[r["id"]]["page"], "district": ents[r["id"]]["district"]})
                 continue
             seen.add(r["id"])
             bad = check(ents[r["id"]], r)
@@ -152,6 +158,23 @@ def main():
                 ok.append({**r, "page": ents[r["id"]]["page"], "district": ents[r["id"]]["district"]})
             else:
                 skip.append({"id": r["id"], "reason": r["skip_reason"]})
+    man = os.path.join(ROOT, "tools", "enc4_manual.json")                        # rows added by hand after a look at the scan of the PDF (the OCR lost a digit): text_fix repairs the entry before the check
+    if os.path.exists(man):
+        md = json.load(open(man, encoding="utf-8"))
+        for r in md["rows"]:
+            e = dict(ents[r["id"]])
+            for k in ("text", "text_raw"):
+                for x, y in md.get("text_fix", {}).get(r["id"], []):
+                    if k in e:
+                        e[k] = e[k].replace(x, y)
+            bad = check(e, r)
+            if bad:
+                print("manual row", r["id"], "does not pass:", bad)
+                continue
+            ok[:] = [x for x in ok if x["id"] != r["id"]]
+            skip[:] = [x for x in skip if x["id"] != r["id"]]
+            rej[:] = [x for x in rej if x["id"] != r["id"]]
+            ok.append({**r, "page": ents[r["id"]]["page"], "district": ents[r["id"]]["district"]})
     json.dump({"ok": ok, "rejected": rej, "skip": skip}, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("ok: %d | skip: %d | rejected: %d" % (len(ok), len(skip), len(rej)))
     for x in rej[:50]:
