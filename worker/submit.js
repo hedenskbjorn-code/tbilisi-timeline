@@ -3,6 +3,10 @@
 //   origin of the page, kill switch, size, honeypot and the time the form was open, Cloudflare Turnstile, per-visitor and total daily limits, the content of the file
 //   (magic bytes and the real width and height, no other types, no SVG), a text filter, a duplicate check by the hash of the file.
 // Settings: binding PHOTOS (KV), secrets TURNSTILE_SECRET and HASH_SALT. KV key "cfg:open" = "0" closes the form.
+// Mail to the owner (see notify): binding MAIL (send_email, fixed to ONE verified address), EMAIL_FROM (an address of the domain with Email Routing), EMAIL_TO (the same verified address), optional ADMIN_URL
+// (the link in the letter). KV key "cfg:notify" = "0" stops the mail. A letter is sent only for what has already passed every defence below, at most NOTIFY_PER_DAY a day (the rest waits in the queue,
+// nothing is lost), is plain text with fixed words in the subject, and holds no address of a visitor and no link of a visitor.
+import { EmailMessage } from "cloudflare:email";          // the send_email binding needs this class (a static import: a dynamic one may fail in the Worker)
 const ORIGIN = "https://hedenskbjorn-code.github.io";
 const MAX_BYTES = 3 * 1024 * 1024;          // the page re-encodes the picture to about 1600 px (a few hundred KB), so this is generous
 const MIN_SIDE = 800, MAX_SIDE = 3000, MAX_PIXELS = 6e6;      // the page makes at most 1600 px: bigger pictures are not from the form (and a tiny PNG of 8000x8000 would swallow the memory of the browser of the moderator)
@@ -84,6 +88,29 @@ async function bump(env, key, limit) {
   return true;
 }
 
+// ---- mail to the owner: a new photograph, a new message of the form, an error of the Worker. Never breaks the answer to the visitor (a failure of the mail is swallowed).
+const NOTIFY_PER_DAY = 10, ERROR_PER_HOUR = 1;
+const b64 = (s) => { const u = new TextEncoder().encode(s); let t = ""; for (let i = 0; i < u.length; i += 0x8000) t += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(t).replace(/(.{76})/g, "$1\r\n"); };
+function buildMail(from, to, subject, text) {
+  const dom = (from.split("@")[1] || "localhost").replace(/[^A-Za-z0-9.-]/g, "");
+  return ["From: Tbilisi timeline <" + from + ">", "To: <" + to + ">", "Subject: " + subject, "Date: " + new Date().toUTCString().replace("GMT", "+0000"), "Message-ID: <" + crypto.randomUUID() + "@" + dom + ">",
+    "MIME-Version: 1.0", "Content-Type: text/plain; charset=UTF-8", "Content-Transfer-Encoding: base64", "", b64(text)].join("\r\n");
+}
+async function notify(env, subject, lines, capKey, cap) {
+  try {
+    if (!env.MAIL || !env.EMAIL_FROM || !env.EMAIL_TO) return;                                   // not set up: nothing happens
+    if ((await env.PHOTOS.get("cfg:notify")) === "0") return;
+    if (!/^[\x20-\x7e]{1,100}$/.test(subject)) return;                                           // the subject is made of fixed words only
+    if (!(await bump(env, capKey, cap))) return;                                                 // over the cap: the item waits in the queue, there is no letter
+    const text = lines.map((l) => clean(l, 400).replace(/(https?:|www\.)\S*/gi, "[link removed]")).filter(Boolean).join("\n") + (env.ADMIN_URL ? "\n\n" + env.ADMIN_URL : "");
+    await env.MAIL.send(new EmailMessage(env.EMAIL_FROM, env.EMAIL_TO, buildMail(env.EMAIL_FROM, env.EMAIL_TO, subject, text)));
+    await env.PHOTOS.put("dbg:notify_ok", String(Date.now()), { expirationTtl: 7 * 86400 });
+  } catch (e) {                                                                                     // the mail is a convenience: the submission is already in the queue; the reason is kept for the owner (addresses masked)
+    try { await env.PHOTOS.put("dbg:notify", JSON.stringify({ t: Date.now(), name: String((e && e.name) || "Error").slice(0, 40), message: String((e && e.message) || "").replace(/\S+@\S+/g, "[address]").slice(0, 160) }), { expirationTtl: 7 * 86400 }); } catch (e2) { /* nothing more to do */ }
+  }
+}
+const dayKey = () => new Date().toISOString().slice(0, 10);
+
 const num = (v, lo, hi) => { const x = parseFloat(v); return Number.isFinite(x) && x >= lo && x <= hi ? Math.round(x * 1e6) / 1e6 : null; };
 
 // ---- a message of the form "Report a problem": nothing is public, it waits in the private queue (KV keys "fb:<id>") until the owner reads it in the admin page.
@@ -91,7 +118,7 @@ const num = (v, lo, hi) => { const x = parseFloat(v); return Number.isFinite(x) 
 const FB_KINDS = new Set(["data", "georef", "boundary", "translation", "rights", "other"]);          // the options of the form of the page
 const FB_MAX_BYTES = 8000, FB_PER_IP_DAY = 3, FB_GLOBAL_DAY = 30, FB_TTL = 180 * 86400, FB_DUP_TTL = 7 * 86400;
 
-async function feedback(req, env, origin) {
+async function feedback(req, env, origin, ctx) {
   if (origin !== ORIGIN) return reply({ ok: false, error: "origin" }, 403, origin);
   if ((await env.PHOTOS.get("cfg:fb_open")) === "0") return reply({ ok: false, error: "closed" }, 503, origin);
   const len = parseInt(req.headers.get("Content-Length") || "0", 10);
@@ -120,15 +147,26 @@ async function feedback(req, env, origin) {
   const rec = { id, kind, message, contact, context, page, ts, ipH, status: "new" };
   await env.PHOTOS.put("fb:" + id, JSON.stringify(rec), { expirationTtl: FB_TTL, metadata: { s: "new", k: kind, t: ts, n: message.slice(0, 80) } });
   await env.PHOTOS.put("fh:" + hash, id, { expirationTtl: FB_DUP_TTL });
+  if (ctx) ctx.waitUntil(notify(env, "[tbilisi-timeline] new problem report", ["Kind: " + kind, "Object / context: " + (context || "-"), "Text: " + message.slice(0, 300), "Queue id: " + id], "nt:" + dayKey(), NOTIFY_PER_DAY));
   return reply({ ok: true, id }, 200, origin);
 }
 
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
+    try { return await route(req, env, ctx); }
+    catch (e) {                                                              // an error of the Worker itself: one letter an hour, the visitor gets a plain "server"
+      const origin = req.headers.get("Origin") || "";
+      ctx.waitUntil(notify(env, "[tbilisi-timeline] error in the worker", ["Error: " + String((e && e.name) || "Error").slice(0, 40), "Path: " + new URL(req.url).pathname], "ne:" + new Date().toISOString().slice(0, 13), ERROR_PER_HOUR));
+      return reply({ ok: false, error: "server" }, 500, origin);
+    }
+  },
+};
+
+async function route(req, env, ctx) {
     const url = new URL(req.url), origin = req.headers.get("Origin") || "";
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(origin) });
     if (url.pathname === "/health") return reply({ ok: true, open: (await env.PHOTOS.get("cfg:open")) !== "0" }, 200, origin);
-    if (url.pathname === "/feedback" && req.method === "POST") return feedback(req, env, origin);
+    if (url.pathname === "/feedback" && req.method === "POST") return feedback(req, env, origin, ctx);
     if (url.pathname !== "/submit" || req.method !== "POST") return reply({ ok: false, error: "not_found" }, 404, origin);
     if (origin !== ORIGIN) return reply({ ok: false, error: "origin" }, 403, origin);
     if ((await env.PHOTOS.get("cfg:open")) === "0") return reply({ ok: false, error: "closed" }, 503, origin);
@@ -171,6 +209,6 @@ export default {
     await env.PHOTOS.put("img:" + id, bytes, { expirationTtl: PENDING_TTL });
     await env.PHOTOS.put("h:" + hash, id, { expirationTtl: PENDING_TTL });
     await env.PHOTOS.put("meta:" + id, JSON.stringify(meta), { expirationTtl: PENDING_TTL, metadata: { s: "pending", o: obj, t: ts, w: info.w, h: info.h, n: name.slice(0, 30), v: verified } });
+    ctx.waitUntil(notify(env, "[tbilisi-timeline] new photo", ["Object: " + obj, "Size: " + info.w + "x" + info.h + ", " + Math.round(bytes.length / 1024) + " KB", "Position confirmed: " + (verified ? "yes" : "no"), "Queue id: " + id], "nt:" + dayKey(), NOTIFY_PER_DAY));
     return reply({ ok: true, id }, 200, origin);
-  },
-};
+}

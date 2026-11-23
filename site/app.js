@@ -718,6 +718,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     sr.appendChild(document.createTextNode(L.c94Src + ": "));
     sr.appendChild(a);
     el.appendChild(sr);
+    actions(el, null, fbRef("C94", p.id ?? p.num, el));
     showPopup("320px", lngLat, el);
   }
   let popData = null;
@@ -1055,11 +1056,13 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     body.textContent = "";
     body.className = "";
     build(body);
+    $("imReport").textContent = t().fbPopup;
     $("infoModal").classList.toggle("sheet", !!sheet);          // an event with a place: a sheet at the bottom, the map and the pin stay in sight
     $("infoModal").hidden = false;
   }
   function closeInfo() { reopenInfo = null; const was = !$("infoModal").hidden; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } if (was) { giveFocusBack(infoFocus); infoFocus = null; } }
   $("imClose").addEventListener("click", closeInfo);
+  $("imReport").addEventListener("click", () => { const name = $("imTitle").textContent; closeInfo(); openFeedback({ id: "info", name: name.slice(0, 80), reg: "-" }); });
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
   // Esc closes the open card of the map; an open window (the info, the picture viewer, the form, the search, the menu) takes the key first (the capture phase runs before their own handlers)
@@ -1233,6 +1236,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     });
     d.appendChild(a); el.appendChild(d);
   }
+  const fbRef = (kind, id, el) => ({ id: kind + ":" + (id == null ? "-" : id), name: ((el.querySelector("h3") || {}).textContent || "").slice(0, 80), reg: "-" });
   function actions(el, openDetails, fbObj) {
     const box = document.createElement("div");
     box.className = "actions";
@@ -1247,7 +1251,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const a2 = document.createElement("a");
     a2.href = "#"; a2.className = "fb"; a2.textContent = t().fbPopup;
     a2.addEventListener("click", (ev) => { ev.preventDefault(); openFeedback(fbObj); });
-    box.appendChild(a1); box.appendChild(a2);
+    if (openDetails) box.appendChild(a1);                          // a card without details has the report link only
+    box.appendChild(a2);
     el.appendChild(box);
   }
 
@@ -1360,6 +1365,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     add(L.settleGeom[p.geom] || "", "k small");
     if (p.conflict === true || p.conflict === "true") add(L.settleConflict, "k small");
     add(L.settleSrc, "k small");
+    actions(el, null, fbRef("SET", p.id ?? p.name, el));
     showPopup("300px", lngLat, el);
   }
 
@@ -1445,6 +1451,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); };
     add(isRes ? L.waterTxtRes(year) : L.waterTxtLake(year));
     add(L.waterSrc, "k small");
+    actions(el, null, fbRef("WATER", p.id ?? (isRes ? "res" : "lake"), el));
     showPopup("300px", lngLat, el);
   }
 
@@ -2504,6 +2511,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     row(L.runYear, s.year ? "\u2248 " + s.year : "");
     const u = runWikiLink(s);
     if (u) { const d = document.createElement("div"), a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = L.runWiki; d.appendChild(a); el.appendChild(d); }
+    actions(el, null, fbRef("RUN", s.id ?? s.name, el));
     showPopup("300px", lngLat, el);
   }
   function showRunCard() {
@@ -2926,6 +2934,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (!c.src.length) s.appendChild(document.createTextNode(L.relRegSrc + " " + (c.regno ? L.relRegNo + " " + c.regno : L.relRegId + " " + c.rid)));
     c.src.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u.replace("https://", "")).slice(0, 60); if (i) s.appendChild(document.createTextNode(" \u00B7 ")); s.appendChild(a); });
     el.appendChild(s);
+    actions(el, null, fbRef("SCI", c.id, el));
     showPopup("340px", lngLat, el);
     addNamesakeTo(el, "SCI:" + c.id);
   }
@@ -2995,6 +3004,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     s.className = "src";
     s.appendChild(document.createTextNode(L.sciSrc + ": " + L.relRegSrc + " " + (c.regno ? L.relRegNo + " " + c.regno : L.relRegId + " " + c.rid)));
     el.appendChild(s);
+    actions(el, null, fbRef("EDU", c.id, el));
     showPopup("340px", lngLat, el);
     addNamesakeTo(el, "EDU:" + c.id);
   }
@@ -3275,6 +3285,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (!r.src.length) s.appendChild(document.createTextNode(L.relRegSrc + " " + (r.regno ? L.relRegNo + " " + r.regno : L.relRegId + " " + r.rid)));      // a register object: no web page to link to
     r.src.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u.replace("https://", "")).slice(0, 60); if (i) s.appendChild(document.createTextNode(" \u00B7 ")); s.appendChild(a); });
     el.appendChild(s);
+    actions(el, null, fbRef("REL", r.id, el));
     showPopup("320px", lngLat, el);
   }
 
