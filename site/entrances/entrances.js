@@ -13,6 +13,7 @@
 
   const T = {
     ru: {
+      report: "Сообщить об ошибке",
       title: "Парадные Тбилиси: пешеходный маршрут", home: "К карте с таймлайном", ariaPages: "Разделы сайта", navMap: "Карта во времени", navEntr: "Парадные Тбилиси", navRun: "Маршрут TRC City Run", share: "Скопировать ссылку", copied: "Ссылка скопирована", loading: "Загрузка карты…",
       intro: (p) => `Пешеходный маршрут «${p.title.ru}» мимо старых жилых домов с парадными конца XIX — начала XX века: <b>${p.stops.length} ${p.stops.length === 1 ? "дом" : p.stops.length < 5 ? "дома" : "домов"}</b>, <b>${num(p.route.length_km)} км</b>, около <b>${p.route.walk_min} мин</b> ходьбы без остановок. Старт и финиш у станции метро «Площадь Свободы». Порядок домов подобран так, чтобы идти как можно меньше: время считалось по уличным путям OpenStreetMap с учётом подъёмов, перебором всех порядков. Годы и авторы взяты из таблицы зданий в диссертации Т. Кутателадзе (2015) и из реестра культурного наследия; где они расходятся, это сказано в карточке.`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `Фото: ${n}`, locate: "Где я: ближайший дом", gpx: "Скачать GPX", busy: "Определяю положение…", denied: "Не удалось определить положение (разрешите доступ к геолокации в браузере).", nogeo: "Браузер не умеет определять положение.",
@@ -23,6 +24,7 @@
       credits: ["Карта: © участники OpenStreetMap, данные OpenFreeMap и OpenMapTiles. Линия маршрута и время ходьбы: пешеходный маршрутизатор Valhalla на данных OpenStreetMap, рассчитано один раз при подготовке страницы.", "Факты (адрес, год, архитектор) взяты из таблицы зданий в диссертации Т. Кутателадзе (2015; текст и фотографии диссертации принадлежат автору и здесь не воспроизводятся), из реестра культурного наследия Грузии и из указанных в карточках публикаций. Координаты домов — по реестру. Фото: Wikimedia Commons, автор и лицензия (CC BY или CC BY-SA) указаны под каждым снимком, ссылка ведёт на страницу файла; показаны уменьшенные копии. Сайт любительский, некоммерческий и не является официальным."],
     },
     en: {
+      report: "Report a problem",
       title: "Entrance Halls of Tbilisi: a walking route", home: "To the timeline map", ariaPages: "Site sections", navMap: "Timeline map", navEntr: "Entrance Halls of Tbilisi", navRun: "TRC City Run route", share: "Copy link", copied: "Link copied", loading: "Loading the map…",
       intro: (p) => `A walking route "${p.title.en}" past old residential houses with entrance halls of the late 19th - early 20th century: <b>${p.stops.length} houses</b>, <b>${num(p.route.length_km)} km</b>, about <b>${p.route.walk_min} min</b> of walking without stops. The start and the finish are at the metro station Freedom Square. The order of the houses is chosen so that you walk as little as possible: the time was calculated along the streets of OpenStreetMap with the climbs taken into account, by trying all the orders. The years and the architects are taken from the table of buildings in the dissertation of T. Kutateladze (2015) and from the heritage register; where they differ, the card says so.`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `Photo: ${n}`, locate: "Where am I: the nearest house", gpx: "Download GPX", busy: "Finding the position…", denied: "The position could not be found (allow the access to the location in the browser).", nogeo: "The browser cannot find the position.",
@@ -33,6 +35,7 @@
       credits: ["Map: © OpenStreetMap contributors, data of OpenFreeMap and OpenMapTiles. The line of the route and the walking times: the pedestrian router Valhalla on OpenStreetMap data, calculated once when the page was prepared.", "The facts (address, year, architect) are taken from the table of buildings in the dissertation of T. Kutateladze (2015; the text and the photographs of the dissertation belong to the author and are not reproduced here), from the heritage register of Georgia and from the publications named in the cards. The coordinates of the houses are those of the register. Photos: Wikimedia Commons, the author and the licence (CC BY or CC BY-SA) are given under each photo, the link leads to the page of the file; the pictures are reduced copies. This is a hobby, non-commercial site and it is not official."],
     },
     ka: {
+      report: "შეცდომის შეტყობინება",
       title: "თბილისური სადარბაზოები: ფეხით მარშრუტი", home: "ისტორიულ რუკაზე", ariaPages: "საიტის განყოფილებები", navMap: "რუკა დროში", navEntr: "თბილისური სადარბაზოები", navRun: "TRC City Run-ის მარშრუტი", share: "ბმულის კოპირება", copied: "ბმული დაკოპირდა", loading: "რუკა იტვირთება…",
       intro: (p) => `ფეხით მარშრუტი „${p.title.ka}“ XIX საუკუნის ბოლოსა და XX საუკუნის დასაწყისის ძველი საცხოვრებელი სახლების გვერდით: <b>${p.stops.length} სახლი</b>, <b>${num(p.route.length_km)} კმ</b>, გაჩერებების გარეშე დაახლოებით <b>${p.route.walk_min} წუთი</b>. დასაწყისი და დასასრული მეტროსადგურ „თავისუფლების მოედანთან“. სახლების თანმიმდევრობა ისეა შერჩეული, რომ რაც შეიძლება ნაკლები გავიაროთ: დრო OpenStreetMap-ის ქუჩების გასწვრივ, აღმართების გათვალისწინებით, ყველა თანმიმდევრობის გადარჩევით გამოითვალა. წლები და არქიტექტორები აღებულია თ. ქუთათელაძის დისერტაციის (2015) შენობათა ცხრილიდან და კულტურული მემკვიდრეობის რეესტრიდან; სადაც ისინი განსხვავდება, ეს ბარათშია აღნიშნული.`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `ფოტო: ${n}`, locate: "სად ვარ: უახლოესი სახლი", gpx: "GPX-ის ჩამოტვირთვა", busy: "მდებარეობა დგინდება…", denied: "მდებარეობის დადგენა ვერ მოხერხდა (ბრაუზერში მდებარეობაზე წვდომა დაუშვით).", nogeo: "ბრაუზერს მდებარეობის დადგენა არ შეუძლია.",
@@ -123,6 +126,7 @@
       sel.value = "../entrances/";
     }
     $("share").textContent = L.share;
+    { const r = $("report"); r.textContent = L.report; r.href = "../?report=entrances&lang=" + lang; }
     $("lang").value = lang;
     $("loadingTxt").textContent = L.loading;
     $("locate").textContent = "\u{1F4CD} " + L.locate;

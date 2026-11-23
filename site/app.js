@@ -1542,9 +1542,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       a.href = v.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = v.page_label ? (v.page_label[lang] || v.page_label.en) : "Wikimedia Commons";
       src.appendChild(a);
     } else src.textContent = L.viewLicense + ": " + lic;
+    $("vmReport").textContent = L.fbPopup;
     $("viewModal").hidden = false;
   }
   function closeView() { const was = !$("viewModal").hidden; $("viewModal").hidden = true; if (was) { giveFocusBack(viewFocus, "#vgrid button", "#btnViews"); viewFocus = null; } }
+  $("vmReport").addEventListener("click", () => { const v = curView; closeView(); openFeedback({ id: "view:" + ((v && (v.id || v.image)) || "-"), name: ((v && v.title && (v.title[lang] || v.title.en)) || "").slice(0, 80), reg: "-" }); });
   $("vmClose").addEventListener("click", closeView);
   $("viewModal").addEventListener("click", (e) => { if (e.target === $("viewModal")) closeView(); });
   function stepView(d) {
@@ -1771,6 +1773,13 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     fbTsId = window.turnstile.render($("fbTs"), { sitekey: cfg.turnstileSitekey, theme: "auto", callback: (tk) => { fbToken = tk; }, "expired-callback": () => { fbToken = ""; }, "error-callback": () => { fbToken = ""; } });
   }
   $("fbOpen").addEventListener("click", () => openFeedback(null));
+  {                                                                  // ?report=entrances | run : the other pages of the site have no form of their own, the visitor comes here with the name of the page
+    const rp = new URLSearchParams(location.search).get("report");
+    if (rp && /^[a-z]{2,12}$/.test(rp)) {
+      history.replaceState(null, "", location.pathname + location.search.replace(/([?&])report=[^&]*&?/, "$1").replace(/[?&]$/, "") + location.hash);
+      setTimeout(() => { closeInfo(); openFeedback({ id: "page:" + rp, name: "page " + rp, reg: "-" }); }, 700);
+    }
+  }
   $("fbCancel").addEventListener("click", closeFeedback);
   $("fbModal").addEventListener("click", (e) => { if (e.target === $("fbModal")) closeFeedback(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("fbModal").hidden) closeFeedback(); });
