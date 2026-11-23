@@ -33,7 +33,7 @@ for (const [name, file, box, pick] of [
     const c = read(file).find(pick);
     assert.ok(c);
     const page = await card(c, box);
-    const links = page.locator(".maplibregl-popup .actions a.fb");
+    const links = page.locator(".maplibregl-popup .actions a.fb:not(#objShare)");                   // the report link; the icon of the link to the object is another thing
     assert.equal(await links.count(), 1, "only the report link: the card has no details window");
     assert.equal(await links.first().innerText(), REPORT);
     await links.first().click();

@@ -446,6 +446,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updatePlaces();
     updateMP("mon");
     updateMP("plq");
+    updateMP("mod");
     updateNoPhoto();
     updateRuleBar();
     updateStreets();
@@ -857,6 +858,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (!stObjects) { try { stObjects = (await getJSON("data/street_objects.json", 2)).objects; } catch (e) { stObjects = {}; } }
     const nsAll = await loadNamesakes();
     reopenInfo = () => showStreetCard(s);
+    try { const u = new URL(location.href); u.searchParams.set("o", "st:" + (s.geom || s.now.en)); history.replaceState(null, "", u.pathname + u.search + u.hash); } catch (e) {}
     const L = t(), now = s.now[lang] || s.now.en, note = stNotes[s.geom || s.now.en];
     openInfo((body) => {
       infoLine(body, now, "");
@@ -1060,7 +1062,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     $("infoModal").classList.toggle("sheet", !!sheet);          // an event with a place: a sheet at the bottom, the map and the pin stay in sight
     $("infoModal").hidden = false;
   }
-  function closeInfo() { reopenInfo = null; const was = !$("infoModal").hidden; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } if (was) { giveFocusBack(infoFocus); infoFocus = null; } }
+  function closeInfo() { reopenInfo = null; try { const u = new URL(location.href); if (/^st:/.test(u.searchParams.get("o") || "")) { u.searchParams.delete("o"); history.replaceState(null, "", u.pathname + u.search + u.hash); } } catch (e) {} const was = !$("infoModal").hidden; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } if (was) { giveFocusBack(infoFocus); infoFocus = null; } }
   $("imClose").addEventListener("click", closeInfo);
   $("imReport").addEventListener("click", () => { const name = $("imTitle").textContent; closeInfo(); openFeedback({ id: "info", name: name.slice(0, 80), reg: "-" }); });
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
@@ -1073,7 +1075,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }, true);
   // the guided tour (site/tour.js, data/tour.json): loaded when it is asked for, from the welcome window or from the button "?" of the menu
   async function runTour() {
-    try { (await import("./js/tour.js")).startTour({ lang }); } catch (e) { console.error("tour", e && e.message); }
+    // on a phone the panel Info (it holds the button of the tour) covers the map: it is closed before the tour, and the step "Map" lights the free part of the map
+    if (window.matchMedia("(max-width:640px)").matches && $("btnInfo").getAttribute("aria-pressed") === "true") $("btnInfo").click();
+    try { (await import("./js/tour.js")).startTour({ lang, free: freeRect }); } catch (e) { console.error("tour", e && e.message); }
   }
   $("btnTour").addEventListener("click", runTour);
   // the welcome window: a short friendly text at the first visit. Not shown: in the tests (only with ?welcome=1), after a link to a year or to an object, after "Do not show again" (localStorage),
@@ -1236,7 +1240,16 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     });
     d.appendChild(a); el.appendChild(d);
   }
-  const fbRef = (kind, id, el) => ({ id: kind + ":" + (id == null ? "-" : id), name: ((el.querySelector("h3") || {}).textContent || "").slice(0, 80), reg: "-" });
+  const fbRef = (kind, id, el) => ({ id: kind + ":" + (id == null ? "-" : id), name: ((el.querySelector("h3") || {}).textContent || "").slice(0, 80), reg: "-", link: OBJ_PREFIX[kind] && id != null ? OBJ_PREFIX[kind] + ":" + id : "" });
+  const OBJ_PREFIX = { REL: "rl", SCI: "sc", EDU: "ed" };
+  function objLink(id) { const u = new URL(location.href); u.searchParams.set("o", id); return u.toString(); }
+  async function shareObject(id, a) {                                         // a phone: the share window; elsewhere: the clipboard
+    const url = objLink(id);
+    try {
+      if (navigator.share && window.matchMedia("(max-width:900px)").matches) await navigator.share({ url });
+      else { await navigator.clipboard.writeText(url); a.textContent = "\u2713"; setTimeout(() => { a.textContent = "\uD83D\uDD17"; }, 1600); }
+    } catch (e) { if (e && e.name !== "AbortError") window.prompt(t().linkTitle, url); }
+  }
   function actions(el, openDetails, fbObj) {
     const box = document.createElement("div");
     box.className = "actions";
@@ -1253,6 +1266,13 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     a2.addEventListener("click", (ev) => { ev.preventDefault(); openFeedback(fbObj); });
     if (openDetails) box.appendChild(a1);                          // a card without details has the report link only
     box.appendChild(a2);
+    if (fbObj && fbObj.link) {                                                  // the link to THIS object (not to the year and the view of the map)
+      const a3 = document.createElement("a");
+      a3.href = "#"; a3.className = "fb"; a3.textContent = "\uD83D\uDD17"; a3.title = t().linkObjTitle || t().linkTitle; a3.setAttribute("aria-label", a3.title); a3.id = "objShare";
+      a3.addEventListener("click", (ev) => { ev.preventDefault(); shareObject(fbObj.link, a3); });
+      box.appendChild(a3);
+      el.dataset.obj = fbObj.link;                                              // showPopup puts it into the address bar while the card is open
+    }
     el.appendChild(box);
   }
 
@@ -1696,7 +1716,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       if (srcs.length) infoLine(body, "Wikipedia:");
       srcs.forEach((u) => { const d = document.createElement("div"); d.className = "small"; const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u); d.appendChild(a); body.appendChild(d); });
       infoLine(body, "OpenStreetMap contributors (ODbL): geometry");
-    }), { id: p.id, name: p.name_en, reg: "-" });
+    }), { id: p.id, name: p.name_en, reg: "-", link: p.kind === "metro_station" ? "ms:" + p.id : "" });
     showPopup("300px", lngLat, el);
   }
 
@@ -1838,6 +1858,12 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     tight.addEventListener("change", () => { if (tight.matches && st.info && st.views) { st.views = false; apply(); } });
     for (const b of document.querySelectorAll(".pclose")) b.addEventListener("click", () => toggle(b.dataset.panel, false));
     window.TT_closePanels = () => { if (!mq.matches) return; let any = false; for (const k of KEYS) if (st[k]) { st[k] = false; any = true; } if (any) apply(); };
+    // on a phone a tap on the map beside an open panel or the search window closes it (the windows of the modal kind close by a tap on their backdrop)
+    document.addEventListener("pointerdown", (e) => {
+      if (!mq.matches || !e.target.closest || e.target.closest("#side, #filters, #views, #top, #timebar, #search, .modal, .maplibregl-popup, .maplibregl-ctrl, #tour, button, a, input, select, label, summary")) return;      // a tap on an empty place (the map, the band at the bottom), not on a panel, a control or a window
+      window.TT_closePanels();
+      if (!$("search").hidden) closeSearch();
+    }, true);
     apply();
   }
 
@@ -1858,9 +1884,33 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
     return r;
   }
+  // a link ?o=<kind>:<id> opens the card of that object (rl religious, sc science and culture, ed education, pl local names, mn monuments, pq plaques, ms metro station, st street)
+  async function openLinked(o) {
+    const [kind, ...r] = o.split(":"), id = r.join(":");
+    const go = (c, pop, y) => { if (y != null && Number.isFinite(y)) year = Math.max(year, y); update(); map.jumpTo({ center: [c.lon, c.lat], zoom: 17 }); pop(c, { lng: c.lon, lat: c.lat }); };
+    try {
+      if (kind === "rl") { if (relOsmLoading) await relOsmLoading; const c = religious.find((x) => x.id === id); if (c) { $("showRel").checked = true; go(c, popupRel, c.undated ? undefined : c.from); } }
+      else if (kind === "sc") { const c = science.find((x) => x.id === id); if (c) { $("showSci").checked = true; go(c, popupSci, c.from); } }
+      else if (kind === "ed") { const c = education.find((x) => x.id === id); if (c) { $("showEdu").checked = true; go(c, popupEdu, c.from); } }
+      else if (kind === "pl") { await ensurePlaces(); const c = places && places.items.find((x) => x.id === id); if (c) { $("showPlaces").checked = true; updatePlaces(); go(c, popupPlace); } }
+      else if (kind === "mn" || kind === "pq" || kind === "md") {
+        const key = kind === "mn" ? "mon" : kind === "md" ? "mod" : "plq", m = MP[key];
+        await mpLoad(key);
+        const c = m.byId && m.byId.get(id);
+        if (c) { $(m.chk).checked = true; if (c.y == null && m.sub) $(m.sub).checked = true; updateMP(key); go(c, (cc, ll) => popupMP(key, cc, ll), c.y); }
+      } else if (kind === "ms") {
+        const f = trStations.find((x) => x.properties.id === id);
+        if (f) { year = Math.max(year, f.properties.y0); update(); map.jumpTo({ center: f.geometry.coordinates, zoom: 16 }); transportPopup({ ...f.properties, src: JSON.stringify(f.properties.src || []) }, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] }); }
+      } else if (kind === "st") {
+        const st = stNames.find((x) => (x.geom || x.now.en) === id);
+        if (st) showStreetCard(st, true);
+      }
+    } catch (e) { console.error("link", o, e && e.message); }
+  }
   function showPopup(maxWidth, lngLat, el) {
     const pop = new maplibregl.Popup({ maxWidth, focusAfterOpen: false }).setLngLat(lngLat).setDOMContent(el).addTo(map);
     openPop = pop;
+    if (el.dataset && el.dataset.obj && !/^\d+$/.test(el.dataset.obj)) setObjParam(el.dataset.obj, pop);      // ?o=<kind>:<id> while the card is open (the register sets its own plain number)
     pop.on("close", () => { if (openPop === pop) { openPop = null; reopenPopup = null; } });
     const fit = () => {
       const node = pop.getElement();
@@ -1945,7 +1995,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       infoLine(body, L.infoRegister);
       if (lang !== "ka" && nmInfo.src === "ai" && L.trNote) infoLine(body, L.trNote);
       photoCredits(body, p);
-    }), { id: p.id, name: p.name, reg: p.reg });
+    }), { id: p.id, name: p.name, reg: p.reg, link: String(p.id) });
     addPhotoLink(el, "mon:" + p.id, !p.ph);
     setObjParam(p.id, showPopup("300px", lngLat, el));
     addNamesakeTo(el, "M" + p.id);
@@ -2109,7 +2159,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       // one click handler for all transport: the lines lie on one another (the tram is drawn 4 px beside the street, an avenue, a bridge and a railway can run along it), so
       // the object of the highest rank within a few pixels is taken: a tram before a metro line, a bridge before an avenue (found out 2026-11-19: on Chavchavadze Avenue the avenue took the click)
       const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue", "road"];
-      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "run-pt", "lost-dot", "settle-dot"];
+      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "run-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt"];
       map.on("click", (e) => {
         const near = (r) => [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
         const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-funic", "tr-cable"].filter((id) => map.getLayer(id)) });
@@ -2130,7 +2180,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     try { rulersData = await getJSON("data/rulers.json", 1); buildRulersBand(); updateRuleLine(); } catch (e) { console.error("rulers", e && e.message); rulersData = null; }
     try { science = await getJSON("data/science.json", 1); addScience(); } catch (e) { console.error("science", e && e.message); science = []; }
     try { education = await getJSON("data/education.json", 1); addEducation(); } catch (e) { console.error("education", e && e.message); education = []; }
-    try { religious = await getJSON("data/religious.json", 1); addReligious(); } catch (e) { console.error("religious", e && e.message); religious = []; }
+    try { religious = await getJSON("data/religious.json", 1); addReligious(); loadReligiousOsm(); } catch (e) { console.error("religious", e && e.message); religious = []; }
     try { c94 = await getJSON("data/city1894.json", 2); addC94(); } catch (e) { console.error("c94", e && e.message); c94 = null; }
     try { stNames = (await getJSON("data/street_names.json", 2)).streets; stGeom = await getJSON("data/street_geom.json", 2); addStLabelsLayer(); updateStNames(); } catch (e) { stNames = []; }
     let admin = { type: "FeatureCollection", features: [] };
@@ -2214,6 +2264,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
         const cb = picker; picker = null; cb({ obj: "mon:" + p.id, name: nm, lang, lat: g[1], lon: g[0] });
         return;
       }
+      if (map.getLayer("mod-pt") && map.getLayoutProperty("mod-pt", "visibility") === "visible" && map.queryRenderedFeatures(e.point, { layers: ["mod-pt"] }).length) return;      // a building of the layer "Soviet modernism" under the click has its own card (two cards at one place are not opened)
       popup(e.features[0].properties, e.lngLat);
     });
     map.on("mouseenter", "mon", () => { map.getCanvas().style.cursor = "pointer"; });
@@ -2230,7 +2281,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
         update();
         map.jumpTo({ center: f.geometry.coordinates, zoom: 17 });
         popup(f.properties, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] });
-      }
+      } else if (oid && /^[a-z]{2}:/.test(oid)) openLinked(oid);
     } catch (e) {}
     dataReady = true;
     loadChangelog();
@@ -3018,7 +3069,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     addNamesakeTo(el, "EDU:" + c.id);
   }
   // local names: districts, gardens, hills, bridges, cemeteries with what the name means (Wikipedia, quotes checked); the file is loaded when the layer is switched on or the search is opened
-  const PL_COLOR = { district: "#d6336c", garden: "#2b8a3e", hill: "#8d5524", bridge: "#1c7ed6", cemetery: "#495057", market: "#f08c00", bath: "#0ca678", area: "#7048e8" };
+  const PL_COLOR = { district: "#d6336c", garden: "#2b8a3e", hill: "#8d5524", bridge: "#1c7ed6", cemetery: "#495057", market: "#f08c00", bath: "#0ca678", area: "#7048e8", square: "#9c36b5" };
   function ensurePlaces() {
     if (placesLoading) return placesLoading;
     const wait = 3000 - (Date.now() - placesFailedAt);                // after a failure (getJSON has tried four times) the next try is not earlier than after 3 s: it is made by a timer when the layer is still wanted
@@ -3026,6 +3077,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     placesLoading = getJSON("data/places.json").then((d) => { places = d; searchIndex = null; addPlaces(); updatePlacesUi(); if (!$("search").hidden) renderSearch(); }).catch((e) => { console.error("places", e && e.message); places = null; placesLoading = null; placesFailedAt = Date.now(); });
     return placesLoading;
   }
+  const folkNames = (c) => (c.f || []).flatMap((x) => Object.values(x.n));                                   // the folk names of a place or a building (they join the search)
   const PU = (k) => (places && places.ui && places.ui[k] && (places.ui[k][lang] || places.ui[k].en)) || "";
   const placeFeats = () => places.items.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k, label: c.n[lang] || c.n.en } }));
   function addPlaces() {
@@ -3068,6 +3120,22 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const src = map && map.getSource && map.getSource("places");
     if (src && places) src.setData({ type: "FeatureCollection", features: placeFeats() });
   }
+  // the folk (slang) names of a place or of a building (c.f): the name in the languages that exist, what it means (own text of the answer with quotes), the pages
+  const hostLabel = (u, l) => { const h = new URL(u).hostname; return /wikipedia[.]org$/.test(h) ? "Wikipedia (" + (l || h.split(".")[0]) + ")" : h.replace(/^www[.]/, ""); };
+  function folkBlock(el, c, U) {
+    for (const x of c.f || []) {
+      const d = document.createElement("div"), kk = document.createElement("span"), b = document.createElement("b");
+      kk.className = "k"; kk.textContent = U("folk") + ": "; d.appendChild(kk);
+      b.textContent = "«" + [...new Set([x.n[lang], x.n.ka, x.n.ru, x.n.en].filter(Boolean))].join(" / ") + "»"; d.appendChild(b);
+      el.appendChild(d);
+      const m = x.m && (x.m[lang] || x.m.en);
+      if (m) { const t2 = document.createElement("div"); t2.className = "small"; t2.textContent = m; el.appendChild(t2); }
+      const s2 = document.createElement("div"); s2.className = "small src";
+      s2.appendChild(document.createTextNode(U("src") + ": "));
+      x.s.forEach((q, i) => { if (i) s2.appendChild(document.createTextNode("; ")); const a = document.createElement("a"); a.href = q.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = hostLabel(q.u, q.l); s2.appendChild(a); });
+      el.appendChild(s2);
+    }
+  }
   function popupPlace(c, lngLat) {
     reopenPopup = () => popupPlace(c, lngLat);
     const el = document.createElement("div");
@@ -3077,35 +3145,42 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     el.appendChild(h3);
     const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); return d; };
     add(PU("kind_" + c.k), "k");
-    add(c.a[lang] || c.a.en);
+    if (c.a) add(c.a[lang] || c.a.en);
     const e = add("", "");
-    if (c.e) { const kk = document.createElement("span"); kk.className = "k"; kk.textContent = PU("etym") + ": "; e.appendChild(kk); e.appendChild(document.createTextNode(c.e[lang] || c.e.en)); }
+    if (!c.a && !c.e) e.remove();                                   // a place that exists only for its folk name
+    else if (c.e) { const kk = document.createElement("span"); kk.className = "k"; kk.textContent = PU("etym") + ": "; e.appendChild(kk); e.appendChild(document.createTextNode(c.e[lang] || c.e.en)); }
     else if (c.ne) e.remove();                                      // an entry for which the question of the etymology is not asked (the former hippodrome)
     else { e.className = "small"; e.textContent = PU("no_etym"); }
     if (c.e && c.s.eq && c.s.eq.k === "dictionary") add(PU("dict_note"), "small");     // the meaning of a common word, not a source of the origin of the toponym
     if (c.g) add(PU("area_note"), "small");                         // the contour of an area is not the exact boundary of the object of the past
+    folkBlock(el, c, PU);
     const s = add("", "src");
     s.appendChild(document.createTextNode(PU("src") + ": "));
     const srcLabel = (u, l) => { const h = new URL(u).hostname; return /wikipedia\.org$/.test(h) ? "Wikipedia (" + (l || h.split(".")[0]) + ")" : h.replace(/^www\./, ""); };
-    const links = [[c.s.u, c.s.l]];
-    if (c.s.eq && c.s.eq.u && c.s.eq.u !== c.s.u) links.push([c.s.eq.u, c.s.eq.l]);               // the origin of the name may come from another page than the description
+    const links = c.a ? [[c.s.u, c.s.l]] : [];                      // the page of the description (a place that exists only for its folk name has none: the pages of its names are in the folk block)
+    if (c.s.eq && c.s.eq.u && c.s.eq.u !== c.s.u) links.push([c.s.eq.u, c.s.eq.l]);
+    for (const x of (c.s.eq && c.s.eq.more) || []) if (!links.some((l) => l[0] === x.u)) links.push([x.u, x.l]);               // the origin of the name may come from another page than the description
     links.forEach(([u, l], i) => { if (i) s.appendChild(document.createTextNode("; ")); const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = srcLabel(u, l); s.appendChild(a); });
     if (c.s.eq && c.s.eq.p) s.appendChild(document.createTextNode("; " + PU("enc") + " " + c.s.eq.p));
+    if (!links.length) s.remove();
     actions(el, () => openInfo((body) => {
       infoLine(body, (c.n[lang] || c.n.en) + ":");
-      infoLine(body, PU("quote") + " (" + c.s.l + "): “" + c.s.aq + "”", "small");
+      if (c.a) infoLine(body, PU("quote") + " (" + c.s.l + "): “" + c.s.aq + "”", "small");
+      for (const x of c.f || []) for (const q of x.s) infoLine(body, PU("folk") + " «" + (x.n[lang] || x.n.ka || x.n.ru || x.n.en) + "» — " + PU("quote") + " (" + q.l + "): “" + q.q + "”", "small");
       if (c.s.eq) infoLine(body, PU("etym") + " — " + PU("quote") + " (" + c.s.eq.l + (c.s.eq.p ? ", " + PU("enc") + " " + c.s.eq.p : "") + "): “" + c.s.eq.q + "”", "small");
+      for (const x of (c.s.eq && c.s.eq.more) || []) infoLine(body, PU("quote") + " (" + x.l + "): “" + x.q + "”", "small");      // the meaning of every part of a name has its own quote
       for (const x of (c.x && c.x.q) || []) infoLine(body, PU("quote") + " (" + x.l + "): “" + x.q + "”", "small");
-      for (const u of new Set([c.s.u, c.s.eq && c.s.eq.u].filter(Boolean))) { const d = infoLine(body, "", "small"), l = document.createElement("a"); l.href = u; l.target = "_blank"; l.rel = "noopener"; l.textContent = decodeURI(u); d.appendChild(l); }
+      for (const u of new Set([c.a ? c.s.u : null, ...(c.f || []).flatMap((x) => x.s.map((q) => q.u)), c.s.eq && c.s.eq.u, ...(((c.s.eq && c.s.eq.more) || []).map((x) => x.u))].filter(Boolean))) { const d = infoLine(body, "", "small"), l = document.createElement("a"); l.href = u; l.target = "_blank"; l.rel = "noopener"; l.textContent = decodeURI(u); d.appendChild(l); }
       infoLine(body, PU("attr"), "small");
       infoLine(body, "OpenStreetMap contributors (ODbL): geometry");
-    }), { id: c.id, name: c.n.en, reg: "-" });
+    }), { id: c.id, name: c.n.en, reg: "-", link: "pl:" + c.id });
     showPopup("340px", lngLat, el);
   }
   // monuments, sculptures and memorial plaques: two lazy layers (data/sculptures.json, data/plaques.json), clustered; a monument appears in the year of its installation, a plaque in the first year of the life that
   // its inscription names (never the year of the plaque); the objects without a year are shown by a sub box; an object without a name is labelled by its type and the nearest street
   const MON_COLOR = { sculpture: "#e67700", bust: "#862e9c", monument: "#1864ab", statue: "#c92a2a", memorial: "#343a40", relief: "#0b7285" }, PLQ_COLOR = "#a61e4d";
-  const MP = { mon: { file: "data/sculptures.json", chk: "showMon", sub: "showMonUndated", leg: "monLegend" }, plq: { file: "data/plaques.json", chk: "showPlq", sub: "showPlqUndated", leg: "plqLegend" } };
+  const MOD_COLOR = "#364fc7";                                       // the buildings of Soviet modernism: a third layer of the same kind (data/modernism.json), every building has a year of the end of the building
+  const MP = { mon: { file: "data/sculptures.json", chk: "showMon", sub: "showMonUndated", leg: "monLegend" }, plq: { file: "data/plaques.json", chk: "showPlq", sub: "showPlqUndated", leg: "plqLegend" }, mod: { file: "data/modernism.json", chk: "showMod", sub: null, leg: "modLegend" } };
   const mpU = (k, key) => { const m = MP[key].data; return (m && m.ui && m.ui[k] && (m.ui[k][lang] || m.ui[k].en)) || ""; };
   function mpLoad(key) {
     const m = MP[key];
@@ -3121,14 +3196,14 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const s = c.st && MP[key].data.streets[c.st];
     return (mpU("k_" + (key === "plq" ? "plaque" : c.k), key)) + (s ? ", " + (s[lang] || s.en) : "");
   }
-  function mpVisible(key, c) { return c.y != null ? c.y <= year : $(MP[key].sub).checked; }
+  function mpVisible(key, c) { return c.y != null ? c.y <= year : !!(MP[key].sub && $(MP[key].sub).checked); }
   function mpFeats(key) {
     return MP[key].data.items.filter((c) => mpVisible(key, c)).map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k || "plaque", label: mpName(key, c), undated: c.y == null } }));
   }
   function mpAdd(key) {
     const m = MP[key];
     if (!m.data || !m.data.items.length || !map.isStyleLoaded() || map.getSource(key + "s")) return;
-    const col = key === "mon" ? ["match", ["get", "kind"], ...Object.entries(MON_COLOR).flat(), "#555"] : PLQ_COLOR, base = key === "mon" ? "#1864ab" : PLQ_COLOR;
+    const col = key === "mon" ? ["match", ["get", "kind"], ...Object.entries(MON_COLOR).flat(), "#555"] : key === "mod" ? MOD_COLOR : PLQ_COLOR, base = key === "mon" ? "#1864ab" : key === "mod" ? MOD_COLOR : PLQ_COLOR;
     map.addSource(key + "s", { type: "geojson", cluster: true, clusterMaxZoom: 15, clusterRadius: 38, data: { type: "FeatureCollection", features: mpFeats(key) } });
     map.addLayer({ id: key + "-cl", type: "circle", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none" }, paint: { "circle-color": base, "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 13, 10, 17, 40, 22], "circle-stroke-color": "#fff", "circle-stroke-width": 2 } });
     map.addLayer({ id: key + "-cn", type: "symbol", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none", "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 12 }, paint: { "text-color": "#fff" } });
@@ -3145,30 +3220,79 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }
   function updateMP(key) {
     const m = MP[key], on = $(m.chk).checked;
-    $(m.sub).closest("label").hidden = !on;
+    if (m.sub) $(m.sub).closest("label").hidden = !on;
     if (on && !m.data) mpLoad(key);
     syncLegend(m.chk, m.leg);
     if (m.data && !map.getSource(key + "s")) mpAdd(key);
     if (!map.getSource(key + "s")) return;
-    const sig = [year, $(m.sub).checked, lang].join("|");
+    const sig = [year, m.sub ? $(m.sub).checked : "", lang].join("|");
     if (on && m.sig !== sig) { m.sig = sig; map.getSource(key + "s").setData({ type: "FeatureCollection", features: mpFeats(key) }); }
     for (const l of ["cl", "cn", "pt", "lb"]) { map.setLayoutProperty(key + "-" + l, "visibility", on ? "visible" : "none"); map.moveLayer(key + "-" + l); }
   }
   function updateMPUi() {
-    for (const key of ["mon", "plq"]) {
+    for (const key of ["mon", "plq", "mod"]) {
       const box = $(MP[key].leg), m = MP[key];
       if (box) {
         box.textContent = "";
         const kinds = m.data ? [...new Set(m.data.items.map((c) => c.k))].filter(Boolean) : [];
         for (const k of Object.keys(MON_COLOR)) if (key === "mon" && kinds.includes(k)) { const s = document.createElement("span"); s.textContent = mpU("k_" + k, key); s.style.setProperty("--c", MON_COLOR[k]); box.appendChild(s); }
         if (key === "plq" && m.data) { const s = document.createElement("span"); s.textContent = mpU("k_plaque", key); s.style.setProperty("--c", PLQ_COLOR); box.appendChild(s); }
+        if (key === "mod" && m.data) { const s = document.createElement("span"); s.textContent = mpU("k_modernism", key); s.style.setProperty("--c", MOD_COLOR); box.appendChild(s); }
         syncLegend(m.chk, m.leg);
       }
       if (m.sig) m.sig = null;
       updateMP(key);
     }
   }
+  // a building of Soviet modernism: the year, architects, what it was built for and what it is now, the condition, the description, folk names, a photograph, the sources (every source has its quotation in the details)
+  function popupMod(c, lngLat) {
+    const d = MP.mod.data, U = (k) => mpU(k, "mod");
+    reopenPopup = () => popupMod(c, lngLat);
+    const el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = c.n[lang] || c.n.en;
+    el.appendChild(h3);
+    const add = (txt, cls) => { const x = document.createElement("div"); if (cls) x.className = cls; x.textContent = txt; el.appendChild(x); return x; };
+    const row = (k, v) => { if (!v) return; const x = add("", ""), kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; x.appendChild(kk); x.appendChild(document.createTextNode(v)); };
+    add(U("k_modernism"), "k");
+    if (c.d && (c.d[lang] || c.d.en)) add(c.d[lang] || c.d.en);
+    row(U("built"), c.y != null ? String(c.y) : "");
+    row(U("architects"), (c.ar || []).join(", "));
+    row(U("was"), c.ft && (c.ft[lang] || c.ft.en));
+    row(U("now"), c.fn && (c.fn[lang] || c.fn.en));
+    row(U("status"), U("st_" + c.st));
+    folkBlock(el, c, U);
+    mpPhoto(el, c, d, U, c.n[lang] || c.n.en, add);
+    const s = add("", "src");
+    s.appendChild(document.createTextNode(U("src") + ": "));
+    c.s.forEach((q, i) => { if (i) s.appendChild(document.createTextNode("; ")); const a = document.createElement("a"); a.href = q.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = hostLabel(q.u, q.l); s.appendChild(a); });
+    const origin = { osm: "OpenStreetMap contributors (ODbL): geometry", wikidata: "Wikidata: coordinates", wikipedia: "Wikipedia: coordinates", page: "coordinates: " + (c.g && c.g.ref) }[c.g && c.g.how] || "";
+    actions(el, () => openInfo((body) => {
+      infoLine(body, (c.n[lang] || c.n.en) + ":");
+      for (const q of c.s) infoLine(body, U("quote") + " (" + q.l + ", " + q.f + "): “" + q.q + "”", "small");
+      for (const x of c.f || []) for (const q of x.s) infoLine(body, U("folk") + " «" + (x.n[lang] || x.n.ka || x.n.ru || x.n.en) + "» — " + U("quote") + " (" + q.l + "): “" + q.q + "”", "small");
+      for (const u of new Set([...c.s.map((q) => q.u), ...(c.f || []).flatMap((x) => x.s.map((q) => q.u))])) { const dd = infoLine(body, "", "small"), l = document.createElement("a"); l.href = u; l.target = "_blank"; l.rel = "noopener"; l.textContent = decodeURI(u); dd.appendChild(l); }
+      if (c.wd) infoLine(body, "Wikidata: " + c.wd, "small");
+      infoLine(body, U("attr"), "small");
+      if (origin) infoLine(body, origin, "small");
+    }), { id: "MOD:" + c.id, name: c.n.en || "", reg: "-", link: "md:" + c.id });
+    showPopup("340px", lngLat, el);
+  }
+  // the photograph of a card of the monuments layers (data of the layer: photos[file] = {thumb, page, author, license}); c.phn: found by the coordinates only
+  function mpPhoto(el, c, d, U, alt, add) {
+    const f = c.ph && d.photos[c.ph];
+    if (!(f && f.thumb)) return;
+    const fig = document.createElement("figure"), a = document.createElement("a"), img = document.createElement("img");
+    fig.className = "ph main"; a.href = f.page; a.target = "_blank"; a.rel = "noopener"; img.src = f.thumb; img.loading = "lazy"; img.alt = alt; if (f.w && f.h) { img.width = f.w; img.height = f.h; } a.appendChild(img); fig.appendChild(a);
+    const box = document.createElement("div"); box.className = "photos"; box.appendChild(fig); el.appendChild(box);
+    const cr = add("", "small phcred");
+    cr.appendChild(document.createTextNode(U("photo") + " · " + [f.author || "?", f.license || ""].filter(Boolean).join(" · ") + " · "));
+    const l = document.createElement("a"); l.href = f.page; l.target = "_blank"; l.rel = "noopener"; l.textContent = "Commons"; cr.appendChild(l);
+    if (c.phn) add(t().photo, "small");                                       // found by the coordinates only: it may show a neighbouring object
+  }
   function popupMP(key, c, lngLat) {
+    if (key === "mod") return popupMod(c, lngLat);
     const m = MP[key], d = m.data, U = (k) => mpU(k, key);
     reopenPopup = () => popupMP(key, c, lngLat);
     const el = document.createElement("div");
@@ -3181,37 +3305,50 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     add(U("k_" + (key === "plq" ? "plaque" : c.k)), "k");
     if (key === "mon") row(U("year"), c.y != null ? String(c.y) : U("year_unknown"));
     else if (c.y != null) add(U("lived_from").replace("{y}", c.y), "small");
-    if (key === "mon") { row(U("sculptor"), c.sc); row(U("architect"), c.ar); row(U("material"), c.mat ? U("mat_" + c.mat) : ""); }
+    if (key === "mon" && c.d && c.d[lang]) add(c.d[lang], "small");                        // the description of OSM, only in the language that exists
+    if (key === "mon") { row(U("sculptor"), c.sc && typeof c.sc === "object" ? (c.sc[lang] || c.sc.en) : c.sc); row(U("architect"), c.ar); row(U("material"), c.mat ? U("mat_" + c.mat) : ""); }
     const s = c.st && d.streets[c.st];
     if (s) row(U("where"), s[lang] || s.en);
     if (key === "plq" && c.ins) add(U("inscription") + ": " + c.ins, "small");
-    const f = c.ph && d.photos[c.ph];
-    if (f && f.thumb) {
-      const fig = document.createElement("figure"), a = document.createElement("a"), img = document.createElement("img");
-      fig.className = "ph main"; a.href = f.page; a.target = "_blank"; a.rel = "noopener"; img.src = f.thumb; img.loading = "lazy"; img.alt = mpName(key, c); if (f.w && f.h) { img.width = f.w; img.height = f.h; } a.appendChild(img); fig.appendChild(a);
-      const box = document.createElement("div"); box.className = "photos"; box.appendChild(fig); el.appendChild(box);
-      const cr = add("", "small phcred");
-      cr.appendChild(document.createTextNode(U("photo") + " · " + [f.author || "?", f.license || ""].filter(Boolean).join(" · ") + " · "));
-      const l = document.createElement("a"); l.href = f.page; l.target = "_blank"; l.rel = "noopener"; l.textContent = "Commons"; cr.appendChild(l);
-    }
+    mpPhoto(el, c, d, U, mpName(key, c), add);
     const wl = [lang, "en", "ka", "ru"].find((l2) => c.w && c.w[l2]);
     if (wl) { const x = add("", "src"), a = document.createElement("a"); a.href = c.w[wl]; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikipedia (" + wl + ")"; x.appendChild(a); }
-    actions(el, () => openInfo((body) => { infoLine(body, mpName(key, c) + ":"); infoLine(body, U("attr"), "small"); infoLine(body, "OpenStreetMap contributors (ODbL): geometry"); }), { id: (key === "mon" ? "MON:" : "PLQ:") + c.id, name: c.n.en || "", reg: "-" });
+    actions(el, () => openInfo((body) => { infoLine(body, mpName(key, c) + ":"); infoLine(body, U("attr"), "small"); infoLine(body, "OpenStreetMap contributors (ODbL): geometry"); }), { id: (key === "mon" ? "MON:" : "PLQ:") + c.id, name: c.n.en || "", reg: "-", link: (key === "mon" ? "mn:" : "pq:") + c.id });
     showPopup("320px", lngLat, el);
   }
-  for (const id of ["showMon", "showMonUndated", "showPlq", "showPlqUndated"]) $(id).addEventListener("change", () => updateMP(id.startsWith("showMon") ? "mon" : "plq"));
+  for (const id of ["showMon", "showMonUndated", "showPlq", "showPlqUndated", "showMod"]) $(id).addEventListener("change", () => updateMP(id.startsWith("showMon") ? "mon" : id === "showMod" ? "mod" : "plq"));
   $("showPlaces").addEventListener("change", updatePlaces);
   $("showSci").addEventListener("change", updateScience);
   $("showEdu").addEventListener("change", updateEducation);
   $("showBattles").addEventListener("change", () => { if (histEvents.length) buildEvMarks(); });
 
   // religious buildings of different religions: points that appear in the year of the building and disappear when it was destroyed
-  const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", lutheran: "#868e96", yazidi: "#74b816", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c", christian: "#8d6e63" };
+  const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", lutheran: "#868e96", yazidi: "#74b816", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c", christian: "#8d6e63", christianOsm: "#8d6e63" };
+  let relExtra = { ui: {}, streets: {} };                                                // data/religious_osm.json: the buildings of OpenStreetMap that are not in the curated layer and the register (loaded after the first screen)
+  const relNameOf = (k, l) => { const lg = l || lang; return (T[lg] && T[lg].relNames[k]) || (relExtra.ui[k] && (relExtra.ui[k][lg] || relExtra.ui[k].en)) || k; };
+  function relTitle(r) {                                                                 // the name; a building without a name is "denomination, nearest street"
+    const nm = r.name[lang] || r.name.en || r.name.ru || r.name.ka;
+    if (nm) return nm;
+    const st = r.st && relExtra.streets[r.st];
+    return relNameOf(r.rel) + (st ? ", " + (st[lang] || st.en) : "");
+  }
+  const relFeats = () => religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
+    properties: { id: r.id, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", undated: !!r.undated, label: relTitle(r) } }));
+  let relOsmLoading = null, relOsmFailedAt = 0;
+  function loadReligiousOsm() {
+    if (relOsmLoading || Date.now() - relOsmFailedAt < 3000) return;
+    relOsmLoading = getJSON("data/religious_osm.json").then((d) => {
+      relExtra = { ui: d.ui || {}, streets: d.streets || {} };
+      for (const r of d.items) religious.push(r);
+      searchIndex = null;
+      const src = map.getSource("rel");
+      if (src) src.setData({ type: "FeatureCollection", features: relFeats() });
+      buildRelLegend();
+    }).catch((e) => { console.error("religious_osm", e && e.message); relOsmLoading = null; relOsmFailedAt = Date.now(); setTimeout(loadReligiousOsm, 3500); });
+  }
   function addReligious() {
     if (!religious.length || map.getSource("rel")) return;
-    const feats = religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
-      properties: { id: r.id, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", undated: !!r.undated, label: r.name[lang] || r.name.en } }));
-    map.addSource("rel", { type: "geojson", data: { type: "FeatureCollection", features: feats } });
+    map.addSource("rel", { type: "geojson", data: { type: "FeatureCollection", features: relFeats() } });
     map.addLayer({ id: "rel-pt", type: "circle", source: "rel", layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 5, 17, 10], "circle-color": ["get", "color"], "circle-opacity": ["case", ["get", "undated"], 0.55, 1], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });   // pale: the register gives no date
     map.addLayer({ id: "rel-lb", type: "symbol", source: "rel", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#222222", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "rel-pt", (e) => {
@@ -3241,8 +3378,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
         list.className = "rlist";
         for (const k of keys) {
           const dot = document.createElement("i"); dot.className = "rdot"; dot.style.setProperty("--c", REL_COLOR[k]); sm.appendChild(dot);
-          const s = document.createElement("span"); s.textContent = t().relNames[k]; s.style.setProperty("--c", REL_COLOR[k]);
-          if (k === "christian") s.className = "wide";
+          const s = document.createElement("span"); s.textContent = relNameOf(k); s.style.setProperty("--c", REL_COLOR[k]);
+          if (k === "christian" || k === "christianOsm") s.className = "wide";
           list.appendChild(s);
         }
         d.appendChild(sm); d.appendChild(list); box.appendChild(d);
@@ -3263,35 +3400,35 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   function updateRelUi() {
     buildRelLegend();
     const src = map && map.getSource && map.getSource("rel");
-    if (src) src.setData({ type: "FeatureCollection", features: religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
-      properties: { id: r.id, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", undated: !!r.undated, label: r.name[lang] || r.name.en } })) });
+    if (src) src.setData({ type: "FeatureCollection", features: relFeats() });
   }
   function popupRel(r, lngLat) {
     reopenPopup = () => popupRel(r, lngLat);
     const L = t(), el = document.createElement("div");
     el.className = "pop";
     const h3 = document.createElement("h3");
-    h3.textContent = r.name[lang] || r.name.en;
+    h3.textContent = relTitle(r);
     el.appendChild(h3);
     const row = (k, v) => { if (!v) return; const d = document.createElement("div"), kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; d.appendChild(kk); d.appendChild(document.createTextNode(v)); el.appendChild(d); };
     const rr = document.createElement("div");
     rr.className = "k";
-    rr.textContent = L.relNames[r.rel] || r.rel;
+    rr.textContent = relNameOf(r.rel);
     el.appendChild(rr);
-    row(L.relBuilt, r.undated ? L.relUndated : r.date);
+    row(L.relBuilt, r.undated ? (r.osm ? relNameOf("relUndatedOsm") : L.relUndated) : r.date);      // an OSM building: "not given in OpenStreetMap" (the register wording is for the register)
     if (r.approx) row(L.relApprox, "≈");
     if (r.to !== undefined) row(L.relGone, String(r.to));
-    row(L.relStatus, r.status[lang] || r.status.en);
+    if (r.status) row(L.relStatus, r.status[lang] || r.status.en);
     if (r.addr) row(L.relAddr, r.addr[lang] || r.addr.en);
     cardPhotos(el, r);
     const n = document.createElement("div");
     n.className = "small";
-    n.textContent = r.note[lang] || r.note.en;
-    el.appendChild(n);
+    n.textContent = r.note ? (r.note[lang] || r.note.en) : "";
+    if (r.note) el.appendChild(n);
     const s = document.createElement("div");
     s.className = "src";
     s.appendChild(document.createTextNode(L.relSrc + ": "));
-    if (!r.src.length) s.appendChild(document.createTextNode(L.relRegSrc + " " + (r.regno ? L.relRegNo + " " + r.regno : L.relRegId + " " + r.rid)));      // a register object: no web page to link to
+    if (r.osm) { const a = document.createElement("a"); a.href = "https://www.openstreetmap.org/" + r.osm; a.target = "_blank"; a.rel = "noopener"; a.textContent = "OpenStreetMap"; s.appendChild(a); if (r.src.length) s.appendChild(document.createTextNode("; ")); }
+    else if (!r.src.length) s.appendChild(document.createTextNode(L.relRegSrc + " " + (r.regno ? L.relRegNo + " " + r.regno : L.relRegId + " " + r.rid)));      // a register object: no web page to link to
     r.src.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u.replace("https://", "")).slice(0, 60); if (i) s.appendChild(document.createTextNode(" \u00B7 ")); s.appendChild(a); });
     el.appendChild(s);
     actions(el, null, fbRef("REL", r.id, el));
@@ -3313,7 +3450,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (rulersData) for (const u of rulersData.rulers.concat(rulersData.states)) idx.push({ kind: "u", u, key: normQ([u.name.ru, u.name.en, u.name.ka, u.title ? u.title.ru + " " + u.title.en : "", Math.floor(u.from), Math.floor(u.to)].join(" ")) });
     for (const c of science) idx.push({ kind: "s", c, key: normQ([c.name.ru, c.name.en, c.name.ka, c.founded, c.built, c.from, T.ru.sciKinds[c.kind], T.en.sciKinds[c.kind]].join(" ")) });
     for (const c of education) idx.push({ kind: "d", c, key: normQ([c.name.ru, c.name.en, c.name.ka, c.built, c.from, T.ru.eduKinds[c.kind], T.en.eduKinds[c.kind]].join(" ")) });
-    for (const r of religious) idx.push({ kind: "r", r, key: normQ([r.name.ru, r.name.en, r.name.ka, r.date, t().relNames[r.rel], T.en.relNames[r.rel]].join(" ")) });
+    for (const r of religious) idx.push({ kind: "r", r, key: normQ([r.name.ru, r.name.en, r.name.ka, r.date, relNameOf(r.rel), relNameOf(r.rel, "en")].join(" ")) });
     for (const st of stNames) {                                 // streets: the name today and every former name (also the ones without a year) in three languages
       const nm = [st.now.ru, st.now.en, st.now.ka];
       for (const iv of st.iv) if (iv[2]) nm.push(iv[2].ru, iv[2].en, iv[2].ka);
@@ -3321,8 +3458,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       idx.push({ kind: "t", st, key: normQ(nm.join(" ")) });
     }
     for (const f of trStations) { const p = f.properties; idx.push({ kind: "m", f, key: normQ([p.name_ru, p.name_en, p.name_ka].join(" ")) }); }      // the stations of the metro
-    for (const c of (places ? places.items : [])) idx.push({ kind: "p", c, key: normQ([c.n.ru, c.n.en, c.n.ka].join(" ")) });                           // local names
-    for (const key of ["mon", "plq"]) for (const c of (MP[key].data ? MP[key].data.items : [])) if (c.n.ru || c.n.en || c.n.ka) idx.push({ kind: key === "mon" ? "k" : "q", key2: key, c, key: normQ([c.n.ru, c.n.en, c.n.ka].join(" ")) });      // monuments and plaques that are loaded and have a name
+    for (const c of (places ? places.items : [])) idx.push({ kind: "p", c, key: normQ([c.n.ru, c.n.en, c.n.ka, ...folkNames(c)].join(" ")) });                           // local names
+    for (const key of ["mon", "plq", "mod"]) for (const c of (MP[key].data ? MP[key].data.items : [])) if (c.n.ru || c.n.en || c.n.ka) idx.push({ kind: key === "plq" ? "q" : "k", key2: key, c, key: normQ([c.n.ru, c.n.en, c.n.ka, ...folkNames(c)].join(" ")) });      // monuments and plaques that are loaded and have a name
     return idx;
   }
   function updateSearchUi() {
@@ -3392,11 +3529,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       else if (r.kind === "u") { a.textContent = "\uD83D\uDC51 " + rText(r.u.name); b.textContent = [rText(r.u.title) || rText(rulersData.groups[r.u.grp || r.u.kind]), Math.floor(r.u.from) + "–" + Math.floor(r.u.to)].filter(Boolean).join(" · "); }
       else if (r.kind === "s") { a.textContent = (r.c.kind === "science" ? "\uD83D\uDD2C " : "\uD83C\uDFAD ") + (r.c.name[lang] || r.c.name.en); b.textContent = [L.sciKinds[r.c.kind], r.c.founded ? L.sciFounded + " " + r.c.founded : r.c.from].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "d") { a.textContent = "\uD83C\uDFEB " + (r.c.name[lang] || r.c.name.en); b.textContent = [L.eduKinds[r.c.kind], r.c.undated ? L.relUndated : (r.c.built || r.c.from)].filter(Boolean).join(" \u00B7 "); }
-      else if (r.kind === "r") { a.textContent = "\u26EA " + (r.r.name[lang] || r.r.name.en); b.textContent = [L.relNames[r.r.rel], r.r.date, r.r.to ? L.relGone + " " + r.r.to : ""].filter(Boolean).join(" \u00B7 "); }
+      else if (r.kind === "r") { a.textContent = "\u26EA " + relTitle(r.r); b.textContent = [relNameOf(r.r.rel), r.r.date, r.r.to ? L.relGone + " " + r.r.to : ""].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "e") { a.textContent = (EV_ICON[r.ev.cat] || EV_ICON.other) + " " + (r.ev[lang] || r.ev.en); b.textContent = r.ev.date + " \u00B7 " + (L.evCats[r.ev.cat] || ""); }
       else if (r.kind === "m") { const mp = r.f.properties; a.textContent = "\u24C2 " + (mp["name_" + lang] || mp.name_en); b.textContent = L.trKinds.metro_station + " \u00B7 " + L.trPeriod(+mp.y0, 9999, -1, -1); }
       else if (r.kind === "p") { a.textContent = "\uD83D\uDCCD " + (r.c.n[lang] || r.c.n.en); b.textContent = PU("kind_" + r.c.k); }
-      else if (r.kind === "k" || r.kind === "q") { a.textContent = (r.kind === "k" ? "\uD83D\uDDFF " : "\uD83D\uDD16 ") + mpName(r.key2, r.c); b.textContent = [mpU("k_" + (r.kind === "q" ? "plaque" : r.c.k), r.key2), r.c.y != null ? r.c.y : ""].filter(Boolean).join(" \u00B7 "); }
+      else if (r.kind === "k" || r.kind === "q") { a.textContent = (r.key2 === "mod" ? "\uD83C\uDFDB " : r.kind === "k" ? "\uD83D\uDDFF " :"\uD83D\uDD16 ") + mpName(r.key2, r.c); b.textContent = [mpU("k_" + (r.kind === "q" ? "plaque" : r.c.k), r.key2), r.c.y != null ? r.c.y : ""].filter(Boolean).join(" \u00B7 "); }
       else if (r.kind === "t") {
         a.textContent = "\uD83D\uDEE3 " + (r.st.now[lang] || r.st.now.en);
         const old = [...r.st.iv.filter((iv) => iv[2]).map((iv) => pickName(iv[2])), ...(r.st.undated || []).map((u) => pickName(u))];
@@ -3458,7 +3595,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
     if (r.kind === "k" || r.kind === "q") {
       const m = MP[r.key2];
-      $(m.chk).checked = true; if (r.c.y == null) $(m.sub).checked = true; updateMP(r.key2);
+      $(m.chk).checked = true; if (r.c.y == null && m.sub) $(m.sub).checked = true; updateMP(r.key2);
       if (openPop) openPop.remove();
       map.flyTo({ center: [r.c.lon, r.c.lat], zoom: Math.max(map.getZoom(), 17), duration: 1200 });
       popupMP(r.key2, r.c, { lng: r.c.lon, lat: r.c.lat });

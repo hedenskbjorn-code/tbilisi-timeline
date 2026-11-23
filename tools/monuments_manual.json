@@ -1,0 +1,5 @@
+{
+ "note": "Manual decisions for the monuments (applied by tools/build_monuments.py). skip: OSM objects that are not taken (a duplicate of another object); merge: {OSM id: id of an object of the table}: the OSM object enriches that object and its position replaces the position of the table (the table had the statue of Petre Bagrationi 1.4 km from the place where OSM and the photograph put it); the reasons are in sources.md.",
+ "skip": ["OSM_n6738835488"],
+ "merge": {"OSM_r14214561": "KAW_015"}
+}

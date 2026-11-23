@@ -14,7 +14,7 @@ const CSS = `
 #tourCard .tc{flex:1;color:var(--muted,#666);font-size:12px}
 #tourCard button.skip{border:0;background:none;color:var(--muted,#666);cursor:pointer;font:inherit;padding:6px 4px}
 `;
-let data = null;
+let data = null, FREE = null;
 
 const visible = (el) => {
   if (!el) return null;
@@ -27,7 +27,8 @@ const visible = (el) => {
 // the rectangle of a step: the union of the visible elements (or the middle of the map)
 function rectOf(step) {
   if (step.rect === "map") {
-    const m = document.getElementById("map").getBoundingClientRect();
+    const f = FREE && FREE(), mm = document.getElementById("map").getBoundingClientRect();
+    const m = f && f.right - f.left > 80 && f.bottom - f.top > 80 ? { left: f.left, top: f.top, width: f.right - f.left, height: f.bottom - f.top } : mm;        // the part of the map that no panel covers
     const w = Math.min(520, m.width * 0.7), h = Math.min(300, m.height * 0.36);
     return { left: m.left + (m.width - w) / 2, top: m.top + (m.height - h) / 2 + 24, right: m.left + (m.width + w) / 2, bottom: m.top + (m.height + h) / 2 + 24 };
   }
@@ -36,8 +37,9 @@ function rectOf(step) {
   return { left: Math.min(...rs.map((r) => r.left)), top: Math.min(...rs.map((r) => r.top)), right: Math.max(...rs.map((r) => r.right)), bottom: Math.max(...rs.map((r) => r.bottom)) };
 }
 
-export async function startTour({ lang, onClose }) {
+export async function startTour({ lang, onClose, free }) {
   if (document.getElementById("tour")) return;
+  FREE = free || null;
   try { if (!data) data = await (await fetch("data/tour.json")).json(); } catch (e) { return; }
   const T = (o) => (o && (o[lang] || o.en)) || "";
   const steps = data.steps.filter((s) => rectOf(s));

@@ -24,8 +24,10 @@ test("the layers of the map exist", async () => {
 });
 
 test("the layers of religion, science and education hold all the objects of the data", async () => {
+  const osm = JSON.parse(fs.readFileSync(path.join(DATA, "religious_osm.json"), "utf8")).items.length;                     // the buildings of OpenStreetMap join the religious layer after the first screen
+  await page.waitForFunction((n) => window.TT_E2E.map.getSource("rel").serialize().data.features.length === n, count("religious.json") + osm, { timeout: 20000 });
   const n = await ev(() => Object.fromEntries(["rel", "sci", "edu"].map((s) => [s, window.TT_E2E.map.getSource(s).serialize().data.features.length])));
-  assert.deepEqual(n, { rel: count("religious.json"), sci: count("science.json"), edu: count("education.json") });
+  assert.deepEqual(n, { rel: count("religious.json") + osm, sci: count("science.json"), edu: count("education.json") });
 });
 
 test("the check boxes: religion and science are on, education is off by default", async () => {

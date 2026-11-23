@@ -1,4 +1,14 @@
 {
  "note": "Rows of the second search of the origin of the names (places3_result.json) that tools/apply_places.py does not take although the quote stands on the page: the claim goes beyond the quote. key -> the reason.",
- "district:n/1308477954": "Tkhinvala: the quote only lists the old forms Tkhilovna / Tkhilnara; the meaning 'hazel grove' of the answer is in neither the quote nor the articles of the place (a gloss from the memory of the model)"
+ "district:n/1308477954": "Tkhinvala: the quote only lists the old forms Tkhilovna / Tkhilnara; the meaning 'hazel grove' of the answer is in neither the quote nor the articles of the place (a gloss from the memory of the model)",
+ "district:n/310027080": "Akhaldaba: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
+ "district:n/414014049": "Didgori: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
+ "district:n/893258178": "Didi Lilo: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
+ "district:n/1989303879": "Vazisubani: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
+ "district:n/457315667": "Telovani: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
+ "district:n/639616035": "Okrokana: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
+ "district:n/893071922": "Patara Lilo: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
+ "district:n/1761375393": "Tsinubani: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
+ "parts:district:n/893258178": "Didi Lilo: the dictionary gives no meaning of 'Lilo' (it only says that it is the name of the settlements Didi and Patara Lilo): nothing to show",
+ "parts:district:n/893071922": "Patara Lilo: the same"
 }
