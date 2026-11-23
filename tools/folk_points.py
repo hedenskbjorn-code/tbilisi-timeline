@@ -11,10 +11,22 @@ import urllib.request
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 UA = {"User-Agent": "tbilisi-timeline-hobby/0.1 (non-commercial hobby project; read-only API client)"}
 # index of the row of folk_result.json -> (OSM object, kind of the place); the rows 7 and 8 name the same square
-PLACE = {5: ("W1056991782", "square"), 7: ("W1476800521", "square"), 8: ("W1476800521", "square"), 9: ("W1217904106", "square"), 15: ("W709355801", "square"),
+PLACE = {0: ("R16393287", "district"), 1: ("R15399106", "district"), 5: ("W1056991782", "square"), 7: ("W1476800521", "square"), 8: ("W1476800521", "square"), 9: ("W1217904106", "square"),
          18: ("W62646483", "market"), 20: ("R14154210", "district"), 23: ("N4756361456", "district")}
-TO_PLACE = {0: "district-n930185638", 10: "bridge-w1271777826", 14: "district-r2185664", 16: "bridge-w370148693", 19: "garden-w56677922"}   # rows whose object is already in places.json (their "ref")
-TO_MODERN = {17: "Palace of Rituals"}                                      # the row is a card of the layer of modernism
+# the rows that tools/verify_folk_points.py accepted (an answer of Gemini about the place, checked): they join PLACE; a district of several streets ("area") is put on one of the streets: APPROX
+APPROX = set()
+_v = os.path.join(R, "data", "cache", "folk_points_verified.json")
+if os.path.exists(_v):
+    for _row, _x in json.load(open(_v, encoding="utf-8"))["ok"].items():
+        PLACE[int(_row)] = (_x["osm"], {"building": "building", "market": "market", "area": "district", "square": "square"}[_x["kind"]])
+        if _x["approx"]:
+            APPROX.add(int(_row))
+TO_PLACE = {10: "bridge-w1271777826", 14: "district-r2185664", 16: "bridge-w370148693", 19: "garden-w56677922"}   # rows whose object is already in places.json (their "ref")
+# the official name of the place where the answer gives that of a larger object: Nakhalovka is the Old Nadzaladevi (the quotation of ru.wikipedia: the first building became known as "old Nadzaladevi"), a quarter of OSM
+# around the railway station (the point of the district Nadzaladevi, 41.747 / 44.821, lies 2 km away, towards the Tbilisi Sea)
+NAME = {0: {"ka": "ძველი ნაძალადევი", "ru": "Старый Надзаладеви", "en": "Old Nadzaladevi"}}
+TO_MODERN = {17: "Palace of Rituals"}
+FORMER = {15: "Maidan is a former OFFICIAL name of Vakhtang Gorgasali Square (the street lists of 1903 and 1940 in the encyclopedia), not a folk name: it is not shown in this layer"}      # rows the sources show to be something else than a folk name                                      # the row is a card of the layer of modernism
 
 
 def main():
@@ -34,6 +46,8 @@ def main():
     for i, r in enumerate(rows):
         if r["adult"] != "none":
             print("left out (rude):", i, r["folk"])
+        elif i in FORMER:
+            print("left out:", i, FORMER[i])
         elif i not in PLACE and i not in TO_PLACE and i not in TO_MODERN:
             out["unplaced"].append({"row": i, "folk": r["folk"], "official": r["official"]})
     json.dump(out, open(os.path.join(R, "data", "cache", "folk_points.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

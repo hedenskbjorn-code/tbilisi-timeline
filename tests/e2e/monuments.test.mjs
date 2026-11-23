@@ -97,3 +97,18 @@ test("the layers turn off", async () => {
   const v = await page.evaluate(() => ["mon-pt", "plq-pt", "mon-cl", "plq-cl"].map((i) => window.TT_E2E.map.getLayoutProperty(i, "visibility")));
   assert.deepEqual(v, ["none", "none", "none", "none"]);
 });
+
+test("a description found by a search: the card shows it (ru / en), the details give the quotation, the card of another language shows no description that does not exist", async () => {
+  const c = MON.items.find((x) => x.id === "KAW_032");                        // 1981: shown in the year 1990 of this test
+  assert.ok(c && c.d && c.d.en && c.dq && c.dq.length, "the description with quotations exists in the data");
+  assert.ok(!c.d.ka, "no Georgian description yet: it waits for Gemini");
+  await page.check("#showMon");
+  await page.waitForFunction(() => window.TT_E2E.map.getSource("mons"), null, { timeout: 20000 });
+  const pop = await openCard("mon", c);
+  assert.ok((await pop.innerText()).includes(c.d.en), "the English description");
+  await page.locator(".maplibregl-popup .actions a.fb").first().click();
+  await page.waitForFunction(() => !document.getElementById("imBody").closest("#infoModal").hidden, null, { timeout: 15000 });
+  const body = await page.locator("#imBody").innerText();
+  assert.ok(body.includes(c.dq[0].q.slice(0, 40)), "the quotation in the details");
+  await page.keyboard.press("Escape");
+});

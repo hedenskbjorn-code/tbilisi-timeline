@@ -14,6 +14,31 @@
    "ru": "Описание и происхождение названия взяты из статей Википедии (лицензия CC BY-SA), положение точки из OpenStreetMap. Народные названия и их значение: страницы, указанные в цитатах карточки.",
    "en": "The description and the origin of the name are taken from Wikipedia articles (CC BY-SA licence); the position of the point is from OpenStreetMap. Folk names and their meaning: the pages named in the quotations of the card.",
    "ka": "აღწერა და სახელწოდების წარმოშობა აღებულია ვიკიპედიის სტატიებიდან (ლიცენზია CC BY-SA), წერტილის მდებარეობა — OpenStreetMap-იდან. ხალხური სახელწოდებები და მათი მნიშვნელობა: ბარათის ციტატებში მითითებული გვერდები."
+  },
+  "old_name": {
+   "ru": "Прежнее название",
+   "en": "Former name",
+   "ka": "ძველი სახელწოდება"
+  },
+  "alt_name": {
+   "ru": "Другое название",
+   "en": "Also called",
+   "ka": "სხვა სახელწოდება"
+  },
+  "park_note": {
+   "ru": "Название, прежние названия и положение точки взяты из OpenStreetMap; описания у этого места в источниках нет.",
+   "en": "The name, the former names and the position of the point are from OpenStreetMap; the sources have no description of this place.",
+   "ka": "სახელწოდება, ძველი სახელწოდებები და წერტილის მდებარეობა აღებულია OpenStreetMap-იდან; წყაროებში ამ ადგილის აღწერა არ არის."
+  },
+  "kind_building": {
+   "ru": "Здание",
+   "en": "Building",
+   "ka": "შენობა"
+  },
+  "approx": {
+   "ru": "Точка условна: район состоит из нескольких улиц, и она поставлена на одной из них.",
+   "en": "The point is approximate: the district covers several streets and the point is put on one of them.",
+   "ka": "წერტილი რუკაზე მიახლოებითია: უბანი რამდენიმე ქუჩისგან შედგება და წერტილი მათგან ერთ-ერთზეა დატანილი."
   }
  },
  "modernism": {
@@ -103,6 +128,11 @@
    "ru": "Советский модернизм: здания 1955–1991",
    "en": "Soviet modernism: buildings of 1955–1991",
    "ka": "საბჭოთა მოდერნიზმი: 1955–1991 წლების შენობები"
+  },
+  "nearHere": {
+   "ru": "Ещё в этой точке",
+   "en": "Also here",
+   "ka": "ამავე წერტილში"
   }
  }
 }

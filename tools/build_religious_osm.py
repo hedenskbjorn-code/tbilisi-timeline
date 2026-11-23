@@ -20,6 +20,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_enc_spec import inside, polygons  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+_fp = os.path.join(R, "tools", "churches_names.json")
+FILL = json.load(open(_fp, encoding="utf-8")) if os.path.exists(_fp) else {}
 D = os.path.join(R, "site", "data")
 KM = (83000.0, 111000.0)
 GEO, CYR = re.compile("[ა-ჿ]"), re.compile("[А-Яа-яЁё]")
@@ -118,6 +120,8 @@ def main():
         w = t.get("wikipedia", "")
         if ":" in w and w.split(":", 1)[0] in ("ka", "ru", "en"):
             src.append("https://%s.wikipedia.org/wiki/%s" % (w.split(":", 1)[0], urllib.parse.quote(w.split(":", 1)[1].replace(" ", "_"))))
+        for lg, v in (FILL.get("osm" + e["type"][0] + str(e["id"])) or {}).items():           # the names in the missing languages that Gemini gave (tools/apply_churches_a.py): they fill the EMPTY forms only
+            n[lg] = n.get(lg) or v
         it = {"id": "osm" + e["type"][0] + str(e["id"]), "rel": rel_of(t), "from": int(m.group(1)) if m else 364, "date": m.group(1) if m else "", "undated": not m, "lon": round(pt[0], 6), "lat": round(pt[1], 6),
               "name": n, "osm": oid, "st": nearest(pt[1], pt[0]) or "", "src": src}
         items.append(it)

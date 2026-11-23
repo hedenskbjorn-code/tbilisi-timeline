@@ -9,7 +9,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from folk_points import PLACE, TO_PLACE  # noqa: E402
+from folk_points import PLACE, TO_PLACE, FORMER, NAME, APPROX  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OUT = os.path.join(R, "site", "data", "places.json")
@@ -39,19 +39,27 @@ def main():
     added = attached = 0
     new = {}
     for i, r in enumerate(rows):
-        if r["adult"] != "none" or json.dumps(r["folk"], sort_keys=True) not in ok:
+        if r["adult"] != "none" or i in FORMER or json.dumps(r["folk"], sort_keys=True) not in ok:
             continue                                                   # rude, or not verified
         if i in TO_PLACE:
             byid[TO_PLACE[i]].setdefault("f", []).append(entry(r))
             attached += 1
         elif i in PLACE:
+            if i in APPROX and not ui["approx"].get("ka"):
+                print("held back until the Georgian text of the note 'approx' exists:", i)    # an approximate point without its note would mislead
+                continue
             oid, kind = PLACE[i]
             p = pts[oid]
-            c = new.setdefault(oid, {"id": "folk-" + oid.lower(), "k": kind, "lon": round(p["lon"], 6), "lat": round(p["lat"], 6), "n": r["official"], "ne": 1,
+            c = new.setdefault(oid, {"id": "folk-" + oid.lower(), "k": kind, "lon": round(p["lon"], 6), "lat": round(p["lat"], 6), "n": NAME.get(i, r["official"]), "ne": 1,
                                      "s": {"u": r["sources"][0]["url"], "l": r["sources"][0]["lang"], "aq": r["sources"][0]["quote"]}, "f": []})
+            if i in APPROX:
+                c["ap"] = 1                                                # the point is on one of the streets of a district that has several: the card says so
             c["f"].append(entry(r))
             added += 1
     d["items"] += list(new.values())
+    if not any(c.get("ap") for c in new.values()):
+        ui = {k: v for k, v in ui.items() if k != "approx"}             # the note is not in the file while no card uses it
+        d["ui"].pop("approx", None)
     for v in ui.values():
         if not v.get("ka"):
             v["pending_ka"] = True                                      # the Georgian text is still to come from Gemini: tests/check_data.mjs does not let it be published

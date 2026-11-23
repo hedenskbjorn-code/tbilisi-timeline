@@ -1,5 +1,12 @@
 {
- "note": "Manual decisions for the monuments (applied by tools/build_monuments.py). skip: OSM objects that are not taken (a duplicate of another object); merge: {OSM id: id of an object of the table}: the OSM object enriches that object and its position replaces the position of the table (the table had the statue of Petre Bagrationi 1.4 km from the place where OSM and the photograph put it); the reasons are in sources.md.",
- "skip": ["OSM_n6738835488"],
- "merge": {"OSM_r14214561": "KAW_015"}
+ "note": "Manual decisions for the monuments (applied by tools/build_monuments.py). skip: OSM objects that are not taken (a duplicate of another object); merge: {OSM id: id of an object of the table}: the OSM object enriches that object and its position replaces the position of the table (the table had the statue of Petre Bagrationi 1.4 km from the place where OSM and the photograph put it); the reasons are in sources.md. photo: {id: a file of Commons chosen by hand after looking at it} (written to the file of photographs by tools/fetch_monument_photos_cat.py): the Victory statue in Vake Park (OSM way 1253798291, card name \"Memorial of the Great Patriotic War\"; the file is of the category Statue of Victory in Vake Park).",
+ "skip": [
+  "OSM_n6738835488"
+ ],
+ "merge": {
+  "OSM_r14214561": "KAW_015"
+ },
+ "photo": {
+  "OSM_w1253798291": "File:ვაკის პარკი 16.jpg"
+ }
 }
