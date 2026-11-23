@@ -27,3 +27,4 @@ site/dev_trace.js
 data/cache/
 
 node_modules/
+data/db/

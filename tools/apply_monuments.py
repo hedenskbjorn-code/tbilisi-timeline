@@ -39,6 +39,8 @@ def main():
     labels = json.load(open(os.path.join(R, "data", "cache", "monument_labels.json"), encoding="utf-8")) if os.path.exists(os.path.join(R, "data", "cache", "monument_labels.json")) else {}
     gp = os.path.join(R, "data", "cache", "monument_photos_geo.json")
     geo = json.load(open(gp, encoding="utf-8")) if os.path.exists(gp) else {}
+    vp = os.path.join(R, "data", "cache", "monuments_verified.json")           # the descriptions found by a search and checked by tools/verify_search.py (quotations stand on their pages)
+    ver = {r["id"]: r for r in json.load(open(vp, encoding="utf-8"))["ok"]} if os.path.exists(vp) else {}
     out = {}
     for fn, key, pre in (("sculptures.json", "monuments", "m:"), ("plaques.json", "plaques", "p:")):
         items, used, ph = [], set(), {}
@@ -64,6 +66,16 @@ def main():
                     it["sc"] = lb                                      # the artist named by Wikidata: the name in three languages
                 if x.get("d"):
                     it["d"] = x["d"]
+                v = ver.get(x["id"])
+                if v and not it.get("d"):                              # a description from a search: ru / en (ka only when it exists: the Georgian text waits for Gemini), the quotations for the details
+                    it["d"] = {l: t for l, t in v["description"].items() if t}
+                    it["dq"] = [{"u": s["url"], "l": s["lang"], "q": s["quote"]} for s in v["sources"]]
+                    w = dict(it["w"] or {})
+                    for s in v["sources"]:
+                        mm = __import__("re").match(r"https://(ka|ru|en)[.]wikipedia[.]org/", s["url"])
+                        if mm and mm.group(1) not in w:
+                            w[mm.group(1)] = s["url"]
+                    it["w"] = w
                 if any(n.values()) and not all(n.values()):
                     it["pend"] = 1                                     # a new object whose name waits for the translation (tools/build_monuments_names.py makes the table for Gemini): the page shows the name that exists
             else:

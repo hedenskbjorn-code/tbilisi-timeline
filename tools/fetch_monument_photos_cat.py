@@ -45,6 +45,9 @@ def main():
         out[oid] = {"title": pick, "near": False} if pick else None
         print(" ", i, cat, "->", pick, flush=True)
         time.sleep(0.5)
+    man = json.load(open(os.path.join(R, "tools", "monuments_manual.json"), encoding="utf-8")).get("photo", {})
+    for oid, title in man.items():                                                      # the files chosen by hand (tools/monuments_manual.json "photo")
+        out[oid] = {"title": title, "near": False}
     json.dump(out, open(path, "w", encoding="utf-8"), ensure_ascii=False)
     print("resolved:", sum(1 for o, _c in todo if out.get(o)), "of", len(todo))
 

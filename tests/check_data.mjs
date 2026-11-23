@@ -96,7 +96,7 @@ function walkTriples(file, node, trail = "") {
   if (Array.isArray(node)) node.forEach((v, i) => walkTriples(file, v, `${trail}[${i}]`));
   else if (node && typeof node === "object") {
     if ("ru" in node && "en" in node && "ka" in node) checkTriple(`${file}${trail}`, node);
-    for (const [k, v] of Object.entries(node)) { if ((k === "n" || k === "name") && node.pend === 1) continue; walkTriples(file, v, `${trail}/${k}`); }      // "pend": the name of a new object waits for the translation (Gemini), the page shows the name that exists
+    for (const [k, v] of Object.entries(node)) { if ((k === "n" || k === "name" || k === "o" || k === "al") && node.pend === 1) continue; walkTriples(file, v, `${trail}/${k}`); }      // "pend": the name of a new object waits for the translation (Gemini), the page shows the name that exists
   }
 }
 for (const [f, d] of Object.entries(data)) walkTriples(f, d);
@@ -289,7 +289,7 @@ if (pop?.points) {
 // ---- the layer "Local names" (data/places.json, made by tools/apply_places.py) ------------------------------------
 {
   const pl = data["data/places.json"];
-  const KINDS = ["district", "garden", "hill", "bridge", "cemetery", "market", "bath", "area", "square"];
+  const KINDS = ["district", "garden", "hill", "bridge", "cemetery", "market", "bath", "area", "square", "building"];
   if (!pl) err("data/places.json is missing (python tools/apply_places.py)");
   else {
     const ids = new Set();
@@ -301,7 +301,13 @@ if (pop?.points) {
       if (ids.has(c.id)) err(`${w}: duplicate id`); ids.add(c.id);
       if (!KINDS.includes(c.k)) err(`${w}: unknown kind ${c.k}`);
       if (!(c.lon > 44.6 && c.lon < 45.1 && c.lat > 41.6 && c.lat < 41.9)) err(`${w}: the point is outside Tbilisi`);
-      for (const f of (c.f && !c.a ? ["n"] : ["n", "a"])) for (const l of ["ru", "en", "ka"]) if (!c[f]?.[l] || !String(c[f][l]).trim()) err(`${w}: ${f}.${l} is missing`);
+      if (c.pk) {                                                                       // a park or garden that only OpenStreetMap names (tools/apply_parks.py): a name in some language, the OSM object as the source
+        if (!Object.values(c.n || {}).some((v) => v && v.trim())) err(`${w}: no name`);
+        if (!/^https:\/\/www\.openstreetmap\.org\/(way|relation|node)\/\d+$/.test(c.s?.u || "")) err(`${w}: the OSM object is not the source`);
+        for (const l of ["en", "ka"]) for (const f of ["n", "o", "al"]) if (CY.test(c[f]?.[l] || "")) err(`${w}: Cyrillic in ${f}.${l}`);
+        if (c.a || c.e) err(`${w}: a park of OSM has no description of its own`);
+        if (c.pend !== 1 && !["ru", "en", "ka"].every((l) => c.n?.[l])) err(`${w}: a name lacks a language but is not marked pend`);
+      } else for (const f of (c.f && !c.a ? ["n"] : ["n", "a"])) for (const l of ["ru", "en", "ka"]) if (!c[f]?.[l] || !String(c[f][l]).trim()) err(`${w}: ${f}.${l} is missing`);
       for (const [j, x] of (c.f || []).entries()) {                                  // the folk names (tools/apply_folk.py): a name, a meaning in 3 languages, pages with quotations
         const ww = `${w} f[${j}]`;
         if (!Object.values(x.n || {}).some(Boolean)) err(`${ww}: no name`);
@@ -311,7 +317,7 @@ if (pop?.points) {
       }
       if (c.e) for (const l of ["ru", "en", "ka"]) if (!c.e[l]) err(`${w}: e.${l} is missing`);
       for (const f of ["n", "a", "e"]) if (c[f]) for (const l of ["en", "ka"]) if (CY.test(c[f][l] || "")) err(`${w}: Cyrillic in ${f}.${l}`);
-      if (!c.s?.u?.startsWith("https://") || !c.s.aq) err(`${w}: the source of the description (link and quote) is missing`);
+      if (!c.pk && (!c.s?.u?.startsWith("https://") || !c.s.aq)) err(`${w}: the source of the description (link and quote) is missing`);
       if (c.e && !((c.s.eq?.u || Number.isInteger(c.s.eq?.p)) && c.s.eq.q)) err(`${w}: an etymology without a quote of the source (a page of a site or a page of the encyclopedia)`);
       if (c.s.eq?.u && !/^https:\/\/((ka|ru|en)\.(wikipedia|wiktionary)\.org|(www\.)?georgianencyclopedia\.ge|(www\.)?ena\.ge)\//.test(c.s.eq.u)) err(`${w}: the source of the etymology is not on an allowed site: ${c.s.eq.u}`);
       if (!c.e && c.s.eq) err(`${w}: a quote of the etymology without the etymology`);
@@ -372,6 +378,8 @@ for (const [file, kinds] of [["data/sculptures.json", ["sculpture", "bust", "mon
     for (const l of ["en", "ka"]) if (CY.test(c.n?.[l] || "")) err(`${w}: Cyrillic in n.${l}`);
     if (c.y != null && !(Number.isInteger(c.y) && c.y > 1000 && c.y < 2100)) err(`${w}: the year ${c.y}`);
     if (!kinds && c.y != null && !String(c.ins || "").includes(String(c.y))) err(`${w}: the first year of life ${c.y} is not in the inscription`);
+    if (c.dq && (!c.d || c.dq.some((q) => !q.u?.startsWith("https://") || !q.q))) err(`${w}: quotations of a description without the description or without a link`);
+    if (c.dq && ["en", "ka"].some((l) => CY.test(c.d?.[l] || ""))) err(`${w}: Cyrillic in the description (en / ka)`);
     if (c.ph && !(f.photos?.[c.ph]?.thumb && f.photos[c.ph].license && f.photos[c.ph].page)) err(`${w}: the photo ${c.ph} has no thumbnail, licence or page`);
     if (c.st && !f.streets?.[c.st]) err(`${w}: the street ${c.st} is not in the list`);
   });

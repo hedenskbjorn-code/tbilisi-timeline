@@ -5,6 +5,24 @@
   "items": [
    {
     "t": "new",
+    "ru": "Новый слой «Советский модернизм»: 16 зданий 1955–1991 годов (бывшее Министерство автомобильных дорог, ныне офис Банка Грузии; Дворец торжественных обрядов; Дворец спорта; Лагуна Вере; «Динамо» и другие). Здание появляется на карте в год окончания строительства. В карточке: архитекторы, для чего построено и чем стало, состояние, фото Wikimedia Commons (у 11 из 16) и источники; в деталях к каждому факту дословная цитата со страницы, которую программа проверила.",
+    "en": "A new layer \"Soviet modernism\": 16 buildings of 1955–1991 (the former Ministry of Highways, now the Bank of Georgia headquarters; the Palace of Rituals; the Sports Palace; Laguna Vere; Dinamo and others). A building appears on the map in the year its construction ended. The card shows the architects, what it was built for and what it is now, its condition, a Wikimedia Commons photo (11 of 16) and sources; the details give a verbatim quotation for each fact from a page that a program has checked.",
+    "ka": "ახალი ფენა „საბჭოთა მოდერნიზმი“: 1955–1991 წლების 16 შენობა (ყოფილი საავტომობილო გზების სამინისტრო, ამჟამად საქართველოს ბანკის სათავო ოფისი; ქორწინების (საზეიმო რიტუალების) სასახლე; სპორტის სასახლე; „ლაგუნა ვერე“; „დინამო“ და სხვა). შენობა რუკაზე მშენებლობის დასრულების წელს ჩნდება. ბარათში მითითებულია: არქიტექტორები, რისთვის აშენდა და რად იქცა, მდგომარეობა, Wikimedia Commons-ის ფოტო (16-დან 11-ს) და წყაროები; დეტალებში თითოეულ ფაქტს ახლავს პროგრამის მიერ შემოწმებული გვერდიდან აღებული სიტყვასიტყვითი ციტატა."
+   },
+   {
+    "t": "new",
+    "ru": "В слое «Местные названия» и в карточке Дворца торжественных обрядов появились народные названия: Нахаловка, «Ослиный мост», «уши Андропова» и другие (14 названий у 13 объектов; значение названия, если источники его объясняют, и страницы с цитатами). Грубые прозвища не включены. Народные названия находятся и через поиск.",
+    "en": "The layer \"Local names\" and the card of the Palace of Rituals now show folk names: Nakhalovka, the \"Donkey Bridge\", \"Andropov's ears\" and others (14 names of 13 objects; the meaning of a name where the sources explain it, and the pages with quotations). Rude nicknames are left out. The folk names can also be found through the search.",
+    "ka": "ფენაში „ადგილობრივი სახელწოდებები“ და ქორწინების (საზეიმო რიტუალების) სასახლის ბარათში გაჩნდა ხალხური სახელწოდებები: ნახალოვკა, „ვირის ხიდი“, „ანდროპოვის ყურები“ და სხვა (14 სახელწოდება 13 ობიექტთან; სახელწოდების მნიშვნელობა, თუ წყაროები მას განმარტავს, და გვერდები ციტატებით). უხეში მეტსახელები შეტანილი არ არის. ხალხური სახელწოდებები ძიებითაც იძებნება."
+   },
+   {
+    "t": "new",
+    "ru": "Для памятников найдены фотографии Wikimedia Commons по ссылкам-категориям и по координатам: теперь фото есть у 276 из 628 объектов. Если снимок найден только по близости к точке и может показывать соседний объект, на карточке стоит пометка.",
+    "en": "Photos of Wikimedia Commons were found for the monuments through the category links and the coordinates: 276 of 628 objects now have a photo. When a photo was found only by its nearness to the point and may show a neighbouring object, the card says so.",
+    "ka": "ძეგლებისთვის Wikimedia Commons-ის ფოტოები მოიძებნა კატეგორიების ბმულებითა და კოორდინატებით: ახლა ფოტო აქვს 628-დან 276 ობიექტს. თუ ფოტო მხოლოდ წერტილთან სიახლოვით მოიძებნა და შესაძლოა მეზობელ ობიექტს ასახავდეს, ბარათზე შესაბამისი შენიშვნაა მითითებული."
+   },
+   {
+    "t": "new",
     "ru": "В карточке объекта появился значок 🔗: он копирует (а на телефоне открывает окно «Поделиться») ссылку именно на этот объект, а не на год и вид карты; по такой ссылке открывается карточка. Работает для зданий реестра, религиозных зданий, науки и культуры, образования, местных названий, памятников, мемориальных досок, станций метро и улиц.",
     "en": "The card of an object has a new icon 🔗: it copies (on a phone it opens the \"Share\" window) the link to this very object, not to the year and the view of the map; the link opens the card. It works for the buildings of the register, religious buildings, science and culture, education, local names, monuments, memorial plaques, metro stations and streets.",
     "ka": "ობიექტის ბარათში გაჩნდა ხატულა 🔗: ის აკოპირებს (ხოლო ტელეფონზე ხსნის „გაზიარების“ ფანჯარას) უშუალოდ ამ ობიექტის ბმულს და არა რუკის წლისა და ხედის ბმულს; ასეთი ბმულით იხსნება ბარათი. მუშაობს რეესტრის შენობების, რელიგიური შენობების, მეცნიერებისა და კულტურის, განათლების, ადგილობრივი სახელწოდებების, ძეგლების, მემორიალური დაფების, მეტროს სადგურებისა და ქუჩებისთვის."
@@ -116,24 +134,6 @@
     "ru": "В туре по сайту добавлен шаг про «Виды» и листание картинок; в карточке объекта описано, что фото ведёт на Викисклад.",
     "en": "The tour of the site has a new step about the \"Views\" and the flipping of the pictures; it says that the photo of a card leads to Wikimedia Commons.",
     "ka": "საიტის გზამკვლევს დაემატა ნაბიჯი „ხედებისა“ და სურათების გადაფურცვლის შესახებ; ასევე მითითებულია, რომ ბარათის ფოტო ვიკისაწყობზე გადადის."
-   },
-   {
-    "t": "new",
-    "ru": "Новый слой «Советский модернизм»: 16 зданий 1955–1991 годов (бывшее Министерство автомобильных дорог, ныне офис Банка Грузии; Дворец торжественных обрядов; Дворец спорта; Лагуна Вере; «Динамо» и другие). Здание появляется на карте в год окончания строительства. В карточке: архитекторы, для чего построено и чем стало, состояние, фото Wikimedia Commons (у 11 из 16) и источники; в деталях к каждому факту дословная цитата со страницы, которую программа проверила.",
-    "en": "A new layer \"Soviet modernism\": 16 buildings of 1955–1991 (the former Ministry of Highways, now the Bank of Georgia headquarters; the Palace of Rituals; the Sports Palace; Laguna Vere; Dinamo and others). A building appears on the map in the year its construction ended. The card shows the architects, what it was built for and what it is now, its condition, a Wikimedia Commons photo (11 of 16) and sources; the details give a verbatim quotation for each fact from a page that a program has checked.",
-    "ka": "ახალი ფენა „საბჭოთა მოდერნიზმი“: 1955–1991 წლების 16 შენობა (ყოფილი საავტომობილო გზების სამინისტრო, ამჟამად საქართველოს ბანკის სათავო ოფისი; ქორწინების (საზეიმო რიტუალების) სასახლე; სპორტის სასახლე; „ლაგუნა ვერე“; „დინამო“ და სხვა). შენობა რუკაზე მშენებლობის დასრულების წელს ჩნდება. ბარათში მითითებულია: არქიტექტორები, რისთვის აშენდა და რად იქცა, მდგომარეობა, Wikimedia Commons-ის ფოტო (16-დან 11-ს) და წყაროები; დეტალებში თითოეულ ფაქტს ახლავს პროგრამის მიერ შემოწმებული გვერდიდან აღებული სიტყვასიტყვითი ციტატა."
-   },
-   {
-    "t": "new",
-    "ru": "В слое «Местные названия» и в карточке Дворца торжественных обрядов появились народные названия: Нахаловка, Майдан, «Ослиный мост», «уши Андропова» и другие (14 названий у 13 объектов; значение названия, если источники его объясняют, и страницы с цитатами). Грубые прозвища не включены. Народные названия находятся и через поиск.",
-    "en": "The layer \"Local names\" and the card of the Palace of Rituals now show folk names: Nakhalovka, Maidan, the \"Donkey Bridge\", \"Andropov's ears\" and others (14 names of 13 objects; the meaning of a name where the sources explain it, and the pages with quotations). Rude nicknames are left out. The folk names can also be found through the search.",
-    "ka": "ფენაში „ადგილობრივი სახელწოდებები“ და ქორწინების (საზეიმო რიტუალების) სასახლის ბარათში გაჩნდა ხალხური სახელწოდებები: ნახალოვკა, მაიდანი, „ვირის ხიდი“, „ანდროპოვის ყურები“ და სხვა (14 სახელწოდება 13 ობიექტთან; სახელწოდების მნიშვნელობა, თუ წყაროები მას განმარტავს, და გვერდები ციტატებით). უხეში მეტსახელები შეტანილი არ არის. ხალხური სახელწოდებები ძიებითაც იძებნება."
-   },
-   {
-    "t": "new",
-    "ru": "Для памятников найдены фотографии Wikimedia Commons по ссылкам-категориям и по координатам: теперь фото есть у 276 из 628 объектов. Если снимок найден только по близости к точке и может показывать соседний объект, на карточке стоит пометка.",
-    "en": "Photos of Wikimedia Commons were found for the monuments through the category links and the coordinates: 276 of 628 objects now have a photo. When a photo was found only by its nearness to the point and may show a neighbouring object, the card says so.",
-    "ka": "ძეგლებისთვის Wikimedia Commons-ის ფოტოები მოიძებნა კატეგორიების ბმულებითა და კოორდინატებით: ახლა ფოტო აქვს 628-დან 276 ობიექტს. თუ ფოტო მხოლოდ წერტილთან სიახლოვით მოიძებნა და შესაძლოა მეზობელ ობიექტს ასახავდეს, ბარათზე შესაბამისი შენიშვნაა მითითებული."
    }
   ]
  },

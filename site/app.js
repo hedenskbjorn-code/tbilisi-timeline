@@ -83,7 +83,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
   // a read-only handle for the browser tests (tests/e2e): only with ?e2e=1 in the address
-  if (new URLSearchParams(location.search).has("e2e")) window.TT_E2E = { map, get year() { return year; }, get lang() { return lang; } };
+  if (new URLSearchParams(location.search).has("e2e")) window.TT_E2E = { map, get year() { return year; }, get lang() { return lang; }, nearCandidates: (pt) => nearCandidates(pt).map((c) => c.key + "|" + c.label), get lastClick() { return lastClick; } };
   map.once("load", () => { const n = document.getElementById("glnote"); if (n) n.remove(); });
   map.getCanvas().addEventListener("webglcontextlost", () => glNote("glFail", false));
   setTimeout(() => { if (!mapLoaded) glNote("glSlow", false); }, 25000);
@@ -336,6 +336,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
     if (mine === hereToken && cover.length) wait.textContent = L.hereNote;
   }
+  let lastClick = null;                                              // the last click on the map (where and when): a card that opens right after it knows what else lies under the click, see nearCandidates
+  map.getContainer().addEventListener("click", (ev) => {          // in the capture phase: before MapLibre sends its own click to the layers whose handlers open the card
+    const r = map.getCanvas().getBoundingClientRect();
+    lastClick = { t: Date.now(), point: { x: ev.clientX - r.left, y: ev.clientY - r.top } };
+  }, true);
   map.on("click", (e) => { if ($("showHere").checked) showHere(e.lngLat); });
   $("showHere").addEventListener("change", () => { $("map").classList.toggle("here", $("showHere").checked); });
 
@@ -1907,8 +1912,46 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       }
     } catch (e) { console.error("link", o, e && e.message); }
   }
+  // The cards under one click: a building of the register, a place, a monument, a plaque, a building of modernism, a religious building ... lie on one point. One card is opened (the others are not), and it gets a row
+  // "Also here" with the other objects of the layers that are switched on within 14 px; a tap on a name opens that card in the same place (and the row stays, to come back).
+  const NEAR_PX = 14;
+  function nearCandidates(pt) {
+    const box = [[pt.x - NEAR_PX, pt.y - NEAR_PX], [pt.x + NEAR_PX, pt.y + NEAR_PX]], out = [], seen = new Set();
+    const q = (layer) => (map.getLayer(layer) && map.getLayoutProperty(layer, "visibility") !== "none") ? map.queryRenderedFeatures(box, { layers: [layer] }) : [];
+    const add = (key, label, open) => { if (key && label && !seen.has(key)) { seen.add(key); out.push({ key, label, open }); } };
+    for (const f of q("mon")) { const p = f.properties; let nm = p.name || ""; try { if (window.GeoTr) nm = window.GeoTr.nameInfo(p.name, lang, p.wp).text || nm; } catch (er) {} add(String(p.id), nm, (ll) => popup(p, ll)); }
+    for (const f of q("rel-pt")) { const r = religious.find((x) => x.id === f.properties.id); if (r) add("rl:" + r.id, relTitle(r), (ll) => popupRel(r, ll)); }
+    for (const f of q("sci-pt")) { const c = science.find((x) => x.id === f.properties.id); if (c) add("sc:" + c.id, c.name[lang] || c.name.en, (ll) => popupSci(c, ll)); }
+    for (const f of q("edu-pt")) { const c = education.find((x) => x.id === f.properties.id); if (c) add("ed:" + c.id, c.name[lang] || c.name.en, (ll) => popupEdu(c, ll)); }
+    for (const f of q("places-pt")) { const c = places && places.items.find((x) => x.id === f.properties.id); if (c) add("pl:" + c.id, placeName(c), (ll) => popupPlace(c, ll)); }
+    for (const [key, pre] of [["mon", "mn:"], ["plq", "pq:"], ["mod", "md:"]]) for (const f of q(key + "-pt")) { const c = MP[key].byId && MP[key].byId.get(f.properties.id); if (c) add(pre + c.id, mpName(key, c), (ll) => popupMP(key, c, ll)); }
+    return out;
+  }
+  let nearCarry = null;                                              // the list of the objects of the point, kept for the card that a tap on a name opens (the map may have moved: the point of the click no longer says what lies there)
+  function addNearby(pop, el, lngLat) {
+    const now = Date.now();
+    let all;
+    if (nearCarry && now - nearCarry.t < 700) all = nearCarry.all;
+    else if (lastClick && now - lastClick.t < 700) all = nearCandidates(lastClick.point);
+    nearCarry = null;
+    if (!all) return;
+    const cur = el.dataset && el.dataset.obj, others = all.filter((c) => c.key !== cur).slice(0, 6);
+    if (!others.length || !all.some((c) => c.key === cur)) return;     // only a card that is one of the objects found under the click gets the row
+    const row = document.createElement("div");
+    row.className = "nearby small";
+    row.appendChild(document.createTextNode(t().nearHere + ": "));
+    others.forEach((c, i) => {
+      if (i) row.appendChild(document.createTextNode(" · "));
+      const a = document.createElement("a");
+      a.href = "#"; a.textContent = c.label;
+      a.addEventListener("click", (ev) => { ev.preventDefault(); nearCarry = { t: Date.now(), all }; pop.remove(); c.open(lngLat); });
+      row.appendChild(a);
+    });
+    el.appendChild(row);
+  }
   function showPopup(maxWidth, lngLat, el) {
     const pop = new maplibregl.Popup({ maxWidth, focusAfterOpen: false }).setLngLat(lngLat).setDOMContent(el).addTo(map);
+    addNearby(pop, el, lngLat);
     openPop = pop;
     if (el.dataset && el.dataset.obj && !/^\d+$/.test(el.dataset.obj)) setObjParam(el.dataset.obj, pop);      // ?o=<kind>:<id> while the card is open (the register sets its own plain number)
     pop.on("close", () => { if (openPop === pop) { openPop = null; reopenPopup = null; } });
@@ -2079,6 +2122,14 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   setLoading("loadMap");
   prefetchJSON(["education", "plans", "monuments", "city_area", "views", "names_i18n", "urban", "water", "density", "transport", "transport_events", "history_events", "population", "run_trc2026", "rulers_media", "rulers", "science", "religious", "city1894", "street_names", "street_geom", "admin", "admin_old", "districts", "district_history", "settlements", "lost"].map((n) => "data/" + n + ".json"));
 
+  // the lazy layers (places, monuments, plaques, modernism) are loaded when their box is ticked or the search is opened; here they are loaded quietly when the first screen is drawn and the browser is idle (not on a slow
+  // connection or with the data saver), so that the search finds their objects at once. The tests (?e2e) keep them lazy, ?idleload=1 switches this on for the test of this very thing.
+  map.once("idle", () => {
+    const q = new URLSearchParams(location.search), cn = navigator.connection || {};
+    if ((q.has("e2e") && !q.has("idleload")) || q.has("noidle") || cn.saveData || /^(slow-2g|2g|3g)$/.test(cn.effectiveType || "")) return;
+    const go = () => { ensurePlaces(); mpLoad("mon"); mpLoad("plq"); mpLoad("mod"); };
+    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 6000 }); else setTimeout(go, 3000);
+  });
   map.on("load", async () => {
     mapLoaded = true;
     if (baseOffline && !document.getElementById("basenote")) {
@@ -2264,7 +2315,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
         const cb = picker; picker = null; cb({ obj: "mon:" + p.id, name: nm, lang, lat: g[1], lon: g[0] });
         return;
       }
-      if (map.getLayer("mod-pt") && map.getLayoutProperty("mod-pt", "visibility") === "visible" && map.queryRenderedFeatures(e.point, { layers: ["mod-pt"] }).length) return;      // a building of the layer "Soviet modernism" under the click has its own card (two cards at one place are not opened)
+      const own = ["mod-pt", "places-pt", "mon-pt", "plq-pt"].filter((id) => map.getLayer(id) && map.getLayoutProperty(id, "visibility") === "visible");
+      if (own.length && map.queryRenderedFeatures(e.point, { layers: own }).length) return;      // a point of a layer that is switched on (modernism, local names, monuments, plaques) under the click has its own card (two cards at one place are not opened)
       popup(e.features[0].properties, e.lngLat);
     });
     map.on("mouseenter", "mon", () => { map.getCanvas().style.cursor = "pointer"; });
@@ -3069,7 +3121,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     addNamesakeTo(el, "EDU:" + c.id);
   }
   // local names: districts, gardens, hills, bridges, cemeteries with what the name means (Wikipedia, quotes checked); the file is loaded when the layer is switched on or the search is opened
-  const PL_COLOR = { district: "#d6336c", garden: "#2b8a3e", hill: "#8d5524", bridge: "#1c7ed6", cemetery: "#495057", market: "#f08c00", bath: "#0ca678", area: "#7048e8", square: "#9c36b5" };
+  const PL_COLOR = { district: "#d6336c", garden: "#2b8a3e", hill: "#8d5524", bridge: "#1c7ed6", cemetery: "#495057", market: "#f08c00", bath: "#0ca678", area: "#7048e8", square: "#9c36b5", building: "#e8590c" };
   function ensurePlaces() {
     if (placesLoading) return placesLoading;
     const wait = 3000 - (Date.now() - placesFailedAt);                // after a failure (getJSON has tried four times) the next try is not earlier than after 3 s: it is made by a timer when the layer is still wanted
@@ -3077,11 +3129,13 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     placesLoading = getJSON("data/places.json").then((d) => { places = d; searchIndex = null; addPlaces(); updatePlacesUi(); if (!$("search").hidden) renderSearch(); }).catch((e) => { console.error("places", e && e.message); places = null; placesLoading = null; placesFailedAt = Date.now(); });
     return placesLoading;
   }
-  const folkNames = (c) => (c.f || []).flatMap((x) => Object.values(x.n));                                   // the folk names of a place or a building (they join the search)
+  const folkNames = (c) => [...(c.f || []).flatMap((x) => Object.values(x.n)), ...Object.values(c.o || {}), ...Object.values(c.al || {})];                                   // the folk names of a place or a building (and the former and other names of a park: they join the search)
   const PU = (k) => (places && places.ui && places.ui[k] && (places.ui[k][lang] || places.ui[k].en)) || "";
-  const placeFeats = () => places.items.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k, label: c.n[lang] || c.n.en } }));
+  const placeName = (c) => c.n[lang] || c.n.en || c.n.ru || c.n.ka;                              // a name that lacks a language (a park that OSM names in Georgian only) is shown in the language that exists
+  const placeFeats = () => places.items.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k, label: placeName(c) } }));
   function addPlaces() {
-    if (!places || !places.items.length || !map.isStyleLoaded() || map.getSource("places")) return;
+    if (!places || !places.items.length || map.getSource("places")) return;
+    if (!map.isStyleLoaded()) { map.once("idle", addPlaces); return; }                       // as for mpAdd: the layer is added at the next idle
     map.addSource("places", { type: "geojson", data: { type: "FeatureCollection", features: placeFeats() } });
     map.addSource("places-area", { type: "geojson", data: { type: "FeatureCollection", features: places.items.filter((c) => c.g).map((c) => ({ type: "Feature", geometry: c.g, properties: { id: c.id } })) } });
     map.addLayer({ id: "places-area-fill", type: "fill", source: "places-area", layout: { visibility: "none" }, paint: { "fill-color": PL_COLOR.area, "fill-opacity": 0.18 } });
@@ -3141,7 +3195,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const el = document.createElement("div");
     el.className = "pop";
     const h3 = document.createElement("h3");
-    h3.textContent = c.n[lang] || c.n.en;
+    h3.textContent = placeName(c);
     el.appendChild(h3);
     const add = (txt, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; el.appendChild(d); return d; };
     add(PU("kind_" + c.k), "k");
@@ -3154,23 +3208,30 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (c.e && c.s.eq && c.s.eq.k === "dictionary") add(PU("dict_note"), "small");     // the meaning of a common word, not a source of the origin of the toponym
     if (c.g) add(PU("area_note"), "small");                         // the contour of an area is not the exact boundary of the object of the past
     folkBlock(el, c, PU);
+    if (c.ap) add(PU("approx"), "small");                           // a district of several streets: the point is on one of them
+    if (c.pk) {                                                     // a park or garden that only OpenStreetMap names: the former and the other names, the note about the source
+      const nameOf = (x) => x[lang] || x.ka || x.ru || x.en;
+      for (const [fld, key] of [["o", "old_name"], ["al", "alt_name"]]) if (c[fld]) { const x = add("", ""), kk = document.createElement("span"); kk.className = "k"; kk.textContent = PU(key) + ": "; x.appendChild(kk); x.appendChild(document.createTextNode([...new Set([c[fld][lang], c[fld].ka, c[fld].ru, c[fld].en].filter(Boolean))].join(" / "))); }
+      add(PU("park_note"), "small");
+    }
     const s = add("", "src");
     s.appendChild(document.createTextNode(PU("src") + ": "));
     const srcLabel = (u, l) => { const h = new URL(u).hostname; return /wikipedia\.org$/.test(h) ? "Wikipedia (" + (l || h.split(".")[0]) + ")" : h.replace(/^www\./, ""); };
-    const links = c.a ? [[c.s.u, c.s.l]] : [];                      // the page of the description (a place that exists only for its folk name has none: the pages of its names are in the folk block)
+    const links = (c.a || c.pk) ? [[c.s.u, c.s.l]] : [];                      // the page of the description (a place that exists only for its folk name has none: the pages of its names are in the folk block)
     if (c.s.eq && c.s.eq.u && c.s.eq.u !== c.s.u) links.push([c.s.eq.u, c.s.eq.l]);
     for (const x of (c.s.eq && c.s.eq.more) || []) if (!links.some((l) => l[0] === x.u)) links.push([x.u, x.l]);               // the origin of the name may come from another page than the description
+    if (c.wp) links.push([c.wp, new URL(c.wp).hostname.split(".")[0]]);                  // the article that the OSM tag names (a link only)
     links.forEach(([u, l], i) => { if (i) s.appendChild(document.createTextNode("; ")); const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = srcLabel(u, l); s.appendChild(a); });
     if (c.s.eq && c.s.eq.p) s.appendChild(document.createTextNode("; " + PU("enc") + " " + c.s.eq.p));
     if (!links.length) s.remove();
     actions(el, () => openInfo((body) => {
-      infoLine(body, (c.n[lang] || c.n.en) + ":");
+      infoLine(body, placeName(c) + ":");
       if (c.a) infoLine(body, PU("quote") + " (" + c.s.l + "): “" + c.s.aq + "”", "small");
       for (const x of c.f || []) for (const q of x.s) infoLine(body, PU("folk") + " «" + (x.n[lang] || x.n.ka || x.n.ru || x.n.en) + "» — " + PU("quote") + " (" + q.l + "): “" + q.q + "”", "small");
       if (c.s.eq) infoLine(body, PU("etym") + " — " + PU("quote") + " (" + c.s.eq.l + (c.s.eq.p ? ", " + PU("enc") + " " + c.s.eq.p : "") + "): “" + c.s.eq.q + "”", "small");
       for (const x of (c.s.eq && c.s.eq.more) || []) infoLine(body, PU("quote") + " (" + x.l + "): “" + x.q + "”", "small");      // the meaning of every part of a name has its own quote
       for (const x of (c.x && c.x.q) || []) infoLine(body, PU("quote") + " (" + x.l + "): “" + x.q + "”", "small");
-      for (const u of new Set([c.a ? c.s.u : null, ...(c.f || []).flatMap((x) => x.s.map((q) => q.u)), c.s.eq && c.s.eq.u, ...(((c.s.eq && c.s.eq.more) || []).map((x) => x.u))].filter(Boolean))) { const d = infoLine(body, "", "small"), l = document.createElement("a"); l.href = u; l.target = "_blank"; l.rel = "noopener"; l.textContent = decodeURI(u); d.appendChild(l); }
+      for (const u of new Set([(c.a || c.pk) ? c.s.u : null, c.wp, ...(c.f || []).flatMap((x) => x.s.map((q) => q.u)), c.s.eq && c.s.eq.u, ...(((c.s.eq && c.s.eq.more) || []).map((x) => x.u))].filter(Boolean))) { const d = infoLine(body, "", "small"), l = document.createElement("a"); l.href = u; l.target = "_blank"; l.rel = "noopener"; l.textContent = decodeURI(u); d.appendChild(l); }
       infoLine(body, PU("attr"), "small");
       infoLine(body, "OpenStreetMap contributors (ODbL): geometry");
     }), { id: c.id, name: c.n.en, reg: "-", link: "pl:" + c.id });
@@ -3202,7 +3263,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }
   function mpAdd(key) {
     const m = MP[key];
-    if (!m.data || !m.data.items.length || !map.isStyleLoaded() || map.getSource(key + "s")) return;
+    if (!m.data || !m.data.items.length || map.getSource(key + "s")) return;
+    if (!map.isStyleLoaded()) { map.once("idle", () => mpAdd(key)); return; }                // the style is busy (other sources are loading): the layer is added at the next idle, not forgotten
     const col = key === "mon" ? ["match", ["get", "kind"], ...Object.entries(MON_COLOR).flat(), "#555"] : key === "mod" ? MOD_COLOR : PLQ_COLOR, base = key === "mon" ? "#1864ab" : key === "mod" ? MOD_COLOR : PLQ_COLOR;
     map.addSource(key + "s", { type: "geojson", cluster: true, clusterMaxZoom: 15, clusterRadius: 38, data: { type: "FeatureCollection", features: mpFeats(key) } });
     map.addLayer({ id: key + "-cl", type: "circle", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none" }, paint: { "circle-color": base, "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 13, 10, 17, 40, 22], "circle-stroke-color": "#fff", "circle-stroke-width": 2 } });
@@ -3313,7 +3375,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     mpPhoto(el, c, d, U, mpName(key, c), add);
     const wl = [lang, "en", "ka", "ru"].find((l2) => c.w && c.w[l2]);
     if (wl) { const x = add("", "src"), a = document.createElement("a"); a.href = c.w[wl]; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikipedia (" + wl + ")"; x.appendChild(a); }
-    actions(el, () => openInfo((body) => { infoLine(body, mpName(key, c) + ":"); infoLine(body, U("attr"), "small"); infoLine(body, "OpenStreetMap contributors (ODbL): geometry"); }), { id: (key === "mon" ? "MON:" : "PLQ:") + c.id, name: c.n.en || "", reg: "-", link: (key === "mon" ? "mn:" : "pq:") + c.id });
+    actions(el, () => openInfo((body) => { infoLine(body, mpName(key, c) + ":"); for (const q of c.dq || []) infoLine(body, U("quote") + " (" + q.l + "): “" + q.q + "”", "small"); infoLine(body, U("attr"), "small"); infoLine(body, "OpenStreetMap contributors (ODbL): geometry"); }), { id: (key === "mon" ? "MON:" : "PLQ:") + c.id, name: c.n.en || "", reg: "-", link: (key === "mon" ? "mn:" : "pq:") + c.id });
     showPopup("320px", lngLat, el);
   }
   for (const id of ["showMon", "showMonUndated", "showPlq", "showPlqUndated", "showMod"]) $(id).addEventListener("change", () => updateMP(id.startsWith("showMon") ? "mon" : id === "showMod" ? "mod" : "plq"));

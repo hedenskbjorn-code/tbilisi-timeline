@@ -1,4 +1,5 @@
 // Budgets of the first screen: the weight of what the page loads from its own site, and the time on a slow network (1.6 Mbit/s, 150 ms).
+// ?noidle=1: the quiet loading of the lazy layers when the browser is idle (places, monuments, plaques, modernism) comes AFTER the first screen and is not part of this budget.
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -23,7 +24,7 @@ async function measure(throttle) {
     await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 150, downloadThroughput: 200 * 1024, uploadThroughput: 100 * 1024 });
   }
   const t0 = Date.now();
-  await page.goto(`${server.url}/?base=off&nostats=1&lang=en#1887`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${server.url}/?base=off&nostats=1&noidle=1&lang=en#1887`, { waitUntil: "domcontentloaded" });
   await waitReady(page, 120000);
   const secs = (Date.now() - t0) / 1000;
   await Promise.all(pend);

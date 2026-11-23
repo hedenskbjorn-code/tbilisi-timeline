@@ -37,9 +37,10 @@ def main():
     json.dump(ui, open(up, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     ip = os.path.join(R, "site", "i18n.js")
     s = open(ip, encoding="utf-8").read()
-    if ui["i18n"]["showMod"]["ka"]:
-        s = s.replace('showMod: "", ', 'showMod: "%s", ' % ui["i18n"]["showMod"]["ka"].replace('"', '\\"'))
-        open(ip, "w", encoding="utf-8").write(s)
+    for k, v in ui["i18n"].items():                                     # the keys of i18n.js that wait for the Georgian text: `key: "", ` is replaced
+        if v["ka"] and ('%s: "", ' % k) in s:
+            s = s.replace('%s: "", ' % k, '%s: "%s", ' % (k, v["ka"].replace('"', '\\"')))
+    open(ip, "w", encoding="utf-8").write(s)
     cp = os.path.join(R, "site", "data", "changelog.json")
     ch = json.load(open(cp, encoding="utf-8"))
     for i, x in enumerate(ch[0]["items"][-3:]):
