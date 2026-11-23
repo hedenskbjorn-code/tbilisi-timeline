@@ -1,6 +1,8 @@
 """Deploys the Workers of the photo form (worker/submit.js, worker/admin.js) with the REST API of Cloudflare, without wrangler.
 Secrets come only from the environment (never stored in the repository): CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID; for the submit worker TURNSTILE_SECRET and HASH_SALT;
 for the admin worker TEAM_DOMAIN, POLICY_AUD and ADMIN_EMAILS.
+Mail to the owner (submit worker, optional): EMAIL_TO (the address that is verified in Email Routing; the binding MAIL is fixed to it), EMAIL_FROM (an address of the domain of Email Routing), ADMIN_URL
+(the link in the letter). The secrets that already stand in the Worker (TURNSTILE_SECRET, HASH_SALT, ...) are kept when they are not in the environment ("keep_bindings"): a deploy of the code does not need them.
 Usage: python -X utf8 -P tools/deploy_worker.py submit|admin
 What it does: makes sure that the KV namespace "tbilisi-photos" exists, uploads the script with its bindings, turns on its workers.dev address, prints the address.
 """
@@ -58,11 +60,18 @@ def main():
     kv = kv_id()
     bindings = [{"type": "kv_namespace", "name": "PHOTOS", "namespace_id": kv}]
     if which == "submit":
-        bindings += [{"type": "secret_text", "name": k, "text": os.environ[k]} for k in ("TURNSTILE_SECRET", "HASH_SALT")]
+        bindings += [{"type": "secret_text", "name": k, "text": os.environ[k]} for k in ("TURNSTILE_SECRET", "HASH_SALT") if os.environ.get(k)]
+        if os.environ.get("EMAIL_TO") and os.environ.get("EMAIL_FROM"):                    # the binding can send to this ONE address only, whatever the code says
+            bindings += [{"type": "send_email", "name": "MAIL", "destination_address": os.environ["EMAIL_TO"]},
+                         {"type": "secret_text", "name": "EMAIL_TO", "text": os.environ["EMAIL_TO"]}, {"type": "plain_text", "name": "EMAIL_FROM", "text": os.environ["EMAIL_FROM"]}]
+            if os.environ.get("ADMIN_URL"):
+                bindings.append({"type": "plain_text", "name": "ADMIN_URL", "text": os.environ["ADMIN_URL"]})
     else:
         bindings += [{"type": "plain_text", "name": k, "text": os.environ[k]} for k in ("TEAM_DOMAIN", "POLICY_AUD")]
         bindings += [{"type": "secret_text", "name": "ADMIN_EMAILS", "text": os.environ["ADMIN_EMAILS"]}]
     meta = {"main_module": "worker.js", "compatibility_date": "2025-01-01", "bindings": bindings}
+    if which == "submit":
+        meta["keep_bindings"] = ["secret_text"]                                               # the secrets that are not given now stay as they are
     code = open(os.path.join(ROOT, "worker", fname), "rb").read()
     body, ctype = multipart([("metadata", None, "application/json", json.dumps(meta).encode()), ("worker.js", "worker.js", "application/javascript+module", code)])
     st, d = call("PUT", "/accounts/%s/workers/scripts/%s" % (AID, name), raw=body, ctype=ctype)
