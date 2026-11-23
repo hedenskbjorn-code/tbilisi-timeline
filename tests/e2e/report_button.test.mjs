@@ -58,3 +58,34 @@ test("the window of a street has the button 'report a problem' beside 'Close' an
   assert.match(await page.locator("#fbCtx").inputValue(), /object=.*Abashidze.* \(reg -, id info\)/);
   await page.ctx.close();
 });
+
+test("the viewer of the views has the button 'report a problem' and it opens the form with the view", async () => {
+  const views = read("views.json");
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1960`);
+  await waitReady(page);
+  await page.click("#btnViews");
+  await page.check("#viewsAll");                                     // all the pictures, whatever the year
+  await page.waitForFunction((n) => document.querySelectorAll("#vgrid button").length === n, views.length, { timeout: 15000 });
+  await page.locator("#vgrid button").first().click();
+  await page.waitForFunction(() => !document.getElementById("viewModal").hidden, null, { timeout: 5000 });
+  assert.equal(await page.locator("#vmReport").innerText(), REPORT);
+  await page.click("#vmReport");
+  await page.waitForFunction(() => !document.getElementById("fbModal").hidden && document.getElementById("viewModal").hidden, null, { timeout: 5000 });
+  assert.match(await page.locator("#fbCtx").inputValue(), /object=.+ \(reg -, id view:/);
+  await page.ctx.close();
+});
+
+for (const [name, url] of [["entrances", "/entrances/"], ["run", "/run/"]]) {
+  test(`the page /${name}/ has a link "Report a problem" that opens the form of the main page`, async () => {
+    const page = await openPage(browser, `${server.url}${url}?e2e=1&nostats=1&lang=en`);
+    const a = page.locator("#report");
+    await a.waitFor({ timeout: 15000 });
+    assert.equal(await a.innerText(), "Report a problem");
+    assert.equal(await a.getAttribute("href"), "../?report=" + name + "&lang=en");
+    await Promise.all([page.waitForURL((u) => !/\/(entrances|run)\//.test(u.pathname), { timeout: 15000 }), a.click()]);
+    await page.waitForFunction(() => !document.getElementById("fbModal").hidden, null, { timeout: 15000 });
+    assert.match(await page.locator("#fbCtx").inputValue(), new RegExp("object=page " + name));
+    assert.ok(!/report=/.test(page.url()), "the parameter is removed from the address: " + page.url());
+    await page.ctx.close();
+  });
+}
