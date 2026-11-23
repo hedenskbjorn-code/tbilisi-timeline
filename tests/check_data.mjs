@@ -96,7 +96,7 @@ function walkTriples(file, node, trail = "") {
   if (Array.isArray(node)) node.forEach((v, i) => walkTriples(file, v, `${trail}[${i}]`));
   else if (node && typeof node === "object") {
     if ("ru" in node && "en" in node && "ka" in node) checkTriple(`${file}${trail}`, node);
-    for (const [k, v] of Object.entries(node)) walkTriples(file, v, `${trail}/${k}`);
+    for (const [k, v] of Object.entries(node)) { if ((k === "n" || k === "name") && node.pend === 1) continue; walkTriples(file, v, `${trail}/${k}`); }      // "pend": the name of a new object waits for the translation (Gemini), the page shows the name that exists
   }
 }
 for (const [f, d] of Object.entries(data)) walkTriples(f, d);
@@ -289,24 +289,70 @@ if (pop?.points) {
 // ---- the layer "Local names" (data/places.json, made by tools/apply_places.py) ------------------------------------
 {
   const pl = data["data/places.json"];
-  const KINDS = ["district", "garden", "hill", "bridge", "cemetery", "market", "bath", "area"];
+  const KINDS = ["district", "garden", "hill", "bridge", "cemetery", "market", "bath", "area", "square"];
   if (!pl) err("data/places.json is missing (python tools/apply_places.py)");
   else {
     const ids = new Set();
     for (const k of KINDS) for (const l of ["ru", "en"]) if (!pl.ui?.["kind_" + k]?.[l]) err(`places.json: the string kind_${k} (${l}) is missing`);
-    for (const k of ["etym", "no_etym", "src", "quote", "attr"]) for (const l of ["ru", "en"]) if (!pl.ui?.[k]?.[l]) err(`places.json: the string ${k} (${l}) is missing`);
+    for (const k of ["etym", "no_etym", "src", "quote", "attr", "folk"]) for (const l of ["ru", "en"]) if (!pl.ui?.[k]?.[l]) err(`places.json: the string ${k} (${l}) is missing`);
+    for (const [k, v] of Object.entries(pl.ui || {})) if (v.pending_ka) err(`places.json: the string ${k} waits for the Georgian text (pending_ka): the data is not to be published yet`);
     pl.items.forEach((c, i) => {
       const w = `places.json[${i}] ${c.id}`;
       if (ids.has(c.id)) err(`${w}: duplicate id`); ids.add(c.id);
       if (!KINDS.includes(c.k)) err(`${w}: unknown kind ${c.k}`);
       if (!(c.lon > 44.6 && c.lon < 45.1 && c.lat > 41.6 && c.lat < 41.9)) err(`${w}: the point is outside Tbilisi`);
-      for (const f of ["n", "a"]) for (const l of ["ru", "en", "ka"]) if (!c[f]?.[l] || !String(c[f][l]).trim()) err(`${w}: ${f}.${l} is missing`);
+      for (const f of (c.f && !c.a ? ["n"] : ["n", "a"])) for (const l of ["ru", "en", "ka"]) if (!c[f]?.[l] || !String(c[f][l]).trim()) err(`${w}: ${f}.${l} is missing`);
+      for (const [j, x] of (c.f || []).entries()) {                                  // the folk names (tools/apply_folk.py): a name, a meaning in 3 languages, pages with quotations
+        const ww = `${w} f[${j}]`;
+        if (!Object.values(x.n || {}).some(Boolean)) err(`${ww}: no name`);
+        if (x.m) for (const l of ["ru", "en", "ka"]) if (!x.m[l]?.trim()) err(`${ww}: m.${l} is missing`);
+        for (const l of ["en", "ka"]) if (CY.test(x.m?.[l] || "") || CY.test(x.n?.[l] || "")) err(`${ww}: Cyrillic in ${l}`);
+        if (!x.s?.length || x.s.some((q) => !q.u?.startsWith("https://") || !q.q)) err(`${ww}: a page without a quotation`);
+      }
       if (c.e) for (const l of ["ru", "en", "ka"]) if (!c.e[l]) err(`${w}: e.${l} is missing`);
       for (const f of ["n", "a", "e"]) if (c[f]) for (const l of ["en", "ka"]) if (CY.test(c[f][l] || "")) err(`${w}: Cyrillic in ${f}.${l}`);
       if (!c.s?.u?.startsWith("https://") || !c.s.aq) err(`${w}: the source of the description (link and quote) is missing`);
       if (c.e && !((c.s.eq?.u || Number.isInteger(c.s.eq?.p)) && c.s.eq.q)) err(`${w}: an etymology without a quote of the source (a page of a site or a page of the encyclopedia)`);
       if (c.s.eq?.u && !/^https:\/\/((ka|ru|en)\.(wikipedia|wiktionary)\.org|(www\.)?georgianencyclopedia\.ge|(www\.)?ena\.ge)\//.test(c.s.eq.u)) err(`${w}: the source of the etymology is not on an allowed site: ${c.s.eq.u}`);
       if (!c.e && c.s.eq) err(`${w}: a quote of the etymology without the etymology`);
+      for (const x of c.s.eq?.more || []) if (!x.q || !/^https:\/\/((ka|ru|en)\.(wikipedia|wiktionary)\.org|(www\.)?georgianencyclopedia\.ge|(www\.)?ena\.ge)\//.test(x.u || "")) err(`${w}: a quote of a part of the name without a source on an allowed site`);
+    });
+  }
+}
+
+// ---- the layer "Soviet modernism" (data/modernism.json, made by tools/build_modernism.py) ----------------------------
+{
+  const md = data["data/modernism.json"];
+  if (!md) err("data/modernism.json is missing (python tools/build_modernism.py)");
+  else {
+    const ids = new Set(), host = (u) => new URL(u).hostname.replace(/^www\./, "");
+    for (const [k, v] of Object.entries(md.ui || {})) {
+      if (v.pending_ka) err(`modernism.json: the string ${k} waits for the Georgian text (pending_ka): the data is not to be published yet`);
+      else for (const l of ["ru", "en", "ka"]) if (!v[l]) err(`modernism.json: the string ${k} (${l}) is missing`);
+    }
+    for (const k of ["layer_mod", "k_modernism", "built", "architects", "was", "now", "status", "st_existing", "st_renovated", "st_abandoned", "st_demolished", "quote", "src", "photo", "folk", "attr"]) if (!md.ui?.[k]) err(`modernism.json: the string ${k} is missing`);
+    if (md.items.length < 10) err(`modernism.json: only ${md.items.length} buildings`);
+    md.items.forEach((c, i) => {
+      const w = `modernism.json[${i}] ${c.id}`;
+      if (ids.has(c.id)) err(`${w}: duplicate id`); ids.add(c.id);
+      if (c.k !== "modernism") err(`${w}: kind ${c.k}`);
+      if (!(c.lon > 44.66 && c.lon < 45.02 && c.lat > 41.62 && c.lat < 41.86)) err(`${w}: the point is outside Tbilisi`);
+      if (!c.g?.how || !c.g?.ref) err(`${w}: the origin of the point is not named`);
+      if (!Number.isInteger(c.y) || c.y < 1950 || c.y > 1995) err(`${w}: the year ${c.y}`);
+      if (!["existing", "renovated", "abandoned", "demolished"].includes(c.st)) err(`${w}: status ${c.st}`);
+      for (const f of ["n", "d"]) for (const l of ["ru", "en", "ka"]) if (!String(c[f]?.[l] || "").trim()) err(`${w}: ${f}.${l} is missing`);
+      for (const f of ["n", "d", "ft", "fn"]) if (c[f]) for (const l of ["en", "ka"]) if (CY.test(c[f][l] || "")) err(`${w}: Cyrillic in ${f}.${l}`);
+      if (JSON.stringify(c).includes("პროსპექტი")) err(`${w}: the word პროსპექტი (must be გამზირი)`);
+      if (!(c.s || []).length || (c.s || []).some((q) => !q.u?.startsWith("https://") || !q.q || !q.f)) err(`${w}: a source without a link, quotation or kind of fact`);
+      if (new Set((c.s || []).map((q) => host(q.u))).size < 2 && !(c.s || []).some((q) => /(wikipedia\.org|georgianencyclopedia\.ge)$/.test(host(q.u)))) err(`${w}: sources are not on two different sites`);
+      if (!(c.s || []).some((q) => q.f === "style")) err(`${w}: no source that says that the building is modernist`);
+      if (c.ph && !(md.photos?.[c.ph]?.thumb && md.photos[c.ph].license && md.photos[c.ph].page)) err(`${w}: the photo ${c.ph} has no thumbnail, licence or page`);
+      for (const [j, x] of (c.f || []).entries()) {
+        const ww = `${w} f[${j}]`;
+        if (!Object.values(x.n || {}).some(Boolean)) err(`${ww}: no name`);
+        if (x.m) for (const l of ["ru", "en", "ka"]) if (!x.m[l]?.trim()) err(`${ww}: m.${l} is missing`);
+        if (!x.s?.length || x.s.some((q) => !q.u?.startsWith("https://") || !q.q)) err(`${ww}: a page without a quotation`);
+      }
     });
   }
 }
@@ -330,6 +376,31 @@ for (const [file, kinds] of [["data/sculptures.json", ["sculpture", "bust", "mon
     if (c.st && !f.streets?.[c.st]) err(`${w}: the street ${c.st} is not in the list`);
   });
   for (const [k, s] of Object.entries(f.streets || {})) for (const l of ["ru", "en", "ka"]) if (!s[l]) err(`${file}: the street ${k} has no ${l}`);
+}
+
+// ---- the places of worship of OpenStreetMap (data/religious_osm.json, made by tools/build_religious_osm.py) -----------
+{
+  const ro = data["data/religious_osm.json"];
+  const RELS = ["orthodox", "russian", "lutheran", "yazidi", "armenian", "catholic", "jewish", "muslim", "zoroastrian", "christian", "christianOsm"];
+  if (!ro) err("data/religious_osm.json is missing (python tools/build_religious_osm.py)");
+  else {
+    const ids = new Set(), main = new Set((data["data/religious.json"] || []).map((x) => x.id));
+    for (const [k, v] of Object.entries(ro.ui || {})) {
+      if (v.pending_ka) err(`religious_osm.json: the string ${k} waits for the Georgian text (pending_ka): the data is not to be published yet`);
+      else for (const l of ["ru", "en", "ka"]) if (!v[l]) err(`religious_osm.json: the string ${k} (${l}) is missing`);
+    }
+    for (const r of ro.items) {
+      const w = `religious_osm.json ${r.id}`;
+      if (ids.has(r.id) || main.has(r.id)) err(`${w}: duplicate id`); ids.add(r.id);
+      if (!RELS.includes(r.rel)) err(`${w}: unknown denomination ${r.rel}`);
+      if (r.rel === "christianOsm" && !ro.ui?.christianOsm) err(`${w}: no string for the denomination`);
+      if (!(r.lon > 44.66 && r.lon < 45.02 && r.lat > 41.62 && r.lat < 41.86)) err(`${w}: the point is outside Tbilisi`);
+      if (!/^(node|way|relation)\/\d+$/.test(r.osm)) err(`${w}: the OSM id ${r.osm}`);
+      for (const l of ["en", "ka"]) if (CY.test(r.name?.[l] || "")) err(`${w}: Cyrillic in name.${l}`);
+      if (r.st && !ro.streets?.[r.st]) err(`${w}: the street ${r.st} is not in the list`);
+      if (!Array.isArray(r.src) || r.src.some((u) => !/^https:\/\/(ka|ru|en)\.wikipedia\.org\//.test(u))) err(`${w}: src`);
+    }
+  }
 }
 
 // ---- the files that the page needs ------------------------------------------------------------------------------

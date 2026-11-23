@@ -100,3 +100,32 @@ test("the button of the tour is the first control of the panel Info (not in the 
   assert.equal(o.inSide, true);
   await page.ctx.close();
 });
+
+test("on a phone the tour started from the panel Info closes the panel, and at every step the lit place is the thing the card speaks about", async () => {
+  const page = await openPage(browser, url(), { width: 390, height: 844 });
+  await waitReady(page);
+  const side = () => page.evaluate(() => { const s = document.getElementById("side"); return !s.hidden && s.getBoundingClientRect().height > 20; });
+  if (!(await side())) await page.click("#btnInfo");                                   // the panel Info is open: the button of the tour is inside it
+  assert.equal(await side(), true, "the panel Info is open before the tour");
+  await page.click("#btnTour");
+  await page.waitForSelector("#tourHole", { timeout: 10000 });
+  assert.equal(await side(), false, "the panel Info is closed when the tour starts (it covered the map)");
+  let n = 0;
+  for (;;) {
+    n++;
+    await page.waitForTimeout(450);                                                    // the lit place moves with a short animation
+    const o = await page.evaluate(() => {
+      const h = document.getElementById("tourHole").getBoundingClientRect(), title = document.getElementById("tourTitle").textContent;
+      const x = h.left + h.width / 2, y = h.top + h.height / 2, stack = document.elementsFromPoint(x, y).filter((e) => !e.closest("#tour"));      // what lies under the lit place (the layer of the tour itself is left out)
+      const top = stack[0], under = (top && top.closest("[id]") && top.closest("[id]").id) || "";
+      return { title, under, inMap: !!(top && top.closest("#map")), inSide: !!(top && top.closest("#side")) };
+    });
+    assert.equal(o.inSide, false, `step ${n} "${o.title}": the lit place is not the panel Info`);
+    if (o.title === "Map") assert.equal(o.inMap, true, `step "Map": the lit place is on the map (under it: #${o.under})`);
+    const done = /Done/.test(await page.locator("#tourCard button.chip.primary").innerText());
+    await page.click("#tourCard button.chip.primary");
+    if (done) break;
+    assert.ok(n < 8);
+  }
+  await page.ctx.close();
+});

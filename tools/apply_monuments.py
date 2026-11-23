@@ -36,6 +36,9 @@ def main():
     fixp = os.path.join(R, "tools", "monuments_names_fix.json")
     fix = {k: v for k, v in json.load(open(fixp, encoding="utf-8")).items() if k != "note"} if os.path.exists(fixp) else {}
     nv.update(fix)                                                  # corrections of typos of OSM (decision of the owner)
+    labels = json.load(open(os.path.join(R, "data", "cache", "monument_labels.json"), encoding="utf-8")) if os.path.exists(os.path.join(R, "data", "cache", "monument_labels.json")) else {}
+    gp = os.path.join(R, "data", "cache", "monument_photos_geo.json")
+    geo = json.load(open(gp, encoding="utf-8")) if os.path.exists(gp) else {}
     out = {}
     for fn, key, pre in (("sculptures.json", "monuments", "m:"), ("plaques.json", "plaques", "p:")):
         items, used, ph = [], set(), {}
@@ -44,13 +47,25 @@ def main():
             if x["id"].startswith("ENC_"):              # the "name" of an object taken from the encyclopedia is a torn piece of a sentence of the OCR text ("where a bust was set in 2007"): the object is labelled by its type and street
                 n = {"ka": "", "ru": "", "en": ""}
             t = ph_title(x["image"])
+            near = False
+            if not t and key == "monuments" and geo.get(x["id"]):                         # no file named by the table: the file found by coordinates (marked when only the nearness says that it is the monument)
+                t, near = geo[x["id"]]["title"], geo[x["id"]]["near"]
             if t and photos.get(t) and photos[t]["thumb"]:
                 ph[t] = {k: photos[t][k] for k in ("thumb", "page", "author", "license", "w", "h")}
             else:
-                t = ""
+                t, near = "", False
             it = {"id": x["id"], "lon": x["lon"], "lat": x["lat"], "n": n, "y": x["year"], "ph": t, "w": x["wiki"], "st": x["st"] or ""}
+            if near and t:
+                it["phn"] = 1
             if key == "monuments":
                 it.update({"k": x["kind"], "sc": x["sculptor"], "ar": x["architect"], "mat": x.get("mat", "")})
+                lb = labels.get(x.get("sc_qid", ""))
+                if lb and all(lb[k] for k in ("ka", "ru", "en")):
+                    it["sc"] = lb                                      # the artist named by Wikidata: the name in three languages
+                if x.get("d"):
+                    it["d"] = x["d"]
+                if any(n.values()) and not all(n.values()):
+                    it["pend"] = 1                                     # a new object whose name waits for the translation (tools/build_monuments_names.py makes the table for Gemini): the page shows the name that exists
             else:
                 it["ins"] = (x["inscription"] or "").replace("\\n", "\n").strip()[:400]
             if it["st"]:

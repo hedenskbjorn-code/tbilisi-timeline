@@ -57,7 +57,7 @@ test("the card of the Mushtaidi garden: what it is, the origin of the name, the 
 });
 
 test("a place without an etymology in the source says so", async () => {
-  const c0 = PL.items.find((x) => !x.e && x.k === "bridge");
+  const c0 = PL.items.find((x) => !x.e && !x.ne);
   const { pop } = await openCard(c0.id);
   assert.match(await pop.innerText(), /The source does not say where the name comes from/);
   await page.locator(".maplibregl-popup .actions a.fb").first().click();
@@ -112,8 +112,8 @@ test("the second search of the origin: Vashlijvari says it means the apple cross
   await page.keyboard.press("Escape");
 });
 
-test("every origin of a name has a quote of its source, 69 places have an origin", async () => {
-  assert.equal(PL.items.filter((x) => x.e).length, 69);
+test("every origin of a name has a quote of its source, 80 places have an origin or a dictionary meaning", async () => {
+  assert.equal(PL.items.filter((x) => x.e).length, 80);
   for (const x of PL.items) if (x.e) assert.ok(x.s.eq && x.s.eq.q && (x.s.eq.u || x.s.eq.p), x.id);
 });
 

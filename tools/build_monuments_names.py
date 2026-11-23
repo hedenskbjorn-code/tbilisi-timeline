@@ -17,6 +17,9 @@ MAT = {"ბრინჯაო": "bronze", "bronze": "bronze", "metal": "metal", 
 KM = (83000.0, 111000.0)
 
 
+DONE = set(json.load(open(os.path.join(R, "data", "cache", "monuments_names_verified.json"), encoding="utf-8"))) if os.path.exists(os.path.join(R, "data", "cache", "monuments_names_verified.json")) else set()      # completed by Gemini earlier
+
+
 def script_ok(lg, v):
     cyr, geo = len(re.findall("[А-Яа-яЁё]", v)), len(re.findall("[ა-ჿ]", v))
     return (geo > 0 and cyr == 0) if lg == "ka" else (cyr == 0) if lg == "en" else (cyr > 0)
@@ -70,7 +73,7 @@ def main():
                         x[f] = ""
             have = [lg for lg in ("ka", "ru", "en") if x["n"][lg]]
             wrong = [lg for lg in have if not script_ok(lg, x["n"][lg])]               # a name that stands in a field of the wrong script (a Latin text in ka, a Cyrillic one in en) is given again
-            if have and (len(have) < 3 or wrong):
+            if have and (len(have) < 3 or wrong) and (key[0] + ":" + x["id"]) not in DONE:
                 need.append((key[0] + ":" + x["id"], x))
     json.dump(d, open(os.path.join(R, "data", "cache", "monuments_named.json"), "w", encoding="utf-8"), ensure_ascii=False)
     rows = ["# Имена памятников и мемориальных досок Тбилиси: заполнить недостающие языки", "", "| id | ka | ru | en | что это |", "|---|---|---|---|---|"]

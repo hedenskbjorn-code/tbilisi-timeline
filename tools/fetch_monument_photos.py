@@ -12,6 +12,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fetch_photos import call, strip  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+import re
+EMAIL = re.compile(r",?\s*[\w.+-]+@[\w-]+(\.[\w-]+)+")
 PREFIX = "https://commons.wikimedia.org/wiki/"
 
 
@@ -25,7 +27,11 @@ def title(u):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     d = json.load(open(os.path.join(R, "data", "cache", "monuments_named.json"), encoding="utf-8"))
-    titles = sorted({title(x["image"]) for k in ("monuments", "plaques") for x in d[k]} - {None})
+    titles = {title(x["image"]) for k in ("monuments", "plaques") for x in d[k]}
+    gp = os.path.join(R, "data", "cache", "monument_photos_geo.json")                    # the files found by coordinates (tools/fetch_monument_photos_geo.py)
+    if os.path.exists(gp):
+        titles |= {v["title"] for v in json.load(open(gp, encoding="utf-8")).values() if v}
+    titles = sorted(titles - {None})
     path = os.path.join(R, "data", "cache", "monument_photos.json")
     info = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
     todo = [t for t in titles if t not in info]
@@ -41,7 +47,8 @@ def main():
                 info[tt] = None                                   # the file does not exist (any more)
                 continue
             md = ii.get("extmetadata", {})
-            info[tt] = {"thumb": (ii.get("thumburl") or "").split("?")[0] or None, "page": ii.get("descriptionurl"), "author": strip(md.get("Artist", {}).get("value")) or None,
+            info[tt] = {"thumb": (ii.get("thumburl") or "").split("?")[0] or None, "page": ii.get("descriptionurl"), "author": EMAIL.sub("", strip(md.get("Artist", {}).get("value")) or "").strip() or None,                  # an e-mail address that a photographer prints in the credit is not copied to the site
+                        
                         "license": strip(md.get("LicenseShortName", {}).get("value")) or None, "license_url": strip(md.get("LicenseUrl", {}).get("value")) or None, "w": ii.get("thumbwidth"), "h": ii.get("thumbheight")}
         json.dump(info, open(path, "w", encoding="utf-8"), ensure_ascii=False)
         print("  described", min(i + 50, len(todo)), "/", len(todo), flush=True)

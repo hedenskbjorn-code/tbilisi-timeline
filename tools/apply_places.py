@@ -46,6 +46,17 @@ def main():
             kind = "dictionary" if r.get("kind") == "dictionary" or "/ka/form/" in r["url"] else "origin"
             it["e"] = r["etym"]
             it["s"]["eq"] = {"l": r["lang"], "q": r["quote"], **({"u": r["url"]} if r["source"] == "web" else {"p": r["page"]}), **({"k": "dictionary"} if kind == "dictionary" else {})}
+    pp = os.path.join(R, "data", "cache", "places_parts_verified.json")                # the places whose name is made of words: the meaning of EVERY part with its own quote (tools/verify_places_parts.py)
+    if os.path.exists(pp):
+        excl2 = {k[6:] for k in (json.load(open(xp, encoding="utf-8")) if os.path.exists(xp) else {}) if k.startswith("parts:")}
+        byid = {it["id"]: it for it in items}
+        for r in json.load(open(pp, encoding="utf-8"))["ok"]:
+            it = byid.get(r["key"].replace(":", "-").replace("/", ""))
+            if it is None or r["key"] in excl2:
+                continue
+            a, rest = r["parts"][0], r["parts"][1:]
+            it["e"] = r["etym"]
+            it["s"]["eq"] = {"l": a["lang"], "u": a["url"], "q": a["quote"], "k": "dictionary", "more": [{"l": x["lang"], "u": x["url"], "q": x["quote"]} for x in rest]}
     mp = os.path.join(R, "tools", "places_manual.json")
     if os.path.exists(mp):
         items += json.load(open(mp, encoding="utf-8"))["items"]

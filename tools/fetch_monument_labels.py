@@ -16,7 +16,7 @@ UA = "tbilisi-timeline-hobby/1.0 (non-commercial hobby project)"
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     d = json.load(open(os.path.join(R, "data", "cache", "monuments_clean.json"), encoding="utf-8"))
-    q = sorted({v for x in d["monuments"] + d["plaques"] for v in x["qid"].split(";") if v.startswith("Q")})            # one object may name several subjects ("Q1;Q2")
+    q = sorted({v for x in d["monuments"] + d["plaques"] for v in (x["qid"] + ";" + x.get("sc_qid", "")).split(";") if v.startswith("Q")})            # one object may name several subjects ("Q1;Q2")
     out = {}
     for i in range(0, len(q), 50):
         u = "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=labels|descriptions&languages=ka|ru|en&ids=" + "|".join(q[i:i + 50])
