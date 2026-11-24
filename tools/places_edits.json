@@ -1,0 +1,127 @@
+{
+ "note": "Edits of site/data/places.json that tools/apply_places_edits.py makes after tools/apply_places.py, apply_folk.py and apply_parks.py (2026-11-24, found by checking the points of the districts against data/district_labels.json).",
+ "drop": {
+  "district-n11373213802": "the pin 'district Mtatsminda' (the centre of the whole polygon, 4.2 km from the town) repeats the quarter Mtatsminda district-n1650325626; the origin of the name is the same ('holy mountain')",
+  "district-n11373213801": "the pin 'district Vake' repeats the quarter Vake district-n919711142 (the origin of the name is the same)",
+  "district-n11373213800": "the pin 'district Saburtalo' (6 km from the town) repeats the quarter Saburtalo district-n930153087 (the same origin of the name: the ball game)",
+  "osm-n13477133330": "a bare OSM node with the name of an administrative district that stands on the urban core of the card district-n* of the same district (found by Gemini 2026-11-24, docs/PENDING.md 3c)",
+  "osm-n1665566310": "a bare OSM node with the name of an administrative district that stands on the urban core of the card district-n* of the same district (found by Gemini 2026-11-24, docs/PENDING.md 3c)",
+  "osm-n12456415259": "a bare OSM node with the name of an administrative district that stands on the urban core of the card district-n* of the same district (found by Gemini 2026-11-24, docs/PENDING.md 3c)",
+  "osm-n12456415257": "a bare OSM node with the name of an administrative district that stands on the urban core of the card district-n* of the same district (found by Gemini 2026-11-24, docs/PENDING.md 3c)",
+  "osm-r10790351": "a bare OSM node with the name of an administrative district that stands on the urban core of the card district-n* of the same district (found by Gemini 2026-11-24, docs/PENDING.md 3c)"
+ },
+ "move_to_label": {
+  "district-n11373213795": "Samgori",
+  "district-n11373213796": "Krtsanisi",
+  "district-n14118362247": "Didube",
+  "district-n11373213798": "Chugureti",
+  "district-n11373213797": "Isani"
+ },
+ "move_to": {
+  "folk-w26398745": [
+   44.7798,
+   41.7066
+  ]
+ },
+ "why_move_to": "folk-w26398745 'a part of the Vera district (the streets Tatishvili and Bakradze)' stood 97 m from the point of Vera; moved to the middle of that stretch of the streets (made by Gemini 2026-11-24, kept here so that a rebuild does not undo it)",
+ "why_move": "the OSM node of an administrative district stands in the middle of its polygon (Lilo, Ponichala, the slope of Kukia ...: 1 to 7 km from the built-up town); the label point of data/district_labels.json stands in the urban core and is the one used for the label of the district on the map",
+ "add": [
+  {
+   "id": "osm-n12492271396",
+   "k": "square",
+   "lon": 44.8043,
+   "lat": 41.71001,
+   "n": {
+    "ru": "площадь Георгия Читаиа",
+    "en": "Giorgi Chitaia Square",
+    "ka": "გიორგი ჩიტაიას მოედანი"
+   },
+   "s": {
+    "u": "https://www.openstreetmap.org/node/12492271396",
+    "l": "osm"
+   },
+   "pk": 1
+  },
+  {
+   "id": "osm-w73433937",
+   "k": "square",
+   "lon": 44.81534,
+   "lat": 41.69213,
+   "n": {
+    "ru": "Авлабарская площадь",
+    "en": "Avlabari Square",
+    "ka": "ავლაბრის მოედანი"
+   },
+   "s": {
+    "u": "https://www.openstreetmap.org/way/73433937",
+    "l": "osm"
+   },
+   "pk": 1
+  },
+  {
+   "id": "osm-w1038836792",
+   "k": "square",
+   "lon": 44.80532,
+   "lat": 41.69034,
+   "n": {
+    "ru": "Хлебная площадь",
+    "en": "Bread Square",
+    "ka": "პურის მოედანი"
+   },
+   "s": {
+    "u": "https://www.openstreetmap.org/way/1038836792",
+    "l": "osm"
+   },
+   "pk": 1
+  },
+  {
+   "id": "osm-w1167702410",
+   "k": "square",
+   "lon": 44.76763,
+   "lat": 41.73141,
+   "n": {
+    "ru": "площадь Зураба Жвания",
+    "en": "Zurab Zhvania Square",
+    "ka": "ზურაბ ჟვანიას მოედანი"
+   },
+   "s": {
+    "u": "https://www.openstreetmap.org/way/1167702410",
+    "l": "osm"
+   },
+   "pk": 1
+  },
+  {
+   "id": "osm-w1217904103",
+   "k": "square",
+   "lon": 44.81122,
+   "lat": 41.69106,
+   "n": {
+    "ru": "площадь Европы",
+    "en": "Europe Square",
+    "ka": "ევროპის მოედანი"
+   },
+   "s": {
+    "u": "https://www.openstreetmap.org/way/1217904103",
+    "l": "osm"
+   },
+   "pk": 1
+  },
+  {
+   "id": "osm-r18958275",
+   "k": "square",
+   "lon": 44.78248,
+   "lat": 41.71317,
+   "n": {
+    "ru": "площадь Героев",
+    "en": "Heroes Square",
+    "ka": "გმირთა მოედანი"
+   },
+   "s": {
+    "u": "https://www.openstreetmap.org/relation/18958275",
+    "l": "osm"
+   },
+   "pk": 1
+  }
+ ],
+ "why_add": "six squares of OSM (data/raw/osm_extra/squares.json) that Gemini put into places.json by hand on 2026-11-24, outside the answer osm_names; kept here so that a rebuild does not lose them (apply_places_edits.py adds an item that is missing)"
+}

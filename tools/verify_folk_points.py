@@ -1,4 +1,4 @@
-"""Checks the answer of Gemini about the places of the folk names that had no point (for_gemini/from_desktop/folk_points_result.json, task: folk_points_TASK_for_gemini.md).
+"""Checks the answer of Gemini about the places of the folk names that had no point (work/gemini/results/folk_points.json, task: tasks/folk_points.md).
 A row "found" is accepted only when: the row is one of the asked rows; every quotation (<= 30 words) stands verbatim on its page (tools/safe_fetch.py); "coord_url" is an OSM object (way / node / relation) that
 Nominatim /lookup knows, whose centre lies within 150 m of the given lat / lon and inside the city; and the OSM object is the right one: for a building / market / square its name (any language) shares a word of 4+ letters
 with a name of the folk row (folk, official), for an "area" (a district of several streets) the object is a street whose name stands in the quotation or in the official name. The rest is "rejected" with the reason.
@@ -17,7 +17,9 @@ from safe_fetch import fetch_text  # noqa: E402
 from verify_mainroads import norm  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FD = os.path.join(R, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 UA = {"User-Agent": "tbilisi-timeline-hobby/0.1 (non-commercial hobby project; read-only API client)"}
 CYR = re.compile("[А-Яа-яЁё]")
 
@@ -45,8 +47,8 @@ def hav(la1, lo1, la2, lo2):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    res = json.load(open(os.path.join(FD, "folk_points_result.json"), encoding="utf-8"))
-    folk = json.load(open(os.path.join(FD, "folk_result.json"), encoding="utf-8"))
+    res = json.load(open(os.path.join(FD, "results/folk_points.json"), encoding="utf-8"))
+    folk = json.load(open(os.path.join(FD, "results/folk.json"), encoding="utf-8"))
     asked = {x["row"] for x in res}                                  # the rows of the answer are the rows that were asked (the list of unplaced rows shrinks as the answers are taken, so it cannot be used again)
     polys = [r for rs in B.polygons().values() for r in rs]
     out = {"ok": {}, "rejected": []}

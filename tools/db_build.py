@@ -1,5 +1,5 @@
 """Builds the project index data/db/project.sqlite (schema: tools/db/schema.sql) from the JSON files of the site (site/data/*.json), the results of the verifiers (data/cache/*_verified.json) and the tasks for Gemini
-(for_gemini/from_desktop). The JSON files stay the source of truth: the index is derived, it is rebuilt from nothing every time (written to a temporary file, then put in place), it is not in git.
+(work/gemini). The JSON files stay the source of truth: the index is derived, it is rebuilt from nothing every time (written to a temporary file, then put in place), it is not in git.
 What it gives: one table of objects of all the layers with a region (country > city > district), names in three languages with their kinds (official / old / folk / alt), facts with the source, the quotation and the state
 (imported / verified), photographs, the state of every task for Gemini, an R-tree for "what lies near", a full-text search of the names. Queries: tools/db_query.py.
 For the whole of Georgia: a new city is a new region row and new files read by the same importers (each importer takes a file and a region); the ids "<layer>:<id>" do not repeat; the volume of SQLite is not a limit
@@ -18,6 +18,8 @@ R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 D = os.path.join(R, "site", "data")
 DB = os.path.join(R, "data", "db", "project.sqlite")
 LANGS = ("ka", "ru", "en")
+_rd = os.path.join(R, "tools", "register_names_dict.json")
+REGDICT = json.load(open(_rd, encoding="utf-8")) if os.path.exists(_rd) else {}          # typical names of the register: {ka: {ru, en}}
 # The cities that the index reads. Every city has its own region id (ISO 3166-2:GE style), a short code that goes into every object id ("TB/mn:KAW_015": no id repeats between cities) and a folder of data files of the
 # same layout as site/data. A new city = a new entry here (+ its folder); nothing else in this file mentions Tbilisi.
 CITIES = [{"region": "GE-TB", "code": "TB", "dir": os.path.join(R, "site", "data"), "ka": "თბილისი", "ru": "Тбилиси", "en": "Tbilisi"}]
@@ -154,10 +156,11 @@ def load_register_national(b):
     if not GEORGIA:                                                  # the project is about Tbilisi: the rest of the country is loaded only on request (--georgia)
         feats = [f for f in feats if f["properties"].get("Region") == "თბილისი"]
     c = b.c
-    site = {}
+    site, site_id = {}, {}
     for f in jl("monuments.json")["features"] if CITIES else []:
         k = (round(f["geometry"]["coordinates"][0], 4), round(f["geometry"]["coordinates"][1], 4), f["properties"]["name"])
         site.setdefault(k, f["properties"])
+        site_id[str(f["properties"]["id"])] = f["properties"]            # the register ID is the id of the site object: the link by it does not depend on a rounded point or a spelling of the name
     for ka, (rid, en, ru) in REGIONS.items():
         if rid != "GE-TB":
             c.execute("INSERT OR IGNORE INTO region VALUES (?,?,?,?,?,?)", (rid, "region", "GE", ka, ru, en))
@@ -181,7 +184,7 @@ def load_register_national(b):
         kind = ",".join(KINDS.get(t.strip(), t.strip()) for t in (p.get("Classification") or "").split(",") if t.strip()) or None
         props = {k: p[k] for k in ("RegistryN", "Settlement", "ComplexName") if p.get(k)}
         y0 = y1 = None
-        st = site.get((round(lon, 4), round(lat, 4), p.get("Name"))) if lon is not None and rid == "GE-TB" else None
+        st = (site_id.get(str(p.get("ID"))) or site.get((round(lon, 4), round(lat, 4), p.get("Name")))) if lon is not None and rid == "GE-TB" else None
         if st:
             y0, y1 = st.get("ye") or st.get("y0"), st.get("y1")
             props["site_id"] = st["id"]
@@ -193,7 +196,7 @@ def load_register_national(b):
                     region=None if rid == "GE-TB" else region)
         nm = p.get("Name") or p.get("FullName")
         if nm:
-            b.names(oid, {"ka": nm})
+            b.names(oid, {"ka": nm, **REGDICT.get(nm, {})})                  # a typical name of the register in ru and en (tools/register_names_dict.json: the same words as the site, 59 names, about 79 % of the objects)
         for key, col in (("description", "Description"), ("period", "Period"), ("exact_date", "ExactDate"), ("initial_function", "InitialFunction"), ("current_function", "CurrentFunction"),
                          ("address", "Address"), ("protection_status", "StatusName"), ("category", "CategoryName"), ("coordinates_accuracy", "Accuracy"), ("registry_number", "RegistryN")):
             if p.get(col):
@@ -289,15 +292,16 @@ def load_streets(b):
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gemini_all import TASKS as _PACKAGE  # noqa: E402
-CURRENT_TASKS = {t[0].replace("_TASK_for_gemini.md", "") for t in _PACKAGE}      # the tasks of the package tools/gemini_all.py makes: only these can be "queued"
+from paths import GEMINI  # noqa: E402
+CURRENT_TASKS = {os.path.splitext(os.path.basename(t[0]))[0] for t in _PACKAGE}      # the tasks of the package tools/gemini_all.py makes: only these can be "queued"
 
 
 def load_tasks(b):
-    FD = os.path.join(R, "for_gemini", "from_desktop")
-    prefix = {"churches": "relosm:", "monuments": "mn:", "parks": "pl:"}                      # the tasks of the files in for_gemini are about the city of CTX
-    for tf in sorted(glob.glob(os.path.join(FD, "*_TASK_for_gemini.md"))):
-        tid = os.path.basename(tf).replace("_TASK_for_gemini.md", "")
-        rf = os.path.join(FD, tid + "_result.json")
+    FD = GEMINI
+    prefix = {"churches": "relosm:", "monuments": "mn:", "parks": "pl:"}                      # the tasks of work/gemini are about the city of CTX
+    for tf in sorted(glob.glob(os.path.join(FD, "tasks", "*.md"))):
+        tid = os.path.splitext(os.path.basename(tf))[0]
+        rf = os.path.join(FD, "results", tid + ".json")
         status, rows, found, data = "queued", None, None, None
         if os.path.exists(rf):
             try:

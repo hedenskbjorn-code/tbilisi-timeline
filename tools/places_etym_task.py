@@ -1,6 +1,6 @@
 """The second search of the origin of the names of the local places: the places of data/cache/places_verified.json that came back without an etymology (the first pass read only the paragraphs of the
 article of the place; it missed a gloss such as "lit. the apple cross" of the English article of Vashlijvari and "Vake means a plain" of the article of Vake Park). Makes
-for_gemini/from_desktop/places3_batch_01.md (key | kind | ka | ru | en | the articles already read); the task is places3_TASK_for_gemini.md; the answer places3_result.json is checked by tools/verify_places_etym.py.
+work/gemini/batches/places3/places3_batch_01.md (key | kind | ka | ru | en | the articles already read); the task is tasks/places3.md; the answer results/places3.json is checked by tools/verify_places_etym.py.
 Usage: python -P tools/places_etym_task.py
 """
 import json
@@ -24,7 +24,7 @@ def main():
         arts = " ".join(p["url"] for p in wiki[r["key"]]["pages"].values())
         L.append("| %s | %s | %s | %s | %s | %s |" % (r["key"], c["kind"], r["name"]["ka"], r["name"]["ru"], r["name"]["en"], arts))
         n += 1
-    open(os.path.join(R, "for_gemini", "from_desktop", "places3_batch_01.md"), "wb").write(("\n".join(L) + "\n").encode("utf-8"))
+    open(os.path.join(R, "work", "gemini", "batches/places3/places3_batch_01.md"), "wb").write(("\n".join(L) + "\n").encode("utf-8"))
     print("places:", n)
 
 

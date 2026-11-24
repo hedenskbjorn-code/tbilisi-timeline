@@ -1,5 +1,5 @@
 """Makes the task for Gemini for the parks and gardens of OpenStreetMap (tools/apply_parks.py): the names, former names and other names that lack a language (ru, en, ka), and the Georgian text of three strings of the card.
-File: for_gemini/from_desktop/parks_TASK_for_gemini.md; answer parks_result.json ({"<id>": {"n": {ka, ru, en}, "o": {...}, "al": {...}}} for the fields that exist, and "ui.<key>": "ka text"). Usage: python -P tools/parks_task.py
+File: work/gemini/tasks/parks.md; answer results/parks.json ({"<id>": {"n": {ka, ru, en}, "o": {...}, "al": {...}}} for the fields that exist, and "ui.<key>": "ka text"). Usage: python -P tools/parks_task.py
 """
 import json
 import os
@@ -26,7 +26,7 @@ def main():
 Проект: некоммерческая карта «Тбилиси во времени». Парки взяты из OpenStreetMap; у части названий нет русской или английской формы (или грузинской). Нужны **недостающие** языки: `ka`, `ru`, `en`. Поле `n` = название, `o` = прежнее название (`old_name`), `al` = другое название. Названия пиши так, как их принято писать (парк, сад, сквер: ka «პარკი/ბაღი/სკვერი», ru «парк/сад/сквер», en «Park/Garden/Square»); имена людей и городов (парк Риги, Эревана, Нанта) в общепринятой форме; **существующие формы не меняй**. Если в строке несколько названий через `;` или `,` — это разные названия, сохрани разделитель. Кириллицы в `ka` и `en` быть не должно. Не придумывай: если форму не знаешь, оставь пустой строкой.
 
 ## Выход
-`C:/Projects/tbilisi-timeline/for_gemini/from_desktop/parks_result.json`: **один JSON-объект**. Для каждой строки таблицы ключ `"<id>|<field>"` и значение `{{"ka": "…", "ru": "…", "en": "…"}}` (все три языка, существующие повтори). Для строк интерфейса ключ `"ui.<key>"` (карточка) или `"i18n.<key>"` (основной интерфейс) и значение строка `ka`. В ответе в чате дай таблицу сомнений.
+`C:/Projects/tbilisi-timeline/work/gemini/results/parks.json`: **один JSON-объект**. Для каждой строки таблицы ключ `"<id>|<field>"` и значение `{{"ka": "…", "ru": "…", "en": "…"}}` (все три языка, существующие повтори). Для строк интерфейса ключ `"ui.<key>"` (карточка) или `"i18n.<key>"` (основной интерфейс) и значение строка `ka`. В ответе в чате дай таблицу сомнений.
 
 ## Строки интерфейса (ключ → русский и английский текст)
 {chr(10).join(U)}
@@ -34,9 +34,9 @@ def main():
 {chr(10).join(L)}
 
 ## Готовая фраза для запуска
-> Прочитай файл `C:/Projects/tbilisi-timeline/for_gemini/from_desktop/parks_TASK_for_gemini.md`, выполни задание и сохрани `parks_result.json` рядом с ним.
+> Прочитай файл `C:/Projects/tbilisi-timeline/work/gemini/tasks/parks.md`, выполни задание и сохрани результат в `C:/Projects/tbilisi-timeline/work/gemini/results/parks.json`.
 """
-    open(os.path.join(R, "for_gemini", "from_desktop", "parks_TASK_for_gemini.md"), "w", encoding="utf-8").write(text)
+    open(os.path.join(R, "work", "gemini", "tasks/parks.md"), "w", encoding="utf-8").write(text)
     print("rows:", len(L) - 2, "| ui strings:", len(U))
 
 

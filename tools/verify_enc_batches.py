@@ -1,6 +1,6 @@
-"""Check the answers of Gemini for the encyclopedia batches (for_gemini/from_desktop/enc_batches/enc_batch_NN_result.json) against the text of the entries.
+"""Check the answers of Gemini for the encyclopedia batches (work/gemini/enc_batches/enc_batch_NN_result.json) against the text of the entries.
 
-The rules are the ones of the task (for_gemini/from_desktop/enc_streets_TASK_for_gemini.md): every id once, the schema, the quote is a verbatim substring of the OCR text of the entry and holds the year
+The rules are the ones of the task (work/gemini/tasks/enc_streets.md): every id once, the schema, the quote is a verbatim substring of the OCR text of the entry and holds the year
 (for the kind "dec" the decade), the intervals form a chain, the Georgian note equals the template, no Cyrillic in ka/en, no the calque of the word "prospect".
 Output: data/cache/enc2008_verified.json ({"ok": [...], "rejected": [{"id", "reasons"}]}); the rejected ones are printed so they can be sent back to Gemini.
 Usage: python -P tools/verify_enc_batches.py
@@ -13,7 +13,7 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
-BAT = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+BAT = os.path.join(ROOT, "work", "gemini", "batches", "enc")
 OUT = os.path.join(ROOT, "data", "cache", "enc2008_verified.json")
 CYR = re.compile("[Ѐ-ӿ]")
 LAT = re.compile("[A-Za-z]")

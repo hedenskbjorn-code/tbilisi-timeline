@@ -27,7 +27,7 @@ def entry(r):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ver = json.load(open(os.path.join(R, "data", "cache", "folk_verified.json"), encoding="utf-8"))["ok"]
-    rows = json.load(open(os.path.join(R, "for_gemini", "from_desktop", "folk_result.json"), encoding="utf-8"))
+    rows = json.load(open(os.path.join(R, "work", "gemini", "results/folk.json"), encoding="utf-8"))
     ok = {json.dumps(v["folk"], sort_keys=True) for v in ver}
     pts = json.load(open(os.path.join(R, "data", "cache", "folk_points.json"), encoding="utf-8"))["points"]
     ui = json.load(open(os.path.join(R, "tools", "folk_mod_ui.json"), encoding="utf-8"))["places"]

@@ -1,7 +1,7 @@
 """Report (nothing on the site is changed): what OpenStreetMap says now compared with the data that the site was built from. Three sets:
   places    the named places of tools/fetch_places_osm.py (snapshot data/raw/osm_extra/places.json),
-  plaques   memorial=plaque (snapshot: the OSM ids of notes/tbilisi_plaques_osm.csv),
-  monuments historic=memorial / monument (not the plaques) and tourism=artwork of any type (the tag patterns of the OSM rows of notes/tbilisi_monuments_full.csv; snapshot: those rows).
+  plaques   memorial=plaque (snapshot: the OSM ids of work/notes/tbilisi_plaques_osm.csv),
+  monuments historic=memorial / monument (not the plaques) and tourism=artwork of any type (the tag patterns of the OSM rows of work/notes/tbilisi_monuments_full.csv; snapshot: those rows).
 For every set: added (an id that the snapshot does not have), gone (an id of the snapshot that the new answer does not have; it is looked up by id: deleted, or no longer tagged), changed (the name in ka / ru / en, or the
 position by more than 25 m). The time of the last edit of the object (OSM "timestamp") decides whether a difference is STABLE: an edit younger than 14 days is "unstable" and is not to be taken (vandalism is mostly
 reverted within days). No name of an OSM user is read or kept. Output: the screen and data/cache/osm_diff_<date>.json. Overpass, a generic User-Agent, one request after another.
@@ -81,11 +81,11 @@ def snapshot(name):
         for e in json.load(open(os.path.join(R, "data", "raw", "osm_extra", "places.json"), encoding="utf-8"))["elements"]:
             out[key(e)] = {"pos": pos(e), "names": names(e.get("tags", {}))}
     elif name == "plaques":
-        for r in csv.DictReader(open(os.path.join(R, "notes", "tbilisi_plaques_osm.csv"), encoding="utf-8-sig")):
+        for r in csv.DictReader(open(os.path.join(R, "work", "notes", "tbilisi_plaques_osm.csv"), encoding="utf-8-sig")):
             out[r["osm_id"]] = {"pos": (float(r["lat"]), float(r["lon"])), "names": {"name": "", "name:ka": r["name_ka"], "name:ru": r["name_ru"], "name:en": r["name_en"]}}
     else:
         kinds = {"n": "node", "w": "way", "r": "relation"}
-        for r in csv.DictReader(open(os.path.join(R, "notes", "tbilisi_monuments_full.csv"), encoding="utf-8-sig")):
+        for r in csv.DictReader(open(os.path.join(R, "work", "notes", "tbilisi_monuments_full.csv"), encoding="utf-8-sig")):
             m = re.match(r"OSM_([nwr])(\d+)$", r["id"])
             if m and r["lat"]:
                 out["%s/%s" % (kinds[m.group(1)], m.group(2))] = {"pos": (float(r["lat"]), float(r["lon"])), "names": {"name": "", "name:ka": r["name_ka"], "name:ru": r["name_ru"], "name:en": r["name_en"]}}

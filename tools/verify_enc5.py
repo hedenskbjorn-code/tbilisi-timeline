@@ -1,4 +1,4 @@
-"""Check the answers of the pass about the objects on the streets (for_gemini/from_desktop/enc_batches/enc5_batch_NN_result.json, rules: enc5_objects_TASK_for_gemini.md) against the text of the entries.
+"""Check the answers of the pass about the objects on the streets (work/gemini/enc_batches/enc5_batch_NN_result.json, rules: tasks/enc5_objects.md) against the text of the entries.
 Rules: every id of the batch once; the schema; kind, role and year_kind from the lists; the quote is a verbatim part of the long text of the entry (repaired or raw OCR text); the years stand in the quote
 as numbers (a range 1833-35: 1833 and 35); the stem of the longest word of name.ka and of person.ka (its first 4 letters) is in the quote; no Cyrillic in ka/en; no the calque of the word "prospect".
 Output: data/cache/enc2008_verified5.json ({"ok": [...], "rejected": [{"id", "reasons"}], "skip": [{"id", "reason"}]}).
@@ -12,7 +12,7 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
-BAT = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+BAT = os.path.join(ROOT, "work", "gemini", "batches", "enc")
 OUT = os.path.join(ROOT, "data", "cache", "enc2008_verified5.json")
 CYR = re.compile("[Ѐ-ӿ]")
 CALQUE = "პროსპექტ"

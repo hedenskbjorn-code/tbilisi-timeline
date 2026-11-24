@@ -72,6 +72,89 @@
    }
   },
   {
+   "open": "filters",
+   "sel": [
+    "#filters .phead"
+   ],
+   "title": {
+    "ru": "Фильтры: что где",
+    "en": "Filters: what is where",
+    "ka": "ფილტრები: რა სად არის"
+   },
+   "text": {
+    "ru": "В окне «Фильтры» слои разложены по блокам: «Карты и планы», «Границы и улицы», «Здания и наследие», «История и транспорт». Блок раскрывается по заголовку, а число справа (например, 7/14) показывает, сколько его галочек включено.",
+    "en": "The Filters window has the layers in blocks: \"Maps and plans\", \"Boundaries and streets\", \"Buildings and heritage\", \"History and transport\". A block opens by its title, and the number on the right (for example 7/14) shows how many of its boxes are on.",
+    "ka": "„ფილტრების“ ფანჯარაში ფენები ბლოკებადაა დალაგებული: „რუკები და გეგმები“, „საზღვრები და ქუჩები“, „შენობები და მემკვიდრეობა“, „ისტორია და ტრანსპორტი“. ბლოკი სათაურით იხსნება, მარჯვნივ არსებული რიცხვი (მაგალითად, 7/14) კი აჩვენებს, რამდენი ველია ჩართული."
+   }
+  },
+  {
+   "open": "filters",
+   "section": "f-base",
+   "sel": [
+    "details[data-sec=f-base]"
+   ],
+   "title": {
+    "ru": "Старая карта",
+    "en": "The old map",
+    "ka": "ძველი რუკა"
+   },
+   "text": {
+    "ru": "Одна галочка включает старую карту выбранного года: до 1913 года это исторический план, с 1953 по 2005 год топокарта Генштаба. Ползунок меняет прозрачность, а в списке «Какая карта» источник можно выбрать вручную: только планы или один масштаб топокарты.",
+    "en": "One box switches on the old map of the chosen year: until 1913 it is the historical plan, from 1953 to 2005 the General Staff topographic map. The slider sets the transparency, and the list \"Which map\" lets you choose the source: the plans only or one scale of the topographic map.",
+    "ka": "ერთი მონიშვნით ირთვება არჩეული წლის ძველი რუკა: 1913 წლამდე ეს ისტორიული გეგმაა, 1953-დან 2005 წლამდე კი გენშტაბის ტოპოგრაფიული რუკა. სლაიდერი გამჭვირვალობას ცვლის, ხოლო „რუკის წყაროს“ სიაში შეგიძლიათ ხელით აირჩიოთ მხოლოდ გეგმები ან ტოპორუკის ერთი მასშტაბი."
+   }
+  },
+  {
+   "open": "filters",
+   "section": "f-layers",
+   "sel": [
+    "details[data-sec=f-layers] .gm[data-gm=reg] .gmhead"
+   ],
+   "title": {
+    "ru": "Группы слоёв",
+    "en": "Groups of layers",
+    "ka": "ფენების ჯგუფები"
+   },
+   "text": {
+    "ru": "Главная галочка группы включает или выключает все слои внутри неё; полугалочка значит, что включена только часть. Стрелка справа раскрывает группу, и каждую галочку можно переключить отдельно.",
+    "en": "The main box of a group switches all the layers inside it on or off; a half-ticked box means that only some are on. The arrow on the right opens the group, and every box can be switched on its own.",
+    "ka": "ჯგუფის მთავარი ველი შიგნით არსებულ ყველა ფენას რთავს ან თიშავს; ნახევრად მონიშვნა ნიშნავს, რომ ჩართულია მხოლოდ ნაწილი. მარჯვნივ ისარი ხსნის ჯგუფს და თითოეული ველის გადართვა ცალ-ცალკეც შეიძლება."
+   }
+  },
+  {
+   "open": "filters",
+   "section": "f-layers",
+   "sel": [
+    "details[data-sec=f-layers] > summary"
+   ],
+   "title": {
+    "ru": "Слои и годы",
+    "en": "Layers and years",
+    "ka": "ფენები და წლები"
+   },
+   "text": {
+    "ru": "Слои показывают то, что было к выбранному году: здание появляется в год постройки, памятник в год установки, мемориальная доска в первый год жизни, названный в надписи. Объекты без даты спрятаны: галочка «показывать и объекты без года установки» (у досок «показывать и доски без года») возвращает их. Цветные точки под слоем это его легенда.",
+    "en": "The layers show what existed by the chosen year: a building appears in the year it was built, a monument in the year it was set up, a memorial plaque in the first year of the life that its inscription names. Objects without a date are hidden: the box \"also show objects without an installation year\" (for plaques \"also show plaques without a year\") brings them back. The coloured dots under a layer are its legend.",
+    "ka": "ფენები აჩვენებს იმას, რაც არჩეული წლისთვის არსებობდა: შენობა ჩნდება აშენების წელს, ძეგლი — დადგმის წელს, მემორიალური დაფა — წარწერაში დასახელებული სიცოცხლის პირველ წელს. უთარიღო ობიექტები დამალულია: მათ აბრუნებს ველი „დადგმის წლის გარეშე არსებული ობიექტების ჩვენებაც“ (დაფებთან — „წლის გარეშე არსებული დაფების ჩვენებაც“). ფენის ქვეშ ფერადი წერტილები მისი ლეგენდაა."
+   }
+  },
+  {
+   "open": "filters",
+   "sel": [
+    "#filtersReset"
+   ],
+   "title": {
+    "ru": "Сброс фильтров",
+    "en": "Reset",
+    "ka": "ფილტრების განულება"
+   },
+   "text": {
+    "ru": "«Сбросить фильтры» возвращает всё, как при открытии страницы; кнопка неактивна, пока вы ничего не меняли. Закрыть окно можно крестиком, на телефоне ещё и касанием мимо окна.",
+    "en": "\"Reset filters\" brings everything back as when the page opened; the button is dimmed while nothing has been changed. The window is closed with the cross, and on a phone also by a tap beside it.",
+    "ka": "„ფილტრების განულება“ ყველაფერს აბრუნებს ისე, როგორც გვერდის გახსნისას იყო; ღილაკი არააქტიურია, სანამ არაფერი შეგიცვლიათ. ფანჯარა ჯვრით იხურება, ტელეფონზე კი ფანჯრის გარეთ შეხებითაც."
+   }
+  },
+  {
    "ids": [
     "btnViews"
    ],

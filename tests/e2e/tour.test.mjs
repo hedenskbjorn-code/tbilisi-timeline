@@ -1,4 +1,4 @@
-// The guided tour after the welcome window: five steps, the lit element is the real one, the card stays on the screen (a phone too), no panel is opened by the tour,
+// The guided tour after the welcome window: eleven steps (five of them about the filters: they open the panel and a block and put them back), the lit element is the real one, the card stays on the screen (a phone too),
 // the button "?" of the menu starts it, Esc closes it.
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -10,7 +10,7 @@ test.after(async () => { await browser.close(); server.srv.close(); });
 
 const url = (extra = "") => `${server.url}/?e2e=1&base=off&nostats=1&lang=en${extra}#1887`;
 const hole = async (page) => { await page.waitForTimeout(450); return page.evaluate(() => { const r = document.getElementById("tourHole").getBoundingClientRect(); return { l: r.left, t: r.top, r: r.right, b: r.bottom }; }); };
-const card = (page) => page.evaluate(() => { const r = document.getElementById("tourCard").getBoundingClientRect(); return { l: r.left, t: r.top, r: r.right, b: r.bottom, w: innerWidth, h: innerHeight, txt: document.getElementById("tourCard").innerText }; });
+const card = async (page) => { await page.waitForTimeout(300); return page.evaluate(() => { const r = document.getElementById("tourCard").getBoundingClientRect(); return { l: r.left, t: r.top, r: r.right, b: r.bottom, w: innerWidth, h: innerHeight, txt: document.getElementById("tourCard").innerText }; }) };
 const center = (page, id) => page.evaluate((i) => { const r = document.getElementById(i).getBoundingClientRect(); return { x: (r.left + r.right) / 2, y: (r.top + r.bottom) / 2 }; }, id);
 const inside = (h, p) => p.x >= h.l && p.x <= h.r && p.y >= h.t && p.y <= h.b;
 
@@ -22,19 +22,34 @@ test("the welcome window offers the tour; the tour lights the real elements, ste
   await page.waitForSelector("#tourHole", { timeout: 10000 });
   assert.equal(await page.evaluate(() => document.getElementById("infoModal").hidden), true, "the welcome window is closed");
   let c = await card(page);
-  assert.match(c.txt, /1 of 6/);
+  assert.match(c.txt, /1 of 11/);
   assert.ok(inside(await hole(page), await center(page, "timebar")), "step 1 lights the time scale");
   await page.click("#tourCard button.chip.primary");
-  assert.match((await card(page)).txt, /2 of 6/);
+  assert.match((await card(page)).txt, /2 of 11/);
   assert.match((await card(page)).txt, /Wikimedia Commons/, "the photo of a card leads to Commons");
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /3 of 6/);
+  assert.match(c.txt, /3 of 11/);
   const h3 = await hole(page);
   assert.ok(inside(h3, await center(page, "btnFilters")) && inside(h3, await center(page, "btnSearch")), "step 3 lights both buttons");
+  // five steps about the filters: each opens the panel (and a block of it) and lights a real element inside it
+  const filterSteps = [["Filters: what is where", "#filters .phead"], ["The old map", "details[data-sec=f-base]"], ["Groups of layers", ".gm[data-gm=reg] .gmhead"], ["Layers and years", "details[data-sec=f-layers] > summary"], ["Reset", "#filtersReset"]];
+  for (const [k, [title, sel]] of filterSteps.entries()) {
+    await page.click("#tourCard button.chip.primary");
+    c = await card(page);
+    assert.match(c.txt, new RegExp(`${4 + k} of 11`));
+    assert.ok(c.txt.includes(title), "the step " + title);
+    await page.waitForTimeout(500);
+    const ok = await page.evaluate((q) => {
+      const h = document.getElementById("tourHole").getBoundingClientRect(), el = document.querySelector(q), r = el && el.getBoundingClientRect(), f = document.getElementById("filters");
+      return { open: !f.hidden && f.getBoundingClientRect().height > 20, lit: !!r && r.width > 0 && (r.left + r.right) / 2 >= h.left && (r.left + r.right) / 2 <= h.right && (r.top + r.bottom) / 2 >= h.top && (r.top + r.bottom) / 2 <= h.bottom };
+    }, sel);
+    assert.equal(ok.open, true, title + ": the panel of the filters is open");
+    assert.equal(ok.lit, true, title + ": the lit place is " + sel);
+  }
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /4 of 6/);
+  assert.match(c.txt, /9 of 11/);
   assert.match(c.txt, /Views and photos/, "the step of the views");
   assert.match(c.txt, /flip through/, "the flipping of the pictures is explained");
   assert.ok(inside(await hole(page), await center(page, "btnViews")), "step 4 lights the button Views");
@@ -43,7 +58,7 @@ test("the welcome window offers the tour; the tour lights the real elements, ste
   for (const id of ["thenBtn", "hereBtn", "linkBtn"]) assert.ok(inside(h4, await center(page, id)), "step 5 lights " + id);
   assert.match((await card(page)).txt, /plan of 1735–1913/, "the swipe is said to need an old plan");
   await page.click("#tourCard button.chip.primary");
-  assert.match((await card(page)).txt, /6 of 6/);
+  assert.match((await card(page)).txt, /11 of 11/);
   assert.match(await page.locator("#tourCard button.chip.primary").innerText(), /Done/);
   await page.click("#tourCard button.chip.primary");
   assert.equal(await page.locator("#tour").count(), 0, "the tour is gone");
@@ -57,13 +72,13 @@ test("Esc closes the tour; the button '?' starts it again; Back goes one step ba
   await page.waitForSelector("#tourHole", { timeout: 10000 });
   await page.click("#tourCard button.chip.primary");
   await page.click("#tourCard button.chip:not(.primary)");
-  assert.match((await card(page)).txt, /1 of 6/, "Back");
+  assert.match((await card(page)).txt, /1 of 11/, "Back");
   await page.keyboard.press("Escape");
   assert.equal(await page.locator("#tour").count(), 0, "Esc");
   await page.ctx.close();
 });
 
-test("on a phone the card stays inside the screen at every step and the tour opens no panel", async () => {
+test("on a phone the card stays inside the screen at every step and the panel of the filters is put back as it was", async () => {
   const page = await openPage(browser, url("&welcome=1"), { width: 390, height: 844 });
   await waitReady(page);
   await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
@@ -79,10 +94,10 @@ test("on a phone the card stays inside the screen at every step and the tour ope
     const done = /Done/.test(await page.locator("#tourCard button.chip.primary").innerText());
     await page.click("#tourCard button.chip.primary");
     if (done) break;
-    assert.ok(n < 8, "no endless loop");
+    assert.ok(n < 14, "no endless loop");
   }
-  assert.ok(n >= 3, "at least three steps on a phone: " + n);
-  assert.equal(await filtersOpen(), f0, "the tour did not open the panel of the filters");
+  assert.ok(n >= 8, "the steps about the filters are on a phone too: " + n);
+  assert.equal(await filtersOpen(), f0, "the panel of the filters is as it was before the tour");
   await page.ctx.close();
 });
 
@@ -125,7 +140,7 @@ test("on a phone the tour started from the panel Info closes the panel, and at e
     const done = /Done/.test(await page.locator("#tourCard button.chip.primary").innerText());
     await page.click("#tourCard button.chip.primary");
     if (done) break;
-    assert.ok(n < 8);
+    assert.ok(n < 14);
   }
   await page.ctx.close();
 });

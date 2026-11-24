@@ -1,13 +1,13 @@
 """Release 1.8.3: name histories of 5 more streets of the blog list of the toponyms renamed in 1987-1991 (idempotent; --dry-run only checks).
 
 Each name, year and quote was checked against the text of the ka.wikipedia page (tools/streets_kv2_spec.json; Tamar Mepe Avenue: ru.wikipedia for the year 1989 and ka.wikipedia for 1935).
-The Georgian notes are Gemini's (for_gemini/from_desktop/tbilisi_kvamli_notes2_result.md), checked here: no Cyrillic, no the calque of the word "prospect", every ID present.
+The Georgian notes are Gemini's (work/gemini/results/tbilisi_kvamli_notes2.md), checked here: no Cyrillic, no the calque of the word "prospect", every ID present.
 """
 import json, os, re, sys
 
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 SPEC = os.path.join(R, "tools", "streets_kv2_spec.json")
-RES = os.path.join(R, "for_gemini", "from_desktop", "tbilisi_kvamli_notes2_result.md")
+RES = os.path.join(R, "work", "gemini", "results/tbilisi_kvamli_notes2.md")
 NAMES = os.path.join(R, "site", "data", "street_names.json")
 VERIFIED = os.path.join(R, "data", "street_names_verified.json")
 LIST = os.path.join(R, "data", "street_renamed_1987_1991.json")

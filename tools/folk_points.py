@@ -1,5 +1,5 @@
 """Points of the places of the folk names that have no object in data/places.json (tools/apply_folk.py makes them places of their own). Only the places that an OSM object names clearly are placed:
-the OSM object is the square / market / quarter whose official name is the one that the answer of Gemini gives (the "official" field of for_gemini/from_desktop/folk_result.json; the centre of the object is looked up by
+the OSM object is the square / market / quarter whose official name is the one that the answer of Gemini gives (the "official" field of work/gemini/results/folk.json; the centre of the object is looked up by
 its id through Nominatim /lookup). The folk names whose object the sources do not name as a point or an area (streets, a district of a few streets, a building without an OSM object under its name) are not placed:
 they are listed in data/cache/folk_points.json under "unplaced". Output: data/cache/folk_points.json. Usage: python -P tools/folk_points.py
 """
@@ -10,7 +10,7 @@ import urllib.request
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 UA = {"User-Agent": "tbilisi-timeline-hobby/0.1 (non-commercial hobby project; read-only API client)"}
-# index of the row of folk_result.json -> (OSM object, kind of the place); the rows 7 and 8 name the same square
+# index of the row of results/folk.json -> (OSM object, kind of the place); the rows 7 and 8 name the same square
 PLACE = {0: ("R16393287", "district"), 1: ("R15399106", "district"), 5: ("W1056991782", "square"), 7: ("W1476800521", "square"), 8: ("W1476800521", "square"), 9: ("W1217904106", "square"),
          18: ("W62646483", "market"), 20: ("R14154210", "district"), 23: ("N4756361456", "district")}
 # the rows that tools/verify_folk_points.py accepted (an answer of Gemini about the place, checked): they join PLACE; a district of several streets ("area") is put on one of the streets: APPROX
@@ -31,7 +31,7 @@ FORMER = {15: "Maidan is a former OFFICIAL name of Vakhtang Gorgasali Square (th
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    rows = json.load(open(os.path.join(R, "for_gemini", "from_desktop", "folk_result.json"), encoding="utf-8"))
+    rows = json.load(open(os.path.join(R, "work", "gemini", "results/folk.json"), encoding="utf-8"))
     ids = ",".join(sorted({v[0] for v in PLACE.values()}))
     d = json.load(urllib.request.urlopen(urllib.request.Request("https://nominatim.openstreetmap.org/lookup?format=jsonv2&osm_ids=" + ids, headers=UA), timeout=60))
     found = {x["osm_type"][0].upper() + str(x["osm_id"]): x for x in d}

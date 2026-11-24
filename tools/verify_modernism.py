@@ -1,4 +1,4 @@
-"""Checks the answer of Gemini about the buildings of Soviet modernism (for_gemini/from_desktop/modernism_result.json, rules: modernism_TASK_for_gemini.md).
+"""Checks the answer of Gemini about the buildings of Soviet modernism (work/gemini/results/modernism.json, rules: tasks/modernism.md).
 Per building: the schema; a Wikidata id (Q + digits) or empty; "year" a number or null; status in existing/renovated/abandoned/demolished; names in ru/en/ka (no Cyrillic in ka/en, no "პროსპექტი");
 at least two sources on DIFFERENT sites (one Wikipedia / Georgian encyclopedia page is enough); every quote (<= 30 words) stands verbatim on its page (downloaded by tools/safe_fetch.py: https, public addresses, text pages);
 at least one "style" quote that itself names modernism / brutalism / a Soviet modernist style; every 4-digit year of the description (any language) stands in some quote; the year field stands in some quote.
@@ -16,7 +16,7 @@ from safe_fetch import fetch_text  # noqa: E402
 from verify_mainroads import norm  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-RES = os.path.join(R, "for_gemini", "from_desktop", "modernism_result.json")
+RES = os.path.join(R, "work", "gemini", "results/modernism.json")
 OUT = os.path.join(R, "data", "cache", "modernism_verified.json")
 CYR = re.compile("[А-Яа-яЁё]")
 STATUS = {"existing", "renovated", "abandoned", "demolished"}

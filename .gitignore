@@ -4,7 +4,7 @@ data/cache/
 data/warped/
 data/tbilisi_monuments.geojson
 # working files
-for_gemini/
+work/
 *.bak
 *.bak[0-9]
 *.part

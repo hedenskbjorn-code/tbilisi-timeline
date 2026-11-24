@@ -1,5 +1,5 @@
-"""The Georgian text of the descriptions of the monuments that a search found (data/cache/monuments_verified.json: ru and en are ready, "ka" is empty). Makes for_gemini/from_desktop/monuments_KA_TASK_for_gemini.md
-(the rows: id, name, ru, en; the quotations are given so that Gemini translates only what they say). Answer: monuments_KA_result.json {"<id>": "ka text"}; tools/apply_monuments_ka.py checks it (Georgian letters, no Cyrillic,
+"""The Georgian text of the descriptions of the monuments that a search found (data/cache/monuments_verified.json: ru and en are ready, "ka" is empty). Makes work/gemini/tasks/monuments_KA.md
+(the rows: id, name, ru, en; the quotations are given so that Gemini translates only what they say). Answer: results/monuments_KA.json {"<id>": "ka text"}; tools/apply_monuments_ka.py checks it (Georgian letters, no Cyrillic,
 the same numbers as in the Russian text, no word პროსპექტი) and writes it into data/cache/monuments_verified.json; then python -P tools/apply_monuments.py. Usage: python -P tools/ka_descriptions_task.py
 """
 import json
@@ -23,14 +23,14 @@ def main():
 Проект: некоммерческая карта «Тбилиси во времени». Для каждого памятника готовы русский и английский тексты описания (по цитатам с проверенных страниц). Нужен **грузинский перевод** этого описания. Не добавляй фактов, которых нет в ru/en; числа и имена сохраняй; без кириллицы; слово «проспект» только `გამზირი`; названия мест и должностей в принятой грузинской форме (имена людей по-грузински, как в Википедии ka).
 
 ## Выход
-`C:/Projects/tbilisi-timeline/for_gemini/from_desktop/monuments_KA_result.json`: **один JSON-объект** `{{"<id>": "грузинский текст"}}` для **каждого** id ниже. В ответе дай таблицу сомнений.
+`C:/Projects/tbilisi-timeline/work/gemini/results/monuments_KA.json`: **один JSON-объект** `{{"<id>": "грузинский текст"}}` для **каждого** id ниже. В ответе дай таблицу сомнений.
 
 ## Описания
 {chr(10).join(L)}
 ## Готовая фраза для запуска
-> Прочитай файл `C:/Projects/tbilisi-timeline/for_gemini/from_desktop/monuments_KA_TASK_for_gemini.md`, выполни задание и сохрани `monuments_KA_result.json` рядом с ним.
+> Прочитай файл `C:/Projects/tbilisi-timeline/work/gemini/tasks/monuments_KA.md`, выполни задание и сохрани результат в `C:/Projects/tbilisi-timeline/work/gemini/results/monuments_KA.json`.
 """
-    open(os.path.join(R, "for_gemini", "from_desktop", "monuments_KA_TASK_for_gemini.md"), "w", encoding="utf-8").write(text)
+    open(os.path.join(R, "work", "gemini", "tasks/monuments_KA.md"), "w", encoding="utf-8").write(text)
     print("descriptions to translate:", len(rows))
 
 

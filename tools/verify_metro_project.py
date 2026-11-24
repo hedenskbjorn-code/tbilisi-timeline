@@ -1,5 +1,5 @@
-"""Check the answers of Gemini about the project names of the metro stations (for_gemini/from_desktop/metro_project_result.json) and about the stations that are not built (metro_planned_result.json),
-rules: metro_project_TASK_for_gemini.md. The quotes are checked as in tools/verify_metro.py (the encyclopedia: verbatim on the page of the PDF; a web page: the page is downloaded and the quote must stand on it;
+"""Check the answers of Gemini about the project names of the metro stations (work/gemini/results/metro_project.json) and about the stations that are not built (results/metro_planned.json),
+rules: tasks/metro_project.md. The quotes are checked as in tools/verify_metro.py (the encyclopedia: verbatim on the page of the PDF; a web page: the page is downloaded and the quote must stand on it;
 a page that cannot be read gives "unchecked", not a rejection). Output: data/cache/metro_project_verified.json ({"stations": {"ok", "unchecked", "rejected", "skip"}, "planned": {...}}).
 Usage: python -P tools/verify_metro_project.py
 """
@@ -14,7 +14,9 @@ from verify_metro import CYR, HOSTS, page_text, stem  # noqa: E402
 from verify_mainroads import norm  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FD = os.path.join(ROOT, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 OUT = os.path.join(ROOT, "data", "cache", "metro_project_verified.json")
 PKEYS = {"ka", "ru", "en", "year", "kind", "source", "page", "url", "quote"}
 QKEYS = {"id", "status", "skip_reason", "name", "line", "state", "place", "year", "source", "page", "url", "quote"}
@@ -62,9 +64,9 @@ def check_source(f, by, w, ka_name=None):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     by = pages()
-    ids = [x[0] for x in re.findall(r"^\| ([^|]+?) \| (\d) \|", open(os.path.join(FD, "metro_project_batch_01.md"), encoding="utf-8").read(), re.M)]
+    ids = [x[0] for x in re.findall(r"^\| ([^|]+?) \| (\d) \|", open(os.path.join(FD, "batches/metro_project/metro_project_batch_01.md"), encoding="utf-8").read(), re.M)]
     res = {"stations": {"ok": [], "unchecked": [], "rejected": [], "skip": []}, "planned": {"ok": [], "unchecked": [], "rejected": [], "skip": []}}
-    p1 = os.path.join(FD, "metro_project_result.json")
+    p1 = os.path.join(FD, "results/metro_project.json")
     if os.path.exists(p1):
         rows = json.load(open(p1, encoding="utf-8"))
         got = [r.get("id") for r in rows if isinstance(r, dict)]
@@ -105,7 +107,7 @@ def main():
                 R_["unchecked"].append({"id": r["id"], "reasons": unc, "project": r["project"]})
             else:
                 R_["ok"].append({"id": r["id"], "project": good})
-    p2 = os.path.join(FD, "metro_planned_result.json")
+    p2 = os.path.join(FD, "results/metro_planned.json")
     if os.path.exists(p2):
         rows = json.load(open(p2, encoding="utf-8"))
         print("planned: rows", len(rows))

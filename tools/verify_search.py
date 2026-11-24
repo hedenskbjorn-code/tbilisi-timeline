@@ -1,5 +1,5 @@
 """Checks the results of a search for the names of nameless places of worship ("churches") and for the descriptions and photographs of monuments without information ("monuments"). The same schema as the tasks
-for Gemini (for_gemini/from_desktop/churches_B*_TASK_for_gemini.md and monuments_E*_TASK_for_gemini.md), whoever made the search.
+for Gemini (work/gemini/tasks/churches_B*.md and tasks/monuments_E*.md), whoever made the search.
 Usage: python -P tools/verify_search.py churches|monuments <result.json> [--refresh]   Output: data/cache/<kind>_verified.json ({"ok": [rows], "rejected": [{id, why}]}; the rows of several runs are merged by id).
 churches: the object is a nameless one of site/data/religious_osm.json; status found: name in ka / ru / en (ka Georgian, no Cyrillic in ka and en, ru Cyrillic); every quotation (<= 30 words) stands verbatim on its
  page (tools/safe_fetch.py); a "name" quotation shares a word of 4+ letters with the name; the PLACE is proved: the address is geocoded by Nominatim within 250 m of the object, or a quotation holds the name of the nearest

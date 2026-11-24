@@ -7,13 +7,13 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   const FULL_KNOTS = [[364, 0], [1000, 150], [1700, 350], [2026, 1000]];
   const ZOOM_W = [0, 1000, 600, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
   let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
-  let runData = null;                                                  // the run route and its sights (data/run_trc2026.json), see addRun
   let rulersMedia = null;                                              // portraits of the rulers and flags of the states (data/rulers_media.json, made by tools/fetch_rulers_media.py)
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
   let reopenPopup = null, reopenInfo = null, openPop = null;          // the open card (a popup or the modal) and how to build it again, when the language is switched
   let placesLoading = null, placesFailedAt = 0, placesTimer = null;
   let places = null;                                                   // local names (data/places.json, loaded when the layer is switched on or the search is opened), see ensurePlaces
   let education = [];                                                  // schools and kindergartens of the register (data/education.json), see addEducation
+  let museums = [];                                                    // museums and house-museums (data/museums.json), see addMuseums
   let science = [];                                                    // science and culture buildings (data/science.json), see addScience
   let religious = [];                                                  // religious buildings (data/religious.json), see addReligious
   let searchIndex = null, searchRows = [], searchSel = -1;      // search (see the block "search" below)
@@ -173,16 +173,18 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   const TOPO_BOUNDS = [44.60, 41.55, 45.05, 41.88];
   let topoShown = null;
   const TOPO_FROM = 1953, TOPO_TO = 2005;
-  // the topographic map takes the place of the old plan from 1953 (the last plan is of 1913), or whenever the owner switches it on
-  const autoTopoOn = () => $("autoTopo").checked && year >= TOPO_FROM && year <= TOPO_TO && !currentPlan(year);
-  const topoWanted = () => $("showTopo").checked || autoTopoOn();
-  const topoOpacity = () => ($("showSwipe").checked ? 1 : $("topoOp").value / 100);
+  // ONE basemap "the old map of the chosen year": the source is picked by the year (the old plan of the year; from 1953 to 2005, where there is no plan, the topographic map 1:25 000), or by the choice
+  // in the list "map source": only the plans, or one scale of the topographic map for every year. The map and the plan share one opacity slider.
+  const topoMode = () => $("topoSel").value;                     // auto | plan | t2 | t10 | t25 | t50 | t100
+  const explicitTopo = () => !!TOPO[topoMode()];
+  const autoTopoOn = () => topoMode() === "auto" && year >= TOPO_FROM && year <= TOPO_TO && !currentPlan(year);
+  const topoWanted = () => $("showPlan").checked && (explicitTopo() || autoTopoOn());
+  const topoKey = () => (explicitTopo() ? topoMode() : "t25");
+  const topoOpacity = () => ($("showSwipe").checked ? 1 : $("op").value / 100);
   function updateTopo() {
-    const on = topoWanted(), key = $("topoSel").value;
-    $("topobox").hidden = !on;
-    const auto = autoTopoOn() && !$("showTopo").checked;         // shown by itself: the box "on top of the map" is then half-ticked and says why
-    $("showTopo").indeterminate = auto;
-    $("topoAutoNote").hidden = !auto;
+    const on = topoWanted(), key = topoKey();
+    $("topobox").hidden = !$("showPlan").checked;
+    $("topoNoteRow").hidden = !on;                                // the note about the editions of the topographic maps is shown while one is on the map
     if (topoShown && (!on || topoShown !== key)) {
       if (map.getLayer("topo")) map.removeLayer("topo");
       if (map.getSource("topo")) map.removeSource("topo");
@@ -191,14 +193,14 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (!on) return;
     if (!topoShown) {
       const c = TOPO[key], base = new URL("topo/" + key + "/", document.baseURI).href;
-      map.addSource("topo", { type: "raster", tiles: [base + "{z}/{x}/{y}.webp"], tileSize: 256, minzoom: 11, maxzoom: c.max, bounds: TOPO_BOUNDS, attribution: "\u00A9 NAPR (maps.gov.ge)" });
+      map.addSource("topo", { type: "raster", tiles: [base + "{z}/{x}/{y}.webp"], tileSize: 256, minzoom: 11, maxzoom: c.max, bounds: TOPO_BOUNDS, attribution: "© NAPR (maps.gov.ge)" });
       map.addLayer({ id: "topo", type: "raster", source: "topo", paint: { "raster-opacity": topoOpacity(), "raster-fade-duration": 0 } }, "admin-line");
       liftTransport();
       topoShown = key;
     }
     map.setPaintProperty("topo", "raster-opacity", topoOpacity());
   }
-  for (const id of ["showTopo", "topoSel", "topoOp"]) $(id).addEventListener("input", () => { updateTopo(); updatePlanLine(); });
+  $("topoSel").addEventListener("input", () => { update(); });
 
   // ---- swipe comparison: a second, non-interactive map with today's basemap only lies over the first one, clipped from the bar to the right edge
   let map2 = null, swipeFrac = 0.5;
@@ -434,7 +436,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       getCss("--old")]);
     const pl = currentPlan(year);
     for (const p of plans) {
-      const on = pl && p.id === pl.id && $("showPlan").checked;
+      const on = pl && p.id === pl.id && $("showPlan").checked && !explicitTopo();      // a chosen scale of the topographic map takes the place of the plan
       if (on) ensurePlan(p);
       if (map.getLayer("plan-" + p.id)) map.setLayoutProperty("plan-" + p.id, "visibility", on ? "visible" : "none");
     }
@@ -448,6 +450,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateReligious();
     updateScience();
     updateEducation();
+    updateMuseums();
     updatePlaces();
     updateMP("mon");
     updateMP("plq");
@@ -509,8 +512,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }
 
   function updatePlanLine() {
-    const pl = currentPlan(year), sel = $("topoSel");
-    $("planline").textContent = pl ? t().plan(pl.year, pl.accuracy_m) : topoWanted() ? t().topoLine(sel.options[sel.selectedIndex].text) : t().noPlan(plans[0].year, plans[plans.length - 1].year, year);
+    const pl = currentPlan(year), sel = $("topoSel"), opt = sel.querySelector('option[value="' + topoKey() + '"]');
+    $("planline").textContent = explicitTopo() ? t().topoLine(opt.textContent) : pl ? t().plan(pl.year, pl.accuracy_m) : topoWanted() ? t().topoLine(opt.textContent) : t().noPlan(plans[0].year, plans[plans.length - 1].year, year);
   }
 
   function applyLang() {
@@ -527,7 +530,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       if (sel) {
         sel.textContent = "";
         sel.setAttribute("aria-label", t().ariaPages); sel.title = t().ariaPages;
-        for (const [v, k] of [["./", "navMap"], ["entrances/", "navEntr"], ["run/", "navRun"]]) { const o = document.createElement("option"); o.value = v; o.textContent = t()[k]; sel.appendChild(o); }
+        for (const [v, k] of [["./", "navMap"], ["entrances/", "navEntr"], ["run/", "navRun"], ["museums/", "navMus"], ["lost/", "navLost"]]) { const o = document.createElement("option"); o.value = v; o.textContent = t()[k]; sel.appendChild(o); }
         sel.value = "./";
       } }
     $("speed").setAttribute("aria-label", t().ariaSpeed);
@@ -548,9 +551,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateSearchUi();
     updateRelUi();
     buildRulersBand();
-    updateRunUi();
     updateSciUi();
     updateEduUi();
+    updateMusUi();
     updatePlacesUi();
     updateMPUi();
     $("note").textContent = t().note(undated);
@@ -1082,7 +1085,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   async function runTour() {
     // on a phone the panel Info (it holds the button of the tour) covers the map: it is closed before the tour, and the step "Map" lights the free part of the map
     if (window.matchMedia("(max-width:640px)").matches && $("btnInfo").getAttribute("aria-pressed") === "true") $("btnInfo").click();
-    try { (await import("./js/tour.js")).startTour({ lang, free: freeRect }); } catch (e) { console.error("tour", e && e.message); }
+    try { (await import("./js/tour.js")).startTour({ lang, free: freeRect, panel: window.TT_panels }); } catch (e) { console.error("tour", e && e.message); }
   }
   $("btnTour").addEventListener("click", runTour);
   // the welcome window: a short friendly text at the first visit. Not shown: in the tests (only with ?welcome=1), after a link to a year or to an object, after "Do not show again" (localStorage),
@@ -1616,14 +1619,16 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     return "";
   }
   function updateTransport() {
-    const on = $("showTransport").checked;
+    const KINDS = { showTrMetro: ["metro_line", "metro_station"], showTrTram: ["tram"], showTrRail: ["railway"], showTrRoad: ["avenue", "road", "bridge"], showTrCable: ["funicular", "cablecar"] };      // the boxes of the group "Transport" and what they switch
+    const allowed = Object.keys(KINDS).filter((id) => $(id).checked).flatMap((id) => KINDS[id]);
+    const on = allowed.length > 0;
     const LINE = ["!=", ["geometry-type"], "Point"], kind = (...k) => ["match", ["get", "kind"], k, true, false];
     const BASE = { "tr-casing": ["all", LINE, kind("avenue")], "tr-line": ["all", LINE, ["!", kind("funicular", "cablecar")]], "tr-ticks": ["all", LINE, kind("tram")],
       "tr-pt": ["==", ["geometry-type"], "Point"], "tr-pt-m": ["==", ["geometry-type"], "Point"], "tr-funic": ["all", LINE, kind("funicular")], "tr-cable": ["all", LINE, kind("cablecar")] };
     for (const id of TR_IDS) {
       if (!map.getLayer(id)) continue;
       map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
-      map.setFilter(id, ["all", BASE[id], trFilter()]);
+      map.setFilter(id, ["all", BASE[id], trFilter(), on ? kind(...allowed) : ["==", 1, 0]]);
     }
     const box = $("trevents");
     if (!box) return;
@@ -1862,6 +1867,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (tight.matches && st.info && st.views) st.views = false;
     tight.addEventListener("change", () => { if (tight.matches && st.info && st.views) { st.views = false; apply(); } });
     for (const b of document.querySelectorAll(".pclose")) b.addEventListener("click", () => toggle(b.dataset.panel, false));
+    window.TT_panels = { get: (k) => !!st[k], set: (k, on) => toggle(k, on) };       // the tour opens the panel of the filters for its steps about them and closes it again
     window.TT_closePanels = () => { if (!mq.matches) return; let any = false; for (const k of KEYS) if (st[k]) { st[k] = false; any = true; } if (any) apply(); };
     // on a phone a tap on the map beside an open panel or the search window closes it (the windows of the modal kind close by a tap on their backdrop)
     document.addEventListener("pointerdown", (e) => {
@@ -1897,6 +1903,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       if (kind === "rl") { if (relOsmLoading) await relOsmLoading; const c = religious.find((x) => x.id === id); if (c) { $("showRel").checked = true; go(c, popupRel, c.undated ? undefined : c.from); } }
       else if (kind === "sc") { const c = science.find((x) => x.id === id); if (c) { $("showSci").checked = true; go(c, popupSci, c.from); } }
       else if (kind === "ed") { const c = education.find((x) => x.id === id); if (c) { $("showEdu").checked = true; go(c, popupEdu, c.from); } }
+      else if (kind === "mu") { const c = museums.find((x) => x.id === id); if (c) { $("showMus").checked = true; go(c, popupMus, c.from); } }
       else if (kind === "pl") { await ensurePlaces(); const c = places && places.items.find((x) => x.id === id); if (c) { $("showPlaces").checked = true; updatePlaces(); go(c, popupPlace); } }
       else if (kind === "mn" || kind === "pq" || kind === "md") {
         const key = kind === "mn" ? "mon" : kind === "md" ? "mod" : "plq", m = MP[key];
@@ -1923,6 +1930,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     for (const f of q("rel-pt")) { const r = religious.find((x) => x.id === f.properties.id); if (r) add("rl:" + r.id, relTitle(r), (ll) => popupRel(r, ll)); }
     for (const f of q("sci-pt")) { const c = science.find((x) => x.id === f.properties.id); if (c) add("sc:" + c.id, c.name[lang] || c.name.en, (ll) => popupSci(c, ll)); }
     for (const f of q("edu-pt")) { const c = education.find((x) => x.id === f.properties.id); if (c) add("ed:" + c.id, c.name[lang] || c.name.en, (ll) => popupEdu(c, ll)); }
+    for (const f of q("mus-pt")) { const c = museums.find((x) => x.id === f.properties.id); if (c) add("mu:" + c.id, c.name[lang] || c.name.en, (ll) => popupMus(c, ll)); }
     for (const f of q("places-pt")) { const c = places && places.items.find((x) => x.id === f.properties.id); if (c) add("pl:" + c.id, placeName(c), (ll) => popupPlace(c, ll)); }
     for (const [key, pre] of [["mon", "mn:"], ["plq", "pq:"], ["mod", "md:"]]) for (const f of q(key + "-pt")) { const c = MP[key].byId && MP[key].byId.get(f.properties.id); if (c) add(pre + c.id, mpName(key, c), (ll) => popupMP(key, c, ll)); }
     return out;
@@ -2210,7 +2218,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       // one click handler for all transport: the lines lie on one another (the tram is drawn 4 px beside the street, an avenue, a bridge and a railway can run along it), so
       // the object of the highest rank within a few pixels is taken: a tram before a metro line, a bridge before an avenue (found out 2026-11-19: on Chavchavadze Avenue the avenue took the click)
       const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue", "road"];
-      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "run-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt"];
+      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt"];
       map.on("click", (e) => {
         const near = (r) => [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
         const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-funic", "tr-cable"].filter((id) => map.getLayer(id)) });
@@ -2226,11 +2234,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
-    try { runData = await getJSON("data/run_trc2026.json", 1); addRun(); } catch (e) { console.error("run", e && e.message); runData = null; }
     try { rulersMedia = await getJSON("data/rulers_media.json", 1); } catch (e) { rulersMedia = null; }
     try { rulersData = await getJSON("data/rulers.json", 1); buildRulersBand(); updateRuleLine(); } catch (e) { console.error("rulers", e && e.message); rulersData = null; }
     try { science = await getJSON("data/science.json", 1); addScience(); } catch (e) { console.error("science", e && e.message); science = []; }
     try { education = await getJSON("data/education.json", 1); addEducation(); } catch (e) { console.error("education", e && e.message); education = []; }
+    try { museums = await getJSON("data/museums.json", 1); addMuseums(); } catch (e) { console.error("museums", e && e.message); museums = []; }
     try { religious = await getJSON("data/religious.json", 1); addReligious(); loadReligiousOsm(); } catch (e) { console.error("religious", e && e.message); religious = []; }
     try { c94 = await getJSON("data/city1894.json", 2); addC94(); } catch (e) { console.error("c94", e && e.message); c94 = null; }
     try { stNames = (await getJSON("data/street_names.json", 2)).streets; stGeom = await getJSON("data/street_geom.json", 2); addStLabelsLayer(); updateStNames(); } catch (e) { stNames = []; }
@@ -2346,10 +2354,11 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (hy >= MIN && hy <= MAX && hy !== year) { year = hy; update(); }
   });
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "autoTopo", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showEdu", "showRulers", "showRun", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTransport", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showResid", "showPublic", "showDef", "showOtherB", "showNoPhoto"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showEdu", "showMus", "showRulers", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTrMetro", "showTrTram", "showTrRail", "showTrRoad", "showTrCable", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showResid", "showPublic", "showDef", "showOtherB", "showNoPhoto"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
+    if (map.getLayer("topo")) map.setPaintProperty("topo", "raster-opacity", topoOpacity());
   });
   // ---- the panel "Filters and layers": all / none of the types, a hint for an empty choice, "Reset filters"
   // The defaults are those of the markup (checked, value, selected), except the band of rulers: the script turns it on for a wide screen (see below).
@@ -2367,6 +2376,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (sel && !sel.options[sel.selectedIndex].defaultSelected) return false;
     return true;
   }
+  function syncLegend(chkId, boxId) { const b = $(boxId); if (b) b.hidden = !$(chkId).checked; syncFilterUi(); }
   function syncFilterUi() {
     const rb = $("filtersReset");
     if (rb) rb.disabled = filtersAtDefault();
@@ -2374,9 +2384,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       const cnt = sec.querySelector(".cnt");
       if (!cnt) continue;
       let on = 0, all = 0;
-      for (const cb of sec.querySelectorAll("input[type=checkbox]")) {
+      for (const cb of sec.querySelectorAll("input[type=checkbox]:not(.gmaster)")) {      // the master box of a group is not counted: its boxes are
         let off = false;                                                    // hidden inside the block (a row that appears on demand); the panel itself may be closed (a phone)
-        for (let e = cb; e && e !== sec; e = e.parentElement) if (e.hidden) { off = true; break; }
+        for (let e = cb; e && e !== sec; e = e.parentElement) if (e.hidden && !e.classList.contains("gmkids")) { off = true; break; }      // a closed group is not "hidden": its boxes count
         if (off) continue;
         all++;
         if (cb.checked || cb.indeterminate) on++;
@@ -2403,12 +2413,32 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       if (i >= 0 && sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event("change", { bubbles: true })); }
     }
   }
+  // Groups of boxes in the panel ("Register buildings by use", "Science, culture and education", "Monuments and plaques"): a master box (no id: the reset and the counters do not see it) switches all the
+  // boxes of the group, is half-ticked when only some are on and follows them; the arrow opens the list. The boxes keep their ids, so nothing else in the code or in the links changes.
+  for (const g of document.querySelectorAll("#filters .gm")) {
+    const master = g.querySelector(".gmaster"), kids = [...g.querySelectorAll(".gmkids input[type=checkbox][id]")].filter((k) => !k.closest(".sub2"));
+    const sync = () => { const n = kids.filter((k) => k.checked).length; master.checked = n === kids.length; master.indeterminate = n > 0 && n < kids.length; };
+    master.addEventListener("change", () => {
+      const on = master.checked;                                      // taken once: every box that is switched makes the master half-ticked again (sync), the next box must still get the same state
+      for (const k of kids) if (k.checked !== on) { k.checked = on; k.dispatchEvent(new Event("change", { bubbles: true })); }
+      sync();
+    });
+    for (const k of kids) k.addEventListener("change", sync);
+    const tg = g.querySelector(".gmtoggle"), box = g.querySelector(".gmkids");
+    tg.addEventListener("click", () => { box.hidden = !box.hidden; tg.setAttribute("aria-expanded", String(!box.hidden)); tg.textContent = box.hidden ? "▸" : "▾"; });
+    sync();
+    if (new URLSearchParams(location.search).has("e2e") && !new URLSearchParams(location.search).has("groups")) tg.click();       // the tests of the layers work with the boxes: the groups are open there (?groups=1 keeps them closed, as for a visitor)
+  }
   $("filtersReset").addEventListener("click", resetFilters);
   for (const sec of document.querySelectorAll("#filters details.fsec")) {
     const id = sec.dataset.sec;
     if (id in secState) sec.open = !!secState[id];
     else if (window.innerWidth <= 900) sec.open = id === "f-layers";
-    sec.querySelector("summary").addEventListener("click", () => setTimeout(() => { secState[id] = sec.open; try { localStorage.setItem("sec", JSON.stringify(secState)); } catch (e) {} }, 0));      // saved on a click of the visitor only
+    sec.querySelector("summary").addEventListener("click", () => setTimeout(() => {
+      // on a phone one block is open at a time (the panel would be a long strip); the counters in the titles still tell what is on inside the closed ones. Only a click of the visitor does it: the tour opens blocks itself
+      if (sec.open && window.matchMedia("(max-width:640px)").matches) for (const o of document.querySelectorAll("#filters details.fsec")) if (o !== sec && o.open) { o.open = false; secState[o.dataset.sec] = false; }
+      secState[id] = sec.open; try { localStorage.setItem("sec", JSON.stringify(secState)); } catch (e) {}
+    }, 0));      // saved on a click of the visitor only
   }
   $("filters").addEventListener("input", syncFilterUi);
   $("filters").addEventListener("change", syncFilterUi);
@@ -2553,106 +2583,6 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     window.addEventListener("pointerup", stop);
     window.addEventListener("pointercancel", stop);
   })();
-
-  // the route of a run (TRC City Run 2026) and the architectural sights near it: a separate layer, independent of the year (the city of today)
-  const RUN_COLOR = "#d9480f";
-  function runGeo() {
-    const feats = [{ type: "Feature", geometry: { type: "LineString", coordinates: runData.route.coords }, properties: { k: "line" } }];
-    for (const s of runData.sights) feats.push({ type: "Feature", geometry: { type: "Point", coordinates: [s.lon, s.lat] }, properties: { k: "sight", n: s.n, label: s.name[lang] || s.name.en } });
-    feats.push({ type: "Feature", geometry: { type: "Point", coordinates: runData.route.coords[0] }, properties: { k: "start" } });
-    return { type: "FeatureCollection", features: feats };
-  }
-  function addRun() {
-    if (!runData || map.getSource("run")) return;
-    map.addSource("run", { type: "geojson", data: runGeo() });
-    const only = (k) => ["==", ["get", "k"], k];
-    map.addLayer({ id: "run-casing", type: "line", source: "run", filter: only("line"), layout: { visibility: "none", "line-join": "round", "line-cap": "round" }, paint: { "line-color": "#ffffff", "line-width": 8, "line-opacity": 0.85 } });
-    map.addLayer({ id: "run-line", type: "line", source: "run", filter: only("line"), layout: { visibility: "none", "line-join": "round", "line-cap": "round" }, paint: { "line-color": RUN_COLOR, "line-width": 4.5 } });
-    map.addLayer({ id: "run-start", type: "circle", source: "run", filter: only("start"), layout: { visibility: "none" }, paint: { "circle-radius": 9, "circle-color": "#2b8a3e", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2.5 } });
-    map.addLayer({ id: "run-pt", type: "circle", source: "run", filter: only("sight"), layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 9, 15, 11, 17, 14], "circle-color": RUN_COLOR, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
-    map.addLayer({ id: "run-num", type: "symbol", source: "run", filter: only("sight"), layout: { visibility: "none", "text-field": ["to-string", ["get", "n"]], "text-font": ["Noto Sans Bold"], "text-size": ["interpolate", ["linear"], ["zoom"], 12, 11, 17, 14], "text-allow-overlap": true, "text-ignore-placement": true }, paint: { "text-color": "#ffffff" } });
-    map.addLayer({ id: "run-lb", type: "symbol", source: "run", minzoom: 15.2, filter: only("sight"), layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 11.5, "text-offset": [0, 1.4], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#7a2e08", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
-    map.on("click", "run-pt", (e) => {
-      const f = e.features && e.features[0], s = f && runData.sights.find((x) => x.n === f.properties.n);
-      if (s) popupRunSight(s, e.lngLat);
-    });
-    map.on("click", "run-line", (e) => { if (!map.queryRenderedFeatures(e.point, { layers: ["run-pt"] }).length) showRunCard(); });
-    for (const id of ["run-pt", "run-line"]) {
-      map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
-      map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
-    }
-    updateRun(false);
-  }
-  function syncLegend(chkId, boxId) { const b = $(boxId); if (b) b.hidden = !$(chkId).checked; syncFilterUi(); }
-  function updateRun(fit) {
-    syncLegend("showRun", "runLegend");
-    if (!map.getLayer("run-line")) return;
-    const on = $("showRun").checked;
-    for (const id of ["run-casing", "run-line", "run-start", "run-pt", "run-num", "run-lb"]) map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
-    if (on) {                                        // above the dots of the register objects, but not above the other layers
-      const ids = ["run-casing", "run-line", "run-start", "run-pt", "run-num", "run-lb"], order = map.getStyle().layers.map((l) => l.id).filter((id) => !ids.includes(id));
-      const at = order.indexOf("mon"), before = at >= 0 ? order[at + 1] : undefined;
-      for (const id of ids) map.moveLayer(id, before);
-    }
-    if (on && fit) {
-      const c = runData.route.coords, b = new maplibregl.LngLatBounds(c[0], c[0]);
-      for (const p of c) b.extend(p);
-      map.fitBounds(b, { padding: { top: Math.round($("timebar").getBoundingClientRect().bottom) + 30, bottom: document.body.classList.contains("rulers-on") ? 150 : 70, left: innerWidth <= 640 ? 16 : Math.min(330, Math.round(innerWidth * 0.4)), right: innerWidth <= 640 ? 16 : Math.min(300, Math.round(innerWidth * 0.35)) }, maxZoom: 15.6, duration: 900 });
-    }
-  }
-  function updateRunUi() {
-    const box = $("runLegend");
-    if (box) { box.textContent = runData ? t().runStats(runData.route, runData.sights.length) : ""; syncLegend("showRun", "runLegend"); }
-    const src = map && map.getSource && map.getSource("run");
-    if (src && runData) src.setData(runGeo());
-  }
-  function runWikiLink(s) {
-    const l = s.wp[lang] ? lang : s.wp.en ? "en" : s.wp.ru ? "ru" : s.wp.ka ? "ka" : null;
-    return l ? "https://" + l + ".wikipedia.org/wiki/" + encodeURIComponent(s.wp[l].replace(/ /g, "_")) : null;
-  }
-  function popupRunSight(s, lngLat) {
-    reopenPopup = () => popupRunSight(s, lngLat);
-    const L = t(), el = document.createElement("div");
-    el.className = "pop";
-    const h3 = document.createElement("h3");
-    h3.textContent = s.n + ". " + (s.name[lang] || s.name.en);
-    el.appendChild(h3);
-    const row = (k, v) => { if (v === null || v === undefined || v === "") return; const d = document.createElement("div"), kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; d.appendChild(kk); d.appendChild(document.createTextNode(v)); el.appendChild(d); };
-    row(L.runKm, String(s.km).replace(".", ","));
-    row(L.runDist, s.d + " " + (lang === "ru" ? "м" : lang === "ka" ? "მ" : "m"));
-    row(L.runYear, s.year ? "\u2248 " + s.year : "");
-    const u = runWikiLink(s);
-    if (u) { const d = document.createElement("div"), a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = L.runWiki; d.appendChild(a); el.appendChild(d); }
-    actions(el, null, fbRef("RUN", s.id ?? s.name, el));
-    showPopup("300px", lngLat, el);
-  }
-  function showRunCard() {
-    if (window.TT_closePanels) window.TT_closePanels();
-    reopenInfo = () => showRunCard();
-    const L = t(), r = runData.route;
-    openInfo((body) => {
-      infoLine(body, "Tbilisi Running Club · TRC City Run 2026 \u00B7 " + L.runStats(r, runData.sights.length), "small");
-      const pg = document.createElement("div");                         // the separate page of the route: its own link, a small map and the sights with descriptions and photos
-      pg.className = "small";
-      const pa = document.createElement("a");
-      pa.href = "run/?lang=" + lang; pa.target = "_blank"; pa.rel = "noopener"; pa.textContent = L.runPage;
-      const cp = document.createElement("button");
-      cp.type = "button"; cp.className = "chip"; cp.style.marginLeft = "10px"; cp.textContent = L.runCopy;
-      cp.addEventListener("click", async () => {
-        const url = new URL("run/", location.href).href;                 // the common address (English by default), not the language of this window
-        try { await navigator.clipboard.writeText(url); cp.textContent = L.runCopied; setTimeout(() => { cp.textContent = L.runCopy; }, 1800); } catch (e) { window.prompt(L.runCopy, url); }
-      });
-      pg.appendChild(pa); pg.appendChild(cp); body.appendChild(pg);
-      infoLine(body, L.runList + ":", "");
-      for (const s of runData.sights) infoLine(body, s.n + ". " + String(s.km).replace(".", ",") + " " + (lang === "ru" ? "км" : lang === "ka" ? "კმ" : "km") + " \u00B7 " + (s.name[lang] || s.name.en) + " \u00B7 " + s.d + " " + (lang === "ru" ? "м" : lang === "ka" ? "მ" : "m"), "small");
-      infoLine(body, L.runNote);
-      infoLine(body, L.runSrc + ":");
-      const d = document.createElement("div"), a = document.createElement("a");
-      d.className = "small"; a.href = r.src; a.target = "_blank"; a.rel = "noopener"; a.textContent = r.src.replace("https://", "");
-      d.appendChild(a); body.appendChild(d);
-    });
-  }
-  $("showRun").addEventListener("change", () => updateRun($("showRun").checked));
 
   // forms of state and rulers over Tbilisi: a band under the time scale (two rows with up to two lanes each), a line "who ruled" in the side panel, a card on a click
   let bandW = 0; const BAND_LEVELS = [24, 48, 96, 192, 384, 768, 1536];    // the band is a lens: it shows this many years around the current year
@@ -3120,6 +3050,78 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     showPopup("340px", lngLat, el);
     addNamesakeTo(el, "EDU:" + c.id);
   }
+  // museums and house-museums (data/museums.json); points that appear in the year of founding or building
+  const MUS_COLOR = { museum: "#0b7285", house: "#e67700" };
+  const musFeats = () => museums.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] },
+    properties: { id: c.id, kind: c.kind, from: c.from, undated: !!c.undated, label: c.name[lang] || c.name.en } }));
+  function addMuseums() {
+    if (!museums.length || map.getSource("mus")) return;
+    map.addSource("mus", { type: "geojson", data: { type: "FeatureCollection", features: musFeats() } });
+    map.addLayer({ id: "mus-pt", type: "circle", source: "mus", layout: { visibility: "none" },
+      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 5, 17, 10], "circle-color": ["case", ["==", ["get", "kind"], "museum"], MUS_COLOR.museum, MUS_COLOR.house],
+               "circle-stroke-color": "#ffffff", "circle-stroke-width": 2, "circle-opacity": ["case", ["==", ["get", "undated"], true], 0.5, 1] } });
+    map.addLayer({ id: "mus-lb", type: "symbol", source: "mus", minzoom: 14, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
+      paint: { "text-color": "#0b7285", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    map.on("click", "mus-pt", (e) => {
+      const f = e.features && e.features[0], c = f && museums.find((x) => x.id === f.properties.id);
+      if (c) popupMus(c, e.lngLat);
+    });
+    map.on("mouseenter", "mus-pt", () => { map.getCanvas().style.cursor = "pointer"; });
+    map.on("mouseleave", "mus-pt", () => { map.getCanvas().style.cursor = ""; });
+    updateMuseums();
+  }
+  function updateMuseums() {
+    syncLegend("showMus", "musLegend");
+    if (!map.getLayer("mus-pt")) return;
+    const on = $("showMus").checked;
+    for (const id of ["mus-pt", "mus-lb"]) {
+      map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+      map.setFilter(id, ["<=", ["get", "from"], year]);
+      map.moveLayer(id);
+    }
+  }
+  function updateMusUi() {
+    const box = $("musLegend");
+    if (box) {
+      box.textContent = "";
+      for (const k of Object.keys(MUS_COLOR)) { const s = document.createElement("span"); s.textContent = t().musKinds[k]; s.style.setProperty("--c", MUS_COLOR[k]); box.appendChild(s); }
+      syncLegend("showMus", "musLegend");
+    }
+    const src = map && map.getSource && map.getSource("mus");
+    if (src) src.setData({ type: "FeatureCollection", features: musFeats() });
+  }
+  function popupMus(c, lngLat) {
+    reopenPopup = () => popupMus(c, lngLat);
+    const L = t(), el = document.createElement("div");
+    el.className = "pop";
+    const h3 = document.createElement("h3");
+    h3.textContent = c.name[lang] || c.name.en;
+    el.appendChild(h3);
+    const row = (k, v) => { if (!v) return; const d = document.createElement("div"), kk = document.createElement("span"); kk.className = "k"; kk.textContent = k + ": "; d.appendChild(kk); d.appendChild(document.createTextNode(v)); el.appendChild(d); };
+    const rr = document.createElement("div");
+    rr.className = "k";
+    rr.textContent = L.musKinds[c.kind] || c.kind;
+    el.appendChild(rr);
+    row(L.sciFounded, c.founded);
+    row(L.sciBuilt, c.built);
+    if (c.undated) row(L.sciFrom, L.relUndated);
+    else if (!String(c.founded || "").includes(String(c.from))) row(L.sciFrom, String(c.from));
+    if (c.addr) row(L.relAddr, c.addr[lang] || c.addr.en);
+    cardPhotos(el, c);
+    const n = document.createElement("div");
+    n.className = "small";
+    n.textContent = c.note[lang] || c.note.en;
+    el.appendChild(n);
+    const s = document.createElement("div");
+    s.className = "src";
+    s.appendChild(document.createTextNode(L.sciSrc + ": "));
+    if (!c.src.length) s.appendChild(document.createTextNode(L.relRegSrc + " " + (c.regno ? L.relRegNo + " " + c.regno : L.relRegId + " " + c.rid)));
+    c.src.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = decodeURIComponent(u.replace("https://", "")).slice(0, 60); if (i) s.appendChild(document.createTextNode(" \u00B7 ")); s.appendChild(a); });
+    el.appendChild(s);
+    actions(el, null, fbRef("MUS", c.id, el));
+    showPopup("340px", lngLat, el);
+    addNamesakeTo(el, "MUS:" + c.id);
+  }
   // local names: districts, gardens, hills, bridges, cemeteries with what the name means (Wikipedia, quotes checked); the file is loaded when the layer is switched on or the search is opened
   const PL_COLOR = { district: "#d6336c", garden: "#2b8a3e", hill: "#8d5524", bridge: "#1c7ed6", cemetery: "#495057", market: "#f08c00", bath: "#0ca678", area: "#7048e8", square: "#9c36b5", building: "#e8590c" };
   function ensurePlaces() {
@@ -3137,9 +3139,10 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (!places || !places.items.length || map.getSource("places")) return;
     if (!map.isStyleLoaded()) { map.once("idle", addPlaces); return; }                       // as for mpAdd: the layer is added at the next idle
     map.addSource("places", { type: "geojson", data: { type: "FeatureCollection", features: placeFeats() } });
-    map.addSource("places-area", { type: "geojson", data: { type: "FeatureCollection", features: places.items.filter((c) => c.g).map((c) => ({ type: "Feature", geometry: c.g, properties: { id: c.id } })) } });
-    map.addLayer({ id: "places-area-fill", type: "fill", source: "places-area", layout: { visibility: "none" }, paint: { "fill-color": PL_COLOR.area, "fill-opacity": 0.18 } });
-    map.addLayer({ id: "places-area-line", type: "line", source: "places-area", layout: { visibility: "none" }, paint: { "line-color": PL_COLOR.area, "line-width": 2, "line-dasharray": [3, 2] } });
+    const AREA_PAL = ["#e03131", "#1971c2", "#2f9e44", "#f08c00", "#7048e8", "#0c8599", "#c2255c", "#5c940d", "#d9480f", "#364fc7"];
+    map.addSource("places-area", { type: "geojson", data: { type: "FeatureCollection", features: places.items.filter((c) => c.g).map((c, idx) => ({ type: "Feature", geometry: c.g, properties: { id: c.id, kind: c.k, col: c.k === "area" ? PL_COLOR.area : AREA_PAL[idx % AREA_PAL.length] } })) } });
+    map.addLayer({ id: "places-area-fill", type: "fill", source: "places-area", layout: { visibility: "none" }, paint: { "fill-color": ["get", "col"], "fill-opacity": 0.10 } });
+    map.addLayer({ id: "places-area-line", type: "line", source: "places-area", layout: { visibility: "none" }, paint: { "line-color": ["get", "col"], "line-width": 2, "line-opacity": 0.9 } });
     const col = ["match", ["get", "kind"]];
     for (const [k, c] of Object.entries(PL_COLOR)) col.push(k, c);
     col.push("#555");
@@ -3162,6 +3165,15 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (places && !map.getSource("places")) addPlaces();
     if (!map.getLayer("places-pt")) return;
     for (const id of ["places-area-fill", "places-area-line", "places-pt", "places-lb"]) { map.setLayoutProperty(id, "visibility", on ? "visible" : "none"); map.moveLayer(id); }
+    applyPlaceAreas();
+  }
+  // the outlines of quarters and squares (the OSM contours) are drawn only when their own box is on; the outline of an area of the past (the hippodrome) goes with the layer
+  function applyPlaceAreas() {
+    const row = $("rowPlaceAreas");
+    if (row) row.hidden = !$("showPlaces").checked;
+    if (!map.getLayer("places-area-fill")) return;
+    const f = $("showPlaceAreas").checked ? null : ["==", ["get", "kind"], "area"];
+    for (const id of ["places-area-fill", "places-area-line"]) map.setFilter(id, f);
   }
   function updatePlacesUi() {
     const box = $("placesLegend");
@@ -3206,7 +3218,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     else if (c.ne) e.remove();                                      // an entry for which the question of the etymology is not asked (the former hippodrome)
     else { e.className = "small"; e.textContent = PU("no_etym"); }
     if (c.e && c.s.eq && c.s.eq.k === "dictionary") add(PU("dict_note"), "small");     // the meaning of a common word, not a source of the origin of the toponym
-    if (c.g) add(PU("area_note"), "small");                         // the contour of an area is not the exact boundary of the object of the past
+    if (c.g && c.k === "area") add(PU("area_note"), "small");                         // the contour of an area is not the exact boundary of the object of the past
     folkBlock(el, c, PU);
     if (c.ap) add(PU("approx"), "small");                           // a district of several streets: the point is on one of them
     if (c.pk) {                                                     // a park or garden that only OpenStreetMap names: the former and the other names, the note about the source
@@ -3301,6 +3313,9 @@ import { getJSON, prefetchJSON } from "./js/net.js";
         if (key === "plq" && m.data) { const s = document.createElement("span"); s.textContent = mpU("k_plaque", key); s.style.setProperty("--c", PLQ_COLOR); box.appendChild(s); }
         if (key === "mod" && m.data) { const s = document.createElement("span"); s.textContent = mpU("k_modernism", key); s.style.setProperty("--c", MOD_COLOR); box.appendChild(s); }
         syncLegend(m.chk, m.leg);
+      } else {                                                        // a layer of one kind (plaques, modernism) has no legend line of its own: its colour is a dot in the row of the box
+        const lb = $(m.chk).closest("label");
+        if (lb) { lb.classList.add("ldot"); lb.style.setProperty("--c", key === "mod" ? MOD_COLOR : PLQ_COLOR); }
       }
       if (m.sig) m.sig = null;
       updateMP(key);
@@ -3367,7 +3382,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     add(U("k_" + (key === "plq" ? "plaque" : c.k)), "k");
     if (key === "mon") row(U("year"), c.y != null ? String(c.y) : U("year_unknown"));
     else if (c.y != null) add(U("lived_from").replace("{y}", c.y), "small");
-    if (key === "mon" && c.d && c.d[lang]) add(c.d[lang], "small");                        // the description of OSM, only in the language that exists
+    if (c.d && c.d[lang]) { if (c.dw) add(U(key === "plq" ? "from_wiki_person" : "from_wiki"), "k"); add(c.d[lang], "small"); }          // the description of OSM / Wikipedia, in the language that exists; a Wikipedia text is labelled (about the person on a plaque)
     if (key === "mon") { row(U("sculptor"), c.sc && typeof c.sc === "object" ? (c.sc[lang] || c.sc.en) : c.sc); row(U("architect"), c.ar); row(U("material"), c.mat ? U("mat_" + c.mat) : ""); }
     const s = c.st && d.streets[c.st];
     if (s) row(U("where"), s[lang] || s.en);
@@ -3380,8 +3395,10 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   }
   for (const id of ["showMon", "showMonUndated", "showPlq", "showPlqUndated", "showMod"]) $(id).addEventListener("change", () => updateMP(id.startsWith("showMon") ? "mon" : id === "showMod" ? "mod" : "plq"));
   $("showPlaces").addEventListener("change", updatePlaces);
+  $("showPlaceAreas").addEventListener("change", applyPlaceAreas);
   $("showSci").addEventListener("change", updateScience);
   $("showEdu").addEventListener("change", updateEducation);
+  $("showMus").addEventListener("change", updateMuseums);
   $("showBattles").addEventListener("change", () => { if (histEvents.length) buildEvMarks(); });
 
   // religious buildings of different religions: points that appear in the year of the building and disappear when it was destroyed
@@ -3512,6 +3529,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (rulersData) for (const u of rulersData.rulers.concat(rulersData.states)) idx.push({ kind: "u", u, key: normQ([u.name.ru, u.name.en, u.name.ka, u.title ? u.title.ru + " " + u.title.en : "", Math.floor(u.from), Math.floor(u.to)].join(" ")) });
     for (const c of science) idx.push({ kind: "s", c, key: normQ([c.name.ru, c.name.en, c.name.ka, c.founded, c.built, c.from, T.ru.sciKinds[c.kind], T.en.sciKinds[c.kind]].join(" ")) });
     for (const c of education) idx.push({ kind: "d", c, key: normQ([c.name.ru, c.name.en, c.name.ka, c.built, c.from, T.ru.eduKinds[c.kind], T.en.eduKinds[c.kind]].join(" ")) });
+    for (const c of museums) idx.push({ kind: "mu", c, key: normQ([c.name.ru, c.name.en, c.name.ka, c.founded, c.built, c.from, T.ru.musKinds[c.kind], T.en.musKinds[c.kind]].join(" ")) });
     for (const r of religious) idx.push({ kind: "r", r, key: normQ([r.name.ru, r.name.en, r.name.ka, r.date, relNameOf(r.rel), relNameOf(r.rel, "en")].join(" ")) });
     for (const st of stNames) {                                 // streets: the name today and every former name (also the ones without a year) in three languages
       const nm = [st.now.ru, st.now.en, st.now.ka];
@@ -3685,6 +3703,12 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       $("showEdu").checked = true; updateEducation();
       map.flyTo({ center: [r.c.lon, r.c.lat], zoom: Math.max(map.getZoom(), 16.5), duration: 1200 });
       popupEdu(r.c, { lng: r.c.lon, lat: r.c.lat });
+      return;
+    }
+    if (r.kind === "mu") {
+      $("showMus").checked = true; updateMuseums();
+      map.flyTo({ center: [r.c.lon, r.c.lat], zoom: Math.max(map.getZoom(), 16.5), duration: 1200 });
+      popupMus(r.c, { lng: r.c.lon, lat: r.c.lat });
       return;
     }
     if (r.kind === "r") {

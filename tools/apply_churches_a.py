@@ -1,4 +1,4 @@
-"""Takes the answer of Gemini about the names of the places of worship in several languages (for_gemini/from_desktop/churches_A_result.json, task: churches_A_TASK_for_gemini.md).
+"""Takes the answer of Gemini about the names of the places of worship in several languages (work/gemini/results/churches_A.json, task: tasks/churches_A.md).
 A name is taken only when: the object is one of site/data/religious_osm.json; a form that OSM already gives is NOT changed (the row repeats it); ka has Georgian letters and no Cyrillic; ru has Cyrillic and no
 Georgian letters; en has Latin letters and no Cyrillic or Georgian; no word პროსპექტი. Output: tools/churches_names.json ({id: {ka, ru, en}}), which tools/build_religious_osm.py uses to fill the EMPTY forms
 (the module of the site fills the rest). Usage: python -P tools/apply_churches_a.py
@@ -14,7 +14,7 @@ GE, CY, LAT = re.compile("[ა-ჰ]"), re.compile("[А-Яа-яЁё]"), re.compil
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    res = json.load(open(os.path.join(R, "for_gemini", "from_desktop", "churches_A_result.json"), encoding="utf-8"))
+    res = json.load(open(os.path.join(R, "work", "gemini", "results/churches_A.json"), encoding="utf-8"))
     items = {c["id"]: c for c in json.load(open(os.path.join(R, "site", "data", "religious_osm.json"), encoding="utf-8"))["items"]}
     # the forms that OSM itself gives, without the forms made by the module of the site: they are rebuilt by tools/build_religious_osm.py from the raw data, here the current file is compared
     ok, bad = {}, []

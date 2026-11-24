@@ -1,0 +1,14 @@
+import { launch, openPage } from "./helpers.mjs";
+const browser = await launch();
+const page = await openPage(browser, "about:blank");
+const rows = []; const t0 = Date.now();
+page.on("response", async (r) => { const h = r.headers(); let b = 0; try { b = (await r.body()).length; } catch {} rows.push({ u: r.url().replace("https://hedenskbjorn-code.github.io/tbilisi-timeline", ""), enc: h["content-encoding"] || "none", cache: (h["cache-control"] || "").slice(0, 30), raw: b, t: Date.now() - t0 }); });
+await page.goto("https://hedenskbjorn-code.github.io/tbilisi-timeline/?nostats=1&lang=en#1990", { waitUntil: "load" });
+await page.waitForTimeout(8000);
+const nav = await page.evaluate(() => { const n = performance.getEntriesByType("navigation")[0]; return { ttfb: Math.round(n.responseStart), dcl: Math.round(n.domContentLoadedEventEnd), load: Math.round(n.loadEventEnd), fcp: Math.round(performance.getEntriesByType("paint").find((p) => p.name === "first-contentful-paint")?.startTime || 0) }; });
+const tr = await page.evaluate(() => performance.getEntriesByType("resource").map((e) => [e.name.replace("https://hedenskbjorn-code.github.io/tbilisi-timeline", ""), e.transferSize, Math.round(e.responseEnd)]));
+const tsum = tr.reduce((a, x) => a + (x[1] || 0), 0);
+console.log("LIVE", JSON.stringify(nav), "| requests:", tr.length, "| transferred KB:", Math.round(tsum / 1024));
+console.log("  largest transfers:", tr.sort((a, b) => b[1] - a[1]).slice(0, 8).map((x) => x[0].slice(0, 36) + " " + Math.round(x[1] / 1024) + "KB@" + x[2] + "ms").join("; "));
+console.log("  encodings:", JSON.stringify(rows.reduce((a, r) => { a[r.enc] = (a[r.enc] || 0) + 1; return a; }, {})), "| sw/cache sample:", rows.slice(0, 3).map((r) => r.cache));
+await page.ctx.close(); await browser.close();

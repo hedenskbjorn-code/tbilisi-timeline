@@ -2,7 +2,7 @@
 its reg number, dates and status). Idempotent: the flag is recomputed each time (it is first removed from all objects).
 Rules (the same function of the object): fn "religious" against religious.json; fn "culture" against science.json and education.json; an education object that was made from the register
 (its "rid" is the id of the register object) always marks that object. A pair counts when the distance is up to 25 m AND the Georgian names are alike (the ratio of difflib >= 0.6 after the
-removal of everything but letters and digits). A pair up to 25 m with different names is NOT marked: it goes to the list for a manual check (notes/register_dup_candidates.md); the decisions of
+removal of everything but letters and digits). A pair up to 25 m with different names is NOT marked: it goes to the list for a manual check (work/notes/register_dup_candidates.md); the decisions of
 the owner are in tools/register_dup_decisions.json ({"dup": [register ids], "keep": [register ids]}).
 Usage: python -P tools/mark_register_dups.py [--write]
 """
@@ -16,7 +16,7 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 D = os.path.join(ROOT, "site", "data")
 MON = os.path.join(D, "monuments.json")
-LIST = os.path.join(ROOT, "notes", "register_dup_candidates.md")
+LIST = os.path.join(ROOT, "work", "notes", "register_dup_candidates.md")
 DEC = os.path.join(ROOT, "tools", "register_dup_decisions.json")
 WRITE = "--write" in sys.argv
 CR, LF = chr(13), chr(10)

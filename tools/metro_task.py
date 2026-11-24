@@ -1,4 +1,4 @@
-"""The task for Gemini about the former names of the stations of the Tbilisi metro: for_gemini/from_desktop/metro_batch_01.md (the 23 stations of the site, the passages of the encyclopedia of 2008 about the stations,
+"""The task for Gemini about the former names of the stations of the Tbilisi metro: work/gemini/batches/metro/metro_batch_01.md (the 23 stations of the site, the passages of the encyclopedia of 2008 about the stations,
 the five rows that Gemini found earlier). The answer is checked by tools/verify_metro.py. Usage: python -P tools/metro_task.py
 """
 import json
@@ -17,11 +17,11 @@ for e in ents:
     t = (e.get("text_long") or e["text"]).replace("\n", " ")
     for m in re.finditer(r"მეტრო[^.]{0,200}\.", t):
         L.append("- %s | PDF p. %s | %s" % (e["id"], e["page"], m.group(0)))
-L += ["", "## Что Gemini уже нашёл раньше (tbilisi_kvamli_42_research_result.md, группа 6), нужно проверить и дополнить", "",
+L += ["", "## Что Gemini уже нашёл раньше (results/tbilisi_kvamli_42_research.md, группа 6), нужно проверить и дополнить", "",
       "| старое (ka) | новое (ka) | год и источник |", "|---|---|---|",
       "| ლენინის მოედანი | თავისუფლების მოედანი | октябрь 1990, georgianencyclopedia.ge |", "| 26 კომისარი | ავლაბარი | апрель 1991, georgianencyclopedia.ge |",
       "| ოქტომბერი | ნაძალადევი | апрель 1991 (georgianencyclopedia.ge) или 1992 (ru.wikipedia); энциклопедия 2008 называет «ოქტომბერი» без года |",
       "| კომკავშირული | სამედიცინო ინსტიტუტი (ныне უნივერსიტეტი) | 1992, ru.wikipedia |", "| პოლიტექნიკური ინსტიტუტი | ტექნიკური უნივერსიტეტი | 1979–2005, georgianencyclopedia.ge |",
       "| თემქა | დავით სარაჯიშვილი | энциклопедия 2008 (стр. 155), год не назван |"]
-open(os.path.join(ROOT, "for_gemini", "from_desktop", "metro_batch_01.md"), "wb").write(("\n".join(L) + "\n").encode("utf-8"))
+open(os.path.join(ROOT, "work", "gemini", "batches/metro/metro_batch_01.md"), "wb").write(("\n".join(L) + "\n").encode("utf-8"))
 print("stations:", len(st))

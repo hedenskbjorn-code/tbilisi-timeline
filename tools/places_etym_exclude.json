@@ -1,5 +1,5 @@
 {
- "note": "Rows of the second search of the origin of the names (places3_result.json) that tools/apply_places.py does not take although the quote stands on the page: the claim goes beyond the quote. key -> the reason.",
+ "note": "Rows of the second search of the origin of the names (results/places3.json) that tools/apply_places.py does not take although the quote stands on the page: the claim goes beyond the quote. key -> the reason.",
  "district:n/1308477954": "Tkhinvala: the quote only lists the old forms Tkhilovna / Tkhilnara; the meaning 'hazel grove' of the answer is in neither the quote nor the articles of the place (a gloss from the memory of the model)",
  "district:n/310027080": "Akhaldaba: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",
  "district:n/414014049": "Didgori: the dictionary row names a second component (or a suffix) whose meaning is not in its quote; waits for a row with a quote for every component (tools/places_parts_task.py)",

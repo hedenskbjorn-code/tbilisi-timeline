@@ -1,5 +1,5 @@
 """The streets of the encyclopedia (2008) that have a namesake (tools/verify_namesakes.py) but no card on the site (no name history): a task for Gemini to give their names in ka / ru / en, so that the card
-(the namesake, the page of the book, the search) can be made. Makes for_gemini/from_desktop/cards_batch_NN.md (packs of 100). The answer is checked by tools/verify_cards.py.
+(the namesake, the page of the book, the search) can be made. Makes work/gemini/cards_batch_NN.md (packs of 100). The answer is checked by tools/verify_cards.py.
 Usage: python -P tools/cards_task.py
 """
 import json
@@ -46,7 +46,7 @@ def main():
             e = ents[i]
             t = (e.get("text_long") or e["text"]).replace("\\n", " ").replace("\n", " ")[:420]
             lines += ["## %s | PDF p. %s | район: %s | заголовок (OCR): %s" % (i, e["page"], e["district"], e["name"]), "", t, ""]
-        open(os.path.join(R, "for_gemini", "from_desktop", "cards_batch_%02d.md" % n), "wb").write(("\n".join(lines) + "\n").encode("utf-8"))
+        open(os.path.join(R, "work", "gemini", "batches", "cards", "cards_batch_%02d.md" % n), "wb").write(("\n".join(lines) + "\n").encode("utf-8"))
     print("entries:", len(todo), "packs:", n)
 
 

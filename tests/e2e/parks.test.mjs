@@ -3,7 +3,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import { startServer, launch, openPage, waitReady, DATA } from "./helpers.mjs";
+import { startServer, launch, openPage, waitReady, DATA, tick } from "./helpers.mjs";
 
 let server, browser, page;
 test.before(async () => {
@@ -15,7 +15,7 @@ test.before(async () => {
 test.after(async () => { await page.ctx.close(); await browser.close(); server.srv.close(); });
 
 const PL = JSON.parse(fs.readFileSync(path.join(DATA, "places.json"), "utf8"));
-const PARKS = PL.items.filter((c) => c.pk);
+const PARKS = PL.items.filter((c) => c.pk && c.id.startsWith("park-"));         // the other places of OSM (quarters, squares, bridges: tools/apply_osm_names.py) have their own test
 
 test("the layer has the parks of OSM, among them the Vaso Godziashvili Garden with its former name", async () => {
   assert.ok(PARKS.length >= 80, "parks: " + PARKS.length);
@@ -37,7 +37,7 @@ async function openCard(c, zoom = 16.5) {
 }
 
 test("the card of the Godziashvili Garden: the name, the former name Red Garden, the OSM source", async () => {
-  await page.check("#showPlaces");
+  await tick(page, "#showPlaces", true);
   await page.waitForFunction(() => window.TT_E2E.map.getSource("places"), null, { timeout: 20000 });
   const g = PARKS.find((c) => c.id === "park-r1734212");
   const pop = await openCard(g);

@@ -1,4 +1,4 @@
-"""Check the answer of Gemini about the origin of the 25 main roads (for_gemini/from_desktop/mainroads_batch_01_result.json, rules: mainroads_TASK_for_gemini.md).
+"""Check the answer of Gemini about the origin of the 25 main roads (work/gemini/batches/mainroads/mainroads_batch_01_result.json, rules: tasks/mainroads.md).
 Each row: {"key", "status": "ok"|"skip", "skip_reason", "page", "ka_heading", "origin_quote", "origin_printed", "origin_kind"}.
 Rules: every key of tools/mainroads_task.py once, in the order; the quote (<= 30 words) is a verbatim part of an article whose page is the given one or next to it (the OCR text, repaired or raw);
 it holds a word of origin (წარმოიქმნა, ჩამოყალიბდა, გაყვანილია); "origin_printed" is the same phrase as printed in the PDF (the OCR spoils Roman numerals and digits) and must be alike the quote
@@ -18,7 +18,7 @@ from mainroads_task import ROADS  # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
 PAGES = os.path.join(ROOT, "data", "cache", "ocr", "streets_enc2008_kat.txt")
-RES = os.path.join(ROOT, "for_gemini", "from_desktop", "mainroads_batch_01_result.json")
+RES = os.path.join(ROOT, "work", "gemini", "batches/mainroads/mainroads_batch_01_result.json")
 OUT = os.path.join(ROOT, "data", "cache", "mainroads_verified.json")
 KEYS = {"key", "status", "skip_reason", "page", "ka_heading", "origin_quote", "origin_printed", "origin_kind"}
 KINDS = {"year", "decade", "century", "century_part"}

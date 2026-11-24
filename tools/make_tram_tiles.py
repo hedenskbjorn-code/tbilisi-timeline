@@ -1,7 +1,7 @@
-"""Tiles of the warped 1913 plan with a pixel grid, for the Gemini task for_gemini/TASK_tram1913.md (the tram lines drawn on the plan).
+"""Tiles of the warped 1913 plan with a pixel grid, for the Gemini task work/gemini/archive/tasks/TASK_tram1913.md (the tram lines drawn on the plan).
 Each tile is 1200 x 1200 px (overlap 200 px), cut from data/warped/tbilisi_1913.webp (5000 x 5134 px, the same image as on the site, 1 px = about 1.5 m).
 A grid line every 100 px is drawn and labelled with the GLOBAL pixel coordinates of the whole plan, so that points read from a tile are global.
-Output: for_gemini/tram1913/tile_<row>_<col>.png, tiles_index.json, legend.png (the legend of the plan, from the full scan).
+Output: work/gemini/archive/tram1913/tile_<row>_<col>.png, tiles_index.json, legend.png (the legend of the plan, from the full scan).
 Usage: python -P tools/make_tram_tiles.py
 """
 import json
@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 Image.MAX_IMAGE_PIXELS = None
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-OUT = os.path.join(ROOT, "for_gemini", "tram1913")
+OUT = os.path.join(ROOT, "work", "gemini", "archive", "tram1913")
 S, STEP = 1200, 1000
 X0S = [300, 1300, 2300, 3300]
 Y0S = [300, 1300, 2300, 3300, 4100]
@@ -47,7 +47,7 @@ def main():
             t.save(os.path.join(OUT, name))
             idx.append({"tile": name, "x0": x0, "y0": y0, "x1": x1, "y1": y1})
     json.dump({"note": "pixel coordinates of the warped plan (5000 x 5134); grid labels in the tiles are the same global coordinates", "tiles": idx}, open(os.path.join(OUT, "tiles_index.json"), "w", encoding="utf-8"), indent=1)
-    full = Image.open(os.path.join(ROOT, "for_gemini", "tbilisi_1913_full.jpg"))
+    full = Image.open(os.path.join(ROOT, "work", "gemini", "archive", "tbilisi_1913_full.jpg"))
     full.crop((4300, 3150, 5700, 3600)).save(os.path.join(OUT, "legend.png"))
     print(len(idx), "tiles")
 

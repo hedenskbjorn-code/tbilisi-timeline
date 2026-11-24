@@ -326,6 +326,12 @@ if (pop?.points) {
   }
 }
 
+// ---- the tour (data/tour.json): every step has its text in three languages (a step whose Georgian text is still to come stops the deploy, like the other strings that wait for Gemini)
+{
+  const tour = data["data/tour.json"];
+  if (tour) tour.steps.forEach((st, i) => { for (const f of ["title", "text"]) for (const l of ["ru", "en", "ka"]) if (!st[f]?.[l]) err(`tour.json step ${i + 1} (${st.title?.en || st.title?.ru}): ${f}.${l} is missing (the Georgian text waits for Gemini)`); });
+}
+
 // ---- the layer "Soviet modernism" (data/modernism.json, made by tools/build_modernism.py) ----------------------------
 {
   const md = data["data/modernism.json"];

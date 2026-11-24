@@ -1,6 +1,7 @@
 """Questions to the project index (data/db/project.sqlite, made by tools/db_build.py). Read-only.
   python -P tools/db_query.py stats [layers]              objects of every layer and region (or of every layer), how many have a name / a description / a photo / a verified fact
   python -P tools/db_query.py missing <layer> [name|description|photo] [limit]    the objects of a layer that lack something (default: name)
+  python -P tools/db_query.py langs                       names and descriptions per language of every layer (what lacks ru / en / ka)
   python -P tools/db_query.py tasks                       the tasks for Gemini: state, rows, found
   python -P tools/db_query.py find <words>                the full-text search of the names (all kinds: official, old, folk, alt)
   python -P tools/db_query.py near <lat> <lon> [metres]   the objects near a point (R-tree, then the distance)
@@ -42,6 +43,17 @@ def main():
         col = {"name": "has_name", "description": "has_description", "photo": "has_photo"}[what]
         table(con.execute(f"""SELECT v.id, v.kind, v.region, (SELECT name FROM name n WHERE n.object_id = v.id ORDER BY (lang='en') DESC LIMIT 1) FROM v_object_state v WHERE v.layer = ? AND v.{col} = 0 LIMIT ?""", (layer, lim)).fetchall(), ["id", "kind", "region", "a name"])
         print("total lacking:", con.execute(f"SELECT COUNT(*) FROM v_object_state WHERE layer = ? AND {col} = 0", (layer,)).fetchone()[0])
+    elif cmd == "langs":                                    # names and descriptions per language of every layer
+        table(con.execute("""SELECT o.layer, COUNT(*) objects,
+                               SUM(EXISTS(SELECT 1 FROM name n WHERE n.object_id = o.id AND n.lang = 'ka')) name_ka,
+                               SUM(EXISTS(SELECT 1 FROM name n WHERE n.object_id = o.id AND n.lang = 'ru')) name_ru,
+                               SUM(EXISTS(SELECT 1 FROM name n WHERE n.object_id = o.id AND n.lang = 'en')) name_en,
+                               SUM(EXISTS(SELECT 1 FROM fact f WHERE f.object_id = o.id AND f.key = 'description' AND f.lang = 'ka')) desc_ka,
+                               SUM(EXISTS(SELECT 1 FROM fact f WHERE f.object_id = o.id AND f.key = 'description' AND f.lang = 'ru')) desc_ru,
+                               SUM(EXISTS(SELECT 1 FROM fact f WHERE f.object_id = o.id AND f.key = 'description' AND f.lang = 'en')) desc_en,
+                               SUM(EXISTS(SELECT 1 FROM name n WHERE n.object_id = o.id AND n.pend = 1)) name_waits
+                             FROM object o GROUP BY o.layer ORDER BY objects DESC""").fetchall(),
+              ["layer", "objects", "name ka", "name ru", "name en", "desc ka", "desc ru", "desc en", "name waits"])
     elif cmd == "tasks":
         table(con.execute("SELECT id, status, result_rows, found, result_file FROM task ORDER BY status, id").fetchall(), ["task", "status", "rows", "found", "result file"])
     elif cmd == "find":

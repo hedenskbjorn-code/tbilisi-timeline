@@ -1,5 +1,5 @@
 """Release 1.8.4, the last texts: two items of the changelog (the streets of the encyclopedia with the street card; the fix of the tram routes no. 3 and 4) and the Georgian texts of two interface lines
-(stTitle, stUndated). The Georgian texts are Gemini's (for_gemini/from_desktop/tbilisi_release184_final_result.md), checked here: no Cyrillic, no the calque of the word "prospect".
+(stTitle, stUndated). The Georgian texts are Gemini's (work/gemini/results/tbilisi_release184_final.md), checked here: no Cyrillic, no the calque of the word "prospect".
 The numbers of the streets are taken from the spec (tools/streets_enc1_spec.json): the Georgian text of Gemini was written with the numbers of an earlier run, they are replaced here. Idempotent.
 """
 import json
@@ -8,7 +8,7 @@ import re
 import sys
 
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-RES = os.path.join(R, "for_gemini", "from_desktop", "tbilisi_release184_final_result.md")
+RES = os.path.join(R, "work", "gemini", "results/tbilisi_release184_final.md")
 SPEC = os.path.join(R, "tools", "streets_enc1_spec.json")
 CHANGELOG = os.path.join(R, "site", "data", "changelog.json")
 I18N = os.path.join(R, "site", "i18n.js")

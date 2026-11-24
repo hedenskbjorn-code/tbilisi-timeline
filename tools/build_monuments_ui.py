@@ -1,5 +1,5 @@
-"""tools/monuments_ui.json: the strings of the cards of the monuments and plaques in ru / en (written here; the same table as in for_gemini/from_desktop/monuments_TASK_for_gemini.md) and ka (the answer of
-Gemini, for_gemini/from_desktop/monuments_ui_result.json; the Georgian text only through Gemini; while it is missing the page shows the English text). Usage: python -P tools/build_monuments_ui.py
+"""tools/monuments_ui.json: the strings of the cards of the monuments and plaques in ru / en (written here; the same table as in work/gemini/tasks/monuments.md) and ka (the answer of
+Gemini, work/gemini/results/monuments_ui.json; the Georgian text only through Gemini; while it is missing the page shows the English text). Usage: python -P tools/build_monuments_ui.py
 """
 import json
 import os
@@ -26,10 +26,14 @@ RU_EN = {
     "mat_wood": ("дерево", "wood"), "mat_aluminium": ("алюминий", "aluminium"),
 }
 
+EXTRA = {"quote": ("Цитата", "Quotation", "ციტატა"),
+         "from_wiki_person": ("О человеке (Википедия)", "About the person (Wikipedia)", "ადამიანის შესახებ (ვიკიპედია)"),      # the label of a description that is the first sentences of a Wikipedia article (words: ვიკიპედია, შესახებ, ადამიანი of the site; to be read by Gemini)
+         "from_wiki": ("Из Википедии", "From Wikipedia", "ვიკიპედიიდან")}      # the same words as the string "quote" of the layer of local names
+
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    p = os.path.join(R, "for_gemini", "from_desktop", "monuments_ui_result.json")
+    p = os.path.join(R, "work", "gemini", "results/monuments_ui.json")
     ka = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
     if ka:
         assert set(ka) == set(RU_EN), set(ka) ^ set(RU_EN)
@@ -37,6 +41,8 @@ def main():
             assert not re.search("[А-Яа-яЁё]", v) and "პროსპექტ" not in v, k
         assert "{y}" in ka["lived_from"]
     ui = {k: {"ru": a, "en": b, **({"ka": ka[k]} if ka else {})} for k, (a, b) in RU_EN.items()}
+    for k, (r, e, g) in EXTRA.items():                                  # strings added after the answer of Gemini: the Georgian word is one that the site already uses
+        ui[k] = {"ru": r, "en": e, "ka": g}
     open(os.path.join(R, "tools", "monuments_ui.json"), "wb").write(json.dumps({"ui": ui}, ensure_ascii=False, indent=1).encode("utf-8"))
     print("strings:", len(ui), "| Georgian:", "yes" if ka else "not yet")
 

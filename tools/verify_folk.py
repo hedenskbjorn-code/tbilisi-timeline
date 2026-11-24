@@ -1,4 +1,4 @@
-"""Checks the answer of Gemini about the folk (slang) names of the places (for_gemini/from_desktop/folk_result.json, rules: folk_TASK_for_gemini.md; the objects: folk_objects.md): the schema; "ref" is from the table of
+"""Checks the answer of Gemini about the folk (slang) names of the places (work/gemini/results/folk.json, rules: tasks/folk.md; the objects: results/folk_objects.md): the schema; "ref" is from the table of
 objects or empty; the folk name stands in a quote of every source; every quote (<= 25 words) stands verbatim on its page (the page is downloaded by tools/safe_fetch.py: only https, public addresses, text pages);
 at least two sources on DIFFERENT sites (a single page of Wikipedia / an encyclopedia is enough only when it says so directly); no Cyrillic in ka/en; "adult" is none / rude / obscene.
 A page that cannot be read gives "unchecked", not a rejection. No name of a forum user is kept: only the address and the short quote. Output: data/cache/folk_verified.json ({"ok", "unchecked", "rejected"}).
@@ -16,7 +16,9 @@ from safe_fetch import fetch_text  # noqa: E402
 from verify_mainroads import norm  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FD = os.path.join(R, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 CYR = re.compile("[А-Яа-яЁё]")
 KEYS = {"ref", "official", "folk", "meaning", "adult", "sources"}
 SINGLE_OK = re.compile(r"(wikipedia|wiktionary)\.org$|georgianencyclopedia\.ge$")
@@ -28,8 +30,8 @@ def site(u):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    refs = set(re.findall(r"^\| \w+ \| ([a-z]{2}:[^ |]+) \|", open(os.path.join(FD, "folk_objects.md"), encoding="utf-8").read(), re.M))
-    rows = json.load(open(os.path.join(FD, "folk_result.json"), encoding="utf-8"))
+    refs = set(re.findall(r"^\| \w+ \| ([a-z]{2}:[^ |]+) \|", open(os.path.join(FD, "results/folk_objects.md"), encoding="utf-8").read(), re.M))
+    rows = json.load(open(os.path.join(FD, "results/folk.json"), encoding="utf-8"))
     res = {"ok": [], "unchecked": [], "rejected": []}
     for i, r in enumerate(rows):
         bad, unc = [], []

@@ -91,6 +91,36 @@ test("the year of the plaque is never the year of the life: no plaque is dated b
   for (const c of PLQ.items) if (c.y != null) assert.ok(c.ins.includes(String(c.y)), `${c.id}: the year ${c.y} is not in the inscription`);
 });
 
+test("a description taken from Wikipedia (dw): short, in the right script, without stress marks, with the link of the article; the card says where the text is from", async () => {
+  const CY = /[А-Яа-яЁё]/, GE = /[ა-ჰ]/;
+  for (const [file, D] of [["sculptures", MON], ["plaques", PLQ]]) {
+    const wiki = D.items.filter((c) => c.dw);
+    assert.ok(wiki.length > 100, file + ": the descriptions from Wikipedia are there: " + wiki.length);
+    for (const c of wiki) {
+      assert.ok(c.d && Object.values(c.d).some(Boolean), `${file} ${c.id}: dw without a description`);
+      assert.ok(c.w && Object.keys(c.w).length, `${file} ${c.id}: no link of the article`);
+      for (const [l, t] of Object.entries(c.d)) {
+        if (!t) continue;
+        assert.ok(t.length <= 330, `${file} ${c.id} ${l}: too long (${t.length})`);
+        assert.ok(!t.includes("́"), `${file} ${c.id} ${l}: a stress mark`);
+        if (l === "ka") assert.ok(GE.test(t) && !CY.test(t), `${file} ${c.id}: the Georgian text has Cyrillic or no Georgian letters`);
+        if (l === "en") assert.ok(!CY.test(t), `${file} ${c.id}: the English text has Cyrillic letters`);        // the Georgian spelling of the name in brackets ("Georgian: ...") is how an English article writes it
+      }
+    }
+    assert.ok(MON.ui.from_wiki && MON.ui.from_wiki_person && PLQ.ui.from_wiki && PLQ.ui.from_wiki_person, "the labels are in the ui of both files");
+  }
+  // the card of a plaque (in the year 1990 of this test): the label, the text, the link of the article
+  const c = PLQ.items.find((x) => x.dw && x.d.en && x.y != null && x.y <= 1990 && x.w && x.w.en);
+  assert.ok(c, "a dated plaque with an English description from Wikipedia");
+  await page.check("#showPlq");
+  await page.waitForFunction(() => window.TT_E2E.map.getSource("plqs"), null, { timeout: 20000 });
+  const pop = await openCard("plq", c);
+  const txt = await pop.innerText();
+  assert.ok(txt.includes("About the person (Wikipedia)"), "the label on the card");
+  assert.ok(txt.includes(c.d.en.slice(0, 40)), "the description on the card");
+  assert.ok((await pop.locator(`a[href="${c.w.en}"]`).count()) >= 1, "the link of the article on the card");
+});
+
 test("the layers turn off", async () => {
   await page.uncheck("#showMon");
   await page.uncheck("#showPlq");
@@ -98,10 +128,12 @@ test("the layers turn off", async () => {
   assert.deepEqual(v, ["none", "none", "none", "none"]);
 });
 
-test("a description found by a search: the card shows it (ru / en), the details give the quotation, the card of another language shows no description that does not exist", async () => {
+test("a description found by a search: the card shows it (ru / en), the details give the quotation, the Georgian text is there too", async () => {
   const c = MON.items.find((x) => x.id === "KAW_032");                        // 1981: shown in the year 1990 of this test
   assert.ok(c && c.d && c.d.en && c.dq && c.dq.length, "the description with quotations exists in the data");
-  assert.ok(!c.d.ka, "no Georgian description yet: it waits for Gemini");
+  assert.ok(c.d.ka && /[ა-ჰ]/.test(c.d.ka) && !/[А-Яа-яЁё]/.test(c.d.ka), "the Georgian description is there (checked: Georgian letters, no Cyrillic)");
+  const noKa = MON.items.filter((x) => x.dq && x.d && !x.d.ka);                    // a description found by a search that has no Georgian text yet (a short OSM tag has only the language of the tag)
+  assert.ok(noKa.every((x) => x.d.ru && x.d.en), "a description found by a search has ru and en: " + noKa.map((x) => x.id));
   await page.check("#showMon");
   await page.waitForFunction(() => window.TT_E2E.map.getSource("mons"), null, { timeout: 20000 });
   const pop = await openCard("mon", c);

@@ -1,0 +1,79 @@
+"""Dates of register objects that the site does not date yet (2026-11-24), only what was checked:
+  1. years that the register itself prints in the Description of the same object (data/cache/register_desc_dates.json, made by Gemini; the quotation must stand verbatim in the Description of the raw record, and the year must be
+     the year of the building itself, not of an earlier chapel, a hearsay or a guess: the list DESC below is the reading of every quotation in its context, the others were rejected, see docs/PENDING.md);
+  2. two century words that no object had before: "XVIII ს" (the 18th century) and "V-XVIII სს." (the 5th-18th centuries), with the range of the same words in the rules (data/cache/register_dates_rules.json), written like the
+     objects of the site with the same kind of words (the end of the range is the year of the timeline, the middle the estimate). The rules for the era before our era are NOT used: the site has no negative years.
+Writes data/monument_date_overrides.json (the record, read by tools/build_site_data.py) and the properties y0 / y1 / ye / ym / prec / src of site/data/monuments.json (the same formulas as build_site_data.py).
+Idempotent. Usage: python -P tools/apply_register_dates.py [--dry-run]
+"""
+import json
+import os
+import sqlite3
+import sys
+
+R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+DRY = "--dry-run" in sys.argv
+
+# register id -> (year_from, year_to, why); a single year is "exact", a span of years "years"
+DESC = {
+    3105: (1935, 1937, "the Description of the register object says the house was built in 1935-1937 (Stalinist period, architect M. Kalashnikov); the register range 'middle of the 19th century' contradicts it"),
+    3320: (1881, 1881, "the Description says the house was built in 1881 (design by P. Stern); the register gave the end of the 19th century"),
+    3918: (1868, 1868, "the Description says that in 1868 a domed church was built in place of the small chapel (renewed in 1910); the register gave the beginning of the 18th century, the date of the chapel"),
+    4100: (1908, 1908, "the Description says the house was built in 1908; the register gave the end of the 19th century"),
+    4258: (1914, 1914, "the Description says the house was built in 1914; the register gave the beginning of the 20th century"),
+    16008: (1886, 1886, "the Description says the structure dates from 1886 (military engineer Vasil Jorjadze); the register gave no date"),
+    16034: (1958, 1960, "the Description says the station was built in 1958-1960; the register gave only the 20th century"),
+}
+WORDS = {"XVIII ს": "the 18th century (the word of the register 'XVIII ს')", "V-XVIII სს.": "the 5th-18th centuries (the word of the register 'V-XVIII სს.')"}
+
+
+def main():
+    sys.stdout.reconfigure(encoding="utf-8")
+    mon_p = os.path.join(R, "site", "data", "monuments.json")
+    md = json.load(open(mon_p, encoding="utf-8"))
+    byid = {p["properties"]["id"]: p["properties"] for p in md["features"]}
+    db = sqlite3.connect("file:%s?mode=ro" % os.path.join(R, "data", "db", "project.sqlite").replace("\\", "/"), uri=True)
+    raw = {str(rid): json.loads(t) for rid, t in db.execute("SELECT rid, tags FROM raw_record WHERE source='register'")}
+    quotes = {r["id"]: r for r in json.load(open(os.path.join(R, "data", "cache", "register_desc_dates.json"), encoding="utf-8"))}
+    rules = {r["ExactDate"]: r for r in json.load(open(os.path.join(R, "data", "cache", "register_dates_rules.json"), encoding="utf-8"))["exact_date_rules"]}
+    new, skipped = {}, []
+    for k, (y0, y1, why) in DESC.items():
+        q, pr = quotes[k], byid[k]
+        if q["quote"] not in (raw[str(k)].get("Description") or ""):
+            skipped.append((k, "quotation not in the Description"))
+            continue
+        if (pr["prec"], pr["y0"], pr["y1"]) != (q["old_prec"], q["old_y0"], q["old_y1"]) and pr["y0"] is not None and (pr["y0"], pr["y1"]) != (y0, y1) and pr.get("src") != "Description":      # a range written by hand from the same file (src Description, with precision words that the interface does not know) is put right
+            skipped.append((k, "the site has another range now: %s %s-%s" % (pr["prec"], pr["y0"], pr["y1"])))
+            continue
+        est = y0 if y0 == y1 else (y0 + y1) // 2
+        new[str(k)] = {"year_from": y0, "year_to": y1, "year_est": est, "date_precision": "exact" if y0 == y1 else "years", "date_source": "Description", "why": why}
+    for k, pr in byid.items():
+        t = (pr.get("raw_date") or "").strip()
+        if pr["y0"] is None and t in WORDS and t in rules:
+            r = rules[t]
+            new[str(k)] = {"year_from": r["y0"], "year_to": r["y1"], "year_est": (r["y0"] + r["y1"]) // 2, "date_precision": "century", "date_source": "ExactDate",
+                           "why": "raw_date says " + WORDS[t] + ", range %d-%d; the end of the range is shown on the timeline, as for the other objects with a word of this kind" % (r["y0"], r["y1"])}
+    ov_p = os.path.join(R, "data", "monument_date_overrides.json")
+    raw_txt = open(ov_p, encoding="utf-8").read()
+    ov = json.loads(raw_txt)
+    add = {k: v for k, v in new.items() if k not in ov["objects"]}
+    if add and not DRY:
+        head, tail = raw_txt.rstrip("\n").rsplit("\n }}", 1)
+        assert tail == "", "unexpected layout of the overrides file"
+        lines = ['  %s: %s' % (json.dumps(k), json.dumps(v, ensure_ascii=False)) for k, v in add.items()]
+        open(ov_p, "w", encoding="utf-8", newline="\n").write(head + ",\n" + ",\n".join(lines) + "\n }}\n")
+    changed = 0
+    for k, v in new.items():
+        pr = byid[int(k)]
+        exact = v["date_precision"] == "exact"
+        want = {"y0": v["year_from"], "y1": v["year_to"], "ye": v["year_est"] if exact else v["year_to"], "ym": v["year_est"], "prec": v["date_precision"], "src": v["date_source"]}
+        if any(pr.get(a) != b for a, b in want.items()):
+            pr.update(want)
+            changed += 1
+    if changed and not DRY:
+        open(mon_p, "w", encoding="utf-8", newline="\n").write(json.dumps(md, ensure_ascii=False, separators=(",", ":")))
+    print("overrides added:", len(add), "| objects of the site changed:", changed, "| skipped:", skipped, "| dry-run:", DRY)
+
+
+if __name__ == "__main__":
+    main()

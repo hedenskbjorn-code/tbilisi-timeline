@@ -1,4 +1,4 @@
-"""Checks the answer of Gemini of the second search of the origin of the names (for_gemini/from_desktop/places3_result.json, rules: places3_TASK_for_gemini.md; the table places3_batch_01.md):
+"""Checks the answer of Gemini of the second search of the origin of the names (work/gemini/results/places3.json, rules: tasks/places3.md; the table batches/places3/places3_batch_01.md):
 every place once in the order of the table; the schema; for "web" the address is on ka/ru/en.wikipedia.org, georgianencyclopedia.ge, or (when kind == "dictionary") ka/ru/en.wiktionary.org or ena.ge,
 the page is downloaded and the quote (<= 40 words) must stand on it verbatim (a page that cannot be read gives "unchecked", not a rejection); for "enc" the quote is a verbatim part of the text of the page
 of the encyclopedia of 2008 (+-1); every year of "etym" stands in the quote; no Cyrillic in ka/en. Output: data/cache/places_etym_verified.json ({"ok": [rows], "unchecked": [...], "rejected": [...], "skip": [...]}).
@@ -15,7 +15,9 @@ from verify_metro import HOSTS, page_text  # noqa: E402
 from verify_mainroads import norm  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FD = os.path.join(R, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 CYR = re.compile("[А-Яа-яЁё]")
 KEYS = {"key", "status", "skip_reason", "etym", "source", "page", "url", "lang", "quote"}
 DICT_HOSTS = ("ka.wiktionary.org", "ru.wiktionary.org", "en.wiktionary.org", "ena.ge", "www.ena.ge")
@@ -34,8 +36,8 @@ def enc_pages():
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    keys = re.findall(r"^\| ((?:district|garden|hill|bridge|cemetery|market|bath|area):[^ |]+) \|", open(os.path.join(FD, "places3_batch_01.md"), encoding="utf-8").read(), re.M)
-    rows = json.load(open(os.path.join(FD, "places3_result.json"), encoding="utf-8"))
+    keys = re.findall(r"^\| ((?:district|garden|hill|bridge|cemetery|market|bath|area):[^ |]+) \|", open(os.path.join(FD, "batches/places3/places3_batch_01.md"), encoding="utf-8").read(), re.M)
+    rows = json.load(open(os.path.join(FD, "results/places3.json"), encoding="utf-8"))
     got = [r.get("key") for r in rows if isinstance(r, dict)]
     print("rows", len(rows), "| table", len(keys), "| missing", [k for k in keys if k not in got], "| extra", [k for k in got if k not in keys], "| duplicates", sorted({k for k in got if got.count(k) > 1}), "| order ok", got == keys)
     by = enc_pages()
