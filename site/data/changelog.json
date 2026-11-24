@@ -1,5 +1,29 @@
 [
  {
+  "version": "1.9.4",
+  "date": "2026-11-24",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Храмы и памятники: добавлены 36 подтверждённых названий храмов OSM (religious_osm.json), 33 названия и 11 фотографий памятников (включая фото из статьи Википедии «Памятники Тбилиси»), а также мемориалы погибшим в войне 2008 года на братском кладбище Мухатгверди (2009) и во дворе храма Вахтанга Горгасали в Варкетили (2017).",
+    "en": "Places of worship and monuments: added 36 verified OSM church names (religious_osm.json), 33 names and 11 photographs for monuments (including photos from the Georgian Wikipedia article on Tbilisi monuments), plus 2008 war memorials at Mukhatgverdi Brothers' Cemetery (2009) and St. Vakhtang Gorgasali Church in Varketili (2017).",
+    "ka": "ტაძრები და ძეგლები: დაემატა OSM-ის 36 დადასტურებული ტაძრის სახელწოდება (religious_osm.json), 33 ძეგლის სახელი და 11 ფოტო (მათ შორის „თბილისის ძეგლების“ სტატიიდან), ასევე 2008 წლის ომში დაღუპულთა მემორიალები მუხათგვერდის ძმათა სასაფლაოზე (2009) და ვარკეთილის წმ. ვახტანგ გორგასლის ტაძრის ეზოში (2017)."
+   },
+   {
+    "t": "new",
+    "ru": "Народные топонимы и улицы: на карту нанесены «Земели», «Кувшины Рике», «Михайловская больница» (пр. Агмашенебели, 60) и «Больница Арамянца» (ул. Цинандали, 9); добавлена геометрия 9 исторических улиц центра Тбилиси (Бесики, Мачабели, Хорава, Амаглеба, Лагидзе, Родена, Инашвили, Сванети, Бугеули).",
+    "en": "Folk place names and streets: placed Zemeli, Rike Jugs, Mikhailov Hospital (60 Aghmashenebeli Ave), and Aramyants Hospital (9 Tsinandali St) on the map; added street geometries for 9 historic central Tbilisi streets (Besiki, Machabeli, Khorava, Amagleba, Laghidze, Rodin, Inashvili, Svaneti, Bugeuli).",
+    "ka": "ხალხური ტოპონიმები და ქუჩები: რუკაზე დაემატა „ზემელი“, „რიყის დოქები“, „მიხაილოვის საავადმყოფო“ (აღმაშენებლის გამზ. 60) და „არამიანცის საავადმყოფო“ (წინანდლის ქ. 9); დაემატა თბილისის ცენტრის 9 ისტორიული ქუჩის გეომეტრია (ბესიკის, მაჩაბლის, ხორავას, ამაღლების, ლაღიძის, როდენის, ინაშვილის, სვანეთის, ბუგეულის)."
+   },
+   {
+    "t": "fix",
+    "ru": "Исправления и переводы: исправлено фото могилы Ильи Чавчавадзе в Мтацминдском пантеоне (приоритет имени объекта при подборе фото по координатам), уточнён год мемориала на площади Героев (2010) и координаты памятника Котэ Марджанишвили (KAW_077); завершён перевод описаний мемориальных досок и памятников из Википедии на 3 языка.",
+    "en": "Fixes and translations: fixed the photograph of Ilia Chavchavadze's grave in Mtatsminda Pantheon (prioritizing name matches in geotagged photo lookup), updated the Heroes Square memorial year (2010) and Kote Marjanishvili monument coordinates (KAW_077), and completed 3-language translations of Wikipedia descriptions for plaques and sculptures.",
+    "ka": "შესწორებები და თარგმანები: გასწორდა მთაწმინდის პანთეონში ილია ჭავჭავაძის საფლავის ფოტო (კოორდინატებით ფოტოს შერჩევისას სახელის პრიორიტეტი), დაზუსტდა გმირთა მოედნის მემორიალის წელი (2010) და კოტე მარჯანიშვილის ძეგლის კოორდინატები (KAW_077); დასრულდა დაფებისა და ძეგლების ვიკიპედიური აღწერების თარგმნა 3 ენაზე."
+   }
+  ]
+ },
+ {
   "version": "1.9.3",
   "date": "2026-11-24",
   "items": [

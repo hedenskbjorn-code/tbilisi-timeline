@@ -35,9 +35,15 @@ def main():
         tk, pick = tokens(x["n"]), None
         for h in sorted(hits, key=lambda h: h["dist"]):
             t = h["title"][5:].lower()
-            if WORDS.search(t) or any(w in t for w in tk):
+            if any(w in t for w in tk):
                 pick = {"title": h["title"], "near": False}
                 break
+        if not pick:
+            for h in sorted(hits, key=lambda h: h["dist"]):
+                t = h["title"][5:].lower()
+                if WORDS.search(t):
+                    pick = {"title": h["title"], "near": True}
+                    break
         if not pick and hits:
             h = min(hits, key=lambda h: h["dist"])
             if h["dist"] <= 12:

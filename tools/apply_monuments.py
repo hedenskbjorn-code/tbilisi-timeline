@@ -53,6 +53,8 @@ def main():
                 n = {"ka": "", "ru": "", "en": ""}
             t = ph_title(x["image"])
             near = False
+            if not t and key == "monuments" and (ver.get(x["id"]) or {}).get("commons_file"):
+                t = ver[x["id"]]["commons_file"].replace("_", " ")
             if not t and key == "monuments" and geo.get(x["id"]):                         # no file named by the table: the file found by coordinates (marked when only the nearness says that it is the monument)
                 t, near = geo[x["id"]]["title"], geo[x["id"]]["near"]
             if t and photos.get(t) and photos[t]["thumb"]:
@@ -63,6 +65,10 @@ def main():
             if near and t:
                 it["phn"] = 1
             if key == "monuments":
+                if x["id"] == "OSM_w1177876610":
+                    it["y"] = 2010                                     # Heroes Square obelisk opened 2010-05-26 (replaced 2003 monument)
+                elif x["id"] == "KAW_077":
+                    it["lat"], it["lon"], it["st"] = 41.70897, 44.79552, "Konstantine (Kote) Marjanishvili Street"  # nominatim_approx hit Gldani street namesake instead of Marjanishvili Theatre area
                 it.update({"k": x["kind"], "sc": x["sculptor"], "ar": x["architect"], "mat": x.get("mat", "")})
                 lb = labels.get(x.get("sc_qid", ""))
                 if lb and all(lb[k] for k in ("ka", "ru", "en")):
@@ -90,6 +96,27 @@ def main():
             if it["st"]:
                 used.add(it["st"])
             items.append(it)
+        if key == "monuments" and not any(it["id"] == "OSM_n10767240485" for it in items):
+            items.append({
+                "id": "OSM_n10767240485", "lon": 44.729676, "lat": 41.805784,
+                "n": {"ka": "მუხათგვერდის ძმათა სასაფლაოს მემორიალი (2008)", "ru": "Мемориал погибшим в войне 2008 года (Мухатгверди)", "en": "2008 War Memorial (Mukhatgverdi Brothers' Cemetery)"},
+                "y": 2009, "ph": "", "w": {"ka": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A3%E1%83%AE%E1%83%90%E1%83%97%E1%83%92%E1%83%95%E1%83%94%E1%83%A0%E1%83%93%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%9B%E1%83%90%E1%83%97%E1%83%90_%E1%83%A1%E1%83%90%E1%83%A1%E1%83%90%E1%83%A4%E1%83%9A%E1%83%90%E1%83%9D"},
+                "st": "", "k": "memorial", "sc": "", "ar": "ლადო და გიორგი ხმალაძეები", "mat": "",
+                "d": {"ka": "2008 წლის აგვისტოს ომში დაღუპულ მეომართა ძმათა სასაფლაო და მემორიალი მუხათგვერდში (გაიხსნა 2009 წლის 26 მაისს, არქიტექტორები ლადო და გიორგი ხმალაძეები).",
+                      "ru": "Братское кладбище и мемориал воинам, погибшим в августовской войне 2008 года, в Мухатгверди (открыт 26 мая 2009 года, архитекторы Ладо и Георгий Хмаладзе).",
+                      "en": "Brothers' Cemetery and memorial in Mukhatgverdi dedicated to Georgian soldiers who fell in the August 2008 war (opened 26 May 2009, architects Lado and Giorgi Khmaladze)."},
+                "dq": [{"u": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A3%E1%83%AE%E1%83%90%E1%83%97%E1%83%92%E1%83%95%E1%83%94%E1%83%A0%E1%83%93%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%9B%E1%83%90%E1%83%97%E1%83%90_%E1%83%A1%E1%83%90%E1%83%A1%E1%83%90%E1%83%A4%E1%83%9A%E1%83%90%E1%83%9D", "l": "ka", "q": "სასაფლაო შეიქმნა საქართველოს მთავრობის ინიციატივით, რომელიც ამავდროულად ტერიტორიული მთლიანობისთვის დაღუპულ გმირთა მემორიალიცაა."}],
+            })
+        if key == "monuments" and not any(it["id"] == "VARKETILI_2008" for it in items):
+            items.append({
+                "id": "VARKETILI_2008", "lon": 44.826784, "lat": 41.676829,
+                "n": {"ka": "ვარკეთილის აგვისტოს ომის მემორიალი (2008)", "ru": "Мемориал погибшим в августовской войне 2008 года (Варкетили)", "en": "August 2008 War Memorial (Varketili)"},
+                "y": 2017, "ph": "", "w": {}, "st": "", "k": "memorial", "sc": "", "ar": "", "mat": "stone",
+                "d": {"ka": "2008 წლის აგვისტოს ომში დაღუპული სამხედრო მოსამსახურეების მემორიალი (ქვაჯვარი) ვარკეთილში, წმინდა ვახტანგ გორგასლის სახელობის ტაძრის ეზოში (გაიხსნა 2017 წელს).",
+                      "ru": "Мемориал (каменный крест) военнослужащим, погибшим в августовской войне 2008 года, во дворе храма Святого Вахтанга Горгасали в Варкетили (открыт в 2017 году).",
+                      "en": "Memorial (stone cross) to servicemen fallen in the August 2008 war in the yard of St. Vakhtang Gorgasali Church in Varketili (unveiled in 2017)."},
+                "dq": [{"u": "https://veterans.gov.ge/3297/", "l": "ka", "q": "ვახტანგ გორგასლის სახელობის ტაძრის ეზოში, თავდაცვის მინისტრმა ლევან იზორიამ 2008 წლის აგვისტოს ომში გმირულად დაღუპული სამხედრო მოსამსახურეების ხსოვნისადმი მიძღვნილი მემორიალი გახსნა."}],
+            })
         data = {"items": items, "streets": {k: street[k] for k in sorted(used) if k in street}, "photos": ph, "ui": ui}
         open(os.path.join(D, fn), "wb").write(json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
         miss = collections.Counter(lg for it in items for lg in ("ka", "ru", "en") if not it["n"][lg] and any(it["n"].values()))

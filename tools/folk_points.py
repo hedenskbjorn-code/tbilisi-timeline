@@ -12,7 +12,7 @@ R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 UA = {"User-Agent": "tbilisi-timeline-hobby/0.1 (non-commercial hobby project; read-only API client)"}
 # index of the row of results/folk.json -> (OSM object, kind of the place); the rows 7 and 8 name the same square
 PLACE = {0: ("R16393287", "district"), 1: ("R15399106", "district"), 5: ("W1056991782", "square"), 7: ("W1476800521", "square"), 8: ("W1476800521", "square"), 9: ("W1217904106", "square"),
-         18: ("W62646483", "market"), 20: ("R14154210", "district"), 23: ("N4756361456", "district")}
+         12: ("W1269152262", "building"), 13: ("W1157074584", "building"), 18: ("W62646483", "market"), 20: ("R14154210", "district"), 23: ("N4756361456", "district")}
 # the rows that tools/verify_folk_points.py accepted (an answer of Gemini about the place, checked): they join PLACE; a district of several streets ("area") is put on one of the streets: APPROX
 APPROX = set()
 _v = os.path.join(R, "data", "cache", "folk_points_verified.json")
