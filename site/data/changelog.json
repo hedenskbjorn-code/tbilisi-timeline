@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.9.1",
+  "date": "2026-11-24",
+  "items": [
+   {
+    "t": "fix",
+    "ru": "Уточнена привязка плана 1913 года (16 опорных точек по всему городу, ошибка снижена с 45 до 22 м) и трамвайных линий 1913–1922 годов: маршруты выровнены по осям магистральных улиц и мостам (включая проспект Агмашенебели и Саарбрюккенский мост) и убраны из русла Куры.",
+    "en": "Refined the georeferencing of the 1913 plan (16 control points across the city, LOO error reduced from 45 m to 22 m) and the 1913–1922 tram lines: routes are aligned to major streets and bridges (including Aghmashenebeli Avenue and Saarbrucken Bridge) and removed from the Kura riverbed.",
+    "ka": "დაზუსტდა 1913 წლის გეგმის მიბმა (16 საყრდენი წერტილი მთელ ქალაქში, ცდომილება 45-დან 22 მ-მდე შემცირდა) და 1913–1922 წლების ტრამვაის ხაზები: მარშრუტები გასწორდა მაგისტრალური ქუჩებისა და ხიდების ღერძებზე (მათ შორის აღმაშენებლის გამზირი და ზაარბრიუკენის ხიდი) და მოშორდა მტკვრის კალაპოტს."
+   },
+   {
+    "t": "new",
+    "ru": "Данные: на карту добавлены линии ещё 39 улиц из OpenStreetMap, 16 описаний памятников и скульптур с подтверждёнными цитатами, названия 4 храмов OpenStreetMap и 8 мемориальных досок из метаданных Wikimedia Commons.",
+    "en": "Data: added the lines of 39 more streets from OpenStreetMap, 16 descriptions of monuments and sculptures with verified quotations, names of 4 OpenStreetMap places of worship, and 8 memorial plaques from Wikimedia Commons metadata.",
+    "ka": "მონაცემები: რუკას დაემატა კიდევ 39 ქუჩის ხაზი OpenStreetMap-იდან, ძეგლებისა და სკულპტურების 16 აღწერა დამოწმებული ციტატებით, OpenStreetMap-ის 4 ტაძრის სახელი და 8 მემორიალური დაფა Wikimedia Commons-ის მეტამონაცემებიდან."
+   }
+  ]
+ },
+ {
   "version": "1.9.0",
   "date": "2026-11-24",
   "items": [

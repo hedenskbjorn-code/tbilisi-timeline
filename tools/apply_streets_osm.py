@@ -65,7 +65,7 @@ def drop_parallel(ways, near_m=15, share=0.8):
     return kept
 
 
-def chains(ways, join_m=60):
+def chains(ways, join_m=150):
     n = len(ways)
     par = list(range(n))
 
@@ -93,20 +93,28 @@ def main():
     sn, sg = json.loads(sn_raw), json.loads(sg_raw)
     db = sqlite3.connect("file:%s?mode=ro" % os.path.join(R, "data", "db", "project.sqlite").replace("\\", "/"), uri=True)
     byname = collections.defaultdict(list)
+    byname_en = collections.defaultdict(list)
     for tags, geom in db.execute("SELECT tags, geom FROM raw_record WHERE source='osm' AND type='way' AND geom IS NOT NULL AND tags LIKE '%\"highway\"%'"):
         t = json.loads(tags)
         if t.get("highway") in SKIP:
             continue
+        pts = [[round(x, 5), round(y, 5)] for x, y in json.loads(geom)]
+        cx = sum(p[0] for p in pts) / len(pts)
+        cy = sum(p[1] for p in pts) / len(pts)
+        if not (44.71 <= cx <= 44.89 and 41.66 <= cy <= 41.82):
+            continue
         for k in ("name:ka", "name"):
             if t.get(k):
-                byname[t[k].strip()].append([[round(x, 5), round(y, 5)] for x, y in json.loads(geom)])
+                byname[t[k].strip()].append(pts)
                 break
+        if t.get("name:en"):
+            byname_en[t["name:en"].strip().lower()].append(pts)
     taken, several, nothing = [], [], []
     for s in sn["streets"]:
         if not s.get("nogeom"):
             continue
         key = s.get("geom") or s["now"]["en"]
-        ways = byname.get(s["now"]["ka"].strip())
+        ways = byname.get(s["now"]["ka"].strip()) or byname_en.get(s["now"]["en"].strip().lower())
         if not ways:
             nothing.append(key)
             continue
