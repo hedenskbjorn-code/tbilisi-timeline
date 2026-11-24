@@ -25,6 +25,33 @@ DESC = {
     16008: (1886, 1886, "the Description says the structure dates from 1886 (military engineer Vasil Jorjadze); the register gave no date"),
     16034: (1958, 1960, "the Description says the station was built in 1958-1960; the register gave only the 20th century"),
 }
+PERIOD_FIXES = {
+    3725: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    5061: (801, 1000, "century", "raw_date says 9th-10th c., misparsed as 331-370"),
+    6551: (601, 1000, "period", "ExactDate says transitional period (7th-10th c.), left undated"),
+    6855: (901, 1500, "period", "Period says developed Middle Ages (10th-15th c.), misparsed as 331-370"),
+    16051: (901, 1800, "period", "Period says developed to late Middle Ages (10th-18th c.), misparsed as 331-1570"),
+    16247: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    16935: (401, 1800, "mixed", "raw_date says 5th c., 12th-18th c., misparsed as 331-1570"),
+    17828: (1501, 2000, "period", "Period says late Middle Ages to modern (16th-20th c.), misparsed as 331-2000"),
+    17902: (901, 1500, "period", "Period says developed Middle Ages (10th-15th c.), misparsed as 331-370"),
+    18508: (301, 1500, "period", "Period says early to developed Middle Ages (4th-15th c.), misparsed as 331-1570"),
+    18515: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    18516: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    20121: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    20140: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    24381: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    26434: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    26449: (301, 900, "period", "Period says early Middle Ages (4th-9th c.), misparsed as 331-370"),
+    26725: (1701, 1900, "century", "raw_date says 18th-19th c., misparsed as 331-370"),
+    26799: (1501, 1700, "century", "DateRange says 16th-17th c., left undated"),
+    26800: (1601, 1800, "century", "DateRange says 17th-18th c., left undated"),
+    30942: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    38180: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    38181: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    38197: (1201, 1250, "half", "raw_date says first half of 13th c., misparsed as 331-370"),
+    41543: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+}
 WORDS = {"XVIII ს": "the 18th century (the word of the register 'XVIII ს')", "V-XVIII სს.": "the 5th-18th centuries (the word of the register 'V-XVIII სს.')"}
 # Fixes for raw_date strings misparsed by the initial import:
 # (old_y0, old_y1, regex_or_substrings) -> (new_y0, new_y1, prec, why_template)
@@ -55,6 +82,9 @@ def main():
             continue
         est = y0 if y0 == y1 else (y0 + y1) // 2
         new[str(k)] = {"year_from": y0, "year_to": y1, "year_est": est, "date_precision": "exact" if y0 == y1 else "years", "date_source": "Description", "why": why}
+    for k, (y0, y1, prec, why) in PERIOD_FIXES.items():
+        if k in byid:
+            new[str(k)] = {"year_from": y0, "year_to": y1, "year_est": (y0 + y1) // 2, "date_precision": prec, "date_source": "Period", "why": why}
     for k, pr in byid.items():
         t = (pr.get("raw_date") or "").strip()
         if pr["y0"] is None and t in WORDS and t in rules:

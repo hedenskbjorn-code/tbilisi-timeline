@@ -1,5 +1,23 @@
 [
  {
+  "version": "1.9.5",
+  "date": "2026-11-24",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Ближний пояс Тбилиси, Мцхета и Армази: в monuments.json добавлены 22 знаковых памятника реестра с датами, переводами на 3 языка и 16 фотографиями с Wikimedia Commons — Джвари, Светицховели, Самтавро, монастырь и башня Армази, Армазисхеви, Мост Помпея, крепость Армази, Бебрисцихе, Зедазени, Шио-Мгвиме, Карсани, дворец Орбелиани и башня «Салхино» в Вашловани, башни в Кумиси и Тагнагети.",
+    "en": "Greater Tbilisi belt, Mtskheta and Armazi: added 22 landmark register monuments to monuments.json with dates, 3-language translations, and 16 Wikimedia Commons photographs — Jvari, Svetitskhoveli, Samtavro, Armazi Monastery and Bell Tower, Armaziskhevi, Pompey's Bridge, Armazi Fortress, Bebristsikhe, Zedazeni, Shio-Mgvime, Karsani, Orbeliani Palace and Salkhino Tower in Vashlovani, and towers in Kumisi and Tagnageti.",
+    "ka": "თბილისის შემოგარენი, მცხეთა და არმაზი: monuments.json-ში დაემატა რეესტრის 22 საკვანძო ძეგლი თარიღებით, 3-ენოვანი თარგმანითა და Wikimedia Commons-ის 16 ფოტოთი — ჯვარი, სვეტიცხოველი, სამთავრო, არმაზის მონასტერი და სამრეკლო, არმაზისხევი, პომპეუსის ხიდი, არმაზის ციხე, ბებრისციხე, ზედაზენი, შიომღვიმე, კარსანი, ორბელიანთა სასახლე და „სალხინოს“ კოშკი ვაშლოვანში, კუმისისა და ტაგნაგეთის კოშკები."
+   },
+   {
+    "t": "fix",
+    "ru": "Даты реестра и переводы крепостей: исправлен ошибочный разбор средневековых периодов (331–370 гг.) для 25 памятников в monuments.json и apply_register_dates.py — включая крепость Азеула (Коджорскую крепость 6855, 901–1500 гг., добавлено фото с Commons), Удзо, стену старого города у ул. Бараташвили, Кабени и дворец Тхинвала; добавлены русские и английские названия 27 оборонительных сооружений и дач Коджори.",
+    "en": "Register dates and fortress translations: fixed misparsed medieval periods (331–370 CE) for 25 monuments in monuments.json and apply_register_dates.py — including Azeula/Kojori Fortress (6855, 901–1500, with Commons photo), Udzo, Baratashvili Old City Wall, Kabeni, and Tkhinvala Palace; added Russian and English names for 27 defense structures and Kojori villas.",
+    "ka": "რეესტრის თარიღები და ციხესიმაგრეების თარგმანები: გასწორდა შუა საუკუნეების პერიოდების მცდარი გაშიფვრა (331–370 წწ.) 25 ძეგლისთვის monuments.json-სა და apply_register_dates.py-ში — მათ შორის კოჯრის/აზეულას ციხისთვის (6855, 901–1500 წწ., დაემატა Commons-ის ფოტო), უძოს, ბარათაშვილის ქუჩის ზღუდის, კაბენისა და თხინვალას სასახლისთვის; დაემატა 27 თავდაცვითი ნაგებობისა და კოჯრის აგარაკების თარგმანი."
+   }
+  ]
+ },
+ {
   "version": "1.9.4",
   "date": "2026-11-24",
   "items": [

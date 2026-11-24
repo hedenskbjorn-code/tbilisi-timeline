@@ -153,8 +153,9 @@ def load_register_national(b):
     if not path:
         return
     feats = json.load(open(path, encoding="utf-8"))["features"]
-    if not GEORGIA:                                                  # the project is about Tbilisi: the rest of the country is loaded only on request (--georgia)
-        feats = [f for f in feats if f["properties"].get("Region") == "თბილისი"]
+    site_ids = {f["properties"]["id"] for f in jl("monuments.json")["features"]} if CITIES else set()
+    if not GEORGIA:                                                  # the project is about Tbilisi (plus any near-ring objects in monuments.json): the rest of the country is loaded only on request (--georgia)
+        feats = [f for f in feats if f["properties"].get("Region") == "თბილისი" or f["properties"].get("ID") in site_ids]
     c = b.c
     site, site_id = {}, {}
     for f in jl("monuments.json")["features"] if CITIES else []:
@@ -184,7 +185,7 @@ def load_register_national(b):
         kind = ",".join(KINDS.get(t.strip(), t.strip()) for t in (p.get("Classification") or "").split(",") if t.strip()) or None
         props = {k: p[k] for k in ("RegistryN", "Settlement", "ComplexName") if p.get(k)}
         y0 = y1 = None
-        st = (site_id.get(str(p.get("ID"))) or site.get((round(lon, 4), round(lat, 4), p.get("Name")))) if lon is not None and rid == "GE-TB" else None
+        st = (site_id.get(str(p.get("ID"))) or site.get((round(lon, 4), round(lat, 4), p.get("Name")))) if lon is not None and (rid == "GE-TB" or str(p.get("ID")) in site_id) else None
         if st:
             y0, y1 = st.get("ye") or st.get("y0"), st.get("y1")
             props["site_id"] = st["id"]
@@ -463,11 +464,12 @@ def main():
     b.polys = b.city_polys[CITIES[0]["region"]]                       # the districts of Tbilisi place the objects of the register that are in the city
     load_register_national(b)
     path = register_file()
-    n_raw = sum(1 for f in json.load(open(path, encoding="utf-8"))["features"] if GEORGIA or f["properties"].get("Region") == "თბილისი") if path else 0
+    site_ids = {f["properties"]["id"] for f in jl("monuments.json")["features"]} if CITIES else set()
+    n_raw = sum(1 for f in json.load(open(path, encoding="utf-8"))["features"] if GEORGIA or f["properties"].get("Region") == "თბილისი" or f["properties"].get("ID") in site_ids) if path else 0
     n_reg = con.execute("SELECT COUNT(*) FROM object WHERE layer = 'reg'").fetchone()[0]
     if n_reg != n_raw:
         bad.append("register: %d in the index, %d in the file" % (n_reg, n_raw))
-    n_tb = con.execute("SELECT COUNT(*) FROM object WHERE layer = 'reg' AND id LIKE 'TB/%'").fetchone()[0]
+    n_tb = con.execute("SELECT COUNT(*) FROM object WHERE layer = 'reg' AND (id LIKE 'TB/%' OR props LIKE '%site_id%')").fetchone()[0]
     if n_tb != len(jl("monuments.json")["features"]):
         bad.append("register of Tbilisi: %d in the index, %d in the file of the site" % (n_tb, len(jl("monuments.json")["features"])))
     if con.execute("SELECT COUNT(*) FROM object WHERE layer = 'reg' AND id LIKE 'TB/%' AND props LIKE '%site_id%'").fetchone()[0] < n_tb * 0.9:
