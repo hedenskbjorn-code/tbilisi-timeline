@@ -1,8 +1,8 @@
 """Split the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008) into entries and prepare the batches for Gemini.
 
 Input: data/cache/ocr/streets_enc2008_kat.txt (the page OCR of tools/ocr_book.py with OCR_PSM=3, lang kat; the pages are the PDF pages of data/cache/nplg_pdfs/tbilisi_streets_2008.pdf).
-Output: data/cache/enc2008_entries.json (all entries; the cache is not committed) and, with --batches, the inputs of the task of Gemini in for_gemini/from_desktop/enc_batches/
-(the folder for_gemini/ is ignored by git): the entries with a statement about a name and a year that are not on the map yet, 60 entries per batch.
+Output: data/cache/enc2008_entries.json (all entries; the cache is not committed) and, with --batches, the inputs of the task of Gemini in work/gemini/enc_batches/
+(the folder work/gemini/ is ignored by git): the entries with a statement about a name and a year that are not on the map yet, 60 entries per batch.
 Usage: python -P tools/parse_street_encyclopedia.py [--batches [--force]]
 """
 import difflib
@@ -69,7 +69,7 @@ def main():
     print("entries: %d; with a name and a year: %d; not on the map: %d" % (len(es), sum(e["has_rename_and_year"] for e in es), len(cand)))
     if "--batches" not in sys.argv:
         return
-    d = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+    d = os.path.join(ROOT, "work", "gemini", "batches", "enc")
     os.makedirs(d, exist_ok=True)
     n = (len(cand) + PER_BATCH - 1) // PER_BATCH
     for b in range(n):
@@ -87,7 +87,7 @@ def second_pass():
     """The entries that Gemini skipped as 'unsure' or 'no_named_years' although the text holds two or more different years: a second look at the PDF pages (enc2_batch_NN.md)."""
     import glob
     ents = {e["id"]: e for e in json.load(open(OUT, encoding="utf-8"))}
-    d = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+    d = os.path.join(ROOT, "work", "gemini", "batches", "enc")
     pick = []
     for fp in sorted(glob.glob(os.path.join(d, "enc_batch_*_result.json"))):
         for r in json.load(open(fp, encoding="utf-8")):
@@ -104,16 +104,16 @@ def second_pass():
         for e in pick[b * PER_BATCH:(b + 1) * PER_BATCH]:
             lines.append("## %s | PDF p. %s | район: %s | заголовок (OCR): %s\n\n```\n%s\n```\n" % (e["id"], e["page"], e["district"], e["name"], e["text"]))
         open(p, "w", encoding="utf-8").write("\n".join(lines))
-    task = open(os.path.join(ROOT, "for_gemini", "from_desktop", "enc_streets_TASK_for_gemini.md"), encoding="utf-8").read()
+    task = open(os.path.join(ROOT, "work", "gemini", "tasks/enc_streets.md"), encoding="utf-8").read()
     a, b = task.index("## Схема объекта"), task.index("## Как будет проверено")
     head = ("# ЗАДАНИЕ, ВТОРОЙ ПРОХОД: те же правила, только для статей, которые в первом проходе были пропущены\n\n"
             "В первом проходе из этих %d статей ничего не выписано: часть как `unsure` (искажённые цифры в OCR), часть как `no_named_years`. Проверка показала, что в текстах есть годы, и в части статей цепочка читается. "
             "**Открой страницу PDF каждой статьи** (`C:/Projects/tbilisi-timeline/data/cache/nplg_pdfs/tbilisi_streets_2008.pdf`, номер страницы в заголовке статьи) и **прочитай напечатанные годы и названия**: цифры в OCR искажены (I990, 192I, 19 23), а на странице они читаются. "
             "Если цепочка читается по странице, дай `ok`; цитату бери из OCR-текста дословно (как в первом проходе), а исправленные годы пиши в `from`/`to`; если год в OCR искажён и в цитате его нет в нужном виде, выбери для цитаты другой фрагмент с названием, в котором год в OCR цел, или дай `skip` с `unsure`. "
             "Правило прежнее: только напечатанное, интервал без обоих годов не создаётся.\n\n"
-            "Вход: `C:/Projects/tbilisi-timeline/for_gemini/from_desktop/enc_batches/enc2_batch_01.md` … `enc2_batch_%02d.md`; выход: `enc2_batch_NN_result.json` рядом.\n\n" % (len(pick), n))
-    tail = "## Как будет проверено\nТе же программные проверки, что в первом проходе.\n\n## Готовая фраза для запуска\n> Прочитай файл `C:/Projects/tbilisi-timeline/for_gemini/from_desktop/enc2_streets_TASK_for_gemini.md`, выполни задание для всех партий второго прохода и сохрани результаты в `enc2_batch_NN_result.json` рядом с входными файлами.\n"
-    out = os.path.join(ROOT, "for_gemini", "from_desktop", "enc2_streets_TASK_for_gemini.md")
+            "Вход: `C:/Projects/tbilisi-timeline/work/gemini/batches/enc/enc2_batch_01.md` … `enc2_batch_%02d.md`; выход: `enc2_batch_NN_result.json` рядом.\n\n" % (len(pick), n))
+    tail = "## Как будет проверено\nТе же программные проверки, что в первом проходе.\n\n## Готовая фраза для запуска\n> Прочитай файл `C:/Projects/tbilisi-timeline/work/gemini/tasks/enc2_streets.md`, выполни задание для всех партий второго прохода и сохрани результаты в `enc2_batch_NN_result.json` рядом с входными файлами.\n"
+    out = os.path.join(ROOT, "work", "gemini", "tasks/enc2_streets.md")
     assert "--force" in sys.argv or not os.path.exists(out)
     open(out, "w", encoding="utf-8").write(head + task[a:b].replace("enc_batch_", "enc2_batch_") + tail)
     print("second pass: %d entries in %d batches" % (len(pick), n))
@@ -123,7 +123,7 @@ def third_pass():
     """The entries that stayed 'unsure' after the second pass, now with the repaired digits of the years (enc3_batch_NN.md)."""
     import glob
     ents = {e["id"]: e for e in json.load(open(OUT, encoding="utf-8"))}
-    d = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+    d = os.path.join(ROOT, "work", "gemini", "batches", "enc")
     last = {}
     for pat in ("enc_batch_*_result.json", "enc2_batch_*_result.json"):
         for fp in sorted(glob.glob(os.path.join(d, pat))):
@@ -139,25 +139,25 @@ def third_pass():
         for e in pick[b * PER_BATCH:(b + 1) * PER_BATCH]:
             lines.append("## %s | PDF p. %s | район: %s | заголовок (OCR): %s\n\n```\n%s\n```\n" % (e["id"], e["page"], e["district"], e["name"], e["text"]))
         open(p, "w", encoding="utf-8").write("\n".join(lines))
-    task = open(os.path.join(ROOT, "for_gemini", "from_desktop", "enc2_streets_TASK_for_gemini.md"), encoding="utf-8").read()
+    task = open(os.path.join(ROOT, "work", "gemini", "tasks/enc2_streets.md"), encoding="utf-8").read()
     a, b = task.index("## Схема объекта"), task.index("## Как будет проверено")
     head = ("# ЗАДАНИЕ, ТРЕТИЙ ПРОХОД: те же правила, только для %d статей, которые остались «не уверен»\n\n"
             "В первом и втором проходе эти статьи пропущены из-за искажённых цифр. **Причина найдена и исправлена: в тексте статей искажённые годы теперь исправлены** (`I990`→`1990`, `192I`→`1921`, `19 23`→`1923`), "
             "поэтому цитату можно брать из этого текста дословно, и годы в ней будут целыми. Открой страницу PDF (`C:/Projects/tbilisi-timeline/data/cache/nplg_pdfs/tbilisi_streets_2008.pdf`), убедись, что напечатанные годы и названия совпадают с текстом, и выпиши цепочку. "
             "Правило прежнее: только напечатанное, интервал без обоих годов не создаётся; если после исправления всё равно нельзя прочитать цепочку, дай `skip`.\n\n"
-            "Вход: `C:/Projects/tbilisi-timeline/for_gemini/from_desktop/enc_batches/enc3_batch_01.md` … `enc3_batch_%02d.md`; выход: `enc3_batch_NN_result.json` рядом.\n\n" % (len(pick), n))
-    tail = "## Как будет проверено\nТе же программные проверки.\n\n## Готовая фраза для запуска\n> Прочитай файл `C:/Projects/tbilisi-timeline/for_gemini/from_desktop/enc3_streets_TASK_for_gemini.md`, выполни задание для всех партий третьего прохода и сохрани результаты в `enc3_batch_NN_result.json` рядом с входными файлами.\n"
-    out = os.path.join(ROOT, "for_gemini", "from_desktop", "enc3_streets_TASK_for_gemini.md")
+            "Вход: `C:/Projects/tbilisi-timeline/work/gemini/batches/enc/enc3_batch_01.md` … `enc3_batch_%02d.md`; выход: `enc3_batch_NN_result.json` рядом.\n\n" % (len(pick), n))
+    tail = "## Как будет проверено\nТе же программные проверки.\n\n## Готовая фраза для запуска\n> Прочитай файл `C:/Projects/tbilisi-timeline/work/gemini/tasks/enc3_streets.md`, выполни задание для всех партий третьего прохода и сохрани результаты в `enc3_batch_NN_result.json` рядом с входными файлами.\n"
+    out = os.path.join(ROOT, "work", "gemini", "tasks/enc3_streets.md")
     assert "--force" in sys.argv or not os.path.exists(out)
     open(out, "w", encoding="utf-8").write(head + task[a:b].replace("enc2_batch_", "enc3_batch_") + tail)
     print("third pass: %d entries in %d batches" % (len(pick), n))
 
 
 def full_pass():
-    """The full pass (enc4_batch_NN.md): every entry that the strict passes did not accept and that has a former name or a year; the rules are in enc4_streets_TASK_for_gemini.md."""
+    """The full pass (enc4_batch_NN.md): every entry that the strict passes did not accept and that has a former name or a year; the rules are in tasks/enc4_streets.md."""
     import glob
     ents = json.load(open(OUT, encoding="utf-8"))
-    d = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+    d = os.path.join(ROOT, "work", "gemini", "batches", "enc")
     ok = set()
     for pat in ("enc_batch_*_result.json", "enc2_batch_*_result.json", "enc3_batch_*_result.json"):
         for fp in sorted(glob.glob(os.path.join(d, pat))):
@@ -180,9 +180,9 @@ OBJ_HINT = re.compile("არქიტ|მოქანდაკე|ბიუს�
 
 def objects_pass():
     """The pass about the objects on the streets (enc5_batch_NN.md): every entry whose long text has a word about a building, a monument, a church, a lost place, a resident or a surveyor;
-    the rules are in enc5_objects_TASK_for_gemini.md. 40 entries per batch."""
+    the rules are in tasks/enc5_objects.md. 40 entries per batch."""
     ents = json.load(open(OUT, encoding="utf-8"))
-    d = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+    d = os.path.join(ROOT, "work", "gemini", "batches", "enc")
     pick = [e for e in ents if OBJ_HINT.search(e["text_long"])]
     per = 40
     n = (len(pick) + per - 1) // per

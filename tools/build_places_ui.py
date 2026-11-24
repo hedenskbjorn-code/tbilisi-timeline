@@ -1,4 +1,4 @@
-"""tools/places_ui.json: the strings of the layer "Local names" (the legend, the card) in ru / en (written here) and ka (the answer of Gemini, for_gemini/from_desktop/places_ui_result.json;
+"""tools/places_ui.json: the strings of the layer "Local names" (the legend, the card) in ru / en (written here) and ka (the answer of Gemini, work/gemini/results/places_ui.json;
 the Georgian text only through Gemini; while the answer is missing the strings have no ka and the page shows the English text). Usage: python -P tools/build_places_ui.py
 """
 import json
@@ -30,7 +30,7 @@ RU_EN = {
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    p = os.path.join(R, "for_gemini", "from_desktop", "places_ui_result.json")
+    p = os.path.join(R, "work", "gemini", "results/places_ui.json")
     ka = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
     if ka:
         assert set(ka) == set(RU_EN), set(ka) ^ set(RU_EN)
@@ -39,7 +39,7 @@ def main():
     ui = {k: {"ru": a, "en": b, **({"ka": ka[k]} if k in ka else {})} for k, (a, b) in RU_EN.items()}
     mu = json.load(open(os.path.join(R, "tools", "metro_ui.json"), encoding="utf-8"))      # the line "Encyclopedia ..., p." is the same as in the card of a metro station (three languages)
     ui["enc"] = mu["enc"] if "enc" in mu else mu["ui"]["enc"]
-    mp = os.path.join(R, "for_gemini", "from_desktop", "places_manual_result.json")           # the card of the former hippodrome (tools/places_hippodrome.py): name, text, the note about the contour
+    mp = os.path.join(R, "work", "gemini", "results/places_manual.json")           # the card of the former hippodrome (tools/places_hippodrome.py): name, text, the note about the contour
     mk = json.load(open(mp, encoding="utf-8")) if os.path.exists(mp) else {}
     ui["area_note"] = {"ru": "Показана территория Центрального парка по данным OpenStreetMap; ипподром занимал больше (по georgia.travel около 36 га, в прошлом до 57 га).",
                        "en": "The territory of the Central Park is shown (OpenStreetMap); the hippodrome was larger (about 36 ha according to georgia.travel, up to 57 ha in the past).", **({"ka": mk["area_note"]} if mk else {})}

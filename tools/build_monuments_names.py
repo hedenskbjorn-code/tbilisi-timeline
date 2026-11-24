@@ -2,7 +2,7 @@
 (tools/fetch_monument_labels.py), site/data/street_geom.json + street_names.json. Makes data/cache/monuments_named.json:
 - the name in a language that is empty is taken from the Wikidata label of the subject when the object has ONE subject (a person) and the label exists;
 - "st": the nearest street of the site within 150 m (the key of street_geom.json) for every object: it makes the label of an object without a name ("Bust, Rustaveli Avenue");
-- "need": the names that are still empty in some language while another language has the name: the table for Gemini (for_gemini/from_desktop/monuments_names_batch_01.md, id | ka | ru | en | kind).
+- "need": the names that are still empty in some language while another language has the name: the table for Gemini (work/gemini/batches/monuments_names/monuments_names_batch_01.md, id | ka | ru | en | kind).
 Usage: python -P tools/build_monuments_names.py
 """
 import json
@@ -80,7 +80,7 @@ def main():
     kinds = {"m": "памятник", "p": "мемориальная доска"}
     for i, x in need:
         rows.append("| %s | %s | %s | %s | %s |" % (i, x["n"]["ka"], x["n"]["ru"], x["n"]["en"], x.get("kind") or "plaque"))
-    open(os.path.join(R, "for_gemini", "from_desktop", "monuments_names_batch_01.md"), "wb").write(("\n".join(rows) + "\n").encode("utf-8"))
+    open(os.path.join(R, "work", "gemini", "batches/monuments_names/monuments_names_batch_01.md"), "wb").write(("\n".join(rows) + "\n").encode("utf-8"))
     nm = lambda x: any(x["n"].values())  # noqa: E731
     for key in ("monuments", "plaques"):
         xs = d[key]

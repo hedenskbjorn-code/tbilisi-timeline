@@ -108,6 +108,10 @@
 </aside>
 <aside id="filters">
   <div class="phead"><span data-i="filtersTitle"></span><span class="pacts"><button type="button" id="filtersReset" class="chip mini" data-i="filtersReset" disabled></button><button class="pclose" data-panel="filters" aria-label="close">×</button></span></div>
+  <div class="fquick" id="fquick">
+    <label class="row" id="rowNoPhoto" hidden><input type="checkbox" id="showNoPhoto"> <span id="noPhotoL"></span></label>
+    <div class="row" id="rowNear" hidden><button type="button" id="btnNear" class="chip"></button></div>
+  </div>
 
   <details class="fsec" data-sec="f-base">
     <summary><span data-i="secBase"></span><span class="cnt"></span></summary>
@@ -116,20 +120,19 @@
       <span data-i="planOpacity"></span> <output id="opv">65%</output>
       <input type="range" id="op" min="0" max="100" value="65">
     </label>
-    <label class="row"><input type="checkbox" id="showTopo"> <span data-i="showTopo"></span></label>
-    <div class="row col" id="topobox" hidden>
-      <div class="small" id="topoAutoNote" hidden data-i="topoAutoNote"></div>
-      <select id="topoSel" class="chip" aria-label="topo">
+    <div class="row col" id="topobox">
+      <label for="topoSel" class="small" data-i="mapSrc"></label>
+      <select id="topoSel" class="chip" aria-label="map source">
+        <option value="auto" selected data-i="mapSrcAuto"></option>
+        <option value="plan" data-i="mapSrcPlan"></option>
         <option value="t2" data-i="topoPlanOpt"></option>
         <option value="t10">1:10 000 · 1952–2007</option>
-        <option value="t25" selected>1:25 000 · 1953–2004</option>
+        <option value="t25">1:25 000 · 1953–2004</option>
         <option value="t50">1:50 000 · 1973–1990</option>
         <option value="t100">1:100 000 · 1978–1990</option>
       </select>
-      <input type="range" id="topoOp" min="0" max="100" value="80" aria-label="opacity">
-      <div class="small" data-i="topoNote"></div>
+      <div class="small" id="topoNoteRow" hidden data-i="topoNote"></div>
     </div>
-    <label class="row sub"><input type="checkbox" id="autoTopo" checked> <span data-i="autoTopo"></span></label>
   </details>
   <details class="fsec" data-sec="f-city">
     <summary><span data-i="secBounds"></span><span class="cnt"></span></summary>
@@ -142,42 +145,65 @@
     <label class="row"><input type="checkbox" id="roadLabels" checked> <span data-i="roadLabels"></span></label>
     <label class="row"><input type="checkbox" id="showStLabels" checked> <span data-i="showStLabels"></span></label>
     <label class="row"><input type="checkbox" id="showStreets"> <span data-i="showStreets"></span></label>
+    <label class="row"><input type="checkbox" id="showPlaces"> <span data-i="showPlaces"></span></label>
+    <div id="placesLegend" class="small rellegend" hidden></div>
+    <label class="row sub" id="rowPlaceAreas" hidden><input type="checkbox" id="showPlaceAreas"> <span data-i="showPlaceAreas"></span></label>
   </details>
   <details class="fsec" data-sec="f-layers" open>
     <summary><span data-i="secBuild"></span><span class="cnt"></span></summary>
-    <label class="row"><input type="checkbox" id="showResid" checked> <span data-i="showResid"></span></label>
-    <label class="row"><input type="checkbox" id="showPublic" checked> <span data-i="showPublic"></span></label>
+    <!-- groups: a master box switches all the boxes of its group (half-ticked when only some are on); the arrow opens the group -->
+    <div class="gm" data-gm="reg">
+      <div class="gmhead"><label class="row"><input type="checkbox" class="gmaster"> <span data-i="gmReg"></span></label><button type="button" class="gmtoggle chip mini" aria-expanded="false" aria-label="open the group">▸</button></div>
+      <div class="gmkids" hidden>
+        <label class="row sub"><input type="checkbox" id="showResid" checked> <span data-i="showResid"></span></label>
+        <label class="row sub"><input type="checkbox" id="showPublic" checked> <span data-i="showPublic"></span></label>
+        <label class="row sub"><input type="checkbox" id="showDef" checked> <span data-i="showDef"></span></label>
+        <label class="row sub"><input type="checkbox" id="showOtherB" checked> <span data-i="showOtherB"></span></label>
+      </div>
+    </div>
     <label class="row"><input type="checkbox" id="showRel" checked> <span data-i="showRel"></span></label>
     <div id="relLegend" class="small rellegend"></div>
-    <label class="row"><input type="checkbox" id="showSci" checked> <span data-i="showSci"></span></label>
+    <div class="gm" data-gm="sci">
+      <div class="gmhead"><label class="row"><input type="checkbox" class="gmaster"> <span data-i="gmSciEdu"></span></label><button type="button" class="gmtoggle chip mini" aria-expanded="false" aria-label="open the group">▸</button></div>
+      <div class="gmkids" hidden>
+        <label class="row sub"><input type="checkbox" id="showSci" checked> <span data-i="showSci"></span></label>
+        <label class="row sub"><input type="checkbox" id="showEdu"> <span data-i="showEdu"></span></label>
+        <label class="row sub"><input type="checkbox" id="showMus" checked> <span data-i="showMus"></span></label>
+      </div>
+    </div>
     <div id="sciLegend" class="small rellegend"></div>
-    <label class="row"><input type="checkbox" id="showEdu"> <span data-i="showEdu"></span></label>
     <div id="eduLegend" class="small rellegend" hidden></div>
-    <label class="row"><input type="checkbox" id="showPlaces"> <span data-i="showPlaces"></span></label>
-    <div id="placesLegend" class="small rellegend" hidden></div>
-    <label class="row"><input type="checkbox" id="showMon"> <span data-i="showMon"></span></label>
-    <label class="row sub" hidden><input type="checkbox" id="showMonUndated"> <span data-i="showMonUndated"></span></label>
+    <div id="musLegend" class="small rellegend"></div>
+    <div class="gm" data-gm="mon">
+      <div class="gmhead"><label class="row"><input type="checkbox" class="gmaster"> <span data-i="gmMon"></span></label><button type="button" class="gmtoggle chip mini" aria-expanded="false" aria-label="open the group">▸</button></div>
+      <div class="gmkids" hidden>
+        <label class="row sub"><input type="checkbox" id="showMon"> <span data-i="showMon"></span></label>
+        <label class="row sub2" hidden><input type="checkbox" id="showMonUndated"> <span data-i="showMonUndated"></span></label>
+        <label class="row sub"><input type="checkbox" id="showPlq"> <span data-i="showPlq"></span></label>
+        <label class="row sub2" hidden><input type="checkbox" id="showPlqUndated"> <span data-i="showPlqUndated"></span></label>
+      </div>
+    </div>
     <div id="monLegend" class="small rellegend" hidden></div>
-    <label class="row"><input type="checkbox" id="showPlq"> <span data-i="showPlq"></span></label>
-    <label class="row sub" hidden><input type="checkbox" id="showPlqUndated"> <span data-i="showPlqUndated"></span></label>
-    <div id="plqLegend" class="small rellegend" hidden></div>
     <label class="row"><input type="checkbox" id="showMod"> <span data-i="showMod"></span></label>
-    <div id="modLegend" class="small rellegend" hidden></div>
-    <label class="row"><input type="checkbox" id="showDef" checked> <span data-i="showDef"></span></label>
-    <label class="row"><input type="checkbox" id="showOtherB" checked> <span data-i="showOtherB"></span></label>
     <label class="row"><input type="checkbox" id="showLost" checked> <span data-i="showLost"></span></label>
     <label class="row sub"><input type="checkbox" id="showGhost"> <span data-i="showGhost"></span></label>
-    <label class="row" id="rowNoPhoto" hidden><input type="checkbox" id="showNoPhoto"> <span id="noPhotoL"></span></label>
-    <div class="row" id="rowNear" hidden><button type="button" id="btnNear" class="chip"></button></div>
   </details>
   <details class="fsec" data-sec="f-hist">
     <summary><span data-i="secHist"></span><span class="cnt"></span></summary>
     <label class="row"><input type="checkbox" id="show94" checked> <span data-i="show94"></span></label>
     <label class="row"><input type="checkbox" id="showBattles" checked> <span data-i="showBattles"></span></label>
     <label class="row"><input type="checkbox" id="showRulers"> <span data-i="showRulers"></span></label>
-    <label class="row"><input type="checkbox" id="showRun"> <span data-i="showRun"></span></label>
-    <div id="runLegend" class="small rellegend" hidden></div>
-    <label class="row"><input type="checkbox" id="showTransport" checked> <span data-i="showTransport"></span></label>
+    <!-- transport: a group (the master box switches all its lines; the arrow opens it) -->
+    <div class="gm" data-gm="tr">
+      <div class="gmhead"><label class="row"><input type="checkbox" class="gmaster"> <span data-i="secTransport"></span></label><button type="button" class="gmtoggle chip mini" aria-expanded="false" aria-label="open the group">▸</button></div>
+      <div class="gmkids" hidden>
+        <label class="row sub"><input type="checkbox" id="showTrMetro" checked> <span data-i="trSubMetro"></span></label>
+        <label class="row sub"><input type="checkbox" id="showTrTram" checked> <span data-i="trSubTram"></span></label>
+        <label class="row sub"><input type="checkbox" id="showTrRail" checked> <span data-i="trSubRail"></span></label>
+        <label class="row sub"><input type="checkbox" id="showTrRoad" checked> <span data-i="trSubRoad"></span></label>
+        <label class="row sub"><input type="checkbox" id="showTrCable" checked> <span data-i="trSubCable"></span></label>
+      </div>
+    </div>
   </details>
   <div hidden><input type="checkbox" id="showSwipe"><input type="checkbox" id="showHere"></div>
 

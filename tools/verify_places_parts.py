@@ -1,4 +1,4 @@
-"""Checks the answer of Gemini about the places whose name is made of words (for_gemini/from_desktop/places4_result.json, rules: places4_TASK_for_gemini.md; the table places4_batch_01.md): every place once in the order
+"""Checks the answer of Gemini about the places whose name is made of words (work/gemini/results/places4.json, rules: tasks/places4.md; the table batches/places4/places4_batch_01.md): every place once in the order
 of the table; the schema; "parts": at least two words, every one with the address of ITS OWN page (ka/ru/en Wiktionary or ena.ge: the decoded address holds the word) and a quote (<= 40 words) that stands verbatim on
 that page (the page is downloaded; a page that cannot be read gives "unchecked"); no Cyrillic in ka/en; every year of the text stands in a quote. Output: data/cache/places_parts_verified.json ({"ok", "unchecked", "rejected", "skip"}).
 Usage: python -P tools/verify_places_parts.py
@@ -14,7 +14,9 @@ from verify_metro import page_text  # noqa: E402
 from verify_mainroads import norm  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FD = os.path.join(R, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 CYR = re.compile("[А-Яа-яЁё]")
 HOSTS = ("ka.wiktionary.org", "ru.wiktionary.org", "en.wiktionary.org", "ena.ge", "www.ena.ge")
 KEYS = {"key", "status", "skip_reason", "etym", "parts"}
@@ -22,8 +24,8 @@ KEYS = {"key", "status", "skip_reason", "etym", "parts"}
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    keys = re.findall(r"^\| ((?:district|garden|hill|bridge|cemetery|market|bath|area):[^ |]+) \|", open(os.path.join(FD, "places4_batch_01.md"), encoding="utf-8").read(), re.M)
-    rows = json.load(open(os.path.join(FD, "places4_result.json"), encoding="utf-8"))
+    keys = re.findall(r"^\| ((?:district|garden|hill|bridge|cemetery|market|bath|area):[^ |]+) \|", open(os.path.join(FD, "batches/places4/places4_batch_01.md"), encoding="utf-8").read(), re.M)
+    rows = json.load(open(os.path.join(FD, "results/places4.json"), encoding="utf-8"))
     got = [r.get("key") for r in rows if isinstance(r, dict)]
     print("rows", len(rows), "| table", len(keys), "| missing", [k for k in keys if k not in got], "| extra", [k for k in got if k not in keys], "| duplicates", sorted({k for k in got if got.count(k) > 1}), "| order ok", got == keys)
     res = {"ok": [], "unchecked": [], "rejected": [], "skip": []}

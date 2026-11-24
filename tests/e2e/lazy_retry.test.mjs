@@ -4,7 +4,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import { startServer, launch, openPage, waitReady, DATA } from "./helpers.mjs";
+import { startServer, launch, openPage, waitReady, DATA, tick } from "./helpers.mjs";
 
 let server, browser;
 test.before(async () => { server = await startServer(); browser = await launch(); });
@@ -18,7 +18,7 @@ for (const [file, box, source] of LAYERS) {
     let n = 0;
     await page.route(`**/data/${file}.json*`, (r) => { n++; return n <= 1 ? r.abort("failed") : r.continue(); });
     await waitReady(page);
-    await page.check(box);
+    await tick(page, box, true);
     await page.waitForFunction((s) => window.TT_E2E.map.getSource(s), source, { timeout: 15000 });
     assert.ok(n >= 2, "a second request was made");
     await page.ctx.close();
@@ -29,11 +29,11 @@ for (const [file, box, source] of LAYERS) {
     let n = 0;
     await page.route(`**/data/${file}.json*`, (r) => { n++; return n <= 4 ? r.abort("failed") : r.continue(); });
     await waitReady(page);
-    await page.check(box);
+    await tick(page, box, true);
     await page.waitForFunction(() => true);
     await page.waitForTimeout(4500);                                    // the four tries (0.4 + 0.8 + 1.2 s) have failed
     assert.equal(await page.evaluate((s) => !!window.TT_E2E.map.getSource(s), source), false, "the layer is empty after four failures");
-    await page.uncheck(box); await page.check(box);
+    await tick(page, box, false); await tick(page, box, true);
     await page.waitForFunction((s) => window.TT_E2E.map.getSource(s), source, { timeout: 15000 });
     await page.ctx.close();
   });

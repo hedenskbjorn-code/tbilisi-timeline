@@ -24,6 +24,9 @@ def ph_title(u):
     return ""
 
 
+INTRO = json.load(open(os.path.join(R, "data", "cache", "wiki_intros.json"), encoding="utf-8")) if os.path.exists(os.path.join(R, "data", "cache", "wiki_intros.json")) else {}
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     d = json.load(open(os.path.join(R, "data", "cache", "monuments_named.json"), encoding="utf-8"))
@@ -80,6 +83,10 @@ def main():
                     it["pend"] = 1                                     # a new object whose name waits for the translation (tools/build_monuments_names.py makes the table for Gemini): the page shows the name that exists
             else:
                 it["ins"] = (x["inscription"] or "").replace("\\n", "\n").strip()[:400]
+            wi = INTRO.get(key, {}).get(x["id"])                       # the first sentences of the Wikipedia article that the object is linked to (data/cache/wiki_intros.json: written by hand into the files on 2026-11-24, kept here so that a rebuild keeps them); a description found by a search wins
+            if wi and not it.get("d"):
+                it["d"] = {l: t.replace("́", "") for l, t in wi.items()}      # the stress marks of the Russian article (a combining acute) are not kept
+                it["dw"] = 1                                                      # a description from Wikipedia: the card says so
             if it["st"]:
                 used.add(it["st"])
             items.append(it)

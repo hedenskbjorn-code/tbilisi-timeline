@@ -1,4 +1,4 @@
-"""Checks the answer of Gemini about the names of monuments and plaques (for_gemini/from_desktop/monuments_names_result.json, the table monuments_names_batch_01.md): the keys and the order;
+"""Checks the answer of Gemini about the names of monuments and plaques (work/gemini/results/monuments_names.json, the table batches/monuments_names/monuments_names_batch_01.md): the keys and the order;
 the fields that were filled stay as they were; the empty ones are filled; no Cyrillic in ka/en; Cyrillic in ru; "prospekt" only as gamziri. Output: data/cache/monuments_names_verified.json ({id: {ka, ru, en}}).
 Usage: python -P tools/verify_monuments_names.py
 """
@@ -19,11 +19,11 @@ def script_ok(lg, v):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     rows_in = []
-    for ln in open(os.path.join(R, "for_gemini", "from_desktop", "monuments_names_batch_01.md"), encoding="utf-8"):
+    for ln in open(os.path.join(R, "work", "gemini", "batches/monuments_names/monuments_names_batch_01.md"), encoding="utf-8"):
         m = re.match(r"\| ([mp]:[^|]+?) \| (.*?) \| (.*?) \| (.*?) \| (.*?) \|$", ln.rstrip("\n"))
         if m:
             rows_in.append((m.group(1), {"ka": m.group(2).strip(), "ru": m.group(3).strip(), "en": m.group(4).strip()}))
-    rows = json.load(open(os.path.join(R, "for_gemini", "from_desktop", "monuments_names_result.json"), encoding="utf-8"))
+    rows = json.load(open(os.path.join(R, "work", "gemini", "results/monuments_names.json"), encoding="utf-8"))
     ids = [i for i, _ in rows_in]
     got = [r.get("id") for r in rows if isinstance(r, dict)]
     print("rows", len(rows), "| table", len(ids), "| missing", [i for i in ids if i not in got][:10], "| extra", [i for i in got if i not in ids][:10], "| order ok", got == ids)

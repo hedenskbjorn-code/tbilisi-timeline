@@ -30,6 +30,7 @@ CREATE TABLE object (
 );
 CREATE INDEX object_layer ON object(layer);
 CREATE INDEX object_region ON object(region);
+CREATE INDEX object_years ON object(year_from, year_to);                      -- "what existed in 1913"
 CREATE VIRTUAL TABLE object_geo USING rtree(id, min_lon, max_lon, min_lat, max_lat);   -- id = object.rowid_
 
 CREATE TABLE name (
@@ -61,6 +62,7 @@ CREATE TABLE fact (
   status TEXT NOT NULL DEFAULT 'imported'  -- imported (curated data) | verified (the quotation stands on its page: a verify_*.py script) | pending | rejected
 );
 CREATE INDEX fact_object ON fact(object_id, key);
+CREATE INDEX fact_status ON fact(status, key);                                -- the views of what is verified and what is not
 
 CREATE TABLE media (
   object_id TEXT NOT NULL REFERENCES object(id),
@@ -83,6 +85,7 @@ CREATE TABLE task_row (
   row_id TEXT,
   status TEXT
 );
+CREATE INDEX task_row_object ON task_row(object_id);
 
 -- what a layer still lacks
 CREATE VIEW v_object_state AS

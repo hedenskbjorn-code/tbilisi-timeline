@@ -1,5 +1,5 @@
 """The task for Gemini about the main roads (the layer of the avenues): for each of the 25 roads the article of the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008) with the phrase about the
-origin of the street ("წარმოიქმნა XX ს. 20-იან წლებში"), a verbatim quote and the PDF page. Makes for_gemini/from_desktop/mainroads_batch_01.md (the candidate articles by the likeness of the heading;
+origin of the street ("წარმოიქმნა XX ს. 20-იან წლებში"), a verbatim quote and the PDF page. Makes work/gemini/batches/mainroads/mainroads_batch_01.md (the candidate articles by the likeness of the heading;
 the encyclopedia is alphabetical, the candidates can be wrong: Gemini reads the PDF). The answer is checked by tools/verify_mainroads.py.
 Usage: python -P tools/mainroads_task.py
 """
@@ -10,7 +10,7 @@ import re
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
-OUT = os.path.join(ROOT, "for_gemini", "from_desktop", "mainroads_batch_01.md")
+OUT = os.path.join(ROOT, "work", "gemini", "batches/mainroads/mainroads_batch_01.md")
 
 ROADS = [  # key, English name (OSM), Georgian name (OSM), role
     ("rustaveli", "Shota Rustaveli Avenue", "შოთა რუსთაველის გამზირი", "avenue"), ("aghmashenebeli", "David Aghmashenebeli Avenue", "დავით აღმაშენებლის გამზირი", "avenue"),

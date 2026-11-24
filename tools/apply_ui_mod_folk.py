@@ -1,4 +1,4 @@
-"""Takes the Georgian texts from Gemini (for_gemini/from_desktop/ui_mod_folk_result.json, task: ui_mod_folk_TASK_for_gemini.md) and puts them where they wait:
+"""Takes the Georgian texts from Gemini (work/gemini/results/ui_mod_folk.json, task: tasks/ui_mod_folk.md) and puts them where they wait:
 tools/folk_mod_ui.json (the strings of the layers: "places", "modernism", "i18n"), site/i18n.js (the key showMod), site/data/changelog.json (the last three items of the newest version).
 A text is taken only when it has Georgian letters, no Cyrillic, no word პროსპექტი, and the same numbers as the Russian text (for the long ones). Then run tools/apply_folk.py, tools/build_modernism.py and tests/check_data.mjs.
 Usage: python -P tools/apply_ui_mod_folk.py
@@ -9,7 +9,7 @@ import re
 import sys
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-RES = os.path.join(R, "for_gemini", "from_desktop", "ui_mod_folk_result.json")
+RES = os.path.join(R, "work", "gemini", "results/ui_mod_folk.json")
 
 
 def ok(ka, ru):

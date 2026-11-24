@@ -1,14 +1,14 @@
 """Release 1.8.2, part two: name histories of 26 streets renamed in 1988-1991 (idempotent; --dry-run only checks).
 
 The list of renamed streets is from a blog post; every name, year and quote was checked against the text of the ka.wikipedia page (see tools/streets_kv_spec.json: only what a page states;
-a decade ("30s") or a year of a plan or directory is marked as such in the note). The Georgian notes are Gemini's (for_gemini/from_desktop/tbilisi_kvamli_notes_result.md), checked here:
+a decade ("30s") or a year of a plan or directory is marked as such in the note). The Georgian notes are Gemini's (work/gemini/results/tbilisi_kvamli_notes.md), checked here:
 no Cyrillic, no the calque of the word "prospect", every ID present.
 """
 import json, os, re, sys
 
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 SPEC = os.path.join(R, "tools", "streets_kv_spec.json")
-RES = os.path.join(R, "for_gemini", "from_desktop", "tbilisi_kvamli_notes_result.md")
+RES = os.path.join(R, "work", "gemini", "results/tbilisi_kvamli_notes.md")
 NAMES = os.path.join(R, "site", "data", "street_names.json")
 VERIFIED = os.path.join(R, "data", "street_names_verified.json")
 CHANGELOG = os.path.join(R, "site", "data", "changelog.json")

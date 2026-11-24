@@ -28,7 +28,7 @@ test("the window of details, the viewer and the other pages lead to the form", (
   assert.match(html, /id="vmReport"/);
   assert.match(app, /\$\("imReport"\)\.addEventListener\("click"/);
   assert.match(app, /\$\("vmReport"\)\.addEventListener\("click"/);
-  for (const [dir, file] of [["entrances", "entrances/entrances.js"], ["run", "run/run.js"]]) {
+  for (const [dir, file] of [["entrances", "entrances/entrances.js"], ["run", "run/run.js"], ["museums", "museums/museums.js"], ["lost", "lost/lost.js"]]) {
     const page = read(dir + "/index.html");
     assert.ok(page.includes('id="report"') && page.includes('href="../?report=' + dir + '"'), `${dir}/index.html: the link to the form is missing`);
     const js = read(file);

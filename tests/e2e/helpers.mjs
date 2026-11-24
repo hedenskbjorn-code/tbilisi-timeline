@@ -71,3 +71,9 @@ export function realErrors(page) {
 }
 
 export const LANGS = ["ru", "en", "ka"];
+
+// switch a box of the panel of the filters: its block (<details>) is opened first (the blocks are closed by default except one, and a closed block hides its boxes)
+export async function tick(page, sel, on = true) {
+  await page.evaluate((s) => { const d = document.querySelector(s)?.closest("details"); if (d) d.open = true; }, sel);
+  await (on ? page.check(sel) : page.uncheck(sel));
+}

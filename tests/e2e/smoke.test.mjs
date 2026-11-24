@@ -17,12 +17,12 @@ for (const lang of LANGS) {
     assert.deepEqual(realErrors(page), []);
     await page.ctx.close();
   });
-  for (const sub of ["run", "entrances"]) {
+  for (const sub of ["run", "entrances", "museums", "lost"]) {
     test(`page /${sub}/, ${lang}: loads, no errors, text and sections list`, async () => {
       const page = await openPage(browser, `${server.url}/${sub}/?nostats=1&lang=${lang}`);
       await page.waitForFunction(() => document.getElementById("title") && document.getElementById("title").textContent.length > 3, null, { timeout: 30000 });
       assert.equal(await page.evaluate(() => document.documentElement.lang), lang);
-      assert.equal(await page.locator("#pagesSel option").count(), 3);
+      assert.equal(await page.locator("#pagesSel option").count(), 5);
       assert.deepEqual(realErrors(page), []);
       await page.ctx.close();
     });

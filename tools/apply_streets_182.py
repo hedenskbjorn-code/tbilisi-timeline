@@ -1,15 +1,15 @@
 """Release 1.8.2: street name histories of eight more streets (idempotent; --dry-run only checks).
 
 The names and years come from the Wikipedia pages named in the spec (ru or ka); only what a page states.
-The Georgian texts are Gemini's (for_gemini/from_desktop/tbilisi_streets190_ka_result.md), checked here:
+The Georgian texts are Gemini's (work/gemini/results/tbilisi_streets190_ka.md), checked here:
 no Cyrillic, no the calque of the word "prospect", every ID present.
 Spec: the SPEC dict below (names, years, notes, sources); geometry is in site/data/street_geom.json (tools/build_street_labels.py).
 """
 import json, os, re, sys
 
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-RES = os.path.join(R, "for_gemini", "from_desktop", "tbilisi_streets190_ka_result.md")
-SPEC = os.path.join(R, "for_gemini", "from_desktop", "..", "..", "tools", "streets182_spec.json")
+RES = os.path.join(R, "work", "gemini", "results/tbilisi_streets190_ka.md")
+SPEC = os.path.join(R, "work", "gemini", "..", "..", "tools", "streets182_spec.json")
 NAMES = os.path.join(R, "site", "data", "street_names.json")
 VERIFIED = os.path.join(R, "data", "street_names_verified.json")
 CHANGELOG = os.path.join(R, "site", "data", "changelog.json")

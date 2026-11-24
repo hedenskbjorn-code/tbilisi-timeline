@@ -1,4 +1,4 @@
-"""Check the answers of the full pass (for_gemini/from_desktop/enc_batches/enc4_batch_NN_result.json, rules: enc4_streets_TASK_for_gemini.md) against the text of the entries.
+"""Check the answers of the full pass (work/gemini/enc_batches/enc4_batch_NN_result.json, rules: tasks/enc4_streets.md) against the text of the entries.
 Rules: every id once; the schema; the quotes are verbatim parts of the entry (the repaired text or the raw OCR text) and hold the year (the decade for "dec"); the chain is continuous; an interval of the kind "origin"
 starts in the year of "origin" and its quote names the former name; undated names carry quotes; the Georgian note equals the template; no Cyrillic in ka/en; no the calque of the word "prospect".
 Output: data/cache/enc2008_verified4.json ({"ok": [...], "rejected": [{"id", "reasons"}], "skip": [{"id", "reason"}]}).
@@ -12,7 +12,7 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
-BAT = os.path.join(ROOT, "for_gemini", "from_desktop", "enc_batches")
+BAT = os.path.join(ROOT, "work", "gemini", "batches", "enc")
 OUT = os.path.join(ROOT, "data", "cache", "enc2008_verified4.json")
 CYR = re.compile("[Ѐ-ӿ]")
 CALQUE = "პროსპექტ"
@@ -144,7 +144,7 @@ def main():
         for i in want:
             if i not in ids:
                 rej.append({"id": i, "reasons": ["missing in the result"]})
-    fix = os.path.join(ROOT, "for_gemini", "from_desktop", "enc4_fix_result.json")      # the corrected rows replace the rejected ones
+    fix = os.path.join(ROOT, "work", "gemini", "results/enc4_fix.json")      # the corrected rows replace the rejected ones
     if os.path.exists(fix):
         rejected_ids = {x["id"] for x in rej}
         for r in json.load(open(fix, encoding="utf-8")):

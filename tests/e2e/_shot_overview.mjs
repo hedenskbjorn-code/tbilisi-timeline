@@ -1,0 +1,12 @@
+import { launch } from "./helpers.mjs";
+const browser = await launch();
+const ctx = await browser.newContext({ viewport: { width: 1100, height: 900 } });
+const page = await ctx.newPage();
+const errs = []; page.on("pageerror", (e) => errs.push(e.message)); page.on("console", (m) => { if (m.type() === "error") errs.push(m.text()); });
+await page.goto("file:///C:/Projects/tbilisi-timeline/data/db/overview.html");
+await page.waitForTimeout(500);
+await page.screenshot({ path: "F:/TEMP/claude/f22f922f413ad417/f8a4c083-bf60-42ff-8d8a-a918c3c934cc/scratchpad/overview_top.png", fullPage: false });
+await page.locator("#map").scrollIntoViewIfNeeded();
+await page.screenshot({ path: "F:/TEMP/claude/f22f922f413ad417/f8a4c083-bf60-42ff-8d8a-a918c3c934cc/scratchpad/overview_map.png" });
+console.log("errors:", errs);
+await browser.close();

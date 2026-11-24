@@ -1,13 +1,13 @@
 """Release 1.8.4: name histories of 6 more streets and four additions to streets already on the map, all from the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008)
 (idempotent; --dry-run only checks). Spec: tools/streets_kv4_spec.json. The text of the PDF (data/cache/nplg_pdfs, not committed) was read for every entry: the pages are in the spec.
 The sources are the book itself: a street without a link carries "book": "<reference>, PDF p. N" (shown as plain text in the list of the names). The Georgian texts are Gemini's
-(for_gemini/from_desktop/tbilisi_streets184_result.md), checked here: no Cyrillic, no the calque of the word "prospect", every ID present.
+(work/gemini/results/tbilisi_streets184.md), checked here: no Cyrillic, no the calque of the word "prospect", every ID present.
 """
 import json, os, re, sys
 
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 SPEC = os.path.join(R, "tools", "streets_kv4_spec.json")
-RES = os.path.join(R, "for_gemini", "from_desktop", "tbilisi_streets184_result.md")
+RES = os.path.join(R, "work", "gemini", "results/tbilisi_streets184.md")
 NAMES = os.path.join(R, "site", "data", "street_names.json")
 VERIFIED = os.path.join(R, "data", "street_names_verified.json")
 LIST = os.path.join(R, "data", "street_renamed_1987_1991.json")

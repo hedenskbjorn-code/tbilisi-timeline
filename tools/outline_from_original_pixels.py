@@ -1,7 +1,7 @@
 """Turn an outline given in pixels of the ORIGINAL plan scan into lon/lat with the plan's own affine control-point fit.
 
 Used for tiflis_1884, whose outline vertices were read by an external AI (Gemini) from gridded tiles of the scan
-(for_gemini/outbox/outline_1884.json) and then checked by overlay by Claude. The fit is the same as tools/warp.py (affine,
+(work/gemini/archive/outbox/outline_1884.json) and then checked by overlay by Claude. The fit is the same as tools/warp.py (affine,
 excluded_default honoured), so the result equals tracing on the warped image.
 Usage: python tools/outline_from_original_pixels.py <plan_id> <vertices.json> <year>
 vertices.json: {"rings":[{"name":..., "vertices":[[x,y],...]}]}

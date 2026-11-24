@@ -1,5 +1,47 @@
 [
  {
+  "version": "1.9.0",
+  "date": "2026-11-24",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Новый слой «Музеи и дома-музеи» (26 музеев Тбилиси) и отдельная страница-экскурсия /museums/ с двумя пешеходными маршрутами по центру и домам-музеям (Чугурети — Вера), проложенными по улицам OpenStreetMap (Valhalla), с экспортом GPX, фотографиями и описаниями.",
+    "en": "A new layer \"Museums and house-museums\" (26 Tbilisi museums) and a standalone walking tour page /museums/ with two routes through the centre and house-museums (Chugureti — Vera), routed along OpenStreetMap streets (Valhalla), with GPX export, photos and descriptions.",
+    "ka": "ახალი ფენა „მუზეუმები და სახლ-მუზეუმები“ (თბილისის 26 მუზეუმი) და ცალკე საექსკურსიო გვერდი /museums/ ორი ფეხით მარშრუტით ცენტრსა და სახლ-მუზეუმებში (ჩუღურეთი — ვერა), გაყვანილი OpenStreetMap-ის ქუჩებით (Valhalla), GPX ექსპორტით, ფოტოებითა და აღწერებით."
+   },
+   {
+    "t": "new",
+    "ru": "Новая страница-экскурсия «Утраченный Тбилиси» (/lost/): два пешеходных маршрута по 22 исчезнувшим соборам, караван-сараям, крепостным воротам, дворцам и мостам с историческими справками, блоком «Сейчас на этом месте», архивными снимками, ссылками на Википедию и экспортом GPX.",
+    "en": "A new walking tour page \"Lost Tbilisi\" (/lost/): two routes past 22 vanished cathedrals, caravanserais, city gates, palaces and bridges with historical notes, \"What stands here now\", archival views, Wikipedia links and GPX export.",
+    "ka": "ახალი საექსკურსიო გვერდი „დაკარგული თბილისი“ (/lost/): ორი ფეხით მარშრუტი 22 დაკარგული ტაძრის, ქარვასლის, გალავნის კარიბჭის, სასახლისა და ხიდის გასწვრივ ისტორიული ცნობებით, ბლოკით „რა დგას აქ დღეს“, არქივის ფოტოებით, ვიკიპედიის ბმულებითა და GPX ექსპორტით."
+   },
+   {
+    "t": "new",
+    "ru": "Обновлена панель фильтров: единая галочка «Старая карта» с выбором источника и прозрачности, группа «Транспорт и дороги» с пятью видами линий (метро, трамвай, железная дорога, дороги и мосты, фуникулёр и канатная дорога), строки «Рядом со мной» и «Только без фото» под шапкой (в режиме сбора фото), на телефоне открыт один блок за раз; в туториале пять новых шагов про фильтры.",
+    "en": "Updated Filters panel: a single \"Old map\" box with source and opacity controls, a \"Transport and roads\" group with five line kinds (metro, tram, railway, roads and bridges, funicular and cable car), the \"Near me\" and \"Only without a photo\" rows under the header (in photo-collection mode), one block open at a time on a phone; the tour has five new steps about the filters.",
+    "ka": "განახლდა ფილტრების პანელი: ერთიანი ველი „ძველი რუკა“ წყაროსა და გამჭვირვალობის არჩევით, ჯგუფი „ტრანსპორტი და გზები“ ხუთი ტიპის ხაზით (მეტრო, ტრამვაი, რკინიგზა, გზები და ხიდები, ფუნიკულიორი და საბაგირო), სტრიქონები „ჩემ გვერდით“ და „მხოლოდ უფოტოო“ სათაურის ქვეშ (ფოტოების შეგროვების რეჟიმში), ტელეფონზე ერთდროულად ერთი ბლოკია გახსნილი; ტურში ფილტრებზე ხუთი ახალი ნაბიჯია."
+   },
+   {
+    "t": "new",
+    "ru": "Улицы и места: на карте появились линии 113 улиц, которые раньше были только карточками; девять объектов реестра получили год или диапазон дат; точки пяти районов перенесены с окраин в городские ядра, три дубля «район X» убраны; убран фильтр маршрута City Run (у забега своя страница).",
+    "en": "Streets and places: the map now draws the lines of 113 streets that used to have a card only; nine register objects got a year or a range of dates; the points of five districts moved from the outskirts into the urban core, three duplicates \"district X\" were removed; the City Run route filter was removed (the run has its own page).",
+    "ka": "ქუჩები და ადგილები: რუკაზე გამოჩნდა 113 ქუჩის ხაზი, რომლებსაც მანამდე მხოლოდ ბარათი ჰქონდათ; რეესტრის ცხრა ობიექტმა წელი ან თარიღების დიაპაზონი მიიღო; ხუთი რაიონის წერტილი გარეუბნებიდან ქალაქის ცენტრალურ ნაწილებში გადავიდა, სამი დუბლი „რაიონი X“ წაიშალა; ამოღებულია City Run მარშრუტის ფილტრი (გარბენს საკუთარი გვერდი აქვს)."
+   },
+   {
+    "t": "new",
+    "ru": "Пополнения данных и фото: 90 парков и названия 88 из 92 храмов OpenStreetMap; 27 грузинских описаний и 5 новых памятников в слое скульптур; 22 новые фотографии Wikimedia Commons со страниц Википедии для науки, музеев и храмов; список «Ещё в этой точке» при наложении объектов.",
+    "en": "Data and photo additions: 90 parks and names for 88 of 92 OpenStreetMap places of worship; 27 Georgian descriptions and 5 new monuments in sculptures; 22 new Wikimedia Commons photos from Wikipedia articles for science, museums and churches; \"Also here\" list when objects overlap.",
+    "ka": "მონაცემებისა და ფოტოების შევსება: 90 პარკი და OpenStreetMap-ის 92-დან 88 ტაძრის სახელი; 27 ქართული აღწერა და 5 ახალი ძეგლი ქანდაკებების ფენაში; Wikimedia Commons-ის 22 ახალი ფოტო ვიკიპედიის სტატიებიდან მეცნიერების, მუზეუმებისა და ტაძრებისთვის; სია „ამავე წერტილში“ ობიექტების თანხვედრისას."
+   },
+   {
+    "t": "fix",
+    "ru": "Исправлено: скрытые строки фильтра больше не показываются из-за display:flex (.row[hidden]).",
+    "en": "Fixed: hidden filter rows no longer show up due to display:flex (.row[hidden]).",
+    "ka": "გასწორდა: ფილტრის დამალული სტრიქონები აღარ ჩანს display:flex-ის გამო (.row[hidden])."
+   }
+  ]
+ },
+ {
   "version": "1.8.7",
   "date": "2026-11-23",
   "items": [

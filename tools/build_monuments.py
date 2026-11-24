@@ -1,5 +1,5 @@
-"""The first step of the layer of monuments and memorial plaques: reads the working tables notes/tbilisi_monuments_full.csv (634 objects: sculptures, busts, statues, memorials, reliefs) and
-notes/tbilisi_plaques_osm.csv (814 plaques of OSM) and makes the clean lists that the next steps (names, photos, the layer) work on: data/cache/monuments_clean.json.
+"""The first step of the layer of monuments and memorial plaques: reads the working tables work/notes/tbilisi_monuments_full.csv (634 objects: sculptures, busts, statues, memorials, reliefs) and
+work/notes/tbilisi_plaques_osm.csv (814 plaques of OSM) and makes the clean lists that the next steps (names, photos, the layer) work on: data/cache/monuments_clean.json.
 Rules (decisions of the owner): an object without a point or outside the city (41.62-41.86 N, 44.66-45.02 E) is not taken; an object that is removed or lost is listed apart (not on the map);
 a plaque is dated by the FIRST year of the life named in its inscription ("ამ სახლში 1959-1982 წლებში ცხოვრობდა" -> 1959), never by the year of the plaque; a plaque without such a year and a monument
 without a year are "undated" (hidden by default, a sub-box shows them); a name that is missing in a language stays empty (the next steps fill it: Wikidata labels, Gemini for the Georgian names).
@@ -132,8 +132,8 @@ def merge_osm(mons):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    M = list(csv.DictReader(open(os.path.join(R, "notes", "tbilisi_monuments_full.csv"), encoding="utf-8-sig")))
-    P = list(csv.DictReader(open(os.path.join(R, "notes", "tbilisi_plaques_osm.csv"), encoding="utf-8-sig")))
+    M = list(csv.DictReader(open(os.path.join(R, "work", "notes", "tbilisi_monuments_full.csv"), encoding="utf-8-sig")))
+    P = list(csv.DictReader(open(os.path.join(R, "work", "notes", "tbilisi_plaques_osm.csv"), encoding="utf-8-sig")))
     skipped = collections.Counter()
     mons, lost = [], []
     for r in M:

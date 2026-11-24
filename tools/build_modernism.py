@@ -25,9 +25,13 @@ def slug(s):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    rows = load("modernism_verified.json")["ok"]
+    ver = load("modernism_verified.json")
+    # a building whose page cannot be read at the moment of the check is "unchecked", not rejected (the rest of its quotations stood on their pages): it stays on the map; a rejected one does not
+    rows = ver["ok"] + [u["row"] for u in ver.get("unchecked", []) if "row" in u]
+    order = [b["name"]["en"] for b in json.load(open(os.path.join(R, "work", "gemini", "results", "modernism.json"), encoding="utf-8"))]
+    rows.sort(key=lambda b: order.index(b["name"]["en"]))       # the points and the photographs (modernism_geo.json, modernism_photos.json) are kept by the NUMBER of a building in the order of the answer: the order must not change
     geo, ph, info = load("modernism_geo.json"), load("modernism_photos.json"), load("modernism_photo_info.json")
-    folk = [r for r in json.load(open(os.path.join(R, "for_gemini", "from_desktop", "folk_result.json"), encoding="utf-8")) if r["adult"] == "none"]
+    folk = [r for r in json.load(open(os.path.join(R, "work", "gemini", "results/folk.json"), encoding="utf-8")) if r["adult"] == "none"]
     ui = json.load(open(os.path.join(R, "tools", "folk_mod_ui.json"), encoding="utf-8"))["modernism"]
     for v in ui.values():
         if not v.get("ka"):

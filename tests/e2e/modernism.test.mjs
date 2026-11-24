@@ -4,7 +4,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import { startServer, launch, openPage, waitReady, DATA } from "./helpers.mjs";
+import { startServer, launch, openPage, waitReady, DATA, tick } from "./helpers.mjs";
 
 let server, browser, page, reqs;
 test.before(async () => {
@@ -41,8 +41,10 @@ test("a building appears in the year of the end of its construction", async () =
   await page.waitForFunction(() => window.TT_E2E.map.getSource("mods"), null, { timeout: 20000 });
   assert.equal(await feats(), MOD.items.filter((c) => c.y <= 1990).length);
   assert.ok(MOD.items.some((c) => c.y > 1990) || MOD.items.every((c) => c.y <= 1990));
-  const legend = await page.locator("#modLegend").innerText();
-  assert.match(legend, /Soviet modernism/);
+  // a layer of one kind has no legend line under its box (it only repeated the name): the colour is a dot in the row of the box
+  assert.equal(await page.locator("#modLegend, #plqLegend").count(), 0);
+  const dot = await page.evaluate(() => { const l = document.getElementById("showMod").closest("label"); return [l.classList.contains("ldot"), l.style.getPropertyValue("--c").trim(), getComputedStyle(l.querySelector("span"), "::before").width]; });
+  assert.deepEqual(dot, [true, "#364fc7", "10px"]);
 });
 
 test("the card of a building: year, architects, function, condition, photo with its licence, sources", async () => {
@@ -110,7 +112,7 @@ test("the folk names of the places: a card shows the name, the meaning and the p
   const withF = PLACES.items.filter((c) => c.f);
   assert.ok(withF.length >= 10, "folk names exist: " + withF.length);
   assert.ok(!JSON.stringify(PLACES).includes("Always Ultra"), "the rude nickname is left out");
-  await page.check("#showPlaces");
+  await tick(page, "#showPlaces", true);
   await page.waitForFunction(() => window.TT_E2E.map.getSource("places"), null, { timeout: 20000 });
   const c = withF.find((x) => x.f[0].m && x.f[0].n.ka && x.id.startsWith("district-"));
   assert.ok(c, "a place with a folk name and a meaning");

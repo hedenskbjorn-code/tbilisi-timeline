@@ -3,7 +3,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import { startServer, launch, openPage, waitReady } from "./helpers.mjs";
+import { startServer, launch, openPage, waitReady, tick } from "./helpers.mjs";
 import { DATA } from "./helpers.mjs";
 
 let server, browser, page, reqs;
@@ -25,7 +25,7 @@ test("the file of the places is not loaded with the first screen and the layer i
 });
 
 test("the check box loads the file, shows all the places and a legend with the kinds", async () => {
-  await page.check("#showPlaces");
+  await tick(page, "#showPlaces", true);
   await page.waitForFunction(() => window.TT_E2E.map.getSource("places"), null, { timeout: 15000 });
   const n = await page.evaluate(() => window.TT_E2E.map.getSource("places").serialize().data.features.length);
   assert.equal(n, PL.items.length);
@@ -80,7 +80,7 @@ test("the search finds a place by its name in three languages and opens its card
 });
 
 test("the former hippodrome is an area with a contour, the opening year, the plan of the Central Park, a note about the contour and no closing year", async () => {
-  await page.check("#showPlaces");
+  await tick(page, "#showPlaces", true);
   const c = PL.items.find((x) => x.id === "area-saburtalo-hippodrome");
   assert.ok(c && c.g, "the entry has a contour");
   assert.equal(await page.evaluate(() => window.TT_E2E.map.getLayoutProperty("places-area-fill", "visibility")), "visible");
@@ -96,7 +96,7 @@ test("the former hippodrome is an area with a contour, the opening year, the pla
 });
 
 test("the second search of the origin: Vashlijvari says it means the apple cross, the encyclopedia page is shown for the Didube pantheon, the word of a dictionary is marked", async () => {
-  await page.check("#showPlaces");
+  await tick(page, "#showPlaces", true);
   const v = PL.items.find((x) => x.n.en === "Vashlijvari");
   assert.ok(v && v.e && /apple/i.test(v.e.en) && v.s.eq.q.includes("apple cross"), "the origin of Vashlijvari with its quote");
   let { pop } = await openCard(v.id);
@@ -112,12 +112,12 @@ test("the second search of the origin: Vashlijvari says it means the apple cross
   await page.keyboard.press("Escape");
 });
 
-test("every origin of a name has a quote of its source, 80 places have an origin or a dictionary meaning", async () => {
-  assert.equal(PL.items.filter((x) => x.e).length, 80);
+test("every origin of a name has a quote of its source, 77 places have an origin or a dictionary meaning", async () => {
+  assert.equal(PL.items.filter((x) => x.e).length, 77);
   for (const x of PL.items) if (x.e) assert.ok(x.s.eq && x.s.eq.q && (x.s.eq.u || x.s.eq.p), x.id);
 });
 
 test("the check box turns the layer off", async () => {
-  await page.uncheck("#showPlaces");
+  await tick(page, "#showPlaces", false);
   assert.equal(await page.evaluate(() => window.TT_E2E.map.getLayoutProperty("places-pt", "visibility")), "none");
 });

@@ -1,52 +1,52 @@
 {
- "Mtatsminda": [
-  44.79385,
-  41.69636,
-  "OSM place node (neighbourhood)"
- ],
- "Vake": [
-  44.76366,
-  41.70929,
-  "OSM place node (neighbourhood)"
- ],
- "Didube": [
-  44.78808,
-  41.72713,
-  "OSM place node (neighbourhood)"
- ],
- "Chugureti": [
-  44.79943,
-  41.71116,
-  "OSM neighbourhood node 'Chughureti'"
- ],
- "Isani": [
-  44.83411,
-  41.68813,
-  "OSM place node (neighbourhood)"
- ],
- "Nadzaladevi": [
-  44.82073,
-  41.74711,
-  "OSM place node (suburb)"
- ],
- "Gldani": [
-  44.82915,
-  41.80268,
-  "OSM place node (suburb)"
- ],
- "Samgori": [
-  44.85468,
-  41.6847,
-  "OSM place node (neighbourhood)"
- ],
- "Krtsanisi": [
-  44.81717,
-  41.67306,
-  "OSM place node (neighbourhood)"
- ],
- "Saburtalo": [
-  44.7781,
-  41.7179,
-  "26 May Square (OSM), by the owner's request"
- ]
+  "Mtatsminda": [
+    44.79385,
+    41.69636,
+    "OSM place node (neighbourhood)"
+  ],
+  "Vake": [
+    44.76366,
+    41.70929,
+    "OSM place node (neighbourhood)"
+  ],
+  "Didube": [
+    44.78808,
+    41.72713,
+    "OSM place node (neighbourhood)"
+  ],
+  "Chugureti": [
+    44.79943,
+    41.71116,
+    "OSM neighbourhood node 'Chughureti'"
+  ],
+  "Isani": [
+    44.83411,
+    41.68813,
+    "OSM place node (neighbourhood)"
+  ],
+  "Nadzaladevi": [
+    44.8026,
+    41.7316,
+    "Metro Nadzaladevi / Tsotne Dadiani Ave (urban core)"
+  ],
+  "Gldani": [
+    44.82915,
+    41.80268,
+    "OSM place node (suburb)"
+  ],
+  "Samgori": [
+    44.85468,
+    41.6847,
+    "OSM place node (neighbourhood)"
+  ],
+  "Krtsanisi": [
+    44.81717,
+    41.67306,
+    "OSM place node (neighbourhood)"
+  ],
+  "Saburtalo": [
+    44.7781,
+    41.7179,
+    "26 May Square (OSM), by the owner's request"
+  ]
 }

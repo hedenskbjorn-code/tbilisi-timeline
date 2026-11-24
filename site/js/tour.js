@@ -1,6 +1,7 @@
 // The guided tour (loaded only when it is asked for: the welcome window or the button "?" / the menu; so it does not weigh on the first screen).
 // Five steps from data/tour.json; each lights the real elements of the page (the rest is dimmed) and shows a card with the text, "Back / Next / Skip" and a counter.
-// A step whose elements are not on the screen is left out (a phone, a folded scale); the panels are NOT opened: the buttons are lit and the card says what is inside.
+// A step whose elements are not on the screen is left out (a phone, a folded scale). The panels are not opened by the steps about the buttons (the buttons are lit and the card says what is inside); the steps about
+// the FILTERS open the panel (step.open = "filters") and a block of it (step.section), light elements inside it (step.sel: CSS selectors) and put everything back as it was when the tour moves on or ends.
 const CSS = `
 #tour{position:fixed;inset:0;z-index:40}
 #tourHole{position:fixed;border-radius:10px;border:2px solid #fff;box-shadow:0 0 0 100vmax rgba(0,0,0,.6);pointer-events:none;transition:left .25s,top .25s,width .25s,height .25s}
@@ -32,17 +33,17 @@ function rectOf(step) {
     const w = Math.min(520, m.width * 0.7), h = Math.min(300, m.height * 0.36);
     return { left: m.left + (m.width - w) / 2, top: m.top + (m.height - h) / 2 + 24, right: m.left + (m.width + w) / 2, bottom: m.top + (m.height + h) / 2 + 24 };
   }
-  const rs = (step.ids || []).map((id) => visible(document.getElementById(id))).filter(Boolean);
+  const rs = [...(step.ids || []).map((id) => document.getElementById(id)), ...(step.sel || []).flatMap((q) => [...document.querySelectorAll(q)])].map(visible).filter(Boolean);
   if (!rs.length) return null;
   return { left: Math.min(...rs.map((r) => r.left)), top: Math.min(...rs.map((r) => r.top)), right: Math.max(...rs.map((r) => r.right)), bottom: Math.max(...rs.map((r) => r.bottom)) };
 }
 
-export async function startTour({ lang, onClose, free }) {
+export async function startTour({ lang, onClose, free, panel }) {
   if (document.getElementById("tour")) return;
   FREE = free || null;
   try { if (!data) data = await (await fetch("data/tour.json")).json(); } catch (e) { return; }
   const T = (o) => (o && (o[lang] || o.en)) || "";
-  const steps = data.steps.filter((s) => rectOf(s));
+  const steps = data.steps.filter((s) => (s.open && panel) || rectOf(s));       // a step that opens a panel is kept: its elements are on the screen only after the panel is open
   if (!steps.length) return;
   if (!document.getElementById("tourCss")) { const st = document.createElement("style"); st.id = "tourCss"; st.textContent = CSS; document.head.appendChild(st); }
   const before = document.activeElement;
@@ -77,15 +78,44 @@ export async function startTour({ lang, onClose, free }) {
     let left = Math.min(Math.max(8, (r.left + r.right) / 2 - cw / 2), vw - cw - 8);
     card.style.left = left + "px"; card.style.top = top + "px";
   };
+  // the panel and the blocks that the tour opened are closed again when it moves to a step that does not need them and when it ends
+  const openedPanels = new Set(), openedSections = new Set();
+  const settle = () => new Promise((r) => setTimeout(r, 120));
+  const prep = async (s) => {
+    if (panel) {
+      for (const k of [...openedPanels]) if (k !== s.open) { panel.set(k, false); openedPanels.delete(k); }
+      if (s.open && !panel.get(s.open)) { panel.set(s.open, true); openedPanels.add(s.open); }
+    }
+    for (const d of [...openedSections]) if (!s.section || d.dataset.sec !== s.section) { d.open = false; openedSections.delete(d); }
+    const d = s.section && document.querySelector('details[data-sec="' + s.section + '"]');
+    if (d && !d.open) { d.open = true; openedSections.add(d); }
+    if (s.open || s.section) { await settle(); if (d && d.scrollIntoView) d.scrollIntoView({ block: "nearest" }); }
+  };
   const close = () => {
     document.removeEventListener("keydown", onKey, true);
+    for (const d of openedSections) d.open = false;
+    if (panel) for (const k of openedPanels) panel.set(k, false);
     removeEventListener("resize", place);
     root.remove();
     try { localStorage.setItem("tour", "1"); } catch (e) {}
     if (before && before.focus) { try { before.focus(); } catch (e) {} }
     if (onClose) onClose();
   };
-  const go = (d) => { const n = i + d; if (n < 0) return; if (n >= steps.length) { close(); return; } i = n; place(); next.focus(); };
+  let moving = false;
+  const go = async (d) => {
+    if (moving) return;
+    let n = i + d;
+    if (n < 0) return;
+    if (n >= steps.length) { close(); return; }
+    moving = true;
+    for (;;) {                                                            // a step whose elements cannot be found even after its panel is open is passed over
+      await prep(steps[n]);
+      if (rectOf(steps[n])) break;
+      n += d || 1;
+      if (n < 0 || n >= steps.length) { n = Math.min(Math.max(n, 0), steps.length - 1); await prep(steps[n]); break; }
+    }
+    i = n; moving = false; place(); next.focus();
+  };
   const onKey = (e) => {
     if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); close(); }
     else if (e.key === "ArrowRight" || e.key === "Enter" && e.target !== skip && e.target !== back) { e.preventDefault(); go(1); }
@@ -101,6 +131,5 @@ export async function startTour({ lang, onClose, free }) {
   skip.addEventListener("click", close);
   document.addEventListener("keydown", onKey, true);
   addEventListener("resize", place);
-  place();
-  next.focus();
+  prep(steps[0]).then(() => { place(); next.focus(); });
 }

@@ -2,14 +2,14 @@
 
 The names and years are from the encyclopedia 'Tbilisi. Streets, avenues, squares' (2008): the quotes of the report of Gemini were compared with the text of its PDF (data/street_renamed_1987_1991.json, field enc2008;
 the PDF itself is in data/cache/nplg_pdfs, not committed). The source link of an entry is a Wikipedia page about the street or the person, the note names the book.
-The Georgian notes are Gemini's (for_gemini/from_desktop/tbilisi_kvamli_notes3_result.md), checked here: no Cyrillic, no the calque of the word "prospect", every ID present.
+The Georgian notes are Gemini's (work/gemini/results/tbilisi_kvamli_notes3.md), checked here: no Cyrillic, no the calque of the word "prospect", every ID present.
 Also: the old name Ordzhonikidze is added to Tevdore Mghvdeli Street (the street was divided in 1990), the item of the changelog of 1.8.3 gets the new count.
 """
 import json, os, re, sys
 
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 SPEC = os.path.join(R, "tools", "streets_kv3_spec.json")
-RES = os.path.join(R, "for_gemini", "from_desktop", "tbilisi_kvamli_notes3_result.md")
+RES = os.path.join(R, "work", "gemini", "results/tbilisi_kvamli_notes3.md")
 NAMES = os.path.join(R, "site", "data", "street_names.json")
 VERIFIED = os.path.join(R, "data", "street_names_verified.json")
 LIST = os.path.join(R, "data", "street_renamed_1987_1991.json")

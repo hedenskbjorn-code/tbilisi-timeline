@@ -1,5 +1,5 @@
 """The pack for Gemini about the layer "Local names": for every candidate (data/cache/places_candidates.json) with an article (data/cache/places_wiki.json) the first paragraph of the article in each language
-and the paragraphs that speak about the origin of the name (cue words), as plain text with the address of the article. Writes for_gemini/from_desktop/places2_batch_NN.md (PER places each). The answer is
+and the paragraphs that speak about the origin of the name (cue words), as plain text with the address of the article. Writes work/gemini/places2_batch_NN.md (PER places each). The answer is
 checked by tools/verify_places.py. The packs places_batch_NN.md of an earlier idea (the dictionary pages of the encyclopedia) are not touched. Usage: python -P tools/places_pack.py
 """
 import json
@@ -54,7 +54,7 @@ def main():
                 for p in pick(lg, pg["text"]):
                     L += ["> " + p, ""]
             L.append("")
-        open(os.path.join(R, "for_gemini", "from_desktop", "places2_batch_%02d.md" % n), "wb").write(("\n".join(L) + "\n").encode("utf-8"))
+        open(os.path.join(R, "work", "gemini", "batches", "places2", "places2_batch_%02d.md" % n), "wb").write(("\n".join(L) + "\n").encode("utf-8"))
     print("places with an article:", len(rows), "| packs:", n)
 
 

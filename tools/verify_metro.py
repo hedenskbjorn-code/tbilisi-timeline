@@ -1,4 +1,4 @@
-"""Check the answer of Gemini about the former names of the stations of the metro (for_gemini/from_desktop/metro_batch_01_result.json, rules: metro_TASK_for_gemini.md).
+"""Check the answer of Gemini about the former names of the stations of the metro (work/gemini/batches/metro/metro_batch_01_result.json, rules: tasks/metro.md).
 Row: {"id", "status": "ok"|"skip", "skip_reason", "former": [{"ka", "ru", "en", "from", "to", "kind": "exact"|"undated", "source": "enc"|"web", "page", "url", "quote"}]}.
 Rules: every station of tools/metro_task.py (the stations of transport.json) once, in the order; the schema; no Cyrillic in ka/en; for "enc" the quote (<= 40 words) is a verbatim part of the text of the page "page" (+-1,
 the entries and the page OCR, the breaks of words joined) and the stem of the longest word of the former Georgian name stands in it; for "web" the address is on ka/ru/en.wikipedia.org or
@@ -20,7 +20,7 @@ from verify_mainroads import norm  # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
 PAGES = os.path.join(ROOT, "data", "cache", "ocr", "streets_enc2008_kat.txt")
-RES = os.path.join(ROOT, "for_gemini", "from_desktop", "metro_batch_01_result.json")
+RES = os.path.join(ROOT, "work", "gemini", "batches/metro/metro_batch_01_result.json")
 OUT = os.path.join(ROOT, "data", "cache", "metro_verified.json")
 CYR = re.compile("[Ѐ-ӿ]")
 HOSTS = ("ka.wikipedia.org", "ru.wikipedia.org", "en.wikipedia.org", "georgianencyclopedia.ge", "www.georgianencyclopedia.ge")
@@ -50,7 +50,7 @@ def page_text(url):
 
 
 def main():
-    ids = [x[0] for x in re.findall(r"^\| ([^|]+?) \| (\d) \|", open(os.path.join(ROOT, "for_gemini", "from_desktop", "metro_batch_01.md"), encoding="utf-8").read(), re.M)]
+    ids = [x[0] for x in re.findall(r"^\| ([^|]+?) \| (\d) \|", open(os.path.join(ROOT, "work", "gemini", "batches/metro/metro_batch_01.md"), encoding="utf-8").read(), re.M)]
     ents = json.load(open(ENT, encoding="utf-8"))
     by_page = {}
     for e in ents:

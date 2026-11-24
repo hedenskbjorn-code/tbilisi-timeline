@@ -1,0 +1,10 @@
+import { startServer, launch, openPage, waitReady } from "./helpers.mjs";
+const server = await startServer(), browser = await launch();
+const page = await openPage(browser, `${server.url}/?e2e=1&nostats=1&lang=ru#2026`);
+await waitReady(page);
+await page.evaluate(() => { const m = window.TT_E2E.map; m.jumpTo({ center: [44.7985, 41.7, ], zoom: 13.6 }); });
+await page.check("#showMon"); await page.check("#showPlq"); await page.check("#showPlaces");
+await page.waitForFunction(() => window.TT_E2E.map.getSource("plqs") && window.TT_E2E.map.getSource("mons") && window.TT_E2E.map.getSource("places"), null, { timeout: 30000 });
+await page.waitForTimeout(2500);
+await page.screenshot({ path: process.argv[2] || "shot.png" });
+await page.ctx.close(); await browser.close(); server.srv.close();

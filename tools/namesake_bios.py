@@ -1,7 +1,7 @@
 """The second pass about the namesakes: the street cards that have no namesake yet (Gemini answered "unsure" or "no namesake", or the card has no entry id) get candidate bios from the biographical part of
 the encyclopedia of 2008 (PDF pages 247-354, alphabetical: "Surname Name Patronymic (years), description"). The OCR spoils the surnames ("Shartava" is "შარრამვა" there), so the candidates are found by the likeness of
-the first name (exact stem) and of the surname (difflib >= 0.6). Makes for_gemini/from_desktop/namesake2_batch_01.md and data/cache/namesake2_index.json (S001 -> the key of the street).
-The answer (namesake2_batch_01_result.json, the rows as in namesake_TASK_for_gemini.md, ids S001...) is checked by tools/verify_namesakes.py. Usage: python -P tools/namesake_bios.py
+the first name (exact stem) and of the surname (difflib >= 0.6). Makes work/gemini/batches/namesake2/namesake2_batch_01.md and data/cache/namesake2_index.json (S001 -> the key of the street).
+The answer (batches/namesake2/namesake2_batch_01_result.json, the rows as in tasks/namesake.md, ids S001...) is checked by tools/verify_namesakes.py. Usage: python -P tools/namesake_bios.py
 """
 import difflib
 import glob
@@ -15,7 +15,9 @@ from build_enc_spec import name_forms, norm_name  # noqa: E402
 from verify_mainroads import norm  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FD = os.path.join(R, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 FIRST, LAST = 244, 360
 TYPES = {"ქუჩა", "გამზირი", "მოედანი", "სანაპირო", "ხეივანი", "გზატკეცილი", "შესახვევი", "ჩიხი", "გასასვლელი", "ბულვარი", "დაღმართი", "აღმართი", "ქუჩის", "გამზირის", "მოედნის"}
 
@@ -85,7 +87,7 @@ def main():
             lines += ["- кандидат (сходство %.2f), PDF p. %s: %s" % (r, page_at(pos), text[max(0, pos - 40):pos + 460]), ""]
         if not picked:
             lines += ["- кандидатов нет (ищи по полному тексту книги или skip)", ""]
-    open(os.path.join(FD, "namesake2_batch_01.md"), "wb").write(("\n".join(lines) + "\n").encode("utf-8"))
+    open(os.path.join(FD, "batches/namesake2/namesake2_batch_01.md"), "wb").write(("\n".join(lines) + "\n").encode("utf-8"))
     json.dump(index, open(os.path.join(R, "data", "cache", "namesake2_index.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("streets:", len(todo), "| with candidates:", sum(1 for x in lines if x.startswith("- кандидат (")))
 

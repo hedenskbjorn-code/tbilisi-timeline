@@ -1,6 +1,6 @@
 """The task for Gemini about the places whose name is made of words (Vazisubani = vazi + ubani): the dictionary meaning of EVERY part with its own quote from the page of that word
-(ka/ru/en Wiktionary or ena.ge), the table for_gemini/from_desktop/places4_batch_01.md (the places of tools/places_etym_exclude.json whose dictionary row went beyond its quote). The answer
-places4_result.json is checked by tools/verify_places_parts.py. Usage: python -P tools/places_parts_task.py
+(ka/ru/en Wiktionary or ena.ge), the table work/gemini/batches/places4/places4_batch_01.md (the places of tools/places_etym_exclude.json whose dictionary row went beyond its quote). The answer
+results/places4.json is checked by tools/verify_places_parts.py. Usage: python -P tools/places_parts_task.py
 """
 import json
 import os
@@ -17,7 +17,7 @@ def main():
     for k in ex:
         c = cand[k]
         L.append("| %s | %s | %s | %s | %s |" % (k, c["kind"], c["name"]["ka"], c["name"]["ru"], c["name"]["en"]))
-    open(os.path.join(R, "for_gemini", "from_desktop", "places4_batch_01.md"), "wb").write(("\n".join(L) + "\n").encode("utf-8"))
+    open(os.path.join(R, "work", "gemini", "batches/places4/places4_batch_01.md"), "wb").write(("\n".join(L) + "\n").encode("utf-8"))
     print("places:", len(ex))
 
 

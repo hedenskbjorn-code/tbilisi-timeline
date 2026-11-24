@@ -1,4 +1,4 @@
-"""Check the answer of Gemini of the second pass about the main roads (for_gemini/from_desktop/mainroads_batch_02_result.json, rules: mainroads_TASK2_for_gemini.md): the earliest year of a document
+"""Check the answer of Gemini of the second pass about the main roads (work/gemini/batches/mainroads/mainroads_batch_02_result.json, rules: tasks/mainroads_TASK2.md): the earliest year of a document
 (a plan, a map, a list of the streets, the laying) in the article of the street.
 Row: {"key", "status", "skip_reason", "page", "ka_heading", "doc_quote", "doc_printed", "doc_kind", "year"}.
 Rules: every key of tools/mainroads_task2.py KEYS2 once, in the order; the quote (<= 25 words) is a verbatim part of the text of a page (the page given +-1: the entries or the page OCR, the breaks
@@ -19,7 +19,7 @@ from verify_mainroads import norm  # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
 PAGES = os.path.join(ROOT, "data", "cache", "ocr", "streets_enc2008_kat.txt")
-RES = os.path.join(ROOT, "for_gemini", "from_desktop", "mainroads_batch_02_result.json")
+RES = os.path.join(ROOT, "work", "gemini", "batches/mainroads/mainroads_batch_02_result.json")
 OUT = os.path.join(ROOT, "data", "cache", "mainroads_verified2.json")
 KEYS = {"key", "status", "skip_reason", "page", "ka_heading", "doc_quote", "doc_printed", "doc_kind", "year"}
 KINDS = {"list", "plan", "map", "laid", "other"}

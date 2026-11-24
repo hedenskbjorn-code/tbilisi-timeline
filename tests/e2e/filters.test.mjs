@@ -84,10 +84,11 @@ test("the modes are not in the panel: the boxes are hidden, the buttons are on t
 });
 
 test("the legend of a layer stands under its check box and is really hidden while the layer is off", async () => {
-  for (const [chk, leg] of [["showRel", "relLegend"], ["showSci", "sciLegend"], ["showEdu", "eduLegend"], ["showRun", "runLegend"]]) {
-    assert.equal(await ev(([c, l]) => document.getElementById(c).closest("label").nextElementSibling.id === l, [chk, leg]), true, leg + " follows " + chk);
+  for (const [chk, leg] of [["showRel", "relLegend"], ["showSci", "sciLegend"], ["showEdu", "eduLegend"]]) {
+    // the legend stands right under the box, or (the box is in a group of the panel) right after its group, the legend of the next box of the group coming after it
+    assert.equal(await ev(([c, l]) => { const lab = document.getElementById(c).closest("label"), g = lab.closest(".gm"), start = g || lab; return [start.nextElementSibling, start.nextElementSibling && start.nextElementSibling.nextElementSibling].some((e) => e && e.id === l); }, [chk, leg]), true, leg + " follows " + chk);
     await page.setChecked("#" + chk, true);
-    if (leg !== "runLegend") assert.equal(await shown(leg), true, leg + " is on the screen with the layer on");      // the route legend is empty until its data come
+    assert.equal(await shown(leg), true, leg + " is on the screen with the layer on");
     await page.setChecked("#" + chk, false);
     assert.equal(await shown(leg), false, leg + " is off the screen with the layer off");
   }

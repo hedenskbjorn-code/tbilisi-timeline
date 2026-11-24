@@ -1,6 +1,6 @@
 """The second pass about the main roads: for the roads whose article has no phrase of origin, the earliest year in the article that is tied to the existence of the street: a plan, a map, a list of the
 streets, the laying ("1841 წ. შედგენილ ... სიაში", "1876 წ. გეგმაზე", "გაყვანილია 1846"). It is the first document, NOT the origin of the street (the card says so). Makes
-for_gemini/from_desktop/mainroads_batch_02.md (candidate articles as in the first pass, the page that Gemini gave in the first pass). Checked by tools/verify_mainroads2.py.
+work/gemini/batches/mainroads/mainroads_batch_02.md (candidate articles as in the first pass, the page that Gemini gave in the first pass). Checked by tools/verify_mainroads2.py.
 Usage: python -P tools/mainroads_task2.py
 """
 import difflib
@@ -14,8 +14,8 @@ from mainroads_task import ROADS, head  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
-RES1 = os.path.join(ROOT, "for_gemini", "from_desktop", "mainroads_batch_01_result.json")
-OUT = os.path.join(ROOT, "for_gemini", "from_desktop", "mainroads_batch_02.md")
+RES1 = os.path.join(ROOT, "work", "gemini", "batches/mainroads/mainroads_batch_01_result.json")
+OUT = os.path.join(ROOT, "work", "gemini", "batches/mainroads/mainroads_batch_02.md")
 KEYS2 = ["rustaveli", "chavchavadze", "tsereteli", "melikishvili", "guramishvili", "dedoplis", "robakidze", "baratashvili", "kostava", "gorgasali", "rustavi", "tskneti", "kojori", "alley",
          "cholokashvili", "salosi"]
 OVERRIDE = {"cholokashvili": ("Kakutsa Choloqashvili Avenue (Highway), Vake-Saburtalo", "ქაქუცა ჩოლოყაშვილის გამზირი", "avenue"),     # the avenue of Vake, not the street of Navtlughi

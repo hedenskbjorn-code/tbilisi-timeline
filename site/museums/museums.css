@@ -1,0 +1,76 @@
+:root { --bg:#fbfaf7; --fg:#201c18; --muted:#6d655c; --panel:#ffffff; --card:#ffffff; --line:#0002; --accent:#0b7285; --link:#1c5fa8; --chip:#f1ede6; --done:#2b8a3e; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#17181b; --fg:#ece8e1; --muted:#a39b90; --panel:#1d1f23; --card:#1f2125; --line:#fff2; --accent:#22b8cf; --link:#8fb8e8; --chip:#2a2c31; --done:#5cc77a; }
+}
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color:var(--link); }
+#top { position:fixed; top:0; left:0; right:0; height:52px; display:flex; align-items:center; gap:10px; padding:0 14px; background:var(--panel); border-bottom:1px solid var(--line); z-index:20; }
+#top h1 { margin:0; font-size:16px; font-weight:650; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#home { white-space:nowrap; text-decoration:none; font-size:13px; padding:6px 10px; border:1px solid var(--line); border-radius:8px; color:var(--fg); }
+.spacer { flex:1; }
+.chip { border:1px solid var(--line); background:var(--chip); color:var(--fg); border-radius:8px; padding:6px 12px; cursor:pointer; font:inherit; font-size:13px; }
+main { position:fixed; top:52px; left:0; right:0; bottom:0; display:grid; grid-template-columns:minmax(340px, 460px) 1fr; }
+#list { overflow-y:auto; padding:14px 16px 40px; border-right:1px solid var(--line); scroll-behavior:smooth; }
+#map { position:relative; min-height:100%; }
+#tabs { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 12px; }
+#tabs button { border:1px solid var(--line); background:var(--chip); color:var(--fg); border-radius:8px; padding:6px 10px; font:inherit; font-size:13px; cursor:pointer; }
+#tabs button[aria-selected="true"] { background:var(--accent); color:#fff; border-color:var(--accent); }
+#intro { font-size:13.5px; color:var(--muted); margin:0 0 10px; }
+#intro b { color:var(--fg); }
+#tools { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 12px; }
+#where { margin:0 0 12px; padding:8px 12px; border-radius:8px; background:var(--chip); font-size:13.5px; }
+#where[hidden] { display:none; }
+#cards { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; scroll-margin-top:12px; }
+.card.active { outline:2px solid var(--accent); }
+.card.done { border-color:var(--done); }
+.card .ph { display:flex; gap:2px; background:#0001; }
+.card .ph figure { margin:0; flex:1; min-width:0; position:relative; }
+.card .ph img { display:block; width:100%; height:180px; object-fit:cover; background:#0002; }
+.card .ph figcaption { position:absolute; left:0; right:0; bottom:0; padding:2px 6px; font-size:10.5px; line-height:1.3; background:#000a; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.card .ph figcaption a { color:#fff; }
+.card .body { padding:10px 14px 12px; }
+.card h2 { margin:0 0 2px; font-size:16.5px; line-height:1.3; display:flex; gap:8px; align-items:flex-start; }
+.badge { flex:none; min-width:26px; height:26px; padding:0 6px; border-radius:13px; background:var(--accent); color:#fff; font-weight:700; font-size:13px; display:inline-flex; align-items:center; justify-content:center; margin-top:1px; }
+.card.done .badge { background:var(--done); }
+.addr { margin:0 0 6px 34px; font-size:13.5px; color:var(--muted); }
+.meta { display:flex; flex-wrap:wrap; gap:4px 6px; margin:4px 0 8px; }
+.meta span { background:var(--chip); border-radius:6px; padding:1px 8px; font-size:12px; color:var(--muted); }
+.card p { margin:0 0 8px; }
+.links { display:flex; flex-wrap:wrap; gap:6px 14px; font-size:13px; align-items:center; }
+.links button, .links label { background:none; border:0; padding:0; color:var(--link); font:inherit; cursor:pointer; }
+.links button { text-decoration:underline; }
+.links label { color:var(--fg); display:inline-flex; gap:5px; align-items:center; }
+.src { font-size:11.5px; color:var(--muted); margin-top:6px; word-break:break-word; }
+#credits { margin-top:20px; font-size:12px; color:var(--muted); }
+#credits p { margin:0 0 6px; }
+.mk { width:26px; height:26px; border-radius:13px; background:var(--accent); color:#fff; border:2px solid #fff; box-shadow:0 1px 4px #0006; font:700 12px/22px system-ui, sans-serif; text-align:center; cursor:pointer; }
+button.mk { padding:0; cursor:pointer; }
+.mk:focus-visible { outline:2px solid #fff; box-shadow:0 0 0 4px var(--accent), 0 1px 4px #0006; }
+.mk.active { transform:scale(1.35); background:#1c7ed6; z-index:5; }
+.mk.done { background:var(--done); }
+.mk.start { background:#2b8a3e; width:22px; height:22px; border-radius:11px; line-height:18px; cursor:default; }
+.mk.me { background:#1c7ed6; width:16px; height:16px; border-radius:8px; border:3px solid #fff; box-shadow:0 0 0 3px #1c7ed655; cursor:default; }
+#loading { position:absolute; top:70px; left:calc(460px + 50%); transform:translateX(-50%); z-index:15; display:flex; align-items:center; gap:10px; padding:10px 16px; border-radius:10px; background:var(--panel); box-shadow:0 2px 12px #0005; pointer-events:none; }
+#loading[hidden] { display:none; }
+#loading .spin { width:16px; height:16px; border:3px solid #8884; border-top-color:var(--accent); border-radius:50%; animation:ldspin .9s linear infinite; }
+@keyframes ldspin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { #loading .spin { animation:none; } #list { scroll-behavior:auto; } }
+@media (max-width: 800px) {
+  #top h1 { font-size:14px; }
+  #home span { display:none; }
+  main { grid-template-columns:1fr; grid-template-rows:42vh 1fr; }
+  #map { grid-row:1; min-height:0; }
+  #list { grid-row:2; border-right:0; border-top:1px solid var(--line); }
+  #loading { left:50%; top:calc(52px + 12px); }
+  #title { display:none; }
+}
+#share { white-space:nowrap; }
+@media (max-width: 520px) {
+  #top { gap:6px; padding:0 8px; }
+  #pagesSel { flex:1 1 auto; min-width:110px; max-width:none; text-overflow:ellipsis; }
+  #share { font-size:0; padding:6px 10px; }
+  #share::before { content:"🔗"; font-size:16px; }
+  #lang { min-width:0; max-width:104px; padding:6px 4px; }
+}

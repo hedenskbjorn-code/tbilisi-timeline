@@ -1,4 +1,4 @@
-"""Snap the hand-read tram lines of the 1913 plan (for_gemini/outbox/tram1913.json: points in the pixel coordinates of the warped plan, read by Gemini from
+"""Snap the hand-read tram lines of the 1913 plan (work/gemini/archive/outbox/tram1913.json: points in the pixel coordinates of the warped plan, read by Gemini from
 gridded tiles) to the thin red line printed on the plan: between two consecutive points the cheapest path over the image is taken, where thin red pixels
 (white top-hat of the redness channel, thick red boundaries removed) cost 1 and everything else 6, with a penalty for leaving a corridor of 30 px
 around the straight segment. Output: data/boundaries/tram_1913_snapped.json (pixel and lon/lat), a preview PNG and per-line statistics.
@@ -39,7 +39,7 @@ def grid_graph(cost):
 
 
 def main():
-    g = json.load(open(os.path.join(ROOT, "for_gemini", "outbox", "tram1913.json"), encoding="utf-8"))
+    g = json.load(open(os.path.join(ROOT, "work", "gemini", "archive", "outbox", "tram1913.json"), encoding="utf-8"))
     rgb = np.array(Image.open(os.path.join(ROOT, "data", "warped", "tbilisi_1913.webp")).convert("RGB"))
     H, W = rgb.shape[:2]
     r = np.clip(rgb[..., 0].astype(np.int16) - (rgb[..., 1].astype(np.int16) + rgb[..., 2].astype(np.int16)) // 2, 0, 255).astype(np.uint8)

@@ -1,4 +1,4 @@
-"""Checks the answer of Gemini about the local names (for_gemini/from_desktop/places2_result.json, rules: places2_TASK_for_gemini.md) against the articles (data/cache/places_wiki.json):
+"""Checks the answer of Gemini about the local names (work/gemini/results/places2.json, rules: tasks/places2.md) against the articles (data/cache/places_wiki.json):
 one row per place of the packs in the order of the packs; the keys by the schema; a quote is a verbatim part of the text of the article in the language named (the spaces squeezed); "etym" only with a quote;
 every year of "about" and "etym" stands in the articles of the place; no Cyrillic in ka/en. Output: data/cache/places_verified.json ({"ok": [...rows], "skip": [...], "rejected": [{"key", "reasons"}]}).
 Usage: python -P tools/verify_places.py
@@ -9,7 +9,9 @@ import re
 import sys
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FD = os.path.join(R, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 CYR = re.compile("[А-Яа-яЁё]")
 KEYS = {"key", "status", "skip_reason", "name", "about", "about_quote", "etym", "etym_quote"}
 KINDS = {"district", "garden", "hill", "market", "bath", "bridge", "cemetery"}
@@ -23,10 +25,11 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     wiki = json.load(open(os.path.join(R, "data", "cache", "places_wiki.json"), encoding="utf-8"))
     keys = []
-    for fn in sorted(os.listdir(FD)):
+    BD = os.path.join(FD, "batches", "places2")
+    for fn in sorted(os.listdir(BD)):
         if re.match(r"places2_batch_\d+\.md$", fn):
-            keys += re.findall(r"^## (\S+)$", open(os.path.join(FD, fn), encoding="utf-8").read(), re.M)
-    rows = json.load(open(os.path.join(FD, "places2_result.json"), encoding="utf-8"))
+            keys += re.findall(r"^## (\S+)$", open(os.path.join(BD, fn), encoding="utf-8").read(), re.M)
+    rows = json.load(open(os.path.join(FD, "results/places2.json"), encoding="utf-8"))
     got = [r.get("key") for r in rows if isinstance(r, dict)]
     print("rows", len(rows), "| packs", len(keys), "| missing", [k for k in keys if k not in got], "| extra", [k for k in got if k not in keys], "| duplicates", sorted({k for k in got if got.count(k) > 1}), "| order ok", got == keys)
     res = {"ok": [], "skip": [], "rejected": []}

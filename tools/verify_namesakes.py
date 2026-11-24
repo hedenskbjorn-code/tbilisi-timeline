@@ -1,4 +1,4 @@
-"""Check the answers of Gemini about the namesakes (for_gemini/from_desktop/namesake_batch_NN_result.json and namesake_objects_result.json, rules: namesake_TASK_for_gemini.md).
+"""Check the answers of Gemini about the namesakes (work/gemini/namesake_batch_NN_result.json and results/namesake_objects.json, rules: tasks/namesake.md).
 Row of an entry: {"id", "status": "ok"|"skip", "skip_reason", "kind": "person"|"place"|"thing"|"event", "name": {ka, ru, en}, "years": [birth, death]|null, "quote", "quote_page", "desc": {ka, ru, en},
 "wiki": {"ka": title|"", "ru": title|"", "en": title|""}}. Rules: every id of the pack once; the schema; the quote (<= 40 words) is a verbatim part of the text of the page "quote_page" (+-1; the entries
 or the page OCR, the breaks of words joined); the stem of the longest word of name.ka (first 4 letters) stands in the quote (not for kind "thing"/"event" if the name is a description); the years
@@ -24,7 +24,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from verify_mainroads import norm  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FD = os.path.join(ROOT, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 ENT = os.path.join(ROOT, "data", "cache", "enc2008_entries.json")
 PAGES = os.path.join(ROOT, "data", "cache", "ocr", "streets_enc2008_kat.txt")
 OUT = os.path.join(ROOT, "data", "cache", "namesakes_verified.json")
@@ -141,17 +143,17 @@ def main():
         by_page.setdefault(int(m.group(1)), []).append(norm(m.group(2)))
     pages = {e["id"]: e["page"] for e in ents}
     objs = {}
-    for line in open(os.path.join(FD, "namesake_objects.md"), encoding="utf-8"):
+    for line in open(os.path.join(FD, "results/namesake_objects.md"), encoding="utf-8"):
         if line.startswith("| ") and not line.startswith("| id") and not line.startswith("|---"):
             c = [x.strip() for x in line.strip().strip("|").split(" | ")]
             objs[c[0]] = c[1]
     packs = []
-    for fp in sorted(glob.glob(os.path.join(FD, "namesake_batch_*_result.json"))):
+    for fp in sorted(glob.glob(os.path.join(FD, "batches", "namesake", "namesake_batch_*_result.json"))):
         want = re.findall(r"^## (E\d{4}) \|", open(fp.replace("_result.json", ".md"), encoding="utf-8").read(), re.M)
         packs.append((fp, want, False))
-    for fp in sorted(glob.glob(os.path.join(FD, "namesake2_batch_*_result.json"))):        # the second pass: the streets with the candidate bios (ids S001...), the quote page is required
+    for fp in sorted(glob.glob(os.path.join(FD, "batches", "namesake2", "namesake2_batch_*_result.json"))):        # the second pass: the streets with the candidate bios (ids S001...), the quote page is required
         packs.append((fp, re.findall(r"^## (S\d{3}) \|", open(fp.replace("_result.json", ".md"), encoding="utf-8").read(), re.M), False))
-    fo = os.path.join(FD, "namesake_objects_result.json")
+    fo = os.path.join(FD, "results/namesake_objects.json")
     if os.path.exists(fo):
         packs.append((fo, list(objs), True))
     if not packs:

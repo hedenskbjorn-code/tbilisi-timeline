@@ -1,5 +1,5 @@
 {
- "note": "The strings of the buildings of OpenStreetMap that the layer 'Religious buildings' gets from data/religious_osm.json. ka is the answer of Gemini (for_gemini/from_desktop/religious_osm_TASK_for_gemini.md); while it is missing 'pending_ka' is true and tests/check_data.mjs stops the deploy.",
+ "note": "The strings of the buildings of OpenStreetMap that the layer 'Religious buildings' gets from data/religious_osm.json. ka is the answer of Gemini (work/gemini/tasks/religious_osm.md); while it is missing 'pending_ka' is true and tests/check_data.mjs stops the deploy.",
  "ui": {
   "christianOsm": {
    "ru": "Церковь (конфессия в OpenStreetMap не указана)",

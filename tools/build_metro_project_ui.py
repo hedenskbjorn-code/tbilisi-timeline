@@ -1,5 +1,5 @@
 """tools/metro_project_ui.json: the strings of the card of a station (project names, the list of the stations that were not built) in ru / en (written here) and ka (the answer of Gemini,
-for_gemini/from_desktop/metro_project_ui_result.json; the Georgian text only through Gemini) and the Georgian name of the manual row (manual_ka). Usage: python -P tools/build_metro_project_ui.py
+work/gemini/results/metro_project_ui.json; the Georgian text only through Gemini) and the Georgian name of the manual row (manual_ka). Usage: python -P tools/build_metro_project_ui.py
 """
 import json
 import os
@@ -25,7 +25,7 @@ RU_EN = {
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    ka = json.load(open(os.path.join(R, "for_gemini", "from_desktop", "metro_project_ui_result.json"), encoding="utf-8"))
+    ka = json.load(open(os.path.join(R, "work", "gemini", "results/metro_project_ui.json"), encoding="utf-8"))
     assert set(ka) == set(RU_EN) | {"tu_project"}, set(ka) ^ (set(RU_EN) | {"tu_project"})
     for k, v in ka.items():
         assert not re.search("[А-Яа-яЁё]", v) and "პროსპექტ" not in v, k

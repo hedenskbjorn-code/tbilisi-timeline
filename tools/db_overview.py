@@ -88,7 +88,7 @@ tr.yes td:last-child{color:var(--ok)}tr.no td:last-child{color:var(--no)}td.queu
 <div class="flow">
 <div class="box"><b>Источники</b>OpenStreetMap · реестр наследия (выгрузка раз в неделю) · Википедия, Викисклад · энциклопедия 2008 · Gemini (поиск и переводы)</div><div class="arrow">→</div>
 <div class="box"><b>Сырьё</b>файлы в <code>data/raw</code> и кэш страниц <code>data/cache</code>. В базе: таблица <code>raw_record</code> (как пришло)</div><div class="arrow">→</div>
-<div class="box"><b>Проверка и сборка</b>скрипты <code>tools/*.py</code>: проверка цитат на страницах, <code>apply_*</code>, <code>build_*</code>. Задания Gemini: <code>for_gemini</code></div><div class="arrow">→</div>
+<div class="box"><b>Проверка и сборка</b>скрипты <code>tools/*.py</code>: проверка цитат на страницах, <code>apply_*</code>, <code>build_*</code>. Задания Gemini: <code>work/gemini</code></div><div class="arrow">→</div>
 <div class="box"><b>Сайт</b><code>site/data/*.json</code> загружаются лениво, GitHub Pages. Жалобы и фото: Worker Cloudflare</div></div>
 <div class="card mut" style="margin-top:10px">Рядом с этой цепочкой лежит <b>база</b> <code>data/db/project.sqlite</code>: она собирается из JSON и сырья командой <code>tools/db_build.py</code> и отвечает на вопросы (<code>tools/db_query.py</code>). В обратную сторону пока ничего не пишет.</div>
 
@@ -102,7 +102,7 @@ tr.yes td:last-child{color:var(--ok)}tr.no td:last-child{color:var(--no)}td.queu
 <div class="card"><div id="sw"></div><svg id="map" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet"></svg><div class="mut">Точки объектов базы по районам Тбилиси (без трамвая и улиц). Галочки включают слои.</div></div>
 
 <h2>5. Задания для Gemini</h2>
-<div class="card"><table><tr><th>Задание</th><th>Состояние</th><th>Строк</th><th>Найдено</th></tr>@@TASKS@@</table><div class="mut" style="margin-top:8px">Одна команда готовит всё: <code>python -P tools/gemini_all.py</code>. Список дел: <code>PENDING.md</code>.</div></div>
+<div class="card"><table><tr><th>Задание</th><th>Состояние</th><th>Строк</th><th>Найдено</th></tr>@@TASKS@@</table><div class="mut" style="margin-top:8px">Одна команда готовит всё: <code>python -P tools/gemini_all.py</code>. Список дел: <code>docs/PENDING.md</code>.</div></div>
 </main>
 <script>
 const D=@@DATA@@;const svg=document.getElementById("map");const NS="http://www.w3.org/2000/svg";

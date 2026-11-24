@@ -1,4 +1,4 @@
-"""Check the answers of Gemini about the names of the streets without a card (for_gemini/from_desktop/cards_batch_NN_result.json, rules: cards_TASK_for_gemini.md).
+"""Check the answers of Gemini about the names of the streets without a card (work/gemini/cards_batch_NN_result.json, rules: tasks/cards.md).
 Row: {"id", "status": "ok"|"skip", "skip_reason", "ka_now", "ru_now", "en_now"}. Rules: every id of the pack once, in the order; the keys; no Cyrillic in ka/en; no the calque of "prospect"; ka_now ends with a Georgian word of
 the kind of the street; the stem of the longest word of ka_now (first 4 letters) stands in the heading of the entry or at the beginning of its text; en_now ends with an English word of the kind; ru_now has Cyrillic.
 Output: data/cache/cards_verified.json ({"ok": [{id, ka_now, ru_now, en_now, page, district}], "rejected": [{id, reasons}], "skip": [{id, reason}]}). Usage: python -P tools/verify_cards.py
@@ -12,7 +12,9 @@ import sys
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENT = os.path.join(R, "data", "cache", "enc2008_entries.json")
-FD = os.path.join(R, "for_gemini", "from_desktop")
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import GEMINI as FD  # noqa: E402
 OUT = os.path.join(R, "data", "cache", "cards_verified.json")
 CYR = re.compile("[Ѐ-ӿ]")
 KA = ("ქუჩა", "გამზირი", "მოედანი", "სანაპირო", "ხეივანი", "გზატკეცილი", "შესახვევი", "ჩიხი", "გასასვლელი", "ბულვარი", "დაღმართი", "აღმართი")
@@ -33,7 +35,7 @@ def stem(ka):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ents = {e["id"]: e for e in json.load(open(ENT, encoding="utf-8"))}
-    files = sorted(glob.glob(os.path.join(FD, "cards_batch_*_result.json")))
+    files = sorted(glob.glob(os.path.join(FD, "batches", "cards", "cards_batch_*_result.json")))
     if not files:
         sys.exit("no result files yet")
     ok, rej, skip, seen, repaired = [], [], [], set(), []

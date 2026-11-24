@@ -3,7 +3,7 @@
 The photos come from Commons geosearch by coordinates only, so a photo 30-60 m away can show another house (found 2026-11-18: a plaque
 of a residential house on the card of a church). tools/build_site_data.py shows such photos only if they are listed in
 data/photos_far_approved.json {"approved": {"<object id>": ["File:..."]}}.
-This script writes for_gemini/photos/photos_in.json (objects with their far candidates) and for_gemini/photos/sheet_NN.jpg
+This script writes work/gemini/archive/photos/photos_in.json (objects with their far candidates) and work/gemini/archive/photos/sheet_NN.jpg
 (8 objects per sheet, up to 3 thumbnails each, from the local thumbnail cache; no new requests to Commons).
 Usage: python -P tools/make_photo_sheets.py
 """
@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 CACHE = os.path.join(ROOT, "data", "cache")
-OUT = os.path.join(ROOT, "for_gemini", "photos")
+OUT = os.path.join(ROOT, "work", "gemini", "archive", "photos")
 NEAR = 30
 ROWS, TH = 8, 210
 

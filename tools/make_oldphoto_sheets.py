@@ -1,6 +1,6 @@
 """Contact sheets of old (before 1960) public-domain / free photographs of Tbilisi from Wikimedia Commons (the files found by tools/probe_old_photos.py),
 for a check of WHERE each photo was taken and WHEN (Commons titles and dates are often rough: 'Ermakov' photos carry 1845, his birth year).
-Downloads each thumbnail once (360 px, data/cache/oldthumbs/, resumable, polite delay) from Commons; writes for_gemini/oldphotos/photos_in.json and sheet_NN.jpg.
+Downloads each thumbnail once (360 px, data/cache/oldthumbs/, resumable, polite delay) from Commons; writes work/gemini/archive/oldphotos/photos_in.json and sheet_NN.jpg.
 Contact only from the environment (WIKIMEDIA_CONTACT). Usage: python -P tools/make_oldphoto_sheets.py
 """
 import hashlib, json, os, re, sys, time, urllib.parse, urllib.request
@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 CACHE = os.path.join(ROOT, "data", "cache")
 TH = os.path.join(CACHE, "oldthumbs")
-OUT = os.path.join(ROOT, "for_gemini", "oldphotos")
+OUT = os.path.join(ROOT, "work", "gemini", "archive", "oldphotos")
 c = os.environ.get("WIKIMEDIA_CONTACT", "")
 UA = "tbilisi-timeline-hobby/1.0 (non-commercial hobby project%s)" % (("; contact: " + c) if c else "")
 os.makedirs(TH, exist_ok=True)

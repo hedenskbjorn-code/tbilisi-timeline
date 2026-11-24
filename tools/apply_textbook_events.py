@@ -2,7 +2,7 @@
 
 Every event was found in the text of a textbook (the pages are the PDF pages of the files read: data/cache/ocr/*.txt) and compared with it claim by claim;
 the sources are the books themselves ({"label": "<reference>, PDF p. N", "book": true}, no link: the books are not published), a Wikipedia page is added only where the page states the event.
-Two old events get a more exact date (853 and 1918). The Georgian texts are Gemini's (for_gemini/from_desktop/tbilisi_textbook_events_result.md), checked here:
+Two old events get a more exact date (853 and 1918). The Georgian texts are Gemini's (work/gemini/results/tbilisi_textbook_events.md), checked here:
 no Cyrillic, no the calque of the word "prospect", every ID present. Spec: tools/textbook_events_spec.json.
 After it run: tools/build_bibliography.py
 """
@@ -14,7 +14,7 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SPEC = os.path.join(ROOT, "tools", "textbook_events_spec.json")
-RES = os.path.join(ROOT, "for_gemini", "from_desktop", "tbilisi_textbook_events_result.md")
+RES = os.path.join(ROOT, "work", "gemini", "results/tbilisi_textbook_events.md")
 EVP = os.path.join(ROOT, "site", "data", "history_events.json")
 CHANGELOG = os.path.join(ROOT, "site", "data", "changelog.json")
 DRY = "--dry-run" in sys.argv
