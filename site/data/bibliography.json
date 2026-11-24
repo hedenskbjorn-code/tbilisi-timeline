@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-20",
- "events": 335,
+ "events": 343,
  "books": [
   {
    "id": "istoria2012",
@@ -408,8 +408,8 @@
   {
    "host": "ru.wikipedia.org",
    "name": "Wikipedia (ru)",
-   "pages": 32,
-   "events": 95
+   "pages": 34,
+   "events": 97
   },
   {
    "host": "ka.wikisource.org",
@@ -420,8 +420,8 @@
   {
    "host": "ka.wikipedia.org",
    "name": "Wikipedia (ka)",
-   "pages": 11,
-   "events": 30
+   "pages": 17,
+   "events": 36
   },
   {
    "host": "openlibrary.ge",
@@ -534,6 +534,12 @@
   {
    "host": "blogs.lse.ac.uk",
    "name": "blogs.lse.ac.uk",
+   "pages": 1,
+   "events": 1
+  },
+  {
+   "host": "veterans.gov.ge",
+   "name": "veterans.gov.ge",
    "pages": 1,
    "events": 1
   }
