@@ -1,5 +1,17 @@
 [
  {
+  "version": "1.9.8",
+  "date": "2026-11-24",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Монастырь Джвари и исторические фото Мцхеты: добавлено событие о постройке Малого храма Джвари (~545 г. при Гуараме I), расширена карточка Джвари на /mtskheta/ (постамент креста св. Нины IV в., фасадные рельефы, 914 г.) и добавлены исторические фотографии Д. Ермакова (1889–1914) и А. Энгеля (1880-е) с Wikimedia Commons.",
+    "en": "Jvari Monastery & historical Mtskheta photos: added the c. 545 Small Church of Jvari event (under Guaram I), expanded the Jvari entry on /mtskheta/ (4th-c. St. Nino cross pedestal, facade reliefs, 914 fire), and added historical photographs by D. Ermakov (1889–1914) and A. Engel (1880s) from Wikimedia Commons.",
+    "ka": "ჯვრის მონასტერი და მცხეთის ისტორიული ფოტოები: დაემატა ჯვრის მცირე ტაძრის აგების მოვლენა (~545 წ., გუარამ I), გაფართოვდა ჯვრის ბარათი /mtskheta/-ზე და დაემატა დ. ერმაკოვისა (1889–1914) და ა. ენგელის (1880-იანი წწ.) ისტორიული ფოტოები Wikimedia Commons-დან."
+   }
+  ]
+ },
+ {
   "version": "1.9.7",
   "date": "2026-11-24",
   "items": [

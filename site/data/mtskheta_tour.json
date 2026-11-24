@@ -20,16 +20,46 @@
         "length_km": 3.4,
         "walk_min": 45,
         "coords": [
-          [44.720901, 41.842971],
-          [44.720985, 41.842276],
-          [44.72089, 41.84229],
-          [44.72108, 41.84231],
-          [44.72095, 41.84217],
-          [44.720475, 41.841951],
-          [44.724433, 41.841303],
-          [44.718305, 41.846446],
-          [44.718988, 41.851368],
-          [44.72288, 41.85559]
+          [
+            44.720901,
+            41.842971
+          ],
+          [
+            44.720985,
+            41.842276
+          ],
+          [
+            44.72089,
+            41.84229
+          ],
+          [
+            44.72108,
+            41.84231
+          ],
+          [
+            44.72095,
+            41.84217
+          ],
+          [
+            44.720475,
+            41.841951
+          ],
+          [
+            44.724433,
+            41.841303
+          ],
+          [
+            44.718305,
+            41.846446
+          ],
+          [
+            44.718988,
+            41.851368
+          ],
+          [
+            44.72288,
+            41.85559
+          ]
         ]
       },
       "stops": [
@@ -63,7 +93,10 @@
             "en": "The 11th-century two-storey western gatehouse with carved bull heads built by Catholicos Melchizedek I, and the square defensive wall with 8 towers erected in 1787 by order of King Erekle II.",
             "ka": "XI ს. ორსართულიანი დასავლეთის კარიბჭე ხარის თავების რელიეფით (მელქისედეკ I-ის დროს) და კვადრატული ციხე-გალავანი 8 კოშკით, აგებული 1787 წ. მეფე ერეკლე II-ის ბრძანებით."
           },
-          "src": ["https://www.pravenc.ru/text/2662044.html", "https://en.wikipedia.org/wiki/Svetitskhoveli_Cathedral"]
+          "src": [
+            "https://www.pravenc.ru/text/2662044.html",
+            "https://en.wikipedia.org/wiki/Svetitskhoveli_Cathedral"
+          ]
         },
         {
           "n": 2,
@@ -74,7 +107,7 @@
           "leg_m": 80,
           "leg_min": 1,
           "kind": "cathedral",
-          "ph": "File:Svetitskhoveli Cathedral, Mtskheta, Georgia 05.jpg",
+          "ph": "File:Svetitskhoveli Cathedral, Mtskheta, Georgia 05.jpg|File:Ermakov. Church of Mtskheta.jpg",
           "name": {
             "ru": "Собор Светицховели (Животворящий Столп)",
             "en": "Svetitskhoveli Cathedral",
@@ -95,7 +128,10 @@
             "en": "Georgia’s principal patriarchal cathedral, built by architect Arsukisdze under Catholicos Melchizedek I on the site of the 4th-c. wooden church and 5th-c. Gorgasali basilica. UNESCO World Heritage Site (1994).",
             "ka": "საქართველოს მთავარი საპატრიარქო ტაძარი, აგებული არქიტექტორ არსუკისძის მიერ კათალიკოს მელქისედეკ I-ის დროს IV ს. ხის ეკლესიისა და V ს. ბაზილიკის ადგილზე. იუნესკოს ძეგლი (1994)."
           },
-          "src": ["https://www.pravenc.ru/text/2662044.html", "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%94%E1%83%A2%E1%83%98%E1%83%AA%E1%83%AE%E1%83%9D%E1%83%95%E1%83%94%E1%83%9A%E1%83%98"]
+          "src": [
+            "https://www.pravenc.ru/text/2662044.html",
+            "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%94%E1%83%A2%E1%83%98%E1%83%AA%E1%83%AE%E1%83%9D%E1%83%95%E1%83%94%E1%83%9A%E1%83%98"
+          ]
         },
         {
           "n": 3,
@@ -125,7 +161,10 @@
             "en": "The 17th-century stone canopy (frescoed by G. Guldzhavarashvili) over the Living Pillar and burial spot of Christ’s Tunic; nearby stand the 4th-century stone baptismal font and exposed 5th-century basilica foundations.",
             "ka": "XVII ს. ქვის კარავი (მხატვრობა გ. გულჯავარაშვილისა) სვეტიცხოვლისა და უფლის კვართის ადგილზე; იქვეა IV საუკუნის ქვის სანათლავი და V ს. ბაზილიკის გათხრილი საძირკველი."
           },
-          "src": ["https://www.pravenc.ru/text/2662044.html", "https://en.wikipedia.org/wiki/Svetitskhoveli_Cathedral"]
+          "src": [
+            "https://www.pravenc.ru/text/2662044.html",
+            "https://en.wikipedia.org/wiki/Svetitskhoveli_Cathedral"
+          ]
         },
         {
           "n": 4,
@@ -155,7 +194,10 @@
             "en": "Georgia’s main royal necropolis: tombs of Vakhtang Gorgasali, David VII Ulu (1271), George VIII, Luarsab I, King Erekle II (carved with sword and shield, 1798), and the last king George XII (1801).",
             "ka": "საქართველოს მეფეთა მთავარი საძვალე: ვახტანგ გორგასლის, დავით VII ულუს (1271), გიორგი VIII-ის, ლუარსაბ I-ის, ერეკლე II-ის (ხმლითა და ფარით, 1798) და ბოლო მეფის გიორგი XII-ის (1801) საფლავები."
           },
-          "src": ["https://en.wikipedia.org/wiki/Svetitskhoveli_Cathedral", "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%94%E1%83%A2%E1%83%98%E1%83%AA%E1%83%AE%E1%83%9D%E1%83%95%E1%83%94%E1%83%9A%E1%83%98"]
+          "src": [
+            "https://en.wikipedia.org/wiki/Svetitskhoveli_Cathedral",
+            "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%94%E1%83%A2%E1%83%98%E1%83%AA%E1%83%AE%E1%83%9D%E1%83%95%E1%83%94%E1%83%9A%E1%83%98"
+          ]
         },
         {
           "n": 5,
@@ -185,7 +227,10 @@
             "en": "A symbolic stone chapel in the south aisle modelled after the Edicule of the Holy Sepulchre in Jerusalem, underscoring Mtskheta’s status as a «Second Jerusalem».",
             "ka": "იერუსალიმის უფლის საფლავის კუვუკლიის მიბაძვით XIV ს-ში აგებული სიმბოლური ქვის სამლოცველო სვეტიცხოვლის სამხრეთ ნავში."
           },
-          "src": ["https://en.wikipedia.org/wiki/Svetitskhoveli_Cathedral", "https://www.pravenc.ru/text/2662044.html"]
+          "src": [
+            "https://en.wikipedia.org/wiki/Svetitskhoveli_Cathedral",
+            "https://www.pravenc.ru/text/2662044.html"
+          ]
         },
         {
           "n": 6,
@@ -217,7 +262,10 @@
             "en": "Ruins of the 11th-century patriarchal stone palace (38.5 × 18.5 m) with sandstone pilasters and wine cellars (marani), excavated by A. Kalandadze in 1963–1964.",
             "ka": "XI ს. საპატრიარქო სასახლის (38,5 × 18,5 მ) ნაშთები პილასტრებითა და მარნებით, გათხრილი ა. კალანდაძის მიერ 1963–1964 წწ."
           },
-          "src": ["https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%94%E1%83%A2%E1%83%98%E1%83%AA%E1%83%AE%E1%83%9D%E1%83%95%E1%83%94%E1%83%9A%E1%83%98", "https://www.pravenc.ru/text/2662044.html"]
+          "src": [
+            "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%94%E1%83%A2%E1%83%98%E1%83%AA%E1%83%AE%E1%83%9D%E1%83%95%E1%83%94%E1%83%9A%E1%83%98",
+            "https://www.pravenc.ru/text/2662044.html"
+          ]
         },
         {
           "n": 7,
@@ -249,7 +297,9 @@
             "en": "An ancient hall church at the confluence of the Mtkvari and Aragvi rivers with an attached gatehouse and tower, among Mtskheta’s earliest Christian monuments.",
             "ka": "მტკვრისა და არაგვის შესართავთან მდებარე ძველი დარბაზული ეკლესია კარიბჭითა და კოშკით."
           },
-          "src": ["https://ru.wikipedia.org/wiki/%D0%9C%D1%86%D1%85%D0%B5%D1%82%D0%B0"]
+          "src": [
+            "https://ru.wikipedia.org/wiki/%D0%9C%D1%86%D1%85%D0%B5%D1%82%D0%B0"
+          ]
         },
         {
           "n": 8,
@@ -260,7 +310,7 @@
           "leg_m": 850,
           "leg_min": 11,
           "kind": "monastery",
-          "ph": "File:სამთავროს მონასტერი, მცხეთა.jpg|File:Tower of Mirian.jpg",
+          "ph": "File:სამთავროს მონასტერი, მცხეთა.jpg|File:Ermakov 13517. Мцхетъ. Самтавро монастырь.jpg",
           "name": {
             "ru": "Монастырь Самтавро: Преображенский собор и башня",
             "en": "Samtavro Monastery: Transfiguration Cathedral & Tower",
@@ -281,7 +331,10 @@
             "en": "Complex of the 11th-century Transfiguration Cathedral (burial place of King Mirian III and Queen Nana), St. Nino’s 4th-century chapel («Makvlovani»), and the 15th–16th c. tower. UNESCO World Heritage Site.",
             "ka": "XI ს. ფერისცვალების ტაძარი (მეფე მირიან III-ისა და დედოფალ ნანას საფლავი), წმ. ნინოს IV ს. ეკლესია („მაყვლოვანი“) და XV–XVI სს. სამრეკლო. იუნესკოს ძეგლი."
           },
-          "src": ["https://www.pravenc.ru/text/2564558.html", "https://en.wikipedia.org/wiki/Mtskheta"]
+          "src": [
+            "https://www.pravenc.ru/text/2564558.html",
+            "https://en.wikipedia.org/wiki/Mtskheta"
+          ]
         },
         {
           "n": 9,
@@ -311,7 +364,10 @@
             "en": "Mtskheta’s largest necropolis (~3,000 burials excavated since 1937): pit, kvevri and stone tombs. 1st–3rd c. Crypt 905 yielded a silver dish inscribed «Prince Tiridates»; also the 4th–5th c. Greek epitaph of architect Aurelius Acholis.",
             "ka": "მცხეთის უდიდესი სამაროვანი (~3000 სამარხი გათხრილია 1937 წლიდან): ორმოსამარხები, ქვევრსამარხები, ქვის აკლდამები (№ 905 აკლდამა «უფლისწულ თირიდატის» ლანგრით) და ავრელიოს აქოლისის ეპიტაფია."
           },
-          "src": ["https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BC%D1%82%D0%B0%D0%B2%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BC%D0%BE%D0%B3%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA", "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9B%E1%83%97%E1%83%90%E1%83%95%E1%83%A0%E1%83%9D%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%90%E1%83%A0%E1%83%9D%E1%83%95%E1%83%90%E1%83%9C%E1%83%98"]
+          "src": [
+            "https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BC%D1%82%D0%B0%D0%B2%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BC%D0%BE%D0%B3%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA",
+            "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9B%E1%83%97%E1%83%90%E1%83%95%E1%83%A0%E1%83%9D%E1%83%A1_%E1%83%A1%E1%83%90%E1%83%9B%E1%83%90%E1%83%A0%E1%83%9D%E1%83%95%E1%83%90%E1%83%9C%E1%83%98"
+          ]
         },
         {
           "n": 10,
@@ -322,7 +378,7 @@
           "leg_m": 620,
           "leg_min": 9,
           "kind": "fortress",
-          "ph": "File:Bebris Tsikhe.jpg",
+          "ph": "File:Bebris Tsikhe.jpg|File:View of Mtskheta. Photo by A. Engel. 1880s.jpg",
           "name": {
             "ru": "Крепость Бебрисцихе (Белтисцихе)",
             "en": "Bebristsikhe Fortress (Beltistsikhe)",
@@ -343,7 +399,9 @@
             "en": "A medieval fortress guarding the northern approach to Mtskheta along the Aragvi gorge. In 1156, King Demetre I of Georgia (author of the hymn «Shen Khar Venakhi») died here.",
             "ka": "შუა საუკუნეების ციხესიმაგრე არაგვის ხეობის მხრიდან მცხეთის ჩრდილოეთ მისასვლელთან. 1156 წ. აქ გარდაიცვალა მეფე დემეტრე I."
           },
-          "src": ["https://www.pravenc.ru/text/2564522.html"]
+          "src": [
+            "https://www.pravenc.ru/text/2564522.html"
+          ]
         }
       ]
     },
@@ -367,12 +425,30 @@
         "length_km": 11.2,
         "walk_min": 145,
         "coords": [
-          [44.706272, 41.838783],
-          [44.674732, 41.838676],
-          [44.680581, 41.833222],
-          [44.68818, 41.829722],
-          [44.679094, 41.8266],
-          [44.733371, 41.838373]
+          [
+            44.706272,
+            41.838783
+          ],
+          [
+            44.674732,
+            41.838676
+          ],
+          [
+            44.680581,
+            41.833222
+          ],
+          [
+            44.68818,
+            41.829722
+          ],
+          [
+            44.679094,
+            41.8266
+          ],
+          [
+            44.733371,
+            41.838373
+          ]
         ]
       },
       "stops": [
@@ -406,7 +482,9 @@
             "en": "Remains of an ancient Mtkvari river crossing associated with Pompey the Great’s 65 BCE campaign into Iberia; visible at low water.",
             "ka": "მტკვარზე უძველესი გადასასვლელის ნაშთები, დაკავშირებული ძვ. წ. 65 წ. რომაელი სარდლის პომპეუსის ლაშქრობასთან."
           },
-          "src": ["https://en.wikipedia.org/wiki/Mtskheta"]
+          "src": [
+            "https://en.wikipedia.org/wiki/Mtskheta"
+          ]
         },
         {
           "n": 2,
@@ -437,7 +515,10 @@
             "en": "Residence, Roman-style bathhouse and necropolis of the Iberian pitiakhshs. Excavations in 1937–1946 uncovered (25 Nov 1940) the famous 2nd-century Greek-Aramaic Armazi bilingual stele of Serafita.",
             "ka": "იბერიის პიტიახშთა რეზიდენცია, აბანო და სამაროვანი. 1937–1946 წწ. გათხრებისას (25.11.1940) აქ აღმოჩნდა სერაფიტას ბერძნულ-არამეული არმაზის ბილინგვა."
           },
-          "src": ["https://ru.wikipedia.org/wiki/%D0%90%D1%80%D0%BC%D0%B0%D0%B7%D1%81%D0%BA%D0%B0%D1%8F_%D0%B1%D0%B8%D0%BB%D0%B8%D0%BD%D0%B3%D0%B2%D0%B0", "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%9B%E1%83%90%E1%83%96%E1%83%98%E1%83%A1%E1%83%AE%E1%83%94%E1%83%95%E1%83%98"]
+          "src": [
+            "https://ru.wikipedia.org/wiki/%D0%90%D1%80%D0%BC%D0%B0%D0%B7%D1%81%D0%BA%D0%B0%D1%8F_%D0%B1%D0%B8%D0%BB%D0%B8%D0%BD%D0%B3%D0%B2%D0%B0",
+            "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%9B%E1%83%90%E1%83%96%E1%83%98%E1%83%A1%E1%83%AE%E1%83%94%E1%83%95%E1%83%98"
+          ]
         },
         {
           "n": 3,
@@ -500,7 +581,9 @@
             "en": "Ancient acropolis of Iberia (Bagineti) with remains of a royal palace, pagan sanctuary and fortifications, alongside the medieval St. Nino church and wall.",
             "ka": "იბერიის ანტიკური აკროპოლისი (ბაგინეთი) სასახლისა და საფორტიფიკაციო ნაშთებით და წმ. ნინოს ეკლესია გალავნით."
           },
-          "src": ["https://www.pravenc.ru/text/2564522.html"]
+          "src": [
+            "https://www.pravenc.ru/text/2564522.html"
+          ]
         },
         {
           "n": 5,
@@ -543,7 +626,7 @@
           "leg_m": 5400,
           "leg_min": 65,
           "kind": "monastery",
-          "ph": "File:Jvari chappel.jpg|File:Jvari monastery.Mtskheta.Enter to Church.jpg",
+          "ph": "File:Jvari chappel.jpg|File:Research expedition to the Cross church - Dmitri Yermakov (1914).jpg",
           "name": {
             "ru": "Монастырь Джвари (Большой и Малый храмы)",
             "en": "Jvari Monastery (Great & Small Churches)",
@@ -555,16 +638,19 @@
             "ka": "მთა მტკვრისა და არაგვის შესართავთან"
           },
           "year": {
-            "ru": "586–604 гг.",
-            "en": "586–604",
-            "ka": "586–604 წწ."
+            "ru": "IV в.; ~545 г.; 586–604 гг.",
+            "en": "4th c.; c. 545; 586–604",
+            "ka": "IV ს.; ~545 წ.; 586–604 წწ."
           },
           "desc": {
-            "ru": "Шедевр раннесредневековой грузинской архитектуры: Большой тетраконх (586–604 гг., эрисмтавар Степаноз I) и Малая церковь VI в. над местом, где св. Нина воздвигла крест. Включён в список ЮНЕСКО (1994).",
-            "en": "Masterpiece of early medieval Georgian architecture: the Great tetraconch church (586–604, built by Stepanos I) and the 6th-c. Small church where St. Nino erected a wooden cross. UNESCO World Heritage Site (1994).",
-            "ka": "ადრეშუასაუკუნეების ქართული ხუროთმოძღვრების შედევრი: ჯვრის დიდი ტაძარი (586–604 წწ.) და VI ს. მცირე ეკლესია. იუნესკოს ძეგლი (1994)."
+            "ru": "Ансамбль на вершине горы у слияния Куры и Арагви: Малый храм (~545 г., Гуарам I) и Большой тетраконх (586–604 гг., эрисмтавар Степаноз I) с фасадными рельефами Степаноза I, Деметре и Адарнасе. Внутри — подлинный постамент креста св. Нины IV века; в 914 г. сожжён арабами, позднее обнесён каменной стеной. Объект ЮНЕСКО (1994).",
+            "en": "Mountaintop complex above the Mtkvari–Aragvi confluence: the Small Church (c. 545, Guaram I) and Great tetraconch church (586–604, Erismtavari Stepanoz I) with facade reliefs of Stepanoz I, Demetre and Adarnase. Inside stands the 4th-c. pedestal of St. Nino’s cross; burned in the 914 Sajid invasion and later walled. UNESCO World Heritage Site (1994).",
+            "ka": "სამონასტრო ანსამბლი მტკვრისა და არაგვის შესართავის თავზე: მცირე ტაძარი (~545 წ., გუარამ I) და დიდი ჯვარი (586–604 წწ., სტეფანოზ I) ფასადის რელიეფებით (სტეფანოზ I, დემეტრე, ადარნასე). ტაძარში დაცულია წმ. ნინოს IV ს. ჯვრის კვარცხლბეკი; 914 წ. დაარბიეს არაბებმა. იუნესკოს ძეგლი (1994)."
           },
-          "src": ["https://www.pravenc.ru/text/2564522.html", "https://en.wikipedia.org/wiki/Mtskheta"]
+          "src": [
+            "https://en.wikipedia.org/wiki/Jvari_Monastery",
+            "https://www.pravenc.ru/text/2564522.html"
+          ]
         }
       ]
     }
