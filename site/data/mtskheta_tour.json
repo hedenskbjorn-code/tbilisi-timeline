@@ -572,17 +572,18 @@
             "ka": "ბაგინეთის მთა, მტკვრის მარჯვენა ნაპირი"
           },
           "year": {
-            "ru": "III в. до н. э. – IX–X вв.",
-            "en": "3rd c. BCE – 9th–10th c.",
-            "ka": "ძვ. წ. III ს. – IX–X სს."
+            "ru": "IV в. до н. э. – VI в. н. э. (раскопки 1890, 1943–1948, с 1985)",
+            "en": "4th c. BCE – 6th c. CE (excavations 1890, 1943–1948, 1985+)",
+            "ka": "ძვ. წ. IV ს. – ახ. წ. VI ს. (გათხრები 1890, 1943–1948, 1985+)"
           },
           "desc": {
-            "ru": "Античный акрополь Иберии (Багинети) с остатками дворца, языческого святилища и укреплений, а также средневековая церковь св. Нины с оградой.",
-            "en": "Ancient acropolis of Iberia (Bagineti) with remains of a royal palace, pagan sanctuary and fortifications, alongside the medieval St. Nino church and wall.",
-            "ka": "იბერიის ანტიკური აკროპოლისი (ბაგინეთი) სასახლისა და საფორტიფიკაციო ნაშთებით და წმ. ნინოს ეკლესია გალავნით."
+            "ru": "Акрополь древней Иберии (~30 га, античная Гармозика): раскопки 1890 г. и экспедиция А. Апакидзе (1943–1948, с 1985) выявили 3 слоя — Армази I (IV–III вв. до н. э., шестиколонный зал, сырцовые стены на каменном цоколе), Армази II (III–I вв. до н. э., храм с апсидой) и Армази III (I–VI вв. н. э., царский дворец, бани, водопровод, саркофаги с золотом). Разрушен арабами в 736–738 гг.",
+            "en": "Acropolis of ancient Iberia (~30 ha, Classical Harmozica): 1890 digs and A. Apakidze’s excavations (1943–1948, resumed 1985) revealed three layers — Armazi I (4th–3rd c. BCE, six-column hall, mudbrick walls on stone plinths), Armazi II (3rd–1st c. BCE, apsed temple), and Armazi III (1st–6th c. CE, royal palace, bathhouse, aqueducts, gold-rich tombs). Destroyed by Arabs in 736–738.",
+            "ka": "იბერიის ძველი აკროპოლისი (~30 ჰა, ანტიკური ჰარმოზიკე): 1890 წ. და ა. აფაქიძის გათხრებმა (1943–1948, 1985-დან) გამოავლინა 3 ფენა — არმაზციხე I (ძვ. წ. IV–III სს., ექვსსვეტიანი დარბაზი), არმაზციხე II (ძვ. წ. III–I სს., აფსიდიანი ტაძარი) და არმაზციხე III (I–VI სს., სამეფო სასახლე, აბანო, წყალსადენი, მდიდრული სამარხები). დაინგრა 736–738 წწ."
           },
           "src": [
-            "https://www.pravenc.ru/text/2564522.html"
+            "https://en.wikipedia.org/wiki/Armazi",
+            "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%9B%E1%83%90%E1%83%96%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94"
           ]
         },
         {
