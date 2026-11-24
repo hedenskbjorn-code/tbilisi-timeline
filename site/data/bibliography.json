@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-20",
- "events": 334,
+ "events": 335,
  "books": [
   {
    "id": "istoria2012",
@@ -242,6 +242,33 @@
    "events": 2
   },
   {
+   "id": "uckebani",
+   "ref": "სალიტერატურონი ნაწილნი ტფილისის უწყებათანი (Литературные части Тифлисских ведомостей), 1832, № 2–3.",
+   "links": [
+    {
+     "t": "№ 1",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/1719"
+    },
+    {
+     "t": "№ 2",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/380937"
+    },
+    {
+     "t": "№ 3",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/1720"
+    },
+    {
+     "t": "№ 4",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/380113"
+    },
+    {
+     "t": "№ 5",
+     "u": "https://dspace.nplg.gov.ge/handle/1234/380114"
+    }
+   ],
+   "events": 2
+  },
+  {
    "id": "baye",
    "ref": "J. de Baye. Tiflis. Souvenirs d'une mission. Paris, 1900.",
    "links": [
@@ -278,33 +305,6 @@
    "id": "museum",
    "ref": "Путеводитель по Кавказскому военно-историческому музею. Тифлис.",
    "links": [],
-   "events": 1
-  },
-  {
-   "id": "uckebani",
-   "ref": "სალიტერატურონი ნაწილნი ტფილისის უწყებათანი (Литературные части Тифлисских ведомостей), 1832, № 2–3.",
-   "links": [
-    {
-     "t": "№ 1",
-     "u": "https://dspace.nplg.gov.ge/handle/1234/1719"
-    },
-    {
-     "t": "№ 2",
-     "u": "https://dspace.nplg.gov.ge/handle/1234/380937"
-    },
-    {
-     "t": "№ 3",
-     "u": "https://dspace.nplg.gov.ge/handle/1234/1720"
-    },
-    {
-     "t": "№ 4",
-     "u": "https://dspace.nplg.gov.ge/handle/1234/380113"
-    },
-    {
-     "t": "№ 5",
-     "u": "https://dspace.nplg.gov.ge/handle/1234/380114"
-    }
-   ],
    "events": 1
   }
  ],

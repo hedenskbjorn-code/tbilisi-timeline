@@ -451,6 +451,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateScience();
     updateEducation();
     updateMuseums();
+    updateBattleMap();
     updatePlaces();
     updateMP("mon");
     updateMP("plq");
@@ -554,6 +555,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     updateSciUi();
     updateEduUi();
     updateMusUi();
+    updateBattleMapUi();
     updatePlacesUi();
     updateMPUi();
     $("note").textContent = t().note(undated);
@@ -2218,7 +2220,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       // one click handler for all transport: the lines lie on one another (the tram is drawn 4 px beside the street, an avenue, a bridge and a railway can run along it), so
       // the object of the highest rank within a few pixels is taken: a tram before a metro line, a bridge before an avenue (found out 2026-11-19: on Chavchavadze Avenue the avenue took the click)
       const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue", "road"];
-      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt"];
+      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt", "battle-pt"];
       map.on("click", (e) => {
         const near = (r) => [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
         const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-funic", "tr-cable"].filter((id) => map.getLayer(id)) });
@@ -2232,7 +2234,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       });
     } catch (e) { /* no transport layer */ }
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
-    try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); } catch (e) { histEvents = []; }
+    try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); addBattleMap(); } catch (e) { histEvents = []; }
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
     try { rulersMedia = await getJSON("data/rulers_media.json", 1); } catch (e) { rulersMedia = null; }
     try { rulersData = await getJSON("data/rulers.json", 1); buildRulersBand(); updateRuleLine(); } catch (e) { console.error("rulers", e && e.message); rulersData = null; }
@@ -2354,7 +2356,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     if (hy >= MIN && hy <= MAX && hy !== year) { year = hy; update(); }
   });
   $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
-  for (const id of ["showPlan", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showEdu", "showMus", "showRulers", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTrMetro", "showTrTram", "showTrRail", "showTrRoad", "showTrCable", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showResid", "showPublic", "showDef", "showOtherB", "showNoPhoto"]) $(id).addEventListener("change", update);
+  for (const id of ["showPlan", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showEdu", "showMus", "showBattleMap", "showRulers", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTrMetro", "showTrTram", "showTrRail", "showTrRoad", "showTrCable", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showResid", "showPublic", "showDef", "showOtherB", "showNoPhoto"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
     for (const p of plans) if (map.getLayer("plan-" + p.id)) map.setPaintProperty("plan-" + p.id, "raster-opacity", planOpacity());
@@ -3089,6 +3091,43 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
     const src = map && map.getSource && map.getSource("mus");
     if (src) src.setData({ type: "FeatureCollection", features: musFeats() });
+  }
+  const battleMapFeats = () => histEvents.map((ev, idx) => ({ ev, idx })).filter(({ ev }) => (ev.cat === "battle" || ev.cat === "invasion") && ev.place)
+    .map(({ ev, idx }) => ({
+      type: "Feature",
+      geometry: { type: "Point", coordinates: [ev.place.lng, ev.place.lat] },
+      properties: { idx, year: ev.year, cat: ev.cat, label: `${ev.place[lang] || ev.place.en || ""} (${ev.date})` },
+    }));
+  function addBattleMap() {
+    if (!histEvents.length || map.getSource("battle-map")) return;
+    map.addSource("battle-map", { type: "geojson", data: { type: "FeatureCollection", features: battleMapFeats() } });
+    map.addLayer({ id: "battle-pt", type: "circle", source: "battle-map", layout: { visibility: "none" },
+      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 6, 17, 11],
+               "circle-color": ["case", ["==", ["get", "cat"], "battle"], "#c92a2a", "#e67700"],
+               "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: "battle-lb", type: "symbol", source: "battle-map", minzoom: 13.5,
+      layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.3], "text-anchor": "top", "text-optional": true },
+      paint: { "text-color": "#a61e4d", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    map.on("click", "battle-pt", (e) => {
+      const f = e.features && e.features[0], ev = f && histEvents[f.properties.idx];
+      if (ev) showHistEvent(ev);
+    });
+    map.on("mouseenter", "battle-pt", () => { map.getCanvas().style.cursor = "pointer"; });
+    map.on("mouseleave", "battle-pt", () => { map.getCanvas().style.cursor = ""; });
+    updateBattleMap();
+  }
+  function updateBattleMap() {
+    if (!map.getLayer("battle-pt")) return;
+    const on = $("showBattleMap").checked;
+    for (const id of ["battle-pt", "battle-lb"]) {
+      map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+      map.setFilter(id, ["<=", ["get", "year"], year]);
+      map.moveLayer(id);
+    }
+  }
+  function updateBattleMapUi() {
+    const src = map && map.getSource && map.getSource("battle-map");
+    if (src) src.setData({ type: "FeatureCollection", features: battleMapFeats() });
   }
   function popupMus(c, lngLat) {
     reopenPopup = () => popupMus(c, lngLat);

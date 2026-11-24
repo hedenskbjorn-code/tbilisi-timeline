@@ -1,5 +1,29 @@
 [
  {
+  "version": "1.9.3",
+  "date": "2026-11-24",
+  "items": [
+   {
+    "t": "new",
+    "ru": "Новый чекбокс и слой карты «Битвы и осады на карте» (#showBattleMap): 49 битв, осад и вторжений с координатами отображаются на карте накопительно по выбранному году; клик открывает карточку события с источником.",
+    "en": "New checkbox and map layer \"Battles and sieges on the map\" (#showBattleMap): 49 battles, sieges and invasions with coordinates are shown cumulatively up to the selected year; clicking opens the event card with its source.",
+    "ka": "ახალი მოსანიშნი და რუკის ფენა „ბრძოლები და ალყები რუკაზე“ (#showBattleMap): 49 ბრძოლა, ალყა და შემოსევა კოორდინატებით აისახება რუკაზე არჩეულ წლამდე დაგროვებით; დაწკაპუნება ხსნის მოვლენის ბარათს წყაროთი."
+   },
+   {
+    "t": "new",
+    "ru": "События: добавлена осада и возвращение Тбилисской крепости Ираклием II (1749 г., по «Тифлисским ведомостям» 1832 г.), а события 1723 и 1991 гг. (Тбилисская война) отнесены к вторжениям/битвам для отображения на карте.",
+    "en": "Events: added the 1749 siege and recapture of the Tbilisi fortress by Erekle II (from the 1832 Tiflis Vedomosti), and classified the 1723 and 1991 (Tbilisi War) events under invasions/battles for the map layer.",
+    "ka": "მოვლენები: დაემატა ერეკლე II-ის მიერ ტფილისის ციხის ალყა და დაბრუნება (1749 წ., 1832 წლის „ტფილისის უწყებათანიდან“), ხოლო 1723 და 1991 (თბილისის ომი) წლების მოვლენები მიეკუთვნა შემოსევებს/ბრძოლებს."
+   },
+   {
+    "t": "fix",
+    "ru": "Данные: исправлен разбор 13 дат реестра культурного наследия в monuments.json (рубеж XIX–XX вв., словесная запись «XX век» и опечатки «დასასრული») через apply_register_dates.py, а также восстановлено оборванное грузинское описание гостиницы Radisson Blu Iveria в run_details.json.",
+    "en": "Data: fixed parsing of 13 cultural heritage register dates in monuments.json (turn of the 19th–20th centuries, spelled-out 20th century, and typos) via apply_register_dates.py, and restored the truncated Georgian description of the Radisson Blu Iveria Hotel in run_details.json.",
+    "ka": "მონაცემები: გასწორდა კულტურული მემკვიდრეობის რეესტრის 13 თარიღი monuments.json-ში (XIX–XX სს. მიჯნა, სიტყვიერი „მეოცე“ და ბეჭდვითი შეცდომები) apply_register_dates.py-ით, ასევე აღდგა Radisson Blu Iveria-ს შეწყვეტილი ქართული აღწერა run_details.json-ში."
+   }
+  ]
+ },
+ {
   "version": "1.9.2",
   "date": "2026-11-24",
   "items": [

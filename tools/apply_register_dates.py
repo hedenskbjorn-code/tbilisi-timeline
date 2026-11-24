@@ -8,6 +8,7 @@ Idempotent. Usage: python -P tools/apply_register_dates.py [--dry-run]
 """
 import json
 import os
+import re
 import sqlite3
 import sys
 
@@ -25,6 +26,13 @@ DESC = {
     16034: (1958, 1960, "the Description says the station was built in 1958-1960; the register gave only the 20th century"),
 }
 WORDS = {"XVIII ს": "the 18th century (the word of the register 'XVIII ს')", "V-XVIII სს.": "the 5th-18th centuries (the word of the register 'V-XVIII სს.')"}
+# Fixes for raw_date strings misparsed by the initial import:
+# (old_y0, old_y1, regex_or_substrings) -> (new_y0, new_y1, prec, why_template)
+RAW_DATE_FIXES = [
+    ("19th_end_20th_start", (1801, 1825), (1876, 1925, "mixed"), "raw_date spans end of 19th to beginning of 20th century (%s), misparsed as 1801-1825"),
+    ("20th_words_start", (1801, 2000), (1901, 1925, "quarter"), "raw_date says beginning of 20th century in words (%s), misparsed as 1801-2000"),
+    ("19th_end_typo", (1801, 1900), (1876, 1900, "quarter"), "raw_date says end of 19th century with a typo (%s), misparsed as full century 1801-1900"),
+]
 
 
 def main():
@@ -53,6 +61,19 @@ def main():
             r = rules[t]
             new[str(k)] = {"year_from": r["y0"], "year_to": r["y1"], "year_est": (r["y0"] + r["y1"]) // 2, "date_precision": "century", "date_source": "ExactDate",
                            "why": "raw_date says " + WORDS[t] + ", range %d-%d; the end of the range is shown on the timeline, as for the other objects with a word of this kind" % (r["y0"], r["y1"])}
+            continue
+        cur = (pr.get("y0"), pr.get("y1"))
+        fix = None
+        if cur == (1801, 1825) and re.search(r"მე-19.*(ბოლო|დასასრულ).*მე-20.*დასაწყის", t, re.S):
+            fix = RAW_DATE_FIXES[0]
+        elif cur == (1801, 2000) and "მეოცე" in t and "დასაწყის" in t:
+            fix = RAW_DATE_FIXES[1]
+        elif cur == (1801, 1900) and "მე-19" in t and re.search(r"(დასარულ|დასასრლ|დასდასრულ|დსასრულ)", t):
+            fix = RAW_DATE_FIXES[2]
+        if fix:
+            _, _, (ny0, ny1, nprec), why_tpl = fix
+            new[str(k)] = {"year_from": ny0, "year_to": ny1, "year_est": (ny0 + ny1) // 2, "date_precision": nprec, "date_source": pr.get("src") or "ExactDate",
+                           "why": why_tpl % t.replace("\r", " ")}
     ov_p = os.path.join(R, "data", "monument_date_overrides.json")
     raw_txt = open(ov_p, encoding="utf-8").read()
     ov = json.loads(raw_txt)
