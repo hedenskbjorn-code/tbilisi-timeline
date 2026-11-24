@@ -433,6 +433,112 @@ for (const f of MODULES) if (!shell.includes(f)) err(`sw.js: the module ${f} is 
 for (const s of scripts) if (!s.startsWith("vendor/") && !shell.includes(s)) warns.push(`sw.js: ${s} is not in the shell (it will not work offline)`);
 for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v.image) && !fs.existsSync(path.join(SITE, v.image))) err(`views.json ${v.id}: the image ${v.image} does not exist`);
 
+// ---- strict schema, LLM-corruption, photos, tours, scale sync and event guards (2026-11-24) -----------------------
+{
+  const ni = data["data/names_i18n.json"];
+  if (!ni) err("data/names_i18n.json: missing");
+  else if (Object.keys(ni).sort().join(",") !== "names,streets") {
+    err(`data/names_i18n.json: top-level keys must be strictly names,streets (got ${Object.keys(ni).sort().join(",")})`);
+  }
+}
+
+{
+  const TRUNC = /(?:\((?:груз|греч|арм|укр|нем|фр|лат|перс|тур)\.|[—–-]\s*გ\.|\[?\s*ძვ\.|სოფ\.|ახლანდ\.|\bSt\.|[—–-]\s*\))$/;
+  const LLM_JUNK = /(\[insert|отсутствует в|not provided|missing from|missing in source|cannot complete|birthdate is unknown|birth date is unknown|no information provided|as an ai)/i;
+  const REP_LOOP = /\b(\S+\s+\S+\s+\S+)(?:\s+\1){2,}/i;
+  const GE_ONE = /[ა-ჰ]/, CY_ONE = /[А-Яа-яЁё]/;
+  for (const [file, d] of [["data/sculptures.json", data["data/sculptures.json"]], ["data/plaques.json", data["data/plaques.json"]]]) {
+    for (const c of d?.items || []) {
+      if (!c.dw) continue;
+      if (!c.d || !Object.values(c.d).some(Boolean)) err(`${file} ${c.id}: dw without a description`);
+      if (!c.w || !Object.keys(c.w).length) err(`${file} ${c.id}: dw without Wikipedia link`);
+      for (const [l, t] of Object.entries(c.d || {})) {
+        if (!t) continue;
+        if (t.length > 330) err(`${file} ${c.id} ${l}: dw too long (${t.length} > 330)`);
+        if (t.includes("\u0301")) err(`${file} ${c.id} ${l}: dw contains combining stress mark`);
+        if (l === "ka" && (!GE_ONE.test(t) || CY_ONE.test(t))) err(`${file} ${c.id} ka: dw has Cyrillic or no Georgian letters`);
+        if (l === "en" && CY_ONE.test(t)) err(`${file} ${c.id} en: dw contains Cyrillic`);
+        if (TRUNC.test(t.trim())) err(`${file} ${c.id} ${l}: dw looks truncated (${t.slice(-30)})`);
+        if (LLM_JUNK.test(t)) err(`${file} ${c.id} ${l}: dw contains LLM placeholder/refusal`);
+        if (REP_LOOP.test(t)) err(`${file} ${c.id} ${l}: dw contains LLM repetition loop`);
+      }
+    }
+  }
+}
+
+{
+  const photos = data["data/photos.json"] || {};
+  for (const [k, v] of Object.entries(photos)) {
+    if (!String(v?.thumb || "").trim()) err(`photos.json ${k}: thumb is missing`);
+    if (!String(v?.license || "").trim()) err(`photos.json ${k}: license is missing`);
+    if (!String(v?.page || "").trim()) err(`photos.json ${k}: page is missing`);
+    if (/[?&]utm_(source|medium|campaign)=/i.test(String(v?.thumb || "")) || /[?&]utm_(source|medium|campaign)=/i.test(String(v?.page || ""))) {
+      err(`photos.json ${k}: utm_ tracking parameter in URL`);
+    }
+  }
+
+  const rad = (deg) => (deg * Math.PI) / 180;
+  const havKm = ([lon1, lat1], [lon2, lat2]) => {
+    const dLat = rad(lat2 - lat1), dLon = rad(lon2 - lon1);
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLon / 2) ** 2;
+    return 2 * 6371 * Math.asin(Math.sqrt(h));
+  };
+  for (const file of ["data/mtskheta_tour.json", "data/museum_tours.json"]) {
+    const tour = data[file];
+    if (!Array.isArray(tour?.parts) || !tour.parts.length) { err(`${file}: no parts`); continue; }
+    for (const p of tour.parts) {
+      const coords = p.route?.coords || [], stops = p.stops || [];
+      if (!stops.length) err(`${file} ${p.id}: no stops`);
+      if (coords.length < stops.length * 3) err(`${file} ${p.id}: route has too few points (${coords.length} for ${stops.length} stops)`);
+      let actualKm = 0;
+      for (let i = 0; i < coords.length - 1; i++) actualKm += havKm(coords[i], coords[i + 1]);
+      if (!(Number.isFinite(p.route?.length_km) && p.route.length_km > 0)) err(`${file} ${p.id}: invalid route.length_km`);
+      else if (Math.abs(actualKm - p.route.length_km) > Math.max(0.5, p.route.length_km * 0.25)) {
+        err(`${file} ${p.id}: route length mismatch (declared ${p.route.length_km} km, coords ${actualKm.toFixed(2)} km)`);
+      }
+      for (const s of stops) {
+        const w = `${file} ${p.id} stop ${s.id || s.n}`;
+        if (!(Number.isFinite(s.lat) && Number.isFinite(s.lon))) err(`${w}: missing coordinates`);
+        for (const k of ["name", "address", "year", "desc"]) {
+          for (const l of ["ru", "en", "ka"]) if (!String(s[k]?.[l] || "").trim()) err(`${w}: ${k}.${l} is missing`);
+        }
+        for (const item of String(s.ph || "").split("|").map((x) => x.trim()).filter(Boolean)) {
+          if (!(item in photos)) err(`${w}: photo "${item}" not found in photos.json`);
+        }
+      }
+    }
+  }
+}
+
+{
+  const appJs = fs.readFileSync(path.join(SITE, "app.js"), "utf8");
+  const mMin = appJs.match(/const\s+MIN\s*=\s*(\d+)/);
+  const mKnots = appJs.match(/const\s+FULL_KNOTS\s*=\s*\[\[(\d+),/);
+  const rulers = data["data/rulers.json"];
+  if (!mMin || !mKnots) err("app.js: could not parse MIN or FULL_KNOTS");
+  else {
+    const minYear = Number(mMin[1]), knotsStart = Number(mKnots[1]);
+    if (knotsStart !== minYear) err(`app.js: FULL_KNOTS start (${knotsStart}) !== MIN (${minYear})`);
+    const firstFrom = rulers?.states?.[0]?.from;
+    if (!(Number.isFinite(firstFrom) && firstFrom <= minYear)) {
+      err(`rulers.json: states[0].from (${firstFrom}) > app.js MIN (${minYear})`);
+    }
+  }
+}
+
+if (ev) {
+  const battleCount = ev.filter((e) => (e.cat === "battle" || e.cat === "invasion") && e.place).length;
+  if (battleCount < 49) err(`history_events.json: expected >= 49 battle/invasion events with place, got ${battleCount}`);
+  const rawHist = fs.readFileSync(path.join(SITE, "data", "history_events.json"), "utf8");
+  if (rawHist.split(/\r?\n/).length < ev.length) err("history_events.json: must stay multi-line (one event per line, not minified)");
+  const seenEv = new Set();
+  for (const e of ev) {
+    const key = `${e.year}|${e.date}|${e.ru || ""}`;
+    if (seenEv.has(key)) err(`history_events.json: duplicate event (${e.year} ${e.date}: ${(e.ru || "").slice(0, 50)})`);
+    seenEv.add(key);
+  }
+}
+
 for (const w of warns) console.log("warning:", w);
 if (errors.length) {
   console.log(`\n${errors.length} problem(s):`);

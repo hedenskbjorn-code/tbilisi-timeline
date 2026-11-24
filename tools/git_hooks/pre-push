@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+set -e
+
+echo "[pre-push] Checking repository state and running preflight verification..."
+
+if ! git diff --quiet -- site tests || ! git diff --cached --quiet -- site tests; then
+  echo "[pre-push] BLOCKED: uncommitted changes in site/ or tests/. Commit or clean them before pushing." >&2
+  exit 1
+fi
+
+if ! npm run preflight; then
+  echo "[pre-push] BLOCKED: preflight checks failed. NEVER use --no-verify." >&2
+  exit 1
+fi
+
+echo "[pre-push] OK: all data, unit, DB, and critical E2E checks passed."
