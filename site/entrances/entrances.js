@@ -14,7 +14,7 @@
   const T = {
     ru: {
       report: "Сообщить об ошибке",
-      title: "Парадные Тбилиси: пешеходный маршрут", home: "К карте с таймлайном", ariaPages: "Разделы сайта", navMap: "Карта во времени", navEntr: "Парадные Тбилиси", navRun: "Маршрут TRC City Run", navMus: "Музеи Тбилиси", navLost: "Утраченный Тбилиси", share: "Скопировать ссылку", copied: "Ссылка скопирована", loading: "Загрузка карты…",
+      title: "Парадные Тбилиси: пешеходный маршрут", home: "К карте с таймлайном", ariaPages: "Разделы сайта", navMap: "Карта во времени", navEntr: "Парадные Тбилиси", navRun: "Маршрут TRC City Run", navMus: "Музеи Тбилиси", navMtskheta: "Экскурсия по Мцхете", navLost: "Утраченный Тбилиси", share: "Скопировать ссылку", copied: "Ссылка скопирована", loading: "Загрузка карты…",
       intro: (p) => `Пешеходный маршрут «${p.title.ru}» мимо старых жилых домов с парадными конца XIX — начала XX века: <b>${p.stops.length} ${p.stops.length === 1 ? "дом" : p.stops.length < 5 ? "дома" : "домов"}</b>, <b>${num(p.route.length_km)} км</b>, около <b>${p.route.walk_min} мин</b> ходьбы без остановок. Старт и финиш у станции метро «Площадь Свободы». Порядок домов подобран так, чтобы идти как можно меньше: время считалось по уличным путям OpenStreetMap с учётом подъёмов, перебором всех порядков. Годы и авторы взяты из таблицы зданий в диссертации Т. Кутателадзе (2015) и из реестра культурного наследия; где они расходятся, это сказано в карточке.`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `Фото: ${n}`, locate: "Где я: ближайший дом", gpx: "Скачать GPX", busy: "Определяю положение…", denied: "Не удалось определить положение (разрешите доступ к геолокации в браузере).", nogeo: "Браузер не умеет определять положение.",
       nearest: (n, addr, d) => `Ближайший не отмеченный дом: № ${n}, ${addr}, примерно ${d} м по прямой. Положение остаётся в вашем браузере и никуда не отправляется.`, alldone: "Все дома отмечены. Ваше положение остаётся в браузере и никуда не отправляется.",
@@ -25,7 +25,7 @@
     },
     en: {
       report: "Report a problem",
-      title: "Entrance Halls of Tbilisi: a walking route", home: "To the timeline map", ariaPages: "Site sections", navMap: "Timeline map", navEntr: "Entrance Halls of Tbilisi", navRun: "TRC City Run route", navMus: "Museums of Tbilisi", navLost: "Lost Tbilisi", share: "Copy link", copied: "Link copied", loading: "Loading the map…",
+      title: "Entrance Halls of Tbilisi: a walking route", home: "To the timeline map", ariaPages: "Site sections", navMap: "Timeline map", navEntr: "Entrance Halls of Tbilisi", navRun: "TRC City Run route", navMus: "Museums of Tbilisi", navMtskheta: "Mtskheta Excursion", navLost: "Lost Tbilisi", share: "Copy link", copied: "Link copied", loading: "Loading the map…",
       intro: (p) => `A walking route "${p.title.en}" past old residential houses with entrance halls of the late 19th - early 20th century: <b>${p.stops.length} houses</b>, <b>${num(p.route.length_km)} km</b>, about <b>${p.route.walk_min} min</b> of walking without stops. The start and the finish are at the metro station Freedom Square. The order of the houses is chosen so that you walk as little as possible: the time was calculated along the streets of OpenStreetMap with the climbs taken into account, by trying all the orders. The years and the architects are taken from the table of buildings in the dissertation of T. Kutateladze (2015) and from the heritage register; where they differ, the card says so.`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `Photo: ${n}`, locate: "Where am I: the nearest house", gpx: "Download GPX", busy: "Finding the position…", denied: "The position could not be found (allow the access to the location in the browser).", nogeo: "The browser cannot find the position.",
       nearest: (n, addr, d) => `The nearest house not marked yet: no. ${n}, ${addr}, about ${d} m in a straight line. Your position stays in your browser and is sent nowhere.`, alldone: "All the houses are marked. Your position stays in your browser and is sent nowhere.",
@@ -36,7 +36,7 @@
     },
     ka: {
       report: "შეცდომის შეტყობინება",
-      title: "თბილისური სადარბაზოები: ფეხით მარშრუტი", home: "ისტორიულ რუკაზე", ariaPages: "საიტის განყოფილებები", navMap: "რუკა დროში", navEntr: "თბილისური სადარბაზოები", navRun: "TRC City Run-ის მარშრუტი", navMus: "თბილისის მუზეუმები", navLost: "დაკარგული თბილისი", share: "ბმულის კოპირება", copied: "ბმული დაკოპირდა", loading: "რუკა იტვირთება…",
+      title: "თბილისური სადარბაზოები: ფეხით მარშრუტი", home: "ისტორიულ რუკაზე", ariaPages: "საიტის განყოფილებები", navMap: "რუკა დროში", navEntr: "თბილისური სადარბაზოები", navRun: "TRC City Run-ის მარშრუტი", navMus: "თბილისის მუზეუმები", navMtskheta: "მცხეთის ექსკურსია", navLost: "დაკარგული თბილისი", share: "ბმულის კოპირება", copied: "ბმული დაკოპირდა", loading: "რუკა იტვირთება…",
       intro: (p) => `ფეხით მარშრუტი „${p.title.ka}“ XIX საუკუნის ბოლოსა და XX საუკუნის დასაწყისის ძველი საცხოვრებელი სახლების გვერდით: <b>${p.stops.length} სახლი</b>, <b>${num(p.route.length_km)} კმ</b>, გაჩერებების გარეშე დაახლოებით <b>${p.route.walk_min} წუთი</b>. დასაწყისი და დასასრული მეტროსადგურ „თავისუფლების მოედანთან“. სახლების თანმიმდევრობა ისეა შერჩეული, რომ რაც შეიძლება ნაკლები გავიაროთ: დრო OpenStreetMap-ის ქუჩების გასწვრივ, აღმართების გათვალისწინებით, ყველა თანმიმდევრობის გადარჩევით გამოითვალა. წლები და არქიტექტორები აღებულია თ. ქუთათელაძის დისერტაციის (2015) შენობათა ცხრილიდან და კულტურული მემკვიდრეობის რეესტრიდან; სადაც ისინი განსხვავდება, ეს ბარათშია აღნიშნული.`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `ფოტო: ${n}`, locate: "სად ვარ: უახლოესი სახლი", gpx: "GPX-ის ჩამოტვირთვა", busy: "მდებარეობა დგინდება…", denied: "მდებარეობის დადგენა ვერ მოხერხდა (ბრაუზერში მდებარეობაზე წვდომა დაუშვით).", nogeo: "ბრაუზერს მდებარეობის დადგენა არ შეუძლია.",
       nearest: (n, addr, d) => `უახლოესი ჯერ მოუნიშნავი სახლი: № ${n}, ${addr}, სწორი ხაზით დაახლოებით ${d} მ. თქვენი მდებარეობა თქვენს ბრაუზერში რჩება და არსად იგზავნება.`, alldone: "ყველა სახლი აღნიშნულია. თქვენი მდებარეობა ბრაუზერში რჩება და არსად იგზავნება.",
@@ -122,7 +122,7 @@
     { const sel = $("pagesSel");
       sel.textContent = "";
       sel.setAttribute("aria-label", L.ariaPages); sel.title = L.ariaPages;
-      for (const [v, k] of [["../", "navMap"], ["../entrances/", "navEntr"], ["../run/", "navRun"], ["../museums/", "navMus"], ["../lost/", "navLost"]]) { const o = document.createElement("option"); o.value = v; o.textContent = L[k]; sel.appendChild(o); }
+      for (const [v, k] of [["../", "navMap"], ["../entrances/", "navEntr"], ["../run/", "navRun"], ["../museums/", "navMus"], ["../mtskheta/", "navMtskheta"], ["../lost/", "navLost"]]) { const o = document.createElement("option"); o.value = v; o.textContent = L[k]; sel.appendChild(o); }
       sel.value = "../entrances/";
     }
     $("share").textContent = L.share;

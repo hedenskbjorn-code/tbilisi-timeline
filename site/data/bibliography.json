@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-20",
- "events": 343,
+ "events": 365,
  "books": [
   {
    "id": "istoria2012",
@@ -402,26 +402,26 @@
   {
    "host": "en.wikipedia.org",
    "name": "Wikipedia (en)",
-   "pages": 78,
-   "events": 125
+   "pages": 80,
+   "events": 131
   },
   {
    "host": "ru.wikipedia.org",
    "name": "Wikipedia (ru)",
-   "pages": 34,
-   "events": 97
+   "pages": 37,
+   "events": 105
+  },
+  {
+   "host": "ka.wikipedia.org",
+   "name": "Wikipedia (ka)",
+   "pages": 20,
+   "events": 48
   },
   {
    "host": "ka.wikisource.org",
    "name": "Wikisource (ka)",
    "pages": 4,
    "events": 41
-  },
-  {
-   "host": "ka.wikipedia.org",
-   "name": "Wikipedia (ka)",
-   "pages": 17,
-   "events": 36
   },
   {
    "host": "openlibrary.ge",
@@ -440,6 +440,12 @@
    "name": "Internet Archive",
    "pages": 3,
    "events": 13
+  },
+  {
+   "host": "www.pravenc.ru",
+   "name": "www.pravenc.ru",
+   "pages": 2,
+   "events": 12
   },
   {
    "host": "ru.wikisource.org",

@@ -14,7 +14,7 @@
     ru: {
       report: "Сообщить об ошибке",
       title: "Музеи Тбилиси: пешеходные маршруты", home: "К карте с таймлайном", ariaPages: "Разделы сайта",
-      navMap: "Карта во времени", navEntr: "Парадные Тбилиси", navRun: "Маршрут TRC City Run", navMus: "Музеи Тбилиси", navLost: "Утраченный Тбилиси",
+      navMap: "Карта во времени", navEntr: "Парадные Тбилиси", navRun: "Маршрут TRC City Run", navMus: "Музеи Тбилиси", navMtskheta: "Экскурсия по Мцхете", navLost: "Утраченный Тбилиси",
       share: "Скопировать ссылку", copied: "Ссылка скопирована", loading: "Загрузка карты…",
       intro: (p) => `Пешеходный маршрут «${p.title.ru}»: <b>${p.stops.length} ${p.stops.length < 5 ? "музея" : "музеев"}</b>, около <b>${num(p.route.length_km)} км</b>, примерно <b>${p.route.walk_min} мин</b> ходьбы без учёта времени в залах. Старт у «${p.start.name.ru}».`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `Фото: ${n}`, locate: "Где я: ближайший музей", gpx: "Скачать GPX",
@@ -33,7 +33,7 @@
     en: {
       report: "Report a problem",
       title: "Museums of Tbilisi: walking routes", home: "To the timeline map", ariaPages: "Site sections",
-      navMap: "Timeline map", navEntr: "Entrance Halls of Tbilisi", navRun: "TRC City Run route", navMus: "Museums of Tbilisi", navLost: "Lost Tbilisi",
+      navMap: "Timeline map", navEntr: "Entrance Halls of Tbilisi", navRun: "TRC City Run route", navMus: "Museums of Tbilisi", navMtskheta: "Mtskheta Excursion", navLost: "Lost Tbilisi",
       share: "Copy link", copied: "Link copied", loading: "Loading the map…",
       intro: (p) => `A walking route "${p.title.en}": <b>${p.stops.length} museums</b>, about <b>${num(p.route.length_km)} km</b>, roughly <b>${p.route.walk_min} min</b> of walking excluding time inside. Starts at ${p.start.name.en}.`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `Photo: ${n}`, locate: "Where am I: nearest museum", gpx: "Download GPX",
@@ -52,7 +52,7 @@
     ka: {
       report: "შეცდომის შეტყობინება",
       title: "თბილისის მუზეუმები: ფეხით მარშრუტები", home: "ისტორიულ რუკაზე", ariaPages: "საიტის განყოფილებები",
-      navMap: "რუკა დროში", navEntr: "თბილისური სადარბაზოები", navRun: "TRC City Run-ის მარშრუტი", navMus: "თბილისის მუზეუმები", navLost: "დაკარგული თბილისი",
+      navMap: "რუკა დროში", navEntr: "თბილისური სადარბაზოები", navRun: "TRC City Run-ის მარშრუტი", navMus: "თბილისის მუზეუმები", navMtskheta: "მცხეთის ექსკურსია", navLost: "დაკარგული თბილისი",
       share: "ბმულის კოპირება", copied: "ბმული დაკოპირდა", loading: "რუკა იტვირთება…",
       intro: (p) => `ფეხით მარშრუტი „${p.title.ka}“: <b>${p.stops.length} მუზეუმი</b>, დაახლოებით <b>${num(p.route.length_km)} კმ</b>, სიარულით <b>${p.route.walk_min} წთ</b> დარბაზებში გაჩერების გარეშე. სტარტი: ${p.start.name.ka}.`,
       tab: (t, n) => `${t} (${n})`, imgAlt: (n) => `ფოტო: ${n}`, locate: "სად ვარ: უახლოესი მუზეუმი", gpx: "GPX-ის ჩამოტვირთვა",
@@ -173,7 +173,7 @@
     if (sel) {
       sel.setAttribute("aria-label", L.ariaPages);
       sel.textContent = "";
-      for (const [v, k] of [["../", "navMap"], ["../entrances/", "navEntr"], ["../run/", "navRun"], ["../museums/", "navMus"], ["../lost/", "navLost"]]) {
+      for (const [v, k] of [["../", "navMap"], ["../entrances/", "navEntr"], ["../run/", "navRun"], ["../museums/", "navMus"], ["../mtskheta/", "navMtskheta"], ["../lost/", "navLost"]]) {
         const o = document.createElement("option"); o.value = v; o.textContent = L[k]; sel.appendChild(o);
       }
       sel.value = "../museums/";

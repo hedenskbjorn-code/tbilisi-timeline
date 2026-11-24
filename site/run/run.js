@@ -15,7 +15,7 @@
   const T = {
     ru: {
       report: "Сообщить об ошибке",
-      title: "TRC City Run 2026: что увидеть по пути", home: "К карте с таймлайном", ariaPages: "Разделы сайта", navMap: "Карта во времени", navEntr: "Парадные Тбилиси", navRun: "Маршрут TRC City Run", navMus: "Музеи Тбилиси", navLost: "Утраченный Тбилиси", share: "Скопировать ссылку", copied: "Ссылка скопирована", loading: "Загрузка карты…",
+      title: "TRC City Run 2026: что увидеть по пути", home: "К карте с таймлайном", ariaPages: "Разделы сайта", navMap: "Карта во времени", navEntr: "Парадные Тбилиси", navRun: "Маршрут TRC City Run", navMus: "Музеи Тбилиси", navMtskheta: "Экскурсия по Мцхете", navLost: "Утраченный Тбилиси", share: "Скопировать ссылку", copied: "Ссылка скопирована", loading: "Загрузка карты…",
       intro: (r, n) => `Маршрут пробежки Tbilisi Running Club: <b>${num(r.length_km)} км</b>, высоты ${r.ele_min}–${r.ele_max} м, <b>${n}</b> достопримечательностей по порядку вдоль трассы. В список входят объекты не дальше 150 м от трассы; расстояние считается от точки объекта до линии трассы и не означает, что объект виден с неё. Описания взяты из вводных абзацев статей Википедии (ссылка и лицензия под каждым описанием); для объектов без статьи это короткие справки по данным реестра культурного наследия, с пометкой источника.`,
       km: (v) => `${num(v)} км от старта`, dist: (d) => `${d} м от трассы`, reg: (y) => `дата по реестру ≈ ${y}`, noDesc: "Описание пока не добавлено.", textFrom: "Текст:", textReg: "Источник: реестр культурного наследия Грузии (данные этого сайта) и другие данные сайта; указанные в карточке статьи Википедии.", textAd: "Текст: пересказ по статье", textTr: (f) => ({ ru: "Текст: перевод с русского,", en: "Текст: перевод с английского,", ka: "Текст: перевод с грузинского," })[f], wiki: "Википедия", onMap: "Показать на карте", sources: "Источники",
       factYear: "Время", factArch: "Автор проекта", factType: "Тип и стиль", factAddr: "Адрес", notes: "Примечание", start: "Старт и финиш",
@@ -24,7 +24,7 @@
     },
     en: {
       report: "Report a problem",
-      title: "TRC City Run 2026: what to see on the way", home: "To the timeline map", ariaPages: "Site sections", navMap: "Timeline map", navEntr: "Entrance Halls of Tbilisi", navRun: "TRC City Run route", navMus: "Museums of Tbilisi", navLost: "Lost Tbilisi", share: "Copy link", copied: "Link copied", loading: "Loading the map…",
+      title: "TRC City Run 2026: what to see on the way", home: "To the timeline map", ariaPages: "Site sections", navMap: "Timeline map", navEntr: "Entrance Halls of Tbilisi", navRun: "TRC City Run route", navMus: "Museums of Tbilisi", navMtskheta: "Mtskheta Excursion", navLost: "Lost Tbilisi", share: "Copy link", copied: "Link copied", loading: "Loading the map…",
       intro: (r, n) => `The route of a run of the Tbilisi Running Club: <b>${num(r.length_km)} km</b>, elevation ${r.ele_min}-${r.ele_max} m, <b>${n}</b> sights in order along the track. The list holds the objects within 150 m of the track; the distance is from the point of the object to the line of the track and does not mean that the object can be seen from it. The descriptions are taken from the introductions of the Wikipedia articles (the link and the licence are under each description); for an object without an article it is a short note from the data of the heritage register, with the source named.`,
       km: (v) => `${num(v)} km from the start`, dist: (d) => `${d} m from the track`, reg: (y) => `date in the register ≈ ${y}`, noDesc: "No description yet.", textFrom: "Text:", textReg: "Source: the heritage register of Georgia (data of this site) and other data of the site; the Wikipedia articles named in the card.", textAd: "Text: a retelling of the article", textTr: (f) => ({ ru: "Text: translated from Russian,", en: "Text: translated from English,", ka: "Text: translated from Georgian," })[f], wiki: "Wikipedia", onMap: "Show on the map", sources: "Sources",
       factYear: "Time", factArch: "Architect / author", factType: "Type and style", factAddr: "Address", notes: "Note", start: "Start and finish",
@@ -33,7 +33,7 @@
     },
     ka: {
       report: "შეცდომის შეტყობინება",
-      title: "TRC City Run 2026: რა ჩანს გზაზე", home: "ისტორიულ რუკაზე", ariaPages: "საიტის განყოფილებები", navMap: "რუკა დროში", navEntr: "თბილისური სადარბაზოები", navRun: "TRC City Run-ის მარშრუტი", navMus: "თბილისის მუზეუმები", navLost: "დაკარგული თბილისი", share: "ბმულის კოპირება", copied: "ბმული დაკოპირდა", loading: "რუკა იტვირთება…",
+      title: "TRC City Run 2026: რა ჩანს გზაზე", home: "ისტორიულ რუკაზე", ariaPages: "საიტის განყოფილებები", navMap: "რუკა დროში", navEntr: "თბილისური სადარბაზოები", navRun: "TRC City Run-ის მარშრუტი", navMus: "თბილისის მუზეუმები", navMtskheta: "მცხეთის ექსკურსია", navLost: "დაკარგული თბილისი", share: "ბმულის კოპირება", copied: "ბმული დაკოპირდა", loading: "რუკა იტვირთება…",
       intro: (r, n) => `Tbilisi Running Club-ის სირბილის მარშრუტი: <b>${num(r.length_km)} კმ</b>, სიმაღლე ${r.ele_min}–${r.ele_max} მ, <b>${n}</b> ღირსშესანიშნაობა ტრასის გასწვრივ თანმიმდევრობით. სიაში შედის ობიექტები ტრასიდან 150 მ-ის ფარგლებში; მანძილი ობიექტის წერტილიდან ტრასის ხაზამდეა და არ ნიშნავს, რომ ობიექტი ტრასიდან ჩანს. აღწერები აღებულია ვიკიპედიის სტატიების შესავლიდან (ბმული და ლიცენზია თითოეული აღწერის ქვეშაა); ობიექტისთვის, რომელსაც სტატია არა აქვს, ეს მოკლე ცნობაა კულტურული მემკვიდრეობის რეესტრის მონაცემებით, წყაროს მითითებით.`,
       km: (v) => `${num(v)} კმ სტარტიდან`, dist: (d) => `${d} მ ტრასიდან`, reg: (y) => `თარიღი რეესტრში ≈ ${y}`, noDesc: "აღწერა ჯერ არ არის დამატებული.", textFrom: "ტექსტი:", textReg: "წყარო: საქართველოს კულტურული მემკვიდრეობის რეესტრი (ამ საიტის მონაცემები) და საიტის სხვა მონაცემები; ბარათში მითითებული ვიკიპედიის სტატიები.", textAd: "ტექსტი: სტატიის გადმოცემა", textTr: (f) => ({ ru: "ტექსტი: თარგმნილია რუსულიდან,", en: "ტექსტი: თარგმნილია ინგლისურიდან,", ka: "ტექსტი: თარგმნილია ქართულიდან," })[f], wiki: "ვიკიპედია", onMap: "რუკაზე ჩვენება", sources: "წყაროები",
       factYear: "დრო", factArch: "პროექტის ავტორი", factType: "ტიპი და სტილი", factAddr: "მისამართი", notes: "შენიშვნა", start: "სტარტი და ფინიში",
@@ -200,7 +200,7 @@
     { const sel = $("pagesSel");
       sel.textContent = "";
       sel.setAttribute("aria-label", L.ariaPages); sel.title = L.ariaPages;
-      for (const [v, k] of [["../", "navMap"], ["../entrances/", "navEntr"], ["../run/", "navRun"], ["../museums/", "navMus"], ["../lost/", "navLost"]]) { const o = document.createElement("option"); o.value = v; o.textContent = L[k]; sel.appendChild(o); }
+      for (const [v, k] of [["../", "navMap"], ["../entrances/", "navEntr"], ["../run/", "navRun"], ["../museums/", "navMus"], ["../mtskheta/", "navMtskheta"], ["../lost/", "navLost"]]) { const o = document.createElement("option"); o.value = v; o.textContent = L[k]; sel.appendChild(o); }
       sel.value = "../run/";
     }
     $("share").textContent = L.share;

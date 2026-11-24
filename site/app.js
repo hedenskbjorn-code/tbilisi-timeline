@@ -1,12 +1,12 @@
 import { getJSON, prefetchJSON } from "./js/net.js";
 (() => {
   "use strict";
-  // The timeline starts at the earliest written evidence of the fortress (about 364, see "About"); the long early period is
-  // compressed: slider units 0..1000 map piecewise-linearly to years (364-1000 -> 0-150, 1000-1700 -> 150-350, 1700-2026 -> 350-1000); the early centuries have 71 events in 1336 years, the last 326 years 199, so they keep the larger part
-  const MIN = 364, MAX = 2026, NEW_YEARS = 25;
-  const FULL_KNOTS = [[364, 0], [1000, 150], [1700, 350], [2026, 1000]];
+  // The timeline starts in the 2nd century CE (Armaziskhevi / Mtskheta antiquities; Tbilisi fortress ~364); the long early period is
+  // compressed: slider units 0..1000 map piecewise-linearly to years (100-1000 -> 0-150, 1000-1700 -> 150-350, 1700-2026 -> 350-1000); the early centuries have 71 events in 1336 years, the last 326 years 199, so they keep the larger part
+  const MIN = 100, MAX = 2026, NEW_YEARS = 25;
+  const FULL_KNOTS = [[100, 0], [1000, 150], [1700, 350], [2026, 1000]];
   const ZOOM_W = [0, 1000, 600, 330, 230, 150, 90, 50, 26];   // width in years of the window of the zoomed time scale (0 = the whole scale)
-  let zoomIx = 0, zoomLo = 364, zoomHi = 2026;
+  let zoomIx = 0, zoomLo = 100, zoomHi = 2026;
   let rulersMedia = null;                                              // portraits of the rulers and flags of the states (data/rulers_media.json, made by tools/fetch_rulers_media.py)
   let rulersData = null;                                               // forms of state and rulers (data/rulers.json), see buildRulersBand
   let reopenPopup = null, reopenInfo = null, openPop = null;          // the open card (a popup or the modal) and how to build it again, when the language is switched
@@ -385,7 +385,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
 
   // the periods of the history of Georgia as the sections of the tests for the Georgian citizenship (2024): 4th-10th, 11th-15th, 16th-18th centuries, 19th century - 1921, from 1921.
   // The select shows the period of the year on the slider; a choice jumps to the beginning of the period.
-  const EPOCHS = [364, 1001, 1501, 1801, 1921];
+  const EPOCHS = [100, 1001, 1501, 1801, 1921];
   const epochOf = (y) => { let k = 0; for (let i = 0; i < EPOCHS.length; i++) if (y >= EPOCHS[i]) k = i; return k; };
   function buildEpochs() {
     const sel = $("epochSel");
@@ -531,7 +531,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       if (sel) {
         sel.textContent = "";
         sel.setAttribute("aria-label", t().ariaPages); sel.title = t().ariaPages;
-        for (const [v, k] of [["./", "navMap"], ["entrances/", "navEntr"], ["run/", "navRun"], ["museums/", "navMus"], ["lost/", "navLost"]]) { const o = document.createElement("option"); o.value = v; o.textContent = t()[k]; sel.appendChild(o); }
+        for (const [v, k] of [["./", "navMap"], ["entrances/", "navEntr"], ["run/", "navRun"], ["museums/", "navMus"], ["mtskheta/", "navMtskheta"], ["lost/", "navLost"]]) { const o = document.createElement("option"); o.value = v; o.textContent = t()[k]; sel.appendChild(o); }
         sel.value = "./";
       } }
     $("speed").setAttribute("aria-label", t().ariaSpeed);
