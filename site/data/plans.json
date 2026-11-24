@@ -336,26 +336,27 @@
   "image": "data/tbilisi_1913.webp",
   "corners": [
    [
-    44.77150678,
-    41.73738417
+    44.77206527,
+    41.73709334
    ],
    [
-    44.86338631,
-    41.73738417
+    44.86380635,
+    41.73709334
    ],
    [
-    44.86338631,
-    41.66695826
+    44.86380635,
+    41.66758312
    ],
    [
-    44.77150678,
-    41.66695826
+    44.77206527,
+    41.66758312
    ]
   ],
-  "accuracy_m": 45,
+  "accuracy_m": 22,
   "boundary": "data/tbilisi_1913_boundary.geojson",
   "boundary_partial": false,
   "overview": "data/tbilisi_1913_s.webp",
-  "overview_mpp": 8.0
+  "overview_mpp": 8.0,
+  "points": 16
  }
 ]

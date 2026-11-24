@@ -97,3 +97,8 @@ Not done yet: nothing outside the register is loaded for the other regions (OSM,
 2. `node tests/check_data.mjs`, `node --test tests/*.test.mjs`, `node --test --test-concurrency=1 tests/e2e/*.test.mjs`.
 3. `python -P tools/db_build.py --check` (the index agrees with the files).
 4. Commit only own files (not `work/`, not `tests/e2e/_*.mjs`); push `main`; fast-forward `v2-foundation`; check the live site.
+
+## 6. Done after 1.9.0 (2026-11-24, local, ready for 1.9.1)
+
+- **1915 view (`tbilisi_1913` plan + tram lines):** re-georeferenced `tbilisi_1913` with 16 distributed GCPs (`LOO RMS` 45.2 m -> 21.6 m, `accuracy_m: 22`); snapped all 20 `tram1913_*` segments to OSM road centerlines and bridges (removing riverbed artifacts and restoring Saarbrucken Bridge / Aghmashenebeli Ave).
+- **Data additions:** +39 street lines in `site/data/street_geom.json` via `tools/apply_streets_osm.py` (Tbilisi urban filter + `name:en` fallback); 16/24 verified monuments in `E4`–`E6`; 4/32 verified churches in `B1`; 8 plaque names from Wikimedia Commons metadata (`unnamed` 95 -> 87); `tram_enc2008_citations.json` triaged (`E0383`, `E0796`, `E0890` historical notes).
