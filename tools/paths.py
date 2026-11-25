@@ -13,6 +13,7 @@ SITE = os.path.join(ROOT, "site")
 SITE_DATA = os.path.join(SITE, "data")
 TOOLS = os.path.join(ROOT, "tools")
 DATA = os.path.join(ROOT, "data")
+CURATED = os.path.join(DATA, "curated")
 RAW = os.path.join(DATA, "raw")
 CACHE = os.path.join(DATA, "cache")
 DB_DIR = os.path.join(DATA, "db")
@@ -25,3 +26,13 @@ BATCHES = os.path.join(GEMINI, "batches")
 ARCHIVE = os.path.join(GEMINI, "archive")
 NOTES = os.path.join(WORK, "notes")
 DOCS = os.path.join(ROOT, "docs")
+
+
+def require_file(path, hint=""):
+    """Return path if it exists, otherwise raise FileNotFoundError before any output is written."""
+    if not os.path.isfile(path):
+        msg = f"Missing required input file: {path}"
+        if hint:
+            msg += f" ({hint})"
+        raise FileNotFoundError(msg)
+    return path

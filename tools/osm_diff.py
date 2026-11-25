@@ -81,11 +81,11 @@ def snapshot(name):
         for e in json.load(open(os.path.join(R, "data", "raw", "osm_extra", "places.json"), encoding="utf-8"))["elements"]:
             out[key(e)] = {"pos": pos(e), "names": names(e.get("tags", {}))}
     elif name == "plaques":
-        for r in csv.DictReader(open(os.path.join(R, "work", "notes", "tbilisi_plaques_osm.csv"), encoding="utf-8-sig")):
+        for r in csv.DictReader(open(os.path.join(R, "data", "curated", "tbilisi_plaques_osm.csv"), encoding="utf-8-sig")):
             out[r["osm_id"]] = {"pos": (float(r["lat"]), float(r["lon"])), "names": {"name": "", "name:ka": r["name_ka"], "name:ru": r["name_ru"], "name:en": r["name_en"]}}
     else:
         kinds = {"n": "node", "w": "way", "r": "relation"}
-        for r in csv.DictReader(open(os.path.join(R, "work", "notes", "tbilisi_monuments_full.csv"), encoding="utf-8-sig")):
+        for r in csv.DictReader(open(os.path.join(R, "data", "curated", "tbilisi_monuments_full.csv"), encoding="utf-8-sig")):
             m = re.match(r"OSM_([nwr])(\d+)$", r["id"])
             if m and r["lat"]:
                 out["%s/%s" % (kinds[m.group(1)], m.group(2))] = {"pos": (float(r["lat"]), float(r["lon"])), "names": {"name": "", "name:ka": r["name_ka"], "name:ru": r["name_ru"], "name:en": r["name_en"]}}

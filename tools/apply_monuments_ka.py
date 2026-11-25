@@ -12,8 +12,10 @@ R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    res = json.load(open(os.path.join(R, "work", "gemini", "results/monuments_KA.json"), encoding="utf-8"))
-    p = os.path.join(R, "data", "cache", "monuments_verified.json")
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from paths import CURATED, require_file
+    res = json.load(open(require_file(os.path.join(R, "work", "gemini", "results/monuments_KA.json")), encoding="utf-8"))
+    p = require_file(os.path.join(CURATED, "monuments_verified.json"))
     d = json.load(open(p, encoding="utf-8"))
     nums = lambda t: sorted(re.findall(r"\d+", t))      # noqa: E731
     taken, bad = 0, []

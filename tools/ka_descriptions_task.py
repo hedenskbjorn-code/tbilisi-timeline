@@ -11,7 +11,9 @@ R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    ver = json.load(open(os.path.join(R, "data", "cache", "monuments_verified.json"), encoding="utf-8"))["ok"]
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from paths import CURATED, require_file
+    ver = json.load(open(require_file(os.path.join(CURATED, "monuments_verified.json")), encoding="utf-8"))["ok"]
     items = {c["id"]: c for c in json.load(open(os.path.join(R, "site", "data", "sculptures.json"), encoding="utf-8"))["items"]}
     rows = [r for r in ver if not (r["description"].get("ka") or "").strip()]
     L = []

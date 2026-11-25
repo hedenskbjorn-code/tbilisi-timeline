@@ -27,6 +27,8 @@ def main():
     ids = [i for i, _ in rows_in]
     got = [r.get("id") for r in rows if isinstance(r, dict)]
     print("rows", len(rows), "| table", len(ids), "| missing", [i for i in ids if i not in got][:10], "| extra", [i for i in got if i not in ids][:10], "| order ok", got == ids)
+    out_path = os.path.join(R, "data", "curated", "monuments_names_verified.json")
+    existing = json.load(open(out_path, encoding="utf-8")) if os.path.exists(out_path) else {}
     out, bad = {}, []
     src = dict(rows_in)
     for r in rows:
@@ -51,8 +53,10 @@ def main():
             bad.append((r["id"], reasons))
         else:
             out[r["id"]] = {k: r[k] for k in ("ka", "ru", "en")}
-    json.dump(out, open(os.path.join(R, "data", "cache", "monuments_names_verified.json"), "w", encoding="utf-8"), ensure_ascii=False)
-    print("ok:", len(out), "| rejected:", len(bad))
+    merged = dict(existing)
+    merged.update(out)
+    json.dump(merged, open(out_path, "w", encoding="utf-8"), ensure_ascii=False)
+    print("ok:", len(out), "| total saved:", len(merged), "| rejected:", len(bad))
     for i, rs in bad[:40]:
         print("  rejected", i, "; ".join(rs)[:200])
 

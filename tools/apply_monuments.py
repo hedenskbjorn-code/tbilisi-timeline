@@ -24,26 +24,28 @@ def ph_title(u):
     return ""
 
 
-INTRO = json.load(open(os.path.join(R, "data", "cache", "wiki_intros.json"), encoding="utf-8")) if os.path.exists(os.path.join(R, "data", "cache", "wiki_intros.json")) else {}
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import CACHE, CURATED, require_file
 
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    d = json.load(open(os.path.join(R, "data", "cache", "monuments_named.json"), encoding="utf-8"))
-    nv = json.load(open(os.path.join(R, "data", "cache", "monuments_names_verified.json"), encoding="utf-8")) if os.path.exists(os.path.join(R, "data", "cache", "monuments_names_verified.json")) else {}
-    photos = json.load(open(os.path.join(R, "data", "cache", "monument_photos.json"), encoding="utf-8"))
-    up = os.path.join(R, "tools", "monuments_ui.json")
-    ui = json.load(open(up, encoding="utf-8"))["ui"] if os.path.exists(up) else {}
-    sn = json.load(open(os.path.join(D, "street_names.json"), encoding="utf-8"))["streets"]
+    INTRO = json.load(open(require_file(os.path.join(CURATED, "wiki_intros.json"), "curated Wikipedia intros"), encoding="utf-8"))
+    d = json.load(open(require_file(os.path.join(CACHE, "monuments_named.json"), "run tools/build_monuments_names.py"), encoding="utf-8"))
+    nv = json.load(open(require_file(os.path.join(CURATED, "monuments_names_verified.json"), "curated verified names"), encoding="utf-8"))
+    photos = json.load(open(require_file(os.path.join(CACHE, "monument_photos.json"), "run tools/fetch_monument_photos.py"), encoding="utf-8"))
+    up = require_file(os.path.join(R, "tools", "monuments_ui.json"), "run tools/build_monuments_ui.py")
+    ui = json.load(open(up, encoding="utf-8"))["ui"]
+    sn = json.load(open(require_file(os.path.join(D, "street_names.json")), encoding="utf-8"))["streets"]
     street = {(s.get("geom") or s["now"]["en"]): s["now"] for s in sn}
-    fixp = os.path.join(R, "tools", "monuments_names_fix.json")
-    fix = {k: v for k, v in json.load(open(fixp, encoding="utf-8")).items() if k != "note"} if os.path.exists(fixp) else {}
+    fixp = require_file(os.path.join(R, "tools", "monuments_names_fix.json"))
+    fix = {k: v for k, v in json.load(open(fixp, encoding="utf-8")).items() if k != "note"}
     nv.update(fix)                                                  # corrections of typos of OSM (decision of the owner)
-    labels = json.load(open(os.path.join(R, "data", "cache", "monument_labels.json"), encoding="utf-8")) if os.path.exists(os.path.join(R, "data", "cache", "monument_labels.json")) else {}
-    gp = os.path.join(R, "data", "cache", "monument_photos_geo.json")
-    geo = json.load(open(gp, encoding="utf-8")) if os.path.exists(gp) else {}
-    vp = os.path.join(R, "data", "cache", "monuments_verified.json")           # the descriptions found by a search and checked by tools/verify_search.py (quotations stand on their pages)
-    ver = {r["id"]: r for r in json.load(open(vp, encoding="utf-8"))["ok"]} if os.path.exists(vp) else {}
+    labels = json.load(open(require_file(os.path.join(CACHE, "monument_labels.json"), "run tools/fetch_monument_labels.py"), encoding="utf-8"))
+    gp = require_file(os.path.join(CURATED, "monument_photos_geo.json"), "curated coordinate-matched photos")
+    geo = json.load(open(gp, encoding="utf-8"))
+    vp = require_file(os.path.join(CURATED, "monuments_verified.json"), "curated verified descriptions")           # the descriptions found by a search and checked by tools/verify_search.py (quotations stand on their pages)
+    ver = {r["id"]: r for r in json.load(open(vp, encoding="utf-8"))["ok"]}
     out = {}
     for fn, key, pre in (("sculptures.json", "monuments", "m:"), ("plaques.json", "plaques", "p:")):
         items, used, ph = [], set(), {}

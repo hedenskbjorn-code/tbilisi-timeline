@@ -10,9 +10,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TOUR_PATH = ROOT / "site" / "data" / "mtskheta_tour.json"
-BAK_TOUR_PATH = ROOT / "work" / "gemini" / "archive" / "2026-11-25_bagineti" / "mtskheta_tour.json"
+BAK_TOUR_PATH = ROOT / "data" / "curated" / "mtskheta_tour_base.json"
 PHOTOS_PATH = ROOT / "site" / "data" / "photos.json"
-OSRM_TAIL_PATH = ROOT / "work" / "gemini" / "results" / "bagineti_tail_osrm.json"
+OSRM_TAIL_PATH = ROOT / "data" / "curated" / "bagineti_tail_osrm.json"
 
 NEW_PHOTOS = {
     "File:Armaztsikhe archaeological site open-air museum, Mtskheta, Georgia 04.jpg": {
@@ -251,6 +251,10 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
+
+    for req in (PHOTOS_PATH, BAK_TOUR_PATH, TOUR_PATH, OSRM_TAIL_PATH):
+        if not req.is_file():
+            raise FileNotFoundError(f"Missing required input file: {req}")
 
     photos = json.loads(PHOTOS_PATH.read_text(encoding="utf-8"))
     added_ph = 0

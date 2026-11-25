@@ -1,0 +1,1908 @@
+{
+ "ok": [
+  {
+   "id": "OSM_n9951285608",
+   "status": "found",
+   "description": {
+    "ru": "Статуя гиппопотама Беги, сбежавшего из Тбилисского зоопарка во время наводнения 13 июня 2015 года; открыта мэрией Тбилиси в парке Мзиури в 2022 году, выполнена из зеркальной нержавеющей стали.",
+    "en": "Statue of Begi, the hippopotamus that escaped the Tbilisi Zoo during the flood of 13 June 2015; unveiled by Tbilisi City Hall in Mziuri Park in 2022, made of mirror stainless steel.",
+    "ka": "2015 წლის 13 ივნისის წყალდიდობის დროს თბილისის ზოოპარკიდან გაქცეული ჰიპოპოტამის, ბეგის ქანდაკება; თბილისის მერიამ 2022 წელს მზიურის პარკში გახსნა, დამზადებულია სარკისებრი უჟანგავი ფოლადისგან."
+   },
+   "year": 2022,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://messenger.com.ge/issues/5172_june_14_2022/5172_natalia.html",
+     "lang": "en",
+     "quote": "A sculpture of hippopotamus Begi, who escaped the Tbilisi Zoo during the June 13, 2015 flood in the capital, was unveiled by Tbilisi City Hall yesterday in Mziuri Park",
+     "fact": "about"
+    },
+    {
+     "url": "https://art.gov.ge/en/?p=23075",
+     "lang": "en",
+     "quote": "it was placed in one of central public spaces of Tbilisi in “Mziuri Park” in 2022",
+     "fact": "year"
+    },
+    {
+     "url": "https://art.gov.ge/en/?p=23075",
+     "lang": "en",
+     "quote": "It is made of mirror stainless steel 316L.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n10031190329",
+   "status": "found",
+   "description": {
+    "ru": "Бронзовый бюст абхазского писателя, поэта и лингвиста Дмитрия Гулиа на площади Дмитрия Гулиа в районе Крцаниси, на транспортном островке у набережной Мтквари.",
+    "en": "A bronze bust of the Abkhazian writer, poet and linguist Dimitri Gulia on Dimitri Gulia Square in Krtsanisi district, on a traffic island near the Mtkvari embankment.",
+    "ka": "აფხაზი მწერლის, პოეტისა და ენათმეცნიერის, დიმიტრი გულიას ბრინჯაოს ბიუსტი კრწანისის რაიონში, დიმიტრი გულიას მოედანზე, მტკვრის სანაპიროსთან მდებარე სატრანსპორტო კუნძულზე."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://travelguide.ge/en/what-to-do/dimitri-gulia-monument/",
+     "lang": "en",
+     "quote": "The Dimitri Gulia Monument stands on Dimitri Gulia Square in Tbilisi ’s Krtsanisi district, a modest bronze bust honoring the Abkhazian writer, poet and linguist",
+     "fact": "about"
+    },
+    {
+     "url": "https://travelguide.ge/en/what-to-do/dimitri-gulia-monument/",
+     "lang": "en",
+     "quote": "Set in a busy traffic island near the Mtkvari embankment",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n1008769485",
+   "status": "found",
+   "description": {
+    "ru": "Григол Абашидзе — грузинский поэт.",
+    "en": "Grigol Abashidze — a Georgian poet.",
+    "ka": "გრიგოლ აბაშიძე — ქართველი პოეტი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Grigol_Abashidze",
+     "lang": "en",
+     "quote": "was a Georgian poet known for works featuring Communist influences.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n1111316631",
+   "status": "found",
+   "description": {
+    "ru": "Георгию Саакадзе — грузинский политик и полководец, сыгравший важную роль в политике Грузии начала XVII века.",
+    "en": "Giorgi Saakadze — a Georgian politician and military commander who played an important role in the politics of Georgia in the early 17th century.",
+    "ka": "გიორგი სააკაძე — ქართველი პოლიტიკოსი და მხედართმთავარი, რომელმაც მნიშვნელოვანი როლი ითამაშა XVII საუკუნის დასაწყისის საქართველოს პოლიტიკაში."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Giorgi_Saakadze",
+     "lang": "en",
+     "quote": "was a Georgian politician and military commander who played an important role in the politics of the early 17th-century Georgia.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n2244798868",
+   "status": "found",
+   "description": {
+    "ru": "Памятник Михаилу Лермонтову — русский писатель-романтик, поэт и художник.",
+    "en": "Monument to Mikhail Lermontov — a Russian Romantic writer, poet and painter.",
+    "ka": "მიხეილ ლერმონტოვის ძეგლი — რუსი რომანტიკოსი მწერალი, პოეტი და მხატვარი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Mikhail_Lermontov",
+     "lang": "en",
+     "quote": "was a Russian Romantic writer, poet and painter",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n2728600418",
+   "status": "found",
+   "description": {
+    "ru": "Николоз Бараташвили — грузинский поэт, один из первых в Грузии, кто соединил современный национализм с европейским романтизмом.",
+    "en": "Nikoloz Baratashvili — a Georgian poet, one of the first Georgians to marry modern nationalism with European Romanticism.",
+    "ka": "ნიკოლოზ ბარათაშვილი — ქართველი პოეტი, ერთ-ერთი პირველი საქართველოში, ვინც თანამედროვე ნაციონალიზმი ევროპულ რომანტიზმთან დააკავშირა."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Nikoloz_Baratashvili",
+     "lang": "en",
+     "quote": "was a Georgian poet. He was one of the first Georgians to marry modern nationalism with European Romanticism",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n4596655864",
+   "status": "found",
+   "description": {
+    "ru": "Александр Грибоедов — русский дипломат, драматург, поэт и композитор.",
+    "en": "Alexander Griboyedov — a Russian diplomat, playwright, poet and composer.",
+    "ka": "ალექსანდრე გრიბოედოვი — რუსი დიპლომატი, დრამატურგი, პოეტი და კომპოზიტორი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Alexander_Griboyedov",
+     "lang": "en",
+     "quote": "was a Russian diplomat, playwright, poet, and composer.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n5179685223",
+   "status": "found",
+   "description": {
+    "ru": "Нато Георгиевна Вачнадзе — грузинская и советская киноактриса.",
+    "en": "Nato Vachnadze — a Georgian and Soviet film actress.",
+    "ka": "ნატო ვაჩნაძე — ქართველი და საბჭოთა კინომსახიობი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Nato_Vachnadze",
+     "lang": "en",
+     "quote": "was a Georgian and Soviet film actress.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n5750366223",
+   "status": "found",
+   "description": {
+    "ru": "Игнатий Ингороква — грузинский писатель и социал-демократический деятель.",
+    "en": "Egnate Ninoshvili — a Georgian writer and social democratic activist.",
+    "ka": "ეგნატე ნინოშვილი — ქართველი მწერალი და სოციალ-დემოკრატი მოღვაწე."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Egnate_Ninoshvili",
+     "lang": "en",
+     "quote": "was a Georgian writer and social democratic activist.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n5971985849",
+   "status": "found",
+   "description": {
+    "ru": "Константин Гамсахурдиа — грузинский писатель и общественный деятель.",
+    "en": "Konstantine Gamsakhurdia — a Georgian writer and public figure.",
+    "ka": "კონსტანტინე გამსახურდია — ქართველი მწერალი და საზოგადო მოღვაწე."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Konstantine_Gamsakhurdia",
+     "lang": "en",
+     "quote": "was a Georgian writer and public figure.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n9897257595",
+   "status": "found",
+   "description": {
+    "ru": "Яков Николадзе — грузинский дворянин, скульптор и художник.",
+    "en": "Iakob Nikoladze — a Georgian nobleman, sculptor and artist.",
+    "ka": "იაკობ ნიკოლაძე — ქართველი აზნაური, მოქანდაკე და მხატვარი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Iakob_Nikoladze",
+     "lang": "en",
+     "quote": "was a Georgian nobleman, sculptor and artist.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n10557685189",
+   "status": "found",
+   "description": {
+    "ru": "Мелитон Кантария — сержант Советской армии, которому приписывают водружение Знамени Победы над рейхстагом.",
+    "en": "Meliton Kantaria — a sergeant of the Soviet Army credited with having hoisted the Victory Banner over the Reichstag.",
+    "ka": "მელიტონ ქანთარია — საბჭოთა არმიის სერჟანტი, რომელსაც რაიხსტაგზე გამარჯვების დროშის აღმართვას მიაწერენ."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Meliton_Kantaria",
+     "lang": "en",
+     "quote": "was a sergeant of the Soviet Army credited with having hoisted the Victory Banner over the Reichstag",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n10731160361",
+   "status": "found",
+   "description": {
+    "ru": "Яков Гогебашвили — грузинский педагог, детский писатель и журналист, считающийся основателем научной педагогики в Грузии.",
+    "en": "Iakob Gogebashvili — a Georgian educator, children's writer and journalist, considered the founder of scientific pedagogy in Georgia.",
+    "ka": "იაკობ გოგებაშვილი — ქართველი პედაგოგი, საბავშვო მწერალი და ჟურნალისტი, საქართველოში მეცნიერული პედაგოგიკის ფუძემდებლად მიჩნეული."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Iakob_Gogebashvili",
+     "lang": "en",
+     "quote": "was a Georgian educator, children’s writer and journalist, considered to be the founder of the scientific pedagogy in Georgia.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n10731160385",
+   "status": "found",
+   "description": {
+    "ru": "Жиули Шартава — грузинский политик и Национальный герой, глава правительства Автономной Республики Абхазия.",
+    "en": "Zhiuli Shartava — a Georgian politician and National Hero who served as the Head of the Government of the Autonomous Republic of Abkhazia.",
+    "ka": "ჟიული შარტავა — ქართველი პოლიტიკოსი და ეროვნული გმირი, აფხაზეთის ავტონომიური რესპუბლიკის მთავრობის თავმჯდომარე."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Zhiuli_Shartava",
+     "lang": "en",
+     "quote": "was a Georgian politician and National Hero who served as the Head of the Government of the Autonomous Republic of Abkhazia",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n10817040891",
+   "status": "found",
+   "description": {
+    "ru": "Рафаэл Давидович Эристави — грузинский поэт и драматург.",
+    "en": "Raphael Eristavi — a Georgian poet and playwright.",
+    "ka": "რაფიელ ერისთავი — ქართველი პოეტი და დრამატურგი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Raphael_Eristavi",
+     "lang": "en",
+     "quote": "was a Georgian poet and playwright.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n10942058328",
+   "status": "found",
+   "description": {
+    "ru": "Гено Адамия — грузинский военачальник, погибший во время войны в Абхазии.",
+    "en": "Geno Adamia — a Georgian military commander who was killed during the war in Abkhazia.",
+    "ka": "გენო ადამია — ქართველი მხედართმთავარი, რომელიც აფხაზეთის ომის დროს დაიღუპა."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Geno_Adamia",
+     "lang": "en",
+     "quote": "was a Georgian military commander who was killed during the war in Abkhazia, Georgia.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n11361739235",
+   "status": "found",
+   "description": {
+    "ru": "Гига Лордкипанидзе — грузинский театральный и кинорежиссёр.",
+    "en": "Giga Lortkipanidze — a Georgian theatre and film director.",
+    "ka": "გიგა ლორთქიფანიძე — ქართველი თეატრისა და კინოს რეჟისორი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Giga_Lortkipanidze",
+     "lang": "en",
+     "quote": "was a Georgian theatre and film director.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n11497113329",
+   "status": "found",
+   "description": {
+    "ru": "Григорий Церетели — выдающийся грузинский учёный, один из основателей папирологии.",
+    "en": "Grigol Tsereteli — a distinguished Georgian scientist, one of the founders of papyrology.",
+    "ka": "გრიგოლ წერეთელი — გამოჩენილი ქართველი მეცნიერი, პაპიროლოგიის ერთ-ერთი ფუძემდებელი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Grigol_Tsereteli",
+     "lang": "en",
+     "quote": "was a distinguished Georgian scientist, one of the founders of Papyrology",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n11777095058",
+   "status": "found",
+   "description": {
+    "ru": "Мирза Шафи Вазех — азербайджанский поэт и учитель.",
+    "en": "Mirza Shafi Vazeh — an Azerbaijani poet and teacher.",
+    "ka": "მირზა შაფი ვაზეჰი — აზერბაიჯანელი პოეტი და მასწავლებელი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Mirza_Shafi_Vazeh",
+     "lang": "en",
+     "quote": "was an Azerbaijani poet and teacher.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n12344475901",
+   "status": "found",
+   "description": {
+    "ru": "Нодар Думбадзе — грузинский писатель.",
+    "en": "Nodar Dumbadze — a Georgian writer.",
+    "ka": "ნოდარ დუმბაძე — ქართველი მწერალი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Nodar_Dumbadze",
+     "lang": "en",
+     "quote": "was a Georgian writer.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n12603826701",
+   "status": "found",
+   "description": {
+    "ru": "Михаил Джавахишвили — грузинский и советский романист, считающийся одним из ведущих грузинских писателей XX века.",
+    "en": "Mikheil Javakhishvili — a Georgian and Soviet novelist regarded as one of the top Georgian writers of the twentieth century.",
+    "ka": "მიხეილ ჯავახიშვილი — ქართველი და საბჭოთა რომანისტი, XX საუკუნის ერთ-ერთ წამყვან ქართველ მწერლად მიჩნეული."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Mikheil_Javakhishvili",
+     "lang": "en",
+     "quote": "was a Georgian and Soviet novelist who is regarded as one of the top twentieth-century Georgian writers.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n12625544738",
+   "status": "found",
+   "description": {
+    "ru": "Акакий Чхенкели — грузинский социал-демократический политик и публицист.",
+    "en": "Akaki Chkhenkeli — a Georgian Social Democratic politician and publicist.",
+    "ka": "აკაკი ჩხენკელი — ქართველი სოციალ-დემოკრატი პოლიტიკოსი და პუბლიცისტი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Akaki_Chkhenkeli",
+     "lang": "en",
+     "quote": "was a Georgian Social Democratic politician and publicist",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_w1063991235",
+   "status": "found",
+   "description": {
+    "ru": "Акакий Церетели — видный грузинский поэт и деятель национально-освободительного движения.",
+    "en": "Akaki Tsereteli — a prominent Georgian poet and national liberation movement figure.",
+    "ka": "აკაკი წერეთელი — გამოჩენილი ქართველი პოეტი და ეროვნულ-განმათავისუფლებელი მოძრაობის მოღვაწე."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Akaki_Tsereteli",
+     "lang": "en",
+     "quote": "was a prominent Georgian poet and national liberation movement figure.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "KAW_032",
+   "status": "found",
+   "description": {
+    "ru": "Дмитрий Гулиа — абхазский советский писатель и поэт, один из основателей абхазской литературы.",
+    "en": "Dmitry Gulia — an Abkhazian Soviet writer and poet, considered one of the founders of Abkhaz literature.",
+    "ka": "დიმიტრი გულია — აფხაზი საბჭოთა მწერალი და პოეტი, აფხაზური ლიტერატურის ერთ-ერთი ფუძემდებელი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dmitry_Gulia",
+     "lang": "en",
+     "quote": "was an Abkhazian Soviet writer and poet, considered to be one of the founders of Abkhaz literature.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "KAW_050",
+   "status": "found",
+   "description": {
+    "ru": "Михаил Воронцов — русский дворянин и фельдмаршал.",
+    "en": "Mikhail Vorontsov — a Russian nobleman and field marshal.",
+    "ka": "მიხეილ ვორონცოვი — რუსი დიდგვაროვანი და ფელდმარშალი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Mikhail_Semyonovich_Vorontsov",
+     "lang": "en",
+     "quote": "was a Russian nobleman and field marshal",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "KAW_122",
+   "status": "found",
+   "description": {
+    "ru": "Нико Пиросманашвили — грузинский художник, получивший известность посмертно.",
+    "en": "Niko Pirosmanashvili — a Georgian painter who posthumously rose to prominence.",
+    "ka": "ნიკო ფიროსმანაშვილი — ქართველი მხატვარი, რომელმაც აღიარება გარდაცვალების შემდეგ მოიპოვა."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Niko_Pirosmani",
+     "lang": "en",
+     "quote": "was a Georgian painter who posthumously rose to prominence.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "KAW_180",
+   "status": "found",
+   "description": {
+    "ru": "Владимир Маяковский — русский поэт, драматург, художник и актёр.",
+    "en": "Vladimir Mayakovsky — a Russian poet, playwright, artist and actor.",
+    "ka": "ვლადიმერ მაიაკოვსკი — რუსი პოეტი, დრამატურგი, მხატვარი და მსახიობი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Vladimir_Mayakovsky",
+     "lang": "en",
+     "quote": "was a Russian poet, playwright, artist, and actor.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n839673907",
+   "status": "found",
+   "description": {
+    "ru": "Декоративная композиция с фонтаном по мотивам «Маленького принца» Антуана де Сент-Экзюпери в Круглом саду, скульптор Ираклий Жвания (1999 год).",
+    "en": "Decorative fountain composition on the theme of Antoine de Saint-Exupéry’s The Little Prince in Round Garden, sculpted by Irakli Zhvania (1999).",
+    "ka": "დეკორატიული კომპოზიცია შადრევნით ანტუან დე სენტ-ეგზიუპერის „პატარა უფლისწულის“ თემაზე (მოქანდაკე ირაკლი ჟვანია, 1999)."
+   },
+   "year": 1999,
+   "sculptor": "ირაკლი ჟვანია",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A0%E1%83%92%E1%83%95%E1%83%90%E1%83%9A%E1%83%98_%E1%83%91%E1%83%90%E1%83%A6%E1%83%98",
+     "lang": "ka",
+     "quote": "დეკორატიული კომპოზიცია შადრევნით ანტუან დე სენტ-ეგზიუპერის „პატარა უფლისწულის“ თემაზე (მოქანდაკე ირაკლი ჟვანია , 1999 ).",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A0%E1%83%92%E1%83%95%E1%83%90%E1%83%9A%E1%83%98_%E1%83%91%E1%83%90%E1%83%A6%E1%83%98",
+     "lang": "ka",
+     "quote": "მოქანდაკე ირაკლი ჟვანია , 1999",
+     "fact": "sculptor"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A0%E1%83%92%E1%83%95%E1%83%90%E1%83%9A%E1%83%98_%E1%83%91%E1%83%90%E1%83%A6%E1%83%98",
+     "lang": "ka",
+     "quote": "მოქანდაკე ირაკლი ჟვანია , 1999",
+     "fact": "year"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n9810938036",
+   "status": "found",
+   "description": {
+    "ru": "Уличная художественная инсталляция (стрит-арт) со строками Николоза Бараташвили.",
+    "en": "Street art installation featuring Nikoloz Baratashvili’s poetry.",
+    "ka": "ნიკოლოზ ბარათაშვილის პოეზიისადმი მიძღვნილი ქუჩის არტ-ინსტალაცია."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "File:Baratashvili_poetry_art.jpg",
+   "sources": [
+    {
+     "url": "https://commons.wikimedia.org/wiki/File%3ABaratashvili_poetry_art.jpg",
+     "lang": "en",
+     "quote": "Baratashvili poetry art.jpg Street art",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n10944852270",
+   "status": "found",
+   "description": {
+    "ru": "Мемориал венгерским военнопленным и депортированным венгерским мирным жителям в саду Васо Годзиашвили в Тбилиси.",
+    "en": "Memorial to the Hungarian Prisoners of War and the Deported Hungarian Civilians in Vaso Godziashvili Garden, Tbilisi.",
+    "ka": "უნგრელი სამხედრო ტყვეებისა და დეპორტირებული უნგრელი მშვიდობიანი მოქალაქეების მემორიალი ვასო გოძიაშვილის ბაღში, თბილისში."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "File:2025-02-16_Memorial_to_the_Hungarian_Prisoners_of_War_in_Tbilisi.jpg",
+   "sources": [
+    {
+     "url": "https://commons.wikimedia.org/wiki/File%3A2025-02-16_Memorial_to_the_Hungarian_Prisoners_of_War_in_Tbilisi.jpg",
+     "lang": "en",
+     "quote": "Memorial to the Hungarian Prisoners of War and the Deported Hungarian Civilians in Vaso Godziashvili Garden, Tbilisi",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n11775368622",
+   "status": "found",
+   "description": {
+    "ru": "Памятник «Могила Неизвестного Солдата» в Парке Победы (Ваке-парк) в Тбилиси, открыт в 1975 году.",
+    "en": "Monument “Tomb of the Unknown Soldier” in Victory Park (Vake Park), Tbilisi, opened in 1975.",
+    "ka": "ძეგლი „უცნობი ჯარისკაცის საფლავი“ თბილისში, გამარჯვების პარკში, გაიხსნა 1975 წელს."
+   },
+   "year": 1975,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/9_%E1%83%9B%E1%83%90%E1%83%98%E1%83%A1%E1%83%98",
+     "lang": "ka",
+     "quote": "1975 : თბილისში გამარჯვების პარკში გაიხსნა ძეგლი „უცნობი ჯარისკაცის საფლავი“.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/9_%E1%83%9B%E1%83%90%E1%83%98%E1%83%A1%E1%83%98",
+     "lang": "ka",
+     "quote": "1975 : თბილისში გამარჯვების პარკში გაიხსნა ძეგლი „უცნობი ჯარისკაცის საფლავი“.",
+     "fact": "year"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n13288846701",
+   "status": "found",
+   "description": {
+    "ru": "Мемориал погибшим во Второй мировой войне в Коджори (Тбилиси).",
+    "en": "World War II memorial in Kojori, Tbilisi.",
+    "ka": "მეორე მსოფლიო ომში დაღუპულთა მემორიალი კოჯორში (თბილისი)."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "File:2025-11-08_World_War_II_memorial_in_Kojori.jpg",
+   "sources": [
+    {
+     "url": "https://commons.wikimedia.org/wiki/File%3A2025-11-08_World_War_II_memorial_in_Kojori.jpg",
+     "lang": "en",
+     "quote": "World War II memorial in Kojori",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "KAW_187",
+   "status": "found",
+   "description": {
+    "ru": "Каменная скульптура «Стремление» на улице Мераба Коставы в Тбилиси, созданная скульптором Г. Твринели в 1993 году.",
+    "en": "Stone sculpture \"Aspiration\" on Merab Kostava Street in Tbilisi, created by sculptor G. Tvrineli in 1993.",
+    "ka": "ქვის სკულპტურა „სწრაფვა“ თბილისში, მერაბ კოსტავას ქუჩაზე, მოქანდაკე გ. თვრინელის ნამუშევარი (1993 წ.)."
+   },
+   "year": 1993,
+   "sculptor": "გ. თვრინელი",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„სწრაფვა“ გ. თვრინელი ქვა 1993 მერაბ კოსტავას ქუჩა.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„სწრაფვა“ გ. თვრინელი ქვა 1993 მერაბ კოსტავას ქუჩა.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„სწრაფვა“ გ. თვრინელი ქვა 1993 მერაბ კოსტავას ქუჩა.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "KAW_188",
+   "status": "found",
+   "description": {
+    "ru": "Медная скульптура «Мольба Картвели» в районе ТЭМКА в Тбилиси (возле 5-го роддома), созданная в 1991 году скульпторами М. Метревели, М. Болквадзе и И. Медзмариашвили.",
+    "en": "Copper sculpture \"Supplication of Kartveli\" in the TEMQA district of Tbilisi (near Maternity Hospital No. 5), created in 1991 by M. Metreveli, M. Bolkvadze, and I. Medzmariashvili.",
+    "ka": "სპილენძის სკულპტურა „ქართვლის ვედრება“ თბილისში, თემქაზე (V სამშობიაროს მიმდებარედ), მოქანდაკეები: მ. მეტრეველი, მ. ბოლქვაძე, ი. მეძმარიაშვილი (1991 წ.)."
+   },
+   "year": 1991,
+   "sculptor": "მ. მეტრეველი, მ. ბოლქვაძე, ი. მეძმარიაშვილი",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ქართვლის ვედრება“ მ. მეტრეველი მ. ბოლქვაძე, ი. მეძმარიაშვილი სპილენძი 1991 თემქა, V სამშობიაროს მიმდებარედ.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ქართვლის ვედრება“ მ. მეტრეველი მ. ბოლქვაძე, ი. მეძმარიაშვილი სპილენძი 1991 თემქა, V სამშობიაროს მიმდებარედ.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ქართვლის ვედრება“ მ. მეტრეველი მ. ბოლქვაძე, ი. მეძმარიაშვილი სპილენძი 1991 თემქა, V სამშობიაროს მიმდებარედ.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "KAW_193",
+   "status": "found",
+   "description": {
+    "ru": "Каменный хачкар в сквере перед армянской церковью в районе Авлабари в Тбилиси, выполненный А. Мартиросяном в 1989 году.",
+    "en": "Stone khachkar in the square in front of the Armenian church in Avlabari, Tbilisi, created by A. Martirosyan in 1989.",
+    "ka": "ქვის „ხაჩქარი“ ავლაბარში, სომხური ეკლესიის წინ მდებარე სკვერში, მოქანდაკე ა. მარტიროსიანის ნამუშევარი (1989 წ.)."
+   },
+   "year": 1989,
+   "sculptor": "ა. მარტიროსიანი",
+   "commons_file": "File:Խաչքար Թիֆլիսի Սուրբ Էջմիածին եկեղեցւոյ բակում.JPG",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ხაჩქარი“ ა. მარტიროსიანი ქვა 1989 ავლაბარი , სომხური ეკლესიის წინ მდებარე სკვერი.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ხაჩქარი“ ა. მარტიროსიანი ქვა 1989 ავლაბარი , სომხური ეკლესიის წინ მდებარე სკვერი.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ხაჩქარი“ ა. მარტიროსიანი ქვა 1989 ავლაბარი , სომხური ეკლესიის წინ მდებარე სკვერი.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "KAW_195",
+   "status": "found",
+   "description": {
+    "ru": "Бронзовая скульптура «Играющие дэвы» в саду Муштаиди в Тбилиси, созданная скульптором И. Ревазишвили в 1985 году.",
+    "en": "Bronze sculpture \"Playing Devs\" in Mushtaidi Garden, Tbilisi, created by sculptor I. Revazishvili in 1985.",
+    "ka": "ბრინჯაოს სკულპტურა „მოთამაშე დევები“ თბილისში, მუშთაიდის ბაღში, მოქანდაკე ი. რევაზიშვილის ნამუშევარი (1985 წ.)."
+   },
+   "year": 1985,
+   "sculptor": "ი. რევაზიშვილი",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„მოთამაშე დევები“ ი. რევაზიშვილი ბრინჯაო 1985 მუშთაიდის ბაღი.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„მოთამაშე დევები“ ი. რევაზიშვილი ბრინჯაო 1985 მუშთაიდის ბაღი.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„მოთამაშე დევები“ ი. რევაზიშვილი ბრინჯაო 1985 მუშთაიდის ბაღი.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "KAW_196",
+   "status": "found",
+   "description": {
+    "ru": "Бронзовая скульптура «Весна» в саду Муштаиди в Тбилиси, созданная скульптором И. Ревазишвили в 1983 году.",
+    "en": "Bronze sculpture \"Spring\" in Mushtaidi Garden, Tbilisi, created by sculptor I. Revazishvili in 1983.",
+    "ka": "ბრინჯაოს სკულპტურა „გაზაფხული“ თბილისში, მუშთაიდის ბაღში, მოქანდაკე ი. რევაზიშვილის ნამუშევარი (1983 წ.)."
+   },
+   "year": 1983,
+   "sculptor": "ი. რევაზიშვილი",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„გაზაფხული“ ი. რევაზიშვილი ბრინჯაო 1983 მუშთაიდის ბაღი.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„გაზაფხული“ ი. რევაზიშვილი ბრინჯაო 1983 მუშთაიდის ბაღი.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„გაზაფხული“ ი. რევაზიშვილი ბრინჯაო 1983 მუშთაიდის ბაღი.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "KAW_197",
+   "status": "found",
+   "description": {
+    "ru": "Бронзовая скульптура «Женщина с голубем» в саду Муштаиди в Тбилиси, созданная скульптором И. Кандашвили в 1981 году.",
+    "en": "Bronze sculpture \"Woman with a Dove\" in Mushtaidi Garden, Tbilisi, created by sculptor I. Kandashvili in 1981.",
+    "ka": "ბრინჯაოს სკულპტურა „ქალი მტრედით“ თბილისში, მუშთაიდის ბაღში, მოქანდაკე ი. ყანდაშვილის ნამუშევარი (1981 წ.)."
+   },
+   "year": 1981,
+   "sculptor": "ი. ყანდაშვილი",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ქალი მტრედით“ ი. ყანდაშვილი ბრინჯაო 1981 მუშთაიდის ბაღი.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ქალი მტრედით“ ი. ყანდაშვილი ბრინჯაო 1981 მუშთაიდის ბაღი.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ქალი მტრედით“ ი. ყანდაშვილი ბრინჯაო 1981 მუშთაიდის ბაღი.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "KAW_198",
+   "status": "found",
+   "description": {
+    "ru": "Бронзовая скульптура «Мальчики с рыбами» в саду Муштаиди в Тбилиси, созданная скульптором И. Кандашвили в 1979 году.",
+    "en": "Bronze sculpture \"Boys with Fish\" in Mushtaidi Garden, Tbilisi, created by sculptor I. Kandashvili in 1979.",
+    "ka": "ბრინჯაოს სკულპტურა „ბიჭუნები თევზებთან“ თბილისში, მუშთაიდის ბაღში, მოქანდაკე ი. ყანდაშვილის ნამუშევარი (1979 წ.)."
+   },
+   "year": 1979,
+   "sculptor": "ი. ყანდაშვილი",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ბიჭუნები თევზებთან“ ი. ყანდაშვილი ბრინჯაო 1979 მუშთაიდის ბაღი.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ბიჭუნები თევზებთან“ ი. ყანდაშვილი ბრინჯაო 1979 მუშთაიდის ბაღი.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "„ბიჭუნები თევზებთან“ ი. ყანდაშვილი ბრინჯაო 1979 მუშთაიდის ბაღი.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "KAW_199",
+   "status": "found",
+   "description": {
+    "ru": "Бронзовый памятник грузинскому футболисту Михаилу Месхи у стадиона имени Михаила Месхи в Тбилиси, выполненный скульптором Гоги Шхвацабая в 2014 году.",
+    "en": "Bronze statue of Georgian footballer Mikheil Meskhi at Mikheil Meskhi Stadium in Tbilisi, sculpted by Gogi Shkhvatsabaia in 2014.",
+    "ka": "მიხეილ მესხის ბრინჯაოს ძეგლი თბილისში, მიხეილ მესხის სახელობის სტადიონთან, მოქანდაკე გოგი შხვაცაბაიას ნამუშევარი (2014 წ.)."
+   },
+   "year": 2014,
+   "sculptor": "გოგი შხვაცაბაია",
+   "commons_file": "File:Meskhi20141911-1.jpg",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "მიხეილ მესხი გოგი შხვაცაბაია ბრინჯაო 2014 მიხეილ მესხის სახელობის სტადიონი.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "მიხეილ მესხი გოგი შხვაცაბაია ბრინჯაო 2014 მიხეილ მესხის სახელობის სტადიონი.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "მიხეილ მესხი გოგი შხვაცაბაია ბრინჯაო 2014 მიხეილ მესხის სახელობის სტადიონი.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "REG_23198",
+   "status": "found",
+   "description": {
+    "ru": "Бронзовый памятник хирургу и академику Григолу Мухадзе на проспекте Давида Агмашенебели в Тбилиси, во дворе «Михайловской» больницы, работы скульптора С. Какабадзе (1957 год).",
+    "en": "Bronze monument to surgeon and academician Grigol Mukhadze on David Aghmashenebeli Avenue in Tbilisi, in the courtyard of Mikhailov Hospital, sculpted by S. Kakabadze (1957).",
+    "ka": "გრიგოლ მუხაძის ბრინჯაოს ძეგლი თბილისში, დავით აღმაშენებლის გამზირზე, „მიხაილოვის“ საავადმყოფოს ეზოში, მოქანდაკე ს. კაკაბაძის ნამუშევარი (1957 წ.)."
+   },
+   "year": 1957,
+   "sculptor": "ს. კაკაბაძე",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "გრიგოლ მუხაძე ს. კაკაბაძე ბრინჯაო 1957 დავით აღმაშენებლის გამზირი. „მიხაილოვის“ საავადმყოფოს ეზოში.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "გრიგოლ მუხაძე ს. კაკაბაძე ბრინჯაო 1957 დავით აღმაშენებლის გამზირი. „მიხაილოვის“ საავადმყოფოს ეზოში.",
+     "fact": "year"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%91%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%E1%83%98%E1%83%A1_%E1%83%AB%E1%83%94%E1%83%92%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+     "lang": "ka",
+     "quote": "გრიგოლ მუხაძე ს. კაკაბაძე ბრინჯაო 1957 დავით აღმაშენებლის გამზირი. „მიხაილოვის“ საავადმყოფოს ეზოში.",
+     "fact": "sculptor"
+    }
+   ]
+  },
+  {
+   "id": "REG_23208",
+   "status": "found",
+   "description": {
+    "ru": "Обелиск в Худадовском лесу в Тбилиси, воздвигнутый в 1955 году в память о рабочих-революционерах, погибших во время событий декабря 1905 года.",
+    "en": "Obelisk in Khudadov Forest in Tbilisi, erected in 1955 in memory of revolutionary workers killed during the events of December 1905.",
+    "ka": "ობელისკი თბილისში, ხუდადოვის ტყეში, რომელიც 1955 წელს ააგეს 1905 წლის დეკემბერში დაღუპული მუშების ხსოვნის პატივსაცემად."
+   },
+   "year": 1955,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%93%E1%83%90%E1%83%93%E1%83%9D%E1%83%95%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A7%E1%83%94",
+     "lang": "ka",
+     "quote": "1905 წლის დეკემბერში, რუსეთის რევოლუციის დროს, ხუდადოვის ტყეში იკრიბებოდნენ გაფიცულები.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%93%E1%83%90%E1%83%93%E1%83%9D%E1%83%95%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A7%E1%83%94",
+     "lang": "ka",
+     "quote": "1905 წელს მოკლული მუშების პატივსაცემად მიმდებარე ქუჩას „9 ძმის“ სახელი უწოდეს.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%93%E1%83%90%E1%83%93%E1%83%9D%E1%83%95%E1%83%98%E1%83%A1_%E1%83%A2%E1%83%A7%E1%83%94",
+     "lang": "ka",
+     "quote": "1955 წელს ააგეს მათი ხსოვნის ობელისკიც.",
+     "fact": "year"
+    }
+   ]
+  },
+  {
+   "id": "REG_26659",
+   "status": "found",
+   "description": {
+    "ru": "Католический участок исторического Кукийского кладбища в Тбилиси.",
+    "en": "Catholic section of the historic Kukia Cemetery in Tbilisi.",
+    "ka": "თბილისის ისტორიული კუკიის სასაფლაოს კათოლიკური ნაწილი."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "File:Kukia Cemetery.jpg",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%99%E1%83%98%E1%83%90",
+     "lang": "ka",
+     "quote": "კუკიას სასაფლაოს კათოლიკური ნაწილი, 1900 წელი",
+     "fact": "name"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%99%E1%83%98%E1%83%90",
+     "lang": "ka",
+     "quote": "კუკიაზე მდებარეობს თბილისის უძველესი და უდიდესი სასაფლაო",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "REG_26661",
+   "status": "found",
+   "description": {
+    "ru": "Надгробный памятник ксендзу Максимилиану Орловскому на Кукийском кладбище в Тбилиси, отреставрированный фондом «Терпа» в 2010 году.",
+    "en": "Grave monument of Father Maksymilian Orłowski at Kukia Cemetery in Tbilisi, conserved by the Terpa Foundation in 2010.",
+    "ka": "მღვდელ მაქსიმილიან ორლოვსკის საფლავის ძეგლი თბილისში, კუკიის სასაფლაოზე, რომელსაც 2010 წელს ფონდმა „ტერპამ“ კონსერვაცია ჩაუტარა."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://pl.wikipedia.org/wiki/Cmentarz_Kukijski",
+     "lang": "en",
+     "quote": "W 2010 roku nagrobek ks. Maksymiliana Orłowskiego został poddany konserwacji przez Fundację Terpa.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "REG_20168",
+   "status": "found",
+   "description": {
+    "ru": "Телованский каменный крест (кваджвара) — археолого-исторический памятник в лесу в километре к северу от села Теловани, высеченный из скалы межевой крест, разделявший владения Багратионов, собора Светицховели и Магалашвили.",
+    "en": "Telovani Stone Cross (Kvajvara) — an archaeological and historical monument in the forest 1 km north of Telovani village, a rock-carved cross marking the boundaries of estates of the Bagrationis, Svetitskhoveli Cathedral, and the Maghalashvilis.",
+    "ka": "თელოვანის ქვაჯვარა — არქეოლოგიურ-ისტორიული ძეგლი სოფელ თელოვანის ჩრდილოეთით 1 კმ-ზე, ტყეში; კლდის ქვისგან გამოთლილი ჯვარი მიჯნავდა ბაგრატიონების, სვეტიცხოვლის ტაძრისა და მაღალაშვილების მამულებს."
+   },
+   "year": null,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%94%E1%83%9A%E1%83%9D%E1%83%95%E1%83%90%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%95%E1%83%90%E1%83%AF%E1%83%95%E1%83%90%E1%83%A0%E1%83%90",
+     "lang": "ka",
+     "quote": "თელოვანის ქვაჯვარა — არქეოლოგიურ-ისტორიული ძეგლი მცხეთის მონიციპალიტეტის სოფელ თელოვანის ჩრდილოეთით, 1 კილომეტრის მოშორებით, ტყეში.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%94%E1%83%9A%E1%83%9D%E1%83%95%E1%83%90%E1%83%9C%E1%83%98%E1%83%A1_%E1%83%A5%E1%83%95%E1%83%90%E1%83%AF%E1%83%95%E1%83%90%E1%83%A0%E1%83%90",
+     "lang": "ka",
+     "quote": "კლდის ქვისაგან გამოთლილი ჯვრით ერთმანეთისაგან იყო გამიჯნული ბაგრატიონების, სვეტისცხოვლის ტაძრისა და მაღალაშვილების მამულები.",
+     "fact": "about"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n12297862060",
+   "status": "found",
+   "description": {
+    "ru": "Именная звезда актёра Джемала Гаганидзе перед театром имени Шота Руставели в Тбилиси, открытая в 2011 году.",
+    "en": "Commemorative star for actor Jemal Gaganidze in front of the Rustaveli Theatre in Tbilisi, unveiled in 2011.",
+    "ka": "მსახიობ ჯემალ ღაღანიძის სახელობითი ვარსკვლავი თბილისში, რუსთაველის თეატრის წინ, გაიხსნა 2011 წელს."
+   },
+   "year": 2011,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%94%E1%83%9B%E1%83%90%E1%83%9A_%E1%83%A6%E1%83%90%E1%83%A6%E1%83%90%E1%83%9C%E1%83%98%E1%83%AB%E1%83%94",
+     "lang": "ka",
+     "quote": "2011 წელს რუსთაველის თეატრის წინ გაიხსნა ჯემალ ღაღანიძის „ვარსკვლავი“.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%94%E1%83%9B%E1%83%90%E1%83%9A_%E1%83%A6%E1%83%90%E1%83%A6%E1%83%90%E1%83%9C%E1%83%98%E1%83%AB%E1%83%94",
+     "lang": "ka",
+     "quote": "2011 წელს რუსთაველის თეატრის წინ გაიხსნა ჯემალ ღაღანიძის „ვარსკვლავი“.",
+     "fact": "year"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n12297862065",
+   "status": "found",
+   "description": {
+    "ru": "Именная звезда актрисы Медеи Чахава перед Государственным театром имени Шота Руставели в Тбилиси, открытая в 2006 году.",
+    "en": "Commemorative star for actress Medea Chakhava in front of the Shota Rustaveli State Theatre in Tbilisi, unveiled in 2006.",
+    "ka": "მსახიობ მედეა ჩახავას სახელობითი ვარსკვლავი თბილისში, შოთა რუსთაველის სახელმწიფო თეატრის წინ, გაიხსნა 2006 წელს."
+   },
+   "year": 2006,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%93%E1%83%94%E1%83%90_%E1%83%A9%E1%83%90%E1%83%AE%E1%83%90%E1%83%95%E1%83%90",
+     "lang": "ka",
+     "quote": "2006 წელს კი რუსთველის თეატრის წინ მისი სახელობის ვარსკვლავი გაიხსნა.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%93%E1%83%94%E1%83%90_%E1%83%A9%E1%83%90%E1%83%AE%E1%83%90%E1%83%95%E1%83%90",
+     "lang": "ka",
+     "quote": "2006 წელს კი რუსთველის თეატრის წინ მისი სახელობის ვარსკვლავი გაიხსნა.",
+     "fact": "year"
+    }
+   ]
+  },
+  {
+   "id": "OSM_n12297862066",
+   "status": "found",
+   "description": {
+    "ru": "Именная звезда актёра Гурама Сагарадзе перед театром имени Шота Руставели в Тбилиси, открытая 13 ноября 2006 года.",
+    "en": "Commemorative star for actor Guram Sagaradze in front of the Rustaveli Theatre in Tbilisi, unveiled on November 13, 2006.",
+    "ka": "მსახიობ გურამ საღარაძის სახელობითი ვარსკვლავი თბილისში, რუსთაველის თეატრის წინ, გაიხსნა 2006 წლის 13 ნოემბერს."
+   },
+   "year": 2006,
+   "sculptor": "",
+   "commons_file": "",
+   "sources": [
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%A0%E1%83%90%E1%83%9B_%E1%83%A1%E1%83%90%E1%83%A6%E1%83%90%E1%83%A0%E1%83%90%E1%83%AB%E1%83%94",
+     "lang": "ka",
+     "quote": "2006 წლის 13 ნოემბერს რუსთაველის თეატრის წინ გაიხსნა გურამ საღარაძის ვარსკვლავი.",
+     "fact": "about"
+    },
+    {
+     "url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%A0%E1%83%90%E1%83%9B_%E1%83%A1%E1%83%90%E1%83%A6%E1%83%90%E1%83%A0%E1%83%90%E1%83%AB%E1%83%94",
+     "lang": "ka",
+     "quote": "2006 წლის 13 ნოემბერს რუსთაველის თეატრის წინ გაიხსნა გურამ საღარაძის ვარსკვლავი.",
+     "fact": "year"
+    }
+   ]
+  }
+ ],
+ "rejected": [
+  {
+   "id": "OSM_n937593937",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n1424865259",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n1491156512",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n2101210150",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n2247886811",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n2887030695",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n3747603019",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n4110284792",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n4344769102",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n4589054411",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n4706094289",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n4764800106",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n4787597217",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n5237654233",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n5483743425",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n6048500573",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n6635894994",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n6735359885",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n6738835592",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n6790322786",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n7992887392",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9252599317",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9331652017",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9388870552",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9392588650",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9397438916",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9430097512",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9430097513",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9430097514",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9430097515",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9430097516",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9439884442",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9439884443",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9439884444",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9806417169",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n9897257594",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10106263644",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10215666490",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10677647124",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10731079286",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10789906125",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10789934693",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10935209829",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10942058323",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11110500765",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11195962738",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11195966137",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11198021586",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11279982959",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11297724653",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11375676365",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11443374270",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11497113331",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11583749698",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11603444276",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11607153869",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11642401624",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11658385032",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11660301574",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11684725273",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11812131191",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11816292469",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11834952369",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11881600593",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11896796355",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11907482695",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11983388869",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11985760263",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12017505773",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12020492769",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12035171027",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12161674968",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12192253001",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12332010803",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12401100100",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12707511401",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12750101105",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12817264720",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12823773525",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12875610007",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12898029810",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n13061984622",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n13063735302",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n13175035342",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n13266922991",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n13613058150",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n13613058151",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n13878303708",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n14178366401",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n14315491601",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_w1064347135",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_w1177876610",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_004",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_008",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_011",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_036",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_037",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_062",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_064",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_067",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_077",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_080",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_089",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_093",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_100",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_109",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_114",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_140",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_155",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_161",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_162",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_168",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_169",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_173",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_174",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_177",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_182",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "KAW_185",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "REG_24454",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "REG_38221",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n10969095968",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n11983027169",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12297862061",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12297862064",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_n12297862067",
+   "why": [
+    "not_found"
+   ]
+  },
+  {
+   "id": "OSM_w1302336442",
+   "why": [
+    "not_found"
+   ]
+  }
+ ]
+}

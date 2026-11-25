@@ -17,7 +17,10 @@ MAT = {"ბრინჯაო": "bronze", "bronze": "bronze", "metal": "metal", 
 KM = (83000.0, 111000.0)
 
 
-DONE = set(json.load(open(os.path.join(R, "data", "cache", "monuments_names_verified.json"), encoding="utf-8"))) if os.path.exists(os.path.join(R, "data", "cache", "monuments_names_verified.json")) else set()      # completed by Gemini earlier
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import CURATED, require_file
+
+DONE = set(json.load(open(require_file(os.path.join(CURATED, "monuments_names_verified.json"), "curated verified names"), encoding="utf-8")))      # completed by Gemini earlier
 
 
 def script_ok(lg, v):

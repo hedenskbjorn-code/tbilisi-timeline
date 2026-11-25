@@ -132,8 +132,10 @@ def merge_osm(mons):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    M = list(csv.DictReader(open(os.path.join(R, "work", "notes", "tbilisi_monuments_full.csv"), encoding="utf-8-sig")))
-    P = list(csv.DictReader(open(os.path.join(R, "work", "notes", "tbilisi_plaques_osm.csv"), encoding="utf-8-sig")))
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from paths import CURATED, require_file
+    M = list(csv.DictReader(open(require_file(os.path.join(CURATED, "tbilisi_monuments_full.csv")), encoding="utf-8-sig")))
+    P = list(csv.DictReader(open(require_file(os.path.join(CURATED, "tbilisi_plaques_osm.csv")), encoding="utf-8-sig")))
     skipped = collections.Counter()
     mons, lost = [], []
     for r in M:
