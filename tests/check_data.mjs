@@ -546,16 +546,17 @@ if (ev) {
   const mf = data["data/manifest.json"];
   if (!mf || !mf.v || !mf.f) err("data/manifest.json: missing (run python -P tools/gen_manifest.py)");
   else {
-    const sha8 = (b) => crypto.createHash("sha256").update(b).digest("hex").slice(0, 8);
+    const norm = (p) => fs.readFileSync(p, "utf8").replace(/\r\n/g, "\n");
+    const sha8 = (p) => crypto.createHash("sha256").update(norm(p), "utf8").digest("hex").slice(0, 8);
     const dataFiles = fs.readdirSync(path.join(SITE, "data")).filter((f) => f.endsWith(".json") && f !== "manifest.json").sort();
     for (const f of dataFiles) {
-      const want = sha8(fs.readFileSync(path.join(SITE, "data", f)));
+      const want = sha8(path.join(SITE, "data", f));
       if (mf.f["data/" + f] !== want) err(`data/manifest.json: hash mismatch for data/${f} (run python -P tools/gen_manifest.py)`);
     }
     const idxHtml = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
-    const appH = crypto.createHash("sha256").update(fs.readFileSync(path.join(SITE, "app.js")));
+    const appH = crypto.createHash("sha256").update(norm(path.join(SITE, "app.js")), "utf8");
     for (const jf of fs.readdirSync(path.join(SITE, "js")).filter((f) => f.endsWith(".js")).sort()) {
-      appH.update(fs.readFileSync(path.join(SITE, "js", jf)));
+      appH.update(norm(path.join(SITE, "js", jf)), "utf8");
     }
     const wantApp = appH.digest("hex").slice(0, 8);
     if (!idxHtml.includes(`src="app.js?v=${wantApp}"`)) err(`site/index.html: app.js?v=${wantApp} is out of date (run python -P tools/gen_manifest.py)`);

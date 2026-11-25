@@ -24,18 +24,22 @@ ASSET_TAG_RE = re.compile(
 )
 
 
+def norm_bytes(p: Path) -> bytes:
+    return p.read_bytes().replace(b"\r\n", b"\n")
+
+
 def sha8(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest()[:8]
+    return hashlib.sha256(data.replace(b"\r\n", b"\n")).hexdigest()[:8]
 
 
 def asset_hash(rel_path: str) -> str | None:
     p = SITE / rel_path
     if not p.is_file():
         return None
-    h = hashlib.sha256(p.read_bytes())
+    h = hashlib.sha256(norm_bytes(p))
     if rel_path == "app.js":
         for dep in sorted((SITE / "js").glob("*.js")):
-            h.update(dep.read_bytes())
+            h.update(norm_bytes(dep))
     return h.hexdigest()[:8]
 
 
