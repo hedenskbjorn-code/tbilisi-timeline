@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": ["names", "streets"],
+  "additionalProperties": false,
+  "properties": {
+    "names": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["en", "ru"],
+        "properties": { "en": { "type": "string" }, "ru": { "type": "string" } }
+      }
+    },
+    "streets": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["en", "ru"],
+        "properties": { "en": { "type": "string" }, "ru": { "type": "string" } }
+      }
+    }
+  }
+}

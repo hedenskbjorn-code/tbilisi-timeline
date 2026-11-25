@@ -2355,7 +2355,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const hy = parseInt((location.hash || "").slice(1), 10);
     if (hy >= MIN && hy <= MAX && hy !== year) { year = hy; update(); }
   });
-  $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; update(); } });
+  $("slider").addEventListener("input", (e) => { const y = v2y(+e.target.value); if (y !== year) { year = y; sliding = true; try { update(); } finally { sliding = false; } } });
   for (const id of ["showPlan", "showStLabels", "roadLabels", "show94", "showRel", "showSci", "showEdu", "showMus", "showBattleMap", "showRulers", "showBnd", "showAdmin", "showDistricts", "showSettle", "showWater", "showDensity", "showTrMetro", "showTrTram", "showTrRail", "showTrRoad", "showTrCable", "showStreets", "showSwipe", "showHere", "showLost", "showGhost", "showResid", "showPublic", "showDef", "showOtherB", "showNoPhoto"]) $(id).addEventListener("change", update);
   $("op").addEventListener("input", (e) => {
     $("opv").textContent = e.target.value + "%";
@@ -3308,27 +3308,35 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const s = c.st && MP[key].data.streets[c.st];
     return (mpU("k_" + (key === "plq" ? "plaque" : c.k), key)) + (s ? ", " + (s[lang] || s.en) : "");
   }
+  let sliding = false;
   function mpVisible(key, c) { return c.y != null ? c.y <= year : !!(MP[key].sub && $(MP[key].sub).checked); }
-  function mpFeats(key) {
-    return MP[key].data.items.filter((c) => mpVisible(key, c)).map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k || "plaque", label: mpName(key, c), undated: c.y == null } }));
+  function mpYearFilter(key) {
+    const subOn = !!(MP[key].sub && $(MP[key].sub).checked);
+    const vis = subOn ? ["any", ["get", "undated"], ["<=", ["get", "y"], year]] : ["all", ["!", ["get", "undated"]], ["<=", ["get", "y"], year]];
+    return ["all", ["!", ["has", "point_count"]], vis];
+  }
+  function mpFeats(key, all = false) {
+    const items = all ? MP[key].data.items : MP[key].data.items.filter((c) => mpVisible(key, c));
+    return items.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k || "plaque", label: mpName(key, c), undated: c.y == null, y: c.y != null ? c.y : -99999 } }));
   }
   function mpAdd(key) {
     const m = MP[key];
     if (!m.data || !m.data.items.length || map.getSource(key + "s")) return;
     if (!map.isStyleLoaded()) { map.once("idle", () => mpAdd(key)); return; }                // the style is busy (other sources are loading): the layer is added at the next idle, not forgotten
     const col = key === "mon" ? ["match", ["get", "kind"], ...Object.entries(MON_COLOR).flat(), "#555"] : key === "mod" ? MOD_COLOR : PLQ_COLOR, base = key === "mon" ? "#1864ab" : key === "mod" ? MOD_COLOR : PLQ_COLOR;
-    map.addSource(key + "s", { type: "geojson", cluster: true, clusterMaxZoom: 15, clusterRadius: 38, data: { type: "FeatureCollection", features: mpFeats(key) } });
-    map.addLayer({ id: key + "-cl", type: "circle", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none" }, paint: { "circle-color": base, "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 13, 10, 17, 40, 22], "circle-stroke-color": "#fff", "circle-stroke-width": 2 } });
-    map.addLayer({ id: key + "-cn", type: "symbol", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none", "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 12 }, paint: { "text-color": "#fff" } });
-    map.addLayer({ id: key + "-pt", type: "circle", source: key + "s", filter: ["!", ["has", "point_count"]], layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 4, 17, 8], "circle-color": col, "circle-stroke-color": "#fff", "circle-stroke-width": 2, "circle-opacity": ["case", ["get", "undated"], 0.55, 1] } });
-    map.addLayer({ id: key + "-lb", type: "symbol", source: key + "s", minzoom: 16, filter: ["!", ["has", "point_count"]], layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#212529", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+    const clustered = key !== "mod";
+    map.addSource(key + "s", clustered ? { type: "geojson", cluster: true, clusterMaxZoom: 15, clusterRadius: 38, data: { type: "FeatureCollection", features: mpFeats(key) } } : { type: "geojson", data: { type: "FeatureCollection", features: mpFeats(key, true) } });
+    map.addLayer({ id: key + "-cl", type: "circle", source: key + "s", filter: clustered ? ["has", "point_count"] : ["==", "id", "__none__"], layout: { visibility: "none" }, paint: { "circle-color": base, "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 13, 10, 17, 40, 22], "circle-stroke-color": "#fff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: key + "-cn", type: "symbol", source: key + "s", filter: clustered ? ["has", "point_count"] : ["==", "id", "__none__"], layout: { visibility: "none", "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 12 }, paint: { "text-color": "#fff" } });
+    map.addLayer({ id: key + "-pt", type: "circle", source: key + "s", filter: mpYearFilter(key), layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 4, 17, 8], "circle-color": col, "circle-stroke-color": "#fff", "circle-stroke-width": 2, "circle-opacity": ["case", ["get", "undated"], 0.55, 1] } });
+    map.addLayer({ id: key + "-lb", type: "symbol", source: key + "s", minzoom: 16, filter: mpYearFilter(key), layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#212529", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", key + "-pt", (e) => { const f = e.features && e.features[0], c = f && m.byId.get(f.properties.id); if (c) popupMP(key, c, e.lngLat); });
     map.on("click", key + "-cl", (e) => {
       const f = map.queryRenderedFeatures(e.point, { layers: [key + "-cl"] })[0];
       map.getSource(key + "s").getClusterExpansionZoom(f.properties.cluster_id).then((z) => map.easeTo({ center: f.geometry.coordinates, zoom: z + 0.5 }));
     });
     for (const l of [key + "-pt", key + "-cl"]) { map.on("mouseenter", l, () => { map.getCanvas().style.cursor = "pointer"; }); map.on("mouseleave", l, () => { map.getCanvas().style.cursor = ""; }); }
-    m.sig = null;
+    m.sig = null; m.langSig = lang;
     updateMP(key);
   }
   function updateMP(key) {
@@ -3338,8 +3346,22 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     syncLegend(m.chk, m.leg);
     if (m.data && !map.getSource(key + "s")) mpAdd(key);
     if (!map.getSource(key + "s")) return;
-    const sig = [year, m.sub ? $(m.sub).checked : "", lang].join("|");
-    if (on && m.sig !== sig) { m.sig = sig; map.getSource(key + "s").setData({ type: "FeatureCollection", features: mpFeats(key) }); }
+    if (on) {
+      const flt = mpYearFilter(key);
+      map.setFilter(key + "-pt", flt);
+      map.setFilter(key + "-lb", flt);
+      if (key === "mod") {
+        if (m.langSig !== lang) { m.langSig = lang; map.getSource(key + "s").setData({ type: "FeatureCollection", features: mpFeats(key, true) }); }
+      } else {
+        const sig = [year, m.sub ? $(m.sub).checked : "", lang].join("|");
+        if (m.sig !== sig) {
+          clearTimeout(m.timer);
+          const applyData = () => { m.sig = sig; if (map.getSource(key + "s")) map.getSource(key + "s").setData({ type: "FeatureCollection", features: mpFeats(key) }); };
+          if (sliding) m.timer = setTimeout(applyData, 160);
+          else applyData();
+        }
+      }
+    }
     for (const l of ["cl", "cn", "pt", "lb"]) { map.setLayoutProperty(key + "-" + l, "visibility", on ? "visible" : "none"); map.moveLayer(key + "-" + l); }
   }
   function updateMPUi() {
@@ -3600,11 +3622,36 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     }
     return false;
   }
+  let miniSearch = null, miniLoading = null;
+  const msTok = (s) => String(s || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/ё/g, "е").split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  function ensureMiniSearch() {
+    if (miniSearch || miniLoading) return;
+    miniLoading = Promise.all([
+      window.MiniSearch ? Promise.resolve() : new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "vendor/minisearch.js"; sc.onload = res; sc.onerror = rej; document.head.appendChild(sc); }),
+      getJSON("data/search_index.json", 2),
+    ]).then(([, docs]) => {
+      const ms = new window.MiniSearch({
+        fields: ["n", "ex"],
+        storeFields: ["id", "y", "l"],
+        tokenize: msTok,
+        processTerm: (term) => term.replace(/ё/g, "е"),
+      });
+      ms.addAll(docs);
+      miniSearch = ms;
+      if (!$("search").hidden && $("searchQ").value) renderSearch();
+    }).catch(() => { miniLoading = null; });
+  }
   function runSearch(q) {
     const toks = normQ(q).split(" ").filter(Boolean);
     const rows = [];
     if (!toks.length) return rows;
     if (/^\d{3,4}$/.test(toks[0]) && toks.length === 1 && +toks[0] >= MIN && +toks[0] <= MAX) rows.push({ kind: "y", year: +toks[0] });
+    if (miniSearch) {
+      const hits = miniSearch.search(q, { combineWith: "AND", boost: { n: 3, ex: 1.5 }, prefix: true, fuzzy: (term) => (term.length >= 5 ? 0.2 : false) });
+      for (const h of hits.slice(0, 40)) rows.push({ kind: "msx", doc: h });
+      rows.more = hits.length > 40;
+      return rows;
+    }
     if (!searchIndex || (searchIndex.length === 0 && monuments)) searchIndex = buildSearchIndex();
     const scored = [];
     for (const it of searchIndex) {
@@ -3658,6 +3705,20 @@ import { getJSON, prefetchJSON } from "./js/net.js";
         const old = [...r.st.iv.filter((iv) => iv[2]).map((iv) => pickName(iv[2])), ...(r.st.undated || []).map((u) => pickName(u))];
         b.textContent = old.slice(0, 4).join(" \u00B7 ") + (old.length > 4 ? " ..." : "");
       }
+      else if (r.kind === "msx") {
+        const [pfx, ...rest] = r.doc.id.split(":"), id = rest.join(":");
+        const ico = { o: "\uD83C\uDFDB\uFE0F ", e: "\uD83D\uDCC5 ", u: "\uD83D\uDC51 ", sc: "\uD83D\uDD2C ", ed: "\uD83C\uDFEB ", mu: "\uD83C\uDFDB ", rl: "\u26EA ", st: "\uD83D\uDEE3 ", ms: "\u24C2 ", pl: "\uD83D\uDCCD ", mn: "\uD83D\uDDFF ", pq: "\uD83D\uDD16 ", md: "\uD83C\uDFDB " }[pfx] || "";
+        const li = lang === "ru" ? 0 : lang === "ka" ? 2 : 1;
+        a.textContent = ico + (r.doc.l[li] || r.doc.l[1] || r.doc.l[0] || r.doc.l[2] || "\u2014");
+        if (pfx === "ms") b.textContent = L.trKinds.metro_station + (r.doc.y != null ? " \u00B7 " + L.trPeriod(+r.doc.y, 9999, -1, -1) : "");
+        else if (pfx === "st") {
+          const st = stNames.find((x) => (x.geom || x.now.en) === id);
+          if (st) { const old = [...st.iv.filter((iv) => iv[2]).map((iv) => pickName(iv[2])), ...(st.undated || []).map((u) => pickName(u))]; b.textContent = old.slice(0, 4).join(" \u00B7 ") + (old.length > 4 ? " ..." : ""); }
+        } else if (pfx === "pl" && places) {
+          const c = places.items.find((x) => x.id === id);
+          if (c) b.textContent = PU("kind_" + c.k);
+        } else b.textContent = r.doc.y != null ? String(r.doc.y) : "";
+      }
       else {
         const p = r.f.properties, tr = window.GeoTr;
         let nm = p.name, ad = p.address;
@@ -3684,12 +3745,32 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   function closeSearch() { $("search").hidden = true; $("btnSearch").setAttribute("aria-expanded", "false"); }
   function openSearch() {
     $("search").hidden = false; $("btnSearch").setAttribute("aria-expanded", "true");
+    ensureMiniSearch();
     if (!places) ensurePlaces();                                   // the local names join the search as soon as their file is loaded
     $("searchQ").focus(); $("searchQ").select();
     if ($("searchQ").value) renderSearch();
   }
   function pickSearch(r) {
     closeSearch();
+    if (r.kind === "msx") {
+      const [pfx, ...rest] = r.doc.id.split(":"), id = rest.join(":");
+      if (pfx === "e" && histEvents[+id]) r = { kind: "e", ev: histEvents[+id] };
+      else if (pfx === "u" && rulersData) { const u = rulersData.rulers.concat(rulersData.states).find((x) => x.id === id); if (u) r = { kind: "u", u }; }
+      else if (pfx === "o" && monuments) { const f = monuments.features.find((x) => String(x.properties.id) === id); if (f) r = { kind: "o", f }; }
+      else if (pfx === "rl") { const c = religious.find((x) => x.id === id); if (c) r = { kind: "r", r: c }; }
+      else if (pfx === "sc") { const c = science.find((x) => x.id === id); if (c) r = { kind: "s", c }; }
+      else if (pfx === "ed") { const c = education.find((x) => x.id === id); if (c) r = { kind: "d", c }; }
+      else if (pfx === "mu") { const c = museums.find((x) => x.id === id); if (c) r = { kind: "mu", c }; }
+      else if (pfx === "st") { const st = stNames.find((x) => (x.geom || x.now.en) === id); if (st) r = { kind: "t", st }; }
+      else if (pfx === "ms") { const f = trStations.find((x) => x.properties.id === id); if (f) r = { kind: "m", f }; }
+      else if (pfx === "pl" && places) { const c = places.items.find((x) => x.id === id); if (c) r = { kind: "p", c }; }
+      else if (pfx === "mn" || pfx === "pq" || pfx === "md") {
+        const k2 = pfx === "mn" ? "mon" : pfx === "md" ? "mod" : "plq";
+        const c = MP[k2].byId && MP[k2].byId.get(id);
+        if (c) r = { kind: pfx === "pq" ? "q" : "k", key2: k2, c };
+      }
+      if (r.kind === "msx") { openLinked(r.doc.id); return; }
+    }
     let target = year;
     if (r.kind === "y") target = r.year;
     else if (r.kind === "e") target = r.ev.year;

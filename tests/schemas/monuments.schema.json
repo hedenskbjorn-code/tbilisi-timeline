@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "required": ["type", "features"],
+  "properties": {
+    "type": { "const": "FeatureCollection" },
+    "features": {
+      "type": "array",
+      "minItems": 100,
+      "items": {
+        "type": "object",
+        "required": ["type", "geometry", "properties"],
+        "properties": {
+          "type": { "const": "Feature" },
+          "geometry": {
+            "type": "object",
+            "required": ["type", "coordinates"],
+            "properties": {
+              "type": { "const": "Point" },
+              "coordinates": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [{ "type": "number", "minimum": 40, "maximum": 47 }, { "type": "number", "minimum": 41, "maximum": 44 }]
+              }
+            }
+          },
+          "properties": {
+            "type": "object",
+            "required": ["id", "name", "cls", "fn", "monument", "national", "prec", "unc"],
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "string", "minLength": 1 },
+              "address": { "type": ["string", "null"] },
+              "cls": { "type": "string", "minLength": 1 },
+              "fn": { "type": "string", "minLength": 1 },
+              "monument": { "type": "boolean" },
+              "national": { "type": "boolean" },
+              "reg": { "type": ["string", "null"] },
+              "raw_date": { "type": ["string", "null"] },
+              "y0": { "type": ["integer", "null"] },
+              "y1": { "type": ["integer", "null"] },
+              "ye": { "type": ["integer", "null"] },
+              "ym": { "type": ["integer", "null"] },
+              "prec": { "type": "string" },
+              "src": { "type": ["string", "null"] },
+              "unc": { "type": "boolean" },
+              "ph": { "type": "string" },
+              "fo": { "type": "string" },
+              "dup": { "type": "integer" },
+              "wp": { "type": "string" },
+              "ruin": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

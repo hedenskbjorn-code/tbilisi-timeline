@@ -52,3 +52,30 @@ test("date: ka, plain numbers and unknown texts are returned as they are", () =>
   assert.equal(G.date("1887", "en"), "1887");
   assert.equal(G.date("უცნობი", "en"), "უცნობი");
 });
+test("date: hierarchical register format (Bebristsikhe)", () => {
+  const raw = "შუა საუკუნეები _ მე-4 – მე-18 სს.>>ადრე შუა საუკუნეები მე-4-მე-9სს; განვითარებული შუა საუკუნეები _ მე-10-მე-15 სს.";
+  assert.equal(G.date(raw, "ru"), "раннее Средневековье (IV-IX века); развитое Средневековье (X-XV века)");
+  assert.equal(G.date(raw, "en"), "Early Middle Ages (4th-9th centuries); High Middle Ages (10th-15th centuries)");
+  assert.equal(G.date(raw, "ka"), raw);
+});
+test("date: Roman centuries, BCE and halves", () => {
+  assert.equal(G.date("IV-VII სს.", "ru"), "IV-VII века");
+  assert.equal(G.date("XX საუკუნის დასაწყისი", "en"), "beginning of the 20th century");
+  assert.equal(G.date("XIII საუკუნის I ნახევარი", "ru"), "первая половина XIII века");
+  assert.equal(G.date("ძვ.წ. XIII-XII საუკუნეები.", "ru"), "XIII-XII века до н. э.");
+  assert.equal(G.date("ძვ.წ. XIII-XII საუკუნეები.", "en"), "13th-12th centuries BCE");
+});
+test("date: historical periods and register typos", () => {
+  assert.equal(G.date("ადრეული შუა საუკუნეები", "ru"), "раннее Средневековье");
+  assert.equal(G.date("გვიან ბრინჯაო-ადრე რკინა", "en"), "Late Bronze – Early Iron Age");
+  assert.equal(G.date("შუა ბრინჯაოს ხანა", "ru"), "средний бронзовый век");
+  assert.equal(G.date("გარდამავალი პერიოდი", "en"), "transitional period");
+  assert.equal(G.date("მე-17 საუკნის დასაწყისი", "ru"), "начало XVII века");
+  assert.equal(G.date("მე-19 საუნკუნის მეორე ნახევარი", "en"), "second half of the 19th century");
+  assert.equal(G.date("21ე-ე ს-ის დასაწყისი.", "ru"), "начало XXI века");
+});
+test("date: labelled sub-parts", () => {
+  const raw = "ეკლესია - IX-X სს; მასზე მიშენებული კონტრფორსი - XVIII-XIX სს.";
+  assert.equal(G.date(raw, "ru"), "церковь — IX-X века; пристроенный контрфорс — XVIII-XIX века");
+  assert.equal(G.date(raw, "en"), "church — 9th-10th centuries; added buttress — 18th-19th centuries");
+});

@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "required": ["parts"],
+  "properties": {
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "start", "route", "stops"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "title": { "type": "object", "required": ["ru", "en", "ka"] },
+          "start": { "type": "object", "required": ["lat", "lon", "name"] },
+          "route": {
+            "type": "object",
+            "required": ["length_km", "walk_min", "coords"],
+            "properties": {
+              "length_km": { "type": "number", "exclusiveMinimum": 0 },
+              "walk_min": { "type": "number", "exclusiveMinimum": 0 },
+              "coords": { "type": "array", "minItems": 2 }
+            }
+          },
+          "stops": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["n", "id", "lat", "lon", "kind", "name", "address", "year", "desc"],
+              "properties": {
+                "n": { "type": "integer", "minimum": 1 },
+                "id": { "type": "string", "minLength": 1 },
+                "rid": { "type": "integer" },
+                "lat": { "type": "number", "minimum": 41, "maximum": 44 },
+                "lon": { "type": "number", "minimum": 40, "maximum": 47 },
+                "leg_m": { "type": "integer" },
+                "leg_min": { "type": "integer" },
+                "kind": { "type": "string", "minLength": 1 },
+                "ph": { "type": "string" },
+                "name": { "type": "object", "required": ["ru", "en", "ka"] },
+                "address": { "type": "object", "required": ["ru", "en", "ka"] },
+                "year": { "type": "object", "required": ["ru", "en", "ka"] },
+                "desc": { "type": "object", "required": ["ru", "en", "ka"] },
+                "src": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

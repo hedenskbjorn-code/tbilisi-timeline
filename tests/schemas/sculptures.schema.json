@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": ["items", "streets", "photos", "ui"],
+  "properties": {
+    "streets": { "type": "object" },
+    "photos": { "type": "object" },
+    "ui": { "type": "object" },
+    "items": {
+      "type": "array",
+      "minItems": 100,
+      "items": {
+        "type": "object",
+        "required": ["id", "lon", "lat", "n", "k"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "lon": { "type": "number", "minimum": 40, "maximum": 47 },
+          "lat": { "type": "number", "minimum": 41, "maximum": 44 },
+          "n": { "type": "object" },
+          "y": { "type": ["integer", "null"] },
+          "ph": { "type": "string" },
+          "w": { "type": "object" },
+          "st": { "type": "string" },
+          "k": { "type": "string" },
+          "sc": { "type": ["object", "string"] },
+          "ar": { "type": "string" },
+          "mat": { "type": "string" },
+          "d": { "type": "object" },
+          "dq": { "type": "array" },
+          "dw": { "type": "integer" },
+          "phn": { "type": "integer" },
+          "pend": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

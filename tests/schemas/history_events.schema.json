@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "required": ["events"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "minItems": 49,
+      "items": {
+        "type": "object",
+        "required": ["year", "date", "cat", "ru", "en", "ka", "src"],
+        "properties": {
+          "year": { "type": "integer" },
+          "date": { "type": "string", "minLength": 1 },
+          "cat": { "type": "string", "minLength": 1 },
+          "ru": { "type": "string", "minLength": 1 },
+          "en": { "type": "string", "minLength": 1 },
+          "ka": { "type": "string", "minLength": 1 },
+          "src": { "type": "array", "items": { "type": ["string", "object"] } },
+          "place": {
+            "type": "object",
+            "required": ["lat", "lng"],
+            "properties": {
+              "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+              "lng": { "type": "number", "minimum": -180, "maximum": 180 },
+              "zoom": { "type": "number" },
+              "ru": { "type": "string" },
+              "en": { "type": "string" },
+              "ka": { "type": "string" },
+              "src": { "type": "string" }
+            }
+          },
+          "note": { "type": "object" }
+        }
+      }
+    }
+  }
+}

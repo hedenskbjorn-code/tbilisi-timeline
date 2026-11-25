@@ -26,7 +26,7 @@
       kinds: {
         cathedral: "Собор", monastery: "Монастырь", church: "Церковь", shrine: "Святыня",
         necropolis: "Некрополь / усыпальница", chapel: "Часовня", palace: "Дворец",
-        fortress: "Крепость", bridge: "Мост"
+        fortress: "Крепость", bridge: "Мост", bath: "Античная баня", temple: "Храм", cellar: "Винный погреб (марани)"
       },
       done: "Осмотрено", onMap: "Показать на карте", dir: "Путь сюда (Google Карты)", sources: "Источники",
       regSrc: "Реестр культурного наследия Грузии", start: (p) => `Старт: ${p.start.name.ru}`,
@@ -50,7 +50,7 @@
       kinds: {
         cathedral: "Cathedral", monastery: "Monastery", church: "Church", shrine: "Shrine",
         necropolis: "Necropolis / royal tombs", chapel: "Chapel", palace: "Palace",
-        fortress: "Fortress", bridge: "Bridge"
+        fortress: "Fortress", bridge: "Bridge", bath: "Roman bathhouse", temple: "Temple", cellar: "Wine cellar (marani)"
       },
       done: "Visited", onMap: "Show on the map", dir: "Directions (Google Maps)", sources: "Sources",
       regSrc: "Heritage register of Georgia", start: (p) => `Start: ${p.start.name.en}`,
@@ -74,7 +74,7 @@
       kinds: {
         cathedral: "ტაძარი", monastery: "მონასტერი", church: "ეკლესია", shrine: "სიწმინდე",
         necropolis: "სამაროვანი / საძვალე", chapel: "სამლოცველო", palace: "სასახლე",
-        fortress: "ციხესიმაგრე", bridge: "ხიდი"
+        fortress: "ციხესიმაგრე", bridge: "ხიდი", bath: "ანტიკური აბანო", temple: "ტაძარი", cellar: "მარანი"
       },
       done: "ნანახია", onMap: "რუკაზე ჩვენება", dir: "გზა აქეთკენ (Google Maps)", sources: "წყაროები",
       regSrc: "საქართველოს კულტურული მემკვიდრეობის რეესტრი", start: (p) => `სტარტი: ${p.start.name.ka}`,

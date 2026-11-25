@@ -148,39 +148,165 @@
     s = s.split(/(\/)/).map((part) => (part === "/" ? part : words(part.replace(/\.(?=[ა-ჿ])/g, ". "), ADDR, i))).join("").replace(/\s+/g, " ").replace(/\.\s+(?=\d)/g, ".");
     return s.replace(/\u0001(\d+)\u0001/g, (m, k) => hold[+k]).replace(/\s*\/\s*$/, "");
   }
-  // "date in register" is a templated Georgian phrase: century + part of it, sometimes a year
+  // "date in register" is a templated Georgian phrase: century + part of it, sometimes a year, era, or hierarchy (era>>subperiod)
   const ROM = [[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]];
+  const RVAL = { I: 1, V: 5, X: 10, L: 50 };
   function roman(n) { let r = ""; for (const [v, s] of ROM) while (n >= v) { r += s; n -= v; } return r; }
+  function fromRoman(s) {
+    let sum = 0;
+    for (let k = 0; k < s.length; k++) {
+      const v = RVAL[s[k]], nv = RVAL[s[k + 1]] || 0;
+      if (!v) return NaN;
+      sum += v < nv ? -v : v;
+    }
+    return sum > 0 && sum <= 30 ? sum : NaN;
+  }
+  function parseCentNum(tok) {
+    const s = tok.trim();
+    if (/^\d{1,2}$/.test(s)) return +s;
+    return /^[IVXL]+$/.test(s) ? fromRoman(s) : NaN;
+  }
   function ord(n) { const v = n % 100; return n + (["th", "st", "nd", "rd"][(v - 20) % 10] || ["th", "st", "nd", "rd"][v] || "th"); }
   const GE = "[\u10d0-\u10ff]";
-  function dateSeg(seg, i) {
-    let t = seg.trim();
+  const NGE_L = "(?<![\u10d0-\u10ff])";
+  const NGE_R = "(?![\u10d0-\u10ff])";
+  const CENT_W = "(?:საუკუნ[ეი]ს?|საუკუნი|საუკნის|საუნკუნის|სუკუნის|ს-ის|სს\\.|სს|ს\\.|ს" + NGE_R + ")";
+  const ERAS = [
+    [new RegExp("^(?:ადრეული?\\s+შუა\\s*საუკუნეები|ადრე\\s+შუა\\s*საუკუნეები)" + NGE_R), ["Early Middle Ages", "раннее Средневековье"]],
+    [new RegExp("^განვითა?რებული\\s+შუა\\s*საუკუნეები" + NGE_R), ["High Middle Ages", "развитое Средневековье"]],
+    [new RegExp("^გვიანი?\\s+შუა\\s*საუკუნეები" + NGE_R), ["Late Middle Ages", "позднее Средневековье"]],
+    [new RegExp("^შუა\\s*საუკუნეები" + NGE_R), ["Middle Ages", "Средние века"]],
+    [/^გვიანანტიკური\s*\(გვიანრომაული\)/, ["Late Antiquity (Late Roman)", "поздняя античность (позднеримский период)"]],
+    [new RegExp("^ანტიკური\\s+ხანა" + NGE_R), ["Classical Antiquity", "античность"]],
+    [new RegExp("^ახალი\\s+და\\s+უახლესი\\s+ისტორია" + NGE_R), ["Modern and Contemporary era", "Новое и Новейшее время"]],
+    [new RegExp("^ახალი\\s+ისტორია" + NGE_R), ["Modern era", "Новое время"]],
+    [new RegExp("^საბჭოთა\\s+ხანა" + NGE_R), ["Soviet period", "советский период"]],
+    [new RegExp("^გარდამავალი\\s+პერიოდი" + NGE_R), ["transitional period", "переходный период"]],
+    [new RegExp("^გვიან\\s+ბრინჯაო\\s*-\\s*ადრე\\s+რკინა" + NGE_R), ["Late Bronze – Early Iron Age", "поздняя бронза — раннее железо"]],
+    [new RegExp("^შუა\\s+ბრინჯაოს\\s+ხანა" + NGE_R), ["Middle Bronze Age", "средний бронзовый век"]],
+  ];
+  const PARTS = {
+    "ეკლესია": ["church", "церковь"],
+    "მასზე მიშენებული კონტრფორსი": ["added buttress", "пристроенный контрфорс"],
+    "საძვალე": ["ossuary", "усыпальница"],
+    "სამრეკლო": ["bell tower", "колокольня"],
+  };
+  function centPart(t) {
+    if (/დასაწყის/.test(t)) return "b";
+    if (new RegExp("დასასრულ|მიწურულ|" + NGE_L + "ბოლო" + NGE_R).test(t)) return "e";
+    if (/მეორე\s+ნახევარ|II\s+ნახ(?:ევარი|\.?)/.test(t)) return "h2";
+    if (/პირველი\s+ნახევარ|I\s+ნახ(?:ევარი|\.?)/.test(t)) return "h1";
+    if (/შუა/.test(t)) return "m";
+    return "";
+  }
+  function fmtCent(n, part, i) {
+    if (i) {
+      const c = roman(n) + " века";
+      return { b: "начало " + c, e: "конец " + c, m: "середина " + c, h1: "первая половина " + c, h2: "вторая половина " + c, "": roman(n) + " век" }[part];
+    }
+    const c = ord(n) + " century";
+    return { b: "beginning of the " + c, e: "end of the " + c, m: "mid-" + c, h1: "first half of the " + c, h2: "second half of the " + c, "": c }[part];
+  }
+  function fmtRange(a, b, i) {
+    return i ? roman(a) + "-" + roman(b) + " века" : ord(a) + "-" + ord(b) + " centuries";
+  }
+  function normDateStr(s) {
+    return s.replace(/[–—]/g, "-").replace(/მეოცე/g, "20")
+      .replace(/(?<!\d)1\s*-\s*ლი(?![\u10d0-\u10ff])/g, "1")
+      .replace(/(\d{1,2})\s*ე\s*-\s*ე(?![\u10d0-\u10ff])/g, "$1")
+      .replace(/(\d{1,2})\s*-\s*ე(?![\u10d0-\u10ff])/g, "$1")
+      .replace(/(?<![\u10d0-\u10ff])მე\s*-\s*(\d{1,2})\s*-\s*ი[სშ](?![\u10d0-\u10ff])/g, "$1 საუკუნის")
+      .replace(/(?<![\u10d0-\u10ff])მე\s*-\s*(?=\d)/g, "").replace(/\s+/g, " ").trim();
+  }
+  function dateItem(raw, i) {
+    let t = normDateStr(raw).replace(/\.+$/, "").trim();
     if (!t) return "";
-    if (/^ადრე შუასაუკუნეები/.test(t)) return i ? "раннее Средневековье" : "Early Middle Ages";
-    if (/^შუა საუკუნეები/.test(t)) return i ? "Средние века" : "Middle Ages";
-    // a range of centuries ("17-18 centuries"): shown as a range; with a part of the century, a year or a note it stays as the register text
-    const rg = t.match(/(\d{1,2})\s*-\s*(\d{1,2})\s*საუკუნ/);
+    let prefix = "";
+    if (/^სავარაუდოდ\s+/.test(t)) { prefix += i ? "вероятно, " : "probably "; t = t.replace(/^სავარაუდოდ\s+/, "").trim(); }
+    // labelled sub-part: "ეკლესია - IX-X სს"
+    const pm = t.match(/^([^\d-]+?)\s+-\s+(.+)$/);
+    if (pm && PARTS[pm[1].trim()]) {
+      const sub = dateItem(pm[2], i);
+      return sub ? PARTS[pm[1].trim()][i] + " — " + sub : null;
+    }
+    // era label (optionally followed by "_" and a century expression)
+    for (const [re, lbl] of ERAS) {
+      const m = t.match(re);
+      if (m) {
+        const rest = t.slice(m[0].length).replace(/^[_\s]+/, "").trim();
+        if (!rest) return prefix + lbl[i];
+        const sub = dateItem(rest, i);
+        return sub ? prefix + lbl[i] + " (" + sub + ")" : null;
+      }
+    }
+    // trailing parenthetical year range like "(1903-1904)" (keep "(1735 წლამდე)" untouched as rejected)
+    let paren = "";
+    const parM = t.match(/\s*\((\d{3,4}(?:\s*-\s*\d{2,4})?)\)\s*$/);
+    if (parM) { paren = " (" + parM[1].replace(/\s+/g, "") + ")"; t = t.slice(0, parM.index).trim(); }
+    // era marker (BCE / CE)
+    let eraSuf = "";
+    if (/ძვ\.\s*წ\.?/.test(t)) { eraSuf = i ? " до н. э." : " BCE"; t = t.replace(/ძვ\.\s*წ\.?/g, "").trim(); }
+    else if (/ახ\.\s*წ\.?/.test(t)) { t = t.replace(/ახ\.\s*წ\.?/g, "").trim(); }
+    // compound range of two centuries where at least one side has a half-century part (e.g. "XIII ს.-XII ს. I ნახევარი")
+    const twoC = t.match(new RegExp("^([IVXL]+|\\d{1,2})\\s*" + CENT_W + "\\s*(.*?)\\s*-\\s*([IVXL]+|\\d{1,2})\\s*" + CENT_W + "\\s*(.*)$"));
+    if (twoC && (twoC[2].trim() || twoC[4].trim())) {
+      const a = parseCentNum(twoC[1]), b = parseCentNum(twoC[3]);
+      const p1 = centPart(twoC[2]), p2 = centPart(twoC[4]);
+      if (!isNaN(a) && !isNaN(b)) {
+        if (!p1 && !p2) return prefix + fmtRange(a, b, i) + eraSuf + paren;
+        return prefix + fmtCent(a, p1, i) + " - " + fmtCent(b, p2, i) + eraSuf + paren;
+      }
+    }
+    // decade inside a named century: "XX ს-ის 50-იანი წლები"
+    const cDec = t.match(new RegExp("^([IVXL]+|\\d{1,2})\\s*" + CENT_W + "\\s*(\\d{1,2})-იანი"));
+    if (cDec) {
+      const c = parseCentNum(cDec[1]);
+      if (!isNaN(c)) {
+        const y = (c - 1) * 100 + (+cDec[2]);
+        return prefix + (i ? y + "-е годы" : y + "s") + eraSuf + paren;
+      }
+    }
+    // multiple century ranges in one item without separator: "2-4 სს 5-8 სს"
+    const dbl = t.match(new RegExp("^([IVXL]+|\\d{1,2})\\s*-\\s*([IVXL]+|\\d{1,2})\\s*" + CENT_W + "\\s+([IVXL]+|\\d{1,2})\\s*-\\s*([IVXL]+|\\d{1,2})\\s*" + CENT_W + "$"));
+    if (dbl) {
+      const a = parseCentNum(dbl[1]), b = parseCentNum(dbl[2]), c = parseCentNum(dbl[3]), d = parseCentNum(dbl[4]);
+      if (![a, b, c, d].some(isNaN)) return prefix + fmtRange(a, b, i) + ", " + fmtRange(c, d, i) + eraSuf + paren;
+    }
+    // a range of centuries ("17-18 centuries" / "IV-VII სს."): with a part of the century, a year or a note it stays as the register text
+    const rg = t.match(new RegExp("([IVXL]+|\\d{1,2})\\s*-\\s*([IVXL]+|\\d{1,2})\\s*" + CENT_W));
     if (rg) {
-      if (/დასაწყის|დასასრულ|მიწურულ|შუახან|ნახევარ|წლამდე|\d{3,4}/.test(t)) return null;
-      return i ? roman(+rg[1]) + "-" + roman(+rg[2]) + " века" : ord(+rg[1]) + "-" + ord(+rg[2]) + " centuries";
+      if (/დასაწყის|დასასრულ|მიწურულ|\bბოლო\b|შუახან|ნახევარ|წლამდე|\d{3,4}/.test(t)) return null;
+      const a = parseCentNum(rg[1]), b = parseCentNum(rg[2]);
+      if (!isNaN(a) && !isNaN(b)) return prefix + fmtRange(a, b, i) + eraSuf + paren;
     }
     const parts = [];
-    const cm = t.match(new RegExp("(\\d{1,2})(?:-ე)?\\s*(?:საუკუნ|ს-ის|ს\\.|ს(?!" + GE + "))"));
+    const cm = t.match(new RegExp("([IVXL]+|\\d{1,2})\\s*" + CENT_W));
     if (cm) {
-      const n = +cm[1];
-      const part = /დასაწყის/.test(t) ? "b" : /დასასრულ|მიწურულ/.test(t) ? "e" : /მეორე ნახევარ/.test(t) ? "h2" : /პირველი ნახევარ/.test(t) ? "h1" : /შუა/.test(t) ? "m" : "";
-      if (i) {
-        const c = roman(n) + " века";
-        parts.push({ b: "начало " + c, e: "конец " + c, m: "середина " + c, h1: "первая половина " + c, h2: "вторая половина " + c, "": roman(n) + " век" }[part]);
-      } else {
-        const c = ord(n) + " century";
-        parts.push({ b: "beginning of the " + c, e: "end of the " + c, m: "mid-" + c, h1: "first half of the " + c, h2: "second half of the " + c, "": c }[part]);
-      }
+      const n = parseCentNum(cm[1]);
+      if (!isNaN(n)) parts.push(fmtCent(n, centPart(t), i) + eraSuf);
     }
     const dec = t.match(/(\d{3,4})-იანი/);
     if (dec) parts.push(i ? dec[1] + "-е годы" : dec[1] + "s");
-    else for (const y of t.match(/(?<!\d)\d{3,4}(?!\d)(?:-\d{3,4})?/g) || []) parts.push(y);
-    return parts.length ? parts.join(", ") : null;
+    else for (const y of t.match(/(?<!\d)\d{3,4}(?!\d)(?:\s*-\s*\d{2,4})?/g) || []) parts.push(y.replace(/\s+/g, ""));
+    return parts.length ? prefix + parts.join(", ") + paren : null;
+  }
+  function dateSeg(seg, i) {
+    let t = seg.trim();
+    if (!t) return "";
+    if (t.includes(">>")) t = t.split(">>").pop().trim();
+    let segPrefix = "";
+    if (/^სააღრიცხვო\s+ბარათის\s+მიხედვით(?![\u10d0-\u10ff])/.test(t)) {
+      segPrefix = i ? "по учётной карточке, " : "per register card, ";
+      t = t.replace(/^სააღრიცხვო\s+ბარათის\s+მიხედვით[\s,]*/, "").trim();
+    }
+    const subs = t.split(/\s*,\s*/).filter(Boolean);
+    const out = [];
+    for (const s of subs) {
+      const r = dateItem(s, i);
+      if (r === null) return null;
+      if (r) out.push(r);
+    }
+    return out.length ? segPrefix + out.join(", ") : null;
   }
   function date(raw, lang) {
     if (lang !== "en" && lang !== "ru") return raw;

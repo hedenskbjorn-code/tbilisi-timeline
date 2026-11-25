@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": ["items", "ui"],
+  "properties": {
+    "ui": { "type": "object" },
+    "items": {
+      "type": "array",
+      "minItems": 100,
+      "items": {
+        "type": "object",
+        "required": ["id", "k", "lon", "lat", "n"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "k": { "type": "string", "minLength": 1 },
+          "lon": { "type": "number", "minimum": 40, "maximum": 47 },
+          "lat": { "type": "number", "minimum": 41, "maximum": 44 },
+          "n": { "type": "object" },
+          "a": { "type": "object" },
+          "e": { "type": ["object", "null"] },
+          "ne": { "type": "integer" },
+          "s": { "type": "object" },
+          "x": { "type": "object" },
+          "g": { "type": "object" },
+          "f": { "type": "array" },
+          "ap": { "type": "integer" },
+          "pk": { "type": "integer" },
+          "wp": { "type": "string" },
+          "o": { "type": "object" },
+          "al": { "type": "object" }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 // Service worker of the site: (1) the application shell works without network (the last seen data too), (2) accepts a photo shared to the site from the share menu of the phone
 // (Web Share Target: POST ./share-target) and leaves it for the page to pick up. Heavy things (tiles, photos, topographic maps) are never cached here.
-const VERSION = "tt-v6";
+const VERSION = "tt-476c76ac";
 const SHARE_CACHE = "tt-share";
 const BASE = self.registration.scope;                                  // ends with "/"
 const SHELL = ["./", "index.html", "app.js", "js/net.js", "js/tour.js", "i18n.js", "photo.js", "pwa.js", "support.js", "stats.js", "config.js", "style.css", "translit.js", "vendor/maplibre-gl.js", "vendor/maplibre-gl.css", "manifest.webmanifest", "img/pwa/icon-192.png"];
@@ -28,10 +28,10 @@ async function networkFirst(req) {
   const c = await caches.open(VERSION);
   try {
     const r = await fetch(req);
-    if (r && r.ok && r.type === "basic") c.put(req, r.clone());
+    if (r && r.ok && r.status === 200 && r.type === "basic") c.put(req, r.clone());
     return r;
   } catch (err) {
-    const hit = (await c.match(req, { ignoreSearch: req.mode === "navigate" })) || (req.mode === "navigate" ? await c.match(new URL("./", BASE).href) : null);
+    const hit = (await c.match(req, { ignoreSearch: true })) || (req.mode === "navigate" ? await c.match(new URL("./", BASE).href) : null);
     if (hit) return hit;
     throw err;
   }
@@ -40,7 +40,7 @@ async function networkFirst(req) {
 self.addEventListener("fetch", (e) => {
   const req = e.request, url = new URL(req.url);
   if (req.method === "POST" && url.href === new URL("share-target", BASE).href) { e.respondWith(takeShare(req)); return; }
-  if (req.method !== "GET" || url.origin !== self.location.origin || !url.href.startsWith(BASE)) return;     // tiles, Wikimedia, the Workers: the browser itself
+  if (req.method !== "GET" || req.headers.has("range") || url.origin !== self.location.origin || !url.href.startsWith(BASE)) return;     // tiles, Wikimedia, Range requests, Workers: browser itself
   const rel = url.href.slice(BASE.length);
   if (rel.startsWith("img/") && !rel.startsWith("img/pwa/")) return;                                       // photos and previews: not cached here
   if (rel.startsWith("topo/")) return;

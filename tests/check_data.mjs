@@ -2,10 +2,12 @@
 // They stop the deploy when a translation is missing, when a Georgian text is not Georgian (Cyrillic, English), when a file that the page
 // needs is missing or a JSON file is broken. No dependencies: only Node.
 import { spawnSync } from "node:child_process";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import Ajv from "ajv";
 
 const SITE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "site");
 const errors = [];
@@ -419,7 +421,7 @@ for (const [file, kinds] of [["data/sculptures.json", ["sculpture", "bust", "mon
 
 // ---- the files that the page needs ------------------------------------------------------------------------------
 const html = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
-const scripts = [...html.matchAll(/<script[^>]*\ssrc="([^"]+)"/g)].map((m) => m[1]).filter((s) => !/^https?:/.test(s));
+const scripts = [...html.matchAll(/<script[^>]*\ssrc="([^"]+)"/g)].map((m) => m[1].split("?")[0]).filter((s) => !/^https?:/.test(s));
 for (const s of scripts) if (!fs.existsSync(path.join(SITE, s))) err(`index.html: the script ${s} does not exist`);
 if (scripts.indexOf("i18n.js") < 0 || scripts.indexOf("i18n.js") > scripts.indexOf("app.js")) err("index.html: i18n.js must be loaded before app.js");
 const sw = fs.readFileSync(path.join(SITE, "sw.js"), "utf8");
@@ -536,6 +538,53 @@ if (ev) {
     const key = `${e.year}|${e.date}|${e.ru || ""}`;
     if (seenEv.has(key)) err(`history_events.json: duplicate event (${e.year} ${e.date}: ${(e.ru || "").slice(0, 50)})`);
     seenEv.add(key);
+  }
+}
+
+// ---- cache-busting manifest (tools/gen_manifest.py) and CI e2e shard coverage ----------------------------
+{
+  const mf = data["data/manifest.json"];
+  if (!mf || !mf.v || !mf.f) err("data/manifest.json: missing (run python -P tools/gen_manifest.py)");
+  else {
+    const sha8 = (b) => crypto.createHash("sha256").update(b).digest("hex").slice(0, 8);
+    const dataFiles = fs.readdirSync(path.join(SITE, "data")).filter((f) => f.endsWith(".json") && f !== "manifest.json").sort();
+    for (const f of dataFiles) {
+      const want = sha8(fs.readFileSync(path.join(SITE, "data", f)));
+      if (mf.f["data/" + f] !== want) err(`data/manifest.json: hash mismatch for data/${f} (run python -P tools/gen_manifest.py)`);
+    }
+    const idxHtml = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
+    const appH = crypto.createHash("sha256").update(fs.readFileSync(path.join(SITE, "app.js")));
+    for (const jf of fs.readdirSync(path.join(SITE, "js")).filter((f) => f.endsWith(".js")).sort()) {
+      appH.update(fs.readFileSync(path.join(SITE, "js", jf)));
+    }
+    const wantApp = appH.digest("hex").slice(0, 8);
+    if (!idxHtml.includes(`src="app.js?v=${wantApp}"`)) err(`site/index.html: app.js?v=${wantApp} is out of date (run python -P tools/gen_manifest.py)`);
+    const swJs = fs.readFileSync(path.join(SITE, "sw.js"), "utf8");
+    if (!swJs.includes(`VERSION = "tt-${mf.v}"`)) err(`site/sw.js: VERSION does not match manifest v=${mf.v} (run python -P tools/gen_manifest.py)`);
+  }
+  const wfPath = path.join(SITE, "..", ".github", "workflows", "pages.yml");
+  if (fs.existsSync(wfPath)) {
+    const wf = fs.readFileSync(wfPath, "utf8");
+    for (const f of fs.readdirSync(path.join(SITE, "..", "tests", "e2e")).filter((x) => x.endsWith(".test.mjs"))) {
+      if (!wf.includes(f)) err(`.github/workflows/pages.yml: e2e test ${f} is not listed in any shard`);
+    }
+  }
+}
+
+// ---- JSON Schema contract validation (Ajv) ---------------------------------------------------------------
+{
+  const ajv = new Ajv({ allErrors: false, allowUnionTypes: true });
+  const schemasDir = path.join(SITE, "..", "tests", "schemas");
+  if (fs.existsSync(schemasDir)) {
+    for (const sf of fs.readdirSync(schemasDir).filter((f) => f.endsWith(".schema.json")).sort()) {
+      const target = "data/" + sf.replace(".schema.json", ".json");
+      if (!data[target]) { err(`${target}: missing for schema ${sf}`); continue; }
+      const validate = ajv.compile(JSON.parse(fs.readFileSync(path.join(schemasDir, sf), "utf8")));
+      if (!validate(data[target])) {
+        const e0 = validate.errors?.[0];
+        err(`${target}: schema error at ${e0?.instancePath || "/"} (${e0?.message || "invalid"})`);
+      }
+    }
   }
 }
 

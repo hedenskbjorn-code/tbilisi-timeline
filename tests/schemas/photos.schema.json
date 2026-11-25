@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": ["thumb", "page", "author", "license", "w", "h"],
+    "properties": {
+      "thumb": { "type": "string" },
+      "page": { "type": "string" },
+      "author": { "type": "string" },
+      "license": { "type": "string" },
+      "license_url": { "type": ["string", "null"] },
+      "w": { "type": "integer", "minimum": 1 },
+      "h": { "type": "integer", "minimum": 1 }
+    }
+  }
+}

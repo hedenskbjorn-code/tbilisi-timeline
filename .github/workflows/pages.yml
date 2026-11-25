@@ -7,25 +7,13 @@ permissions:
   contents: read
   pages: write
   id-token: write
-concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
 jobs:
   # the checks of the data and of the texts stop the deploy when a translation is missing, a Georgian text is not Georgian,
   # a file of the page is missing or a unit test fails (tests/)
   checks:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: node tests/check_data.mjs
-      - run: node --test tests/*.test.mjs
-  # the tests of the browser (tests/e2e): the pages open without errors, the layers, the search, the cards, the budgets of the first screen;
-  # the Chrome of the runner is used (playwright-core downloads no browser)
-  e2e:
-    needs: checks
+    concurrency:
+      group: ci-checks-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,12 +21,43 @@ jobs:
         with:
           node-version: 22
       - run: npm ci --no-audit --no-fund
+      - run: node tests/check_data.mjs
+      - run: node --test tests/*.test.mjs
+  # the tests of the browser (tests/e2e): sharded across 4 parallel runners so total CI time drops from ~10 min to ~3 min;
+  # the Chrome of the runner is used (playwright-core downloads no browser)
+  e2e:
+    needs: checks
+    concurrency:
+      group: ci-e2e-${{ github.ref }}-${{ matrix.shard }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - shard: 1
+            files: tests/e2e/basemap.test.mjs tests/e2e/battles_map.test.mjs tests/e2e/close_outside.test.mjs tests/e2e/filters.test.mjs tests/e2e/groups.test.mjs tests/e2e/header.test.mjs
+          - shard: 2
+            files: tests/e2e/idle_load.test.mjs tests/e2e/layers.test.mjs tests/e2e/lazy_retry.test.mjs tests/e2e/modernism.test.mjs tests/e2e/monuments.test.mjs tests/e2e/object_link.test.mjs
+          - shard: 3
+            files: tests/e2e/osm_names.test.mjs tests/e2e/panel.test.mjs tests/e2e/parks.test.mjs tests/e2e/perf.test.mjs tests/e2e/place_areas.test.mjs tests/e2e/places.test.mjs
+          - shard: 4
+            files: tests/e2e/religious_osm.test.mjs tests/e2e/report_button.test.mjs tests/e2e/smoke.test.mjs tests/e2e/tour.test.mjs tests/e2e/ui.test.mjs
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
       - run: echo "CHROME_PATH=$(which google-chrome)" >> "$GITHUB_ENV"
-      - run: npm run test:e2e
+      - run: node --test --test-concurrency=1 ${{ matrix.files }}
   # only the main branch is published (a run on another branch checks and tests, nothing more)
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: [checks, e2e]
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     environment:
       name: github-pages
