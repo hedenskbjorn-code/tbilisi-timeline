@@ -280,6 +280,16 @@
       if (!isNaN(a) && !isNaN(b)) return prefix + fmtRange(a, b, i) + eraSuf + paren;
     }
     const parts = [];
+    const reb = t.match(new RegExp("^([IVXL]+|\\d{1,2})\\s*" + CENT_W + "\\s*გადაკეთდა\\s+(.+)$"));
+    if (reb) {
+      const n1 = parseCentNum(reb[1]);
+      const restC = [...reb[2].matchAll(new RegExp("([IVXL]+|\\d{1,2})(?=\\s*(?:" + CENT_W + "|და" + NGE_R + "|$))", "g"))].map((m) => parseCentNum(m[1])).filter((x) => !isNaN(x));
+      if (!isNaN(n1) && restC.length) {
+        const list = restC.map((x) => (i ? roman(x) : ord(x))).join(", ") + (i ? (restC.length > 1 ? " века" : " век") : (restC.length > 1 ? " centuries" : " century"));
+        return prefix + fmtCent(n1, "", i) + (i ? "; перестроен: " : "; rebuilt: ") + list + eraSuf + paren;
+      }
+      return null;
+    }
     const cm = t.match(new RegExp("([IVXL]+|\\d{1,2})\\s*" + CENT_W));
     if (cm) {
       const n = parseCentNum(cm[1]);

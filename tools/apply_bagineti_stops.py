@@ -10,8 +10,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TOUR_PATH = ROOT / "site" / "data" / "mtskheta_tour.json"
+BAK_TOUR_PATH = ROOT / "work" / "gemini" / "archive" / "2026-11-25_bagineti" / "mtskheta_tour.json"
 PHOTOS_PATH = ROOT / "site" / "data" / "photos.json"
-OSRM_PATH = ROOT / "work" / "gemini" / "results" / "bagineti_osrm.json"
+OSRM_TAIL_PATH = ROOT / "work" / "gemini" / "results" / "bagineti_tail_osrm.json"
 
 NEW_PHOTOS = {
     "File:Armaztsikhe archaeological site open-air museum, Mtskheta, Georgia 04.jpg": {
@@ -258,22 +259,34 @@ def main() -> int:
             photos[k] = v
             added_ph += 1
 
+    bak_tour = json.loads(BAK_TOUR_PATH.read_text(encoding="utf-8"))
+    bak_armazi = next(p for p in bak_tour["parts"] if p["id"] == "armazi")
+    bak_idx_bag = next(i for i, s in enumerate(bak_armazi["stops"]) if s["id"] == "bagineti")
+    prefix_stops = [dict(s) for s in bak_armazi["stops"][: bak_idx_bag + 1]]
+    bak_coords = bak_armazi["route"]["coords"]
+    bag_pt = (prefix_stops[-1]["lon"], prefix_stops[-1]["lat"])
+    cut_i = min(range(len(bak_coords)), key=lambda i: (bak_coords[i][0] - bag_pt[0]) ** 2 + (bak_coords[i][1] - bag_pt[1]) ** 2)
+    prefix_coords = bak_coords[: cut_i + 1]
+
     tour = json.loads(TOUR_PATH.read_text(encoding="utf-8"))
-    osrm = json.loads(OSRM_PATH.read_text(encoding="utf-8"))
-    coords = osrm["geometry"]["coordinates"]
-    legs = [round(l["distance"]) for l in osrm["legs"]]
+    osrm_tail = json.loads(OSRM_TAIL_PATH.read_text(encoding="utf-8"))
+    tail_coords = osrm_tail["geometry"]["coordinates"]
+    tail_legs = [round(l["distance"]) for l in osrm_tail["legs"]]
 
     armazi = next(p for p in tour["parts"] if p["id"] == "armazi")
-    sub_ids = {s["id"] for s in SUB_STOPS}
-    base_stops = [s for s in armazi["stops"] if s["id"] not in sub_ids]
-    idx_bag = next(i for i, s in enumerate(base_stops) if s["id"] == "bagineti")
+    tail_stops = [dict(s) for s in SUB_STOPS] + [dict(next(s for s in bak_armazi["stops"] if s["id"] == "jvari"))]
 
-    new_stops = base_stops[: idx_bag + 1] + [dict(s) for s in SUB_STOPS] + base_stops[idx_bag + 1 :]
+    new_stops = prefix_stops + tail_stops
+    for i in range(len(prefix_stops), len(new_stops)):
+        prev_s, cur_s = new_stops[i - 1], new_stops[i]
+        direct_m = round(haversine_km((prev_s["lon"], prev_s["lat"]), (cur_s["lon"], cur_s["lat"])) * 1000)
+        leg_m = max(direct_m, tail_legs[i - len(prefix_stops)])
+        cur_s["leg_m"] = leg_m
+        cur_s["leg_min"] = max(1, round(leg_m / 70))
     for i, s in enumerate(new_stops):
         s["n"] = i + 1
-        s["leg_m"] = 0 if i == 0 else legs[i - 1]
-        s["leg_min"] = 0 if i == 0 else max(1, round(legs[i - 1] / 70))
 
+    coords = prefix_coords + tail_coords[1:]
     total_km = round(sum(haversine_km(coords[i], coords[i + 1]) for i in range(len(coords) - 1)), 1)
     armazi["stops"] = new_stops
     armazi["route"] = {

@@ -1,15 +1,30 @@
 """Build precomputed client search index site/data/search_index.json for MiniSearch.
 
 Combines all layers (including lazy places, sculptures, plaques, modernism, plus architects,
-sculptors, folk names, and old street names) so client search works across the entire dataset
-with zero first-screen weight penalty.
+sculptors, folk names, translated addresses, and old street names) so client search works across
+the entire dataset with zero first-screen weight penalty.
 """
 import json
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "site" / "data"
 OUT = DATA / "search_index.json"
+
+
+def translate_addresses(addrs: list[str]) -> list[tuple[str, str]]:
+    """Translate Georgian addresses via site/translit.js so index matches runtime GeoTr.address()."""
+    if not addrs:
+        return []
+    js = (
+        "const fs=require('fs'), G=require('./site/translit.js');"
+        "G.setDict(JSON.parse(fs.readFileSync('./site/data/names_i18n.json','utf8')));"
+        "const inp=JSON.parse(fs.readFileSync(0,'utf8'));"
+        "process.stdout.write(JSON.stringify(inp.map(a=>[G.address(a,'ru')||'',G.address(a,'en')||''])));"
+    )
+    r = subprocess.run(["node", "-e", js], input=json.dumps(addrs, ensure_ascii=False), capture_output=True, text=True, encoding="utf-8", cwd=ROOT, check=True)
+    return [tuple(x) for x in json.loads(r.stdout)]
 
 
 def load(name: str):
@@ -36,7 +51,9 @@ def main() -> int:
     # 1. Register monuments
     mon = load("monuments.json")
     if mon:
-        for f in mon.get("features", []):
+        feats = mon.get("features", [])
+        tr_addrs = translate_addresses([f.get("properties", {}).get("address") or "" for f in feats])
+        for f, (ad_ru, ad_en) in zip(feats, tr_addrs):
             p = f.get("properties", {})
             ka = p.get("name") or ""
             d = names_dict.get(ka, {})
@@ -46,7 +63,7 @@ def main() -> int:
             docs.append({
                 "id": f"o:{p.get('id')}",
                 "n": join_uniq([ru, en, ka, *wp_names]),
-                "ex": join_uniq([p.get("address"), p.get("fo"), p.get("cls")]),
+                "ex": join_uniq([p.get("address"), ad_ru, ad_en, p.get("fo"), p.get("cls")]),
                 "y": p.get("ye"),
                 "l": [ru, en, ka],
                 "ll": f.get("geometry", {}).get("coordinates"),
@@ -146,6 +163,9 @@ def main() -> int:
         for c in pl.get("items", []):
             nm = c.get("n", {})
             fk = [v for k in ("w", "o", "al") if isinstance(c.get(k), dict) for v in c[k].values()]
+            for fo in c.get("f") or []:
+                if isinstance(fo, dict) and isinstance(fo.get("n"), dict):
+                    fk.extend(fo["n"].values())
             docs.append({
                 "id": f"pl:{c.get('id')}",
                 "n": join_uniq([nm.get("ru"), nm.get("en"), nm.get("ka")]),
@@ -154,7 +174,7 @@ def main() -> int:
                 "ll": [c.get("lon"), c.get("lat")],
             })
 
-    # 9. Sculptures, Plaques, Modernism (lazy layers, including architects & sculptors)
+    # 9. Sculptures, Plaques, Modernism (lazy layers, including architects, sculptors & folk names)
     for prefix, fname in [("mn", "sculptures.json"), ("pq", "plaques.json"), ("md", "modernism.json")]:
         obj = load(fname)
         if not obj:
@@ -166,6 +186,9 @@ def main() -> int:
             sc = c.get("sc")
             sc_vals = list(sc.values()) if isinstance(sc, dict) else [sc]
             fk = list(c.get("w", {}).values()) if isinstance(c.get("w"), dict) else []
+            for fo in c.get("f") or []:
+                if isinstance(fo, dict) and isinstance(fo.get("n"), dict):
+                    fk.extend(fo["n"].values())
             docs.append({
                 "id": f"{prefix}:{c.get('id')}",
                 "n": join_uniq([nm.get("ru"), nm.get("en"), nm.get("ka")]),

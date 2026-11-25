@@ -498,9 +498,14 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
       else if (Math.abs(actualKm - p.route.length_km) > Math.max(0.5, p.route.length_km * 0.25)) {
         err(`${file} ${p.id}: route length mismatch (declared ${p.route.length_km} km, coords ${actualKm.toFixed(2)} km)`);
       }
-      for (const s of stops) {
+      for (let idx = 0; idx < stops.length; idx++) {
+        const s = stops[idx];
         const w = `${file} ${p.id} stop ${s.id || s.n}`;
         if (!(Number.isFinite(s.lat) && Number.isFinite(s.lon))) err(`${w}: missing coordinates`);
+        if (idx > 0 && Number.isFinite(s.leg_m)) {
+          const directM = havKm([stops[idx - 1].lon, stops[idx - 1].lat], [s.lon, s.lat]) * 1000;
+          if (directM > 50 && s.leg_m < directM * 0.8) err(`${w}: leg_m (${s.leg_m} m) < direct distance (${Math.round(directM)} m)`);
+        }
         for (const k of ["name", "address", "year", "desc"]) {
           for (const l of ["ru", "en", "ka"]) if (!String(s[k]?.[l] || "").trim()) err(`${w}: ${k}.${l} is missing`);
         }
@@ -553,6 +558,8 @@ if (ev) {
       const want = sha8(path.join(SITE, "data", f));
       if (mf.f["data/" + f] !== want) err(`data/manifest.json: hash mismatch for data/${f} (run python -P tools/gen_manifest.py)`);
     }
+    const msJs = path.join(SITE, "vendor", "minisearch.js");
+    if (fs.existsSync(msJs) && mf.f["vendor/minisearch.js"] !== sha8(msJs)) err("data/manifest.json: hash mismatch for vendor/minisearch.js (run python -P tools/gen_manifest.py)");
     const idxHtml = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
     const appH = crypto.createHash("sha256").update(norm(path.join(SITE, "app.js")), "utf8");
     for (const jf of fs.readdirSync(path.join(SITE, "js")).filter((f) => f.endsWith(".js")).sort()) {

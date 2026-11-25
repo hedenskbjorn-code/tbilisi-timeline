@@ -144,3 +144,21 @@ test("a description found by a search: the card shows it (ru / en), the details 
   assert.ok(body.includes(c.dq[0].q.slice(0, 40)), "the quotation in the details");
   await page.keyboard.press("Escape");
 });
+
+test("slider bounce 1900 -> 1990 -> 1900 -> pause -> 1990 updates cluster source without stale sig", async () => {
+  const setSlider = (y) => page.evaluate((yr) => {
+    const sl = document.getElementById("slider");
+    sl.value = String(yr);
+    sl.dispatchEvent(new Event("input", { bubbles: true }));
+  }, y);
+  await setSlider(1900);
+  await page.waitForTimeout(240);
+  await setSlider(1990);
+  await page.waitForTimeout(40);
+  await setSlider(1900);
+  await page.waitForTimeout(240);
+  await setSlider(1990);
+  await page.waitForTimeout(240);
+  const cnt = await page.evaluate(() => window.TT_E2E.map.getSource("mons")?._data?.features?.length || 0);
+  assert.ok(cnt >= 100, `expected >= 100 sculptures in 1990 after bounce, got ${cnt}`);
+});

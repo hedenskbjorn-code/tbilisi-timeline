@@ -10,7 +10,7 @@ const manifestP = (typeof fetch === "function")
       .catch(() => ({}))
   : Promise.resolve({});
 
-async function verUrl(url) {
+export async function verUrl(url) {
   const m = await manifestP;
   const key = String(url).replace(/^(?:\.\.\/)+/, "");
   const h = m && m.f && m.f[key];

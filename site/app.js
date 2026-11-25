@@ -1,4 +1,4 @@
-import { getJSON, prefetchJSON } from "./js/net.js";
+import { getJSON, prefetchJSON, verUrl } from "./js/net.js";
 (() => {
   "use strict";
   // The timeline starts in the 2nd century CE (Armaziskhevi / Mtskheta antiquities; Tbilisi fortress ~364); the long early period is
@@ -41,7 +41,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   const FN_BOXES = { showResid: ["residential"], showPublic: ["public"], showRel: ["religious"], showSci: ["culture"], showEdu: ["culture"], showDef: ["defense"], showOtherB: ["memorial", "rural", "transport", "other"] };
   const activeFns = () => { const s = new Set(); for (const [id, fns] of Object.entries(FN_BOXES)) if ($(id).checked) for (const k of fns) s.add(k); return s; };
   const regVisible = (p, fns) => !(p.ye > year) && !p.dup && fns.has(p.fn);
-  let plans = [], monuments = null, undated = 0, areas = [];
+  let plans = [], monuments = null, monAllById = new Map(), undated = 0, areas = [];
   let urbanSnaps = [], urbanMeta = {}, distHist = null, distModern = [];
   let year = 1887;
   const h = parseInt((location.hash || "").slice(1), 10);
@@ -1902,7 +1902,8 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     const [kind, ...r] = o.split(":"), id = r.join(":");
     const go = (c, pop, y) => { if (y != null && Number.isFinite(y)) year = Math.max(year, y); update(); map.jumpTo({ center: [c.lon, c.lat], zoom: 17 }); pop(c, { lng: c.lon, lat: c.lat }); };
     try {
-      if (kind === "rl") { if (relOsmLoading) await relOsmLoading; const c = religious.find((x) => x.id === id); if (c) { $("showRel").checked = true; go(c, popupRel, c.undated ? undefined : c.from); } }
+      if (kind === "o") { const f = monAllById.get(id); if (f) { if (typeof f.properties.ye === "number") year = Math.max(year, f.properties.ye); update(); map.jumpTo({ center: f.geometry.coordinates, zoom: 17 }); popup(f.properties, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] }); } }
+      else if (kind === "rl") { if (relOsmLoading) await relOsmLoading; const c = religious.find((x) => x.id === id); if (c) { $("showRel").checked = true; go(c, popupRel, c.undated ? undefined : c.from); } }
       else if (kind === "sc") { const c = science.find((x) => x.id === id); if (c) { $("showSci").checked = true; go(c, popupSci, c.from); } }
       else if (kind === "ed") { const c = education.find((x) => x.id === id); if (c) { $("showEdu").checked = true; go(c, popupEdu, c.from); } }
       else if (kind === "mu") { const c = museums.find((x) => x.id === id); if (c) { $("showMus").checked = true; go(c, popupMus, c.from); } }
@@ -2157,8 +2158,10 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     try { views = await getJSON("data/views.json"); } catch (e) { views = []; }
     try { if (window.GeoTr) window.GeoTr.setDict(await getJSON("data/names_i18n.json", 1)); } catch (e) { /* not produced yet: names stay Georgian */ }
     const feats = [];
+    monAllById = new Map();
     for (const f of mon.features) {
       const p = f.properties;
+      monAllById.set(String(p.id), f);
       if (typeof p.ye !== "number") { undated++; continue; }
       p.coarse = COARSE.has(p.prec);
       feats.push(f);
@@ -2343,7 +2346,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
         update();
         map.jumpTo({ center: f.geometry.coordinates, zoom: 17 });
         popup(f.properties, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] });
-      } else if (oid && /^[a-z]{2}:/.test(oid)) openLinked(oid);
+      } else if (oid && /^[a-z]{1,2}:/.test(oid)) openLinked(oid);
     } catch (e) {}
     dataReady = true;
     loadChangelog();
@@ -3346,6 +3349,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     syncLegend(m.chk, m.leg);
     if (m.data && !map.getSource(key + "s")) mpAdd(key);
     if (!map.getSource(key + "s")) return;
+    clearTimeout(m.timer);
     if (on) {
       const flt = mpYearFilter(key);
       map.setFilter(key + "-pt", flt);
@@ -3353,10 +3357,14 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       if (key === "mod") {
         if (m.langSig !== lang) { m.langSig = lang; map.getSource(key + "s").setData({ type: "FeatureCollection", features: mpFeats(key, true) }); }
       } else {
-        const sig = [year, m.sub ? $(m.sub).checked : "", lang].join("|");
-        if (m.sig !== sig) {
-          clearTimeout(m.timer);
-          const applyData = () => { m.sig = sig; if (map.getSource(key + "s")) map.getSource(key + "s").setData({ type: "FeatureCollection", features: mpFeats(key) }); };
+        const curSig = () => [year, m.sub ? $(m.sub).checked : "", lang].join("|");
+        if (m.sig !== curSig()) {
+          const applyData = () => {
+            const s = curSig();
+            if (m.sig === s || !map.getSource(key + "s")) return;
+            m.sig = s;
+            map.getSource(key + "s").setData({ type: "FeatureCollection", features: mpFeats(key) });
+          };
           if (sliding) m.timer = setTimeout(applyData, 160);
           else applyData();
         }
@@ -3627,7 +3635,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
   function ensureMiniSearch() {
     if (miniSearch || miniLoading) return;
     miniLoading = Promise.all([
-      window.MiniSearch ? Promise.resolve() : new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "vendor/minisearch.js"; sc.onload = res; sc.onerror = rej; document.head.appendChild(sc); }),
+      window.MiniSearch ? Promise.resolve() : verUrl("vendor/minisearch.js").then((vu) => new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = vu; sc.onload = res; sc.onerror = rej; document.head.appendChild(sc); })),
       getJSON("data/search_index.json", 2),
     ]).then(([, docs]) => {
       const ms = new window.MiniSearch({
@@ -3756,7 +3764,7 @@ import { getJSON, prefetchJSON } from "./js/net.js";
       const [pfx, ...rest] = r.doc.id.split(":"), id = rest.join(":");
       if (pfx === "e" && histEvents[+id]) r = { kind: "e", ev: histEvents[+id] };
       else if (pfx === "u" && rulersData) { const u = rulersData.rulers.concat(rulersData.states).find((x) => x.id === id); if (u) r = { kind: "u", u }; }
-      else if (pfx === "o" && monuments) { const f = monuments.features.find((x) => String(x.properties.id) === id); if (f) r = { kind: "o", f }; }
+      else if (pfx === "o") { const f = monAllById.get(id); if (f) r = { kind: "o", f }; }
       else if (pfx === "rl") { const c = religious.find((x) => x.id === id); if (c) r = { kind: "r", r: c }; }
       else if (pfx === "sc") { const c = science.find((x) => x.id === id); if (c) r = { kind: "s", c }; }
       else if (pfx === "ed") { const c = education.find((x) => x.id === id); if (c) r = { kind: "d", c }; }
@@ -3777,12 +3785,13 @@ import { getJSON, prefetchJSON } from "./js/net.js";
     else if (r.kind === "u") target = (year >= r.u.from && year < r.u.to) ? year : Math.floor(r.u.from);
     else if (r.kind === "s") target = Math.max(year, r.c.from);
     else if (r.kind === "d") target = Math.max(year, r.c.from);
+    else if (r.kind === "mu") target = Math.max(year, r.c.from);
     else if (r.kind === "r") target = (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
     else if (r.kind === "m") target = Math.max(year, r.f.properties.y0);
     else if (r.kind === "p") target = year;
     else if (r.kind === "k" || r.kind === "q") target = r.c.y != null ? Math.max(year, r.c.y) : year;
     else if (r.kind === "t") { const own = r.st.iv.find((iv) => iv[2] && year >= iv[0] && year < iv[1]); target = own ? year : (r.st.iv.find((iv) => iv[2]) || [year])[0]; }
-    else target = Math.max(year, r.f.properties.ye);
+    else target = (r.f && typeof r.f.properties.ye === "number") ? Math.max(year, r.f.properties.ye) : year;
     year = target;
     update();
     if (r.kind === "e") { showHistEvent(r.ev); return; }

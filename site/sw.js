@@ -1,6 +1,6 @@
 // Service worker of the site: (1) the application shell works without network (the last seen data too), (2) accepts a photo shared to the site from the share menu of the phone
 // (Web Share Target: POST ./share-target) and leaves it for the page to pick up. Heavy things (tiles, photos, topographic maps) are never cached here.
-const VERSION = "tt-6618adfd";
+const VERSION = "tt-1e081e5c";
 const SHARE_CACHE = "tt-share";
 const BASE = self.registration.scope;                                  // ends with "/"
 const SHELL = ["./", "index.html", "app.js", "js/net.js", "js/tour.js", "i18n.js", "photo.js", "pwa.js", "support.js", "stats.js", "config.js", "style.css", "translit.js", "vendor/maplibre-gl.js", "vendor/maplibre-gl.css", "manifest.webmanifest", "img/pwa/icon-192.png"];
@@ -9,7 +9,7 @@ self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => Promise.all(SHELL.map((u) => c.add(new Request(new URL(u, BASE), { cache: "reload" })).catch(() => {})))).then(() => self.skipWaiting()));
 });
 self.addEventListener("activate", (e) => {
-  e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== VERSION && k !== SHARE_CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith("tt-") && k !== VERSION && k !== SHARE_CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 
 async function takeShare(req) {
@@ -31,7 +31,7 @@ async function networkFirst(req) {
     if (r && r.ok && r.status === 200 && r.type === "basic") c.put(req, r.clone());
     return r;
   } catch (err) {
-    const hit = (await c.match(req, { ignoreSearch: true })) || (req.mode === "navigate" ? await c.match(new URL("./", BASE).href) : null);
+    const hit = (await c.match(req)) || (await c.match(req, { ignoreSearch: true })) || (req.mode === "navigate" ? await c.match(new URL("./", BASE).href) : null);
     if (hit) return hit;
     throw err;
   }

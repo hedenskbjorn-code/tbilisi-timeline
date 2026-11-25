@@ -49,6 +49,9 @@ def build_state() -> tuple[dict, str, str]:
         if p.name == "manifest.json":
             continue
         files_map["data/" + p.name] = sha8(p.read_bytes())
+    ms_path = SITE / "vendor" / "minisearch.js"
+    if ms_path.is_file():
+        files_map["vendor/minisearch.js"] = sha8(norm_bytes(ms_path))
 
     idx_src = INDEX_PATH.read_text(encoding="utf-8")
     asset_hashes: dict[str, str] = {}

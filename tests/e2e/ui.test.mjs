@@ -360,3 +360,31 @@ test("the map is not black: the canvas exists and has the size of the window", a
   assert.ok(box.width > 600 && box.height > 400);
   await page.ctx.close();
 });
+
+test("MiniSearch: museum opens without error, undated register o:3394 opens, folk names & translated addresses match", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru#2020`);
+  await waitReady(page);
+  const loaded = page.waitForResponse((r) => r.url().includes("data/search_index.json") && r.status() === 200, { timeout: 15000 });
+  await page.click("#btnSearch");
+  await loaded;
+  await page.waitForFunction(() => Boolean(window.MiniSearch), null, { timeout: 10000 });
+
+  for (const q of ["Нахаловка", "Кувшины Рике", "Aghmashenebeli 39", "Агмашенебели 39"]) {
+    await page.fill("#searchQ", q);
+    await page.waitForSelector("#searchRes li[data-i]", { timeout: 5000 });
+    assert.ok((await page.locator("#searchRes li[data-i]").count()) >= 1, `expected results for "${q}"`);
+  }
+
+  await page.fill("#searchQ", "Джанашиа");
+  const musRow = page.locator("#searchRes li[data-i]").filter({ hasText: /Музей Грузии/ }).first();
+  await musRow.waitFor({ timeout: 5000 });
+  await musRow.click();
+  await page.locator(".maplibregl-popup .pop").waitFor({ timeout: 15000 });
+  await page.keyboard.press("Escape");
+
+  const page2 = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru&o=o:3394#1887`);
+  await waitReady(page2);
+  await page2.locator(".maplibregl-popup .pop").waitFor({ timeout: 15000 });
+  await page2.ctx.close();
+  await page.ctx.close();
+});

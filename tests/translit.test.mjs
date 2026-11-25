@@ -79,3 +79,8 @@ test("date: labelled sub-parts", () => {
   assert.equal(G.date(raw, "ru"), "церковь — IX-X века; пристроенный контрфорс — XVIII-XIX века");
   assert.equal(G.date(raw, "en"), "church — 9th-10th centuries; added buttress — 18th-19th centuries");
 });
+test("date: compound rebuild dates (register #5095)", () => {
+  const raw = "მე–11 ს. გადაკეთდა XIV და XVII  საუკუნეებში";
+  assert.equal(G.date(raw, "ru"), "XI век; перестроен: XIV, XVII века");
+  assert.equal(G.date(raw, "en"), "11th century; rebuilt: 14th, 17th centuries");
+});

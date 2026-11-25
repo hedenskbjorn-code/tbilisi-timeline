@@ -1,4 +1,24 @@
 {
+  "$defs": {
+    "lang3": {
+      "type": "object",
+      "required": ["ru", "en", "ka"],
+      "properties": {
+        "ru": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 },
+        "ka": { "type": "string", "minLength": 1 }
+      }
+    },
+    "coordPair": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": [
+        { "type": "number", "minimum": 40, "maximum": 47 },
+        { "type": "number", "minimum": 41, "maximum": 44 }
+      ]
+    }
+  },
   "type": "object",
   "required": ["parts"],
   "properties": {
@@ -10,15 +30,23 @@
         "required": ["id", "title", "start", "route", "stops"],
         "properties": {
           "id": { "type": "string", "minLength": 1 },
-          "title": { "type": "object", "required": ["ru", "en", "ka"] },
-          "start": { "type": "object", "required": ["lat", "lon", "name"] },
+          "title": { "$ref": "#/$defs/lang3" },
+          "start": {
+            "type": "object",
+            "required": ["lat", "lon", "name"],
+            "properties": {
+              "lat": { "type": "number", "minimum": 41, "maximum": 44 },
+              "lon": { "type": "number", "minimum": 40, "maximum": 47 },
+              "name": { "$ref": "#/$defs/lang3" }
+            }
+          },
           "route": {
             "type": "object",
             "required": ["length_km", "walk_min", "coords"],
             "properties": {
               "length_km": { "type": "number", "exclusiveMinimum": 0 },
               "walk_min": { "type": "number", "exclusiveMinimum": 0 },
-              "coords": { "type": "array", "minItems": 2 }
+              "coords": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/coordPair" } }
             }
           },
           "stops": {
@@ -33,14 +61,14 @@
                 "rid": { "type": "integer" },
                 "lat": { "type": "number", "minimum": 41, "maximum": 44 },
                 "lon": { "type": "number", "minimum": 40, "maximum": 47 },
-                "leg_m": { "type": "integer" },
-                "leg_min": { "type": "integer" },
+                "leg_m": { "type": "integer", "minimum": 0 },
+                "leg_min": { "type": "integer", "minimum": 0 },
                 "kind": { "type": "string", "minLength": 1 },
                 "ph": { "type": "string" },
-                "name": { "type": "object", "required": ["ru", "en", "ka"] },
-                "address": { "type": "object", "required": ["ru", "en", "ka"] },
-                "year": { "type": "object", "required": ["ru", "en", "ka"] },
-                "desc": { "type": "object", "required": ["ru", "en", "ka"] },
+                "name": { "$ref": "#/$defs/lang3" },
+                "address": { "$ref": "#/$defs/lang3" },
+                "year": { "$ref": "#/$defs/lang3" },
+                "desc": { "$ref": "#/$defs/lang3" },
                 "src": { "type": "array", "items": { "type": "string" } }
               }
             }
