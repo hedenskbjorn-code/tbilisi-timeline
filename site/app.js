@@ -2361,7 +2361,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       // one click handler for all transport: the lines lie on one another (the tram is drawn 4 px beside the street, an avenue, a bridge and a railway can run along it), so
       // the object of the highest rank within a few pixels is taken: a tram before a metro line, a bridge before an avenue (found out 2026-11-19: on Chavchavadze Avenue the avenue took the click)
       const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue", "road"];
-      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt", "battle-pt"];
+      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt", "battle-pt", "mt-pt"];
       map.on("click", (e) => {
         const near = (r) => [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
         const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-funic", "tr-cable"].filter((id) => map.getLayer(id)) });
@@ -2473,7 +2473,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         const cb = picker; picker = null; cb({ obj: "mon:" + p.id, name: nm, lang, lat: g[1], lon: g[0] });
         return;
       }
-      const own = ["mod-pt", "places-pt", "mon-pt", "plq-pt", "edu-pt", "sci-pt", "mus-pt", "rel-pt", "battle-pt"].filter((id) => map.getLayer(id) && map.getLayoutProperty(id, "visibility") === "visible");
+      const own = ["mod-pt", "places-pt", "mon-pt", "plq-pt", "edu-pt", "sci-pt", "mus-pt", "rel-pt", "battle-pt", "mt-pt"].filter((id) => map.getLayer(id) && map.getLayoutProperty(id, "visibility") === "visible");
       if (own.length && map.queryRenderedFeatures(e.point, { layers: own }).length) return;      // a point of a layer that is switched on (modernism, local names, monuments, plaques) under the click has its own card (two cards at one place are not opened)
       if (!claimClick(e)) return;
       popup(e.features[0].properties, e.lngLat);
@@ -3557,16 +3557,19 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       return d;
     }).catch(() => { mtskhetaLoading = null; return null; });
   }
+  const MT_SACRED = new Set(["cathedral", "monastery", "church", "shrine", "chapel", "temple"]);
   const mtFeats = () => (mtskhetaById ? [...mtskhetaById.values()] : []).map((s) => ({
     type: "Feature",
     geometry: { type: "Point", coordinates: [s.lon, s.lat] },
-    properties: { id: s.id, from: MT_FROM[s.id] || 100, label: s.name[lang] || s.name.en },
+    properties: { id: s.id, from: MT_FROM[s.id] || 100, label: s.name[lang] || s.name.en, ico: MT_SACRED.has(s.kind) ? "mt-rel" : "mt-mon" },
   }));
   function addMtskheta() {
     if (!mtskhetaById || map.getSource("mtskheta")) return;
+    if (!map.hasImage("mt-rel")) map.addImage("mt-rel", makeMapIcon("orthodox", "#a61e4d"), { pixelRatio: 2 });
+    if (!map.hasImage("mt-mon")) map.addImage("mt-mon", makeMapIcon("mon", "#c2410c"), { pixelRatio: 2 });
     map.addSource("mtskheta", { type: "geojson", data: { type: "FeatureCollection", features: mtFeats() } });
-    map.addLayer({ id: "mt-pt", type: "circle", source: "mtskheta",
-      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 5, 16, 8], "circle-color": "#c2410c", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: "mt-pt", type: "symbol", source: "mtskheta",
+      layout: { "icon-image": ["get", "ico"], "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.72, 17, 1.05], "icon-allow-overlap": true } });
     map.addLayer({ id: "mt-lb", type: "symbol", source: "mtskheta", minzoom: 13,
       layout: { "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": "#9a3412", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
