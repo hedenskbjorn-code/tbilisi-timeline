@@ -38,7 +38,7 @@ def check_inputs(root: Path) -> None:
     inputs = json.loads(Path(reg_path).read_text(encoding="utf-8")).get("inputs", {})
     for rel, meta in inputs.items():
         p = Path(require_file(str(root / rel), "curated input"))
-        got = hashlib.sha256(p.read_bytes()).hexdigest()
+        got = sha256_bytes(p)
         want = meta["sha256"]
         if got != want:
             raise ValueError(f"Curated input SHA-256 mismatch for {rel}: got {got[:12]}, expected {want[:12]}")
