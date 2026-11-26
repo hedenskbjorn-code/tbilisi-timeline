@@ -117,7 +117,7 @@ test("the religious legend: a strip of dots with the denominations of the year, 
   const ro = JSON.parse(fs.readFileSync(path.join(DATA, "religious_osm.json"), "utf8")).items;                                   // the buildings of OpenStreetMap join the layer after the first screen
   const rel = JSON.parse(fs.readFileSync(path.join(DATA, "religious.json"), "utf8")).concat(ro);
   await page.waitForFunction((n) => window.TT_E2E.map.getSource("rel").serialize().data.features.length === n, rel.length, { timeout: 20000 });
-  const expected = (y) => new Set(rel.filter((r) => r.from <= y && (r.to === undefined || r.to > y)).map((r) => r.rel)).size;
+  const expected = (y) => new Set(rel.filter((r) => (!r.undated || y >= 2026) && r.from <= y && (r.to === undefined || r.to > y)).map((r) => r.rel)).size;
   const dots = () => ev(() => document.querySelectorAll("#relLegend i.rdot").length);
   assert.equal(await dots(), expected(1887));
   assert.equal(await ev(() => document.querySelector("#relLegend details").open), false, "closed: one line instead of ten");

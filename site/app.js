@@ -3111,9 +3111,11 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     syncLegend("showSci", "sciLegend");
     if (!map.getLayer("sci-pt")) return;
     const on = $("showSci").checked;
+    const scBase = ["<=", ["get", "from"], year];
+    const scFlt = year >= MAX ? scBase : ["all", ["!", ["get", "undated"]], scBase];
     for (const id of ["sci-pt", "sci-lb"]) {
       map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
-      map.setFilter(id, ["<=", ["get", "from"], year]);
+      map.setFilter(id, scFlt);
     }
     for (const id of ["sci-pt", "sci-lb"]) map.moveLayer(id);          // to the top: above the topographic map and the points of the register, which other code also moves
     const faint = ["case", ["==", ["get", "undated"], true], 0.45, ["<", year, ["get", "sf"]], 0.35, 1];       // faint before the present building stands (or the institution is in another place), and when the register gives no date
@@ -3258,9 +3260,11 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     syncLegend("showMus", "musLegend");
     if (!map.getLayer("mus-pt")) return;
     const on = $("showMus").checked;
+    const musBase = ["<=", ["get", "from"], year];
+    const musFlt = year >= MAX ? musBase : ["all", ["!", ["get", "undated"]], musBase];
     for (const id of ["mus-pt", "mus-lb"]) {
       map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
-      map.setFilter(id, ["<=", ["get", "from"], year]);
+      map.setFilter(id, musFlt);
       map.moveLayer(id);
     }
   }
@@ -3761,11 +3765,12 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     updateReligious();
   }
   let relLegendKey = "", relLegendOpen = false;
+  const relUndatedOk = () => year >= MAX;
   function buildRelLegend() {
     const box = $("relLegend");
     if (!box) return;
-    const present = new Set();
-    for (const r of religious) if (r.from <= year && (r.to === undefined || r.to > year)) present.add(r.rel);      // the same rule as the filter of the layer
+    const present = new Set(), undOk = relUndatedOk();
+    for (const r of religious) if ((undOk || !r.undated) && r.from <= year && (r.to === undefined || r.to > year)) present.add(r.rel);      // the same rule as the filter of the layer
     const keys = Object.keys(REL_COLOR).filter((k) => present.has(k));
     const key = lang + "|" + keys.join(",");
     if (key !== relLegendKey) {
@@ -3792,10 +3797,12 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     buildRelLegend();
     if (!map.getLayer("rel-pt")) return;
     const on = $("showRel").checked;
+    const baseF = ["all", ["<=", ["get", "from"], year], [">", ["get", "to"], year]];
+    const flt = relUndatedOk() ? baseF : ["all", ["!", ["get", "undated"]], baseF];
     for (const id of ["rel-pt", "rel-lb"]) {
       map.moveLayer(id);                                              // to the top: above the topographic map and the points of the register (the layer of science and culture goes above this one)
       map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
-      map.setFilter(id, ["all", ["<=", ["get", "from"], year], [">", ["get", "to"], year]]);
+      map.setFilter(id, flt);
     }
   }
   function updateRelUi() {

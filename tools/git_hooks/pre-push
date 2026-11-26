@@ -8,6 +8,11 @@ if ! git diff --quiet -- site tests || ! git diff --cached --quiet -- site tests
   exit 1
 fi
 
+if ! python -P tools/build_all.py --stage; then
+  echo "[pre-push] BLOCKED: build_all.py --stage failed (check curated_inputs.json LF hashes or derived files)." >&2
+  exit 1
+fi
+
 if ! npm run preflight; then
   echo "[pre-push] BLOCKED: preflight checks failed. NEVER use --no-verify." >&2
   exit 1

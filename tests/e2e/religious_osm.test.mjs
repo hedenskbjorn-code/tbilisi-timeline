@@ -61,3 +61,13 @@ test("the search finds a building of OpenStreetMap by its name", async () => {
   assert.ok((await page.locator("#searchRes li", { hasText: "⛪" }).count()) >= 1);
   await page.keyboard.press("Escape");
 });
+
+test("undated OSM churches do not appear at historical year 500, and return at 2026", async () => {
+  await page.evaluate(() => { location.hash = "#500"; });
+  await page.waitForFunction(() => window.TT_E2E.year === 500);
+  await page.waitForTimeout(200);
+  const shown500 = await page.evaluate(() => window.TT_E2E.map.queryRenderedFeatures({ layers: ["rel-pt"] }).filter((f) => f.properties.undated).length);
+  assert.equal(shown500, 0, "no undated churches at year 500");
+  await page.evaluate(() => { location.hash = "#2026"; });
+  await page.waitForFunction(() => window.TT_E2E.year === 2026);
+});
