@@ -49,15 +49,29 @@ def main():
     feats = mon["features"]
     for f in feats:
         f["properties"].pop("dup", None)
-    rel, sci, edu = load("religious"), load("science"), load("education")
+    rel, sci, edu, mus = load("religious"), load("science"), load("education"), load("museums")
     dec = json.load(open(DEC, encoding="utf-8")) if os.path.exists(DEC) else {"dup": [], "keep": []}
+    keep = set(dec["keep"])
     by_id = {f["properties"]["id"]: f for f in feats}
     marked, cands = {}, []
-    for x in edu:                                           # made from the register: the same object
-        rid = x.get("rid")
-        if isinstance(rid, int) and rid in by_id:
-            marked[rid] = "education layer (rid)"
-    plan = {"religious": rel, "culture": sci + edu}
+    for lname, lst in (("religious", rel), ("science", sci), ("education", edu), ("museums", mus)):
+        for x in lst:
+            rid = x.get("rid")
+            if isinstance(rid, int) and rid in by_id and rid not in keep:
+                marked[rid] = f"{lname} layer (rid)"
+    cat_path = os.path.join(ROOT, "data", "curated", "catalog_links.json")
+    if os.path.exists(cat_path):
+        cat = json.load(open(cat_path, encoding="utf-8"))
+        for link in cat.get("links", []):
+            refs = link.get("refs", [])
+            if not any(r.startswith(("rl:", "mu:", "sc:", "ed:")) for r in refs):
+                continue
+            for r in refs:
+                if r.startswith("o:") and r[2:].isdigit():
+                    rid = int(r[2:])
+                    if rid in by_id and rid not in keep and rid not in marked:
+                        marked[rid] = "catalog_links"
+    plan = {"religious": rel, "culture": sci + edu + mus}
     for f in feats:
         p = f["properties"]
         layer = plan.get(p["fn"])

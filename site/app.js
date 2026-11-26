@@ -431,7 +431,8 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     $("slider").setAttribute("aria-valuetext", String(year));                     // a screen reader says the year, not the position 0-1000
     try { history.replaceState(null, "", "#" + year); } catch (e) {}
     if (!map.getLayer("mon")) return;
-    map.setFilter("mon", filterExpr());
+    map.setFilter("mon", ["all", filterExpr(), ["!", ["has", "ico"]]]);
+    if (map.getLayer("mon-ico")) map.setFilter("mon-ico", ["all", filterExpr(), ["has", "ico"]]);
     if (map.getLayer("mon-ruin")) map.setFilter("mon-ruin", ["all", filterExpr(), ["==", ["get", "ruin"], true]]);
     map.setPaintProperty("mon", "circle-color", ["case",
       ["==", ["get", "national"], true], getCss("--nat"),
@@ -2361,7 +2362,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       // one click handler for all transport: the lines lie on one another (the tram is drawn 4 px beside the street, an avenue, a bridge and a railway can run along it), so
       // the object of the highest rank within a few pixels is taken: a tram before a metro line, a bridge before an avenue (found out 2026-11-19: on Chavchavadze Avenue the avenue took the click)
       const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue", "road"];
-      const POINT_LAYERS = ["mon", "rel-pt", "sci-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt", "battle-pt", "mt-pt"];
+      const POINT_LAYERS = ["mon", "mon-ico", "rel-pt", "sci-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt", "battle-pt", "mt-pt"];
       map.on("click", (e) => {
         const near = (r) => [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
         const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-funic", "tr-cable"].filter((id) => map.getLayer(id)) });
@@ -2442,9 +2443,21 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addLayer({ id: "urban-line-approx", type: "line", source: "urban",
                    paint: { "line-color": "#b4412c", "line-width": 2.5, "line-dasharray": [3, 2] } });
 
+    for (const f of monuments.features) {
+      const p = f.properties;
+      if (p.cls === "archaeology") p.ico = /სამაროვანი|ყორღანი/.test(p.name || "") ? "reg-cem" : "reg-arch";
+      else if (p.cls === "garden") p.ico = "reg-garden";
+      else if (p.fn === "religious") p.ico = "reg-rel";
+      else if (p.fn === "memorial") p.ico = "reg-mem";
+    }
+    if (!map.hasImage("reg-cem")) map.addImage("reg-cem", makeMapIcon("cem", "#6c4a2e"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-arch")) map.addImage("reg-arch", makeMapIcon("arch", "#9c4221"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-garden")) map.addImage("reg-garden", makeMapIcon("leaf", "#2b8a3e"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-rel")) map.addImage("reg-rel", makeMapIcon("cross", "#8d6e63"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-mem")) map.addImage("reg-mem", makeMapIcon("mon", "#1864ab"), { pixelRatio: 2 });
     map.addSource("mon", { type: "geojson", data: monuments });
     map.addLayer({
-      id: "mon", type: "circle", source: "mon",
+      id: "mon", type: "circle", source: "mon", filter: ["!", ["has", "ico"]],
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, ["case", ["get", "national"], 4, 2], 15, ["case", ["get", "national"], 8, 5], 18, ["case", ["get", "national"], 11, 8]],
         "circle-color": getCss("--old"),
@@ -2452,6 +2465,11 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         "circle-stroke-width": ["case", ["get", "coarse"], 1.2, 0.8],
         "circle-stroke-color": ["case", ["get", "coarse"], getCss("--old"), "#ffffff"],
       },
+    });
+    map.addLayer({
+      id: "mon-ico", type: "symbol", source: "mon", filter: ["has", "ico"],
+      layout: { "icon-image": ["get", "ico"], "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.65, 17, 1.0], "icon-allow-overlap": true },
+      paint: { "icon-opacity": ["case", ["get", "coarse"], 0.6, 0.95] },
     });
     map.addLayer({
       id: "mon-ruin", type: "circle", source: "mon", filter: ["==", ["get", "ruin"], true],
@@ -2464,7 +2482,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       id: "nophoto", type: "circle", source: "mon", layout: { visibility: "none" }, filter: ["!", ["has", "ph"]],
       paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 6, 15, 12, 18, 17], "circle-color": "rgba(0,0,0,0)", "circle-stroke-width": 2.5, "circle-stroke-color": "#f76707", "circle-stroke-opacity": 0.95 },
     }, "mon-ruin");
-    map.on("click", "mon", (e) => {
+    const onMonClick = (e) => {
       if (!e.features || !e.features[0]) return;
       if (picker) {                                                              // "tap the object" after a photo was shared from the phone (pwa.js)
         const p = e.features[0].properties, g = e.features[0].geometry.coordinates;
@@ -2477,9 +2495,12 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       if (own.length && map.queryRenderedFeatures(e.point, { layers: own }).length) return;      // a point of a layer that is switched on (modernism, local names, monuments, plaques) under the click has its own card (two cards at one place are not opened)
       if (!claimClick(e)) return;
       popup(e.features[0].properties, e.lngLat);
-    });
-    map.on("mouseenter", "mon", () => { map.getCanvas().style.cursor = "pointer"; });
-    map.on("mouseleave", "mon", () => { map.getCanvas().style.cursor = ""; });
+    };
+    for (const lid of ["mon", "mon-ico"]) {
+      map.on("click", lid, onMonClick);
+      map.on("mouseenter", lid, () => { map.getCanvas().style.cursor = "pointer"; });
+      map.on("mouseleave", lid, () => { map.getCanvas().style.cursor = ""; });
+    }
 
     for (const id of ["stl-line", "stl-pt", "c94-pt", "c94-lb"]) if (map.getLayer(id)) map.moveLayer(id);   // overlays (old street names, 1894 objects) above the old plans
     buildTicks(); buildEpochBand();
@@ -3358,6 +3379,13 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     } else if (shape === "cem") {
       g.beginPath(); g.moveTo(7, 19); g.lineTo(7, 9); g.quadraticCurveTo(12, 4.5, 17, 9); g.lineTo(17, 19); g.closePath();
       g.moveTo(12, 9.5); g.lineTo(12, 15.5); g.moveTo(9.5, 12); g.lineTo(14.5, 12); g.stroke();
+    } else if (shape === "arch") {
+      g.beginPath();
+      g.moveTo(5, 18.5); g.lineTo(19, 18.5);
+      g.moveTo(7.5, 18.5); g.lineTo(7.5, 7); g.lineTo(11.5, 5);
+      g.moveTo(16.5, 18.5); g.lineTo(16.5, 11); g.lineTo(13, 13);
+      g.moveTo(6, 7); g.lineTo(11.5, 7);
+      g.stroke();
     } else if (shape === "sq") {
       g.beginPath(); g.rect(5.5, 5.5, 13, 13); g.arc(12, 12, 2, 0, Math.PI * 2); g.stroke();
     } else if (shape === "bldg") {
@@ -3919,7 +3947,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (key === "mon") row(U("year"), c.y != null ? String(c.y) : U("year_unknown"));
     else if (c.y != null) add(U("lived_from").replace("{y}", c.y), "small");
     if (c.d && c.d[lang]) { if (c.dw) add(U(key === "plq" ? "from_wiki_person" : "from_wiki"), "k"); add(c.d[lang], "small"); }          // the description of OSM / Wikipedia, in the language that exists; a Wikipedia text is labelled (about the person on a plaque)
-    if (key === "mon") { row(U("sculptor"), c.sc && typeof c.sc === "object" ? (c.sc[lang] || c.sc.en) : c.sc); row(U("architect"), c.ar); row(U("material"), c.mat ? U("mat_" + c.mat) : ""); }
+    if (key === "mon") { const tr3 = (v) => v && typeof v === "object" ? (v[lang] || v.en || v.ru || v.ka) : v; row(U("sculptor"), tr3(c.sc)); row(U("architect"), tr3(c.ar)); row(U("material"), c.mat ? U("mat_" + c.mat) : ""); }
     const s = c.st && d.streets[c.st];
     if (s) row(U("where"), s[lang] || s.en);
     if (key === "plq" && c.ins) add(U("inscription") + ": " + c.ins, "small");

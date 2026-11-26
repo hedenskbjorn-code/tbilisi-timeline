@@ -22,7 +22,7 @@
           "st": { "type": "string" },
           "k": { "type": "string" },
           "sc": { "type": ["object", "string"] },
-          "ar": { "type": "string" },
+          "ar": { "type": ["object", "string"] },
           "mat": { "type": "string" },
           "d": { "type": "object" },
           "dq": { "type": "array" },
