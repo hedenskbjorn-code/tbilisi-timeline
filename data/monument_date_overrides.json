@@ -62,5 +62,7 @@
   "38180": {"year_from": 1501, "year_to": 1800, "year_est": 1650, "date_precision": "period", "date_source": "Period", "why": "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"},
   "38181": {"year_from": 1501, "year_to": 1800, "year_est": 1650, "date_precision": "period", "date_source": "Period", "why": "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"},
   "38197": {"year_from": 1201, "year_to": 1250, "year_est": 1225, "date_precision": "half", "date_source": "Period", "why": "raw_date says first half of 13th c., misparsed as 331-370"},
-  "41543": {"year_from": 1501, "year_to": 1800, "year_est": 1650, "date_precision": "period", "date_source": "Period", "why": "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"}
+  "41543": {"year_from": 1501, "year_to": 1800, "year_est": 1650, "date_precision": "period", "date_source": "Period", "why": "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"},
+  "5064": {"year_from": 400, "year_to": 900, "year_est": 650, "date_precision": "period", "date_source": "Period", "why": "raw_date says early Middle Ages (4th-9th c.), misparsed as 400-1700"},
+  "26684": {"year_from": 1, "year_to": 900, "year_est": 450, "date_precision": "period", "date_source": "Period", "why": "Period says late Antiquity (1st-3rd c.) to early Middle Ages (4th-9th c.), misparsed as 331-370"}
  }}

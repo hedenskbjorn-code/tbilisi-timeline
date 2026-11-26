@@ -1,7 +1,7 @@
-"""Builds the project index data/db/project.sqlite (schema: tools/db/schema.sql) from the JSON files of the site (site/data/*.json), the results of the verifiers (data/cache/*_verified.json) and the tasks for Gemini
-(work/gemini). The JSON files stay the source of truth: the index is derived, it is rebuilt from nothing every time (written to a temporary file, then put in place), it is not in git.
+"""Builds the project index data/db/project.sqlite (schema: tools/db/schema.sql) from the JSON files of the site (site/data/*.json), the results of the verifiers (data/cache/*_verified.json) and the research queue.
+The JSON files stay the source of truth: the index is derived, it is rebuilt from nothing every time (written to a temporary file, then put in place), it is not in git.
 What it gives: one table of objects of all the layers with a region (country > city > district), names in three languages with their kinds (official / old / folk / alt), facts with the source, the quotation and the state
-(imported / verified), photographs, the state of every task for Gemini, an R-tree for "what lies near", a full-text search of the names. Queries: tools/db_query.py.
+(imported / verified), photographs, research task states, an R-tree for "what lies near", a full-text search of the names. Queries: tools/db_query.py.
 For the whole of Georgia: a new city is a new region row and new files read by the same importers (each importer takes a file and a region); the ids "<layer>:<id>" do not repeat; the volume of SQLite is not a limit
 (millions of rows). Usage: python -P tools/db_build.py [--check] [--georgia] [--raw-all]    (--check: the numbers of the index are compared with the JSON files and the exit code says whether they agree)
 """
@@ -292,14 +292,15 @@ def load_streets(b):
 
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from gemini_all import TASKS as _PACKAGE  # noqa: E402
-from paths import GEMINI  # noqa: E402
-CURRENT_TASKS = {os.path.splitext(os.path.basename(t[0]))[0] for t in _PACKAGE}      # the tasks of the package tools/gemini_all.py makes: only these can be "queued"
+from paths import RESEARCH  # noqa: E402
+from tasks import PRIORITY, inspect, read_state  # noqa: E402
+CURRENT_TASKS = set(PRIORITY)
 
 
 def load_tasks(b):
-    FD = GEMINI
-    prefix = {"churches": "relosm:", "monuments": "mn:", "parks": "pl:"}                      # the tasks of work/gemini are about the city of CTX
+    FD = RESEARCH
+    lifecycle = read_state()
+    prefix = {"churches": "relosm:", "monuments": "mn:", "parks": "pl:"}
     for tf in sorted(glob.glob(os.path.join(FD, "tasks", "*.md"))):
         tid = os.path.splitext(os.path.basename(tf))[0]
         rf = os.path.join(FD, "results", tid + ".json")
@@ -315,7 +316,9 @@ def load_tasks(b):
                 status = "empty" if rows and all(isinstance(x, dict) and x.get("status") == "not_found" for x in data) else "done"
             elif isinstance(data, dict):
                 rows, found, status = len(data), len(data), "done"
-        if status == "queued" and tid not in CURRENT_TASKS:
+        if tid in CURRENT_TASKS or tid in lifecycle:
+            status = inspect(tid, lifecycle.get(tid))["state"]
+        elif status == "queued":
             status = "archive"                                   # an old task whose answer was taken under another file name: not waiting for anything
         b.c.execute("INSERT INTO task VALUES (?,?,?,?,?,?,?)", (tid, tid.split("_")[0], os.path.relpath(tf, R), os.path.relpath(rf, R), status, rows, found))
         pre = prefix.get(tid.split("_")[0], "")
@@ -419,15 +422,26 @@ def load_raw_register(b):
 
 
 def check(con):
-    """the numbers of the index against the JSON files of the current city; returns the list of differences"""
+    """the numbers and ID sets of the index against the JSON files of the current city; returns the list of differences"""
     bad = []
-    exp = {"rel": len(jl("religious.json")), "sci": len(jl("science.json")), "edu": len(jl("education.json")),
-           "relosm": len(jl("religious_osm.json")["items"]), "pl": len(jl("places.json")["items"]), "mn": len(jl("sculptures.json")["items"]), "pq": len(jl("plaques.json")["items"]),
-           "md": len(jl("modernism.json")["items"]), "st": len(jl("street_names.json")["streets"])}
-    for layer, n in exp.items():
-        got = con.execute("SELECT COUNT(*) FROM object WHERE layer=? AND id LIKE ?", (layer, CTX["code"] + "/%")).fetchone()[0]
-        if got != n:
-            bad.append("%s: %d in the index, %d in the file" % (layer, got, n))
+    prefix = CTX["code"] + "/"
+    exp_ids = {
+        "rel": {prefix + "rel:" + str(x["id"]) for x in jl("religious.json")},
+        "sci": {prefix + "sci:" + str(x["id"]) for x in jl("science.json")},
+        "edu": {prefix + "edu:" + str(x["id"]) for x in jl("education.json")},
+        "relosm": {prefix + "relosm:" + str(x["id"]) for x in jl("religious_osm.json")["items"]},
+        "pl": {prefix + "pl:" + str(x["id"]) for x in jl("places.json")["items"]},
+        "mn": {prefix + "mn:" + str(x["id"]) for x in jl("sculptures.json")["items"]},
+        "pq": {prefix + "pq:" + str(x["id"]) for x in jl("plaques.json")["items"]},
+        "md": {prefix + "md:" + str(x["id"]) for x in jl("modernism.json")["items"]},
+        "st": {prefix + "st:" + str(x.get("geom") or x["now"]["en"]) for x in jl("street_names.json")["streets"]},
+    }
+    for layer, want_ids in exp_ids.items():
+        got_ids = {r[0] for r in con.execute("SELECT id FROM object WHERE layer=? AND id LIKE ?", (layer, prefix + "%"))}
+        if len(got_ids) != len(want_ids) or got_ids != want_ids:
+            missing = sorted(want_ids - got_ids)[:3]
+            extra = sorted(got_ids - want_ids)[:3]
+            bad.append("%s: %d in the index, %d in the file (missing=%s, extra=%s)" % (layer, len(got_ids), len(want_ids), missing, extra))
     nph = con.execute("SELECT COUNT(DISTINCT m.object_id) FROM media m JOIN object o ON o.id = m.object_id WHERE o.layer = 'mn'").fetchone()[0]
     nj = sum(1 for x in jl("sculptures.json")["items"] if x.get("ph"))
     if nph != nj:
@@ -469,11 +483,22 @@ def main():
     n_reg = con.execute("SELECT COUNT(*) FROM object WHERE layer = 'reg'").fetchone()[0]
     if n_reg != n_raw:
         bad.append("register: %d in the index, %d in the file" % (n_reg, n_raw))
-    n_tb = con.execute("SELECT COUNT(*) FROM object WHERE layer = 'reg' AND (id LIKE 'TB/%' OR props LIKE '%site_id%')").fetchone()[0]
-    if n_tb != len(jl("monuments.json")["features"]):
-        bad.append("register of Tbilisi: %d in the index, %d in the file of the site" % (n_tb, len(jl("monuments.json")["features"])))
-    if con.execute("SELECT COUNT(*) FROM object WHERE layer = 'reg' AND id LIKE 'TB/%' AND props LIKE '%site_id%'").fetchone()[0] < n_tb * 0.9:
+    n_tb_rows = con.execute("SELECT props FROM object WHERE layer = 'reg' AND (id LIKE 'TB/%' OR props LIKE '%site_id%')").fetchall()
+    got_reg_ids = {json.loads(r[0]).get("site_id") for r in n_tb_rows if r[0]}
+    if len(n_tb_rows) != len(site_ids) or got_reg_ids != site_ids:
+        bad.append("register of Tbilisi: %d in the index, %d in the file of the site (missing=%s, extra=%s)" % (
+            len(n_tb_rows), len(site_ids), sorted(site_ids - got_reg_ids)[:3], sorted(got_reg_ids - site_ids)[:3]))
+    if con.execute("SELECT COUNT(*) FROM object WHERE layer = 'reg' AND id LIKE 'TB/%' AND props LIKE '%site_id%'").fetchone()[0] < len(n_tb_rows) * 0.9:
         bad.append("register of Tbilisi: fewer than 90 %% of the objects found in the file of the site")
+    reg_path = os.path.join(R, "tools", "dataset_registry.json")
+    if os.path.exists(reg_path):
+        ds = json.load(open(reg_path, encoding="utf-8")).get("datasets", {})
+        site_jsons = {f for f in os.listdir(os.path.join(R, "site", "data")) if f.endswith(".json")}
+        uncovered = sorted(site_jsons - set(ds))
+        if uncovered:
+            bad.append("dataset_registry.json missing files: %s" % uncovered)
+        covered = sum(1 for v in ds.values() if v.get("sqlite_layer"))
+        print("dataset coverage: %d/%d site/data/*.json in SQLite (%d explicitly excluded)" % (covered, len(ds), len(ds) - covered))
     con.commit()
     for layer, n in con.execute("SELECT layer, COUNT(*) FROM object GROUP BY layer ORDER BY 2 DESC"):
         print("  %-7s %6d objects" % (layer, n))

@@ -32,10 +32,11 @@ test("the box of the outlines: off by default, hidden while the layer of places 
   assert.equal(await ev(() => document.getElementById("showPlaceAreas").checked), false);
   assert.equal(await ev(() => document.getElementById("rowPlaceAreas").hidden), true, "hidden while the layer is off");
   assert.equal(await ev(() => getComputedStyle(document.getElementById("rowPlaceAreas")).display), "none");
+  await ev(() => { if (document.getElementById("filters").hidden) document.getElementById("btnFilters").click(); document.querySelector('#filters details[data-sec="f-adv"]').open = true; });
   await tick(page, "#showPlaces", true);
   await page.waitForFunction(() => window.TT_E2E.map.getLayer("places-area-fill"), null, { timeout: 20000 });
   assert.equal(await ev(() => document.getElementById("rowPlaceAreas").hidden), false, "shown with the layer");
-  assert.equal(await ev(() => !!document.getElementById("rowPlaceAreas").closest("details[data-sec=f-city]")), true, "in the block of boundaries and streets");
+  assert.equal(await ev(() => !!document.getElementById("rowPlaceAreas").closest("details[data-sec=f-adv]")), true, "in the fine-tuning section");
 });
 
 test("the outlines of quarters and squares are drawn only when the box is on; the outline of the hippodrome always goes with the layer", async () => {

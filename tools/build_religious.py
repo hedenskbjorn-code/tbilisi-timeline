@@ -6,6 +6,7 @@ Usage: python -X utf8 -P tools/build_religious.py
 """
 import json
 import os
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 EN = "https://en.wikipedia.org/wiki/"
@@ -22,12 +23,12 @@ def N(ru, en, ka):
 
 
 ITEMS = [
-    dict(id="atashgah", rel="zoroastrian", frm=364, date="224-651", lat=41.68885, lon=44.80559,
+    dict(id="atashgah", rel="zoroastrian", frm=700, date="501–700", lat=41.68885, lon=44.80559,
          name=N("Атешга (храм огня)", "Atashgah (fire temple)", "ათეშგა"),
          status=N("сохранилась: кирпичное здание под защитной крышей", "survives: a brick building under a protective roof", "შემორჩენილია: აგურის შენობა დამცავი სახურავის ქვეშ"),
-         note=N("Зороастрийский храм огня; датируется эпохой Сасанидов (224-651). Описывается как самый северный зороастрийский храм огня в мире. Рядом с церковью Земо Бетлеми.",
-                "A Zoroastrian fire temple, generally dated to the Sasanian era (224-651). Described as the northernmost Zoroastrian fire temple in the world. Close to the Zemo Betlemi church.",
-                "ზოროასტრული ცეცხლის ტაძარი, ჩვეულებრივ სასანიანთა ეპოქით (224-651) თარიღდება. აღწერენ როგორც მსოფლიოში ყველაზე ჩრდილოეთით მდებარე ზოროასტრულ ცეცხლის ტაძარს. ახლოსაა ზემო ბეთლემის ეკლესიასთან."),
+         note=N("Зороастрийский храм огня; ранний храм датируется концом VI — началом VII в. (в широких рамках 501–700 / эпохи Сасанидов 224–651), сохранившееся кирпичное здание — предположительно XVII в. Рядом с церковью Земо Бетлеми.",
+                "A Zoroastrian fire temple: the early temple dates to the late 6th – early 7th c. (within broad 501–700 / Sasanian era 224–651); the surviving brick structure is presumably 17th c. Close to the Zemo Betlemi church.",
+                "ზოროასტრული ცეცხლის ტაძარი: ადრეული ტაძარი VI ს. ბოლოთი – VII ს. დასაწყისით თარიღდება (ფართო 501–700 / სასანიანთა 224–651 ეპოქაში), შემორჩენილი აგურის შენობა კი სავარაუდოდ XVII საუკუნისაა. ახლოსაა ზემო ბეთლემის ეკლესიასთან."),
          src=[EN + "Atashgah_of_Tbilisi"]),
     dict(id="anchiskhati", rel="orthodox", frm=550, date="500-599", lat=41.69555556, lon=44.80694444,
          name=N("Базилика Анчисхати", "Anchiskhati Basilica", "ანჩისხატის ბაზილიკა"),
@@ -286,8 +287,18 @@ def main():
     pp = os.path.join(ROOT, "site", "data", "photos.json")
     photos = json.load(open(pp, encoding="utf-8"))
     used = {t for ts in PHOTOS["objects"].values() for t in ts}
+    def clean_utm(u):
+        if not isinstance(u, str) or "utm_" not in u:
+            return u
+        sp = urlsplit(u)
+        q = [(k, v) for k, v in parse_qsl(sp.query, keep_blank_values=True) if k not in ("utm_source", "utm_medium", "utm_campaign")]
+        return urlunsplit((sp.scheme, sp.netloc, sp.path, urlencode(q), sp.fragment))
     for t in used:
-        photos[t] = PHOTOS["info"][t]
+        info = dict(PHOTOS["info"][t])
+        for k in ("thumb", "page"):
+            if k in info:
+                info[k] = clean_utm(info[k])
+        photos[t] = info
     json.dump(photos, open(pp, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     print(len(used), "photographs of the buildings in", pp)
 

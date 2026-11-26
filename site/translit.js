@@ -243,6 +243,16 @@
     let paren = "";
     const parM = t.match(/\s*\((\d{3,4}(?:\s*-\s*\d{2,4})?)\)\s*$/);
     if (parM) { paren = " (" + parM[1].replace(/\s+/g, "") + ")"; t = t.slice(0, parM.index).trim(); }
+    // mixed BCE - CE century range (e.g. "ძვ. წ. IV - ახ. წ. VI სს.")
+    const bceCe = t.match(new RegExp("^ძვ\\.\\s*წ\\.?\\s*([IVXL]+|\\d{1,2})\\s*-\\s*ახ\\.\\s*წ\\.?\\s*([IVXL]+|\\d{1,2})\\s*" + CENT_W + "$"));
+    if (bceCe) {
+      const a = parseCentNum(bceCe[1]), b = parseCentNum(bceCe[2]);
+      if (!isNaN(a) && !isNaN(b)) {
+        const c1 = i ? roman(a) + " в. до н. э." : ord(a) + " century BCE";
+        const c2 = i ? roman(b) + " в. н. э." : ord(b) + " century CE";
+        return prefix + c1 + " – " + c2 + paren;
+      }
+    }
     // era marker (BCE / CE)
     let eraSuf = "";
     if (/ძვ\.\s*წ\.?/.test(t)) { eraSuf = i ? " до н. э." : " BCE"; t = t.replace(/ძვ\.\s*წ\.?/g, "").trim(); }

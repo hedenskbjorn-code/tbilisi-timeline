@@ -1,9 +1,9 @@
-"""The task for Gemini made from the DRAFT list of churches of Tbilisi (data/cache/church_drafts_code_artifact.md: 137 entries with names, addresses, coordinates and years, WITHOUT sources: a draft, not data).
+"""The task for a research agent made from the DRAFT list of churches of Tbilisi (data/cache/church_drafts_code_artifact.md: 137 entries with names, addresses, coordinates and years, WITHOUT sources: a draft, not data).
 Each entry is a lead to check, never a fact. Entries are put in three groups by the distance to the nearest place of worship that we have (layers rel and relosm of the project index):
   within 100 m   same object as ours (nothing to do, except the nameless one: its name is a lead);
   100-300 m      probably ours with a wrong point (the lead for a name of a nameless object, or a new object);
   over 300 m     not in our data: a new object if it exists.
-The task asks for every entry of the last two groups (and the nameless-object lead): does the church exist there, with a page that says so and the exact place. Files: work/gemini/tasks/churches_C.md,
+The task asks for every entry of the last two groups (and the nameless-object lead): does the church exist there, with a page that says so and the exact place. Files: work/research/tasks/churches_C.md,
 answer results/churches_C.json (schema as in tools/churches_task.py, plus "same_as": the id of our object when it is the same building). Usage: python -P tools/church_drafts_task.py
 """
 import json
@@ -12,6 +12,9 @@ import os
 import re
 import sqlite3
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import write_task  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DB = os.path.join(R, "data", "db", "project.sqlite")
@@ -50,7 +53,7 @@ def main():
 Колонка «nearest object of ours» показывает ближайший храм из нашей базы: если запись это то же здание (точка в черновике сдвинута), укажи его `id` в поле `same_as`, и тогда название и адрес пойдут нашему объекту (пометка NAMELESS: у нашего объекта сейчас нет названия).
 
 ## Выход
-`C:/Projects/tbilisi-timeline/work/gemini/results/churches_C.json`: **один JSON-массив**, по объекту на **каждую** строку таблицы, в том же порядке:
+`work/research/results/churches_C.json`: **один JSON-массив**, по объекту на **каждую** строку таблицы, в том же порядке:
 ```json
 {{"n": 54, "status": "found", "same_as": "TB/relosm:osmw…", "name": {{"ka": "…", "ru": "…", "en": "…"}}, "address": "как на странице", "lat": 41.64, "lon": 44.88,
  "coord_url": "https://www.openstreetmap.org/way/…", "year": 2005, "sources": [{{"url": "https://…", "lang": "ka", "quote": "дословная цитата до 30 слов", "fact": "name"}}]}}
@@ -63,9 +66,9 @@ def main():
 {chr(10).join(table)}
 
 ## Готовая фраза для запуска
-> Прочитай файл `C:/Projects/tbilisi-timeline/work/gemini/tasks/churches_C.md`, выполни задание и сохрани результат в `C:/Projects/tbilisi-timeline/work/gemini/results/churches_C.json`.
+> Прочитай файл `work/research/tasks/churches_C.md`, выполни задание и сохрани результат в `work/research/results/churches_C.json`.
 """
-    open(os.path.join(R, "work", "gemini", "tasks/churches_C.md"), "w", encoding="utf-8").write(text)
+    write_task("tasks/churches_C.md", text)
     g = [sum(1 for r in rows if r["near_m"] <= 100), sum(1 for r in rows if 100 < r["near_m"] <= 300), sum(1 for r in rows if r["near_m"] > 300)]
     print("entries:", len(rows), "| within 100 m of ours:", g[0], "| 100-300 m:", g[1], "| over 300 m:", g[2], "| in the task:", len(ask))
 

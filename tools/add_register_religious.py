@@ -18,7 +18,7 @@ import re
 import subprocess
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-EXCLUDE = {41534, 41565}          # a cult structure and a wooden church brought from villages to the open-air museum
+EXCLUDE = {41534, 41565, 7998}          # 41534/41565 moved to open-air museum; 7998 is a register duplicate of 3049 (patch 1.8.1)
 KEEP_COMPLEX = {17828, 24768, 38177, 5072}   # Kukia church complex, remains of Surb Sarkis, Kaben monastery complex, Tkhinvali palace and churches
 
 BURIAL = re.compile(r"სამაროვან|ყორღან|სარკოფაგ|სამარხ|საფლავ|სასაფლაო|პანთეონ|აკლდამა|ნამოსახლარ|ნასოფლარ|კოლექცი|ნაქულბაქ|ქვაჯვარა")
@@ -35,17 +35,33 @@ def dist(a, b):
     return math.hypot((a[0] - b[0]) * 83000, (a[1] - b[1]) * 111000)
 
 
-def note(lang, d, approx, frm, undated, den_known):
+def note(lang, d, approx, frm, undated, den_known, mon_src=None):
+    is_wp = bool(mon_src and "wikipedia" in str(mon_src).lower())
     if lang == "ru":
         s = "Объект реестра культурного наследия Грузии. "
-        s += "Дата в реестре не указана. " if undated else "Дата по реестру: %s%s. " % (d, ("; на шкале взят конец диапазона (%d)" % frm) if approx else "")
+        if undated:
+            s += "Дата в реестре не указана. "
+        elif is_wp:
+            s += "Дата по Википедии (%s): %s%s. " % (mon_src, d, ("; на шкале взят конец диапазона (%d)" % frm) if approx else "")
+        else:
+            s += "Дата по реестру: %s%s. " % (d, ("; на шкале взят конец диапазона (%d)" % frm) if approx else "")
         return s + ("Конфессия определена по названию или описанию объекта в реестре." if den_known else "Конфессия в реестре не указана.")
     if lang == "en":
         s = "An object of the register of immovable cultural heritage of Georgia. "
-        s += "The date is not given in the register. " if undated else "Date by the register: %s%s. " % (d, ("; the end of the range (%d) is used on the timeline" % frm) if approx else "")
+        if undated:
+            s += "The date is not given in the register. "
+        elif is_wp:
+            s += "Date by Wikipedia (%s): %s%s. " % (mon_src, d, ("; the end of the range (%d) is used on the timeline" % frm) if approx else "")
+        else:
+            s += "Date by the register: %s%s. " % (d, ("; the end of the range (%d) is used on the timeline" % frm) if approx else "")
         return s + ("The denomination is taken from the name or the description of the object in the register." if den_known else "The denomination is not given in the register.")
     s = "საქართველოს კულტურული მემკვიდრეობის უძრავ ძეგლთა რეესტრის ობიექტი. "
-    s += "რეესტრში თარიღი მითითებული არ არის. " if undated else "თარიღი რეესტრის მიხედვით: %s%s. " % (d, ("; დროის სკალაზე აღებულია დიაპაზონის ბოლო (%d)" % frm) if approx else "")
+    if undated:
+        s += "რეესტრში თარიღი მითითებული არ არის. "
+    elif is_wp:
+        s += "თარიღი ვიკიპედიის მიხედვით (%s): %s%s. " % (mon_src, d, ("; დროის სკალაზე აღებულია დიაპაზონის ბოლო (%d)" % frm) if approx else "")
+    else:
+        s += "თარიღი რეესტრის მიხედვით: %s%s. " % (d, ("; დროის სკალაზე აღებულია დიაპაზონის ბოლო (%d)" % frm) if approx else "")
     return s + ("კონფესია განსაზღვრულია რეესტრში ობიექტის სახელწოდების ან აღწერის მიხედვით." if den_known else "რეესტრში კონფესია მითითებული არ არის.")
 
 
@@ -82,7 +98,9 @@ def main():
         rel = next((k for k, rx in DEN if re.search(rx, text)), None)
         undated = not isinstance(p["ye"], (int, float))
         frm = 364 if undated else int(p["ye"])
-        y0, y1 = r.get("year_from"), r.get("year_to")
+        y0, y1 = p.get("y0"), p.get("y1")
+        if y0 is None and y1 is None:
+            y0, y1 = r.get("year_from"), r.get("year_to")
         d = "" if undated else (str(y0) if y0 == y1 or not y0 else "%s–%s" % (y0, y1))
         approx = (not undated) and p["prec"] in APPROX
         ruin = bool(RUIN.search(p["name"] or ""))
@@ -92,7 +110,7 @@ def main():
              "name": {"ru": tr[str(i)]["ru"]["name"], "en": tr[str(i)]["en"]["name"], "ka": name_ka},
              "status": ({"ru": "руины или остатки (по реестру)", "en": "ruins or remains (per the register)", "ka": "ნანგრევები ან ნაშთები (რეესტრის მიხედვით)"} if ruin else
                         {"ru": "стоит (объект реестра)", "en": "stands (a register object)", "ka": "დგას (რეესტრის ობიექტი)"}),
-             "note": {l: note(l, d, approx, frm, undated, rel is not None) for l in ("ru", "en", "ka")},
+             "note": {l: note(l, d, approx, frm, undated, rel is not None, p.get("src")) for l in ("ru", "en", "ka")},
              "src": [], "regno": p.get("reg") or "", "rid": i}
         if undated:
             e["undated"] = True

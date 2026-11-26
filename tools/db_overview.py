@@ -1,6 +1,6 @@
 """A one-page picture of the project for its owner: data/db/overview.html (a single file, no network, opens in a browser). It is made from the project index (tools/db_build.py) and says: how the data flows
 (sources > raw > curated > site), what of the site is in the index and what is not (every file of site/data), how complete every layer is, where the objects lie (a map of Tbilisi, a switch per layer), the state of the
-tasks for Gemini. Usage: python -P tools/db_overview.py   (builds the index first when it is missing)
+research tasks. Usage: python -P tools/db_overview.py   (builds the index first when it is missing)
 """
 import html
 import json
@@ -58,7 +58,10 @@ def main():
         def bar(v):
             return "<td><span class='bar'><i style='width:%d%%'></i></span> %d</td>" % (round(100 * v / n) if n else 0, v)
         rows_layers.append("<tr><td><span class='dot' style='background:%s'></span>%s</td><td class='n'>%d</td>%s%s%s%s%s</tr>" % (LAYERS[layer][1], html.escape(LAYERS[layer][0]), n, bar(named), bar(n3), bar(desc), bar(ph), bar(ver)))
-    rows_tasks = "".join("<tr><td>%s</td><td class='%s'>%s</td><td class='n'>%s</td><td class='n'>%s</td></tr>" % (t[0], t[1], {"queued": "ждёт Gemini", "empty": "пусто (сбой запуска)", "done": "готово"}[t[1]], t[2] if t[2] is not None else "", t[3] if t[3] is not None else "") for t in tasks)
+    task_labels = {"queued": "ожидает", "empty": "пустой ответ", "done": "есть ответ", "created": "подготовлено",
+                   "unbound": "прежний ответ", "received": "принято", "verified": "проверено", "applied": "применено",
+                   "conflict": "расхождение хеша", "missing": "нет входа"}
+    rows_tasks = "".join("<tr><td>%s</td><td class='%s'>%s</td><td class='n'>%s</td><td class='n'>%s</td></tr>" % (t[0], t[1], task_labels.get(t[1], t[1]), t[2] if t[2] is not None else "", t[3] if t[3] is not None else "") for t in tasks)
     page = TEMPLATE.replace("@@LAYERS@@", "".join(rows_layers)).replace("@@FILES@@", "".join(rows_files)).replace("@@TASKS@@", rows_tasks) \
         .replace("@@DATA@@", json.dumps({"pts": pts, "dist": dist, "layers": {k: v[1] for k, v in LAYERS.items()}, "names": {k: v[0] for k, v in LAYERS.items()}}, separators=(",", ":"))) \
         .replace("@@NUMS@@", "%d объектов в %d слоях · %d имён · %d фактов (из них %d проверено программой) · %d источников · %d фото · сырых записей: %s" % (sum(l[1] for l in layers), len(layers), n_names, n_facts, n_ver, n_src, n_media, ", ".join("%s %d" % r for r in raw))) \
@@ -86,9 +89,9 @@ tr.yes td:last-child{color:var(--ok)}tr.no td:last-child{color:var(--no)}td.queu
 
 <h2>1. Как идут данные</h2>
 <div class="flow">
-<div class="box"><b>Источники</b>OpenStreetMap · реестр наследия (выгрузка раз в неделю) · Википедия, Викисклад · энциклопедия 2008 · Gemini (поиск и переводы)</div><div class="arrow">→</div>
+<div class="box"><b>Источники</b>OpenStreetMap · реестр наследия (выгрузка раз в неделю) · Википедия, Викисклад · энциклопедия 2008 · исследовательские задания</div><div class="arrow">→</div>
 <div class="box"><b>Сырьё</b>файлы в <code>data/raw</code> и кэш страниц <code>data/cache</code>. В базе: таблица <code>raw_record</code> (как пришло)</div><div class="arrow">→</div>
-<div class="box"><b>Проверка и сборка</b>скрипты <code>tools/*.py</code>: проверка цитат на страницах, <code>apply_*</code>, <code>build_*</code>. Задания Gemini: <code>work/gemini</code></div><div class="arrow">→</div>
+<div class="box"><b>Проверка и сборка</b>скрипты <code>tools/*.py</code>: проверка цитат на страницах, <code>apply_*</code>, <code>build_*</code>. Очередь: <code>tools/tasks.py list</code></div><div class="arrow">→</div>
 <div class="box"><b>Сайт</b><code>site/data/*.json</code> загружаются лениво, GitHub Pages. Жалобы и фото: Worker Cloudflare</div></div>
 <div class="card mut" style="margin-top:10px">Рядом с этой цепочкой лежит <b>база</b> <code>data/db/project.sqlite</code>: она собирается из JSON и сырья командой <code>tools/db_build.py</code> и отвечает на вопросы (<code>tools/db_query.py</code>). В обратную сторону пока ничего не пишет.</div>
 
@@ -101,7 +104,7 @@ tr.yes td:last-child{color:var(--ok)}tr.no td:last-child{color:var(--no)}td.queu
 <h2>4. Где лежат объекты</h2>
 <div class="card"><div id="sw"></div><svg id="map" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet"></svg><div class="mut">Точки объектов базы по районам Тбилиси (без трамвая и улиц). Галочки включают слои.</div></div>
 
-<h2>5. Задания для Gemini</h2>
+<h2>5. Исследовательские задания</h2>
 <div class="card"><table><tr><th>Задание</th><th>Состояние</th><th>Строк</th><th>Найдено</th></tr>@@TASKS@@</table><div class="mut" style="margin-top:8px">Одна команда готовит всё: <code>python -P tools/gemini_all.py</code>. Список дел: <code>docs/PENDING.md</code>.</div></div>
 </main>
 <script>

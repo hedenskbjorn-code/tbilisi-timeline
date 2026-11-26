@@ -2,7 +2,7 @@
   python -P tools/db_query.py stats [layers]              objects of every layer and region (or of every layer), how many have a name / a description / a photo / a verified fact
   python -P tools/db_query.py missing <layer> [name|description|photo] [limit]    the objects of a layer that lack something (default: name)
   python -P tools/db_query.py langs                       names and descriptions per language of every layer (what lacks ru / en / ka)
-  python -P tools/db_query.py tasks                       the tasks for Gemini: state, rows, found
+  python -P tools/db_query.py tasks                       the last indexed snapshot of research tasks
   python -P tools/db_query.py find <words>                the full-text search of the names (all kinds: official, old, folk, alt)
   python -P tools/db_query.py near <lat> <lon> [metres]   the objects near a point (R-tree, then the distance)
   python -P tools/db_query.py sql "<SELECT ...>"           any SELECT (the connection is read-only)

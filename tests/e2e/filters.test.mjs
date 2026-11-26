@@ -14,6 +14,7 @@ test.before(async () => {
   browser = await launch();
   page = await openPage(browser, URL_());
   await waitReady(page);
+  if (await page.evaluate(() => document.getElementById("filters").hidden)) await page.click("#btnFilters");
 });
 test.after(async () => { await page.ctx.close(); await browser.close(); server.srv.close(); });
 
@@ -25,46 +26,64 @@ const openAll = () => ev(() => document.querySelectorAll("#filters details.fsec"
 const secs = () => ev(() => Object.fromEntries([...document.querySelectorAll("#filters details.fsec")].map((d) => [d.dataset.sec, d.open])));
 const counter = (sid) => ev((s) => document.querySelector(`#filters details.fsec[data-sec="${s}"] .cnt`).textContent, sid);
 
-test("four blocks: only the layers by year are open (a wide screen and a phone alike), the rest closed; every block has a counter", async () => {
-  assert.deepEqual(await secs(), { "f-base": false, "f-city": false, "f-layers": true, "f-hist": false });
-  for (const s of ["f-base", "f-city", "f-layers", "f-hist"]) assert.match(await counter(s), /^\d+\/\d+$/, s);
+test("two blocks: base map and more options; every block has a counter", async () => {
+  assert.deepEqual(await secs(), { "f-base": true, "f-adv": true });
+  for (const s of ["f-base", "f-adv"]) assert.match(await counter(s), /^\d+\/\d+$/, s);
   assert.equal(await ev(() => document.querySelector("#secCity > summary").textContent), "The city in this year", "the title of the left panel keeps its own key");
   await openAll();
 });
 
-test("a phone opens one block (layers by year)", async () => {
-  const p2 = await openPage(browser, URL_(), { width: 390, height: 844 });
+test("a phone opens base map and keeps more options closed for visitors", async () => {
+  const p2 = await openPage(browser, URL_("&groups=1"), { width: 390, height: 844 });
   await waitReady(p2);
   const st = await p2.evaluate(() => Object.fromEntries([...document.querySelectorAll("#filters details.fsec")].map((d) => [d.dataset.sec, d.open])));
-  assert.deepEqual(st, { "f-base": false, "f-city": false, "f-layers": true, "f-hist": false });
-  const cnt = await p2.evaluate(() => [...document.querySelectorAll("#filters details.fsec .cnt")].map((c) => c.textContent));   // the panel itself is closed on a phone, the counters still count
-  assert.equal(cnt.length, 4);
+  assert.deepEqual(st, { "f-base": true, "f-adv": false });
+  const cnt = await p2.evaluate(() => [...document.querySelectorAll("#filters details.fsec .cnt")].map((c) => c.textContent));
+  assert.equal(cnt.length, 2);
   for (const c of cnt) assert.match(c, /^[1-9]\d*\/\d+$/, "a counter of a closed panel: " + c);
   await p2.ctx.close();
 });
 
-test("the counter follows the check boxes, also when a layer is switched on by itself", async () => {
-  const [on0, all0] = (await counter("f-city")).split("/").map(Number);
+test("the counter follows the check boxes, and lost preset hides districts/places", async () => {
+  const [on0, all0] = (await counter("f-adv")).split("/").map(Number);
   await page.setChecked("#showBnd", false);
-  assert.equal(await counter("f-city"), `${on0 - 1}/${all0}`);
+  assert.equal(await counter("f-adv"), `${on0 - 1}/${all0}`);
   await page.setChecked("#showBnd", true);
-  assert.equal(await counter("f-city"), `${on0}/${all0}`);
-  const [e0] = (await counter("f-layers")).split("/").map(Number);
+  assert.equal(await counter("f-adv"), `${on0}/${all0}`);
+  const [e0] = (await counter("f-adv")).split("/").map(Number);
   await ev(() => { document.getElementById("showEdu").checked = true; document.getElementById("showEdu").dispatchEvent(new Event("change", { bubbles: true })); });
-  assert.equal((await counter("f-layers")).split("/").map(Number)[0], e0 + 1);
-  await page.setChecked("#showEdu", false);
+  assert.equal((await counter("f-adv")).split("/").map(Number)[0], e0 + 1);
+  await page.click('#fpresets button[data-preset="lost"]');
+  assert.equal(await checked("showLost"), true);
+  assert.equal(await checked("showGhost"), true);
+  assert.equal(await checked("showDistricts"), false, "lost preset hides districts");
+  assert.equal(await checked("showPlaces"), false, "lost preset hides places");
+  assert.equal(await checked("showResid"), false);
+  await page.click('#fpresets button[data-preset="hist"]');
+  assert.equal(await checked("showResid"), true);
+  assert.equal(await checked("showEdu"), false);
+
+  // Regression: 0% opacity is restored on lost preset; active swipe is turned off when switching presets
+  await ev(() => { const o = document.getElementById("op"); o.value = "0"; o.dispatchEvent(new Event("input", { bubbles: true })); });
+  await page.click('#fpresets button[data-preset="lost"]');
+  assert.ok(+(await ev(() => document.getElementById("op").value)) > 0, "lost preset restores non-zero plan opacity");
+  await page.click("#thenBtn");
+  assert.equal(await checked("showSwipe"), true);
+  await page.click('#fpresets button[data-preset="trans"]');
+  assert.equal(await checked("showSwipe"), false, "switching preset turns off active swipe");
+  await page.click("#filtersReset");
 });
 
 test("the open state of a block is remembered after a reload; 'Reset filters' does not touch it", async () => {
-  await page.click('#filters details.fsec[data-sec="f-city"] > summary');
-  assert.equal((await secs())["f-city"], false, "was open, now closed");
+  await page.click('#filters details.fsec[data-sec="f-base"] > summary');
+  assert.equal((await secs())["f-base"], false, "was open, now closed");
   await page.reload();
   await waitReady(page);
-  assert.equal((await secs())["f-city"], false, "stays closed after the reload");
-  assert.equal((await secs())["f-layers"], true);
-  await page.click('#filters details.fsec[data-sec="f-city"] > summary');
+  if (await ev(() => document.getElementById("filters").hidden)) await page.click("#btnFilters");
+  assert.equal((await secs())["f-base"], false, "stays closed after the reload");
+  await page.click('#filters details.fsec[data-sec="f-base"] > summary');
   await openAll();
-  assert.equal(await ev(() => document.querySelector('#filters details.fsec[data-sec="f-city"]').open), true);
+  assert.equal(await ev(() => document.querySelector('#filters details.fsec[data-sec="f-base"]').open), true);
 });
 
 test("the modes are not in the panel: the boxes are hidden, the buttons are on the map", async () => {
@@ -83,10 +102,8 @@ test("the modes are not in the panel: the boxes are hidden, the buttons are on t
   assert.equal(await ev(() => document.getElementById("map").classList.contains("here")), false);
 });
 
-test("the legend of a layer stands under its check box and is really hidden while the layer is off", async () => {
+test("the legend of a layer stands in f-layers and is really hidden while the layer is off", async () => {
   for (const [chk, leg] of [["showRel", "relLegend"], ["showSci", "sciLegend"], ["showEdu", "eduLegend"]]) {
-    // the legend stands right under the box, or (the box is in a group of the panel) right after its group, the legend of the next box of the group coming after it
-    assert.equal(await ev(([c, l]) => { const lab = document.getElementById(c).closest("label"), g = lab.closest(".gm"), start = g || lab; return [start.nextElementSibling, start.nextElementSibling && start.nextElementSibling.nextElementSibling].some((e) => e && e.id === l); }, [chk, leg]), true, leg + " follows " + chk);
     await page.setChecked("#" + chk, true);
     assert.equal(await shown(leg), true, leg + " is on the screen with the layer on");
     await page.setChecked("#" + chk, false);

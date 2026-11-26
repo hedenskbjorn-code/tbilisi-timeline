@@ -1,4 +1,4 @@
-"""The task for Gemini: the Georgian text of two items of the entry 1.9.0 of site/data/changelog.json that were corrected / added after the first version of the entry (2026-11-24):
+"""The task for a research agent: the Georgian text of two items of the entry 1.9.0 of site/data/changelog.json that were corrected / added after the first version of the entry (2026-11-24):
   "panel": the item about the panel of the filters (rewritten: the rows "near me" / "only without a photo" are under the head and only in the mode of photo collecting; one block at a time on a phone; five NEW steps of the tour);
   "streets": a NEW item: lines of 113 streets, dates of nine register objects, five district points moved to the urban core, three duplicates removed, the filter of the City Run route removed.
 The Russian and English texts are in this file (PANEL, STREETS); the answer results/changelog_190.json ({"panel": {"ka": "..."}, "streets": {"ka": "..."}}) is checked and put into changelog.json by tools/apply_changelog_190.py.
@@ -7,6 +7,9 @@ Until the answer is there the entry stays as it is (accurate, without these two 
 import json
 import os
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import write_task  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 PANEL = {
@@ -42,14 +45,13 @@ def main():
 - en: {STREETS['en']}
 
 ## Выход
-`C:/Projects/tbilisi-timeline/work/gemini/results/changelog_190.json`: **один JSON-объект** `{{"panel": {{"ka": "…"}}, "streets": {{"ka": "…"}}}}`. В ответе дай таблицу сомнений.
+`work/research/results/changelog_190.json`: **один JSON-объект** `{{"panel": {{"ka": "…"}}, "streets": {{"ka": "…"}}}}`. В ответе дай таблицу сомнений.
 
 ## Готовая фраза для запуска
-> Прочитай файл `C:/Projects/tbilisi-timeline/work/gemini/tasks/changelog_190.md`, выполни задание и сохрани результат в `C:/Projects/tbilisi-timeline/work/gemini/results/changelog_190.json`.
+> Прочитай файл `work/research/tasks/changelog_190.md`, выполни задание и сохрани результат в `work/research/results/changelog_190.json`.
 """
-    os.makedirs(os.path.join(R, "work", "gemini", "tasks"), exist_ok=True)
-    open(os.path.join(R, "work", "gemini", "tasks", "changelog_190.md"), "w", encoding="utf-8").write(text)
-    print("task written: work/gemini/tasks/changelog_190.md")
+    write_task("tasks/changelog_190.md", text)
+    print("task written: work/research/tasks/changelog_190.md")
 
 
 if __name__ == "__main__":

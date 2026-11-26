@@ -24,7 +24,7 @@ test("off by default and turns on with #showBattleMap", async () => {
   const vis0 = await page.evaluate(() => window.TT_E2E.map.getLayoutProperty("battle-pt", "visibility"));
   assert.equal(vis0, "none");
 
-  await page.click('details[data-sec="f-hist"] summary');
+  await page.evaluate(() => { const f = document.getElementById("filters"); if (f.hidden) document.getElementById("btnFilters").click(); const d = document.querySelector('details[data-sec="f-adv"]'); if (d && !d.open) d.open = true; });
   await page.check("#showBattleMap");
   await page.waitForTimeout(250);
   const vis1 = await page.evaluate(() => window.TT_E2E.map.getLayoutProperty("battle-pt", "visibility"));
@@ -67,6 +67,7 @@ test("clicking a battle point opens its event card and labels switch language", 
   assert.ok(/Narikala|1749|Erekle|Abdul-Beg|628|1524/i.test(infoTxt), "info card shows battle/siege details: " + infoTxt.slice(0, 120));
   assert.ok((await page.locator("#imReport").count()) === 1, "report button present");
 
+  await page.click("#btnMore");
   await page.selectOption("#lang", "ka");
   await page.waitForTimeout(250);
   const kaLabel = await page.evaluate(() => {

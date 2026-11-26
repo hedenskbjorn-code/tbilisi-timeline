@@ -427,12 +427,15 @@ if (scripts.indexOf("i18n.js") < 0 || scripts.indexOf("i18n.js") > scripts.index
 const sw = fs.readFileSync(path.join(SITE, "sw.js"), "utf8");
 for (const f of MODULES) {                                  // every module that is imported exists; the shell of the service worker holds all the modules (the site works offline)
   const code = fs.readFileSync(path.join(SITE, f), "utf8");
-  for (const m of code.matchAll(/(?:import|export)[^"';]*?from\s*"(\.[^"]+)"/g)) if (!fs.existsSync(path.join(SITE, path.dirname(f), m[1]))) err(`${f}: the module ${m[1]} does not exist`);
+  for (const m of code.matchAll(/(?:(?:import|export)[^"';]*?from\s*|import\()"(\.[^"]+)"/g)) {
+    if (!fs.existsSync(path.join(SITE, path.dirname(f), m[1].split("?")[0]))) err(`${f}: the module ${m[1]} does not exist`);
+  }
 }
 const shell = JSON.parse((sw.match(/const SHELL = (\[[^\]]*\])/) || [])[1] || "[]");
-for (const f of shell) if (f !== "./" && !fs.existsSync(path.join(SITE, f))) err(`sw.js: the file ${f} of the shell does not exist`);
-for (const f of MODULES) if (!shell.includes(f)) err(`sw.js: the module ${f} is not in the shell of the service worker`);
-for (const s of scripts) if (!s.startsWith("vendor/") && !shell.includes(s)) warns.push(`sw.js: ${s} is not in the shell (it will not work offline)`);
+const shellPaths = shell.map((url) => url.split("?")[0]);
+for (const f of shellPaths) if (!fs.existsSync(path.join(SITE, f))) err(`sw.js: the file ${f} of the shell does not exist`);
+for (const f of MODULES) if (!shellPaths.includes(f)) err(`sw.js: the module ${f} is not in the shell of the service worker`);
+for (const s of scripts) if (!shellPaths.includes(s)) err(`sw.js: ${s} is not in the shell (it will not work offline)`);
 for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v.image) && !fs.existsSync(path.join(SITE, v.image))) err(`views.json ${v.id}: the image ${v.image} does not exist`);
 
 // ---- strict schema, LLM-corruption, photos, tours, scale sync and event guards (2026-11-24) -----------------------
@@ -474,6 +477,12 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
     if (!String(v?.thumb || "").trim()) err(`photos.json ${k}: thumb is missing`);
     if (!String(v?.license || "").trim()) err(`photos.json ${k}: license is missing`);
     if (!String(v?.page || "").trim()) err(`photos.json ${k}: page is missing`);
+    if (/[\r\n]/.test(String(v?.author || "")) || /Unknown authorUnknown author/i.test(String(v?.author || ""))) {
+      err(`photos.json ${k}: dirty or multiline author`);
+    }
+    if (/\.svg(?:$|\?)/i.test(String(v?.thumb || "")) || /\.svg(?:$|\?)/i.test(String(v?.page || ""))) {
+      err(`photos.json ${k}: SVG URL is not allowed as a monument photo`);
+    }
     if (/[?&]utm_(source|medium|campaign)=/i.test(String(v?.thumb || "")) || /[?&]utm_(source|medium|campaign)=/i.test(String(v?.page || ""))) {
       err(`photos.json ${k}: utm_ tracking parameter in URL`);
     }
@@ -485,6 +494,18 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
     const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLon / 2) ** 2;
     return 2 * 6371 * Math.asin(Math.sqrt(h));
   };
+  function distanceToRouteM(stop, coords) {
+    const latScale = 6371000 * rad(1), lonScale = latScale * Math.cos(rad(stop.lat));
+    const points = coords.map(([lon, lat]) => [(lon - stop.lon) * lonScale, (lat - stop.lat) * latScale]);
+    let nearest = Infinity;
+    for (let i = 1; i < points.length; i++) {
+      const [x, y] = points[i - 1], [endX, endY] = points[i];
+      const dx = endX - x, dy = endY - y, lengthSquared = dx * dx + dy * dy;
+      const t = lengthSquared ? Math.max(0, Math.min(1, -(x * dx + y * dy) / lengthSquared)) : 0;
+      nearest = Math.min(nearest, Math.hypot(x + t * dx, y + t * dy));
+    }
+    return nearest;
+  }
   for (const file of ["data/mtskheta_tour.json", "data/museum_tours.json"]) {
     const tour = data[file];
     if (!Array.isArray(tour?.parts) || !tour.parts.length) { err(`${file}: no parts`); continue; }
@@ -502,6 +523,10 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
         const s = stops[idx];
         const w = `${file} ${p.id} stop ${s.id || s.n}`;
         if (!(Number.isFinite(s.lat) && Number.isFinite(s.lon))) err(`${w}: missing coordinates`);
+        else if (file === "data/mtskheta_tour.json" && p.id === "armazi") {
+          const distanceM = distanceToRouteM(s, coords);
+          if (distanceM > 100) err(`${w}: ${Math.round(distanceM)} m from the route (maximum 100 m)`);
+        }
         if (idx > 0 && Number.isFinite(s.leg_m)) {
           const directM = havKm([stops[idx - 1].lon, stops[idx - 1].lat], [s.lon, s.lat]) * 1000;
           if (directM > 50 && s.leg_m < directM * 0.8) err(`${w}: leg_m (${s.leg_m} m) < direct distance (${Math.round(directM)} m)`);
@@ -546,13 +571,89 @@ if (ev) {
   }
 }
 
+// ---- cross-layer date consistency: religious.json (rid) vs monuments.json ------------------------------
+{
+  const monById = new Map((data["data/monuments.json"]?.features || []).map((f) => [f.properties.id, f.properties]));
+  for (const r of data["data/religious.json"] || []) {
+    if (r.rid == null || r.id === "reg3049") continue; // reg3049 keeps verified 1863-1864 date from patch 1.8.1 (religious_data.test.mjs)
+    const m = monById.get(r.rid);
+    if (!m) { err(`religious.json ${r.id}: rid ${r.rid} not found in monuments.json`); continue; }
+    if (typeof m.ye === "number") {
+      if (r.undated) err(`religious.json ${r.id}: marked undated while monuments.json has ye=${m.ye}`);
+      if (r.from !== m.ye) err(`religious.json ${r.id}: from=${r.from} !== monuments.json ye=${m.ye}`);
+      const wantDate = (m.y0 != null && m.y1 != null) ? (m.y0 === m.y1 ? String(m.y0) : `${m.y0}–${m.y1}`) : null;
+      if (wantDate && r.date !== wantDate) err(`religious.json ${r.id}: date="${r.date}" !== monuments.json "${wantDate}"`);
+    } else {
+      if (!r.undated || r.from !== 364 || r.date !== "") err(`religious.json ${r.id}: undated mismatch with monuments.json`);
+    }
+  }
+}
+
+// ---- dataset ID uniqueness (preserving valid id=0) and photo references ---------------------------------
+{
+  const photos = data["data/photos.json"] || {};
+  const layers = [
+    ["data/monuments.json", (data["data/monuments.json"]?.features || []).map((f) => f.properties), true],
+    ["data/lost.json", (data["data/lost.json"]?.features || []).map((f) => ({ id: f.id, ...(f.properties || {}) })), true],
+    ["data/religious.json", data["data/religious.json"] || [], true],
+    ["data/religious_osm.json", data["data/religious_osm.json"]?.items || [], true],
+    ["data/science.json", data["data/science.json"] || [], true],
+    ["data/education.json", data["data/education.json"] || [], true],
+    ["data/museums.json", data["data/museums.json"] || [], true],
+    ["data/places.json", data["data/places.json"]?.items || [], true],
+    ["data/sculptures.json", data["data/sculptures.json"]?.items || [], false],
+    ["data/plaques.json", data["data/plaques.json"]?.items || [], false],
+    ["data/modernism.json", data["data/modernism.json"]?.items || [], false],
+  ];
+  for (const [file, items, checkPh] of layers) {
+    const seen = new Set();
+    for (let i = 0; i < items.length; i++) {
+      const it = items[i];
+      if (it.id === null || it.id === undefined || it.id === "") { err(`${file}[${i}]: missing id`); continue; }
+      if (seen.has(it.id)) err(`${file}: duplicate id ${it.id}`);
+      seen.add(it.id);
+      if (checkPh && it.ph) {
+        for (const ph of String(it.ph).split("|").map((x) => x.trim()).filter(Boolean)) {
+          if (!(ph in photos)) err(`${file} ${it.id}: photo "${ph}" not found in photos.json`);
+        }
+      }
+    }
+  }
+}
+
+// ---- unified object catalog (tools/build_catalog.py) ----------------------------------------------------
+{
+  const cat = data["data/catalog.json"];
+  if (!cat || !Array.isArray(cat.items) || !cat.by_ref) err("data/catalog.json: missing or invalid (run python -P tools/build_catalog.py)");
+  else {
+    const known = new Set([
+      ...(data["data/monuments.json"]?.features || []).map((f) => `o:${f.properties.id}`),
+      ...(data["data/religious.json"] || []).map((x) => `rl:${x.id}`),
+      ...(data["data/science.json"] || []).map((x) => `sc:${x.id}`),
+      ...(data["data/education.json"] || []).map((x) => `ed:${x.id}`),
+      ...(data["data/museums.json"] || []).map((x) => `mu:${x.id}`),
+    ]);
+    const seenIds = new Set();
+    const seenRefs = new Set();
+    for (const it of cat.items) {
+      if (!it.id || seenIds.has(it.id)) err(`data/catalog.json: invalid or duplicate id ${it.id}`);
+      seenIds.add(it.id);
+      for (const ref of it.refs || []) {
+        if (!known.has(ref)) err(`data/catalog.json ${it.id}: unknown ref ${ref}`);
+        if (seenRefs.has(ref)) err(`data/catalog.json: ref ${ref} appears in multiple catalog items`);
+        seenRefs.add(ref);
+        if (cat.by_ref[ref] !== it.id) err(`data/catalog.json: by_ref[${ref}] mismatch`);
+      }
+    }
+  }
+}
+
 // ---- cache-busting manifest (tools/gen_manifest.py) and CI e2e shard coverage ----------------------------
 {
   const mf = data["data/manifest.json"];
   if (!mf || !mf.v || !mf.f) err("data/manifest.json: missing (run python -P tools/gen_manifest.py)");
   else {
-    const norm = (p) => fs.readFileSync(p, "utf8").replace(/\r\n/g, "\n");
-    const sha8 = (p) => crypto.createHash("sha256").update(norm(p), "utf8").digest("hex").slice(0, 8);
+    const sha8 = (p) => crypto.createHash("sha256").update(fs.readFileSync(p).toString("latin1").replace(/\r\n/g, "\n"), "latin1").digest("hex").slice(0, 8);
     const dataFiles = fs.readdirSync(path.join(SITE, "data")).filter((f) => f.endsWith(".json") && f !== "manifest.json").sort();
     for (const f of dataFiles) {
       const want = sha8(path.join(SITE, "data", f));
@@ -561,14 +662,23 @@ if (ev) {
     const msJs = path.join(SITE, "vendor", "minisearch.js");
     if (fs.existsSync(msJs) && mf.f["vendor/minisearch.js"] !== sha8(msJs)) err("data/manifest.json: hash mismatch for vendor/minisearch.js (run python -P tools/gen_manifest.py)");
     const idxHtml = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
-    const appH = crypto.createHash("sha256").update(norm(path.join(SITE, "app.js")), "utf8");
-    for (const jf of fs.readdirSync(path.join(SITE, "js")).filter((f) => f.endsWith(".js")).sort()) {
-      appH.update(norm(path.join(SITE, "js", jf)), "utf8");
+    const appJs = fs.readFileSync(path.join(SITE, "app.js"), "utf8");
+    for (const f of MODULES.filter((p) => p !== "app.js")) {
+      const url = `${f}?v=${sha8(path.join(SITE, f))}`;
+      if (!appJs.includes(`"./${url}"`) || !shell.includes(url)) err(`${f}: module import and offline shell must both use ${url}`);
     }
-    const wantApp = appH.digest("hex").slice(0, 8);
+    const wantApp = sha8(path.join(SITE, "app.js"));
     if (!idxHtml.includes(`src="app.js?v=${wantApp}"`)) err(`site/index.html: app.js?v=${wantApp} is out of date (run python -P tools/gen_manifest.py)`);
-    const swJs = fs.readFileSync(path.join(SITE, "sw.js"), "utf8");
-    if (!swJs.includes(`VERSION = "tt-${mf.v}"`)) err(`site/sw.js: VERSION does not match manifest v=${mf.v} (run python -P tools/gen_manifest.py)`);
+    for (const [, url] of idxHtml.matchAll(/(?:src|href)="([^"/][^"?#]*\?v=[0-9a-f]{8})"/g)) {
+      if (!shell.includes(url)) err(`sw.js: missing versioned shell resource ${url}`);
+    }
+    for (const url of shell.filter((u) => u !== "data/manifest.json")) {
+      const [rel, version] = url.split("?v=");
+      const full = path.join(SITE, rel);
+      if (fs.existsSync(full) && (version || mf.f[rel]) !== sha8(full)) err(`sw.js: hash mismatch for shell resource ${url}`);
+    }
+    if (!shell.includes("data/manifest.json")) err("sw.js: the offline shell must include its manifest");
+    if (!sw.includes(`VERSION = "tt-${mf.v}"`)) err(`site/sw.js: VERSION does not match manifest v=${mf.v} (run python -P tools/gen_manifest.py)`);
   }
   const wfPath = path.join(SITE, "..", ".github", "workflows", "pages.yml");
   if (fs.existsSync(wfPath)) {
@@ -591,6 +701,63 @@ if (ev) {
       if (!validate(data[target])) {
         const e0 = validate.errors?.[0];
         err(`${target}: schema error at ${e0?.instancePath || "/"} (${e0?.message || "invalid"})`);
+      }
+    }
+  }
+}
+
+// ---- Anti-hallucination & format bloat guards (2026-11-26) -----------------------------------------------
+{
+  // 1. Native compact JSON format guard (prevents accidental indent=1 bloating diffs and first-screen/lazy payload)
+  for (const rel of ["data/monuments.json", "data/places.json", "data/religious.json", "data/catalog.json"]) {
+    if (!fs.existsSync(path.join(SITE, rel))) continue;
+    const raw = fs.readFileSync(path.join(SITE, rel), "utf8");
+    const lines = raw.split(/\r?\n/).filter((l) => l.length > 0).length;
+    if (lines > 5) err(`${rel}: expanded to ${lines} lines (must stay compact JSON)`);
+  }
+
+  // 2. Foreign script leaks on places.json a/e and catalog_links.json phases + chronology vs monuments.json
+  const RE_BAD_FOREIGN = /[\u0370-\u03FF\u0600-\u06FFıİğĞşŞ]/;
+  const RE_CYR_LEAK = /[\u0400-\u04FF]/;
+  for (const c of data["data/places.json"]?.items || []) {
+    for (const fld of ["a", "e"]) {
+      const d = c[fld];
+      if (!d || typeof d !== "object") continue;
+      for (const lg of ["ru", "en", "ka"]) {
+        const t = String(d[lg] || "");
+        if (RE_BAD_FOREIGN.test(t)) err(`places.json ${c.id}.${fld}.${lg}: foreign script leak`);
+        if ((lg === "ka" || lg === "en") && RE_CYR_LEAK.test(t)) err(`places.json ${c.id}.${fld}.${lg}: Cyrillic character leak`);
+      }
+    }
+  }
+  const catLinksPath = path.join(SITE, "..", "data", "curated", "catalog_links.json");
+  if (fs.existsSync(catLinksPath)) {
+    const catLinks = JSON.parse(fs.readFileSync(catLinksPath, "utf8"));
+    const monById = new Map((data["data/monuments.json"]?.features || []).map((f) => [String(f.properties?.id), f.properties]));
+    for (const e of catLinks.links || []) {
+      const refs = (e.refs || []).filter((r) => r.startsWith("o:")).map((r) => r.slice(2));
+      for (const ph of e.phases || []) {
+        for (const lg of ["ru", "en", "ka"]) {
+          const t = String(ph[lg] || "");
+          if (RE_BAD_FOREIGN.test(t)) err(`catalog_links.json ${e.cat} phase.${lg}: foreign script leak`);
+          if ((lg === "ka" || lg === "en") && RE_CYR_LEAK.test(t)) err(`catalog_links.json ${e.cat} phase.${lg}: Cyrillic character leak`);
+        }
+        if (!e.conflict_note) {
+          for (const oid of refs) {
+            const m = monById.get(oid);
+            if (!m || m.y0 == null || m.y1 == null) continue;
+            if (ph.y0 != null && ph.y1 != null && (ph.y0 > m.y1 || ph.y1 < m.y0)) {
+              err(`catalog_links.json ${e.cat}: structured phase ${ph.y0}..${ph.y1} does not overlap o:${oid} ${m.y0}..${m.y1}`);
+            }
+            const comb = `${ph.ru || ""} | ${ph.en || ""} | ${ph.ka || ""}`;
+            if (/(early\s+19th|нач(?:ало|але)\s+XIX|XIX\s*ს\.?\s*დასაწყის)/i.test(comb) && m.y0 >= 1850) {
+              warns.push(`catalog_links.json ${e.cat}: text mentions early 19th c. while o:${oid} has y0=${m.y0}`);
+            }
+            if (/(late\s+19th|кон(?:ец|це)\s+XIX|XIX\s*ს\.?\s*დასასრულ)/i.test(comb) && m.y1 <= 1840) {
+              warns.push(`catalog_links.json ${e.cat}: text mentions late 19th c. while o:${oid} has y1=${m.y1}`);
+            }
+          }
+        }
       }
     }
   }

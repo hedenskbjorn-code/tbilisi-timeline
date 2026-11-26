@@ -5,6 +5,8 @@ data/warped/
 data/tbilisi_monuments.geojson
 # working files
 work/
+# Shared project instruction entry point for fresh clones.
+!/GEMINI.md
 *.bak
 *.bak[0-9]
 *.part

@@ -138,7 +138,7 @@ BAGINETI_MONUMENTS = [
         "raw_date": "ძვ. წ. IV-III სს.",
         "y0": -399,
         "y1": -201,
-        "ye": 300,
+        "ye": -201,
         "ym": -300,
         "prec": "period",
         "ph": "File:Armaztsikhe archaeological site open-air museum, Mtskheta, Georgia 18.jpg",

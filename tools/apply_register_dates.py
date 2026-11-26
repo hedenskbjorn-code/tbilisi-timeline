@@ -5,12 +5,15 @@
      objects of the site with the same kind of words (the end of the range is the year of the timeline, the middle the estimate). The rules for the era before our era are NOT used: the site has no negative years.
 Writes data/monument_date_overrides.json (the record, read by tools/build_site_data.py) and the properties y0 / y1 / ye / ym / prec / src of site/data/monuments.json (the same formulas as build_site_data.py).
 Idempotent. Usage: python -P tools/apply_register_dates.py [--dry-run]
+Use --bagineti-11904 to apply only the timeline-year correction for Bagineti #11904.
 """
 import json
 import os
 import re
 import sqlite3
 import sys
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DRY = "--dry-run" in sys.argv
@@ -28,6 +31,7 @@ DESC = {
 PERIOD_FIXES = {
     3725: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
     5061: (801, 1000, "century", "raw_date says 9th-10th c., misparsed as 331-370"),
+    5064: (400, 900, "period", "raw_date says early Middle Ages (4th-9th c.), misparsed as 400-1700"),
     6551: (601, 1000, "period", "ExactDate says transitional period (7th-10th c.), left undated"),
     6855: (901, 1500, "period", "Period says developed Middle Ages (10th-15th c.), misparsed as 331-370"),
     16051: (901, 1800, "period", "Period says developed to late Middle Ages (10th-18th c.), misparsed as 331-1570"),
@@ -43,6 +47,7 @@ PERIOD_FIXES = {
     24381: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
     26434: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
     26449: (301, 900, "period", "Period says early Middle Ages (4th-9th c.), misparsed as 331-370"),
+    26684: (1, 900, "period", "Period says late Antiquity (1st-3rd c.) to early Middle Ages (4th-9th c.), misparsed as 331-370"),
     26725: (1701, 1900, "century", "raw_date says 18th-19th c., misparsed as 331-370"),
     26799: (1501, 1700, "century", "DateRange says 16th-17th c., left undated"),
     26800: (1601, 1800, "century", "DateRange says 17th-18th c., left undated"),
@@ -62,9 +67,44 @@ RAW_DATE_FIXES = [
 ]
 
 
+def apply_bagineti_year(mon_path):
+    fix_path = Path(__file__).with_name("bagineti_11904_year_fix.json")
+    fix = json.loads(fix_path.read_bytes())
+    original = mon_path.read_bytes()
+    data = json.loads(original)
+    matches = [f["properties"] for f in data["features"] if str(f["properties"]["id"]) == str(fix["id"])]
+    if len(matches) != 1:
+        raise SystemExit(f'Expected exactly one register object #{fix["id"]}; found {len(matches)}')
+    record = matches[0]
+    if any(record.get(field) != fix[field] for field in ("raw_date", "y0", "y1")):
+        raise SystemExit(f'The source date of register object #{fix["id"]} differs from the correction input')
+    old_year = record.get("ye")
+    if old_year == fix["y1"]:
+        print(f'0 changes: #{fix["id"]} already has ye={old_year}')
+        return
+    if old_year != fix["previous_ye"]:
+        raise SystemExit(f'Unexpected ye for register object #{fix["id"]}: {old_year!r}')
+    record["ye"] = fix["y1"]
+    if not DRY:
+        updated = json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+        if original.endswith(b"\r\n"):
+            updated += b"\r\n"
+        elif original.endswith(b"\n"):
+            updated += b"\n"
+        with TemporaryDirectory(dir=mon_path.parent) as tmp:
+            staged = Path(tmp) / mon_path.name
+            staged.write_bytes(updated)
+            staged.replace(mon_path)
+    action = "Would update" if DRY else "Updated"
+    print(f'{action} 1 object: #{fix["id"]} ye {old_year} -> {record["ye"]}')
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     mon_p = os.path.join(R, "site", "data", "monuments.json")
+    if "--bagineti-11904" in sys.argv:
+        apply_bagineti_year(Path(mon_p))
+        return
     md = json.load(open(mon_p, encoding="utf-8"))
     byid = {p["properties"]["id"]: p["properties"] for p in md["features"]}
     db = sqlite3.connect("file:%s?mode=ro" % os.path.join(R, "data", "db", "project.sqlite").replace("\\", "/"), uri=True)

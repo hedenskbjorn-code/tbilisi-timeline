@@ -2,6 +2,8 @@ name: Deploy site to GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,6 +23,7 @@ jobs:
         with:
           node-version: 22
       - run: npm ci --no-audit --no-fund
+      - run: python3 -P tools/build_all.py --stage
       - run: node tests/check_data.mjs
       - run: node --test tests/*.test.mjs
   # the tests of the browser (tests/e2e): sharded across 4 parallel runners so total CI time drops from ~10 min to ~3 min;
@@ -53,7 +56,7 @@ jobs:
       - run: node --test --test-concurrency=1 ${{ matrix.files }}
   # only the main branch is published (a run on another branch checks and tests, nothing more)
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     needs: [checks, e2e]
     concurrency:
       group: pages-deploy

@@ -28,16 +28,16 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1c2b4a">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="style.css?v=9e1cc424">
+<link rel="stylesheet" href="style.css?v=9d538b6a">
 <!-- the scripts are loaded in parallel with the page and run in this order after the page is parsed -->
 <script defer src="config.js?v=36f6eee6"></script>
 <script defer src="vendor/maplibre-gl.js?v=e877fe22"></script>
-<script defer src="i18n.js?v=20a1c97e"></script>
-<script defer src="translit.js?v=2236e014"></script>
+<script defer src="i18n.js?v=611a5c1d"></script>
+<script defer src="translit.js?v=1f0144e5"></script>
 <script defer src="photo.js?v=4335926d"></script>
 <script defer src="pwa.js?v=4f2c4857"></script>
 <script defer src="support.js?v=0d64cfb5"></script>
-<script type="module" src="app.js?v=d67bfc12"></script>
+<script type="module" src="app.js?v=5c41f8cd"></script>
 </head>
 <body>
 <div id="map"></div>
@@ -48,21 +48,22 @@
 <div id="yearchip"></div>
 
 <header id="top">
-  <button id="btnInfo" class="chip" data-i="btnInfo" aria-pressed="true"></button>
-  <button id="btnFilters" class="chip" data-i="btnFilters" aria-pressed="true"></button>
-  <button id="btnViews" class="chip" data-i="btnViews" aria-pressed="false"></button>
   <button id="btnSearch" class="chip" type="button" aria-expanded="false">&#128269;</button>
-  <button id="btnMore" class="chip" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu">&#8943;</button>
+  <button id="btnFilters" class="chip" data-i="btnFilters" aria-pressed="false"></button>
+  <button id="btnInfo" class="chip" data-i="btnInfo" aria-pressed="true"></button>
+  <button id="btnViews" class="chip" data-i="btnViews" aria-pressed="false"></button>
   <h1 id="title"></h1>
   <div class="spacer"></div>
-  <div id="topRight">
-    <button id="btnSupport" class="chip" type="button">&#10084;</button>
-    <button id="btnInstall" class="chip" type="button" hidden>&#128242;</button>
-    <button id="fbOpen" class="chip" data-i="fbBtn"></button>
-    <select id="pagesSel" class="chip"></select>
-    <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
+  <select id="pagesSel" class="chip"></select>
+  <button id="btnMore" class="chip" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu">&#8943;</button>
+  <div id="moreMenu" hidden>
+    <div id="topRight">
+      <button id="btnSupport" class="chip" type="button">&#10084;</button>
+      <button id="btnInstall" class="chip" type="button" hidden>&#128242;</button>
+      <button id="fbOpen" class="chip" data-i="fbBtn"></button>
+      <select id="lang" class="chip" aria-label="Language"><option value="ka">ქართული</option><option value="en">English</option><option value="ru">Русский</option></select>
+    </div>
   </div>
-  <div id="moreMenu" hidden></div>
 </header>
 
 <div id="search" role="search" hidden>
@@ -106,14 +107,16 @@
   <label class="row"><input type="checkbox" id="viewsAll"> <span data-i="viewsAll"></span></label>
   <div id="vgrid"></div>
 </aside>
-<aside id="filters">
+<aside id="filters" hidden>
   <div class="phead"><span data-i="filtersTitle"></span><span class="pacts"><button type="button" id="filtersReset" class="chip mini" data-i="filtersReset" disabled></button><button class="pclose" data-panel="filters" aria-label="close">×</button></span></div>
-  <div class="fquick" id="fquick">
-    <label class="row" id="rowNoPhoto" hidden><input type="checkbox" id="showNoPhoto"> <span id="noPhotoL"></span></label>
-    <div class="row" id="rowNear" hidden><button type="button" id="btnNear" class="chip"></button></div>
+  <div class="fpresets" id="fpresets">
+    <button type="button" class="chip mini" data-preset="hist" data-i="presetHist"></button>
+    <button type="button" class="chip mini" data-preset="arch" data-i="presetArch"></button>
+    <button type="button" class="chip mini" data-preset="lost" data-i="presetLost"></button>
+    <button type="button" class="chip mini" data-preset="trans" data-i="presetTrans"></button>
   </div>
 
-  <details class="fsec" data-sec="f-base">
+  <details class="fsec" data-sec="f-base" open>
     <summary><span data-i="secBase"></span><span class="cnt"></span></summary>
     <label class="row"><input type="checkbox" id="showPlan" checked> <span data-i="showPlan"></span></label>
     <label class="row col">
@@ -134,24 +137,12 @@
       <div class="small" id="topoNoteRow" hidden data-i="topoNote"></div>
     </div>
   </details>
-  <details class="fsec" data-sec="f-city">
-    <summary><span data-i="secBounds"></span><span class="cnt"></span></summary>
-    <label class="row"><input type="checkbox" id="showBnd" checked> <span data-i="showBnd"></span></label>
-    <label class="row"><input type="checkbox" id="showAdmin" checked> <span data-i="showAdmin"></span></label>
-    <label class="row"><input type="checkbox" id="showDistricts" checked> <span data-i="showDistricts"></span></label>
-    <label class="row"><input type="checkbox" id="showSettle" checked> <span data-i="showSettle"></span></label>
-    <label class="row"><input type="checkbox" id="showWater" checked> <span data-i="showWater"></span></label>
-    <label class="row"><input type="checkbox" id="showDensity"> <span data-i="showDensity"></span></label>
-    <label class="row"><input type="checkbox" id="roadLabels" checked> <span data-i="roadLabels"></span></label>
-    <label class="row"><input type="checkbox" id="showStLabels" checked> <span data-i="showStLabels"></span></label>
-    <label class="row"><input type="checkbox" id="showStreets"> <span data-i="showStreets"></span></label>
-    <label class="row"><input type="checkbox" id="showPlaces"> <span data-i="showPlaces"></span></label>
-    <div id="placesLegend" class="small rellegend" hidden></div>
-    <label class="row sub" id="rowPlaceAreas" hidden><input type="checkbox" id="showPlaceAreas"> <span data-i="showPlaceAreas"></span></label>
-  </details>
-  <details class="fsec" data-sec="f-layers" open>
-    <summary><span data-i="secBuild"></span><span class="cnt"></span></summary>
-    <!-- groups: a master box switches all the boxes of its group (half-ticked when only some are on); the arrow opens the group -->
+  <details class="fsec" data-sec="f-adv">
+    <summary><span data-i="secAdv"></span><span class="cnt"></span></summary>
+    <div class="fquick" id="fquick">
+      <label class="row" id="rowNoPhoto" hidden><input type="checkbox" id="showNoPhoto"> <span id="noPhotoL"></span></label>
+      <div class="row" id="rowNear" hidden><button type="button" id="btnNear" class="chip"></button></div>
+    </div>
     <div class="gm" data-gm="reg">
       <div class="gmhead"><label class="row"><input type="checkbox" class="gmaster"> <span data-i="gmReg"></span></label><button type="button" class="gmtoggle chip mini" aria-expanded="false" aria-label="open the group">▸</button></div>
       <div class="gmkids" hidden>
@@ -187,14 +178,22 @@
     <label class="row"><input type="checkbox" id="showMod"> <span data-i="showMod"></span></label>
     <label class="row"><input type="checkbox" id="showLost" checked> <span data-i="showLost"></span></label>
     <label class="row sub"><input type="checkbox" id="showGhost"> <span data-i="showGhost"></span></label>
-  </details>
-  <details class="fsec" data-sec="f-hist">
-    <summary><span data-i="secHist"></span><span class="cnt"></span></summary>
+    <label class="row"><input type="checkbox" id="showBnd" checked> <span data-i="showBnd"></span></label>
+    <label class="row"><input type="checkbox" id="showAdmin" checked> <span data-i="showAdmin"></span></label>
+    <label class="row"><input type="checkbox" id="showDistricts" checked> <span data-i="showDistricts"></span></label>
+    <label class="row"><input type="checkbox" id="showSettle" checked> <span data-i="showSettle"></span></label>
+    <label class="row"><input type="checkbox" id="showWater" checked> <span data-i="showWater"></span></label>
+    <label class="row"><input type="checkbox" id="showDensity"> <span data-i="showDensity"></span></label>
+    <label class="row"><input type="checkbox" id="roadLabels" checked> <span data-i="roadLabels"></span></label>
+    <label class="row"><input type="checkbox" id="showStLabels" checked> <span data-i="showStLabels"></span></label>
+    <label class="row"><input type="checkbox" id="showStreets"> <span data-i="showStreets"></span></label>
+    <label class="row"><input type="checkbox" id="showPlaces"> <span data-i="showPlaces"></span></label>
+    <div id="placesLegend" class="small rellegend" hidden></div>
+    <label class="row sub" id="rowPlaceAreas" hidden><input type="checkbox" id="showPlaceAreas"> <span data-i="showPlaceAreas"></span></label>
     <label class="row"><input type="checkbox" id="show94" checked> <span data-i="show94"></span></label>
     <label class="row"><input type="checkbox" id="showBattles" checked> <span data-i="showBattles"></span></label>
     <label class="row"><input type="checkbox" id="showBattleMap"> <span data-i="showBattleMap"></span></label>
     <label class="row"><input type="checkbox" id="showRulers"> <span data-i="showRulers"></span></label>
-    <!-- transport: a group (the master box switches all its lines; the arrow opens it) -->
     <div class="gm" data-gm="tr">
       <div class="gmhead"><label class="row"><input type="checkbox" class="gmaster"> <span data-i="secTransport"></span></label><button type="button" class="gmtoggle chip mini" aria-expanded="false" aria-label="open the group">▸</button></div>
       <div class="gmkids" hidden>

@@ -62,8 +62,12 @@ await run("menu more: tap on the map", async (p) => {
 await run("card on the map (popup): tap on the map beside it", async (p) => {
   await p.click("#btnSearch"); await p.fill("#searchQ", "Mushtaidi"); await p.locator("#searchRes li").first().click();
   await p.waitForSelector(".maplibregl-popup", { timeout: 15000 }); await p.waitForTimeout(1800);
-  const box = await p.locator(".maplibregl-popup").boundingBox();
-  await tap(p, 195, box.y > 300 ? 150 : 800); return (await p.locator(".maplibregl-popup").count()) === 0;
+  const pt = await p.evaluate(() => {
+    const r = document.querySelector(".maplibregl-popup").getBoundingClientRect();
+    const tb = document.getElementById("timebar").getBoundingClientRect().bottom;
+    return { x: 195, y: r.top > tb + 30 ? Math.round(tb + 16) : Math.round(r.bottom + 20) };
+  });
+  await tap(p, pt.x, pt.y); return (await p.locator(".maplibregl-popup").count()) === 0;
 });
 await run("welcome window: tap in the corner", async (p) => {
   await p.goto(`${server.url}/?e2e=1&base=off&nostats=1&lang=en&welcome=1#1960`); await waitReady(p);

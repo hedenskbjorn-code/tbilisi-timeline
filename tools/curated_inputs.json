@@ -1,0 +1,40 @@
+{
+  "inputs": {
+    "data/curated/bagineti_tail_osrm.json": {
+      "sha256": "12161bd12155f31cde958cbe8d07f57dfe7b8c94f13c3212ec2007b193b24b9b",
+      "bytes": 7535
+    },
+    "data/curated/catalog_links.json": {
+      "sha256": "52e0f476437b9aef461318ee650902d0b19498eb51599067c8d6660e6cd9fd48",
+      "bytes": 30629
+    },
+    "data/curated/monument_photos_geo.json": {
+      "sha256": "743369418ad928a369ad1d10c29815ec0dd7d2651a56e2d922189a17c694be33",
+      "bytes": 20352
+    },
+    "data/curated/monuments_names_verified.json": {
+      "sha256": "39c604d3bd0874e6de1b6a87f70108cae865789920b5a73ab66035d11b086b9d",
+      "bytes": 44991
+    },
+    "data/curated/monuments_verified.json": {
+      "sha256": "52f8c1151fd561ce9a579577b3ab56f016b286bfe4a0367828d5b87fa2dd5422",
+      "bytes": 73687
+    },
+    "data/curated/mtskheta_tour_base.json": {
+      "sha256": "349666e1b348f8b748ab813256fe713f1b62fb2b985197f22ed086281007810b",
+      "bytes": 124462
+    },
+    "data/curated/tbilisi_monuments_full.csv": {
+      "sha256": "7ee9555e57eca25e8b3cf2f0006d190b295ea58b4e44a3fadb6d4414845e9a62",
+      "bytes": 182048
+    },
+    "data/curated/tbilisi_plaques_osm.csv": {
+      "sha256": "0bcca7b74fe1d8c33bd6aae467c0207bcc7cdc699fd48c3a07c006c99e238403",
+      "bytes": 360238
+    },
+    "data/curated/wiki_intros.json": {
+      "sha256": "c24a0169fb4b058a69c6310408a727557b71076633df01306c14e5655e8286c7",
+      "bytes": 470596
+    }
+  }
+}

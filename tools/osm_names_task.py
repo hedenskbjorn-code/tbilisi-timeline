@@ -1,6 +1,6 @@
-"""The task for Gemini: the names, in ka / ru / en, of the named objects of OpenStreetMap that no card of the site has yet (the section 4 of tools/db_gaps.py): quarters / neighbourhoods / suburbs, squares and named bridges
+"""The task for a research agent: the names, in ka / ru / en, of the named objects of OpenStreetMap that no card of the site has yet (the section 4 of tools/db_gaps.py): quarters / neighbourhoods / suburbs, squares and named bridges
 (2026-11-24: 99 quarters, 16 squares, 12 bridges). Only the NAME in three languages, a point and a link to OpenStreetMap: no description is asked for and none may be made up.
-File: work/gemini/tasks/osm_names.md; answer results/osm_names.json ({"<id>": {"ka": "...", "ru": "...", "en": "..."}}). The cards are made from the answer by a script that is written when the answer is there
+File: work/research/tasks/osm_names.md; answer results/osm_names.json ({"<id>": {"ka": "...", "ru": "...", "en": "..."}}). The cards are made from the answer by a script that is written when the answer is there
 (the scheme of tools/apply_parks.py). Usage: python -P tools/osm_names_task.py
 """
 import json
@@ -10,6 +10,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from db_gaps import norm  # noqa: E402
+from paths import write_task  # noqa: E402
 
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SEL = {"quarter": "json_extract(tags,'$.place') IN ('neighbourhood','quarter','suburb')", "square": "json_extract(tags,'$.place') = 'square'",
@@ -54,16 +55,15 @@ def main():
 - Если не уверен в форме, всё равно дай лучший вариант и отметь строку в таблице сомнений ответа.
 
 ## Выход
-`C:/Projects/tbilisi-timeline/work/gemini/results/osm_names.json`: **один JSON-объект**: ключ `id` из таблицы, значение `{{"ka": "…", "ru": "…", "en": "…"}}` для **каждой** строки. В ответе дай таблицу сомнений.
+`work/research/results/osm_names.json`: **один JSON-объект**: ключ `id` из таблицы, значение `{{"ka": "…", "ru": "…", "en": "…"}}` для **каждой** строки. В ответе дай таблицу сомнений.
 
 ## Объекты
 {chr(10).join(L)}
 
 ## Готовая фраза для запуска
-> Прочитай файл `C:/Projects/tbilisi-timeline/work/gemini/tasks/osm_names.md`, выполни задание и сохрани результат в `C:/Projects/tbilisi-timeline/work/gemini/results/osm_names.json`.
+> Прочитай файл `work/research/tasks/osm_names.md`, выполни задание и сохрани результат в `work/research/results/osm_names.json`.
 """
-    os.makedirs(os.path.join(R, "work", "gemini", "tasks"), exist_ok=True)
-    open(os.path.join(R, "work", "gemini", "tasks", "osm_names.md"), "w", encoding="utf-8").write(text)
+    write_task("tasks/osm_names.md", text)
     import collections
     print("rows:", len(rows), dict(collections.Counter(r[0] for r in rows)), "| with ru:", sum(1 for r in rows if r[3]), "| with en:", sum(1 for r in rows if r[4]))
 

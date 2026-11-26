@@ -10,6 +10,7 @@ test.before(async () => {
   browser = await launch();
   page = await openPage(browser, `${server.url}/?e2e=1&groups=1&base=off&nostats=1&lang=en#1990`);
   await waitReady(page);
+  await page.evaluate(() => { const f = document.getElementById("filters"); if (f.hidden) document.getElementById("btnFilters").click(); document.querySelector('#filters details[data-sec="f-adv"]').open = true; });
 });
 test.after(async () => { await page.ctx.close(); await browser.close(); server.srv.close(); });
 
@@ -49,10 +50,20 @@ test("the master box switches every box of its group, and the layers follow", as
 test("a single box changes its master to half-ticked, and the master boxes are not counted nor do they wake the reset button", async () => {
   await page.locator("#showResid").evaluate((e) => { e.checked = false; e.dispatchEvent(new Event("change", { bubbles: true })); });
   assert.deepEqual(await grp("reg"), { open: false, checked: false, half: true });
-  const cnt = await page.locator("details[data-sec=f-layers] > summary .cnt").evaluate((e) => e.textContent);
+  const cnt = await page.locator("details[data-sec=f-adv] > summary .cnt").evaluate((e) => e.textContent);
   const [on, all] = cnt.split("/").map(Number);
-  const boxes = await ev(() => [...document.querySelectorAll("details[data-sec=f-layers] input[type=checkbox]:not(.gmaster)")].filter((c) => { for (let e = c; e && e.dataset?.sec !== "f-layers"; e = e.parentElement) if (e.hidden && !e.classList.contains("gmkids")) return false; return true; }));
-  assert.ok(all >= 10 && on < all, "the counter counts the boxes of the section: " + cnt);
+  assert.ok(all >= 10 && on < all, "the counter counts the boxes of the fine-tuning section: " + cnt);
   await page.locator("#showResid").evaluate((e) => { e.checked = true; e.dispatchEvent(new Event("change", { bubbles: true })); });
   assert.equal(await page.locator("#filtersReset").isDisabled(), true, "everything is as by default again: the reset button is off");
+});
+
+test("selecting Cycling School from search turns on showEdu and syncs .gm[data-gm=sci] master checkbox", async () => {
+  await page.click("#btnSearch");
+  await page.fill("#searchQ", "Cycling School");
+  await page.waitForSelector("#searchRes li");
+  await page.locator("#searchRes li", { hasText: "🏫" }).first().click();
+  await page.locator(".maplibregl-popup .pop").waitFor({ timeout: 15000 });
+  assert.deepEqual(await kidsOf(["showSci", "showEdu", "showMus"]), [true, true, true]);
+  const st = await grp("sci");
+  assert.deepEqual({ checked: st.checked, half: st.half }, { checked: true, half: false });
 });

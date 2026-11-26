@@ -1,6 +1,6 @@
-:root { --ep0:#e0cfa8; --ep1:#bdd5c4; --ep2:#bfd3e8; --ep3:#e6c4c4; --ep4:#d3c5e6; --bg:#fbfaf7; --fg:#201c18; --muted:#6d655c; --panel:#fbfaf7ee; --line:#0002; --accent:#b4412c; --nat:#7a2bb4; --old:#3d5a80; }
+:root { --ep0:#e0cfa8; --ep1:#bdd5c4; --ep2:#bfd3e8; --ep3:#e6c4c4; --ep4:#d3c5e6; --bg:#fbfaf7; --fg:#201c18; --muted:#6d655c; --panel:#fbfaf7ee; --line:#0002; --accent:#b4412c; --accent-bg:#b4412c; --on-accent:#fff; --nat:#7a2bb4; --old:#3d5a80; }
 @media (prefers-color-scheme: dark) {
-  :root { --ep0:#5e5236; --ep1:#38523f; --ep2:#35495f; --ep3:#603c3c; --ep4:#4b3f60; --bg:#17181b; --fg:#ece8e1; --muted:#a39b90; --panel:#1d1f23ee; --line:#fff2; --accent:#e0735c; --nat:#c08bf0; --old:#8fb0d8; }
+  :root { --ep0:#5e5236; --ep1:#38523f; --ep2:#35495f; --ep3:#603c3c; --ep4:#4b3f60; --bg:#17181b; --fg:#ece8e1; --muted:#a39b90; --panel:#1d1f23ee; --line:#fff2; --accent:#e0735c; --accent-bg:#8f2d1b; --on-accent:#fff; --nat:#c08bf0; --old:#8fb0d8; }
 }
 * { box-sizing:border-box; }
 html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
@@ -87,9 +87,9 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
 #ticks span::before { content:""; display:block; width:1px; height:5px; background:var(--muted); margin:0 auto 1px; }
 #ticks span.plan { color:var(--accent); font-weight:600; }
 #ticks span.plan::before { background:var(--accent); height:8px; }
-.maplibregl-popup-content { background:var(--bg); color:var(--fg); font:13px/1.4 system-ui,sans-serif; max-width:300px; }
+.maplibregl-popup-content { background:var(--bg); color:var(--fg); font:15px/1.45 system-ui,sans-serif; max-width:300px; }
 .maplibregl-popup-tip { border-top-color:var(--bg)!important; border-bottom-color:var(--bg)!important; }
-.pop h3 { margin:0 0 4px; font-size:14px; }
+.pop h3 { margin:0 0 6px; font-size:16px; line-height:1.3; }
 .pop .k { color:var(--muted); }
 .pop div { margin-top:3px; }
 @media (max-width:640px) { #year { font-size:30px; } }
@@ -100,7 +100,7 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
 .ph.small { display:inline-block; width:calc(50% - 4px); vertical-align:top; }
 .ph.small:nth-of-type(2) { margin-right:6px; }
 .ph figcaption { font-size:11px; color:var(--muted); margin-top:2px; overflow-wrap:anywhere; }
-.pop .small { font-size:11px; }
+.pop .small { font-size:12px; }
 .pop .nearby { margin-top:8px; padding-top:6px; border-top:1px solid var(--line); color:var(--muted); line-height:1.5; }
 .pop .nearby a { color:inherit; text-decoration:underline; }
 
@@ -475,15 +475,27 @@ body.stale #side, body.stale #views { opacity:.55; }
 /* the keyboard focus is visible (only for the keyboard, not for the mouse) */
 :focus-visible { outline:2px solid var(--accent, #1c7ed6); outline-offset:2px; }
 input[type=range]:focus-visible { outline-offset:4px; }
-/* the right group of the top bar: on a wide screen in the bar, on a phone in the menu "..." (app.js moves it) */
-#topRight { display:flex; align-items:center; gap:10px; }
-#btnMore { display:none; }
+/* the right group of the top bar: lives in the "..." menu across all widths so the top bar stays clean */
+#top { z-index:8; }
+#topRight { display:flex; flex-direction:column; align-items:stretch; gap:8px; }
+#btnMore { display:inline-block; min-width:40px; padding:4px 10px; font-size:18px; line-height:1; }
+#moreMenu { position:absolute; top:100%; right:max(8px, env(safe-area-inset-right)); z-index:20; width:min(260px, calc(100vw - 16px)); max-height:calc(100dvh - 64px - var(--safe-top, 0px) - var(--safe-bottom, 0px)); box-sizing:border-box; overflow-y:auto; overscroll-behavior:contain; padding:8px; border-radius:10px; background:var(--panel); box-shadow:0 4px 18px #0006; display:flex; flex-direction:column; gap:8px; pointer-events:auto; }
+#moreMenu[hidden] { display:none; }
+#moreMenu .chip, #moreMenu select { width:100%; min-height:40px; font-size:14px; text-align:left; padding:8px 12px; box-sizing:border-box; }
+#moreMenu #btnSupport { display:block; }
+#moreMenu #fbOpen { font-size:14px; padding:8px 12px; }
+#moreMenu #fbOpen::before { content:none; }
+#moreMenu #btnSupport::after, #moreMenu #btnInstall::after { content:attr(title); margin-left:10px; font-size:14px; }
+.fpresets { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 4px; }
+.fpresets .chip { font-size:12px; padding:4px 8px; }
+.fpresets .chip[aria-pressed="true"] { background:var(--accent-bg); color:var(--on-accent); border-color:var(--accent-bg); }
+.chip.primary { background:var(--accent-bg); color:var(--on-accent); border-color:var(--accent-bg); }
+.wel-sc { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 6px; }
+.backsearch { margin-bottom:6px; font-size:12px; }
 @media (max-width:640px) {
   :root { --safe-top: env(safe-area-inset-top, 0px); --safe-bottom: env(safe-area-inset-bottom, 0px); }
   #btnMore { display:inline-block; min-width:44px; min-height:40px; font-size:20px; line-height:1; padding:6px 10px; }
   #top { z-index:8; gap:6px; padding-top:calc(8px + var(--safe-top)); padding-left:max(8px, env(safe-area-inset-left)); padding-right:max(8px, env(safe-area-inset-right)); }
-  #moreMenu { position:absolute; top:100%; right:max(8px, env(safe-area-inset-right)); z-index:20; width:min(260px, calc(100% - 16px)); padding:8px; border-radius:10px; background:var(--panel); box-shadow:0 4px 18px #0006; display:flex; flex-direction:column; gap:8px; pointer-events:auto; }
-  #moreMenu[hidden] { display:none; }
   #moreMenu #topRight { flex-direction:column; align-items:stretch; gap:8px; }
   #moreMenu .chip, #moreMenu select { width:100%; min-height:44px; font-size:14px; text-align:left; padding:8px 12px; box-sizing:border-box; }
   #moreMenu #btnSupport { display:block; }
@@ -513,8 +525,6 @@ input[type=range]:focus-visible { outline-offset:4px; }
 @media (min-width:641px) and (max-width:1099px) {
   #top { z-index:8; }                                       /* above the time bar and the panels: the open menu must not hide behind them */
   #btnMore { display:inline-block; min-width:44px; min-height:40px; font-size:20px; line-height:1; padding:6px 10px; }
-  #moreMenu { position:absolute; top:100%; right:max(8px, env(safe-area-inset-right)); z-index:20; width:min(260px, calc(100% - 16px)); padding:8px; border-radius:10px; background:var(--panel); box-shadow:0 4px 18px #0006; display:flex; flex-direction:column; gap:8px; pointer-events:auto; }
-  #moreMenu[hidden] { display:none; }
   #moreMenu #topRight { flex-direction:column; align-items:stretch; gap:8px; }
   #moreMenu .chip, #moreMenu select { width:100%; min-height:44px; font-size:14px; text-align:left; padding:8px 12px; box-sizing:border-box; }
   #moreMenu #btnSupport { display:block; }

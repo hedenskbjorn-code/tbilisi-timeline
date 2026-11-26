@@ -146,19 +146,42 @@ test("a description found by a search: the card shows it (ru / en), the details 
 });
 
 test("slider bounce 1900 -> 1990 -> 1900 -> pause -> 1990 updates cluster source without stale sig", async () => {
-  const setSlider = (y) => page.evaluate((yr) => {
-    const sl = document.getElementById("slider");
-    sl.value = String(yr);
-    sl.dispatchEvent(new Event("input", { bubbles: true }));
-  }, y);
-  await setSlider(1900);
-  await page.waitForTimeout(240);
-  await setSlider(1990);
-  await page.waitForTimeout(40);
-  await setSlider(1900);
-  await page.waitForTimeout(240);
-  await setSlider(1990);
-  await page.waitForTimeout(240);
-  const cnt = await page.evaluate(() => window.TT_E2E.map.getSource("mons")?._data?.features?.length || 0);
-  assert.ok(cnt >= 100, `expected >= 100 sculptures in 1990 after bounce, got ${cnt}`);
+  await page.uncheck("#showMonUndated");
+  const setYear = async (year) => {
+    // The full scale maps its last segment, 1700–2026, to slider positions 350–1000.
+    const position = Math.round(350 + (year - 1700) * (1000 - 350) / (2026 - 1700));
+    const selected = await page.evaluate((value) => {
+      const slider = document.getElementById("slider");
+      slider.value = String(value);
+      slider.dispatchEvent(new Event("input", { bubbles: true }));
+      return window.TT_E2E.year;
+    }, position);
+    assert.equal(selected, year, `slider position ${position} should select ${year}`);
+  };
+  const assertClusterSource = async (year) => {
+    const expected = MON.items.filter((c) => c.y != null && c.y <= year).map((c) => c.id).sort();
+    const actual = await page.evaluate(() =>
+      window.TT_E2E.map.getSource("mons").serialize().data.features.map((f) => f.properties.id).sort());
+    assert.deepEqual(actual, expected, `dated sculptures in the cluster source for ${year}`);
+  };
+
+  const start = Date.now();
+  await page.clock.install({ time: start });
+  await page.clock.pauseAt(start + 1000);
+  try {
+    await setYear(1900);
+    await page.clock.runFor(240);
+    await assertClusterSource(1900);
+    await setYear(1990);
+    await page.clock.runFor(40);
+    await assertClusterSource(1900); // The debounce has yet to apply the newer year.
+    await setYear(1900);
+    await page.clock.runFor(240);
+    await assertClusterSource(1900);
+    await setYear(1990);
+    await page.clock.runFor(240);
+    await assertClusterSource(1990);
+  } finally {
+    await page.clock.resume();
+  }
 });

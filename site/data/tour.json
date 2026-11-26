@@ -32,174 +32,63 @@
     "timebar"
    ],
    "title": {
-    "ru": "Время",
-    "en": "Time",
-    "ka": "დრო"
+    "ru": "Шкала времени",
+    "en": "Time scale",
+    "ka": "დროის სკალა"
    },
    "text": {
-    "ru": "Двигайте ползунок или нажмите ▶: год меняет карту, слои и события. Список эпох переносит сразу в нужный период.",
-    "en": "Drag the slider or press ▶: the year changes the map, the layers and the events. The list of eras jumps straight to a period.",
-    "ka": "ამოძრავეთ სლაიდერი ან დააჭირეთ ▶-ს: წელი ცვლის რუკას, ფენებსა და მოვლენებს. ეპოქების სია მაშინვე საჭირო პერიოდში გადაგიყვანთ."
-   }
-  },
-  {
-   "rect": "map",
-   "title": {
-    "ru": "Карта",
-    "en": "Map",
-    "ka": "რუკა"
-   },
-   "text": {
-    "ru": "Нажимайте на точки, линии и названия улиц: откроется карточка с описанием и источником. Фото в карточке ведёт на страницу файла на Викискладе. Масштаб: колесо мыши, жесты или кнопки + и −.",
-    "en": "Click the dots, the lines and the names of the streets to open a card with the description and the source. The photo in a card leads to the page of the file on Wikimedia Commons. Zoom: the mouse wheel, gestures or the + and − buttons.",
-    "ka": "დააწკაპუნეთ წერტილებზე, ხაზებსა და ქუჩების სახელებზე: გაიხსნება ბარათი აღწერითა და წყაროთი. ბარათში მოცემული ფოტო ვიკისაწყობში ფაილის გვერდზე გადაგიყვანთ. მასშტაბი: მაუსის ბორბლით, ჟესტებით ან + და − ღილაკებით."
+    "ru": "Двигайте ползунок, нажмите ▶ или выберите эпоху: выбранный год меняет старый план, границы, здания и события.",
+    "en": "Drag the slider, press ▶ or pick an era: the chosen year updates the old plan, boundaries, buildings and events.",
+    "ka": "ამოძრავეთ სლაიდერი, დააჭირეთ ▶-ს ან აირჩიეთ ეპოქა: არჩეული წელი ცვლის ძველ გეგმას, საზღვრებს, შენობებსა და მოვლენებს."
    }
   },
   {
    "ids": [
-    "btnFilters",
     "btnSearch"
    ],
    "title": {
-    "ru": "Слои и поиск",
-    "en": "Layers and search",
-    "ka": "ფენები და ძიება"
+    "ru": "Поиск и единая карточка",
+    "en": "Search and unified cards",
+    "ka": "ძიება და ერთიანი ბარათი"
    },
    "text": {
-    "ru": "«Фильтры» включают слои: здания и наследие, храмы, наука, история, трамвай и другой транспорт. «Поиск» (🔍) находит объекты, улицы, в том числе по прежним названиям, и события.",
-    "en": "\"Filters\" switch the layers: buildings and heritage, churches, science, history, the tram and other transport. \"Search\" (🔍) finds objects, streets, also by their former names, and events.",
-    "ka": "„ფილტრები“ რთავს ფენებს: შენობები და მემკვიდრეობა, ტაძრები, მეცნიერება, ისტორია, ტრამვაი და სხვა ტრანსპორტი. „ძიება“ (🔍) პოულობს ობიექტებს, ქუჩებს — მათ შორის ძველი სახელწოდებებით — და მოვლენებს."
+    "ru": "Ищите улицы (в том числе по старым названиям), дома и события. В карточке показаны фазы строительства, фото на Викискладе и кнопка возврата к поиску.",
+    "en": "Search streets (including former names), houses and events. Each card shows building phases, Wikimedia Commons photos and a button back to search results.",
+    "ka": "ეძებეთ ქუჩები (ძველი სახელებითაც), სახლები და მოვლენები. ბარათში ნაჩვენებია მშენებლობის ფაზები, ვიკისაწყობის ფოტოები და ძიებაზე დაბრუნების ღილაკი."
    }
   },
   {
    "open": "filters",
    "sel": [
-    "#filters .phead"
+    "#fpresets"
    ],
    "title": {
-    "ru": "Фильтры: что где",
-    "en": "Filters: what is where",
-    "ka": "ფილტრები: რა სად არის"
+    "ru": "Режимы карты",
+    "en": "Map modes",
+    "ka": "რუკის რეჟიმები"
    },
    "text": {
-    "ru": "В окне «Фильтры» слои разложены по блокам: «Карты и планы», «Границы и улицы», «Здания и наследие», «История и транспорт». Блок раскрывается по заголовку, а число справа (например, 7/14) показывает, сколько его галочек включено.",
-    "en": "The Filters window has the layers in blocks: \"Maps and plans\", \"Boundaries and streets\", \"Buildings and heritage\", \"History and transport\". A block opens by its title, and the number on the right (for example 7/14) shows how many of its boxes are on.",
-    "ka": "„ფილტრების“ ფანჯარაში ფენები ბლოკებადაა დალაგებული: „რუკები და გეგმები“, „საზღვრები და ქუჩები“, „შენობები და მემკვიდრეობა“, „ისტორია და ტრანსპორტი“. ბლოკი სათაურით იხსნება, მარჯვნივ არსებული რიცხვი (მაგალითად, 7/14) კი აჩვენებს, რამდენი ველია ჩართული."
-   }
-  },
-  {
-   "open": "filters",
-   "section": "f-base",
-   "sel": [
-    "details[data-sec=f-base]"
-   ],
-   "title": {
-    "ru": "Старая карта",
-    "en": "The old map",
-    "ka": "ძველი რუკა"
-   },
-   "text": {
-    "ru": "Одна галочка включает старую карту выбранного года: до 1913 года это исторический план, с 1953 по 2005 год топокарта Генштаба. Ползунок меняет прозрачность, а в списке «Какая карта» источник можно выбрать вручную: только планы или один масштаб топокарты.",
-    "en": "One box switches on the old map of the chosen year: until 1913 it is the historical plan, from 1953 to 2005 the General Staff topographic map. The slider sets the transparency, and the list \"Which map\" lets you choose the source: the plans only or one scale of the topographic map.",
-    "ka": "ერთი მონიშვნით ირთვება არჩეული წლის ძველი რუკა: 1913 წლამდე ეს ისტორიული გეგმაა, 1953-დან 2005 წლამდე კი გენშტაბის ტოპოგრაფიული რუკა. სლაიდერი გამჭვირვალობას ცვლის, ხოლო „რუკის წყაროს“ სიაში შეგიძლიათ ხელით აირჩიოთ მხოლოდ გეგმები ან ტოპორუკის ერთი მასშტაბი."
-   }
-  },
-  {
-   "open": "filters",
-   "section": "f-layers",
-   "sel": [
-    "details[data-sec=f-layers] .gm[data-gm=reg] .gmhead"
-   ],
-   "title": {
-    "ru": "Группы слоёв",
-    "en": "Groups of layers",
-    "ka": "ფენების ჯგუფები"
-   },
-   "text": {
-    "ru": "Главная галочка группы включает или выключает все слои внутри неё; полугалочка значит, что включена только часть. Стрелка справа раскрывает группу, и каждую галочку можно переключить отдельно.",
-    "en": "The main box of a group switches all the layers inside it on or off; a half-ticked box means that only some are on. The arrow on the right opens the group, and every box can be switched on its own.",
-    "ka": "ჯგუფის მთავარი ველი შიგნით არსებულ ყველა ფენას რთავს ან თიშავს; ნახევრად მონიშვნა ნიშნავს, რომ ჩართულია მხოლოდ ნაწილი. მარჯვნივ ისარი ხსნის ჯგუფს და თითოეული ველის გადართვა ცალ-ცალკეც შეიძლება."
-   }
-  },
-  {
-   "open": "filters",
-   "section": "f-layers",
-   "sel": [
-    "details[data-sec=f-layers] > summary"
-   ],
-   "title": {
-    "ru": "Слои и годы",
-    "en": "Layers and years",
-    "ka": "ფენები და წლები"
-   },
-   "text": {
-    "ru": "Слои показывают то, что было к выбранному году: здание появляется в год постройки, памятник в год установки, мемориальная доска в первый год жизни, названный в надписи. Объекты без даты спрятаны: галочка «показывать и объекты без года установки» (у досок «показывать и доски без года») возвращает их. Цветные точки под слоем это его легенда.",
-    "en": "The layers show what existed by the chosen year: a building appears in the year it was built, a monument in the year it was set up, a memorial plaque in the first year of the life that its inscription names. Objects without a date are hidden: the box \"also show objects without an installation year\" (for plaques \"also show plaques without a year\") brings them back. The coloured dots under a layer are its legend.",
-    "ka": "ფენები აჩვენებს იმას, რაც არჩეული წლისთვის არსებობდა: შენობა ჩნდება აშენების წელს, ძეგლი — დადგმის წელს, მემორიალური დაფა — წარწერაში დასახელებული სიცოცხლის პირველ წელს. უთარიღო ობიექტები დამალულია: მათ აბრუნებს ველი „დადგმის წლის გარეშე არსებული ობიექტების ჩვენებაც“ (დაფებთან — „წლის გარეშე არსებული დაფების ჩვენებაც“). ფენის ქვეშ ფერადი წერტილები მისი ლეგენდაა."
-   }
-  },
-  {
-   "open": "filters",
-   "sel": [
-    "#filtersReset"
-   ],
-   "title": {
-    "ru": "Сброс фильтров",
-    "en": "Reset",
-    "ka": "ფილტრების განულება"
-   },
-   "text": {
-    "ru": "«Сбросить фильтры» возвращает всё, как при открытии страницы; кнопка неактивна, пока вы ничего не меняли. Закрыть окно можно крестиком, на телефоне ещё и касанием мимо окна.",
-    "en": "\"Reset filters\" brings everything back as when the page opened; the button is dimmed while nothing has been changed. The window is closed with the cross, and on a phone also by a tap beside it.",
-    "ka": "„ფილტრების განულება“ ყველაფერს აბრუნებს ისე, როგორც გვერდის გახსნისას იყო; ღილაკი არააქტიურია, სანამ არაფერი შეგიცვლიათ. ფანჯარა ჯვრით იხურება, ტელეფონზე კი ფანჯრის გარეთ შეხებითაც."
-   }
-  },
-  {
-   "ids": [
-    "btnViews"
-   ],
-   "title": {
-    "ru": "Виды и фото",
-    "en": "Views and photos",
-    "ka": "ხედები და ფოტოები"
-   },
-   "text": {
-    "ru": "«Виды» показывают исторические рисунки города (не планы) к выбранному году; «Все виды» снимает привязку к году. Нажмите на картинку: она откроется крупно, листайте кнопками ‹ › или клавишами ← →.",
-    "en": "\"Views\" show the historical drawings of the city (not plans) for the chosen year; \"All views\" drops the year. Click a picture to open it large and flip through with the buttons ‹ › or the keys ← →.",
-    "ka": "„ხედები“ აჩვენებს ქალაქის ისტორიულ ნახატებს (არა გეგმებს) არჩეული წლისთვის; „ყველა ხედი“ ხსნის წელზე მიბმას. დააწკაპუნეთ სურათზე: ის დიდად გაიხსნება, გადაფურცლეთ ღილაკებით ‹ › ან კლავიშებით ← →."
+    "ru": "Переключайте готовые режимы («Весь Тбилиси», «Архитектура и храмы», «Утраченный Тбилиси», «Транспорт и улицы») и настраивайте прозрачность старого плана.",
+    "en": "Switch ready modes (All Tbilisi, Architecture & churches, Lost Tbilisi, Transport & streets) and adjust the opacity of the old plan.",
+    "ka": "გადართეთ მზა რეჟიმები (მთელი თბილისი, არქიტექტურა და ტაძრები, დაკარგული თბილისი, ტრანსპორტი და ქუჩები) და შეცვალეთ ძველი გეგმის გამჭვირვალობა."
    }
   },
   {
    "ids": [
     "thenBtn",
     "hereBtn",
+    "btnViews",
     "linkBtn"
    ],
    "title": {
-    "ru": "Кнопки на карте",
-    "en": "Buttons on the map",
-    "ka": "ღილაკები რუკაზე"
+    "ru": "Тогда и сейчас",
+    "en": "Then and now",
+    "ka": "მაშინ და ახლა"
    },
    "text": {
-    "ru": "⇄ «Тогда и сейчас»: шторка между старым планом и современной картой (работает, когда включён старинный план 1735–1913). 📍 «Что было здесь»: клик по карте показывает эту точку на всех планах. 🔗 копирует ссылку на текущий вид.",
-    "en": "⇄ \"Then and now\": a swipe between the old plan and today's map (it works when an old plan of 1735–1913 is on). 📍 \"What was here\": a click on the map shows that point on every plan. 🔗 copies the link to the current view.",
-    "ka": "⇄ „მაშინ და ახლა“: ფარდა ძველ გეგმასა და თანამედროვე რუკას შორის (მუშაობს, როცა ჩართულია 1735–1913 წლების ძველი გეგმა). 📍 „რა იყო აქ“: რუკაზე დაწკაპუნება ამ წერტილს ყველა გეგმაზე აჩვენებს. 🔗 აკოპირებს მიმდინარე ხედის ბმულს."
-   }
-  },
-  {
-   "ids": [
-    "btnInfo",
-    "btnMore"
-   ],
-   "title": {
-    "ru": "Справка и меню",
-    "en": "Help and menu",
-    "ka": "ცნობა და მენიუ"
-   },
-   "text": {
-    "ru": "«Справка»: о проекте, источниках и повторный запуск этого тура. «⋯»: язык и «Сообщить об ошибке». Условные знаки: «Легенда» внизу панели «Фильтры».",
-    "en": "\"Info\": about the project, the sources and a new start of this tour. \"⋯\": the language and \"Report a problem\". The signs: \"Legend\" at the bottom of the \"Filters\" panel.",
-    "ka": "„ცნობა“: პროექტის შესახებ, წყაროები და ამ ტურის ხელახლა გაშვება. „⋯“: ენა და „შეცდომის შეტყობინება“. პირობითი ნიშნები: „პირობითი ნიშნები“ პანელ „ფილტრების“ ბოლოში."
+    "ru": "⇄ открывает шторку сравнения со старым планом (1735–1913), 📍 показывает точку на всех планах, «Виды» открывает архивные рисунки и фото, а 🔗 копирует ссылку на текущий экран.",
+    "en": "⇄ opens the swipe comparison with an old plan (1735–1913), 📍 checks a point across all plans, Views shows archival drawings and photos, and 🔗 copies a link to the current view.",
+    "ka": "⇄ ხსნის ძველ გეგმასთან (1735–1913) შედარების ფარდას, 📍 ამოწმებს წერტილს ყველა გეგმაზე, „ხედები“ აჩვენებს არქივულ ნახატებსა და ფოტოებს, 🔗 კი აკოპირებს ბმულს."
    }
   }
  ]

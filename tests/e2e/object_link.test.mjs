@@ -59,3 +59,55 @@ test("the icon of the link in a card copies the link to that object and the card
   await page.waitForFunction(() => !new URL(location.href).searchParams.has("o"), null, { timeout: 5000 });
   await page.ctx.close();
 });
+
+test("unified catalog links ?o=cat:reg:3564 and ?o=cat:cur:open_air open and show phases/related links", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru&o=cat%3Areg%3A3564#2026`);
+  await waitReady(page);
+  const pop = page.locator(".maplibregl-popup .pop");
+  await pop.waitFor({ timeout: 15000 });
+  await page.waitForSelector(".maplibregl-popup .pop .catphases", { timeout: 10000 });
+  assert.equal(await pop.locator(".catlinks").count(), 0, "same-name duplicate layer link is hidden");
+  const phTxt = await pop.locator(".catphases").innerText();
+  assert.match(phTxt, /конец VI — начало VII в/);
+  assert.match(phTxt, /XVII в/);
+  await page.ctx.close();
+
+  const page2 = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru&o=cat%3Acur%3Aopen_air#2026`);
+  await waitReady(page2);
+  const pop2 = page2.locator(".maplibregl-popup .pop");
+  await pop2.waitFor({ timeout: 15000 });
+  assert.match(await pop2.innerText(), /Читаиа/);
+  await page2.ctx.close();
+
+  const page3 = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru&o=o%3A3616#2026`);
+  await waitReady(page3);
+  const pop3 = page3.locator(".maplibregl-popup .pop");
+  await pop3.waitFor({ timeout: 15000 });
+  await page3.waitForSelector(".maplibregl-popup .pop .catphases", { timeout: 10000 });
+  const ph3 = await pop3.locator(".catphases").innerText();
+  assert.match(ph3, /IV век/);
+  assert.match(ph3, /XVI–XVII вв/);
+  await page3.ctx.close();
+});
+
+test("Mtskheta & Armazi link ?o=mt:bagineti opens card on the main map", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru&o=mt%3Abagineti#2026`);
+  await waitReady(page);
+  const pop = page.locator(".maplibregl-popup .pop");
+  await pop.waitFor({ timeout: 15000 });
+  assert.match(await pop.innerText(), /Багинети/);
+  await page.ctx.close();
+});
+
+test("Agarani Fortress ?o=o:6855 shows Wikimedia Commons photo, Wikipedia link and building phases", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru&o=o%3A6855#2026`);
+  await waitReady(page);
+  const pop = page.locator(".maplibregl-popup .pop");
+  await pop.waitFor({ timeout: 15000 });
+  await page.waitForSelector(".maplibregl-popup .pop .catphases", { timeout: 10000 });
+  const txt = await pop.innerText();
+  assert.match(txt, /Агарани/);
+  assert.match(txt, /XI–XIII вв/);
+  assert.equal(await pop.locator("img").count(), 1, "Agarani card shows photo");
+  await page.ctx.close();
+});

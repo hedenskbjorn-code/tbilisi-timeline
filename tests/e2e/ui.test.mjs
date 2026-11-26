@@ -388,3 +388,40 @@ test("MiniSearch: museum opens without error, undated register o:3394 opens, fol
   await page2.ctx.close();
   await page.ctx.close();
 });
+
+test("fallback search (without search_index.json): finds undated register object o:3394 and opens its card", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru#1887`);
+  await page.route("**/data/search_index.json*", (route) => route.abort());
+  await waitReady(page);
+  await page.click("#btnSearch");
+  await page.fill("#searchQ", "Петриашвили 35");
+  const row = page.locator("#searchRes li[data-i]").filter({ hasText: "Петриашвили" }).first();
+  await row.waitFor({ timeout: 10000 });
+  assert.match(await row.innerText(), /неизвестна \(в реестре не указана\)/i);
+  await row.click();
+  await page.locator(".maplibregl-popup .pop").waitFor({ timeout: 15000 });
+  assert.match(await page.locator(".maplibregl-popup .pop").innerText(), /Петриашвили\/35/);
+  await page.ctx.close();
+});
+
+test("unified catalog search: deduplicates multi-layer objects, shows address and period, and offers back-to-search", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=ru#1887`);
+  await waitReady(page);
+  await page.click("#btnSearch");
+  await page.waitForFunction(() => Boolean(window.MiniSearch), null, { timeout: 10000 });
+  await page.fill("#searchQ", "Атешга");
+  await page.waitForSelector("#searchRes li[data-i]", { timeout: 5000 });
+  const ateshRows = await page.locator("#searchRes li[data-i]").filter({ hasText: "Атешга" }).allInnerTexts();
+  assert.equal(ateshRows.length, 1, "Ateshgah is deduplicated to 1 catalog row: " + JSON.stringify(ateshRows));
+  await page.fill("#searchQ", "Петриашвили 35");
+  const pRow = page.locator("#searchRes li[data-i]").filter({ hasText: "Петриашвили" }).first();
+  await pRow.waitFor({ timeout: 5000 });
+  assert.match(await pRow.innerText(), /Петриашвили\/35/);
+  await pRow.click();
+  const backBtn = page.locator(".maplibregl-popup .backsearch");
+  await backBtn.waitFor({ timeout: 15000 });
+  await backBtn.click();
+  await page.waitForSelector("#search:not([hidden])");
+  assert.equal(await page.inputValue("#searchQ"), "Петриашвили 35");
+  await page.ctx.close();
+});

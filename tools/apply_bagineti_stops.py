@@ -1,5 +1,6 @@
 """Add Bagineti sub-objects (Queen's Bath, King's Bath, Six-Apsed Temple, Wine Cellar, Bath, Six-Column Hall)
 to site/data/mtskheta_tour.json (armazi part) and their Commons photos to site/data/photos.json.
+Connect the Armazi fortress stop along the mapped hiking trail and back.
 
 Idempotent: running twice produces byte-identical output. Supports --dry-run.
 """
@@ -13,6 +14,7 @@ TOUR_PATH = ROOT / "site" / "data" / "mtskheta_tour.json"
 BAK_TOUR_PATH = ROOT / "data" / "curated" / "mtskheta_tour_base.json"
 PHOTOS_PATH = ROOT / "site" / "data" / "photos.json"
 OSRM_TAIL_PATH = ROOT / "data" / "curated" / "bagineti_tail_osrm.json"
+FORTRESS_TRAIL_PATH = Path(__file__).with_name("armazi_fortress_trail.json")
 
 NEW_PHOTOS = {
     "File:Armaztsikhe archaeological site open-air museum, Mtskheta, Georgia 04.jpg": {
@@ -252,7 +254,7 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    for req in (PHOTOS_PATH, BAK_TOUR_PATH, TOUR_PATH, OSRM_TAIL_PATH):
+    for req in (PHOTOS_PATH, BAK_TOUR_PATH, TOUR_PATH, OSRM_TAIL_PATH, FORTRESS_TRAIL_PATH):
         if not req.is_file():
             raise FileNotFoundError(f"Missing required input file: {req}")
 
@@ -272,7 +274,28 @@ def main() -> int:
     cut_i = min(range(len(bak_coords)), key=lambda i: (bak_coords[i][0] - bag_pt[0]) ** 2 + (bak_coords[i][1] - bag_pt[1]) ** 2)
     prefix_coords = bak_coords[: cut_i + 1]
 
-    tour = json.loads(TOUR_PATH.read_text(encoding="utf-8"))
+    trail = json.loads(FORTRESS_TRAIL_PATH.read_text(encoding="utf-8"))
+    trail_coords = trail["coords"]
+    if len(trail_coords) < 2:
+        raise ValueError("Armazi fortress trail must contain at least two points")
+    fortress_ix = next(i for i, s in enumerate(prefix_stops) if s["id"] == "armazi_fortress")
+    fortress = prefix_stops[fortress_ix]
+    junction = min(range(len(prefix_coords)), key=lambda i: haversine_km(prefix_coords[i], trail_coords[0]))
+    if haversine_km(prefix_coords[junction], trail_coords[0]) > 0.002:
+        raise ValueError("Armazi fortress trail does not join the base route within 2 m")
+    if haversine_km(trail_coords[-1], (fortress["lon"], fortress["lat"])) > 0.020:
+        raise ValueError("Armazi fortress trail does not reach the stop within 20 m")
+    # Replace the rounded router vertex with the OSM trail junction. The return follows the same path.
+    prefix_coords[junction:junction + 1] = trail_coords + trail_coords[-2::-1]
+    trail_m = round(sum(haversine_km(a, b) for a, b in zip(trail_coords, trail_coords[1:])) * 1000)
+    for s in prefix_stops[fortress_ix:fortress_ix + 2]:
+        s["leg_m"] += trail_m
+        s["leg_min"] = max(1, round(s["leg_m"] / 70))
+    if trail["source"] not in fortress["src"]:
+        fortress["src"] = [*fortress["src"], trail["source"]]
+
+    original_tour = TOUR_PATH.read_text(encoding="utf-8")
+    tour = json.loads(original_tour)
     osrm_tail = json.loads(OSRM_TAIL_PATH.read_text(encoding="utf-8"))
     tail_coords = osrm_tail["geometry"]["coordinates"]
     tail_legs = [round(l["distance"]) for l in osrm_tail["legs"]]
@@ -299,14 +322,16 @@ def main() -> int:
         "coords": coords,
     }
 
-    if args.dry_run:
-        print(f"Would add {added_ph} photos; armazi stops={len(new_stops)}, length_km={total_km}, coords={len(coords)}")
-        return 0
-
-    if added_ph:
-        PHOTOS_PATH.write_text(json.dumps(photos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-    TOUR_PATH.write_text(json.dumps(tour, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-    print(f"updated: +{added_ph} photos, armazi stops={len(new_stops)}, length_km={total_km}, coords={len(coords)}")
+    new_tour = json.dumps(tour, ensure_ascii=False, indent=2) + "\n"
+    tour_changed = new_tour != original_tour
+    if not args.dry_run:
+        if added_ph:
+            PHOTOS_PATH.write_text(json.dumps(photos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        if tour_changed:
+            TOUR_PATH.write_text(new_tour, encoding="utf-8", newline="\n")
+    action = "would update" if args.dry_run else "updated"
+    print(f"{action}: {int(tour_changed)} tour files, {added_ph} new photos; "
+          f"armazi stops={len(new_stops)}, length_km={total_km}, coords={len(coords)}, fortress trail={trail_m} m each way")
     return 0
 
 

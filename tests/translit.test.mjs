@@ -84,3 +84,9 @@ test("date: compound rebuild dates (register #5095)", () => {
   assert.equal(G.date(raw, "ru"), "XI век; перестроен: XIV, XVII века");
   assert.equal(G.date(raw, "en"), "11th century; rebuilt: 14th, 17th centuries");
 });
+test("date: mixed BCE-CE ranges (Bagineti #6581, #11902)", () => {
+  assert.equal(G.date("ძვ. წ. IV - ახ. წ. VI სს.", "ru"), "IV в. до н. э. – VI в. н. э.");
+  assert.equal(G.date("ძვ. წ. IV - ახ. წ. VI სს.", "en"), "4th century BCE – 6th century CE");
+  assert.equal(G.date("ძვ. წ. III - ახ. წ. III სს.", "ru"), "III в. до н. э. – III в. н. э.");
+  assert.equal(G.date("ძვ. წ. III - ახ. წ. III სს.", "en"), "3rd century BCE – 3rd century CE");
+});

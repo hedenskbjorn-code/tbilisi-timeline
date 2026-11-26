@@ -1,5 +1,5 @@
-"""Makes the tasks for Gemini that fill the cards of the monuments and sculptures which have nothing to read (data/sculptures.json: 9 of 628 cards have a description, 277 a photograph).
-Objects taken: the ones that have a name in some language and have NO description and NO photograph (the nameless ones cannot be searched). Files (work/gemini/, not in git):
+"""Makes the tasks for a research agent that fill the cards of the monuments and sculptures which have nothing to read (data/sculptures.json: 9 of 628 cards have a description, 277 a photograph).
+Objects taken: the ones that have a name in some language and have NO description and NO photograph (the nameless ones cannot be searched). Files (work/research/, not in git):
 tasks/monuments_E<n>.md, batches of 30. Answer: results/monuments_E<n>.json. A description is accepted only with quotations that stand verbatim on a downloadable page; a photograph only as a file of
 Wikimedia Commons whose page names the object or is geotagged within 100 m of it (checked by the program, tools/verify_monuments_enrich.py).
 Usage: python -P tools/monuments_enrich_task.py
@@ -11,7 +11,7 @@ import sys
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 import sys as _sys
 _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from paths import GEMINI as FD  # noqa: E402
+from paths import write_task  # noqa: E402
 SIZE = 30
 
 
@@ -40,7 +40,7 @@ def main():
 Объект определяется координатами `lat, lon` и названием; **страница должна говорить об этом объекте в этом месте** (улица, район или парк совпадают; тёзки в других городах не годятся).
 
 ## Выход
-`C:/Projects/tbilisi-timeline/work/gemini/results/monuments_E{i}.json`: **один JSON-массив**, по объекту на **каждую** строку таблицы, в том же порядке:
+`work/research/results/monuments_E{i}.json`: **один JSON-массив**, по объекту на **каждую** строку таблицы, в том же порядке:
 ```json
 {{"id": "OSM_n…", "status": "found", "description": {{"ru": "…", "en": "…", "ka": "…"}}, "year": 2022, "sculptor": "как в источнике",
  "commons_file": "File:Name.jpg", "sources": [{{"url": "https://…", "lang": "en", "quote": "дословная цитата до 30 слов", "fact": "about"}}]}}
@@ -54,10 +54,9 @@ def main():
 {chr(10).join(L)}
 
 ## Готовая фраза для запуска
-> Прочитай файл `C:/Projects/tbilisi-timeline/work/gemini/tasks/monuments_E{i}.md`, выполни задание и сохрани результат в `C:/Projects/tbilisi-timeline/work/gemini/results/monuments_E{i}.json`.
+> Прочитай файл `work/research/tasks/monuments_E{i}.md`, выполни задание и сохрани результат в `work/research/results/monuments_E{i}.json`.
 """
-        os.makedirs(os.path.join(FD, "tasks"), exist_ok=True)
-        open(os.path.join(FD, f"tasks/monuments_E{i}.md"), "w", encoding="utf-8").write(text)
+        write_task(f"tasks/monuments_E{i}.md", text)
     print("objects:", len(rows), "in", len(batches), "batches of", SIZE)
 
 

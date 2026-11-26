@@ -14,12 +14,15 @@ test("the search finds a park and a building of modernism with no layer switched
   page.on("request", (r) => reqs.push(r.url()));
   await waitReady(page);
   await page.waitForFunction(() => window.TT_E2E.map.getSource("places") && window.TT_E2E.map.getSource("mods") && window.TT_E2E.map.getSource("mons"), null, { timeout: 30000, polling: 500 });
-  for (const f of ["places", "modernism", "sculptures", "plaques"]) assert.ok(reqs.some((u) => u.includes(f + ".json")), f + ".json was loaded");
+  for (const f of ["places", "modernism", "sculptures", "plaques", "mtskheta_tour"]) assert.ok(reqs.some((u) => u.includes(f + ".json")), f + ".json was loaded");
   for (const id of ["#showPlaces", "#showMod", "#showMon", "#showPlq"]) assert.equal(await page.isChecked(id), false, id + " stays off");
   await page.click("#btnSearch");
   await page.fill("#searchQ", "Vaso Godziashvili");
   await page.waitForSelector("#searchRes li");
   assert.ok((await page.locator("#searchRes").innerText()).includes("Vaso Godziashvili Garden"));
+  await page.fill("#searchQ", "Armaziskhevi");
+  await page.waitForTimeout(400);
+  assert.ok((await page.locator("#searchRes").innerText()).includes("Armaziskhevi"));
   await page.fill("#searchQ", "Palace of Rituals");
   await page.waitForTimeout(400);
   assert.ok((await page.locator("#searchRes").innerText()).includes("Palace of Rituals"));
@@ -32,6 +35,6 @@ test("without idleload the files stay lazy", async () => {
   page.on("request", (r) => reqs.push(r.url()));
   await waitReady(page);
   await page.waitForTimeout(3000);
-  assert.ok(!reqs.some((u) => /\/(places|modernism|sculptures|plaques)\.json/.test(u)));
+  assert.ok(!reqs.some((u) => /\/(places|modernism|sculptures|plaques|mtskheta_tour)\.json/.test(u)));
   await page.ctx.close();
 });
