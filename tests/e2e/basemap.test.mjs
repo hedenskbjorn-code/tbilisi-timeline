@@ -20,7 +20,7 @@ const state = () => page.evaluate(() => {
 });
 const setSel = (v) => page.locator("#topoSel").evaluate((e, v) => { e.value = v; e.dispatchEvent(new Event("input", { bubbles: true })); e.dispatchEvent(new Event("change", { bubbles: true })); }, v);   // the panel may be closed: no click
 const setBox = (on) => page.locator("#showPlan").evaluate((e, on) => { e.checked = on; e.dispatchEvent(new Event("change", { bubbles: true })); }, on);
-const setYear = async (y) => { await page.evaluate((y) => { location.hash = String(y); }, y); await page.waitForFunction((y) => window.TT_E2E.year === y, y, { timeout: 10000 }); await page.waitForTimeout(400); };
+const setYear = async (y) => { await page.evaluate((y) => { location.hash = String(y); }, y); await page.waitForFunction((y) => window.TT_E2E.year === y && !document.body.classList.contains("stale"), y, { timeout: 10000 }); };
 
 test("the controls: one checkbox, one slider, one list of sources; the old boxes are gone", async () => {
   for (const id of ["showTopo", "autoTopo", "topoOp"]) assert.equal(await page.locator("#" + id).count(), 0, id + " is gone");
