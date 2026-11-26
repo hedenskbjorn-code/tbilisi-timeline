@@ -93,6 +93,9 @@ function checkTriple(where, o, { allowEmpty = false } = {}) {
   if (count(CY, noLetters(ka0)) > 0) err(`${where}: ka contains Cyrillic: ${ka.slice(0, 60)}`);
   if (ruWords && ka.trim() && count(GE, ka) === 0) err(`${where}: ka has no Georgian letters (a foreign text?): ${ka.slice(0, 60)}`);
   if (ruWords && en.trim() && count(LAT, en) === 0) err(`${where}: en has no Latin letters: ${en.slice(0, 60)}`);
+  if (count(GE, ru) > 0 && count(CY, ru) === 0) err(`${where}: ru contains untranslated Georgian text: ${ru.slice(0, 60)}`);
+  if (count(GE, en) > 0 && count(LAT, en) === 0) err(`${where}: en contains untranslated Georgian text: ${en.slice(0, 60)}`);
+  if (count(LAT, ru) >= 4 && count(CY, ru) === 0 && !/^https?:\/\//.test(ru.trim()) && !/\/(wp|w|author)$/.test(where)) err(`${where}: ru contains Latin text without Cyrillic: ${ru.slice(0, 60)}`);
 }
 const PARTIAL_TRIPLE_SKIP_FILES = new Set([
   "data/search_index.json", "data/catalog.json", "data/manifest.json", "data/monuments.json",
@@ -465,6 +468,15 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
   if (!ni) err("data/names_i18n.json: missing");
   else if (Object.keys(ni).sort().join(",") !== "names,streets") {
     err(`data/names_i18n.json: top-level keys must be strictly names,streets (got ${Object.keys(ni).sort().join(",")})`);
+  } else if (data["data/monuments.json"]?.features) {
+    for (const f of data["data/monuments.json"].features) {
+      const nm = String(f?.properties?.name || "").trim();
+      if (nm && count(GE, nm) > 0) {
+        const tr = ni.names?.[nm];
+        if (!tr || !String(tr.ru || "").trim() || !String(tr.en || "").trim())
+          err(`data/monuments.json #${f.properties.id}: Georgian name missing ru/en translation in names_i18n.json: ${nm.slice(0, 60)}`);
+      }
+    }
   }
 }
 
@@ -730,11 +742,66 @@ if (ev) {
 // ---- Anti-hallucination & format bloat guards (2026-11-26) -----------------------------------------------
 {
   // 1. Native compact JSON format guard (prevents accidental indent=1 bloating diffs and first-screen/lazy payload)
-  for (const rel of ["data/monuments.json", "data/places.json", "data/religious.json", "data/catalog.json"]) {
+  for (const rel of [
+    "data/monuments.json", "data/places.json", "data/religious.json", "data/catalog.json",
+    "data/religious_osm.json", "data/modernism.json", "data/names_i18n.json",
+    "data/run_trc2026.json", "data/museums.json", "data/science.json", "data/education.json",
+  ]) {
     if (!fs.existsSync(path.join(SITE, rel))) continue;
     const raw = fs.readFileSync(path.join(SITE, rel), "utf8");
     const lines = raw.split(/\r?\n/).filter((l) => l.length > 0).length;
     if (lines > 5) err(`${rel}: expanded to ${lines} lines (must stay compact JSON)`);
+  }
+
+  // 1b. Strict translation script guards on names_i18n.json & run_trc2026.json (excluded from generic walkTriples)
+  const ni = data["data/names_i18n.json"];
+  for (const sec of ["names", "streets"]) {
+    for (const [k, v] of Object.entries(ni?.[sec] || {})) {
+      const ru = String(v?.ru || ""), en = String(v?.en || "");
+      if (ru && count(LAT, ru) >= 4 && count(CY, ru) === 0) err(`names_i18n.json ${sec}["${k}"]: ru is Latin without Cyrillic (${ru.slice(0, 60)})`);
+      if (ru && count(GE, ru) > 0 && count(CY, ru) === 0) err(`names_i18n.json ${sec}["${k}"]: ru is untranslated Georgian`);
+      if (en && (count(CY, en) > 0 || (count(GE, en) > 0 && count(LAT, en) === 0))) err(`names_i18n.json ${sec}["${k}"]: en contains non-Latin script (${en.slice(0, 60)})`);
+    }
+  }
+  for (const [i, s] of (data["data/run_trc2026.json"]?.sights || []).entries()) {
+    const nm = s?.name;
+    if (nm && typeof nm === "object") checkTriple(`run_trc2026.json sights[${i}].name`, nm, { allowEmpty: true });
+  }
+
+  // 1c. Cross-layer rid <-> dup: 1 & ph sync + Tbilisi/Mtskheta coordinate bounds + clean source URLs
+  const monFeatures = data["data/monuments.json"]?.features || [];
+  const monMap = new Map(monFeatures.map((f) => [f.properties?.id, f.properties]));
+  for (const f of monFeatures) {
+    const [lon, lat] = f.geometry?.coordinates || [];
+    if (!(lon >= 44.6 && lon <= 45.1 && lat >= 41.6 && lat <= 41.95)) {
+      err(`monuments.json #${f.properties?.id}: coordinates out of Tbilisi/Mtskheta bounds (${lon}, ${lat})`);
+    }
+  }
+  for (const fn of ["data/religious.json", "data/museums.json", "data/science.json", "data/education.json"]) {
+    for (const item of data[fn] || []) {
+      if (!(item.lon >= 44.6 && item.lon <= 45.1 && item.lat >= 41.6 && item.lat <= 41.92)) {
+        err(`${fn} ${item.id}: coordinates out of Tbilisi/Mtskheta bounds (${item.lon}, ${item.lat})`);
+      }
+      if (item.rid != null) {
+        const m = monMap.get(item.rid);
+        if (!m) err(`${fn} ${item.id}: rid ${item.rid} not found in monuments.json`);
+        else {
+          if (!m.dup) err(`${fn} ${item.id}: linked monument ${item.rid} is missing dup: 1 (would show double marker)`);
+          if (m.ph && !item.ph) err(`${fn} ${item.id}: linked monument ${item.rid} has ph="${m.ph}" while layer card has no ph`);
+        }
+      }
+    }
+  }
+  for (const rel of [
+    "data/photos.json", "data/monuments.json", "data/religious.json", "data/religious_osm.json",
+    "data/museums.json", "data/science.json", "data/education.json", "data/modernism.json",
+    "data/places.json", "data/sculptures.json", "data/plaques.json",
+  ]) {
+    const p = path.join(SITE, rel);
+    if (!fs.existsSync(p)) continue;
+    const raw = fs.readFileSync(p, "utf8");
+    if (/vertexaisearch\.cloud\.google\.com/i.test(raw)) err(`${rel}: contains vertexaisearch redirect URL`);
+    if (/[?&]utm_(?:source|medium|campaign)=/i.test(raw)) err(`${rel}: contains utm_ tracking parameter`);
   }
 
   // 2. Foreign script leaks on places.json a/e and catalog_links.json phases + chronology vs monuments.json

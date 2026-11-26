@@ -2447,6 +2447,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       const p = f.properties;
       if (p.cls === "archaeology") p.ico = /სამაროვანი|ყორღანი/.test(p.name || "") ? "reg-cem" : "reg-arch";
       else if (p.cls === "garden") p.ico = "reg-garden";
+      else if (/საფლავ/.test(p.name || "")) p.ico = "reg-cem";
       else if (p.fn === "religious") p.ico = "reg-rel";
       else if (p.fn === "memorial") p.ico = "reg-mem";
     }
