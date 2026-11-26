@@ -418,7 +418,7 @@ for (const [file, kinds] of [["data/sculptures.json", ["sculpture", "bust", "mon
 // ---- the places of worship of OpenStreetMap (data/religious_osm.json, made by tools/build_religious_osm.py) -----------
 {
   const ro = data["data/religious_osm.json"];
-  const RELS = ["orthodox", "russian", "lutheran", "yazidi", "armenian", "catholic", "jewish", "muslim", "zoroastrian", "christian", "christianOsm"];
+  const RELS = ["orthodox", "russian", "lutheran", "yazidi", "armenian", "catholic", "jewish", "muslim", "zoroastrian", "christian"];
   if (!ro) err("data/religious_osm.json is missing (python tools/build_religious_osm.py)");
   else {
     const ids = new Set(), main = new Set((data["data/religious.json"] || []).map((x) => x.id));

@@ -3258,7 +3258,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
   // museums and house-museums (data/museums.json); points that appear in the year of founding or building
   const MUS_COLOR = { museum: "#0b7285", house: "#e67700" };
-  const REL_SHAPE = { orthodox: "ortho", russian: "ortho", catholic: "cath", armenian: "arm", lutheran: "cross", christian: "cross", christianOsm: "cross", jewish: "jew", muslim: "mus", yazidi: "yaz", zoroastrian: "zor" };
+  const REL_SHAPE = { orthodox: "ortho", russian: "ortho", catholic: "cath", armenian: "arm", lutheran: "cross", christian: "cross", jewish: "jew", muslim: "mus", yazidi: "yaz", zoroastrian: "zor" };
   function drawIconShape(g, shape) {
     if (shape === "ortho") {
       g.beginPath();
@@ -3565,7 +3565,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }));
   function addMtskheta() {
     if (!mtskhetaById || map.getSource("mtskheta")) return;
-    if (!map.hasImage("mt-rel")) map.addImage("mt-rel", makeMapIcon("orthodox", "#a61e4d"), { pixelRatio: 2 });
+    if (!map.hasImage("mt-rel")) map.addImage("mt-rel", makeMapIcon(REL_SHAPE.orthodox, REL_COLOR.orthodox), { pixelRatio: 2 });
     if (!map.hasImage("mt-mon")) map.addImage("mt-mon", makeMapIcon("mon", "#c2410c"), { pixelRatio: 2 });
     map.addSource("mtskheta", { type: "geojson", data: { type: "FeatureCollection", features: mtFeats() } });
     map.addLayer({ id: "mt-pt", type: "symbol", source: "mtskheta",
@@ -3784,8 +3784,10 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     else { if (!map.hasImage("plq-item")) map.addImage("plq-item", makeMapIcon("plq", PLQ_COLOR), { pixelRatio: 2 }); }
     const clustered = key !== "mod";
     map.addSource(key + "s", clustered ? { type: "geojson", cluster: true, clusterMaxZoom: 15, clusterRadius: 38, data: { type: "FeatureCollection", features: mpFeats(key) } } : { type: "geojson", data: { type: "FeatureCollection", features: mpFeats(key, true) } });
-    map.addLayer({ id: key + "-cl", type: "circle", source: key + "s", filter: clustered ? ["has", "point_count"] : ["==", "id", "__none__"], layout: { visibility: "none" }, paint: { "circle-color": base, "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 13, 10, 17, 40, 22], "circle-stroke-color": "#fff", "circle-stroke-width": 2 } });
-    map.addLayer({ id: key + "-cn", type: "symbol", source: key + "s", filter: clustered ? ["has", "point_count"] : ["==", "id", "__none__"], layout: { visibility: "none", "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 12 }, paint: { "text-color": "#fff" } });
+    if (clustered) {
+      map.addLayer({ id: key + "-cl", type: "circle", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none" }, paint: { "circle-color": base, "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 13, 10, 17, 40, 22], "circle-stroke-color": "#fff", "circle-stroke-width": 2 } });
+      map.addLayer({ id: key + "-cn", type: "symbol", source: key + "s", filter: ["has", "point_count"], layout: { visibility: "none", "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 12 }, paint: { "text-color": "#fff" } });
+    }
     map.addLayer({ id: key + "-pt", type: "symbol", source: key + "s", filter: mpYearFilter(key), layout: { visibility: "none",
       "icon-image": key === "mon" ? ["concat", "mon-", ["get", "kind"]] : key === "mod" ? "mod-item" : "plq-item",
       "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.68, 17, 1.0],
@@ -3793,11 +3795,13 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       paint: { "icon-opacity": ["case", ["get", "undated"], 0.55, 1] } });
     map.addLayer({ id: key + "-lb", type: "symbol", source: key + "s", minzoom: 16, filter: mpYearFilter(key), layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#212529", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", key + "-pt", (e) => { if (!claimClick(e)) return; const f = e.features && e.features[0], c = f && m.byId.get(f.properties.id); if (c) popupMP(key, c, e.lngLat); });
-    map.on("click", key + "-cl", (e) => {
-      const f = map.queryRenderedFeatures(e.point, { layers: [key + "-cl"] })[0];
-      map.getSource(key + "s").getClusterExpansionZoom(f.properties.cluster_id).then((z) => map.easeTo({ center: f.geometry.coordinates, zoom: z + 0.5 }));
-    });
-    for (const l of [key + "-pt", key + "-cl"]) { map.on("mouseenter", l, () => { map.getCanvas().style.cursor = "pointer"; }); map.on("mouseleave", l, () => { map.getCanvas().style.cursor = ""; }); }
+    if (clustered) {
+      map.on("click", key + "-cl", (e) => {
+        const f = map.queryRenderedFeatures(e.point, { layers: [key + "-cl"] })[0];
+        map.getSource(key + "s").getClusterExpansionZoom(f.properties.cluster_id).then((z) => map.easeTo({ center: f.geometry.coordinates, zoom: z + 0.5 }));
+      });
+    }
+    for (const l of (clustered ? [key + "-pt", key + "-cl"] : [key + "-pt"])) { map.on("mouseenter", l, () => { map.getCanvas().style.cursor = "pointer"; }); map.on("mouseleave", l, () => { map.getCanvas().style.cursor = ""; }); }
     m.sig = null; m.langSig = lang;
     updateMP(key);
   }
@@ -3829,7 +3833,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         }
       }
     }
-    for (const l of ["cl", "cn", "pt", "lb"]) { map.setLayoutProperty(key + "-" + l, "visibility", on ? "visible" : "none"); map.moveLayer(key + "-" + l); }
+    for (const l of (key === "mod" ? ["pt", "lb"] : ["cl", "cn", "pt", "lb"])) { map.setLayoutProperty(key + "-" + l, "visibility", on ? "visible" : "none"); map.moveLayer(key + "-" + l); }
   }
   function updateMPUi() {
     for (const key of ["mon", "plq", "mod"]) {
@@ -3934,7 +3938,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   $("showBattles").addEventListener("change", () => { if (histEvents.length) buildEvMarks(); });
 
   // religious buildings of different religions: points that appear in the year of the building and disappear when it was destroyed
-  const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", lutheran: "#868e96", yazidi: "#74b816", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c", christian: "#8d6e63", christianOsm: "#8d6e63" };
+  const REL_COLOR = { orthodox: "#b8860b", russian: "#6741d9", lutheran: "#868e96", yazidi: "#74b816", armenian: "#c2255c", catholic: "#1971c2", jewish: "#2f9e44", muslim: "#087f5b", zoroastrian: "#e8590c", christian: "#8d6e63" };
   let relExtra = { ui: {}, streets: {} };                                                // data/religious_osm.json: the buildings of OpenStreetMap that are not in the curated layer and the register (loaded after the first screen)
   const relNameOf = (k, l) => { const lg = l || lang; return (T[lg] && T[lg].relNames[k]) || (relExtra.ui[k] && (relExtra.ui[k][lg] || relExtra.ui[k].en)) || k; };
   function relTitle(r) {                                                                 // the name; a building without a name is "denomination, nearest street"

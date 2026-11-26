@@ -2,7 +2,7 @@
 Input: data/raw/osm_extra/worship_full.json (tools/fetch_worship_osm.py), site/data/religious.json (the objects that exist: an OSM object within 60 m of one of them is the same building and is not added),
 site/data/street_geom.json + street_names.json (the nearest street within 150 m names an unnamed building), site/translit.js + names_i18n.json (the Russian and English forms of a Georgian name, the same module as for the register).
 Rules: only objects that exist (no ruins); two objects of OSM within 35 m of each other are one building (the one with more tags is taken); the denomination only from the tags (georgian_orthodox / orthodox -> Georgian Orthodox,
-armenian_apostolic, catholic, russian_orthodox, lutheran, jewish / muslim / yazidi by the religion; a church without a denomination is "christianOsm", a church whose denomination is not given in OpenStreetMap);
+armenian_apostolic, catholic, russian_orthodox, lutheran, jewish / muslim / yazidi by the religion; a church without a denomination is "christian", a church whose denomination is not given in OpenStreetMap);
 the year only from start_date (otherwise the object is "undated", shown pale); a name goes to the language of its script, the missing Russian and English forms are made from the Georgian one by the module of the site.
 Output: {"items": [{"id", "rel", "from", "date", "undated", "lon", "lat", "name": {ka, ru, en} (empty for an unnamed building), "osm": "node/123", "st": street key, "src": [wikipedia link]}], "streets": {key: {ka, ru, en}}}.
 Usage: python -P tools/build_religious_osm.py
@@ -43,7 +43,7 @@ def rel_of(t):
         return "lutheran"
     if d in ("sephardi", "ashkenazi"):
         return "jewish"
-    return "christianOsm"
+    return "christian"
 
 
 def dist(a, b):
