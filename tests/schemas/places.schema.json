@@ -12,6 +12,7 @@
         "properties": {
           "id": { "type": "string", "minLength": 1 },
           "k": { "type": "string", "minLength": 1 },
+          "from": { "type": "integer" },
           "lon": { "type": "number", "minimum": 40, "maximum": 47 },
           "lat": { "type": "number", "minimum": 41, "maximum": 44 },
           "n": { "type": "object" },

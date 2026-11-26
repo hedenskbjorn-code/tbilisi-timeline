@@ -43,7 +43,7 @@ def rel_of(t):
         return "lutheran"
     if d in ("sephardi", "ashkenazi"):
         return "jewish"
-    return "christian"
+    return "orthodox"
 
 
 def dist(a, b):

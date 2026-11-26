@@ -2430,7 +2430,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (!map.hasImage("lost-gone")) map.addImage("lost-gone", makeMapIcon("lost", "#999999"), { pixelRatio: 2 });
     map.addSource("lost", { type: "geojson", data: lost });
     map.addLayer({ id: "lost-dot", type: "symbol", source: "lost",
-                   layout: { "icon-image": "lost-stand", "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.65, 15, 0.9, 18, 1.15], "icon-allow-overlap": true },
+                   layout: { "icon-image": "lost-stand", "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.85, 15, 1.15, 18, 1.4], "icon-allow-overlap": true },
                    paint: { "icon-opacity": 0.9 } });
     map.on("click", "lost-dot", (e) => { if (!claimClick(e)) return; if (e.features && e.features[0]) lostPopup(e.features[0].properties, e.lngLat); });
     map.on("mouseenter", "lost-dot", () => { map.getCanvas().style.cursor = "pointer"; });
@@ -2453,7 +2453,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (!map.hasImage("reg-cem")) map.addImage("reg-cem", makeMapIcon("cem", "#6c4a2e"), { pixelRatio: 2 });
     if (!map.hasImage("reg-arch")) map.addImage("reg-arch", makeMapIcon("arch", "#9c4221"), { pixelRatio: 2 });
     if (!map.hasImage("reg-garden")) map.addImage("reg-garden", makeMapIcon("leaf", "#2b8a3e"), { pixelRatio: 2 });
-    if (!map.hasImage("reg-rel")) map.addImage("reg-rel", makeMapIcon("cross", "#8d6e63"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-rel")) map.addImage("reg-rel", makeMapIcon("ortho", "#b8860b"), { pixelRatio: 2 });
     if (!map.hasImage("reg-mem")) map.addImage("reg-mem", makeMapIcon("mon", "#1864ab"), { pixelRatio: 2 });
     map.addSource("mon", { type: "geojson", data: monuments });
     map.addLayer({
@@ -2468,7 +2468,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     });
     map.addLayer({
       id: "mon-ico", type: "symbol", source: "mon", filter: ["has", "ico"],
-      layout: { "icon-image": ["get", "ico"], "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.65, 17, 1.0], "icon-allow-overlap": true },
+      layout: { "icon-image": ["get", "ico"], "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.85, 17, 1.25], "icon-allow-overlap": true },
       paint: { "icon-opacity": ["case", ["get", "coarse"], 0.6, 0.95] },
     });
     map.addLayer({
@@ -3128,7 +3128,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addLayer({ id: "sci-pt", type: "symbol", source: "sci", layout: { visibility: "none",
       "icon-image": ["case", sci, "sci-micro", "sci-cult"],
       "symbol-sort-key": ["case", sci, 2, 1],
-      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, ["case", sci, 0.82, 0.64], 17, ["case", sci, 1.15, 0.92]],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, ["case", sci, 1.02, 0.84], 17, ["case", sci, 1.4, 1.18]],
       "icon-allow-overlap": true },
       paint: { "icon-opacity": 1 } });
     map.addLayer({ id: "sci-lb", type: "symbol", source: "sci", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.3], "text-anchor": "top", "text-optional": true },
@@ -3214,7 +3214,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addSource("edu", { type: "geojson", data: { type: "FeatureCollection", features: eduFeats() } });
     map.addLayer({ id: "edu-pt", type: "symbol", source: "edu", layout: { visibility: "none",
       "icon-image": ["case", ["==", ["get", "kind"], "school"], "edu-school", "edu-kindergarten"],
-      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.72, 17, 1.05],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.92, 17, 1.32],
       "icon-allow-overlap": true },
       paint: { "icon-opacity": ["case", ["==", ["get", "undated"], true], 0.5, 1] } });
     map.addLayer({ id: "edu-lb", type: "symbol", source: "edu", minzoom: 15, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
@@ -3435,7 +3435,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addSource("mus", { type: "geojson", data: { type: "FeatureCollection", features: musFeats() } });
     map.addLayer({ id: "mus-pt", type: "symbol", source: "mus", layout: { visibility: "none",
       "icon-image": ["case", ["==", ["get", "kind"], "museum"], "mus-museum", "mus-house"],
-      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.72, 17, 1.05],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.92, 17, 1.32],
       "icon-allow-overlap": true },
       paint: { "icon-opacity": ["case", ["==", ["get", "undated"], true], 0.5, 1] } });
     map.addLayer({ id: "mus-lb", type: "symbol", source: "mus", minzoom: 14, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
@@ -3502,7 +3502,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addSource("battle-map", { type: "geojson", data: { type: "FeatureCollection", features: battleMapFeats() } });
     map.addLayer({ id: "battle-pt", type: "symbol", source: "battle-map", layout: { visibility: "none",
       "icon-image": ["case", ["==", ["get", "cat"], "battle"], "battle-swords", "invasion-swords"],
-      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.85, 17, 1.25],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 1.0, 17, 1.42],
       "icon-allow-overlap": true } });
     map.addLayer({ id: "battle-lb", type: "symbol", source: "battle-map", minzoom: 13.5,
       layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.3], "text-anchor": "top", "text-optional": true },
@@ -3597,7 +3597,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (!map.hasImage("mt-mon")) map.addImage("mt-mon", makeMapIcon("mon", "#c2410c"), { pixelRatio: 2 });
     map.addSource("mtskheta", { type: "geojson", data: { type: "FeatureCollection", features: mtFeats() } });
     map.addLayer({ id: "mt-pt", type: "symbol", source: "mtskheta",
-      layout: { "icon-image": ["get", "ico"], "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.72, 17, 1.05], "icon-allow-overlap": true } });
+      layout: { "icon-image": ["get", "ico"], "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.92, 17, 1.32], "icon-allow-overlap": true } });
     map.addLayer({ id: "mt-lb", type: "symbol", source: "mtskheta", minzoom: 13,
       layout: { "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": "#9a3412", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
@@ -3654,7 +3654,8 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   const folkNames = (c) => [...(c.f || []).flatMap((x) => Object.values(x.n)), ...Object.values(c.o || {}), ...Object.values(c.al || {})];                                   // the folk names of a place or a building (and the former and other names of a park: they join the search)
   const PU = (k) => (places && places.ui && places.ui[k] && (places.ui[k][lang] || places.ui[k].en)) || "";
   const placeName = (c) => c.n[lang] || c.n.en || c.n.ru || c.n.ka;                              // a name that lacks a language (a park that OSM names in Georgian only) is shown in the language that exists
-  const placeFeats = () => places.items.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k, label: placeName(c) } }));
+  const PL_NATURAL = new Set(["hill", "area", "district"]);
+  const placeFeats = () => places.items.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k, label: placeName(c), from: c.from != null ? c.from : (PL_NATURAL.has(c.k) ? -99999 : MAX) } }));
   const PLACE_SHAPE = { garden: "leaf", bridge: "bridge", hill: "hill", market: "market", cemetery: "cem", square: "sq", building: "bldg", district: "sq", area: "sq" };
   function addPlaces() {
     if (!places || !places.items.length || map.getSource("places")) return;
@@ -3670,7 +3671,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addLayer({ id: "places-area-line", type: "line", source: "places-area", layout: { visibility: "none" }, paint: { "line-color": ["get", "col"], "line-width": 2, "line-opacity": 0.9 } });
     map.addLayer({ id: "places-pt", type: "symbol", source: "places", layout: { visibility: "none",
       "icon-image": ["concat", "pl-", ["get", "kind"]],
-      "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.65, 17, 1.0],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.88, 17, 1.28],
       "icon-allow-overlap": true } });
     map.addLayer({ id: "places-lb", type: "symbol", source: "places", minzoom: 13, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": "#7a1f45", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
@@ -3690,6 +3691,8 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (places && !map.getSource("places")) addPlaces();
     if (!map.getLayer("places-pt")) return;
     for (const id of ["places-area-fill", "places-area-line", "places-pt", "places-lb"]) { map.setLayoutProperty(id, "visibility", on ? "visible" : "none"); map.moveLayer(id); }
+    const flt = ["<=", ["get", "from"], year];
+    map.setFilter("places-pt", flt); map.setFilter("places-lb", flt);
     applyPlaceAreas();
   }
   // the outlines of quarters and squares (the OSM contours) are drawn only when their own box is on; the outline of an area of the past (the hippodrome) goes with the layer
@@ -3818,7 +3821,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     }
     map.addLayer({ id: key + "-pt", type: "symbol", source: key + "s", filter: mpYearFilter(key), layout: { visibility: "none",
       "icon-image": key === "mon" ? ["concat", "mon-", ["get", "kind"]] : key === "mod" ? "mod-item" : "plq-item",
-      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.68, 17, 1.0],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.88, 17, 1.28],
       "icon-allow-overlap": true },
       paint: { "icon-opacity": ["case", ["get", "undated"], 0.55, 1] } });
     map.addLayer({ id: key + "-lb", type: "symbol", source: key + "s", minzoom: 16, filter: mpYearFilter(key), layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#212529", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
@@ -3998,7 +4001,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addSource("rel", { type: "geojson", data: { type: "FeatureCollection", features: relFeats() } });
     map.addLayer({ id: "rel-pt", type: "symbol", source: "rel", layout: { visibility: "none",
       "icon-image": ["concat", "rel-", ["get", "rel"]],
-      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.72, 17, 1.05],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.92, 17, 1.32],
       "icon-allow-overlap": true },
       paint: { "icon-opacity": ["case", ["get", "undated"], 0.55, 1] } });   // pale: the register gives no date
     map.addLayer({ id: "rel-lb", type: "symbol", source: "rel", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#222222", "text-halo-color": "#ffffff", "text-halo-width": 2 } });

@@ -10,7 +10,7 @@ let server, browser, page, reqs;
 test.before(async () => {
   server = await startServer();
   browser = await launch();
-  page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1960`);
+  page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#2026`);
   reqs = [];
   page.on("request", (r) => reqs.push(r.url()));
   await waitReady(page);

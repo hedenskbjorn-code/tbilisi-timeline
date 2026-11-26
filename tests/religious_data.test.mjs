@@ -15,7 +15,7 @@ test("the religious layer holds one card of the Alexander Nevsky church (3049), 
   const c = rel.find((r) => r.id === "reg3049");
   assert.ok(c);
   assert.equal(c.from, 1864);
-  assert.equal(c.rel, "russian");
+  assert.equal(c.rel, "orthodox");
   assert.match(c.note.ru, /7998/);
 });
 

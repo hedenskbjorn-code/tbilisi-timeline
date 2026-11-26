@@ -10,7 +10,7 @@ let server, browser, page;
 test.before(async () => {
   server = await startServer();
   browser = await launch();
-  page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1990`);
+  page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#2026`);
   await waitReady(page);
 });
 test.after(async () => { await page.ctx.close(); await browser.close(); server.srv.close(); });

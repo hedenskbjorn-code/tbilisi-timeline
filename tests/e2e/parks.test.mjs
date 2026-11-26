@@ -9,7 +9,7 @@ let server, browser, page;
 test.before(async () => {
   server = await startServer();
   browser = await launch();
-  page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1990`);
+  page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#2026`);
   await waitReady(page);
 });
 test.after(async () => { await page.ctx.close(); await browser.close(); server.srv.close(); });
@@ -78,7 +78,7 @@ test("a park with a description (no pk) still shows both former (o) and alternat
     item.s = { l: "en", u: "https://en.wikipedia.org/wiki/Tbilisi", aq: "Tbilisi" };
     await route.fulfill({ contentType: "application/json", body: JSON.stringify(body) });
   });
-  await p2.goto(`${server.url}/?e2e=1&base=off&nostats=1&lang=en#1990`);
+  await p2.goto(`${server.url}/?e2e=1&base=off&nostats=1&lang=en#2026`);
   await waitReady(p2);
   await tick(p2, "#showPlaces", true);
   await p2.waitForFunction(() => window.TT_E2E.map.getSource("places"), null, { timeout: 20000 });
