@@ -1,6 +1,6 @@
 // Service worker of the site: (1) the application shell works without network (the last seen data too), (2) accepts a photo shared to the site from the share menu of the phone
 // (Web Share Target: POST ./share-target) and leaves it for the page to pick up. Heavy things (tiles, photos, topographic maps) are never cached here.
-const VERSION = "tt-f58352a2";
+const VERSION = "tt-d561b3d1";
 const SHARE_CACHE = "tt-share";
 const BASE = self.registration.scope;                                  // ends with "/"
 const SHELL = ["index.html", "app.js?v=b5df3d04", "js/net.js?v=46b6ac82", "js/plans.js?v=2282229a", "js/timeline.js?v=54a1da95", "js/tour.js?v=90324d2c", "i18n.js?v=611a5c1d", "photo.js?v=4335926d", "pwa.js?v=4f2c4857", "support.js?v=0d64cfb5", "stats.js?v=d4621ad4", "config.js?v=36f6eee6", "style.css?v=9d538b6a", "translit.js?v=1f0144e5", "vendor/maplibre-gl.js?v=e877fe22", "vendor/maplibre-gl.css?v=576b085f", "manifest.webmanifest", "img/pwa/icon-192.png", "data/manifest.json"];
