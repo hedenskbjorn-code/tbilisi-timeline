@@ -702,7 +702,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addLayer({ id: "c94-lb", type: "symbol", source: "c94", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#0b4a56", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     for (const f of c94.features) f.properties.short = (f.properties.name[lang] || f.properties.name.en).split(":")[0];
     map.getSource("c94").setData(c94);
-    map.on("click", "c94-pt", (e) => { if (e.features && e.features[0]) popupC94(e.features[0].properties, e.lngLat); });
+    map.on("click", "c94-pt", (e) => { if (!claimClick(e)) return; if (e.features && e.features[0]) popupC94(e.features[0].properties, e.lngLat); });
     map.on("mouseenter", "c94-pt", () => { map.getCanvas().style.cursor = "pointer"; });
     map.on("mouseleave", "c94-pt", () => { map.getCanvas().style.cursor = ""; });
     updateC94();
@@ -836,7 +836,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addLayer({ id: "stl-pt", type: "symbol", source: "stlabels", filter: ["==", ["geometry-type"], "Point"],
                    layout: { "text-field": ["get", "t"], "text-font": ["Noto Sans Bold"], "text-size": 15, "text-anchor": "center", "text-allow-overlap": true, "text-ignore-placement": true }, paint });
     for (const id of ["stl-line", "stl-pt"]) {                    // a click on the name of a street opens the card of the street
-      map.on("click", id, (e) => { const f = e.features && e.features[0]; if (f && stNames[f.properties.k]) showStreetCard(stNames[f.properties.k]); });
+      map.on("click", id, (e) => { if (!claimClick(e)) return; const f = e.features && e.features[0]; if (f && stNames[f.properties.k]) showStreetCard(stNames[f.properties.k]); });
       map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
       map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
     }
@@ -1449,9 +1449,8 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     feats.forEach((f, i) => { const s = lostState(f.properties); if (s) ids[s].push(i); });
     const idx = (a) => ["literal", a];
     map.setFilter("lost-dot", ["any", ["in", ["id"], idx(ids.stand)], ["in", ["id"], idx(ids.unc)], ["in", ["id"], idx(ids.early)], ...(ghost ? [["in", ["id"], idx(ids.gone)]] : [])]);
-    map.setPaintProperty("lost-dot", "circle-stroke-opacity", ["case", ["in", ["id"], idx(ids.stand)], 1, ["in", ["id"], idx(ids.gone)], 0.35, 0.65]);
-    map.setPaintProperty("lost-dot", "circle-stroke-color", ["case", ["in", ["id"], idx(ids.gone)], "#999999", "#8b5a2b"]);
-    map.setPaintProperty("lost-dot", "circle-opacity", ["case", ["in", ["id"], idx(ids.gone)], 0.04, 0.14]);
+    map.setLayoutProperty("lost-dot", "icon-image", ["case", ["in", ["id"], idx(ids.gone)], "lost-gone", "lost-stand"]);
+    map.setPaintProperty("lost-dot", "icon-opacity", ["case", ["in", ["id"], idx(ids.stand)], 1, ["in", ["id"], idx(ids.gone)], 0.4, 0.7]);
   }
 
   function lostPopup(p, lngLat) {
@@ -2088,6 +2087,12 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     b.addEventListener("click", (ev) => { ev.preventDefault(); if (onBack) onBack(); openSearch(); });
     return b;
   }
+  const claimClick = (e) => {
+    const oe = e && e.originalEvent;
+    if (oe && oe._ttHit) return false;
+    if (oe) oe._ttHit = true;
+    return true;
+  };
   function showPopup(maxWidth, lngLat, el) {
     if (openPop) openPop.remove();
     const pop = new maplibregl.Popup({ maxWidth, focusAfterOpen: false }).setLngLat(lngLat).setDOMContent(el).addTo(map);
@@ -2414,17 +2419,19 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.addLayer({ id: "settle-label", type: "symbol", source: "settle",
                    layout: { "text-field": ["get", "name_" + lang], "text-font": ["Noto Sans Regular"], "text-size": 12, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true },
                    paint: { "text-color": "#222222", "text-halo-color": "#ffffffdd", "text-halo-width": 1.4 } });
-    map.on("click", "settle-dot", (e) => { if (e.features && e.features[0]) settlePopup(e.features[0].properties, e.lngLat); });
+    map.on("click", "settle-dot", (e) => { if (!claimClick(e)) return; if (e.features && e.features[0]) settlePopup(e.features[0].properties, e.lngLat); });
     map.on("mouseenter", "settle-dot", () => { map.getCanvas().style.cursor = "pointer"; });
     map.on("mouseleave", "settle-dot", () => { map.getCanvas().style.cursor = ""; });
     let lost = { type: "FeatureCollection", features: [] };
     try { lost = await getJSON("data/lost.json"); } catch (e) {}
     lostFeats = lost.features;
+    if (!map.hasImage("lost-stand")) map.addImage("lost-stand", makeMapIcon("lost", "#8b5a2b"), { pixelRatio: 2 });
+    if (!map.hasImage("lost-gone")) map.addImage("lost-gone", makeMapIcon("lost", "#999999"), { pixelRatio: 2 });
     map.addSource("lost", { type: "geojson", data: lost });
-    map.addLayer({ id: "lost-dot", type: "circle", source: "lost",
-                   paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 5, 15, 9, 18, 13], "circle-color": "#8b5a2b", "circle-opacity": 0.12,
-                            "circle-stroke-width": 2.5, "circle-stroke-color": "#8b5a2b", "circle-stroke-opacity": 1 } });
-    map.on("click", "lost-dot", (e) => { if (e.features && e.features[0]) lostPopup(e.features[0].properties, e.lngLat); });
+    map.addLayer({ id: "lost-dot", type: "symbol", source: "lost",
+                   layout: { "icon-image": "lost-stand", "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.65, 15, 0.9, 18, 1.15], "icon-allow-overlap": true },
+                   paint: { "icon-opacity": 0.9 } });
+    map.on("click", "lost-dot", (e) => { if (!claimClick(e)) return; if (e.features && e.features[0]) lostPopup(e.features[0].properties, e.lngLat); });
     map.on("mouseenter", "lost-dot", () => { map.getCanvas().style.cursor = "pointer"; });
     map.on("mouseleave", "lost-dot", () => { map.getCanvas().style.cursor = ""; });
     map.addSource("urban", { type: "geojson", data: urban });
@@ -2466,8 +2473,9 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         const cb = picker; picker = null; cb({ obj: "mon:" + p.id, name: nm, lang, lat: g[1], lon: g[0] });
         return;
       }
-      const own = ["mod-pt", "places-pt", "mon-pt", "plq-pt", "edu-pt", "sci-pt", "mus-pt", "rel-pt"].filter((id) => map.getLayer(id) && map.getLayoutProperty(id, "visibility") === "visible");
+      const own = ["mod-pt", "places-pt", "mon-pt", "plq-pt", "edu-pt", "sci-pt", "mus-pt", "rel-pt", "battle-pt"].filter((id) => map.getLayer(id) && map.getLayoutProperty(id, "visibility") === "visible");
       if (own.length && map.queryRenderedFeatures(e.point, { layers: own }).length) return;      // a point of a layer that is switched on (modernism, local names, monuments, plaques) under the click has its own card (two cards at one place are not opened)
+      if (!claimClick(e)) return;
       popup(e.features[0].properties, e.lngLat);
     });
     map.on("mouseenter", "mon", () => { map.getCanvas().style.cursor = "pointer"; });
@@ -2623,7 +2631,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       secState[id] = sec.open; try { localStorage.setItem("sec", JSON.stringify(secState)); } catch (e) {}
     }, 0));      // saved on a click of the visitor only
   }
-  $("filters").addEventListener("input", syncFilterUi);
+  $("filters").addEventListener("input", (e) => { if (e.target && e.target.type === "range") syncFilterUi(); });
   $("filters").addEventListener("change", syncFilterUi);
   function refreshCard() {
     try {
@@ -3092,14 +3100,20 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     properties: { id: c.id, kind: c.kind, from: c.from, sf: c.sf || 0, undated: !!c.undated, label: c.name[lang] || c.name.en } }));
   function addScience() {
     if (!science.length || map.getSource("sci")) return;
+    if (!map.hasImage("sci-micro")) map.addImage("sci-micro", makeMapIcon("micro", SCI_COLOR.science), { pixelRatio: 2 });
+    if (!map.hasImage("sci-cult")) map.addImage("sci-cult", makeMapIcon("book", SCI_COLOR.culture), { pixelRatio: 2 });
     map.addSource("sci", { type: "geojson", data: { type: "FeatureCollection", features: sciFeats() } });
     const sci = ["==", ["get", "kind"], "science"];
-    map.addLayer({ id: "sci-pt", type: "circle", source: "sci", layout: { visibility: "none", "circle-sort-key": ["case", sci, 2, 1] },
-      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, ["case", sci, 6.5, 4.5], 17, ["case", sci, 12.5, 9]], "circle-color": ["case", sci, SCI_COLOR.science, SCI_COLOR.culture],
-               "circle-stroke-color": ["case", sci, "#0b3d91", "#343a40"], "circle-stroke-width": 2, "circle-opacity": 1, "circle-stroke-opacity": 1 } });
+    map.addLayer({ id: "sci-pt", type: "symbol", source: "sci", layout: { visibility: "none",
+      "icon-image": ["case", sci, "sci-micro", "sci-cult"],
+      "symbol-sort-key": ["case", sci, 2, 1],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, ["case", sci, 0.82, 0.64], 17, ["case", sci, 1.15, 0.92]],
+      "icon-allow-overlap": true },
+      paint: { "icon-opacity": 1 } });
     map.addLayer({ id: "sci-lb", type: "symbol", source: "sci", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.3], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": ["case", sci, "#0b3d91", "#495057"], "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "sci-pt", (e) => {
+      if (!claimClick(e)) return;
       const f = e.features && e.features[0], c = f && science.find((x) => x.id === f.properties.id);
       if (c) popupSci(c, e.lngLat);
     });
@@ -3119,14 +3133,13 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     }
     for (const id of ["sci-pt", "sci-lb"]) map.moveLayer(id);          // to the top: above the topographic map and the points of the register, which other code also moves
     const faint = ["case", ["==", ["get", "undated"], true], 0.45, ["<", year, ["get", "sf"]], 0.35, 1];       // faint before the present building stands (or the institution is in another place), and when the register gives no date
-    map.setPaintProperty("sci-pt", "circle-opacity", faint);
-    map.setPaintProperty("sci-pt", "circle-stroke-opacity", faint);
+    map.setPaintProperty("sci-pt", "icon-opacity", faint);
   }
   function updateSciUi() {
     const box = $("sciLegend");
     if (box) {
       box.textContent = "";
-      for (const k of Object.keys(SCI_COLOR)) { const s = document.createElement("span"); s.textContent = t().sciKinds[k]; s.style.setProperty("--c", SCI_COLOR[k]); box.appendChild(s); }
+      for (const k of Object.keys(SCI_COLOR)) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon(k === "science" ? "micro" : "book", SCI_COLOR[k])); s.appendChild(document.createTextNode(t().sciKinds[k])); box.appendChild(s); }
       syncLegend("showSci", "sciLegend");
     }
     const src = map && map.getSource && map.getSource("sci");
@@ -3173,13 +3186,20 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     properties: { id: c.id, kind: c.kind, from: c.from, undated: !!c.undated, label: c.name[lang] || c.name.en } }));
   function addEducation() {
     if (!education.length || map.getSource("edu")) return;
+    for (const [k, col] of Object.entries(EDU_COLOR)) {
+      const id = "edu-" + k;
+      if (!map.hasImage(id)) map.addImage(id, makeMapIcon(k === "school" ? "book" : "blocks", col), { pixelRatio: 2 });
+    }
     map.addSource("edu", { type: "geojson", data: { type: "FeatureCollection", features: eduFeats() } });
-    map.addLayer({ id: "edu-pt", type: "circle", source: "edu", layout: { visibility: "none" },
-      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 4.5, 17, 9], "circle-color": ["case", ["==", ["get", "kind"], "school"], EDU_COLOR.school, EDU_COLOR.kindergarten],
-               "circle-stroke-color": "#ffffff", "circle-stroke-width": 2, "circle-opacity": ["case", ["==", ["get", "undated"], true], 0.5, 1] } });
+    map.addLayer({ id: "edu-pt", type: "symbol", source: "edu", layout: { visibility: "none",
+      "icon-image": ["case", ["==", ["get", "kind"], "school"], "edu-school", "edu-kindergarten"],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.72, 17, 1.05],
+      "icon-allow-overlap": true },
+      paint: { "icon-opacity": ["case", ["==", ["get", "undated"], true], 0.5, 1] } });
     map.addLayer({ id: "edu-lb", type: "symbol", source: "edu", minzoom: 15, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": "#5f3dc4", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "edu-pt", (e) => {
+      if (!claimClick(e)) return;
       const f = e.features && e.features[0], c = f && education.find((x) => x.id === f.properties.id);
       if (c) popupEdu(c, e.lngLat);
     });
@@ -3201,7 +3221,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const box = $("eduLegend");
     if (box) {
       box.textContent = "";
-      for (const k of Object.keys(EDU_COLOR)) { const s = document.createElement("span"); s.textContent = t().eduKinds[k]; s.style.setProperty("--c", EDU_COLOR[k]); box.appendChild(s); }
+      for (const k of Object.keys(EDU_COLOR)) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon(k === "school" ? "book" : "blocks", EDU_COLOR[k])); s.appendChild(document.createTextNode(t().eduKinds[k])); box.appendChild(s); }
       syncLegend("showEdu", "eduLegend");
     }
     const src = map && map.getSource && map.getSource("edu");
@@ -3238,17 +3258,162 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
   // museums and house-museums (data/museums.json); points that appear in the year of founding or building
   const MUS_COLOR = { museum: "#0b7285", house: "#e67700" };
+  const REL_SHAPE = { orthodox: "ortho", russian: "ortho", catholic: "cath", armenian: "arm", lutheran: "cross", christian: "cross", christianOsm: "cross", jewish: "jew", muslim: "mus", yazidi: "yaz", zoroastrian: "zor" };
+  function drawIconShape(g, shape) {
+    if (shape === "ortho") {
+      g.beginPath();
+      g.moveTo(12, 3); g.lineTo(12, 21);
+      g.moveTo(9, 6); g.lineTo(15, 6);
+      g.moveTo(6.5, 10); g.lineTo(17.5, 10);
+      g.moveTo(9, 15.5); g.lineTo(15, 17.5);
+      g.stroke();
+    } else if (shape === "cath") {
+      g.beginPath(); g.moveTo(12, 3.5); g.lineTo(12, 20.5); g.moveTo(6.5, 9.5); g.lineTo(17.5, 9.5); g.stroke();
+    } else if (shape === "arm") {
+      g.beginPath();
+      g.moveTo(12, 3.5); g.lineTo(12, 20.5); g.moveTo(5, 12); g.lineTo(19, 12);
+      g.moveTo(10, 4.5); g.lineTo(14, 4.5); g.moveTo(10, 19.5); g.lineTo(14, 19.5);
+      g.moveTo(6, 10); g.lineTo(6, 14); g.moveTo(18, 10); g.lineTo(18, 14);
+      g.stroke();
+    } else if (shape === "cross") {
+      g.beginPath(); g.moveTo(12, 4.5); g.lineTo(12, 19.5); g.moveTo(6.5, 12); g.lineTo(17.5, 12); g.stroke();
+    } else if (shape === "jew") {
+      g.beginPath();
+      g.moveTo(12, 3.5); g.lineTo(19, 16); g.lineTo(5, 16); g.closePath();
+      g.moveTo(12, 20.5); g.lineTo(19, 8); g.lineTo(5, 8); g.closePath();
+      g.stroke();
+    } else if (shape === "mus") {
+      g.beginPath();
+      g.arc(11.5, 12, 7.2, 0.55, 5.73);
+      g.arc(14.5, 12, 5.6, 5.45, 0.83, true);
+      g.closePath();
+      g.fill(); g.stroke();
+      g.beginPath(); g.arc(17.8, 12, 1.5, 0, Math.PI * 2); g.fill();
+    } else if (shape === "yaz") {
+      g.beginPath(); g.arc(12, 12, 3.5, 0, Math.PI * 2); g.fill(); g.stroke();
+      g.beginPath();
+      for (let i = 0; i < 12; i++) {
+        const a = (i * Math.PI) / 6;
+        g.moveTo(12 + Math.cos(a) * 5.2, 12 + Math.sin(a) * 5.2);
+        g.lineTo(12 + Math.cos(a) * 8.8, 12 + Math.sin(a) * 8.8);
+      }
+      g.stroke();
+    } else if (shape === "zor") {
+      g.beginPath();
+      g.moveTo(12, 4); g.quadraticCurveTo(17, 9.5, 14.5, 14.5); g.lineTo(9.5, 14.5); g.quadraticCurveTo(7, 9.5, 12, 4);
+      g.moveTo(7.5, 18.5); g.lineTo(16.5, 18.5); g.moveTo(9, 16); g.lineTo(15, 16);
+      g.fill(); g.stroke();
+    } else if (shape === "micro") {
+      g.beginPath();
+      g.moveTo(14.5, 4); g.lineTo(10, 11.5); g.moveTo(13, 3); g.lineTo(16, 5);
+      g.moveTo(9, 13); g.lineTo(13.5, 13);
+      g.moveTo(13, 8.5); g.quadraticCurveTo(18.5, 11.5, 15, 18.5);
+      g.moveTo(6.5, 19.5); g.lineTo(17.5, 19.5);
+      g.stroke();
+    } else if (shape === "book") {
+      g.beginPath();
+      g.moveTo(12, 6.5); g.quadraticCurveTo(8, 4.5, 4, 6.5); g.lineTo(4, 18.5); g.quadraticCurveTo(8, 16.5, 12, 18.5);
+      g.quadraticCurveTo(16, 16.5, 20, 18.5); g.lineTo(20, 6.5); g.quadraticCurveTo(16, 4.5, 12, 6.5); g.lineTo(12, 18.5);
+      g.stroke();
+    } else if (shape === "blocks") {
+      g.beginPath();
+      g.rect(4.5, 12.5, 6.5, 6.5); g.rect(13, 12.5, 6.5, 6.5); g.rect(8.75, 5, 6.5, 6.5);
+      g.stroke();
+    } else if (shape === "mon") {
+      g.beginPath();
+      g.moveTo(12, 3.5); g.lineTo(14.5, 15.5); g.lineTo(9.5, 15.5); g.closePath();
+      g.rect(7, 15.5, 10, 4);
+      g.stroke();
+    } else if (shape === "plq") {
+      g.beginPath();
+      g.rect(4.5, 6.5, 15, 11);
+      g.moveTo(8, 10); g.lineTo(16, 10); g.moveTo(8, 13.5); g.lineTo(14, 13.5);
+      g.stroke();
+    } else if (shape === "mod") {
+      g.beginPath();
+      g.moveTo(4, 18.5); g.lineTo(12, 5); g.lineTo(20, 18.5);
+      g.moveTo(7, 18.5); g.quadraticCurveTo(12, 11, 17, 18.5);
+      g.stroke();
+    } else if (shape === "lost") {
+      g.beginPath();
+      g.rect(5.5, 6.5, 13, 12);
+      g.moveTo(4.5, 4.5); g.lineTo(19.5, 19.5); g.moveTo(19.5, 4.5); g.lineTo(4.5, 19.5);
+      g.stroke();
+    } else if (shape === "leaf") {
+      g.beginPath();
+      g.moveTo(12, 4); g.quadraticCurveTo(19, 8, 17, 15); g.quadraticCurveTo(12, 19, 7, 15); g.quadraticCurveTo(5, 8, 12, 4);
+      g.moveTo(12, 11); g.lineTo(12, 20.5);
+      g.stroke();
+    } else if (shape === "bridge") {
+      g.beginPath();
+      g.moveTo(3.5, 12); g.lineTo(20.5, 12);
+      g.moveTo(5, 17.5); g.quadraticCurveTo(12, 11, 19, 17.5);
+      g.moveTo(5, 12); g.lineTo(5, 17.5); g.moveTo(19, 12); g.lineTo(19, 17.5);
+      g.stroke();
+    } else if (shape === "hill") {
+      g.beginPath(); g.moveTo(3.5, 18); g.lineTo(10.5, 6); g.lineTo(14.5, 12.5); g.lineTo(17, 9); g.lineTo(20.5, 18); g.closePath(); g.stroke();
+    } else if (shape === "market") {
+      g.beginPath(); g.moveTo(4, 9.5); g.lineTo(6.5, 5); g.lineTo(17.5, 5); g.lineTo(20, 9.5); g.closePath();
+      g.moveTo(6, 9.5); g.lineTo(6, 18.5); g.lineTo(18, 18.5); g.lineTo(18, 9.5); g.stroke();
+    } else if (shape === "cem") {
+      g.beginPath(); g.moveTo(7, 19); g.lineTo(7, 9); g.quadraticCurveTo(12, 4.5, 17, 9); g.lineTo(17, 19); g.closePath();
+      g.moveTo(12, 9.5); g.lineTo(12, 15.5); g.moveTo(9.5, 12); g.lineTo(14.5, 12); g.stroke();
+    } else if (shape === "sq") {
+      g.beginPath(); g.rect(5.5, 5.5, 13, 13); g.arc(12, 12, 2, 0, Math.PI * 2); g.stroke();
+    } else if (shape === "bldg") {
+      g.beginPath(); g.rect(6, 4.5, 12, 15); g.moveTo(9.5, 8); g.lineTo(10.5, 8); g.moveTo(13.5, 8); g.lineTo(14.5, 8); g.moveTo(9.5, 12); g.lineTo(10.5, 12); g.moveTo(13.5, 12); g.lineTo(14.5, 12); g.stroke();
+    } else {
+      g.beginPath();
+      g.moveTo(4, 9); g.lineTo(12, 4); g.lineTo(20, 9); g.closePath();
+      g.moveTo(5, 19); g.lineTo(19, 19);
+      g.moveTo(7, 9); g.lineTo(7, 19); g.moveTo(12, 9); g.lineTo(12, 19); g.moveTo(17, 9); g.lineTo(17, 19);
+      g.stroke();
+    }
+  }
+  function makeMapIcon(shape, color) {
+    const sz = 40, cv = document.createElement("canvas");
+    cv.width = sz; cv.height = sz;
+    const g = cv.getContext("2d");
+    g.scale(sz / 24, sz / 24);
+    g.lineCap = "round"; g.lineJoin = "round";
+    g.strokeStyle = "#ffffff"; g.fillStyle = "#ffffff"; g.lineWidth = 4.6;
+    drawIconShape(g, shape);
+    g.strokeStyle = color; g.fillStyle = color; g.lineWidth = 2.2;
+    drawIconShape(g, shape);
+    return g.getImageData(0, 0, sz, sz);
+  }
+  function makeSvgIcon(shape, color) {
+    const cv = document.createElement("canvas");
+    cv.width = 28; cv.height = 28;
+    const g = cv.getContext("2d");
+    g.scale(28 / 24, 28 / 24);
+    g.lineCap = "round"; g.lineJoin = "round";
+    g.strokeStyle = color; g.fillStyle = color; g.lineWidth = 2.2;
+    drawIconShape(g, shape);
+    const img = document.createElement("img");
+    img.className = "lico";
+    img.alt = "";
+    img.src = cv.toDataURL();
+    return img;
+  }
   const musFeats = () => museums.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] },
     properties: { id: c.id, kind: c.kind, from: c.from, undated: !!c.undated, label: c.name[lang] || c.name.en } }));
   function addMuseums() {
     if (!museums.length || map.getSource("mus")) return;
+    for (const [k, col] of Object.entries(MUS_COLOR)) {
+      const id = "mus-" + k;
+      if (!map.hasImage(id)) map.addImage(id, makeMapIcon("museum", col), { pixelRatio: 2 });
+    }
     map.addSource("mus", { type: "geojson", data: { type: "FeatureCollection", features: musFeats() } });
-    map.addLayer({ id: "mus-pt", type: "circle", source: "mus", layout: { visibility: "none" },
-      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 5, 17, 10], "circle-color": ["case", ["==", ["get", "kind"], "museum"], MUS_COLOR.museum, MUS_COLOR.house],
-               "circle-stroke-color": "#ffffff", "circle-stroke-width": 2, "circle-opacity": ["case", ["==", ["get", "undated"], true], 0.5, 1] } });
+    map.addLayer({ id: "mus-pt", type: "symbol", source: "mus", layout: { visibility: "none",
+      "icon-image": ["case", ["==", ["get", "kind"], "museum"], "mus-museum", "mus-house"],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.72, 17, 1.05],
+      "icon-allow-overlap": true },
+      paint: { "icon-opacity": ["case", ["==", ["get", "undated"], true], 0.5, 1] } });
     map.addLayer({ id: "mus-lb", type: "symbol", source: "mus", minzoom: 14, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": "#0b7285", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "mus-pt", (e) => {
+      if (!claimClick(e)) return;
       const f = e.features && e.features[0], c = f && museums.find((x) => x.id === f.properties.id);
       if (c) popupMus(c, e.lngLat);
     });
@@ -3272,7 +3437,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const box = $("musLegend");
     if (box) {
       box.textContent = "";
-      for (const k of Object.keys(MUS_COLOR)) { const s = document.createElement("span"); s.textContent = t().musKinds[k]; s.style.setProperty("--c", MUS_COLOR[k]); box.appendChild(s); }
+      for (const k of Object.keys(MUS_COLOR)) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon("museum", MUS_COLOR[k])); s.appendChild(document.createTextNode(t().musKinds[k])); box.appendChild(s); }
       syncLegend("showMus", "musLegend");
     }
     const src = map && map.getSource && map.getSource("mus");
@@ -3284,17 +3449,38 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       geometry: { type: "Point", coordinates: [ev.place.lng, ev.place.lat] },
       properties: { idx, year: ev.year, cat: ev.cat, label: `${ev.place[lang] || ev.place.en || ""} (${ev.date})` },
     }));
+  function makeSwordIcon(color) {
+    const sz = 40, cv = document.createElement("canvas");
+    cv.width = sz; cv.height = sz;
+    const g = cv.getContext("2d");
+    g.translate(sz / 2, sz / 2);
+    g.lineCap = "round"; g.lineJoin = "round";
+    for (const dir of [-1, 1]) {
+      g.save();
+      g.scale(dir, 1);
+      g.rotate(Math.PI / 4);
+      g.strokeStyle = "#ffffff"; g.lineWidth = 5.5;
+      g.beginPath(); g.moveTo(0, 12); g.lineTo(0, -13); g.moveTo(-5, 5); g.lineTo(5, 5); g.stroke();
+      g.strokeStyle = color; g.lineWidth = 3;
+      g.beginPath(); g.moveTo(0, 12); g.lineTo(0, -13); g.moveTo(-5, 5); g.lineTo(5, 5); g.stroke();
+      g.restore();
+    }
+    return g.getImageData(0, 0, sz, sz);
+  }
   function addBattleMap() {
     if (!histEvents.length || map.getSource("battle-map")) return;
+    if (!map.hasImage("battle-swords")) map.addImage("battle-swords", makeSwordIcon("#c92a2a"), { pixelRatio: 2 });
+    if (!map.hasImage("invasion-swords")) map.addImage("invasion-swords", makeSwordIcon("#e67700"), { pixelRatio: 2 });
     map.addSource("battle-map", { type: "geojson", data: { type: "FeatureCollection", features: battleMapFeats() } });
-    map.addLayer({ id: "battle-pt", type: "circle", source: "battle-map", layout: { visibility: "none" },
-      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 6, 17, 11],
-               "circle-color": ["case", ["==", ["get", "cat"], "battle"], "#c92a2a", "#e67700"],
-               "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: "battle-pt", type: "symbol", source: "battle-map", layout: { visibility: "none",
+      "icon-image": ["case", ["==", ["get", "cat"], "battle"], "battle-swords", "invasion-swords"],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.85, 17, 1.25],
+      "icon-allow-overlap": true } });
     map.addLayer({ id: "battle-lb", type: "symbol", source: "battle-map", minzoom: 13.5,
       layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.3], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": "#a61e4d", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "battle-pt", (e) => {
+      if (!claimClick(e)) return;
       const f = e.features && e.features[0], ev = f && histEvents[f.properties.idx];
       if (ev) showHistEvent(ev);
     });
@@ -3385,6 +3571,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       layout: { "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": "#9a3412", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "mt-pt", (e) => {
+      if (!claimClick(e)) return;
       const f = e.features && e.features[0], c = f && mtskhetaById && mtskhetaById.get(f.properties.id);
       if (c) popupMtskheta(c, e.lngLat);
     });
@@ -3437,22 +3624,27 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   const PU = (k) => (places && places.ui && places.ui[k] && (places.ui[k][lang] || places.ui[k].en)) || "";
   const placeName = (c) => c.n[lang] || c.n.en || c.n.ru || c.n.ka;                              // a name that lacks a language (a park that OSM names in Georgian only) is shown in the language that exists
   const placeFeats = () => places.items.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { id: c.id, kind: c.k, label: placeName(c) } }));
+  const PLACE_SHAPE = { garden: "leaf", bridge: "bridge", hill: "hill", market: "market", cemetery: "cem", square: "sq", building: "bldg", district: "sq", area: "sq" };
   function addPlaces() {
     if (!places || !places.items.length || map.getSource("places")) return;
     if (!map.isStyleLoaded()) { map.once("idle", addPlaces); return; }                       // as for mpAdd: the layer is added at the next idle
+    for (const [k, c] of Object.entries(PL_COLOR)) {
+      const id = "pl-" + k;
+      if (!map.hasImage(id)) map.addImage(id, makeMapIcon(PLACE_SHAPE[k] || "sq", c), { pixelRatio: 2 });
+    }
     map.addSource("places", { type: "geojson", data: { type: "FeatureCollection", features: placeFeats() } });
     const AREA_PAL = ["#e03131", "#1971c2", "#2f9e44", "#f08c00", "#7048e8", "#0c8599", "#c2255c", "#5c940d", "#d9480f", "#364fc7"];
     map.addSource("places-area", { type: "geojson", data: { type: "FeatureCollection", features: places.items.filter((c) => c.g).map((c, idx) => ({ type: "Feature", geometry: c.g, properties: { id: c.id, kind: c.k, col: c.k === "area" ? PL_COLOR.area : AREA_PAL[idx % AREA_PAL.length] } })) } });
     map.addLayer({ id: "places-area-fill", type: "fill", source: "places-area", layout: { visibility: "none" }, paint: { "fill-color": ["get", "col"], "fill-opacity": 0.10 } });
     map.addLayer({ id: "places-area-line", type: "line", source: "places-area", layout: { visibility: "none" }, paint: { "line-color": ["get", "col"], "line-width": 2, "line-opacity": 0.9 } });
-    const col = ["match", ["get", "kind"]];
-    for (const [k, c] of Object.entries(PL_COLOR)) col.push(k, c);
-    col.push("#555");
-    map.addLayer({ id: "places-pt", type: "circle", source: "places", layout: { visibility: "none" },
-      paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 4, 17, 8], "circle-color": col, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+    map.addLayer({ id: "places-pt", type: "symbol", source: "places", layout: { visibility: "none",
+      "icon-image": ["concat", "pl-", ["get", "kind"]],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 11, 0.65, 17, 1.0],
+      "icon-allow-overlap": true } });
     map.addLayer({ id: "places-lb", type: "symbol", source: "places", minzoom: 13, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true },
       paint: { "text-color": "#7a1f45", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "places-pt", (e) => {
+      if (!claimClick(e)) return;
       const f = e.features && e.features[0], c = f && places.items.find((x) => x.id === f.properties.id);
       if (c) popupPlace(c, e.lngLat);
     });
@@ -3482,7 +3674,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (box) {
       box.textContent = "";
       const kinds = places ? [...new Set(places.items.map((c) => c.k))] : [];
-      for (const k of Object.keys(PL_COLOR)) if (kinds.includes(k)) { const s = document.createElement("span"); s.textContent = PU("kind_" + k); s.style.setProperty("--c", PL_COLOR[k]); box.appendChild(s); }
+      for (const k of Object.keys(PL_COLOR)) if (kinds.includes(k)) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon(PLACE_SHAPE[k] || "sq", PL_COLOR[k])); s.appendChild(document.createTextNode(PU("kind_" + k))); box.appendChild(s); }
       syncLegend("showPlaces", "placesLegend");
     }
     const src = map && map.getSource && map.getSource("places");
@@ -3583,14 +3775,21 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const m = MP[key];
     if (!m.data || !m.data.items.length || map.getSource(key + "s")) return;
     if (!map.isStyleLoaded()) { map.once("idle", () => mpAdd(key)); return; }                // the style is busy (other sources are loading): the layer is added at the next idle, not forgotten
-    const col = key === "mon" ? ["match", ["get", "kind"], ...Object.entries(MON_COLOR).flat(), "#555"] : key === "mod" ? MOD_COLOR : PLQ_COLOR, base = key === "mon" ? "#1864ab" : key === "mod" ? MOD_COLOR : PLQ_COLOR;
+    const base = key === "mon" ? "#1864ab" : key === "mod" ? MOD_COLOR : PLQ_COLOR;
+    if (key === "mon") for (const [k, c] of Object.entries(MON_COLOR)) { if (!map.hasImage("mon-" + k)) map.addImage("mon-" + k, makeMapIcon("mon", c), { pixelRatio: 2 }); }
+    else if (key === "mod") { if (!map.hasImage("mod-item")) map.addImage("mod-item", makeMapIcon("mod", MOD_COLOR), { pixelRatio: 2 }); }
+    else { if (!map.hasImage("plq-item")) map.addImage("plq-item", makeMapIcon("plq", PLQ_COLOR), { pixelRatio: 2 }); }
     const clustered = key !== "mod";
     map.addSource(key + "s", clustered ? { type: "geojson", cluster: true, clusterMaxZoom: 15, clusterRadius: 38, data: { type: "FeatureCollection", features: mpFeats(key) } } : { type: "geojson", data: { type: "FeatureCollection", features: mpFeats(key, true) } });
     map.addLayer({ id: key + "-cl", type: "circle", source: key + "s", filter: clustered ? ["has", "point_count"] : ["==", "id", "__none__"], layout: { visibility: "none" }, paint: { "circle-color": base, "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 13, 10, 17, 40, 22], "circle-stroke-color": "#fff", "circle-stroke-width": 2 } });
     map.addLayer({ id: key + "-cn", type: "symbol", source: key + "s", filter: clustered ? ["has", "point_count"] : ["==", "id", "__none__"], layout: { visibility: "none", "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 12 }, paint: { "text-color": "#fff" } });
-    map.addLayer({ id: key + "-pt", type: "circle", source: key + "s", filter: mpYearFilter(key), layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 4, 17, 8], "circle-color": col, "circle-stroke-color": "#fff", "circle-stroke-width": 2, "circle-opacity": ["case", ["get", "undated"], 0.55, 1] } });
+    map.addLayer({ id: key + "-pt", type: "symbol", source: key + "s", filter: mpYearFilter(key), layout: { visibility: "none",
+      "icon-image": key === "mon" ? ["concat", "mon-", ["get", "kind"]] : key === "mod" ? "mod-item" : "plq-item",
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.68, 17, 1.0],
+      "icon-allow-overlap": true },
+      paint: { "icon-opacity": ["case", ["get", "undated"], 0.55, 1] } });
     map.addLayer({ id: key + "-lb", type: "symbol", source: key + "s", minzoom: 16, filter: mpYearFilter(key), layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#212529", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
-    map.on("click", key + "-pt", (e) => { const f = e.features && e.features[0], c = f && m.byId.get(f.properties.id); if (c) popupMP(key, c, e.lngLat); });
+    map.on("click", key + "-pt", (e) => { if (!claimClick(e)) return; const f = e.features && e.features[0], c = f && m.byId.get(f.properties.id); if (c) popupMP(key, c, e.lngLat); });
     map.on("click", key + "-cl", (e) => {
       const f = map.queryRenderedFeatures(e.point, { layers: [key + "-cl"] })[0];
       map.getSource(key + "s").getClusterExpansionZoom(f.properties.cluster_id).then((z) => map.easeTo({ center: f.geometry.coordinates, zoom: z + 0.5 }));
@@ -3635,13 +3834,17 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       if (box) {
         box.textContent = "";
         const kinds = m.data ? [...new Set(m.data.items.map((c) => c.k))].filter(Boolean) : [];
-        for (const k of Object.keys(MON_COLOR)) if (key === "mon" && kinds.includes(k)) { const s = document.createElement("span"); s.textContent = mpU("k_" + k, key); s.style.setProperty("--c", MON_COLOR[k]); box.appendChild(s); }
-        if (key === "plq" && m.data) { const s = document.createElement("span"); s.textContent = mpU("k_plaque", key); s.style.setProperty("--c", PLQ_COLOR); box.appendChild(s); }
-        if (key === "mod" && m.data) { const s = document.createElement("span"); s.textContent = mpU("k_modernism", key); s.style.setProperty("--c", MOD_COLOR); box.appendChild(s); }
+        for (const k of Object.keys(MON_COLOR)) if (key === "mon" && kinds.includes(k)) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon("mon", MON_COLOR[k])); s.appendChild(document.createTextNode(mpU("k_" + k, key))); box.appendChild(s); }
+        if (key === "plq" && m.data) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon("plq", PLQ_COLOR)); s.appendChild(document.createTextNode(mpU("k_plaque", key))); box.appendChild(s); }
+        if (key === "mod" && m.data) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon("mod", MOD_COLOR)); s.appendChild(document.createTextNode(mpU("k_modernism", key))); box.appendChild(s); }
         syncLegend(m.chk, m.leg);
-      } else {                                                        // a layer of one kind (plaques, modernism) has no legend line of its own: its colour is a dot in the row of the box
+      } else {                                                        // a layer of one kind (plaques, modernism) has no legend line of its own: its icon sits in the row of the box
         const lb = $(m.chk).closest("label");
-        if (lb) { lb.classList.add("ldot"); lb.style.setProperty("--c", key === "mod" ? MOD_COLOR : PLQ_COLOR); }
+        if (lb && !lb.querySelector(".lico")) {
+          const sp = lb.querySelector("span"), ico = makeSvgIcon(key === "mod" ? "mod" : "plq", key === "mod" ? MOD_COLOR : PLQ_COLOR);
+          ico.style.marginTop = "2px";
+          if (sp) lb.insertBefore(ico, sp);
+        }
       }
       if (m.sig) m.sig = null;
       updateMP(key);
@@ -3738,7 +3941,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     return relNameOf(r.rel) + (st ? ", " + (st[lang] || st.en) : "");
   }
   const relFeats = () => religious.map((r) => ({ type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
-    properties: { id: r.id, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", undated: !!r.undated, label: relTitle(r) } }));
+    properties: { id: r.id, rel: r.rel, from: r.from, to: r.to === undefined ? 99999 : r.to, color: REL_COLOR[r.rel] || "#555", undated: !!r.undated, label: relTitle(r) } }));
   let relOsmLoading = null, relOsmFailedAt = 0;
   function loadReligiousOsm() {
     if (relOsmLoading || Date.now() - relOsmFailedAt < 3000) return;
@@ -3753,10 +3956,19 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
   function addReligious() {
     if (!religious.length || map.getSource("rel")) return;
+    for (const [k, col] of Object.entries(REL_COLOR)) {
+      const id = "rel-" + k;
+      if (!map.hasImage(id)) map.addImage(id, makeMapIcon(REL_SHAPE[k] || "cross", col), { pixelRatio: 2 });
+    }
     map.addSource("rel", { type: "geojson", data: { type: "FeatureCollection", features: relFeats() } });
-    map.addLayer({ id: "rel-pt", type: "circle", source: "rel", layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 5, 17, 10], "circle-color": ["get", "color"], "circle-opacity": ["case", ["get", "undated"], 0.55, 1], "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });   // pale: the register gives no date
+    map.addLayer({ id: "rel-pt", type: "symbol", source: "rel", layout: { visibility: "none",
+      "icon-image": ["concat", "rel-", ["get", "rel"]],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.72, 17, 1.05],
+      "icon-allow-overlap": true },
+      paint: { "icon-opacity": ["case", ["get", "undated"], 0.55, 1] } });   // pale: the register gives no date
     map.addLayer({ id: "rel-lb", type: "symbol", source: "rel", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#222222", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "rel-pt", (e) => {
+      if (!claimClick(e)) return;
       const f = e.features && e.features[0], r = f && religious.find((x) => x.id === f.properties.id);
       if (r) popupRel(r, e.lngLat);
     });
@@ -3783,9 +3995,10 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         sm.setAttribute("aria-label", t().legTitle); sm.title = t().legTitle;
         list.className = "rlist";
         for (const k of keys) {
-          const dot = document.createElement("i"); dot.className = "rdot"; dot.style.setProperty("--c", REL_COLOR[k]); sm.appendChild(dot);
-          const s = document.createElement("span"); s.textContent = relNameOf(k); s.style.setProperty("--c", REL_COLOR[k]);
-          if (k === "christian" || k === "christianOsm") s.className = "wide";
+          const sh = REL_SHAPE[k] || "cross", col = REL_COLOR[k];
+          const dot = document.createElement("i"); dot.className = "rdot ico"; dot.title = relNameOf(k); dot.appendChild(makeSvgIcon(sh, col)); sm.appendChild(dot);
+          const s = document.createElement("span"); s.className = "ico" + (k === "christian" || k === "christianOsm" ? " wide" : "");
+          s.appendChild(makeSvgIcon(sh, col)); s.appendChild(document.createTextNode(relNameOf(k)));
           list.appendChild(s);
         }
         d.appendChild(sm); d.appendChild(list); box.appendChild(d);

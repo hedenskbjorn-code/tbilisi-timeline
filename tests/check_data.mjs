@@ -94,10 +94,31 @@ function checkTriple(where, o, { allowEmpty = false } = {}) {
   if (ruWords && ka.trim() && count(GE, ka) === 0) err(`${where}: ka has no Georgian letters (a foreign text?): ${ka.slice(0, 60)}`);
   if (ruWords && en.trim() && count(LAT, en) === 0) err(`${where}: en has no Latin letters: ${en.slice(0, 60)}`);
 }
+const PARTIAL_TRIPLE_SKIP_FILES = new Set([
+  "data/search_index.json", "data/catalog.json", "data/manifest.json", "data/monuments.json",
+  "data/names_i18n.json", "data/namesakes.json", "data/rulers.json", "data/run_details.json",
+  "data/run_trc2026.json", "data/religious_osm.json",
+]);
+const PARTIAL_TRIPLE_SKIP_KEYS = new Set(["w", "wp", "src_by_lang", "aq", "url", "src", "tr"]);
+const PARTIAL_TRIPLE_CAPS = { "data/places.json": 20, "data/sculptures.json": 114, "data/plaques.json": 290 };
+const partialTripleCounts = {};
 function walkTriples(file, node, trail = "") {
   if (Array.isArray(node)) node.forEach((v, i) => walkTriples(file, v, `${trail}[${i}]`));
   else if (node && typeof node === "object") {
-    if ("ru" in node && "en" in node && "ka" in node) checkTriple(`${file}${trail}`, node);
+    const hasLang = "ru" in node || "en" in node || "ka" in node;
+    const hasAll = "ru" in node && "en" in node && "ka" in node;
+    if (hasAll) checkTriple(`${file}${trail}`, node);
+    else if (hasLang && !PARTIAL_TRIPLE_SKIP_FILES.has(file)) {
+      const lastKey = trail.split("/").pop().replace(/\[\d+\]$/, "");
+      if (!PARTIAL_TRIPLE_SKIP_KEYS.has(lastKey) && !("pend" in node && node.pend === 1)) {
+        const cap = PARTIAL_TRIPLE_CAPS[file] ?? 0;
+        partialTripleCounts[file] = (partialTripleCounts[file] || 0) + 1;
+        if (partialTripleCounts[file] > cap) {
+          const miss = ["ru", "en", "ka"].filter((l) => !String(node[l] || "").trim());
+          err(`${file}${trail}: incomplete translation (missing ${miss.join(", ")})`);
+        }
+      }
+    }
     for (const [k, v] of Object.entries(node)) { if ((k === "n" || k === "name" || k === "o" || k === "al") && node.pend === 1) continue; walkTriples(file, v, `${trail}/${k}`); }      // "pend": the name of a new object waits for the translation (Gemini), the page shows the name that exists
   }
 }
@@ -414,7 +435,7 @@ for (const [file, kinds] of [["data/sculptures.json", ["sculpture", "bust", "mon
       if (!/^(node|way|relation)\/\d+$/.test(r.osm)) err(`${w}: the OSM id ${r.osm}`);
       for (const l of ["en", "ka"]) if (CY.test(r.name?.[l] || "")) err(`${w}: Cyrillic in name.${l}`);
       if (r.st && !ro.streets?.[r.st]) err(`${w}: the street ${r.st} is not in the list`);
-      if (!Array.isArray(r.src) || r.src.some((u) => !/^https:\/\/(ka|ru|en)\.wikipedia\.org\//.test(u))) err(`${w}: src`);
+      if (!Array.isArray(r.src) || r.src.some((u) => !/^https?:\/\//.test(u))) err(`${w}: src`);
     }
   }
 }

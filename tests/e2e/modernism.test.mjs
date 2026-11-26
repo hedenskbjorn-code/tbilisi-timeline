@@ -43,8 +43,8 @@ test("a building appears in the year of the end of its construction", async () =
   assert.ok(MOD.items.some((c) => c.y > 1990) || MOD.items.every((c) => c.y <= 1990));
   // a layer of one kind has no legend line under its box (it only repeated the name): the colour is a dot in the row of the box
   assert.equal(await page.locator("#modLegend, #plqLegend").count(), 0);
-  const dot = await page.evaluate(() => { const l = document.getElementById("showMod").closest("label"); return [l.classList.contains("ldot"), l.style.getPropertyValue("--c").trim(), getComputedStyle(l.querySelector("span"), "::before").width]; });
-  assert.deepEqual(dot, [true, "#364fc7", "10px"]);
+  const dot = await page.evaluate(() => { const l = document.getElementById("showMod").closest("label"), i = l.querySelector("img.lico"); return [!!i, !!(i && i.src.startsWith("data:image/png")), i && getComputedStyle(i).width]; });
+  assert.deepEqual(dot, [true, true, "14px"]);
 });
 
 test("the card of a building: year, architects, function, condition, photo with its licence, sources", async () => {

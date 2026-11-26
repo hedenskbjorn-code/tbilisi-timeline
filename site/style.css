@@ -257,6 +257,10 @@ body.panel-open #yearchip { display:none; }
 .rellegend details > summary::-webkit-details-marker { display:none; }
 .rellegend details > summary:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
 .rellegend i.rdot { display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--c); border:1.5px solid #fff; box-shadow:0 0 0 1px #0004; }
+.rellegend i.rdot.ico { width:15px; height:15px; border-radius:0; background:none; border:0; box-shadow:none; }
+.rellegend span.ico { display:inline-flex; align-items:center; gap:5px; }
+.rellegend span.ico::before { display:none; }
+.rellegend .lico, #legendbox .lico, #filters .row .lico { width:14px; height:14px; flex:none; vertical-align:-2px; }
 .rellegend .rlist { display:grid; grid-template-columns:1fr 1fr; gap:2px 8px; margin:4px 0 2px; }
 .rellegend .rlist .wide { grid-column:1 / -1; }
 #side .pclose { position:absolute; top:4px; right:6px; }

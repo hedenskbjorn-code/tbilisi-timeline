@@ -56,6 +56,8 @@ PERIOD_FIXES = {
     38181: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
     38197: (1201, 1250, "half", "raw_date says first half of 13th c., misparsed as 331-370"),
     41543: (1501, 1800, "period", "Period says late Middle Ages (16th-18th c.), misparsed as 331-370"),
+    24367: (1882, 1882, "exact", "Avlabari Peter and Paul cemetery Orthodox church built ca. 1882 (orthodoxy.ge / ka.wikipedia); register gave no date"),
+    24785: (1778, 1778, "exact", "Krtsanisi Armenian Church of the Holy Mother of God rebuilt in 1778 (mentioned 1436, sci.am epigraphy); register gave no date"),
 }
 WORDS = {"XVIII ს": "the 18th century (the word of the register 'XVIII ს')", "V-XVIII სს.": "the 5th-18th centuries (the word of the register 'V-XVIII სს.')"}
 # Fixes for raw_date strings misparsed by the initial import:

@@ -29,6 +29,12 @@ test("off by default and turns on with #showBattleMap", async () => {
   await page.waitForTimeout(250);
   const vis1 = await page.evaluate(() => window.TT_E2E.map.getLayoutProperty("battle-pt", "visibility"));
   assert.equal(vis1, "visible");
+  const iconInfo = await page.evaluate(() => ({
+    type: window.TT_E2E.map.getLayer("battle-pt")?.type,
+    hasBattle: window.TT_E2E.map.hasImage("battle-swords"),
+    hasInvasion: window.TT_E2E.map.hasImage("invasion-swords"),
+  }));
+  assert.deepEqual(iconInfo, { type: "symbol", hasBattle: true, hasInvasion: true });
 });
 
 test("cumulative filter by year shows events up to selected year", async () => {
@@ -75,4 +81,21 @@ test("clicking a battle point opens its event card and labels switch language", 
     return feats.find((x) => x.properties.year === 1749)?.properties.label || "";
   });
   assert.ok(kaLabel.includes("ნარიყალას ციხე"), "ka label updated: " + kaLabel);
+});
+
+test("clicking an overlapping battle/church spot opens only one card, never two", async () => {
+  await page.keyboard.press("Escape");
+  const ev1209 = WITH_PLACE.find((e) => String(e.date).includes("1209"));
+  assert.ok(ev1209, "1209 Metekhi event exists");
+  const pt = await page.evaluate((p) => {
+    const m = window.TT_E2E.map;
+    m.jumpTo({ center: [p.lng, p.lat], zoom: 17 });
+    return new Promise((r) => m.once("idle", () => r(m.project([p.lng, p.lat]))));
+  }, ev1209.place);
+  const box = await page.locator("#map canvas").first().boundingBox();
+  await page.mouse.click(box.x + pt.x, box.y + pt.y);
+  await page.waitForTimeout(200);
+  const popups = await page.locator(".maplibregl-popup").count();
+  const modals = await page.locator("#infoModal:not([hidden])").count();
+  assert.equal(popups + modals, 1, `expected exactly 1 open card, got popups=${popups} modals=${modals}`);
 });

@@ -19,8 +19,15 @@ test.after(async () => { await page.ctx.close(); await browser.close(); server.s
 const ev = (fn, arg) => page.evaluate(fn, arg);
 
 test("the layers of the map exist", async () => {
-  const missing = await ev(() => ["rel-pt", "sci-pt", "edu-pt", "urban-fill", "urban-line-approx", "mon", "tr-line", "tr-casing", "tr-ticks", "tr-pt-m", "tr-funic", "tr-cable"].filter((i) => !window.TT_E2E.map.getLayer(i)));
+  const missing = await ev(() => ["rel-pt", "sci-pt", "edu-pt", "mus-pt", "urban-fill", "urban-line-approx", "mon", "tr-line", "tr-casing", "tr-ticks", "tr-pt-m", "tr-funic", "tr-cable"].filter((i) => !window.TT_E2E.map.getLayer(i)));
   assert.deepEqual(missing, []);
+  const icons = await ev(() => ({
+    relType: window.TT_E2E.map.getLayer("rel-pt")?.type,
+    musType: window.TT_E2E.map.getLayer("mus-pt")?.type,
+    sciType: window.TT_E2E.map.getLayer("sci-pt")?.type,
+    hasIcons: ["rel-orthodox", "rel-catholic", "rel-jewish", "rel-muslim", "rel-armenian", "rel-yazidi", "rel-zoroastrian", "mus-museum", "sci-micro"].every((id) => window.TT_E2E.map.hasImage(id)),
+  }));
+  assert.deepEqual(icons, { relType: "symbol", musType: "symbol", sciType: "symbol", hasIcons: true });
 });
 
 test("the layers of religion, science and education hold all the objects of the data", async () => {

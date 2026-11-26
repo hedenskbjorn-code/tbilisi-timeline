@@ -17,7 +17,7 @@ test.after(async () => { await page.ctx.close(); await browser.close(); server.s
 const ev = (f, a) => page.evaluate(f, a);
 const grp = (g) => ev((g) => { const el = document.querySelector(`.gm[data-gm=${g}]`), m = el.querySelector(".gmaster"); return { open: !el.querySelector(".gmkids").hidden, checked: m.checked, half: m.indeterminate }; }, g);
 const kidsOf = (ids) => ev((ids) => ids.map((i) => document.getElementById(i).checked), ids);
-const setMaster = (g, on) => page.locator(`.gm[data-gm=${g}] .gmaster`).evaluate((e, on) => { e.checked = on; e.dispatchEvent(new Event("change", { bubbles: true })); }, on);
+const setMaster = (g) => page.locator(`.gm[data-gm=${g}] .gmaster`).click();
 
 test("for a visitor the groups are closed, and the master boxes show the state of their boxes", async () => {
   for (const g of ["reg", "sci", "mon"]) assert.equal((await grp(g)).open, false, g + " is closed");
@@ -35,15 +35,15 @@ test("the arrow opens and closes a group", async () => {
 });
 
 test("the master box switches every box of its group, and the layers follow", async () => {
-  await setMaster("mon", true);
+  await setMaster("mon");
   assert.deepEqual(await kidsOf(["showMon", "showPlq"]), [true, true]);
   await page.waitForFunction(() => window.TT_E2E.map.getSource("mons") && window.TT_E2E.map.getSource("plqs"), null, { timeout: 20000 });
-  await setMaster("mon", false);
+  await setMaster("mon");
   assert.deepEqual(await kidsOf(["showMon", "showPlq"]), [false, false]);
-  await setMaster("reg", false);
+  await setMaster("reg");
   assert.deepEqual(await kidsOf(["showResid", "showPublic", "showDef", "showOtherB"]), [false, false, false, false]);
   assert.deepEqual(await grp("reg"), { open: false, checked: false, half: false });
-  await setMaster("reg", true);
+  await setMaster("reg");
   assert.deepEqual(await kidsOf(["showResid", "showPublic", "showDef", "showOtherB"]), [true, true, true, true]);
 });
 
