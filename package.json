@@ -4,8 +4,9 @@
   "description": "Tbilisi through time: tests of the browser behaviour (the site itself needs no build)",
   "scripts": {
     "test": "node tests/check_data.mjs && node --test tests/*.test.mjs",
-    "test:e2e": "node --test --test-concurrency=1 tests/e2e/*.test.mjs",
-    "preflight": "node tests/check_data.mjs && node --test tests/*.test.mjs && python -P tools/db_build.py --check && node --test --test-concurrency=1 tests/e2e/perf.test.mjs tests/e2e/smoke.test.mjs tests/e2e/monuments.test.mjs tests/e2e/battles_map.test.mjs"
+    "test:data": "node tests/check_data.mjs && node --test tests/*.test.mjs && python -P tools/db_build.py --check",
+    "test:e2e": "node --test --test-concurrency=4 tests/e2e/*.test.mjs",
+    "preflight": "node tests/check_data.mjs && node --test tests/*.test.mjs && python -P tools/db_build.py --check && node --test --test-concurrency=4 tests/e2e/smoke.test.mjs tests/e2e/monuments.test.mjs tests/e2e/battles_map.test.mjs"
   },
   "devDependencies": {
     "ajv": "^8.20.0",

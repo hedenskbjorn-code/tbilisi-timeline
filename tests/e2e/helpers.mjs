@@ -15,6 +15,7 @@ export const DATA = path.join(SITE, "data");
 const MIME = { ".html": "text/html;charset=utf-8", ".js": "text/javascript", ".mjs": "text/javascript", ".json": "application/json", ".css": "text/css", ".webp": "image/webp",
   ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".webmanifest": "application/manifest+json", ".pbf": "application/x-protobuf", ".geojson": "application/json" };
 const ZIP = new Set([".html", ".js", ".mjs", ".json", ".css", ".svg", ".geojson", ".webmanifest"]);
+const GZ_CACHE = new Map();
 
 export function startServer(port = 0, host = "127.0.0.1") {
   const srv = http.createServer((req, res) => {
@@ -27,7 +28,7 @@ export function startServer(port = 0, host = "127.0.0.1") {
       if (e) { res.writeHead(404); return res.end("not found"); }
       const ext = path.extname(f);
       const h = { "content-type": MIME[ext] || "application/octet-stream", "cache-control": "no-store" };
-      if (ZIP.has(ext)) { d = zlib.gzipSync(d, { level: 6 }); h["content-encoding"] = "gzip"; }
+      if (ZIP.has(ext)) { let z = GZ_CACHE.get(f); if (!z) { z = zlib.gzipSync(d, { level: 6 }); GZ_CACHE.set(f, z); } d = z; h["content-encoding"] = "gzip"; }
       res.writeHead(200, h);
       res.end(d);
     });
