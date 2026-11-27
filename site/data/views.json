@@ -181,6 +181,29 @@
   "page": "https://commons.wikimedia.org/wiki/File:Tiflis_by_Timm,_Vasilii_Fedorovich.jpg"
  },
  {
+  "id": "ivanitsky_tiflis_1858",
+  "year": 1858,
+  "window": 15,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Alexei_Ivanitsky._View_of_Tbilisi._1858.jpg",
+  "title": {
+   "ru": "Вид Тифлиса, 1858 (А. Иваницкий)",
+   "en": "View of Tiflis, 1858 (A. Ivanitsky)",
+   "ka": "ტფილისის ხედი, 1858 (ა. ივანიცკი)"
+  },
+  "author": {
+   "ru": "Алексей Иваницкий (Британская библиотека)",
+   "en": "Alexei Ivanitsky (British Library)",
+   "ka": "ალექსეი ივანიცკი (ბრიტანეთის ბიბლიოთეკა)"
+  },
+  "note": {
+   "ru": "Одна из самых ранних сохранившихся фотографий Тифлиса (1858). К карте не привязана.",
+   "en": "One of the earliest surviving photographs of Tiflis (1858). Not tied to the map.",
+   "ka": "ტფილისის ერთ-ერთი უძველესი შემორჩენილი ფოტო (1858). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Alexei_Ivanitsky._View_of_Tbilisi._1858.jpg"
+ },
+ {
   "id": "franken_1859",
   "year": 1859,
   "window": 50,
@@ -225,6 +248,29 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Le_Tour_du_monde-01-p321.jpg"
+ },
+ {
+  "id": "montabone_vank_1862",
+  "year": 1862,
+  "window": 15,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/63/Montabone%2C_Luigi_-_Cattedrale_Armena_in_Tiflis.jpg",
+  "title": {
+   "ru": "Ванкский армянский кафедральный собор, 1862 (Л. Монтабоне)",
+   "en": "Vank Armenian Cathedral, 1862 (L. Montabone)",
+   "ka": "ვანქის სომხური საკათედრო ტაძარი, 1862 (ლ. მონტაბონე)"
+  },
+  "author": {
+   "ru": "Луиджи Монтабоне",
+   "en": "Luigi Montabone",
+   "ka": "ლუიჯი მონტაბონე"
+  },
+  "note": {
+   "ru": "Ранняя фотография снесённого в 1938 году Ванкского собора. К карте не привязана.",
+   "en": "Early photograph of Vank Cathedral, demolished in 1938. Not tied to the map.",
+   "ka": "1938 წელს დანგრეული ვანქის ტაძრის ადრეული ფოტო. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Montabone,_Luigi_-_Cattedrale_Armena_in_Tiflis.jpg"
  },
  {
   "id": "viceroy_palace_1865",
@@ -595,6 +641,29 @@
   "page": "https://commons.wikimedia.org/wiki/File:Bridge_in_Tbilisi,_1870s.jpg"
  },
  {
+  "id": "observatory_tiflis_1880",
+  "year": 1880,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/ObservatoryTiflis.jpg/1280px-ObservatoryTiflis.jpg",
+  "title": {
+   "ru": "Тифлисская физическая обсерватория на Михайловском проспекте, 1880",
+   "en": "Tiflis Physical Observatory on Mikhailovsky Prospect, 1880",
+   "ka": "ტფილისის ფიზიკური ობსერვატორია მიხეილის გამზირზე, 1880"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:ObservatoryTiflis.jpg"
+ },
+ {
   "id": "ermakov_nevsky",
   "year": 1881,
   "window": 35,
@@ -662,6 +731,29 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Old_Tbilisi_Konka.jpg"
+ },
+ {
+  "id": "ermakov_erivan_sq_1885",
+  "year": 1885,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Ermakov._Old_Tbilisi._107.jpg/1280px-Ermakov._Old_Tbilisi._107.jpg",
+  "title": {
+   "ru": "Эриванская площадь, Городская дума и конка № 33, 1885",
+   "en": "Erivan Square, City Hall and horsecar #33, 1885",
+   "ka": "ერევნის მოედანი, ქალაქის საბჭო და კონკა № 33, 1885"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Ermakov._Old_Tbilisi._107.jpg"
  },
  {
   "id": "kennan_tsar_1888",
@@ -871,6 +963,75 @@
   "page": "https://commons.wikimedia.org/wiki/File:Ermakov._53._%D0%A2%D0%B8%D1%84%D0%BB%D0%B8%D1%81%D1%8A._%D0%9E%D0%B1%D1%89%D0%B8%D0%B9_%D0%B2%D0%B8%D0%B4%D1%8A_%D1%81%D1%82%D0%B0%D1%80%D0%B0%D0%B3%D0%BE_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0_%D0%BA%D1%80%D0%B5%D0%BF_%D0%B8_%D1%80._%D0%9A%D1%83%D1%80%D1%8B.jpg"
  },
  {
+  "id": "agmashenebeli_148_1890",
+  "year": 1890,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/%D0%A2%D0%B8%D1%84%D0%BB%D0%B8%D1%81._%D0%9C%D0%B8%D1%85%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82..jpg/1280px-%D0%A2%D0%B8%D1%84%D0%BB%D0%B8%D1%81._%D0%9C%D0%B8%D1%85%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82..jpg",
+  "title": {
+   "ru": "Михайловский проспект и военное училище, 1890",
+   "en": "Mikhailovsky Prospect and Military School, 1890",
+   "ka": "მიხეილის გამზირი და სამხედრო სასწავლებელი, 1890"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Здание Михайловского военного училища на нынешнем пр. Агмашенебели, 148. К карте не привязана.",
+   "en": "Mikhailovsky Military School on present-day 148 Aghmashenebeli Ave. Not tied to the map.",
+   "ka": "მიხეილის სამხედრო სასწავლებლის შენობა (ახლანდ. აღმაშენებლის გამზ. 148). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%A2%D0%B8%D1%84%D0%BB%D0%B8%D1%81._%D0%9C%D0%B8%D1%85%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82..jpg"
+ },
+ {
+  "id": "kura_flood_1893",
+  "year": 1893,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Tbilisi_XIXc_2.jpg/1280px-Tbilisi_XIXc_2.jpg",
+  "title": {
+   "ru": "Наводнение на Куре у Рике и острова Мадатова, 1893",
+   "en": "Kura River flood at Rike and Madatov Island, 1893",
+   "ka": "მტკვრის წყალდიდობა რიყესა და მადათოვის კუნძულთან, 1893"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_XIXc_2.jpg"
+ },
+ {
+  "id": "opera_cafe_1894",
+  "year": 1894,
+  "window": 15,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Interior_of_the_caf%C3%A9_in_the_opera_house%2C_T%27bilisi%2C_Georgia_%28Republic%29.jpg",
+  "title": {
+   "ru": "Интерьер кафе в Тифлисском оперном театре, 1888–1900",
+   "en": "Interior of the café in the Tiflis Opera House, 1888–1900",
+   "ka": "ტფილისის ოპერის თეატრის კაფეს ინტერიერი, 1888–1900"
+  },
+  "author": {
+   "ru": "коллекция Дж. Г. Харборда",
+   "en": "James Guthrie Harbord Collection",
+   "ka": "ჯ. ჰარბორდის კოლექცია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Interior_of_the_caf%C3%A9_in_the_opera_house,_T%27bilisi,_Georgia_(Republic).jpg"
+ },
+ {
   "id": "ermakov_abanotubani",
   "year": 1895,
   "window": 20,
@@ -892,6 +1053,52 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Abanotubani_and_Surb_Sargisi_church.jpg"
+ },
+ {
+  "id": "debaye_vank_1895",
+  "year": 1895,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Caucase._Tiflis._Eglise_de_Vank_-_%28mission%29_de_Baye_%3B_%28photogr._reprod._par%29_Molteni_%28pour_la_conf%C3%A9rence_donn%C3%A9e_par%29_de_Baye_-_btv1b532587964.jpg/1280px-Caucase._Tiflis._Eglise_de_Vank_-_%28mission%29_de_Baye_%3B_%28photogr._reprod._par%29_Molteni_%28pour_la_conf%C3%A9rence_donn%C3%A9e_par%29_de_Baye_-_btv1b532587964.jpg",
+  "title": {
+   "ru": "Ванкский собор в Тифлисе, 1890-е (Ж. де Бай / BnF)",
+   "en": "Vank Cathedral in Tiflis, 1890s (J. de Baye / BnF)",
+   "ka": "ვანქის ტაძარი ტფილისში, 1890-იანი წლები (ჟ. დე ბაი / BnF)"
+  },
+  "author": {
+   "ru": "Жозеф де Бай / Molteni (BnF Gallica)",
+   "en": "Joseph de Baye / Molteni (BnF Gallica)",
+   "ka": "ჟოზეფ დე ბაი / Molteni (BnF Gallica)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Caucase._Tiflis._Eglise_de_Vank_-_(mission)_de_Baye_;_(photogr._reprod._par)_Molteni_(pour_la_conf%C3%A9rence_donn%C3%A9e_par)_de_Baye_-_btv1b532587964.jpg"
+ },
+ {
+  "id": "ermakov_opera_1896",
+  "year": 1896,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Caucase._Tiflis._Le_th%C3%A9%C3%A2tre_-_%28mission%29_de_Baye_%3B_%28photogr._de_M._Yermakoff%29_%3B_%28photogr._reprod._par%29_Molteni_%28pour_les_conf%C3%A9rences_donn%C3%A9es_par%29_de_Baye_-_btv1b53258856v.jpg/1280px-thumbnail.jpg",
+  "title": {
+   "ru": "Казённый (Оперный) театр на Головинском проспекте, 1890-е",
+   "en": "Tiflis Opera House on Golovinsky Prospect, 1890s",
+   "ka": "ტფილისის ოპერის თეატრი გოლოვინის გამზირზე, 1890-იანი წლები"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков / Жозеф де Бай",
+   "en": "Dmitri Yermakov / Joseph de Baye",
+   "ka": "დიმიტრი ერმაკოვი / ჟოზეფ დე ბაი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Caucase._Tiflis._Le_th%C3%A9%C3%A2tre_-_(mission)_de_Baye_;_(photogr._de_M._Yermakoff)_;_(photogr._reprod._par)_Molteni_(pour_les_conf%C3%A9rences_donn%C3%A9es_par)_de_Baye_-_btv1b53258856v.jpg"
  },
  {
   "id": "demidov_ferry_1898",
@@ -938,6 +1145,75 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Main_bridge,_tiflis_(Demidov,_1898).jpg"
+ },
+ {
+  "id": "botanical_photochrom_1898",
+  "year": 1898,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Botanical_gardens%2C_Tiflis%2C_Russia.jpg/1280px-Botanical_gardens%2C_Tiflis%2C_Russia.jpg",
+  "title": {
+   "ru": "Тифлисский ботанический сад, фотохром 1890–1905",
+   "en": "Tiflis Botanical Gardens, photochrom 1890–1905",
+   "ka": "ტფილისის ბოტანიკური ბაღი, ფოტოქრომი 1890–1905"
+  },
+  "author": {
+   "ru": "неизвестный автор (Библиотека Конгресса США)",
+   "en": "unknown author (Library of Congress)",
+   "ka": "ავტორი უცნობია (აშშ-ის კონგრესის ბიბლიოთეკა)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Botanical_gardens,_Tiflis,_Russia.jpg"
+ },
+ {
+  "id": "ermakov_shia_mosque_1898",
+  "year": 1898,
+  "window": 20,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Ermakov._Tatar_mosque_and_bridge_on_Maidan_square._Tiflis.jpg/1280px-Ermakov._Tatar_mosque_and_bridge_on_Maidan_square._Tiflis.jpg",
+  "title": {
+   "ru": "Шиитская мечеть и мост на Майдане, 1881–1916 (Д. Ермаков)",
+   "en": "Shia Mosque and bridge on Maidan Square, 1881–1916 (D. Yermakov)",
+   "ka": "შიიტური მეჩეთი და ხიდი მეიდანზე, 1881–1916 (დ. ერმაკოვი)"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Снесённая в 1951 году Шиитская мечеть у Метехского моста. К карте не привязана.",
+   "en": "Shia Mosque near Metekhi Bridge, demolished in 1951. Not tied to the map.",
+   "ka": "1951 წელს დანგრეული შიიტური მეჩეთი მეტეხის ხიდთან. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Ermakov._Tatar_mosque_and_bridge_on_Maidan_square._Tiflis.jpg"
+ },
+ {
+  "id": "dry_bridge_1899",
+  "year": 1899,
+  "window": 20,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Old_Tbilisi_-_XIX_century.jpg/1280px-Old_Tbilisi_-_XIX_century.jpg",
+  "title": {
+   "ru": "Сухой (Малый Михайловский) мост, 1881–1916 (Д. Ермаков)",
+   "en": "Dry (Small Mikhailovsky) Bridge, 1881–1916 (D. Yermakov)",
+   "ka": "მშრალი ხიდი, 1881–1916 (დ. ერმაკოვი)"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Old_Tbilisi_-_XIX_century.jpg"
  },
  {
   "id": "yermakov_avlabari_bridge",
@@ -1134,6 +1410,52 @@
   }
  },
  {
+  "id": "old_vera_bridge_1900",
+  "year": 1900,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Tiflis._Old_Vera_bridge.jpg/1280px-Tiflis._Old_Vera_bridge.jpg",
+  "title": {
+   "ru": "Старый Верийский (Бахбудовский) мост, 1900",
+   "en": "Old Vera Bridge, 1900",
+   "ka": "ძველი ვერის ხიდი, 1900"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tiflis._Old_Vera_bridge.jpg"
+ },
+ {
+  "id": "grand_hotel_kavkaz_1900",
+  "year": 1900,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Tbilisi_XIXc_04.jpg/1280px-Tbilisi_XIXc_04.jpg",
+  "title": {
+   "ru": "Гранд-отель «Кавказ» на Эриванской площади и конка, 1900",
+   "en": "Grand Hotel Kavkaz on Erivan Square and horsecar, 1900",
+   "ka": "გრანდ-ოტელი „კავკაზი“ ერევნის მოედანზე და კონკა, 1900"
+  },
+  "author": {
+   "ru": "Дмитрий Ермаков",
+   "en": "Dmitri Yermakov",
+   "ka": "დიმიტრი ერმაკოვი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_XIXc_04.jpg"
+ },
+ {
   "id": "prokudin_havlabar",
   "year": 1905,
   "window": 50,
@@ -1246,6 +1568,29 @@
   }
  },
  {
+  "id": "mnatsakanov_bridge_1905",
+  "year": 1905,
+  "window": 15,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Mnacakanovsky_bridge.jpg",
+  "title": {
+   "ru": "Мнацакановский мост через Куру, 1900-е",
+   "en": "Mnatsakanov Bridge across the Kura, 1900s",
+   "ka": "მნაცაკანოვის ხიდი მტკვარზე, 1900-იანი წლები"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Снесённый в советское время мост через Куру (построен в 1882 г.). К карте не привязан.",
+   "en": "Bridge across the Kura built in 1882 and demolished in the Soviet era. Not tied to the map.",
+   "ka": "1882 წელს აგებული და საბჭოთა პერიოდში დანგრეული ხიდი მტკვარზე. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Mnacakanovsky_bridge.jpg"
+ },
+ {
   "id": "prokudin_east",
   "year": 1910,
   "window": 50,
@@ -1290,6 +1635,29 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Metekhi_Prison_and_Church._Sergei_Mikhailovich_Prokudin-Gorskii.jpg"
+ },
+ {
+  "id": "prokudin_gorskii_sololaki_1910",
+  "year": 1910,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Gorskii_04434u.jpg/1280px-Gorskii_04434u.jpg",
+  "title": {
+   "ru": "Старый город со склона Сололаки, цветное фото С. Прокудина-Горского (1905–1915)",
+   "en": "Old Town from Sololaki Ridge, color photo by S. Prokudin-Gorskii (1905–1915)",
+   "ka": "ძველი ქალაქი სოლოლაკის ქედიდან, ს. პროკუდინ-გორსკის ფერადი ფოტო (1905–1915)"
+  },
+  "author": {
+   "ru": "Сергей Прокудин-Горский",
+   "en": "Sergei Prokudin-Gorskii",
+   "ka": "სერგეი პროკუდინ-გორსკი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Gorskii_04434u.jpg"
  },
  {
   "id": "curtis_floating_mill_1911",
@@ -1338,6 +1706,75 @@
   "page": "https://commons.wikimedia.org/wiki/File:Principal_club_at_Tiflis_(Curtis,_1911).JPG"
  },
  {
+  "id": "temple_of_glory_1911",
+  "year": 1911,
+  "window": 15,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Temple_of_Glory_interior_in_Tiflis.JPG",
+  "title": {
+   "ru": "Интерьер «Храма Славы» (ныне Национальная галерея), 1911",
+   "en": "Interior of the Temple of Glory (now National Gallery), 1911",
+   "ka": "„დიდების ტაძრის“ ინტერიერი (ახლანდ. ეროვნული გალერეა), 1911"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Temple_of_Glory_interior_in_Tiflis.JPG"
+ },
+ {
+  "id": "cadet_corps_tiflis_1912",
+  "year": 1912,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Cadet_corps_in_Tiflis.jpg/1280px-Cadet_corps_in_Tiflis.jpg",
+  "title": {
+   "ru": "Кадетский корпус на Головинском проспекте, до 1917",
+   "en": "Cadet Corps on Golovinsky Prospect, before 1917",
+   "ka": "კადეტთა კორპუსი გოლოვინის გამზირზე, 1917 წლამდე"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Cadet_corps_in_Tiflis.jpg"
+ },
+ {
+  "id": "mukhrani_bridge_1914",
+  "year": 1914,
+  "window": 15,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Mukhrani_Bridge.jpg/1280px-Mukhrani_Bridge.jpg",
+  "title": {
+   "ru": "Мухранский мост через Куру (проект Е. Патона), 1911–1917",
+   "en": "Mukhrani Bridge across the Kura (designed by Ye. Paton), 1911–1917",
+   "ka": "მუხრანის ხიდი მტკვარზე (ე. პატონის პროექტი), 1911–1917"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Арочный мост 1911 года; заменён мостом Бараташвили в 1960-х гг. К карте не привязан.",
+   "en": "Arch bridge of 1911, replaced by Baratashvili Bridge in the 1960s. Not tied to the map.",
+   "ka": "1911 წლის თაღოვანი ხიდი; 1960-იან წლებში შეცვალა ბარათაშვილის ხიდმა. რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Mukhrani_Bridge.jpg"
+ },
+ {
   "id": "bufa_tiflis_1914_1918",
   "year": 1916,
   "window": 6,
@@ -1359,6 +1796,29 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Tiflis_NL-HaNA_.24.09_158-2533.jpg"
+ },
+ {
+  "id": "february_1917_erivan_sq",
+  "year": 1917,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/A_popular_demonstration_in_Erivan_Square%2C_Tiflis._February%2C_1917.jpg/1280px-A_popular_demonstration_in_Erivan_Square%2C_Tiflis._February%2C_1917.jpg",
+  "title": {
+   "ru": "Народная демонстрация на Эриванской площади, февраль 1917",
+   "en": "Popular demonstration in Erivan Square, February 1917",
+   "ka": "სახალხო დემონსტრაცია ერევნის მოედანზე, 1917 წლის თებერვალი"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:A_popular_demonstration_in_Erivan_Square,_Tiflis._February,_1917.jpg"
  },
  {
   "id": "dartigues_french_hospital_1918",
@@ -1696,6 +2156,29 @@
   "from": 1935
  },
  {
+  "id": "funicular_reconstruction_1937",
+  "year": 1937,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Funicular_Complex_during_reconstruction.jpg/1280px-Funicular_Complex_during_reconstruction.jpg",
+  "title": {
+   "ru": "Реконструкция верхнего комплекса Тбилисского фуникулёра, 1936–1938",
+   "en": "Reconstruction of the upper Tbilisi Funicular complex, 1936–1938",
+   "ka": "თბილისის ფუნიკულიორის ზედა კომპლექსის რეკონსტრუქცია, 1936–1938"
+  },
+  "author": {
+   "ru": "Национальный архив Грузии (скан: Ната Курдадзе)",
+   "en": "National Archives of Georgia (scan: Nata Kurdadze)",
+   "ka": "საქართველოს ეროვნული არქივი (სკანი: ნატა ქურდაძე)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC0). რუკას არ უკავშირდება."
+  },
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Funicular_Complex_during_reconstruction.jpg"
+ },
+ {
   "id": "institute_mel_1938",
   "year": 1938,
   "window": 2,
@@ -1718,6 +2201,29 @@
   "license": "CC0",
   "page": "https://commons.wikimedia.org/wiki/File:1938-InstituteMarxEngelsLenin_Building.jpg",
   "from": 1935
+ },
+ {
+  "id": "imel_building_2_1938",
+  "year": 1938,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/1938-InstituteMarxEngelsLenin_Building_2.jpg",
+  "title": {
+   "ru": "Здание ИМЭЛ на проспекте Руставели, 1938",
+   "en": "IMEL Building on Rustaveli Avenue, 1938",
+   "ka": "იმელის შენობა რუსთაველის გამზირზე, 1938"
+  },
+  "author": {
+   "ru": "архив КП Грузинской ССР",
+   "en": "Communist Party of Georgian SSR",
+   "ka": "საქართველოს სსრ კომპარტია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC0). რუკას არ უკავშირდება."
+  },
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:1938-InstituteMarxEngelsLenin_Building_2.jpg"
  },
  {
   "id": "circus_1940",
@@ -1816,6 +2322,29 @@
   "from": 1950
  },
  {
+  "id": "gruzugol_construction_4_1950",
+  "year": 1950,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Georgian_Academy_of_Sciences_%281950%29-4.jpg/1280px-Georgian_Academy_of_Sciences_%281950%29-4.jpg",
+  "title": {
+   "ru": "Строительство «Грузугля» (Академия наук ГССР), 1950",
+   "en": "Construction of Gruzugol (Academy of Sciences), 1950",
+   "ka": "„საქნახშირის“ (მეცნიერებათა აკადემიის) მშენებლობა, 1950"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Georgian_Academy_of_Sciences_(1950)-4.jpg"
+ },
+ {
   "id": "lenin_square_1953",
   "year": 1953,
   "window": 2,
@@ -1888,6 +2417,29 @@
   "from": 1955
  },
  {
+  "id": "hammond_mtatsminda_1958",
+  "year": 1958,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Hammond_Slides_Tbilisi_30._Mtatsminda_mountain.jpg/1280px-Hammond_Slides_Tbilisi_30._Mtatsminda_mountain.jpg",
+  "title": {
+   "ru": "Склон Мтацминды и герб Грузинской ССР, ок. 1958 (Т. Хэммонд)",
+   "en": "Mtatsminda slope and Georgian SSR emblem, c. 1958 (T. Hammond)",
+   "ka": "მთაწმინდის ფერდობი და საქართველოს სსრ გერბი, დაახლ. 1958 (ტ. ჰამონდი)"
+  },
+  "author": {
+   "ru": "Томас Тейлор Хэммонд",
+   "en": "Thomas Taylor Hammond",
+   "ka": "თომას ტეილორ ჰამონდი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 4.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 4.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 4.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Hammond_Slides_Tbilisi_30._Mtatsminda_mountain.jpg"
+ },
+ {
   "id": "fortepan_galaktion_1960",
   "year": 1960,
   "window": 5,
@@ -1934,6 +2486,52 @@
   "license": "CC BY-SA 3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Rusztaveli_sug%C3%A1r%C3%BAt_a_Hotel_Mariott_(egykor_Hotel_Majestic)_el%C5%91tt._Fortepan_53528.jpg",
   "from": 1960
+ },
+ {
+  "id": "fortepan_funicular_1960",
+  "year": 1960,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Sikl%C3%B3_a_Mtatsminda_hegyre._Fortepan_62383.jpg/1280px-Sikl%C3%B3_a_Mtatsminda_hegyre._Fortepan_62383.jpg",
+  "title": {
+   "ru": "Тбилисский фуникулёр: вагон № 2 и верхняя станция, 1960 (Fortepan)",
+   "en": "Tbilisi Funicular: car #2 and upper station, 1960 (Fortepan)",
+   "ka": "თბილისის ფუნიკულიორი: ვაგონი № 2 და ზედა სადგური, 1960 (Fortepan)"
+  },
+  "author": {
+   "ru": "Fortepan (архив 62383)",
+   "en": "FOTO:Fortepan — ID 62383",
+   "ka": "Fortepan (არქივი 62383)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 3.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 3.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 3.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sikl%C3%B3_a_Mtatsminda_hegyre._Fortepan_62383.jpg"
+ },
+ {
+  "id": "fortepan_rustaveli_hotel_1960",
+  "year": 1960,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Rusztaveli_sug%C3%A1r%C3%BAt_a_Hotel_Mariott_%28egykor_Hotel_Majestic%29_el%C5%91tt._Fortepan_53529.jpg/1280px-Rusztaveli_sug%C3%A1r%C3%BAt_a_Hotel_Mariott_%28egykor_Hotel_Majestic%29_el%C5%91tt._Fortepan_53529.jpg",
+  "title": {
+   "ru": "Проспект Руставели у гостиницы «Тбилиси» («Мажестик»), 1960 (Fortepan)",
+   "en": "Rustaveli Avenue by Hotel Tbilisi (former Majestic), 1960 (Fortepan)",
+   "ka": "რუსთაველის გამზირი სასტუმრო „თბილისთან“ (ყოფ. „მაჟესტიკი“), 1960 (Fortepan)"
+  },
+  "author": {
+   "ru": "Fortepan (архив 53529)",
+   "en": "FOTO:Fortepan — ID 53529",
+   "ka": "Fortepan (არქივი 53529)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 3.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 3.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 3.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Rusztaveli_sug%C3%A1r%C3%BAt_a_Hotel_Mariott_(egykor_Hotel_Majestic)_el%C5%91tt._Fortepan_53529.jpg"
  },
  {
   "id": "dupakier_panorama_1964",
@@ -2006,6 +2604,75 @@
   "license": "CC BY 2.0",
   "page": "https://commons.wikimedia.org/wiki/File:488_-_Monument_to_VI_Lenin_Tbilisi.jpg",
   "from": 1960
+ },
+ {
+  "id": "hammond_metekhi_1964",
+  "year": 1964,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Hammond_Slides_Tbilisi_05.jpg/1280px-Hammond_Slides_Tbilisi_05.jpg",
+  "title": {
+   "ru": "Старый Тбилиси, мост Метехи и Мтацминда, 1964 (Т. Хэммонд)",
+   "en": "Old Tbilisi, Metekhi Bridge and Mtatsminda, 1964 (T. Hammond)",
+   "ka": "ძველი თბილისი, მეტეხის ხიდი და მთაწმინდა, 1964 (ტ. ჰამონდი)"
+  },
+  "author": {
+   "ru": "Томас Тейлор Хэммонд",
+   "en": "Thomas Taylor Hammond",
+   "ka": "თომას ტეილორ ჰამონდი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 4.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 4.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 4.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Hammond_Slides_Tbilisi_05.jpg"
+ },
+ {
+  "id": "dupakiers_metekhi_1964",
+  "year": 1964,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/485_-_Metekhi_church_in_Tbilisi.jpg",
+  "title": {
+   "ru": "Метехская скала и строительство подпорной стены, 1964 (Ж. Дюпакье)",
+   "en": "Metekhi Cliff and retaining wall construction, 1964 (J. Dupakiers)",
+   "ka": "მეტეხის კლდე და საყრდენი კედლის მშენებლობა, 1964 (ჟ. დიუპაკიე)"
+  },
+  "author": {
+   "ru": "Жак Дюпакье",
+   "en": "Jacques Dupakiers",
+   "ka": "ჟაკ დიუპაკიე"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:485_-_Metekhi_church_in_Tbilisi.jpg"
+ },
+ {
+  "id": "dupakiers_kartlis_deda_1964",
+  "year": 1964,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/478_-_Panorama_of_the_new_city_with_the_statue_of_Kartlis_Deda.jpg",
+  "title": {
+   "ru": "Панорама города и «Мать Картли», 1964 (Ж. Дюпакье)",
+   "en": "Panorama of the city with Kartlis Deda statue, 1964 (J. Dupakiers)",
+   "ka": "ქალაქის პანორამა და „ქართლის დედა“, 1964 (ჟ. დიუპაკიე)"
+  },
+  "author": {
+   "ru": "Жак Дюпакье",
+   "en": "Jacques Dupakiers",
+   "ka": "ჟაკ დიუპაკიე"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:478_-_Panorama_of_the_new_city_with_the_statue_of_Kartlis_Deda.jpg"
  },
  {
   "id": "yershov_view_1971",
@@ -2104,6 +2771,29 @@
   "from": 1970
  },
  {
+  "id": "tram_rvz6_tsereteli_1974",
+  "year": 1974,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/23.06.1974_Bernd_Arnold._Tram_RVZ-6_Tbilisi_Tsereteli_Ave..jpg/1280px-23.06.1974_Bernd_Arnold._Tram_RVZ-6_Tbilisi_Tsereteli_Ave..jpg",
+  "title": {
+   "ru": "Трамвай РВЗ-6 № 352 на проспекте Церетели, июнь 1974",
+   "en": "RVZ-6 tram #352 on Tsereteli Avenue, June 1974",
+   "ka": "ტრამვაი RVZ-6 № 352 წერეთლის გამზირზე, 1974 წლის ივნისი"
+  },
+  "author": {
+   "ru": "Бернд Арнольд",
+   "en": "Bernd Arnold",
+   "ka": "ბერნდ არნოლდი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 3.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 3.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 3.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:23.06.1974_Bernd_Arnold._Tram_RVZ-6_Tbilisi_Tsereteli_Ave..jpg"
+ },
+ {
   "id": "mskhalaya_view_1975",
   "year": 1975,
   "window": 5,
@@ -2152,6 +2842,52 @@
   "from": 1975
  },
  {
+  "id": "iveria_ropeway_1970s",
+  "year": 1975,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Tbilisi_Ropeway_to_Mtatsminda_Park.jpg/1280px-Tbilisi_Ropeway_to_Mtatsminda_Park.jpg",
+  "title": {
+   "ru": "Канатная дорога на Мтацминду и гостиница «Иверия», 1970-е",
+   "en": "Mtatsminda ropeway and Hotel Iveria, 1970s",
+   "ka": "მთაწმინდის საბაგირო გზა და სასტუმრო „ივერია“, 1970-იანი წლები"
+  },
+  "author": {
+   "ru": "советская открытка (скан: Д. Смирнов)",
+   "en": "Soviet postcard (scan: D. Smirnov)",
+   "ka": "საბჭოთა ღია ბარათი (სკანი: დ. სმირნოვი)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 4.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 4.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 4.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Ropeway_to_Mtatsminda_Park.jpg"
+ },
+ {
+  "id": "rustaveli_traffic_1975",
+  "year": 1975,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/03_-_Rustaveli_-_Tbilisi.jpg/1280px-03_-_Rustaveli_-_Tbilisi.jpg",
+  "title": {
+   "ru": "Уличное движение на проспекте Руставели, 1970-е",
+   "en": "Street traffic on Rustaveli Avenue, 1970s",
+   "ka": "მოძრაობა რუსთაველის გამზირზე, 1970-იანი წლები"
+  },
+  "author": {
+   "ru": "неизвестный автор (архив Й. Груневелда)",
+   "en": "unknown author (Jelger Groeneveld archive)",
+   "ka": "ავტორი უცნობია (ი. გრუნეველდის არქივი)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:03_-_Rustaveli_-_Tbilisi.jpg"
+ },
+ {
   "id": "yershov_polytech_1970s",
   "year": 1976,
   "window": 4,
@@ -2176,6 +2912,52 @@
   "from": 1975
  },
  {
+  "id": "rustaveli_parade_1976",
+  "year": 1976,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/30_-_Tbilisi_-_1976.jpg",
+  "title": {
+   "ru": "Праздничная демонстрация у Дома связи на пр. Руставели, 1976",
+   "en": "Parade in front of House of Communications on Rustaveli Ave, 1976",
+   "ka": "დემონსტრაცია კავშირგაბმულობის სახლთან რუსთაველის გამზირზე, 1976"
+  },
+  "author": {
+   "ru": "неизвестный автор (архив Й. Груневелда)",
+   "en": "unknown author (Jelger Groeneveld archive)",
+   "ka": "ავტორი უცნობია (ი. გრუნეველდის არქივი)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:30_-_Tbilisi_-_1976.jpg"
+ },
+ {
+  "id": "lenin_square_1976",
+  "year": 1976,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/31_-_Tbilisi_-_1976.jpg",
+  "title": {
+   "ru": "Площадь Ленина (Свободы) и здание горсовета, 1976",
+   "en": "Lenin (Freedom) Square and City Hall, 1976",
+   "ka": "ლენინის (თავისუფლების) მოედანი და საკრებულოს შენობა, 1976"
+  },
+  "author": {
+   "ru": "неизвестный автор (архив Й. Груневелда)",
+   "en": "unknown author (Jelger Groeneveld archive)",
+   "ka": "ავტორი უცნობია (ი. გრუნეველდის არქივი)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:31_-_Tbilisi_-_1976.jpg"
+ },
+ {
   "id": "city_hall_1979",
   "year": 1979,
   "window": 1,
@@ -2198,6 +2980,52 @@
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:1979_Tbilisi_City_hall.jpg",
   "from": 1975
+ },
+ {
+  "id": "rustaveli_parliament_rain_1979",
+  "year": 1979,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/13-_Tbilisi_-_Rustaveli_-_1979.jpg",
+  "title": {
+   "ru": "Дождливый проспект Руставели и здание Верховного Совета (Парламент), 1979",
+   "en": "Rainy Rustaveli Avenue and Supreme Soviet (Parliament), 1979",
+   "ka": "წვიმიანი რუსთაველის გამზირი და უმაღლესი საბჭო (პარლამენტი), 1979"
+  },
+  "author": {
+   "ru": "неизвестный автор (архив Й. Груневелда)",
+   "en": "unknown author (Jelger Groeneveld archive)",
+   "ka": "ავტორი უცნობია (ი. გრუნეველდის არქივი)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:13-_Tbilisi_-_Rustaveli_-_1979.jpg"
+ },
+ {
+  "id": "train_tbilisi_moscow_1979",
+  "year": 1979,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/12_-_Tbilisi_-_Sukhumi_-_Moscow_train_-_1979.jpg",
+  "title": {
+   "ru": "Поезд «Тбилиси — Сухуми — Москва», 1979",
+   "en": "Tbilisi–Sukhumi–Moscow train, 1979",
+   "ka": "მატარებელი „თბილისი — სოხუმი — მოსკოვი“, 1979"
+  },
+  "author": {
+   "ru": "неизвестный автор (архив Й. Груневелда)",
+   "en": "unknown author (Jelger Groeneveld archive)",
+   "ka": "ავტორი უცნობია (ი. გრუნეველდის არქივი)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:12_-_Tbilisi_-_Sukhumi_-_Moscow_train_-_1979.jpg"
  },
  {
   "id": "kavlashvili_model_1980",
@@ -2246,6 +3074,29 @@
   "license": "CC BY 2.0",
   "page": "https://commons.wikimedia.org/wiki/File:Kakheti_Highway_in_Tbilisi_ca_1982_(A302).jpg",
   "from": 1980
+ },
+ {
+  "id": "andropovs_ears_1985",
+  "year": 1985,
+  "window": 15,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/01_-_Andropovs_Ears_%28gone_now%29.jpg",
+  "title": {
+   "ru": "«Уши Андропова» на площади Республики, ок. 1983–1990",
+   "en": "Andropov's Ears on Republic Square, c. 1983–1990",
+   "ka": "„ანდროპოვის ყურები“ რესპუბლიკის მოედანზე, დაახლ. 1983–1990"
+  },
+  "author": {
+   "ru": "неизвестный автор (архив Й. Груневелда)",
+   "en": "unknown author (Jelger Groeneveld archive)",
+   "ka": "ავტორი უცნობია (ი. გრუნეველდის არქივი)"
+  },
+  "note": {
+   "ru": "Пространственная аркада трибуны площади Торжеств (1983–2005); на Commons ошибочно помечена 1970-ми. К карте не привязана.",
+   "en": "Spatial arcade grandstand of Republic Square (1983–2005); misdated as 1970s on Commons. Not tied to the map.",
+   "ka": "საზეიმო მოედნის ტრიბუნის სივრცითი არკადა (1983–2005); Commons-ზე შეცდომით მითითებულია 1970-იანი წლები. რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:01_-_Andropovs_Ears_(gone_now).jpg"
  },
  {
   "id": "tiflis_1987",
@@ -2366,6 +3217,29 @@
   "license": "CC BY-SA 3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Tyflis_-_Tbilisi_-_Sept.1988_-_panoramio.jpg",
   "from": 1985
+ },
+ {
+  "id": "parliament_civil_war_1991",
+  "year": 1991,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Inside_Area_of_Parliament_during_Georgian_Civil_War.jpg",
+  "title": {
+   "ru": "Двор Парламента Грузии во время гражданской войны, зима 1991–1992",
+   "en": "Parliament courtyard during the Georgian Civil War, winter 1991–1992",
+   "ka": "პარლამენტის ეზო სამოქალაქო ომის დროს, 1991–1992 წლების ზამთარი"
+  },
+  "author": {
+   "ru": "Александр Асатиани",
+   "en": "AlexandreAssatiani",
+   "ka": "ალექსანდრე ასათიანი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 4.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 4.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 4.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Inside_Area_of_Parliament_during_Georgian_Civil_War.jpg"
  },
  {
   "id": "chubinidze_1991_03",
@@ -2701,6 +3575,75 @@
   "page": "https://commons.wikimedia.org/wiki/File:Trolleybuses_on_Chavchavadze_Avenue_-_2002_(15777424096).jpg"
  },
  {
+  "id": "hotel_iveria_may_2002",
+  "year": 2002,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Downtown_Tbilisi%2C_Georgia%2C_in_the_forefront_Hotel_Iveria%2C_May_2002.jpg",
+  "title": {
+   "ru": "Гостиница «Иверия» с пристройками на балконах, май 2002",
+   "en": "Hotel Iveria with refugee balcony extensions, May 2002",
+   "ka": "სასტუმრო „ივერია“ აივნებზე მიშენებებით, 2002 წლის მაისი"
+  },
+  "author": {
+   "ru": "А. Дармохваль",
+   "en": "A. Darmochwal",
+   "ka": "ა. დარმოხუალი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 3.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 3.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 3.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Downtown_Tbilisi,_Georgia,_in_the_forefront_Hotel_Iveria,_May_2002.jpg"
+ },
+ {
+  "id": "skoda_trolleybus_2002",
+  "year": 2002,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Skoda_Trolleybus_in_Tbilisi_2002.jpg",
+  "title": {
+   "ru": "Троллейбус Škoda 14Tr № 307 в Тбилиси, лето 2002",
+   "en": "Škoda 14Tr trolleybus #307 in Tbilisi, summer 2002",
+   "ka": "ტროლეიბუსი Škoda 14Tr № 307 თბილისში, 2002 წლის ზაფხული"
+  },
+  "author": {
+   "ru": "Foma",
+   "en": "Foma",
+   "ka": "Foma"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 3.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 3.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 3.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Skoda_Trolleybus_in_Tbilisi_2002.jpg"
+ },
+ {
+  "id": "parliament_2002",
+  "year": 2002,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Tbilisi_Parliament_Building_-_2002.jpg/1280px-Tbilisi_Parliament_Building_-_2002.jpg",
+  "title": {
+   "ru": "Здание Парламента Грузии, лето 2002",
+   "en": "Parliament Building of Georgia, summer 2002",
+   "ka": "საქართველოს პარლამენტის შენობა, 2002 წლის ზაფხული"
+  },
+  "author": {
+   "ru": "lelebella (Flickr)",
+   "en": "lelebella (Flickr)",
+   "ka": "lelebella (Flickr)"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_Parliament_Building_-_2002.jpg"
+ },
+ {
   "id": "c2003_chavchavadze",
   "year": 2003,
   "from": 2000,
@@ -2723,6 +3666,29 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Chavchavadze_Ave..jpg"
+ },
+ {
+  "id": "rose_revolution_2003",
+  "year": 2003,
+  "window": 10,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Rose_Revolution%2C_Rustaveli_Avenue.jpg",
+  "title": {
+   "ru": "Митинг на проспекте Руставели (Революция роз), ноябрь 2003",
+   "en": "Rally on Rustaveli Avenue (Rose Revolution), November 2003",
+   "ka": "მიტინგი რუსთაველის გამზირზე (ვარდების რევოლუცია), 2003 წლის ნოემბერი"
+  },
+  "author": {
+   "ru": "неизвестный автор",
+   "en": "unknown author",
+   "ka": "ავტორი უცნობია"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 4.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 4.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 4.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Rose_Revolution,_Rustaveli_Avenue.jpg"
  },
  {
   "id": "c2004_orbeliani_baths",
@@ -2749,6 +3715,29 @@
   "page": "https://commons.wikimedia.org/wiki/File:19th_century_health_baths.jpg"
  },
  {
+  "id": "kus_tba_ropeway_2004",
+  "year": 2004,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Tramway_over_Kus_Tba.jpg/1280px-Tramway_over_Kus_Tba.jpg",
+  "title": {
+   "ru": "Канатная дорога от парка Ваке к Черепашьему озеру, январь 2004",
+   "en": "Vake Park–Turtle Lake cableway, January 2004",
+   "ka": "ვაკის პარკი — კუს ტბის საბაგირო გზა, 2004 წლის იანვარი"
+  },
+  "author": {
+   "ru": "rugbyxm",
+   "en": "rugbyxm",
+   "ka": "rugbyxm"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tramway_over_Kus_Tba.jpg"
+ },
+ {
   "id": "c2005_freedom_square",
   "year": 2005,
   "from": 2005,
@@ -2771,6 +3760,75 @@
   },
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_008.jpg"
+ },
+ {
+  "id": "funicular_abandoned_2005",
+  "year": 2005,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Abandoned_Tbilisi_station.jpg/1280px-Abandoned_Tbilisi_station.jpg",
+  "title": {
+   "ru": "Закрытая станция Тбилисского фуникулёра, июнь 2005",
+   "en": "Abandoned Tbilisi Funicular station, June 2005",
+   "ka": "თბილისის ფუნიკულიორის დაკეტილი სადგური, 2005 წლის ივნისი"
+  },
+  "author": {
+   "ru": "Мартин Талбот",
+   "en": "Martin Talbot",
+   "ka": "მარტინ ტალბოტი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Abandoned_Tbilisi_station.jpg"
+ },
+ {
+  "id": "rustaveli_academy_metro_2005",
+  "year": 2005,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Central_Tbilisi.jpg/1280px-Central_Tbilisi.jpg",
+  "title": {
+   "ru": "Академия наук и метро «Руставели», сентябрь 2005",
+   "en": "Academy of Sciences and Rustaveli Metro, September 2005",
+   "ka": "მეცნიერებათა აკადემია და მეტრო „რუსთაველი“, 2005 წლის სექტემბერი"
+  },
+  "author": {
+   "ru": "Анри Бергиус",
+   "en": "Henri Bergius",
+   "ka": "ანრი ბერგიუსი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (CC BY-SA 2.0). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (CC BY-SA 2.0). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (CC BY-SA 2.0). რუკას არ უკავშირდება."
+  },
+  "license": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Central_Tbilisi.jpg"
+ },
+ {
+  "id": "iveria_baratashvili_nov_2005",
+  "year": 2005,
+  "window": 10,
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Tbilisi_bridge.jpg/1280px-Tbilisi_bridge.jpg",
+  "title": {
+   "ru": "Подъём Бараташвили и реконструкция гостиницы «Иверия», ноябрь 2005",
+   "en": "Baratashvili Rise and Hotel Iveria reconstruction, November 2005",
+   "ka": "ბარათაშვილის აღმართი და სასტუმრო „ივერიის“ რეკონსტრუქცია, 2005 წლის ნოემბერი"
+  },
+  "author": {
+   "ru": "Д. Папуашвили",
+   "en": "D.Papuashvili",
+   "ka": "დ. პაპუაშვილი"
+  },
+  "note": {
+   "ru": "Фотография из Wikimedia Commons (общественное достояние). К карте не привязана.",
+   "en": "Photograph from Wikimedia Commons (public domain). Not tied to the map.",
+   "ka": "ფოტო Wikimedia Commons-იდან (საჯარო სივრცე). რუკას არ უკავშირდება."
+  },
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Tbilisi_bridge.jpg"
  },
  {
   "id": "c2006_chardin",

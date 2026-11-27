@@ -30,7 +30,7 @@ await run("viewer of the views: tap in the corner", async (p) => {
 await run("the list window Views: tap on the map below", async (p) => {
   await p.click("#btnViews"); await p.waitForTimeout(500);
   if (!(await vis(p, "#views"))) throw new Error("the window was not open before the tap");
-  await tap(p, 195, 800); return !(await vis(p, "#views"));
+  await tap(p, 195, 834); return !(await vis(p, "#views"));
 });
 await run("form 'report a problem': tap in the corner", async (p) => {
   await p.evaluate(() => document.getElementById("fbOpen").click());

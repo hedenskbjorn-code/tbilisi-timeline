@@ -1,9 +1,9 @@
 // Service worker of the site: (1) the application shell works without network (the last seen data too), (2) accepts a photo shared to the site from the share menu of the phone
 // (Web Share Target: POST ./share-target) and leaves it for the page to pick up. Heavy things (tiles, photos, topographic maps) are never cached here.
-const VERSION = "tt-0a72e266";
+const VERSION = "tt-f0772b6b";
 const SHARE_CACHE = "tt-share";
 const BASE = self.registration.scope;                                  // ends with "/"
-const SHELL = ["index.html", "app.js?v=b210601e", "js/net.js?v=46b6ac82", "js/plans.js?v=2282229a", "js/timeline.js?v=54a1da95", "js/tour.js?v=5e5bdeed", "i18n.js?v=b82172cc", "photo.js?v=4335926d", "pwa.js?v=8fd80544", "support.js?v=a426beaf", "stats.js?v=d4621ad4", "config.js?v=36f6eee6", "style.css?v=c6674710", "translit.js?v=1f0144e5", "vendor/maplibre-gl.js?v=e877fe22", "vendor/maplibre-gl.css?v=576b085f", "manifest.webmanifest", "img/pwa/icon-192.png", "data/manifest.json"];
+const SHELL = ["index.html", "app.js?v=86297e47", "js/net.js?v=46b6ac82", "js/plans.js?v=2282229a", "js/timeline.js?v=54a1da95", "js/tour.js?v=5e5bdeed", "i18n.js?v=b82172cc", "photo.js?v=4335926d", "pwa.js?v=8fd80544", "support.js?v=a426beaf", "stats.js?v=d4621ad4", "config.js?v=36f6eee6", "style.css?v=9f0101d8", "translit.js?v=1f0144e5", "vendor/maplibre-gl.js?v=e877fe22", "vendor/maplibre-gl.css?v=576b085f", "manifest.webmanifest", "img/pwa/icon-192.png", "data/manifest.json"];
 const CORE_DATA = ["data/plans.json", "data/monuments.json", "data/tour.json"];
 const BASE_PATH = new URL(BASE).pathname;
 const INDEX = new URL("index.html", BASE);

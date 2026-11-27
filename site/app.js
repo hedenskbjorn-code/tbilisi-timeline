@@ -1511,6 +1511,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     let srcs = [];
     try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
     addWiki(el, p);
+    if (p.ph) cardPhotos(el, { ph: p.ph, name: { [lang]: p["name_" + lang] || p.name_ru || p.name_en || "" } });
     actions(el, () => openInfo((body) => {
       infoLine(body, L.lostAcc(p.acc, p.pos));
       infoLine(body, p.chk === true || p.chk === "true" ? L.lostChk : L.lostNoChk);
@@ -3002,9 +3003,9 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
   // the plate under the band: the flag of the period and up to two rulers with their portraits (Wikimedia Commons; the author and the licence are in the card)
   const RN = {
-    ru: { suz: "флаг сюзерена, реконструкция", civil: "гражданский флаг, государственного флага не было", recon: "реконструкция", img: "Изображение", cond: "До XVIII века это условное изображение (роспись, миниатюра или памятник), а не прижизненный портрет.", flag: "Флаг", open: "Карточка", src: "файл на Commons" },
-    en: { suz: "the flag of the suzerain, a reconstruction", civil: "civil ensign; there was no national flag", recon: "reconstruction", img: "Image", cond: "Before the 18th century this is a conventional image (a fresco, a miniature or a monument), not a portrait from life.", flag: "Flag", open: "Card", src: "file on Commons" },
-    ka: { suz: "სუზერენის დროშა, რეკონსტრუქცია", civil: "სამოქალაქო დროშა; სახელმწიფო დროშა არ იყო", recon: "რეკონსტრუქცია", img: "გამოსახულება", cond: "XVIII საუკუნემდე ეს პირობითი გამოსახულებაა (ფრესკა, მინიატურა ან ძეგლი), და არა ცოცხალი პორტრეტი.", flag: "დროშა", open: "ბარათი", src: "ფაილი Commons-ზე" },
+    ru: { suz: "флаг сюзерена, реконструкция", civil: "гражданский флаг, государственного флага не было", recon: "реконструкция", img: "Изображение", cond: "До XVIII века это условное изображение (роспись, миниатюра или памятник), а не прижизненный портрет.", flag: "Флаг", open: "Карточка", showCard: "Показать окно правителя", src: "файл на Commons" },
+    en: { suz: "the flag of the suzerain, a reconstruction", civil: "civil ensign; there was no national flag", recon: "reconstruction", img: "Image", cond: "Before the 18th century this is a conventional image (a fresco, a miniature or a monument), not a portrait from life.", flag: "Flag", open: "Card", showCard: "Show ruler window", src: "file on Commons" },
+    ka: { suz: "სუზერენის დროშა, რეკონსტრუქცია", civil: "სამოქალაქო დროშა; სახელმწიფო დროშა არ იყო", recon: "რეკონსტრუქცია", img: "გამოსახულება", cond: "XVIII საუკუნემდე ეს პირობითი გამოსახულებაა (ფრესკა, მინიატურა ან ძეგლი), და არა ცოცხალი პორტრეტი.", flag: "დროშა", open: "ბარათი", showCard: "მმართველის ფანჯრის ჩვენება", src: "ფაილი Commons-ზე" },
   };
   const RGROUP_ORDER = ["king", "emperor", "president", "ussr_leader", "secretary", "head", "viceroy", "wali", "emir"];
   function mediaImg(rel, w, h, alt) {
@@ -3024,6 +3025,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (withCond) { const c = document.createElement("div"); c.className = "small"; c.textContent = R.cond; body.appendChild(c); }
   }
   let rulersLoading = null, rulerCardDismissed = false;
+  if ($("rcShow")) $("rcShow").addEventListener("click", () => { rulerCardDismissed = false; updateToken(); });
   function ensureRulers() {
     if (rulersData) return Promise.resolve(rulersData);
     return rulersLoading ||= Promise.all([
@@ -3038,10 +3040,12 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
   // separate floating window for the active ruler portrait and state flag (only when rulers are switched on)
   function updateToken() {
-    const rc = $("rulerCard");
+    const rc = $("rulerCard"), rcs = $("rcShow"), R = RN[lang] || RN.en;
+    const active = !!(rulersData && $("showRulers").checked);
+    if (rcs) { rcs.hidden = !(active && rulerCardDismissed); rcs.title = R.showCard; rcs.setAttribute("aria-label", R.showCard); }
     if (!rc) return;
-    if (!rulersData || !$("showRulers").checked || rulerCardDismissed) { rc.hidden = true; rc.dataset.key = ""; return; }
-    const R = RN[lang] || RN.en, within = (it) => it.from < year + 1 && it.to > year, mid = (s) => s.from <= year + 0.5 && s.to > year + 0.5;
+    if (!active || rulerCardDismissed) { rc.hidden = true; rc.dataset.key = ""; return; }
+    const within = (it) => it.from < year + 1 && it.to > year, mid = (s) => s.from <= year + 0.5 && s.to > year + 0.5;
     const st = rulersData.states.find((s) => mid(s) && !s.lane) || rulersData.states.find(mid) || rulersData.states.find((s) => within(s) && !s.lane) || rulersData.states.find(within);
     const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);
     const fl = st ? flagFor(st.id, year + 0.5) : null;
@@ -3051,7 +3055,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       const closeBtn = document.createElement("button");
       closeBtn.type = "button"; closeBtn.className = "rc-close"; closeBtn.textContent = "\u00D7";
       closeBtn.setAttribute("aria-label", t().ariaClose || "close");
-      closeBtn.addEventListener("click", (e) => { e.stopPropagation(); rulerCardDismissed = true; rc.hidden = true; });
+      closeBtn.addEventListener("click", (e) => { e.stopPropagation(); rulerCardDismissed = true; updateToken(); });
       rc.appendChild(closeBtn);
       const media = document.createElement("div"); media.className = "rc-media";
       const bindOpen = (el, target, label) => {
@@ -3923,6 +3927,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (c.e && c.s.eq && c.s.eq.k === "dictionary") add(PU("dict_note"), "small");     // the meaning of a common word, not a source of the origin of the toponym
     if (c.g && c.k === "area") add(PU("area_note"), "small");                         // the contour of an area is not the exact boundary of the object of the past
     folkBlock(el, c, PU);
+    if (c.ph) cardPhotos(el, { ph: c.ph, name: { [lang]: placeName(c) } });
     if (c.ap) add(PU("approx"), "small");                           // a district of several streets: the point is on one of them
     for (const [fld, key] of [["o", "old_name"], ["al", "alt_name"]]) if (c[fld]) { const x = add("", ""), kk = document.createElement("span"); kk.className = "k"; kk.textContent = PU(key) + ": "; x.appendChild(kk); x.appendChild(document.createTextNode([...new Set([c[fld][lang], c[fld].ka, c[fld].ru, c[fld].en].filter(Boolean))].join(" / "))); }
     if (c.pk) add(PU("park_note"), "small");                        // a park or garden that only OpenStreetMap names: note about the source

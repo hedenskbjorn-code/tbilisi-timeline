@@ -153,6 +153,11 @@ test("clicking the ruler photo in #rulerCard opens the biography modal", async (
   await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 10000 });
   const bodyTxt = await page.locator("#imBody").innerText();
   assert.ok(bodyTxt.length > 20, "ruler biography modal opened");
+  await page.click("#imClose");
+  await page.click("#rulerCard .rc-close");
+  await page.waitForSelector("#rcShow:not([hidden])", { timeout: 5000 });
+  await page.click("#rcShow");
+  await page.waitForSelector("#rulerCard:not([hidden])", { timeout: 5000 });
   await page.ctx.close();
 });
 
