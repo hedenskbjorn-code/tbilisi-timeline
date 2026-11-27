@@ -5,8 +5,18 @@ data/warped/
 data/tbilisi_monuments.geojson
 # working files
 work/
-# Shared project instruction entry point for fresh clones.
-!/GEMINI.md
+# Local agent instructions, internal docs, and Russian-language working notes (never publish)
+AGENTS.md
+GEMINI.md
+CLAUDE.md
+docs/
+notes/
+sources.md
+BIBLIOGRAPHY.md
+tools/gemini_all.py
+data/lost_buildings_gemini.json
+data/lost_buildings_gemini_notes.md
+data/street_renamed_1987_1991_gemini_*.md
 *.bak
 *.bak[0-9]
 *.part
