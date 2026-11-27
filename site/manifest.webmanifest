@@ -1,7 +1,7 @@
 {
   "name": "Tbilisi through time",
   "short_name": "Tbilisi",
-  "description": "Interactive map of Tbilisi, 364–2026: old plans, monuments, trams, and a place to send photos of objects that have none.",
+  "description": "Interactive map of Tbilisi, 100–2026: old plans, monuments, trams, and a place to send photos of objects that have none.",
   "id": "./",
   "start_url": "./?pwa=1",
   "scope": "./",

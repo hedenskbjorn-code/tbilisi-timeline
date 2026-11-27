@@ -1,9 +1,9 @@
 // Service worker of the site: (1) the application shell works without network (the last seen data too), (2) accepts a photo shared to the site from the share menu of the phone
 // (Web Share Target: POST ./share-target) and leaves it for the page to pick up. Heavy things (tiles, photos, topographic maps) are never cached here.
-const VERSION = "tt-f0772b6b";
+const VERSION = "tt-8ef0271c";
 const SHARE_CACHE = "tt-share";
 const BASE = self.registration.scope;                                  // ends with "/"
-const SHELL = ["index.html", "app.js?v=86297e47", "js/net.js?v=46b6ac82", "js/plans.js?v=2282229a", "js/timeline.js?v=54a1da95", "js/tour.js?v=5e5bdeed", "i18n.js?v=b82172cc", "photo.js?v=4335926d", "pwa.js?v=8fd80544", "support.js?v=a426beaf", "stats.js?v=d4621ad4", "config.js?v=36f6eee6", "style.css?v=9f0101d8", "translit.js?v=1f0144e5", "vendor/maplibre-gl.js?v=e877fe22", "vendor/maplibre-gl.css?v=576b085f", "manifest.webmanifest", "img/pwa/icon-192.png", "data/manifest.json"];
+const SHELL = ["index.html", "app.js?v=87186ee6", "js/net.js?v=46b6ac82", "js/plans.js?v=2282229a", "js/timeline.js?v=54a1da95", "js/tour.js?v=5e5bdeed", "i18n.js?v=d4634bcf", "photo.js?v=c2a78146", "pwa.js?v=8fd80544", "support.js?v=a426beaf", "stats.js?v=d4621ad4", "config.js?v=36f6eee6", "style.css?v=bd1e2051", "translit.js?v=b5808863", "vendor/maplibre-gl.js?v=e877fe22", "vendor/maplibre-gl.css?v=576b085f", "manifest.webmanifest", "img/pwa/icon-192.png", "data/manifest.json"];
 const CORE_DATA = ["data/plans.json", "data/monuments.json", "data/tour.json"];
 const BASE_PATH = new URL(BASE).pathname;
 const INDEX = new URL("index.html", BASE);
@@ -16,6 +16,9 @@ function readManifest(cache) {
     const manifest = await response?.json();
     if (!manifest?.f || `tt-${manifest.v}` !== VERSION) throw new Error("Offline manifest version mismatch");
     return manifest.f;
+  }).catch((err) => {
+    manifestPromise = null;
+    throw err;
   });
 }
 
@@ -89,12 +92,14 @@ async function networkFirst(req, cache) {
 async function respond(req, url, path) {
   const cache = await caches.open(VERSION);
   if (req.mode === "navigate" && (url.pathname === BASE_PATH || url.pathname === INDEX.pathname)) {
-    return (await cache.match(INDEX.href)) || Response.error();
+    return (await cache.match(INDEX.href)) || networkFirst(req, cache);
   }
-  if (SHELL_URLS.has(url.href)) return (await cache.match(url.href)) || Response.error();
+  if (SHELL_URLS.has(url.href)) return (await cache.match(url.href)) || networkFirst(req, cache);
 
   if (path.startsWith("data/") || path === "vendor/minisearch.js") {
-    const files = await readManifest(cache), version = files[path];
+    let files;
+    try { files = await readManifest(cache); } catch (err) { return networkFirst(req, cache); }
+    const version = files[path];
     if (version) {
       const requested = url.searchParams.get("v");
       if (requested !== null && requested !== version) return Response.error();

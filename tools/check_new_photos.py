@@ -49,9 +49,9 @@ def main():
         page = str(v.get("page") or "")
         if "\n" in auth or "\r" in auth or "Unknown authorUnknown author" in auth:
             problems.append(f"{k}: dirty author ({auth!r})")
-        if re.search(r"[?&]utm_(source|medium|campaign)=", thumb + " " + page, re.I):
+        if any(re.search(r"[?&]utm_(?:source|medium|campaign|content)=", u, re.I) for u in (thumb, page)):
             problems.append(f"{k}: utm_ tracking param in URL")
-        if re.search(r"\.svg(?:$|\?)", thumb + " " + page, re.I):
+        if any(re.search(r"\.svg(?:$|[/?#])", u, re.I) for u in (thumb, page)):
             problems.append(f"{k}: SVG URL is not allowed")
         if re.search(r"(?:^|[^a-z])(logo|icon|panoramio)(?:[^a-z]|$)|\.png$", k, re.I):
             warnings.append(f"{k}: review manually (logo/icon/panoramio/png)")

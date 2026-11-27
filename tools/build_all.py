@@ -23,6 +23,7 @@ DERIVED_TARGETS = [
     "site/data/catalog.json",
     "site/data/search_index.json",
     "site/data/manifest.json",
+    "site/app.js",
     "site/index.html",
     "site/sw.js",
 ]

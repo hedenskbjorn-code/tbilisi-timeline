@@ -7,9 +7,10 @@ const b64u = (s) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")
 const json = (o, st = 200) => new Response(JSON.stringify(o), { status: st, headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" } });
 
 let jwks = null, jwksAt = 0;
-async function keys(env) {
-  if (jwks && Date.now() - jwksAt < 3600e3) return jwks;
+async function keys(env, force) {
+  if (!force && jwks && Date.now() - jwksAt < 3600e3) return jwks;
   const r = await fetch("https://" + env.TEAM_DOMAIN + "/cdn-cgi/access/certs");
+  if (!r.ok) throw new Error("jwks");
   jwks = await r.json(); jwksAt = Date.now();
   return jwks;
 }
@@ -21,7 +22,8 @@ async function who(req, env) {
     const header = JSON.parse(new TextDecoder().decode(b64u(h))), pl = JSON.parse(new TextDecoder().decode(b64u(p))), now = Date.now() / 1000;
     if (header.alg !== "RS256" || !(pl.exp > now) || (pl.nbf && pl.nbf > now + 60) || pl.iss !== "https://" + env.TEAM_DOMAIN) return null;
     if (!(Array.isArray(pl.aud) ? pl.aud : [pl.aud]).includes(env.POLICY_AUD)) return null;
-    const jwk = (await keys(env)).keys.find((k) => k.kid === header.kid);
+    let jwk = (await keys(env)).keys.find((k) => k.kid === header.kid);
+    if (!jwk) jwk = (await keys(env, true)).keys.find((k) => k.kid === header.kid);
     if (!jwk) return null;
     const key = await crypto.subtle.importKey("jwk", jwk, { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, false, ["verify"]);
     if (!(await crypto.subtle.verify("RSASSA-PKCS1-v1_5", key, b64u(s), new TextEncoder().encode(h + "." + p)))) return null;
@@ -63,9 +65,10 @@ async function act(env, body, mail) {
     if (m.hash) await env.PHOTOS.delete("h:" + m.hash);
     await env.PHOTOS.put("meta:" + id, JSON.stringify(m), { expirationTtl: 30 * 86400, metadata: small("rejected") });
   } else if (body.action === "reassign") {
+    if (m.status !== "pending") return json({ error: "status" }, 400);
     const o = String(body.obj || "");
     if (!/^[a-z]{1,8}:[A-Za-z0-9_.\-]{1,40}$/.test(o)) return json({ error: "object" }, 400);
-    m.obj = o; m.reassigned = true;
+    m.obj = o; m.reassigned = true; m.dEx = null; m.dGeo = null; m.v = 0;
     await env.PHOTOS.put("meta:" + id, JSON.stringify(m), { expirationTtl: 60 * 86400, metadata: small(m.status) });
   } else return json({ error: "action" }, 400);
   return json({ ok: true });
@@ -185,7 +188,7 @@ async function render(){
   const lk=el("div","muted");const a=(t,u)=>{const x=el("a","",t);x.href=u;x.target="_blank";x.rel="noopener noreferrer";x.style.color="#8fb8e8";x.style.marginRight="12px";lk.appendChild(x)};
   if(o)a("объект на карте",osm(o.lat,o.lon));if(m.lat!=null)a("снимок на карте",osm(m.lat,m.lon));if(m.glat!=null)a("геолокация на карте",osm(m.glat,m.glon));r.appendChild(lk);
   r.appendChild(el("div","","Автор: "+m.name+(m.note?" · «"+m.note+"»":"")));
-  if(o&&o.ph.length){r.appendChild(el("div","muted","Уже есть фото объекта:"));const old=el("div","old");for(const k of o.ph.slice(0,4)){const p=photos[k];if(p){const i=el("img");i.src=p.thumb;old.appendChild(i)}}r.appendChild(old)}
+  if(o&&o.ph.length){r.appendChild(el("div","muted","Уже есть фото объекта:"));const old=el("div","old");for(const k of o.ph.slice(0,4)){const p=photos[k];if(p){const i=el("img");i.src=/^https?:/.test(p.thumb)?p.thumb:SITE+p.thumb;old.appendChild(i)}}r.appendChild(old)}
   if(m.status==="rejected")r.appendChild(el("div","muted","Причина: "+m.reason));
   if(m.status==="pending"){const row=el("div","row"),ok=el("button","ok","Одобрить"),no=el("button","no","Отклонить"),rs=el("select");REASONS.forEach(x=>rs.appendChild(el("option","",x)));
    ok.onclick=async()=>{ok.disabled=true;await post("/api/act",{id:it.id,action:"approve"});refresh()};no.onclick=async()=>{no.disabled=true;await post("/api/act",{id:it.id,action:"reject",reason:rs.value});refresh()};

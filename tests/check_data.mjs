@@ -72,6 +72,11 @@ for (const f of fs.readdirSync(SITE).filter((f) => f.endsWith(".js") && f !== "a
   const p = path.join(SITE, f);
   try { new vm.Script(fs.readFileSync(p, "utf8"), { filename: p }); } catch (e) { err(`${rel(p)}: syntax error (${e.message})`); }
 }
+for (const f of ["run/run.js", "entrances/entrances.js", "museums/museums.js", "mtskheta/mtskheta.js", "lost/lost.js"]) {
+  const p = path.join(SITE, f);
+  if (!fs.existsSync(p)) { err(`${f}: missing`); continue; }
+  try { new vm.Script(fs.readFileSync(p, "utf8"), { filename: p }); } catch (e) { err(`${f}: syntax error (${e.message})`); }
+}
 for (const f of MODULES) {
   const r = spawnSync(process.execPath, ["--check", "--input-type=module"], { input: fs.readFileSync(path.join(SITE, f), "utf8"), encoding: "utf8" });
   if (r.status !== 0) err(`${f}: syntax error as a module (${(r.stderr || "").split(String.fromCharCode(10)).find((l) => /Error/.test(l)) || "see node --check"})`);
@@ -433,7 +438,7 @@ for (const [file, kinds] of [["data/sculptures.json", ["sculpture", "bust", "mon
       const w = `religious_osm.json ${r.id}`;
       if (ids.has(r.id) || main.has(r.id)) err(`${w}: duplicate id`); ids.add(r.id);
       if (!RELS.includes(r.rel)) err(`${w}: unknown denomination ${r.rel}`);
-      if (r.rel === "christianOsm" && !ro.ui?.christianOsm) err(`${w}: no string for the denomination`);
+      if (r.rel === "christian" && !ro.ui?.christianOsm) err(`${w}: no string for the denomination`);
       if (!(r.lon > 44.66 && r.lon < 45.02 && r.lat > 41.62 && r.lat < 41.86)) err(`${w}: the point is outside Tbilisi`);
       if (!/^(node|way|relation)\/\d+$/.test(r.osm)) err(`${w}: the OSM id ${r.osm}`);
       for (const l of ["en", "ka"]) if (CY.test(r.name?.[l] || "")) err(`${w}: Cyrillic in name.${l}`);
@@ -516,7 +521,7 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
     if (/\.svg(?:$|\?)/i.test(String(v?.thumb || "")) || /\.svg(?:$|\?)/i.test(String(v?.page || ""))) {
       err(`photos.json ${k}: SVG URL is not allowed as a monument photo`);
     }
-    if (/[?&]utm_(source|medium|campaign)=/i.test(String(v?.thumb || "")) || /[?&]utm_(source|medium|campaign)=/i.test(String(v?.page || ""))) {
+    if (/[?&]utm_(source|medium|campaign|content)=/i.test(String(v?.thumb || "")) || /[?&]utm_(source|medium|campaign|content)=/i.test(String(v?.page || ""))) {
       err(`photos.json ${k}: utm_ tracking parameter in URL`);
     }
   }
@@ -573,10 +578,12 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
       }
     }
   }
+  const viewIds = new Set((data["data/views.json"] || []).map((v) => v.id));
   const lostTours = data["data/lost_tours.json"];
   for (const p of lostTours?.parts || []) {
     for (const s of p.stops || []) {
       const w = `data/lost_tours.json ${p.id} stop ${s.id || s.n}`;
+      if (s.view && !viewIds.has(s.view)) err(`${w}: view "${s.view}" not found in views.json`);
       for (const item of String(s.ph || "").split("|").map((x) => x.trim()).filter(Boolean)) {
         if (!(item in photos)) err(`${w}: photo "${item}" not found in photos.json`);
       }
@@ -662,7 +669,7 @@ if (ev) {
 {
   const monById = new Map((data["data/monuments.json"]?.features || []).map((f) => [f.properties.id, f.properties]));
   for (const r of data["data/religious.json"] || []) {
-    if (r.rid == null || r.id === "reg3049") continue; // reg3049 keeps verified 1863-1864 date from patch 1.8.1 (religious_data.test.mjs)
+    if (r.rid == null || r.id === "reg3049" || r.id === "great_synagogue" || r.id === "michael_tver") continue; // keep verified completion dates vs register start dates
     const m = monById.get(r.rid);
     if (!m) { err(`religious.json ${r.id}: rid ${r.rid} not found in monuments.json`); continue; }
     if (typeof m.ye === "number") {
@@ -852,12 +859,13 @@ if (ev) {
     "data/museums.json", "data/science.json", "data/education.json", "data/modernism.json",
     "data/places.json", "data/sculptures.json", "data/plaques.json",
     "data/entrances.json", "data/run_details.json", "data/views.json",
+    "data/lost_tours.json", "data/museum_tours.json", "data/mtskheta_tour.json", "data/lost.json", "data/history_events.json",
   ]) {
     const p = path.join(SITE, rel);
     if (!fs.existsSync(p)) continue;
     const raw = fs.readFileSync(p, "utf8");
     if (/vertexaisearch\.cloud\.google\.com/i.test(raw)) err(`${rel}: contains vertexaisearch redirect URL`);
-    if (/[?&]utm_(?:source|medium|campaign)=/i.test(raw)) err(`${rel}: contains utm_ tracking parameter`);
+    if (/[?&]utm_(?:source|medium|campaign|content)=/i.test(raw)) err(`${rel}: contains utm_ tracking parameter`);
   }
 
   // 2. Foreign script leaks on places.json a/e and catalog_links.json phases + chronology vs monuments.json

@@ -61,6 +61,16 @@ def main():
     src = json.load(open(os.path.join(ROOT, "data", "lost_buildings_gemini.json"), encoding="utf-8"))
     chk_path = os.path.join(ROOT, "data", "lost_check.json")
     chk = json.load(open(chk_path, encoding="utf-8")) if os.path.exists(chk_path) else {}
+    out = os.path.join(ROOT, "site", "data", "lost.json")
+    prev_by_ru, prev_by_en = {}, {}
+    if os.path.exists(out):
+        with open(out, encoding="utf-8") as fh:
+            for pf in json.load(fh).get("features", []):
+                pp = pf.get("properties") or {}
+                if pp.get("name_ru"):
+                    prev_by_ru[pp["name_ru"]] = pp
+                if pp.get("name_en"):
+                    prev_by_en[pp["name_en"]] = pp
     feats = []
     for x in src:
         pl = x.get("plan") or {}
@@ -76,14 +86,20 @@ def main():
         wp = wiki_links(srcs, LL)
         srcs = [u for u in srcs if not re.match(r"https://(ru|ka|en)\.wikipedia\.org/", u)]      # Wikipedia goes through "wp" (language-aware)
         c = chk.get(x.get("name_ru"), {})
+        props = {"name_ka": x.get("name_ka"), "name_en": x.get("name_en"), "name_ru": x.get("name_ru"),
+                 "kind": x.get("kind"), "b0": x.get("built_from"), "b1": x.get("built_to"),
+                 "l0": x.get("lost_from"), "l1": x.get("lost_to"), "why": x.get("lost_reason"),
+                 "repl": x.get("what_replaced"), "src": srcs, **({"wp": "|".join("%s:%s" % kv for kv in wp.items())} if wp else {}), "chk": bool(c.get("year_in_source")),
+                 "acc": acc, "pos": pos}
+        prev = prev_by_ru.get(x.get("name_ru")) or prev_by_en.get(x.get("name_en"))
+        if prev:
+            for k in ("repl_ru", "repl_en", "repl_ka", "ph"):
+                if prev.get(k):
+                    props[k] = prev[k]
         feats.append({"type": "Feature", "id": len(feats), "geometry": {"type": "Point", "coordinates": [round(lng, 5), round(lat, 5)]},
-                      "properties": {"name_ka": x.get("name_ka"), "name_en": x.get("name_en"), "name_ru": x.get("name_ru"),
-                                     "kind": x.get("kind"), "b0": x.get("built_from"), "b1": x.get("built_to"),
-                                     "l0": x.get("lost_from"), "l1": x.get("lost_to"), "why": x.get("lost_reason"),
-                                     "repl": x.get("what_replaced"), "src": srcs, **({"wp": "|".join("%s:%s" % kv for kv in wp.items())} if wp else {}), "chk": bool(c.get("year_in_source")),
-                                     "acc": acc, "pos": pos}})
-    out = os.path.join(ROOT, "site", "data", "lost.json")
-    json.dump({"type": "FeatureCollection", "features": feats}, open(out, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+                      "properties": props})
+    with open(out, "w", encoding="utf-8") as fh:
+        json.dump({"type": "FeatureCollection", "features": feats}, fh, ensure_ascii=False, separators=(",", ":"))
     print("lost buildings:", len(feats), "with a source page containing the year:", sum(1 for f in feats if f["properties"]["chk"]))
 
 

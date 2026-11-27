@@ -320,7 +320,7 @@ def load_tasks(b):
             status = inspect(tid, lifecycle.get(tid))["state"]
         elif status == "queued":
             status = "archive"                                   # an old task whose answer was taken under another file name: not waiting for anything
-        b.c.execute("INSERT INTO task VALUES (?,?,?,?,?,?,?)", (tid, tid.split("_")[0], os.path.relpath(tf, R), os.path.relpath(rf, R), status, rows, found))
+        b.c.execute("INSERT INTO task VALUES (?,?,?,?,?,?,?)", (tid, tid.split("_")[0], os.path.relpath(tf, R).replace("\\", "/"), os.path.relpath(rf, R).replace("\\", "/"), status, rows, found))
         pre = prefix.get(tid.split("_")[0], "")
         for x in (data if isinstance(data, list) else [{"id": k, "status": "found"} for k in (data or {})]):
             if isinstance(x, dict):

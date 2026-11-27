@@ -65,7 +65,7 @@ async function objCoords(id) {
       COORDS = {};
       for (const f of j.features) COORDS["mon:" + f.properties.id] = f.geometry.coordinates;
       COORDS_AT = Date.now();
-    } catch (e) { return null; }
+    } catch (e) { return COORDS ? COORDS[id] || null : null; }
   }
   return COORDS[id] || null;
 }

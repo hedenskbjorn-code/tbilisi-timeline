@@ -195,6 +195,8 @@ def main() -> int:
 
     for r in ((load("religious_osm.json") or {}).get("items") or []):
         nm = r.get("name", {})
+        if not any(str(nm.get(l) or "").strip() for l in ("ru", "en", "ka")):
+            continue
         doc = {
             "id": f"rl:{r.get('id')}",
             "k": "rl",

@@ -54,8 +54,19 @@ RULES = [
     ("site/style.css", ["header.test.mjs", "filters.test.mjs", "panel.test.mjs", "close_outside.test.mjs", "perf.test.mjs"]),
     ("site/i18n.js", ["header.test.mjs", "smoke.test.mjs", "ui.test.mjs", "perf.test.mjs"]),
     ("site/index.html", ["header.test.mjs", "filters.test.mjs", "groups.test.mjs", "smoke.test.mjs", "perf.test.mjs"]),
+    ("site/js/net.js", ["lazy_retry.test.mjs", "idle_load.test.mjs", "smoke.test.mjs", "perf.test.mjs"]),
     ("site/js/plans.js", ["basemap.test.mjs", "layers.test.mjs", "perf.test.mjs"]),
     ("site/js/timeline.js", ["monuments.test.mjs", "battles_map.test.mjs", "perf.test.mjs"]),
+    ("site/js/tour.js", ["tour.test.mjs", "perf.test.mjs"]),
+    ("site/photo.js", ["ui.test.mjs", "monuments.test.mjs", "object_link.test.mjs", "perf.test.mjs"]),
+    ("site/pwa.js", ["smoke.test.mjs", "ui.test.mjs", "perf.test.mjs"]),
+    ("site/sw.js", ["smoke.test.mjs", "perf.test.mjs"]),
+    ("site/translit.js", ["monuments.test.mjs", "object_link.test.mjs", "ui.test.mjs", "perf.test.mjs"]),
+    ("site/run/", ["smoke.test.mjs", "report_button.test.mjs"]),
+    ("site/entrances/", ["smoke.test.mjs", "report_button.test.mjs"]),
+    ("site/museums/", ["smoke.test.mjs", "report_button.test.mjs"]),
+    ("site/mtskheta/", ["smoke.test.mjs", "report_button.test.mjs"]),
+    ("site/lost/", ["smoke.test.mjs", "report_button.test.mjs"]),
 ]
 
 
@@ -78,7 +89,7 @@ def select_suites(files):
         if fn.startswith("tests/e2e/") and fn.endswith(".test.mjs"):
             selected.add(Path(fn).name)
         for prefix, suites in RULES:
-            if fn == prefix:
+            if fn.startswith(prefix) if prefix.endswith("/") else fn == prefix:
                 selected.update(suites)
     return sorted(f"tests/e2e/{s}" for s in selected if (ROOT / "tests/e2e" / s).exists())
 

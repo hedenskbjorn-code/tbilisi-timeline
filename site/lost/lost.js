@@ -222,13 +222,14 @@
   }
 
   function addMarkers() {
+    if (!map || !part) return;
     for (const k of Object.keys(markers)) markers[k].remove();
     markers = {};
     if (startMarker) startMarker.remove();
     const st = el("div", "mk start", "S"); st.title = t().start(part); st.setAttribute("aria-label", t().start(part));
     startMarker = new maplibregl.Marker({ element: st }).setLngLat([part.start.lon, part.start.lat]).addTo(map);
     for (const s of part.stops) {
-      const m = el("button", "mk" + (done.has(s.id) ? " done" : ""), String(s.n));
+      const m = el("button", "mk" + (s.n === active ? " active" : "") + (done.has(s.id) ? " done" : ""), String(s.n));
       m.type = "button"; m.title = L3(s.name);
       m.addEventListener("click", (ev) => { ev.stopPropagation(); select(s.n, { scroll: true }); });
       markers[s.n] = new maplibregl.Marker({ element: m }).setLngLat([s.lon, s.lat]).addTo(map);
@@ -262,6 +263,7 @@
 
   function metersBetween(la1, lo1, la2, lo2) { return Math.hypot((la1 - la2) * 111320, (lo1 - lo2) * 111320 * Math.cos(la1 * Math.PI / 180)); }
   $("locate").addEventListener("click", () => {
+    if (!data || !part) return;
     const w = $("where"), L = t();
     w.hidden = false;
     if (!navigator.geolocation) { w.textContent = L.nogeo; return; }
@@ -281,12 +283,13 @@
       w.hidden = false;
       w.textContent = L.nearest(best.s.n, L3(best.s.name), Math.round(best.d / 10) * 10);
       select(best.s.n, { scroll: true });
-      if (map) map.fitBounds(new maplibregl.LngLatBounds([lo, la], [best.s.lon, best.s.lat]), { padding: 90, maxZoom: 17, duration: 800 });
+      if (map) map.fitBounds(new maplibregl.LngLatBounds().extend([lo, la]).extend([best.s.lon, best.s.lat]), { padding: 90, maxZoom: 17, duration: 800 });
     }, () => { w.textContent = L.denied; }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 });
   });
 
   function xmlEsc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
   $("gpx").addEventListener("click", () => {
+    if (!data || !part) return;
     const rows = ['<?xml version="1.0" encoding="UTF-8"?>', '<gpx version="1.1" creator="Tbilisi through time" xmlns="http://www.topografix.com/GPX/1/1">',
       "<metadata><name>" + xmlEsc(t().title) + "</name></metadata>",
       '<wpt lat="' + part.start.lat + '" lon="' + part.start.lon + '"><name>' + xmlEsc(L3(part.start.name)) + "</name></wpt>"];
@@ -304,6 +307,7 @@
     try { localStorage.setItem("lostLang", lang); } catch (err) {}
     try { const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u.pathname + u.search + u.hash); } catch (err) {}
     renderText();
+    if (!data || !part) return;
     addMarkers();
   });
   if ($("pagesSel")) $("pagesSel").addEventListener("change", (e) => {

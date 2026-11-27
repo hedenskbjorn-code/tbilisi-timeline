@@ -116,6 +116,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
 
   function countVisible() {
+    if (!monuments) return 0;
     const fns = activeFns();
     let n = 0;
     for (const f of monuments.features) if (regVisible(f.properties, fns)) n++;
@@ -570,6 +571,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     $("fbOpen").title = t().fbBtn; $("fbOpen").setAttribute("aria-label", t().fbBtn);
     updateZoomUi();
     updateSearchUi();
+    updateC94Ui();
     updateRelUi();
     buildRulersBand();
     updateSciUi();
@@ -710,19 +712,24 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const on = $("show94").checked && year >= c94.y0 && year < c94.y1;
     for (const id of ["c94-pt", "c94-lb"]) map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
   }
+  function updateC94Ui() {
+    if (!c94 || !map.getSource("c94")) return;
+    for (const f of c94.features) f.properties.short = (f.properties.name[lang] || f.properties.name.en).split(":")[0];
+    map.getSource("c94").setData(c94);
+  }
   function addC94() {
     if (!c94 || map.getSource("c94")) return;
     map.addSource("c94", { type: "geojson", data: c94 });
     map.addLayer({ id: "c94-pt", type: "circle", source: "c94", layout: { visibility: "none" }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 5, 17, 10], "circle-color": "#0b7285", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
     map.addLayer({ id: "c94-lb", type: "symbol", source: "c94", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true }, paint: { "text-color": "#0b4a56", "text-halo-color": "#ffffff", "text-halo-width": 2 } });
-    for (const f of c94.features) f.properties.short = (f.properties.name[lang] || f.properties.name.en).split(":")[0];
-    map.getSource("c94").setData(c94);
+    updateC94Ui();
     map.on("click", "c94-pt", (e) => { if (!claimClick(e)) return; if (e.features && e.features[0]) popupC94(e.features[0].properties, e.lngLat); });
     map.on("mouseenter", "c94-pt", () => { map.getCanvas().style.cursor = "pointer"; });
     map.on("mouseleave", "c94-pt", () => { map.getCanvas().style.cursor = ""; });
     updateC94();
   }
   function popupC94(p, lngLat) {
+    reopenPopup = () => popupC94(p, lngLat);
     const L = t();
     const el = document.createElement("div");
     el.className = "pop";
@@ -1073,9 +1080,11 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     }, !!ev.place);
   }
 
-  let photoInfo = null;
+  let photoInfo = null, photoInfoP = null, infoToken = 0;
+  function ensurePhotoInfo() { return photoInfo ? Promise.resolve(photoInfo) : (photoInfoP ||= getJSON("data/photos.json").then((d) => (photoInfo = d)).catch((e) => { photoInfoP = null; throw e; })); }
   // Details that do not belong on the card (licences, sources, register notes) live in a separate window opened by a button.
   let infoFocus = null, viewFocus = null, fbFocus = null;       // the element that had the focus before a window was opened: the focus goes back to it
+  const FOCUSABLE = 'button:not([hidden]):not([disabled]), a[href], input:not([hidden]):not([disabled]):not([tabindex="-1"]), select:not([hidden]):not([disabled]), textarea:not([hidden]):not([disabled])';
   const giveFocusBack = (el, ...fallbacks) => {                 // the element may be gone (the tiles are rebuilt when the year changes) or inside a closed #moreMenu
     const extra = el && el.closest && el.closest("#moreMenu") ? ["#btnMore"] : [];
     const cands = [el, ...fallbacks.map((q) => document.querySelector(q)), ...extra.map((q) => document.querySelector(q))];
@@ -1083,6 +1092,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (target) { try { target.focus(); } catch (e) {} }
   };
   function openInfo(build, sheet, title) {
+    ++infoToken;
     if ($("infoModal").hidden) infoFocus = document.activeElement;
     $("imTitle").textContent = title || t().infoTitle;
     const body = $("imBody");
@@ -1095,27 +1105,30 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     $("infoModal").classList.toggle("sheet", !!sheet);          // an event with a place: a sheet at the bottom, the map and the pin stay in sight
     $("infoModal").hidden = false;
     if (!sheet) {
-      const f = [...$("infoModal").querySelectorAll('button:not([hidden]):not([disabled]), a[href], input:not([hidden]), select:not([hidden])')].filter((el) => el.offsetParent !== null);
+      const f = [...$("infoModal").querySelectorAll(FOCUSABLE)].filter((el) => el.offsetParent !== null);
       if (f.length) f[0].focus();
     }
   }
-  function closeInfo() { reopenInfo = null; try { const u = new URL(location.href); if (/^st:/.test(u.searchParams.get("o") || "")) { u.searchParams.delete("o"); history.replaceState(null, "", u.pathname + u.search + u.hash); } } catch (e) {} const was = !$("infoModal").hidden; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } if (was) { giveFocusBack(infoFocus); infoFocus = null; } }
+  function closeInfo() { ++infoToken; reopenInfo = null; try { const u = new URL(location.href); if (/^st:/.test(u.searchParams.get("o") || "")) { u.searchParams.delete("o"); history.replaceState(null, "", u.pathname + u.search + u.hash); } } catch (e) {} const was = !$("infoModal").hidden; $("infoModal").hidden = true; if (evMarker) { evMarker.remove(); evMarker = null; } if (was) { giveFocusBack(infoFocus); infoFocus = null; } }
   $("imClose").addEventListener("click", closeInfo);
   $("imReport").addEventListener("click", () => { const name = $("imTitle").textContent; closeInfo(); openFeedback({ id: "info", name: name.slice(0, 80), reg: "-" }); });
   $("infoModal").addEventListener("click", (e) => { if (e.target === $("infoModal")) closeInfo(); });
-  $("infoModal").addEventListener("keydown", (e) => {
-    if (e.key !== "Tab" || $("infoModal").classList.contains("sheet")) return;
-    const f = [...$("infoModal").querySelectorAll('button:not([hidden]):not([disabled]), a[href], input:not([hidden]), select:not([hidden])')].filter((el) => el.offsetParent !== null);
-    if (!f.length) return;
-    const k = f.indexOf(document.activeElement);
-    e.preventDefault();
-    f[(k + (e.shiftKey ? f.length - 1 : 1) + f.length) % f.length].focus();
-  });
+  function trapModalTab(modal) {
+    modal.addEventListener("keydown", (e) => {
+      if (e.key !== "Tab" || modal.classList.contains("sheet")) return;
+      const f = [...modal.querySelectorAll(FOCUSABLE)].filter((el) => el.offsetParent !== null);
+      if (!f.length) return;
+      const k = f.indexOf(document.activeElement);
+      e.preventDefault();
+      f[(k + (e.shiftKey ? f.length - 1 : 1) + f.length) % f.length].focus();
+    });
+  }
+  for (const id of ["infoModal", "viewModal", "fbModal"]) trapModalTab($(id));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("infoModal").hidden) closeInfo(); });
   // Esc closes the open card of the map; an open window (the info, the picture viewer, the form, the search, the menu) takes the key first (the capture phase runs before their own handlers)
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape" || !openPop) return;
-    if (!$("infoModal").hidden || !$("viewModal").hidden || !$("fbModal").hidden || !$("search").hidden || !$("moreMenu").hidden) return;
+    if (!$("infoModal").hidden || !$("viewModal").hidden || !$("fbModal").hidden || document.querySelector(".modal:not([hidden])") || !$("search").hidden || !$("moreMenu").hidden) return;
     openPop.remove();
   }, true);
   // the guided tour (site/tour.js, data/tour.json): loaded when it is asked for, from the welcome window or from the button "?" of the menu
@@ -1320,7 +1333,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     d.appendChild(a); el.appendChild(d);
   }
   const fbRef = (kind, id, el) => ({ id: kind + ":" + (id == null ? "-" : id), name: ((el.querySelector("h3") || {}).textContent || "").slice(0, 80), reg: "-", link: OBJ_PREFIX[kind] && id != null ? OBJ_PREFIX[kind] + ":" + id : "" });
-  const OBJ_PREFIX = { REL: "rl", SCI: "sc", EDU: "ed", MUS: "mu" };
+  const OBJ_PREFIX = { REL: "rl", SCI: "sc", EDU: "ed", MUS: "mu", MT: "mt" };
   function objLink(id) { const u = new URL(location.href); u.searchParams.set("o", id); return u.toString(); }
   async function shareObject(id, a) {                                         // a phone: the share window; elsewhere: the clipboard
     const url = objLink(id);
@@ -1338,7 +1351,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       ev.preventDefault();
       const rp = reopenPopup;
       openDetails();
-      reopenInfo = rp ? () => { if (openPop) openPop.remove(); rp(); const b = document.querySelector(".maplibregl-popup .actions a.fb"); if (b) b.click(); } : null;
+      reopenInfo = rp ? async () => { if (openPop) openPop.remove(); await rp(); const b = document.querySelector(".maplibregl-popup .actions a.fb"); if (b) b.click(); } : null;
     });
     const a2 = document.createElement("a");
     a2.href = "#"; a2.className = "fb"; a2.textContent = t().fbPopup;
@@ -1361,7 +1374,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     box.className = "photos";
     el.appendChild(box);
     try {
-      if (!photoInfo) photoInfo = await getJSON("data/photos.json");
+      await ensurePhotoInfo();
     } catch (e) { return; }
     const titles = String(p.ph).split("|").filter((x) => photoInfo[x] && photoInfo[x].thumb);
     if (!titles.length) return;
@@ -1382,7 +1395,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
   // the line under the photographs of a card: author, licence and the page of the file on Commons
   async function fillPhotoCredits(box, p) {
-    try { if (!photoInfo) photoInfo = await getJSON("data/photos.json"); } catch (e) { return; }
+    try { await ensurePhotoInfo(); } catch (e) { return; }
     const titles = String(p.ph).split("|").filter((x) => photoInfo[x] && photoInfo[x].thumb);
     if (!titles.length) return;
     box.appendChild(document.createTextNode(t().infoPhotos + ": "));
@@ -1407,7 +1420,9 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
   async function photoCredits(body, p) {
     if (!p.ph) return;
-    try { if (!photoInfo) photoInfo = await getJSON("data/photos.json"); } catch (e) { return; }
+    const tok = infoToken;
+    try { await ensurePhotoInfo(); } catch (e) { return; }
+    if (tok !== infoToken || $("infoModal").hidden) return;
     const titles = String(p.ph).split("|").filter((x) => photoInfo[x] && photoInfo[x].thumb);
     if (!titles.length) return;
     const h = document.createElement("h4");
@@ -1511,7 +1526,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     let srcs = [];
     try { srcs = JSON.parse(p.src || "[]"); } catch (e) {}
     addWiki(el, p);
-    if (p.ph) cardPhotos(el, { ph: p.ph, name: { [lang]: p["name_" + lang] || p.name_ru || p.name_en || "" } });
+    if (p.ph && p.ph !== "null") cardPhotos(el, { ph: p.ph, name: { [lang]: p["name_" + lang] || p.name_ru || p.name_en || "" } });
     actions(el, () => openInfo((body) => {
       infoLine(body, L.lostAcc(p.acc, p.pos));
       infoLine(body, p.chk === true || p.chk === "true" ? L.lostChk : L.lostNoChk);
@@ -1643,6 +1658,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     } else src.textContent = L.viewLicense + ": " + lic;
     $("vmReport").textContent = L.fbPopup;
     $("viewModal").hidden = false;
+    $("vmClose").focus();
   }
   function closeView() { const was = !$("viewModal").hidden; $("viewModal").hidden = true; if (was) { giveFocusBack(viewFocus, "#vgrid button", "#btnViews"); viewFocus = null; } }
   $("vmReport").addEventListener("click", () => { const v = curView; closeView(); openFeedback({ id: "view:" + ((v && (v.id || v.image)) || "-"), name: ((v && v.title && (v.title[lang] || v.title.en)) || "").slice(0, 80), reg: "-" }); });
@@ -1743,8 +1759,11 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       }
     }, false, U("planned_title"));
   }
+  let transportTok = 0;
   async function transportPopup(p, lngLat) {
-    reopenPopup = () => transportPopup(p, lngLat);
+    const tok = ++transportTok;
+    const myReopen = () => transportPopup(p, lngLat);
+    reopenPopup = myReopen;
     const L = t();
     const el = document.createElement("div");
     el.className = "pop";
@@ -1756,6 +1775,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     let former = [], MU = {};
     if (p.kind === "metro_station") {                              // the name of the selected year first, the list of the former names below
       const M = await loadMetroNames();
+      if (tok !== transportTok || reopenPopup !== myReopen) return;
       former = M.stations[p.id] || [];
       MU = M.ui || {};
       const old = former.find((f) => f.to.length && year < Math.min(...f.to) && (f.from == null || year >= f.from));
@@ -1803,8 +1823,8 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
 
   let streetsLoaded = false;
   async function updateStreets() {
-    const on = $("showStreets").checked && year >= 1913 && year < 1954;
-    if (on && !streetsLoaded && map.isStyleLoaded()) {
+    const isOn = () => $("showStreets").checked && year >= 1913 && year <= 1953;
+    if (isOn() && !streetsLoaded && map.isStyleLoaded()) {
       streetsLoaded = true;
       try {
         const d = await getJSON("data/streets_1913.json", 2);
@@ -1814,7 +1834,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         }
       } catch (e) { streetsLoaded = false; }
     }
-    if (map.getLayer("streets1913-line")) map.setLayoutProperty("streets1913-line", "visibility", on ? "visible" : "none");
+    if (map.getLayer("streets1913-line")) map.setLayoutProperty("streets1913-line", "visibility", isOn() ? "visible" : "none");
   }
 
   function updateSettle() {
@@ -2023,7 +2043,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       else if (kind === "sc") { const c = science.find((x) => x.id === id); if (c) { $("showSci").checked = true; go(c, popupSci, c.undated ? MAX : c.from); } }
       else if (kind === "ed") { const c = education.find((x) => x.id === id); if (c) { $("showEdu").checked = true; go(c, popupEdu, c.from); } }
       else if (kind === "mu") { const c = museums.find((x) => x.id === id); if (c) { $("showMus").checked = true; go(c, popupMus, c.undated ? MAX : c.from); } }
-      else if (kind === "pl") { await ensurePlaces(); const c = places && places.items.find((x) => x.id === id); if (c) { $("showPlaces").checked = true; updatePlaces(); go(c, popupPlace); } }
+      else if (kind === "pl") { await ensurePlaces(); const c = places && places.items.find((x) => x.id === id); if (c) { $("showPlaces").checked = true; const pf = c.from != null ? c.from : (PL_NATURAL && PL_NATURAL.has(c.k) ? -99999 : MAX); go(c, popupPlace, pf); } }
       else if (kind === "mt") { await ensureMtskheta(); const c = mtskhetaById && mtskhetaById.get(id); if (c) go(c, popupMtskheta, MT_FROM[c.id] || 100); }
       else if (kind === "mn" || kind === "pq" || kind === "md") {
         const key = kind === "mn" ? "mon" : kind === "md" ? "mod" : "plq", m = MP[key];
@@ -2885,6 +2905,11 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   const RULE_MAIN_H = 22, RULE_SUB_H = 14, RULE_GAP = 2;               // the main row of the band (lane 0) and the thin row (lane 1: overlords, second rulers)
   const dispYear = (v) => Math.floor(v + 0.0001);
   const rText = (o) => (o && (o[lang] || o.en)) || "";
+  function syncRulerCardH() {
+    const rc = $("rulerCard");
+    const rch = (rc && !rc.hidden) ? Math.ceil(rc.getBoundingClientRect().height) : 0;
+    document.documentElement.style.setProperty("--rch", rch + "px");
+  }
   // the heights of the time bar (top) and of the bar of rulers (bottom) go to CSS: the panels lie between them; the band of rulers is aligned with the track of the slider
   function syncBars() {
     alignRulers();
@@ -2893,13 +2918,18 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const bh = bb.getBoundingClientRect().height;
     root.setProperty("--bb", (bh ? Math.round(bh) + (window.innerWidth <= 640 ? 10 : 30) : 0) + "px");
     updateToken();
+    syncRulerCardH();
     updateRuleSummary();
     markRulers();
   }
   window.addEventListener("load", () => syncBars());
   function alignRulers() {                     // the summary "who rules now" stands left of the slider track, the axis (rulers) has the extent of the slider
     const ax = $("axis"), rn = $("ruleNow"), bar = $("bottom"), sw = $("sliderwrap").getBoundingClientRect(), b = bar.getBoundingClientRect(), cs = getComputedStyle(bar);
-    if (!ax || !b.width || !sw.width) return;
+    if (!ax || !b.width) return;
+    if (!sw.width) {
+      if (window.innerWidth > 640) { rn.style.width = "220px"; ax.style.marginRight = "84px"; }
+      return;
+    }
     const L = Math.max(0, Math.round(sw.left - b.left - parseFloat(cs.paddingLeft)));
     rn.style.width = L + "px";
     ax.style.marginLeft = "0px";
@@ -3044,7 +3074,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const active = !!(rulersData && $("showRulers").checked);
     if (rcs) { rcs.hidden = !(active && rulerCardDismissed); rcs.title = R.showCard; rcs.setAttribute("aria-label", R.showCard); }
     if (!rc) return;
-    if (!active || rulerCardDismissed) { rc.hidden = true; rc.dataset.key = ""; return; }
+    if (!active || rulerCardDismissed) { rc.hidden = true; rc.dataset.key = ""; syncRulerCardH(); return; }
     const within = (it) => it.from < year + 1 && it.to > year, mid = (s) => s.from <= year + 0.5 && s.to > year + 0.5;
     const st = rulersData.states.find((s) => mid(s) && !s.lane) || rulersData.states.find(mid) || rulersData.states.find((s) => within(s) && !s.lane) || rulersData.states.find(within);
     const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);
@@ -3129,6 +3159,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       rc.setAttribute("aria-label", (st ? rText(st.name) : "") + (rl.length ? ": " + rl.map((r) => rText(r.name)).join(", ") : ""));
     }
     rc.hidden = !(st || rl.length);
+    syncRulerCardH();
   }
   // the highlight of the periods that contain the year (the others are dimmed) and the line at the position of the thumb
   function markRulers() {
@@ -3167,7 +3198,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     updateRuleSummary();
     markRulers();
   }
-  function updateRuleLine() { updateRuleBar(); updateRuleBox(); }
+  function updateRuleLine() { updateRuleBar(); updateRuleBox(); syncRulerCardH(); }
   function updateRuleBox() {
     const box = $("ruleline");
     if (!box) return;
@@ -4471,7 +4502,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   }
   function pickSearch(r) {
     closeSearch();
-    fromSearch = true;
+    fromSearch = r.kind !== "y";
     if (r.kind === "msx") {
       const [pfx, ...rest] = r.doc.id.split(":"), id = rest.join(":");
       if (pfx === "e" && histEvents[+id]) r = { kind: "e", ev: histEvents[+id] };
@@ -4498,13 +4529,19 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     else if (r.kind === "s") target = Math.max(year, r.c.from);
     else if (r.kind === "d") target = Math.max(year, r.c.from);
     else if (r.kind === "mu") target = Math.max(year, r.c.from);
-    else if (r.kind === "r") target = (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
+    else if (r.kind === "r") target = r.r.undated ? MAX : (year >= r.r.from && (r.r.to === undefined || year < r.r.to)) ? year : r.r.from;
     else if (r.kind === "m") target = Math.max(year, r.f.properties.y0);
-    else if (r.kind === "p") target = year;
+    else if (r.kind === "p") { const pf = r.c.from != null ? r.c.from : (PL_NATURAL && PL_NATURAL.has(r.c.k) ? -99999 : MAX); target = Math.max(year, pf); }
     else if (r.kind === "mt") target = Math.max(year, MT_FROM[r.c.id] || 100);
     else if (r.kind === "k" || r.kind === "q") target = r.c.y != null ? Math.max(year, r.c.y) : year;
     else if (r.kind === "t") { const own = r.st.iv.find((iv) => iv[2] && year >= iv[0] && year < iv[1]); target = own ? year : (r.st.iv.find((iv) => iv[2]) || [year])[0]; }
     else target = (r.f && typeof r.f.properties.ye === "number") ? Math.max(year, r.f.properties.ye) : year;
+    if (r.kind === "o") {
+      const boxes = Object.entries(FN_BOXES).filter(([, fns]) => fns.includes(r.f.properties.fn)).map(([bid]) => bid);
+      if (boxes.length && !boxes.some((bid) => $(bid).checked)) $(boxes[0]).checked = true;
+    } else if (r.kind === "m") {
+      $("showTrMetro").checked = true;
+    }
     year = target;
     update();
     if (r.kind === "e") { showHistEvent(r.ev); return; }
@@ -4577,7 +4614,15 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (e.key === "ArrowDown") { e.preventDefault(); if (searchRows.length) { searchSel = (searchSel + 1) % searchRows.length; markSearchSel(); } }
     else if (e.key === "ArrowUp") { e.preventDefault(); if (searchRows.length) { searchSel = (searchSel - 1 + searchRows.length) % searchRows.length; markSearchSel(); } }
     else if (e.key === "Enter") { e.preventDefault(); if (searchRows[searchSel]) pickSearch(searchRows[searchSel]); }
-    else if (e.key === "Escape") { e.preventDefault(); closeSearch(); $("btnSearch").focus(); }
+  });
+  document.addEventListener("pointerdown", (e) => {
+    if ($("search").hidden || window.matchMedia("(max-width:640px)").matches) return;
+    if (e.target.closest && e.target.closest("#search, #btnSearch")) return;
+    closeSearch();
+  }, true);
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape" || $("search").hidden || !$("moreMenu").hidden || document.querySelector(".modal:not([hidden])")) return;
+    e.preventDefault(); closeSearch(); $("btnSearch").focus();
   });
   updateSearchUi();
 

@@ -49,11 +49,11 @@ main { position:fixed; top:52px; left:0; right:0; bottom:0; display:grid; grid-t
 .mk { width:26px; height:26px; border-radius:13px; background:var(--accent); color:#fff; border:2px solid #fff; box-shadow:0 1px 4px #0006; font:700 12px/22px system-ui, sans-serif; text-align:center; cursor:pointer; }
 button.mk { padding:0; cursor:pointer; }
 .mk:focus-visible { outline:2px solid #fff; box-shadow:0 0 0 4px var(--accent), 0 1px 4px #0006; }
-.mk.active { transform:scale(1.35); background:#1c7ed6; z-index:5; }
+.mk.active { scale:1.35; background:#1c7ed6; z-index:5; }
 .mk.done { background:var(--done); }
 .mk.start { background:#2b8a3e; width:22px; height:22px; border-radius:11px; line-height:18px; cursor:default; }
 .mk.me { background:#1c7ed6; width:16px; height:16px; border-radius:8px; border:3px solid #fff; box-shadow:0 0 0 3px #1c7ed655; cursor:default; }
-#loading { position:absolute; top:70px; left:calc(460px + 50%); transform:translateX(-50%); z-index:15; display:flex; align-items:center; gap:10px; padding:10px 16px; border-radius:10px; background:var(--panel); box-shadow:0 2px 12px #0005; pointer-events:none; }
+#loading { position:absolute; top:70px; left:calc(50% + 230px); transform:translateX(-50%); z-index:15; display:flex; align-items:center; gap:10px; padding:10px 16px; border-radius:10px; background:var(--panel); box-shadow:0 2px 12px #0005; pointer-events:none; }
 #loading[hidden] { display:none; }
 #loading .spin { width:16px; height:16px; border:3px solid #8884; border-top-color:var(--accent); border-radius:50%; animation:ldspin .9s linear infinite; }
 @keyframes ldspin { to { transform:rotate(360deg); } }

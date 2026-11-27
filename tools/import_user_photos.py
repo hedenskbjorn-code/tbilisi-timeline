@@ -48,9 +48,22 @@ def put_with_metadata(ns, key, value, metadata, ttl=None):
     req("PUT", "/accounts/%s/storage/kv/namespaces/%s/values/%s" % (AID, ns, urllib.parse.quote(key, safe="")) + ("?expiration_ttl=%d" % ttl if ttl else ""), body, "multipart/form-data; boundary=" + b)
 
 
+def list_meta_keys(ns):
+    keys = []
+    cursor = None
+    while True:
+        qs = "prefix=meta:&limit=1000" + ("&cursor=" + urllib.parse.quote(cursor, safe="") if cursor else "")
+        res = req("GET", "/accounts/%s/storage/kv/namespaces/%s/keys?%s" % (AID, ns, qs))
+        keys.extend(res.get("result") or [])
+        cursor = (res.get("result_info") or {}).get("cursor")
+        if not cursor:
+            break
+    return keys
+
+
 def main():
     ns = namespace()
-    keys = req("GET", "/accounts/%s/storage/kv/namespaces/%s/keys?prefix=meta:&limit=1000" % (AID, ns))["result"]
+    keys = list_meta_keys(ns)
     approved = [k for k in keys if (k.get("metadata") or {}).get("s") == "approved"]
     print("in the queue:", len(keys), "| approved:", len(approved))
     db = json.load(open(DB, encoding="utf-8")) if os.path.exists(DB) else {"note": "Photographs sent by visitors through the form of the site and approved by the owner (tools/import_user_photos.py). Licence CC BY-SA 4.0.", "objects": {}}

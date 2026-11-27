@@ -208,7 +208,7 @@
     if (!file) return;
     try {
       const buf = await file.arrayBuffer();
-      state.gps = exifGps(buf);                                              // read before the re-encoding removes it
+      try { state.gps = exifGps(buf); } catch (e) { state.gps = null; }        // read before the re-encoding removes it
       const bmp = await createImageBitmap(new Blob([buf], { type: file.type }), { imageOrientation: "from-image" });
       const k = Math.min(1, 1600 / Math.max(bmp.width, bmp.height)), w = Math.round(bmp.width * k), h = Math.round(bmp.height * k);
       if (Math.max(w, h) < 800) { st.textContent = L.err.image; return; }

@@ -2,11 +2,13 @@
 // Run: node --test tests/
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const G = require("../site/translit.js");
-G.setDict({ names: { "თბილისი": { en: "Tbilisi", ru: "Тбилиси" } }, streets: { "გამზ.": { en: "Ave.", ru: "пр." }, "ქუჩა": { en: "St.", ru: "ул." } } });
+const MOCK_DICT = { names: { "თბილისი": { en: "Tbilisi", ru: "Тбилиси" } }, streets: { "გამზ.": { en: "Ave.", ru: "пр." }, "ქუჩა": { en: "St.", ru: "ул." } } };
+G.setDict(MOCK_DICT);
 
 test("nameInfo: the Georgian original stays for ka and for unknown names", () => {
   assert.deepEqual(G.nameInfo("თბილისი", "ka", null), { text: "თბილისი", src: "orig" });
@@ -21,6 +23,20 @@ test("address: the street words are translated, the number stays", () => {
   assert.equal(G.address("რუსთაველის გამზ. 12", "en"), "Rustaveli Ave. 12");
   assert.equal(G.address("რუსთაველის გამზ. 12", "ru"), "Руставели пр. 12");
   assert.equal(G.address("ბარათაშვილის ქუჩა 5", "en"), "Baratashvili St. 5");
+});
+test("address: date-named streets via names_i18n.json (8 March, 26 May, 9 April)", () => {
+  const realDict = JSON.parse(fs.readFileSync(new URL("../site/data/names_i18n.json", import.meta.url), "utf8"));
+  G.setDict(realDict);
+  try {
+    assert.equal(G.address("8 მარტის ქ./36", "en"), "8 March St./36");
+    assert.equal(G.address("8 მარტის ქ./36", "ru"), "ул. 8 Марта/36");
+    assert.equal(G.address("26 მაისის მოედ./1", "en"), "26 May Sq./1");
+    assert.equal(G.address("26 მაისის მოედ./1", "ru"), "пл. 26 Мая/1");
+    assert.equal(G.address("9 აპრილის ქ./1", "en"), "9 April St./1");
+    assert.equal(G.address("9 აპრილის ქ./1", "ru"), "ул. 9 Апреля/1");
+  } finally {
+    G.setDict(MOCK_DICT);
+  }
 });
 test("address: ka, empty and null are returned as they are", () => {
   assert.equal(G.address("რუსთაველის გამზ. 12", "ka"), "რუსთაველის გამზ. 12");
@@ -43,9 +59,11 @@ test("date: a range of centuries is a range (regression: only the last century w
   assert.equal(G.date("მე-17-18 საუკუნეები", "ru"), "XVII-XVIII века");
   assert.equal(G.date("18-19 საუკუნეები", "en"), "18th-19th centuries");
 });
-test("date: a range with a part of the century or a year stays as the register text", () => {
-  assert.equal(G.date("მე-16-20 საუკუნის შუახანი", "en"), "მე-16-20 საუკუნის შუახანი");
-  assert.equal(G.date("მე-17-18 საუკუნეები (1735 წლამდე)", "ru"), "მე-17-18 საუკუნეები (1735 წლამდე)");
+test("date: mid-century range and before-year range", () => {
+  assert.equal(G.date("მე-16-20 საუკუნის შუახანი", "en"), "mid-16th–20th c.");
+  assert.equal(G.date("მე-16-20 საუკუნის შუახანი", "ru"), "середина XVI–XX вв.");
+  assert.equal(G.date("მე-17-18 საუკუნეები (1735 წლამდე)", "en"), "17th–18th c. (before 1735)");
+  assert.equal(G.date("მე-17-18 საუკუნეები (1735 წლამდე)", "ru"), "XVII–XVIII вв. (до 1735)");
 });
 test("date: ka, plain numbers and unknown texts are returned as they are", () => {
   assert.equal(G.date("მე-19 საუკუნის დასაწყისი", "ka"), "მე-19 საუკუნის დასაწყისი");

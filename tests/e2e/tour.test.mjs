@@ -177,7 +177,13 @@ test("USSR dual-tier (#1950): #rulerCard shows 2 portraits and each opens its ca
   const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1950`);
   await waitReady(page);
   await page.click("#rbShow");
+  await page.waitForSelector("#rulers .rseg.rg-ussr_leader", { timeout: 15000 });
   await page.waitForFunction(() => document.querySelectorAll("#rulerCard .rc-port.clickable").length === 2, null, { timeout: 15000 });
+  const bg = await page.evaluate(() => {
+    const seg = document.querySelector("#rulers .rseg.rg-ussr_leader");
+    return seg ? getComputedStyle(seg).backgroundColor : null;
+  });
+  assert.ok(bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent", `.rseg.rg-ussr_leader has non-transparent backgroundColor: ${bg}`);
 
   for (const [idx, nameRe, bioRe, wikiRe] of [
     [0, /Joseph Stalin/i, /General Secretary of the Communist Party/i, /en\.wikipedia\.org\/wiki\/Joseph_Stalin/],
@@ -239,5 +245,48 @@ test("clicking a museum marker (showMus) opens a popup with #objShare link", asy
   assert.match(await pop.innerText(), new RegExp(mus.name.en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").slice(0, 20)));
   assert.equal(await pop.locator("#objShare").count(), 1, "museum popup has #objShare");
   assert.equal(await page.evaluate(() => new URL(location.href).searchParams.get("o")), "mu:" + mus.id, "URL parameter ?o=mu:<id> is set");
+  await page.ctx.close();
+});
+
+test("on desktop (1280x800), #rbShow does not overlap #side when rulers band is closed and #side is open", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1950`, { width: 1280, height: 800 });
+  await waitReady(page);
+  await page.waitForFunction(() => !document.getElementById("side").hidden && !document.body.classList.contains("rulers-on"), null, { timeout: 10000 });
+  const m = await page.evaluate(() => {
+    const rb = document.getElementById("rbShow").getBoundingClientRect();
+    const s = document.getElementById("side").getBoundingClientRect();
+    const overlap = !(rb.right <= s.left || rb.left >= s.right || rb.bottom <= s.top || rb.top >= s.bottom);
+    return {
+      rb: { l: rb.left, t: rb.top, r: rb.right, b: rb.bottom, w: rb.width, h: rb.height },
+      s: { l: s.left, t: s.top, r: s.right, b: s.bottom, w: s.width, h: s.height },
+      overlap,
+    };
+  });
+  assert.ok(m.rb.w > 0 && m.rb.h > 0, `#rbShow is visible: ${JSON.stringify(m.rb)}`);
+  assert.ok(m.s.w > 0 && m.s.h > 0, `#side is visible: ${JSON.stringify(m.s)}`);
+  assert.equal(m.overlap, false, `#rbShow ${JSON.stringify(m.rb)} overlaps #side ${JSON.stringify(m.s)}`);
+  await page.ctx.close();
+});
+
+test("on mobile (390x844), #rcShow does not overlap #rbToggle when #rulerCard is closed", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1950`, { width: 390, height: 844 });
+  await waitReady(page);
+  await page.click("#rbShow");
+  await page.waitForSelector("#rulerCard .rc-close", { timeout: 15000 });
+  await page.click("#rulerCard .rc-close");
+  await page.waitForSelector("#rcShow:not([hidden])", { timeout: 5000 });
+  const m = await page.evaluate(() => {
+    const rc = document.getElementById("rcShow").getBoundingClientRect();
+    const rb = document.getElementById("rbToggle").getBoundingClientRect();
+    const overlap = !(rc.right <= rb.left || rc.left >= rb.right || rc.bottom <= rb.top || rc.top >= rb.bottom);
+    return {
+      rc: { l: rc.left, t: rc.top, r: rc.right, b: rc.bottom, w: rc.width, h: rc.height },
+      rb: { l: rb.left, t: rb.top, r: rb.right, b: rb.bottom, w: rb.width, h: rb.height },
+      overlap,
+    };
+  });
+  assert.ok(m.rc.w > 0 && m.rc.h > 0, `#rcShow is visible: ${JSON.stringify(m.rc)}`);
+  assert.ok(m.rb.w > 0 && m.rb.h > 0, `#rbToggle is visible: ${JSON.stringify(m.rb)}`);
+  assert.equal(m.overlap, false, `#rcShow ${JSON.stringify(m.rc)} overlaps #rbToggle ${JSON.stringify(m.rb)}`);
   await page.ctx.close();
 });

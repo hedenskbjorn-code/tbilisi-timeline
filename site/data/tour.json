@@ -93,7 +93,8 @@
   {
    "ids": [
     "rbShow",
-    "rulerCard"
+    "rulerCard",
+    "rcShow"
    ],
    "title": {
     "ru": "Правители и биография",

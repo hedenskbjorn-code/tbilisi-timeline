@@ -75,14 +75,14 @@ test("the viewer of the views has the button 'report a problem' and it opens the
   await page.ctx.close();
 });
 
-for (const [name, url] of [["entrances", "/entrances/"], ["run", "/run/"], ["museums", "/museums/"], ["lost", "/lost/"]]) {
+for (const [name, url] of [["entrances", "/entrances/"], ["run", "/run/"], ["museums", "/museums/"], ["mtskheta", "/mtskheta/"], ["lost", "/lost/"]]) {
   test(`the page /${name}/ has a link "Report a problem" that opens the form of the main page`, async () => {
     const page = await openPage(browser, `${server.url}${url}?e2e=1&nostats=1&lang=en`);
     const a = page.locator("#report");
     await a.waitFor({ timeout: 15000 });
     assert.equal(await a.innerText(), "Report a problem");
     assert.equal(await a.getAttribute("href"), "../?report=" + name + "&lang=en");
-    await Promise.all([page.waitForURL((u) => !/\/(entrances|run|museums|lost)\//.test(u.pathname), { timeout: 15000 }), a.click()]);
+    await Promise.all([page.waitForURL((u) => !/\/(entrances|run|museums|mtskheta|lost)\//.test(u.pathname), { timeout: 15000 }), a.click()]);
     await page.waitForFunction(() => !document.getElementById("fbModal").hidden, null, { timeout: 15000 });
     assert.match(await page.locator("#fbCtx").inputValue(), new RegExp("object=page " + name));
     assert.ok(!/report=/.test(page.url()), "the parameter is removed from the address: " + page.url());

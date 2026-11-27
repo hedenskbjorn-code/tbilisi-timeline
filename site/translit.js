@@ -239,10 +239,17 @@
         return sub ? prefix + lbl[i] + " (" + sub + ")" : null;
       }
     }
-    // trailing parenthetical year range like "(1903-1904)" (keep "(1735 წლამდე)" untouched as rejected)
-    let paren = "";
-    const parM = t.match(/\s*\((\d{3,4}(?:\s*-\s*\d{2,4})?)\)\s*$/);
-    if (parM) { paren = " (" + parM[1].replace(/\s+/g, "") + ")"; t = t.slice(0, parM.index).trim(); }
+    // trailing parenthetical year range like "(1903-1904)" or "(1735 წლამდე)"
+    let paren = "", beforeYr = false;
+    const parBeforeM = t.match(/\s*\((\d{3,4})\s*წლამდე\)\s*$/);
+    if (parBeforeM) {
+      paren = i ? " (до " + parBeforeM[1] + ")" : " (before " + parBeforeM[1] + ")";
+      t = t.slice(0, parBeforeM.index).trim();
+      beforeYr = true;
+    } else {
+      const parM = t.match(/\s*\((\d{3,4}(?:\s*-\s*\d{2,4})?)\)\s*$/);
+      if (parM) { paren = " (" + parM[1].replace(/\s+/g, "") + ")"; t = t.slice(0, parM.index).trim(); }
+    }
     // mixed BCE - CE century range (e.g. "ძვ. წ. IV - ახ. წ. VI სს.")
     const bceCe = t.match(new RegExp("^ძვ\\.\\s*წ\\.?\\s*([IVXL]+|\\d{1,2})\\s*-\\s*ახ\\.\\s*წ\\.?\\s*([IVXL]+|\\d{1,2})\\s*" + CENT_W + "$"));
     if (bceCe) {
@@ -282,12 +289,16 @@
       const a = parseCentNum(dbl[1]), b = parseCentNum(dbl[2]), c = parseCentNum(dbl[3]), d = parseCentNum(dbl[4]);
       if (![a, b, c, d].some(isNaN)) return prefix + fmtRange(a, b, i) + ", " + fmtRange(c, d, i) + eraSuf + paren;
     }
-    // a range of centuries ("17-18 centuries" / "IV-VII სს."): with a part of the century, a year or a note it stays as the register text
+    // a range of centuries ("17-18 centuries" / "IV-VII სს."): handle mid-range ("შუახან") and "(YYYY წლამდე)"; other parts/years stay as the register text
     const rg = t.match(new RegExp("([IVXL]+|\\d{1,2})\\s*-\\s*([IVXL]+|\\d{1,2})\\s*" + CENT_W));
     if (rg) {
-      if (/დასაწყის|დასასრულ|მიწურულ|\bბოლო\b|შუახან|ნახევარ|წლამდე|\d{3,4}/.test(t)) return null;
+      if (/დასაწყის|დასასრულ|მიწურულ|\bბოლო\b|ნახევარ|წლამდე|\d{3,4}/.test(t)) return null;
       const a = parseCentNum(rg[1]), b = parseCentNum(rg[2]);
-      if (!isNaN(a) && !isNaN(b)) return prefix + fmtRange(a, b, i) + eraSuf + paren;
+      if (!isNaN(a) && !isNaN(b)) {
+        if (/შუახან/.test(t)) return prefix + (i ? "середина " + roman(a) + "–" + roman(b) + " вв." : "mid-" + ord(a) + "–" + ord(b) + " c.") + eraSuf + paren;
+        if (beforeYr) return prefix + (i ? roman(a) + "–" + roman(b) + " вв." : ord(a) + "–" + ord(b) + " c.") + eraSuf + paren;
+        return prefix + fmtRange(a, b, i) + eraSuf + paren;
+      }
     }
     const parts = [];
     const reb = t.match(new RegExp("^([IVXL]+|\\d{1,2})\\s*" + CENT_W + "\\s*გადაკეთდა\\s+(.+)$"));

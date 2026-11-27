@@ -117,6 +117,20 @@ test("every origin of a name has a quote of its source, 77 places have an origin
   for (const x of PL.items) if (x.e) assert.ok(x.s.eq && x.s.eq.q && (x.s.eq.u || x.s.eq.p), x.id);
 });
 
+test("a place with ph opened via ?o=pl:<id> shows .pop .photos img with non-zero dimensions and .pop .phcred", async () => {
+  const p2 = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en&o=${encodeURIComponent("pl:folk-w1056991782")}#1985`);
+  await waitReady(p2);
+  await p2.locator(".maplibregl-popup .pop .photos img").waitFor({ timeout: 20000 });
+  await p2.waitForFunction(() => {
+    const cr = document.querySelector(".maplibregl-popup .pop .phcred");
+    return !!cr && cr.textContent.trim().length > 0;
+  }, null, { timeout: 20000 });
+  const box = await p2.locator(".maplibregl-popup .pop .photos img").first().boundingBox();
+  assert.ok(box && box.width > 0 && box.height > 0, `photo img has non-zero dimensions: ${JSON.stringify(box)}`);
+  assert.equal(await p2.locator(".maplibregl-popup .pop .phcred").count(), 1, ".pop .phcred is present");
+  await p2.ctx.close();
+});
+
 test("the check box turns the layer off", async () => {
   await tick(page, "#showPlaces", false);
   assert.equal(await page.evaluate(() => window.TT_E2E.map.getLayoutProperty("places-pt", "visibility")), "none");

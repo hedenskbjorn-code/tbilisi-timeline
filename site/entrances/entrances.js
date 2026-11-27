@@ -84,7 +84,7 @@
       body.appendChild(h2);
       body.appendChild(el("p", "addr", L3(s.address)));
       const meta = el("div", "meta");
-      meta.appendChild(el("span", "", (s.n === 1 ? L.legFirst : L.leg)(num(s.leg_min), s.leg_m)));
+      meta.appendChild(el("span", "", (s === part.stops[0] ? L.legFirst : L.leg)(num(s.leg_min), s.leg_m)));
       meta.appendChild(el("span", "", L.year + ": " + L3(s.year)));
       if (s.architect) meta.appendChild(el("span", "", L.arch + ": " + L3(s.architect)));
       body.appendChild(meta);
@@ -175,10 +175,11 @@
   }
 
   function addMarkers() {
+    if (!map || !part) return;
     for (const k of Object.keys(markers)) markers[k].remove();
     markers = {};
     for (const s of part.stops) {
-      const m = el("button", "mk" + (done.has(s.n) ? " done" : ""), String(s.n));
+      const m = el("button", "mk" + (s.n === active ? " active" : "") + (done.has(s.n) ? " done" : ""), String(s.n));
       m.type = "button"; m.title = L3(s.name) + ", " + L3(s.address);
       m.addEventListener("click", (ev) => { ev.stopPropagation(); select(s.n, { scroll: true }); });
       markers[s.n] = new maplibregl.Marker({ element: m }).setLngLat([s.lon, s.lat]).addTo(map);
@@ -217,6 +218,7 @@
   // "where am I": the browser position (it stays in the browser) and the nearest house that is not marked yet
   function metersBetween(la1, lo1, la2, lo2) { return Math.hypot((la1 - la2) * 111320, (lo1 - lo2) * 111320 * Math.cos(la1 * Math.PI / 180)); }
   $("locate").addEventListener("click", () => {
+    if (!data || !part) return;
     const w = $("where"), L = t();
     w.hidden = false;
     if (!navigator.geolocation) { w.textContent = L.nogeo; return; }
@@ -236,13 +238,14 @@
       w.hidden = false;
       w.textContent = L.nearest(best.s.n, L3(best.s.address), Math.round(best.d / 10) * 10);
       select(best.s.n, { scroll: true });
-      if (map) map.fitBounds(new maplibregl.LngLatBounds([lo, la], [best.s.lon, best.s.lat]), { padding: 90, maxZoom: 17, duration: 800 });
+      if (map) map.fitBounds(new maplibregl.LngLatBounds().extend([lo, la]).extend([best.s.lon, best.s.lat]), { padding: 90, maxZoom: 17, duration: 800 });
     }, () => { w.textContent = L.denied; }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 });
   });
 
   // GPX of the route and the stops, made in the browser (for an offline navigator)
   function xmlEsc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
   $("gpx").addEventListener("click", () => {
+    if (!data || !part) return;
     const rows = ['<?xml version="1.0" encoding="UTF-8"?>', '<gpx version="1.1" creator="Tbilisi through time" xmlns="http://www.topografix.com/GPX/1/1">',
       "<metadata><name>" + xmlEsc(t().title) + "</name></metadata>",
       '<wpt lat="' + part.start.lat + '" lon="' + part.start.lon + '"><name>' + xmlEsc(L3(part.start.name)) + "</name></wpt>"];
@@ -262,8 +265,9 @@
     try { const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u.pathname + u.search + u.hash); } catch (x) {}
     $("where").hidden = true;                      // its text was made in the old language
     renderText();
+    if (!data || !part) return;
     if (startMarker) { const elSt = startMarker.getElement(); elSt.title = t().start; elSt.setAttribute("aria-label", t().start); }
-    if (part) for (const s of part.stops) if (markers[s.n]) {
+    for (const s of part.stops) if (markers[s.n]) {
       const elM = markers[s.n].getElement(), lbl = L3(s.name) + ", " + L3(s.address);
       elM.title = lbl;
       elM.setAttribute("aria-label", s.n + ". " + lbl);
