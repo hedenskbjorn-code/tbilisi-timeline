@@ -129,6 +129,7 @@ test("the folk names of the places: a card shows the name, the meaning and the p
 
 test("objects on one point: the card has a row 'Also here' and a tap on a name switches the card, with a way back", async () => {
   const c = MOD.items.find((x) => x.id === "md-tbilisi-sports-palace");
+  await page.evaluate(() => { for (const id of ["showResid", "showPublic", "showDef", "showOtherB"]) { const e = document.getElementById(id); if (e && !e.checked) { e.checked = true; e.dispatchEvent(new Event("change", { bubbles: true })); } } });
   await page.check("#showMod");
   const pop = await openCard(c, 17.5);
   assert.equal(await page.locator(".maplibregl-popup").count(), 1, "one card, not two");

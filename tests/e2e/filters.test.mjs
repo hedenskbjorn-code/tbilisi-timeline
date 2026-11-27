@@ -53,6 +53,8 @@ test("the counter follows the check boxes, and lost preset hides districts/place
   const [e0] = (await counter("f-adv")).split("/").map(Number);
   await ev(() => { document.getElementById("showEdu").checked = true; document.getElementById("showEdu").dispatchEvent(new Event("change", { bubbles: true })); });
   assert.equal((await counter("f-adv")).split("/").map(Number)[0], e0 + 1);
+  await page.click('#fpresets button[data-preset="arch"]');
+  assert.equal(await checked("showResid"), true);
   await page.click('#fpresets button[data-preset="lost"]');
   assert.equal(await checked("showLost"), true);
   assert.equal(await checked("showGhost"), true);
@@ -60,7 +62,7 @@ test("the counter follows the check boxes, and lost preset hides districts/place
   assert.equal(await checked("showPlaces"), false, "lost preset hides places");
   assert.equal(await checked("showResid"), false);
   await page.click('#fpresets button[data-preset="hist"]');
-  assert.equal(await checked("showResid"), true);
+  assert.equal(await checked("showResid"), false);
   assert.equal(await checked("showEdu"), false);
 
   // Regression: 0% opacity is restored on lost preset; active swipe is turned off when switching presets
@@ -159,14 +161,21 @@ test("the register objects follow the check boxes of the layers: no list of the 
   const flt = () => ev(() => JSON.stringify(window.TT_E2E.map.getFilter("mon")));
   const f0 = await flt();
   assert.ok(f0.includes('"dup"'), "the objects that a layer already shows are left out");
-  assert.ok(f0.includes("residential") && f0.includes("religious") && f0.includes("culture") && f0.includes("memorial"), "all the purposes at the start");
-  await page.setChecked("#showResid", false);
-  assert.ok(!(await flt()).includes("residential"), "the residential layer is off");
+  assert.ok(f0.includes("religious") && !f0.includes("residential") && !f0.includes("culture"), "register building types are off by default while religious is on");
   await page.setChecked("#showResid", true);
+  assert.ok((await flt()).includes("residential"), "the residential layer turns on");
+  await page.setChecked("#showResid", false);
+  await page.setChecked("#showPublic", true);
+  const fPub = await flt();
+  assert.ok(fPub.includes("public") && fPub.includes("culture"), "the public layer brings public and culture register objects");
+  await page.setChecked("#showPublic", false);
+  await page.setChecked("#showDef", true);
+  await page.setChecked("#showOtherB", true);
+  assert.ok((await flt()).includes("memorial") && (await flt()).includes("defense"));
   await page.setChecked("#showOtherB", false);
   const f1 = await flt();
   assert.ok(!f1.includes("memorial") && !f1.includes("rural") && !f1.includes("transport") && f1.includes("defense"), "the group of the other structures is off, the defence stays");
-  await page.setChecked("#showOtherB", true);
+  await page.setChecked("#showDef", false);
   assert.equal(await ev(() => document.getElementById("showNatOnly")), null, "no box for the national significance: the colour of the point shows it");
   await page.setChecked("#showRel", false);
   assert.ok(!(await flt()).includes("religious"), "the layer of religious buildings switches its register objects too");
@@ -175,20 +184,19 @@ test("the register objects follow the check boxes of the layers: no list of the 
 
 test("'Reset filters' is off at the start, turns on with any change and brings back the defaults", async () => {
   assert.equal(await ev(() => document.getElementById("filtersReset").disabled), true, "off while everything is as by default");
-  const wide = await ev(() => window.innerWidth > 900);
   await page.setChecked("#showBnd", false);                 // default on
   await page.setChecked("#showEdu", true);                  // default off
-  await page.setChecked("#showRulers", !wide);              // the default depends on the width
+  await page.setChecked("#showRulers", true);               // default off on all widths
   await ev(() => { const o = document.getElementById("op"); o.value = 20; o.dispatchEvent(new Event("input", { bubbles: true })); });
-  await page.setChecked("#showResid", false);               // one layer off
+  await page.setChecked("#showResid", true);                // register group on (default off)
   assert.equal(await ev(() => document.getElementById("filtersReset").disabled), false);
   await page.click("#filtersReset");
   assert.equal(await checked("showBnd"), true);
   assert.equal(await checked("showEdu"), false);
-  assert.equal(await checked("showRulers"), wide);
+  assert.equal(await checked("showRulers"), false);
   assert.equal(await ev(() => document.getElementById("op").value), "65");
   assert.equal(await ev(() => document.getElementById("opv").textContent), "65%");
-  assert.equal(await checked("showResid"), true);
+  assert.equal(await checked("showResid"), false);
   assert.equal(await ev(() => window.TT_E2E.map.getLayoutProperty("edu-pt", "visibility")), "none");
   assert.equal(await ev(() => document.getElementById("filtersReset").disabled), true, "off again");
 });

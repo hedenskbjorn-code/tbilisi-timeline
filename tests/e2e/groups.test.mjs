@@ -21,7 +21,7 @@ const setMaster = (g) => page.locator(`.gm[data-gm=${g}] .gmaster`).click();
 
 test("for a visitor the groups are closed, and the master boxes show the state of their boxes", async () => {
   for (const g of ["reg", "sci", "mon"]) assert.equal((await grp(g)).open, false, g + " is closed");
-  assert.deepEqual(await grp("reg"), { open: false, checked: true, half: false });          // all four boxes of the register are on
+  assert.deepEqual(await grp("reg"), { open: false, checked: false, half: false });         // all four boxes of the register are off by default
   assert.deepEqual(await grp("sci"), { open: false, checked: false, half: true });          // science on, education off
   assert.deepEqual(await grp("mon"), { open: false, checked: false, half: false });         // monuments and plaques off
 });
@@ -41,19 +41,19 @@ test("the master box switches every box of its group, and the layers follow", as
   await setMaster("mon");
   assert.deepEqual(await kidsOf(["showMon", "showPlq"]), [false, false]);
   await setMaster("reg");
-  assert.deepEqual(await kidsOf(["showResid", "showPublic", "showDef", "showOtherB"]), [false, false, false, false]);
-  assert.deepEqual(await grp("reg"), { open: false, checked: false, half: false });
-  await setMaster("reg");
   assert.deepEqual(await kidsOf(["showResid", "showPublic", "showDef", "showOtherB"]), [true, true, true, true]);
+  assert.deepEqual(await grp("reg"), { open: false, checked: true, half: false });
+  await setMaster("reg");
+  assert.deepEqual(await kidsOf(["showResid", "showPublic", "showDef", "showOtherB"]), [false, false, false, false]);
 });
 
 test("a single box changes its master to half-ticked, and the master boxes are not counted nor do they wake the reset button", async () => {
-  await page.locator("#showResid").evaluate((e) => { e.checked = false; e.dispatchEvent(new Event("change", { bubbles: true })); });
+  await page.locator("#showResid").evaluate((e) => { e.checked = true; e.dispatchEvent(new Event("change", { bubbles: true })); });
   assert.deepEqual(await grp("reg"), { open: false, checked: false, half: true });
   const cnt = await page.locator("details[data-sec=f-adv] > summary .cnt").evaluate((e) => e.textContent);
   const [on, all] = cnt.split("/").map(Number);
   assert.ok(all >= 10 && on < all, "the counter counts the boxes of the fine-tuning section: " + cnt);
-  await page.locator("#showResid").evaluate((e) => { e.checked = true; e.dispatchEvent(new Event("change", { bubbles: true })); });
+  await page.locator("#showResid").evaluate((e) => { e.checked = false; e.dispatchEvent(new Event("change", { bubbles: true })); });
   assert.equal(await page.locator("#filtersReset").isDisabled(), true, "everything is as by default again: the reset button is off");
 });
 

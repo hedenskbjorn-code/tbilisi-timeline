@@ -24,17 +24,17 @@ test("the welcome window offers 4 scenarios and the 4-step tour; modal keeps foc
   assert.equal(await page.evaluate(() => document.getElementById("infoModal").hidden), true, "the welcome window is closed");
 
   let c = await card(page);
-  assert.match(c.txt, /1 of 4/);
+  assert.match(c.txt, /1 of 5/);
   assert.ok(inside(await hole(page), await center(page, "timebar")), "step 1 lights the time scale");
 
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /2 of 4/);
+  assert.match(c.txt, /2 of 5/);
   assert.ok(inside(await hole(page), await center(page, "btnSearch")), "step 2 lights Search");
 
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /3 of 4/);
+  assert.match(c.txt, /3 of 5/);
   assert.match(c.txt, /Map modes/);
   await page.waitForTimeout(500);
   const ok3 = await page.evaluate(() => {
@@ -46,9 +46,15 @@ test("the welcome window offers 4 scenarios and the 4-step tour; modal keeps foc
 
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /4 of 4/);
+  assert.match(c.txt, /4 of 5/);
   const h4 = await hole(page);
   for (const id of ["thenBtn", "hereBtn", "btnViews", "linkBtn"]) assert.ok(inside(h4, await center(page, id)), "step 4 lights " + id);
+
+  await page.click("#tourCard button.chip.primary");
+  c = await card(page);
+  assert.match(c.txt, /5 of 5/);
+  assert.match(c.txt, /Rulers and biography/);
+  assert.ok(inside(await hole(page), await center(page, "rbShow")), "step 5 lights Rulers button");
   assert.match(await page.locator("#tourCard button.chip.primary").innerText(), /Done/);
 
   await page.click("#tourCard button.chip.primary");
@@ -73,7 +79,7 @@ test("Esc closes the tour; the button starts it again; Back goes one step back",
   await page.waitForSelector("#tourHole", { timeout: 10000 });
   await page.click("#tourCard button.chip.primary");
   await page.click("#tourCard button.chip:not(.primary)");
-  assert.match((await card(page)).txt, /1 of 4/, "Back");
+  assert.match((await card(page)).txt, /1 of 5/, "Back");
   await page.keyboard.press("Escape");
   assert.equal(await page.locator("#tour").count(), 0, "Esc");
   await page.ctx.close();
@@ -97,7 +103,7 @@ test("on a phone the card stays inside the screen at every step and the panel of
     if (done) break;
     assert.ok(n < 8, "no endless loop");
   }
-  assert.equal(n, 4, "all 4 steps shown on phone");
+  assert.equal(n, 5, "all 5 steps shown on phone");
   assert.equal(await filtersOpen(), f0, "the panel of the filters is as it was before the tour");
   await page.ctx.close();
 });
@@ -127,5 +133,17 @@ test("on a phone the tour started from the panel City closes the panel", async (
   await page.waitForSelector("#tourHole", { timeout: 10000 });
   assert.equal(await side(), false, "the panel City is closed when the tour starts");
   await page.keyboard.press("Escape");
+  await page.ctx.close();
+});
+
+test("clicking the ruler photo in #rulerCard opens the biography modal", async () => {
+  const page = await openPage(browser, url());
+  await waitReady(page);
+  await page.click("#rbShow");
+  await page.waitForSelector("#rulerCard .rc-media.clickable", { timeout: 15000 });
+  await page.click("#rulerCard .rc-media.clickable");
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 10000 });
+  const bodyTxt = await page.locator("#imBody").innerText();
+  assert.ok(bodyTxt.length > 20, "ruler biography modal opened");
   await page.ctx.close();
 });

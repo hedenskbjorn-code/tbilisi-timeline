@@ -90,6 +90,22 @@
     "en": "⇄ opens the swipe comparison with an old plan (1735–1913), 📍 checks a point across all plans, Views shows archival drawings and photos, and 🔗 copies a link to the current view.",
     "ka": "⇄ ხსნის ძველ გეგმასთან (1735–1913) შედარების ფარდას, 📍 ამოწმებს წერტილს ყველა გეგმაზე, „ხედები“ აჩვენებს არქივულ ნახატებსა და ფოტოებს, 🔗 კი აკოპირებს ბმულს."
    }
+  },
+  {
+   "ids": [
+    "rbShow",
+    "rulerCard"
+   ],
+   "title": {
+    "ru": "Правители и биография",
+    "en": "Rulers and biography",
+    "ka": "მმართველები და ბიოგრაფია"
+   },
+   "text": {
+    "ru": "Нажмите «👑 Правители» внизу справа, чтобы открыть полосу правителей и окно с портретом и флагом. Клик по фото правителя или его имени открывает карточку с биографией.",
+    "en": "Press «👑 Rulers» at the bottom right to open the rulers timeline and the portrait & flag window. Click the ruler's photo or name to open their biography card.",
+    "ka": "დააჭირეთ «👑 მმართველები» ქვედა მარჯვენა კუთხეში, რათა გახსნათ მმართველების ზოლი და პორტრეტისა და დროშის ფანჯარა. ფოტოზე ან სახელზე დაჭერით იხსნება ბიოგრაფიის ბარათი."
+   }
   }
  ]
 }

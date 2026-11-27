@@ -71,8 +71,8 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
 #slider { -webkit-appearance:none; appearance:none; height:22px; cursor:pointer; }
 #slider::-webkit-slider-runnable-track { background:transparent; height:22px; }
 #slider::-moz-range-track { background:transparent; height:22px; }
-#slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:16px; height:24px; margin-top:-1px; border-radius:6px; background:var(--accent); border:2px solid var(--bg); box-shadow:0 1px 4px #0006; }
-#slider::-moz-range-thumb { width:12px; height:20px; border-radius:6px; background:var(--accent); border:2px solid var(--bg); box-shadow:0 1px 4px #0006; }
+#slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:18px; height:18px; margin-top:2px; border-radius:50%; background:var(--accent); border:2px solid var(--bg); box-shadow:0 1px 4px #0006; cursor:pointer; }
+#slider::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); border:2px solid var(--bg); box-shadow:0 1px 4px #0006; cursor:pointer; }
 /* the periods of the history on the time scale: a coloured band behind the slider, one colour per period (the same periods as in the selector) */
 #epochBand { position:absolute; left:8px; right:8px; top:50%; height:16px; transform:translateY(-50%); border-radius:8px; overflow:hidden; pointer-events:none; z-index:0; }
 #epochBand i { position:absolute; top:0; bottom:0; display:block; font:600 10px/16px system-ui,sans-serif; font-style:normal; color:var(--fg); white-space:nowrap; overflow:hidden; text-align:center; background:var(--ep); }
@@ -167,6 +167,7 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
   #bottom { padding-bottom:34px; }
 }
 #yearchip { display:none; position:absolute; top:52px; left:8px; z-index:4; background:var(--panel); border-radius:8px; padding:3px 10px; font-weight:700; font-size:20px; box-shadow:0 1px 6px #0003; font-variant-numeric:tabular-nums; }
+body:has(#side[hidden]) #yearchip { display:block; }
 body.panel-open #yearchip { display:none; }
 @media (max-width:640px) { body:not(.panel-open) #yearchip { display:block; } }
 
@@ -367,22 +368,34 @@ body.rulers-on #side, body.rulers-on #filters, body.rulers-on #views { max-heigh
 
 #imBody img { max-width:100%; height:auto; border-radius:4px; margin:6px 6px 2px 0; vertical-align:middle; }
 
-/* the token: the flag of the year and the rulers ride on the slider with the thumb */
+/* clean slider track without riding token; portraits and state flags live in floating #rulerCard */
 #sliderwrap { position:relative; height:auto; display:block; }
-#sliderrow { position:relative; height:52px; display:flex; align-items:center; }
+#sliderrow { position:relative; height:28px; display:flex; align-items:center; }
 #ticks { position:relative; left:auto; right:auto; top:auto; height:42px; }
 #evmarks { position:relative; left:auto; right:auto; top:auto; height:18px; margin-top:2px; }
-#ruleToken { position:absolute; top:26px; left:0; transform:translate(-50%,-50%); display:flex; align-items:center; gap:4px; padding:4px 6px; background:var(--panel); border:2px solid var(--accent); border-radius:10px; box-shadow:0 2px 8px #0006; pointer-events:none; transition:left .15s linear; z-index:2; }
-#ruleToken[hidden] { display:none; }
-#ruleToken .tkp { width:32px; height:40px; object-fit:cover; object-position:top; border-radius:4px; display:block; }
-#ruleToken .tkf { height:22px; width:auto; border:1px solid var(--line); display:block; }
-#ruleToken .tki { pointer-events:auto; position:absolute; top:-10px; right:-10px; width:18px; height:18px; border-radius:50%; border:1px solid var(--line); background:var(--panel); color:var(--fg); font:italic 700 11px/16px serif; padding:0; cursor:pointer; }
-@media (max-width:640px) { #ruleToken .tkp { width:26px; height:32px; } #ruleToken .tkf { height:18px; } #sliderrow { height:44px; } #ruleToken { top:22px; } }
+#rulerCard { position:absolute; left:16px; bottom:calc(var(--bb, 0px) + 38px); z-index:6; max-width:310px; background:var(--panel); border:1px solid var(--line); border-radius:10px; box-shadow:0 4px 16px #0003; padding:10px 30px 10px 12px; display:flex; align-items:center; gap:10px; }
+#rulerCard[hidden] { display:none !important; }
+#rulerCard .rc-close { position:absolute; top:4px; right:6px; border:0; background:none; color:var(--muted); font-size:18px; line-height:1; cursor:pointer; padding:2px 4px; }
+#rulerCard .rc-close:hover { color:var(--fg); }
+#rulerCard .rc-media { display:flex; align-items:center; gap:6px; flex:none; }
+#rulerCard .rc-media.clickable { cursor:pointer; }
+#rulerCard .rc-media.clickable:hover .rc-port, #rulerCard .rc-media.clickable:hover .rc-ph { border-color:var(--accent); }
+#rulerCard .rc-port { width:48px; height:60px; object-fit:cover; object-position:top; border-radius:6px; display:block; border:1px solid var(--line); }
+#rulerCard .rc-flag { height:28px; width:auto; border:1px solid var(--line); border-radius:3px; display:block; }
+#rulerCard .rc-ph { width:44px; height:54px; display:flex; align-items:center; justify-content:center; font:650 15px/1 system-ui,sans-serif; color:var(--accent); background:var(--bg); border-radius:6px; border:1px solid var(--line); }
+#rulerCard .rc-txt { min-width:0; cursor:pointer; }
+#rulerCard .rc-name { font-size:13px; font-weight:650; color:var(--fg); line-height:1.25; }
+#rulerCard .rc-sub { font-size:11.5px; color:var(--muted); margin-top:2px; line-height:1.25; }
+@media (max-width:640px) {
+  #sliderrow { height:28px; }
+  #rulerCard { left:8px; right:8px; max-width:none; bottom:calc(var(--bb, 0px) + 18px); padding:8px 28px 8px 10px; }
+  #rulerCard .rc-port { width:40px; height:50px; }
+  #rulerCard .rc-flag { height:24px; }
+}
 body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #imBody img.rbig { display:block; width:100%; max-width:260px; height:auto; border-radius:6px; margin:8px 0 4px; }
-#ruleToken .tkph { width:32px; height:40px; display:flex; align-items:center; justify-content:center; font-size:24px; color:var(--accent); background:var(--bg); border-radius:4px; }
 #timebar { align-items:flex-start; }
-#play, #speed, #zoombox, #epochSel { margin-top:8px; }
+#play, #speed, #zoombox, #epochSel { margin-top:2px; }
 @media (max-width:640px) { #play, #speed, #zoombox, #epochSel { margin-top:0; } }
 /* the band of the states and the rulers: bigger, calm colours (the colour is the kind of power), the current periods are lit, the others are dimmed */
 #rulers .rrow { margin-top:3px; }
@@ -407,7 +420,7 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 #rticks { position:relative; height:16px; margin-top:2px; font-size:10.5px; color:var(--muted); pointer-events:none; }
 #rticks span { position:absolute; transform:translateX(-50%); white-space:nowrap; padding-top:3px; }
 #rticks span::before { content:""; position:absolute; left:50%; top:0; width:1px; height:3px; background:var(--muted); }
-#ruleToken .tkph { font:650 15px/1 system-ui,sans-serif; letter-spacing:-.5px; }
+  #rulers .rrow { margin-top:3px; }
 /* a phone: the same content, less of it on the screen at once */
 @media (max-width:640px) {
   #zoomL, #zoomR, #zoomLbl { display:none; }
@@ -452,10 +465,10 @@ body.rulers-on #bottom, #bottom { padding-bottom:8px; }
 }
 /* folding of the time scale and of the line of rulers */
 #tbToggle, #rbToggle { position:absolute; top:6px; right:8px; padding:2px 8px; min-width:0; font-size:12px; line-height:18px; z-index:2; }
-#tbYear { display:none; font-weight:700; }
+#tbYear { display:inline-flex; align-items:center; font-weight:700; font-size:18px; line-height:1; font-variant-numeric:tabular-nums; margin-top:6px; margin-right:32px; white-space:nowrap; }
 #timebar.min { left:auto; padding:6px 8px 6px 12px; gap:10px; align-items:center; flex-wrap:nowrap; }
 #timebar.min > :not(#tbToggle):not(#tbYear) { display:none; }
-#timebar.min #tbYear { display:inline; }
+#timebar.min #tbYear { display:inline; font-size:15px; margin-top:0; margin-right:0; }
 #timebar.min #tbToggle { position:static; }
 #rbToggle { top:4px; }
 body:not(.rulers-on) #rbToggle { display:none; }

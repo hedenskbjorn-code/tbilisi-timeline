@@ -40,7 +40,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
 
   // The objects of the register are drawn by the layers of the panel (no list of the register): a check box of a layer switches the register objects with its purpose (fn)
   // on or off. The objects that a thematic layer already shows carry "dup" and are not drawn (tools/mark_register_dups.py).
-  const FN_BOXES = { showResid: ["residential"], showPublic: ["public"], showRel: ["religious"], showSci: ["culture"], showEdu: ["culture"], showDef: ["defense"], showOtherB: ["memorial", "rural", "transport", "other"] };
+  const FN_BOXES = { showResid: ["residential"], showPublic: ["public", "culture"], showRel: ["religious"], showDef: ["defense"], showOtherB: ["memorial", "rural", "transport", "other"] };
   const activeFns = () => { const s = new Set(); for (const [id, fns] of Object.entries(FN_BOXES)) if ($(id).checked) for (const k of fns) s.add(k); return s; };
   const regVisible = (p, fns) => !(p.ye > year) && !p.dup && fns.has(p.fn);
   let plans = [], monuments = null, monAllById = new Map(), undated = 0, areas = [];
@@ -128,7 +128,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     let snap = null;
     for (const s of urbanSnaps) if (s <= year) snap = s;
     const on = $("showBnd").checked && snap !== null;
-    const traced = ["in", ["get", "src"], ["literal", ["traced", "khar"]]];                // hand-traced and digitised outlines are approximate: dashed
+    const traced = ["in", ["get", "src"], ["literal", ["traced", "khar", "approx"]]];                // hand-traced, digitised and approximate outlines: dashed
     const filters = {
       "urban-fill": ["==", ["get", "snap"], snap === null ? -1 : snap],
       "urban-line": ["all", ["==", ["get", "snap"], snap === null ? -1 : snap], ["!", traced]],
@@ -1965,7 +1965,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
           return openLinked(pref);
         }
       }
-      else if (kind === "o") { const f = monAllById.get(id); if (f) { if (typeof f.properties.ye === "number") year = Math.max(year, f.properties.ye); update(); map.jumpTo({ center: f.geometry.coordinates, zoom: 17 }); popup(f.properties, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] }); } }
+      else if (kind === "o") { const f = monAllById.get(id); if (f) { const boxes = Object.entries(FN_BOXES).filter(([, fns]) => fns.includes(f.properties.fn)).map(([bid]) => bid); if (boxes.length && !boxes.some((bid) => $(bid).checked)) $(boxes[0]).checked = true; if (typeof f.properties.ye === "number") year = Math.max(year, f.properties.ye); update(); map.jumpTo({ center: f.geometry.coordinates, zoom: 17 }); popup(f.properties, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] }); } }
       else if (kind === "rl") { if (relOsmLoading) await relOsmLoading; const c = religious.find((x) => x.id === id); if (c) { $("showRel").checked = true; go(c, popupRel, c.undated ? undefined : c.from); } }
       else if (kind === "sc") { const c = science.find((x) => x.id === id); if (c) { $("showSci").checked = true; go(c, popupSci, c.from); } }
       else if (kind === "ed") { const c = education.find((x) => x.id === id); if (c) { $("showEdu").checked = true; go(c, popupEdu, c.from); } }
@@ -1983,6 +1983,14 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       } else if (kind === "st") {
         const st = stNames.find((x) => (x.geom || x.now.en) === id);
         if (st) showStreetCard(st, true);
+      } else if (kind === "u") {
+        await ensureRulers();
+        const u = rulersData && rulersData.rulers.concat(rulersData.states).find((x) => x.id === id);
+        if (u) {
+          $("showRulers").checked = true; rulerCardDismissed = false;
+          year = (year >= u.from && year < u.to) ? year : Math.floor(u.from);
+          buildRulersBand(); updateRuleLine(); syncFilterUi(); showRulerCard(u);
+        }
       }
     } catch (e) { console.error("link", o, e && e.message); }
   }
@@ -2270,7 +2278,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     document.querySelectorAll("[data-i]").forEach((el) => { if (typeof t()[el.dataset.i] === "string") el.textContent = t()[el.dataset.i]; });
   } catch (e) { /* applyLang will do it */ }
   setLoading("loadMap");
-  prefetchJSON(["education", "plans", "monuments", "city_area", "views", "names_i18n", "urban", "water", "density", "transport", "transport_events", "history_events", "population", "run_trc2026", "rulers_media", "rulers", "science", "religious", "city1894", "street_names", "street_geom", "admin", "admin_old", "districts", "district_history", "settlements", "lost"].map((n) => "data/" + n + ".json"));
+  prefetchJSON(["education", "plans", "monuments", "city_area", "views", "names_i18n", "urban", "water", "density", "transport", "transport_events", "history_events", "population", "run_trc2026", "science", "religious", "city1894", "street_names", "street_geom", "admin", "admin_old", "districts", "district_history", "settlements", "lost"].map((n) => "data/" + n + ".json"));
 
   // the lazy layers (places, monuments, plaques, modernism) are loaded when their box is ticked or the search is opened; here they are loaded quietly when the first screen is drawn and the browser is idle (not on a slow
   // connection or with the data saver), so that the search finds their objects at once. The tests (?e2e) keep them lazy, ?idleload=1 switches this on for the test of this very thing.
@@ -2280,8 +2288,19 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const go = () => { ensureCatalog(); ensurePlaces(); ensureMtskheta(); mpLoad("mon"); mpLoad("plq"); mpLoad("mod"); };
     if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 6000 }); else setTimeout(go, 3000);
   });
+  function hideModernBasemap() {
+    const layers = (map.getStyle && map.getStyle() && map.getStyle().layers) || [];
+    for (const l of layers) {
+      const sl = l["source-layer"] || "";
+      if (sl === "building" || sl === "poi" || /^(building|poi_)/.test(l.id)) {
+        try { if (map.getLayoutProperty(l.id, "visibility") !== "none") map.setLayoutProperty(l.id, "visibility", "none"); } catch (e) {}
+      }
+    }
+  }
+  map.on("styledata", hideModernBasemap);
   map.on("load", async () => {
     mapLoaded = true;
+    hideModernBasemap();
     if (baseOffline && !document.getElementById("basenote")) {
       const n = document.createElement("div");
       n.id = "basenote";
@@ -2378,8 +2397,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     try { trEvents = (await getJSON("data/transport_events.json", 2)).events; } catch (e) { trEvents = []; }
     try { histEvents = (await getJSON("data/history_events.json", 2)).events; buildEvMarks(); addBattleMap(); } catch (e) { histEvents = []; }
     try { popData = await getJSON("data/population.json", 2); updatePop(); } catch (e) { popData = null; }
-    try { rulersMedia = await getJSON("data/rulers_media.json", 1); } catch (e) { rulersMedia = null; }
-    try { rulersData = await getJSON("data/rulers.json", 1); buildRulersBand(); updateRuleLine(); } catch (e) { console.error("rulers", e && e.message); rulersData = null; }
+    if ($("showRulers") && $("showRulers").checked) ensureRulers();
     try { science = await getJSON("data/science.json", 1); addScience(); } catch (e) { console.error("science", e && e.message); science = []; }
     try { education = await getJSON("data/education.json", 1); addEducation(); } catch (e) { console.error("education", e && e.message); education = []; }
     try {
@@ -2437,7 +2455,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     map.on("mouseleave", "lost-dot", () => { map.getCanvas().style.cursor = ""; });
     map.addSource("urban", { type: "geojson", data: urban });
     map.addLayer({ id: "urban-fill", type: "fill", source: "urban",
-                   paint: { "fill-color": "#b4412c", "fill-opacity": ["case", ["==", ["get", "kind"], "other"], 0.05, 0.12] } });
+                   paint: { "fill-color": "#b4412c", "fill-opacity": ["case", ["==", ["get", "kind"], "other"], 0.05, ["==", ["get", "src"], "approx"], 0.08, 0.12] } });
     map.addLayer({ id: "urban-line", type: "line", source: "urban",
                    paint: { "line-color": "#b4412c", "line-width": 2, "line-opacity": ["case", ["==", ["get", "kind"], "other"], 0.5, 1] } });
     map.addLayer({ id: "urban-line-approx", type: "line", source: "urban",
@@ -2533,7 +2551,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   function filterDefaults() {
     const d = {};
     for (const el of document.querySelectorAll("#filters input[type=checkbox][id]")) d[el.id] = el.defaultChecked;
-    d.showRulers = window.innerWidth > 900;
+    d.showRulers = false;
     return d;
   }
   function filtersAtDefault() {
@@ -2889,6 +2907,17 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       }
       if (isState && it.form) infoLine(body, L.ruleForm + ": " + rText(it.form));
       if (!isState && it.title) infoLine(body, rText(it.title));
+      if (it.bio && rText(it.bio)) {
+        infoLine(body, rText(it.bio));
+        const bu = it.bio_src && (it.bio_src[lang] || it.bio_src.en || it.bio_src.ru);
+        if (bu) {
+          const d = document.createElement("div"); d.className = "small";
+          d.appendChild(document.createTextNode(t().wiki + ": "));
+          const a = document.createElement("a"); a.href = bu; a.target = "_blank"; a.rel = "noopener";
+          a.textContent = decodeURI(bu).replace("https://", "");
+          d.appendChild(a); body.appendChild(d);
+        }
+      }
       if (it.note && rText(it.note)) infoLine(body, rText(it.note));
       if (it.approx) infoLine(body, "\u2248");
       infoLine(body, L.evSrc + ":");
@@ -2924,40 +2953,79 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     d.appendChild(a); body.appendChild(d);
     if (withCond) { const c = document.createElement("div"); c.className = "small"; c.textContent = R.cond; body.appendChild(c); }
   }
-  // the token on the slider: the flag of the year and up to two rulers; it rides with the thumb and changes only when the state or a ruler changes (no flicker while playing)
+  let rulersLoading = null, rulerCardDismissed = false;
+  function ensureRulers() {
+    if (rulersData) return Promise.resolve(rulersData);
+    return rulersLoading ||= Promise.all([
+      getJSON("data/rulers.json", 1),
+      getJSON("data/rulers_media.json", 1).catch(() => null),
+    ]).then(([rd, rm]) => {
+      rulersData = rd; rulersMedia = rm; searchIndex = null;
+      buildRulersBand(); updateRuleLine();
+      if (!$("search").hidden) renderSearch();
+      return rulersData;
+    }).catch((e) => { console.error("rulers", e && e.message); rulersLoading = null; return null; });
+  }
+  // separate floating window for the active ruler portrait and state flag (only when rulers are switched on)
   function updateToken() {
-    const tk = $("ruleToken");
-    if (!tk) return;
-    if (!rulersData || !$("showRulers").checked) { tk.hidden = true; tk.dataset.key = ""; return; }
+    const rc = $("rulerCard");
+    if (!rc) return;
+    if (!rulersData || !$("showRulers").checked || rulerCardDismissed) { rc.hidden = true; rc.dataset.key = ""; return; }
     const R = RN[lang] || RN.en, within = (it) => it.from < year + 1 && it.to > year;
     const st = rulersData.states.find((s) => within(s) && !s.lane);
     const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);
     const fl = st ? flagFor(st.id, year + 0.5) : null;
     const key = (st ? st.id : "") + "|" + rl.map((r) => r.id).join(",") + "|" + (fl ? fl.i : "") + "|" + lang;
-    if (tk.dataset.key !== key) {
-      tk.dataset.key = key; tk.textContent = "";
-      let np = 0;
+    if (rc.dataset.key !== key) {
+      rc.dataset.key = key; rc.textContent = "";
+      const closeBtn = document.createElement("button");
+      closeBtn.type = "button"; closeBtn.className = "rc-close"; closeBtn.textContent = "\u00D7";
+      closeBtn.setAttribute("aria-label", t().ariaClose || "close");
+      closeBtn.addEventListener("click", (e) => { e.stopPropagation(); rulerCardDismissed = true; rc.hidden = true; });
+      rc.appendChild(closeBtn);
+      const media = document.createElement("div"); media.className = "rc-media";
+      let hasPort = false;
       for (const r of rl) {
         const m = rulersMedia && rulersMedia.rulers && rulersMedia.rulers[r.id];
-        if (m) { const i = mediaImg(m.i, 32, 40, rText(r.name)); i.className = "tkp" + (np++ ? " tkp2" : ""); i.title = rText(r.name) + " · " + dispYear(r.from) + "–" + dispYear(r.to); tk.appendChild(i); }
+        if (m) { const i = mediaImg(m.i, 48, 60, rText(r.name)); i.className = "rc-port"; media.appendChild(i); hasPort = true; }
       }
-      if (rl.length && !tk.querySelector(".tkp")) {          // no portrait: a crown for the rulers of the monarchies, a star for the others
-        const g = document.createElement("span"); g.className = "tkph"; const ws = rText(rl[0].name).replace(/\(.*?\)/g, "").trim().split(/\s+/); g.textContent = ((ws[0] || "")[0] || "") + (ws.length > 1 && !/^[IVXLC]+$/.test(ws[ws.length - 1]) ? (ws[ws.length - 1][0] || "") : "");
-        g.title = rText(rl[0].name) + " · " + dispYear(rl[0].from) + "–" + dispYear(rl[0].to); tk.appendChild(g);
+      if (rl.length && !hasPort) {
+        const g = document.createElement("span"); g.className = "rc-ph";
+        const ws = rText(rl[0].name).replace(/\(.*?\)/g, "").trim().split(/\s+/);
+        g.textContent = ((ws[0] || "")[0] || "") + (ws.length > 1 && !/^[IVXLC]+$/.test(ws[ws.length - 1]) ? (ws[ws.length - 1][0] || "") : "");
+        media.appendChild(g);
       }
-      if (fl) { const i = mediaImg(fl.i, 0, 22, R.flag); i.className = "tkf"; i.title = R.flag + ": " + rText(st.name) + (fl.k && R[fl.k] ? " (" + R[fl.k] + ")" : ""); tk.appendChild(i); }
-      if (tk.children.length) {
-        const b = document.createElement("button");
-        b.type = "button"; b.className = "tki"; b.textContent = "i"; b.setAttribute("aria-label", R.open);
-        b.addEventListener("click", (e) => { e.stopPropagation(); showRulerCard(rl[0] || st); });
-        tk.appendChild(b);
+      if (fl) { const i = mediaImg(fl.i, 0, 28, R.flag); i.className = "rc-flag"; media.appendChild(i); }
+      const primary = rl[0] || st;
+      if (media.children.length) {
+        if (primary) {
+          media.classList.add("clickable");
+          media.setAttribute("role", "button");
+          media.tabIndex = 0;
+          media.title = R.open || rText(primary.name);
+          const openPrimary = () => showRulerCard(primary);
+          media.addEventListener("click", openPrimary);
+          media.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPrimary(); } });
+        }
+        rc.appendChild(media);
       }
-      tk.setAttribute("aria-label", (st ? rText(st.name) : "") + (rl.length ? ": " + rl.map((r) => rText(r.name)).join(", ") : ""));
+      if (primary) {
+        const txt = document.createElement("div"); txt.className = "rc-txt";
+        txt.addEventListener("click", () => showRulerCard(primary));
+        const nm = document.createElement("div"); nm.className = "rc-name";
+        nm.textContent = rl.length ? rl.map((r) => rText(r.name)).join(", ") : rText(st.name);
+        txt.appendChild(nm);
+        const sub = document.createElement("div"); sub.className = "rc-sub";
+        const parts = [];
+        if (rl.length && st) parts.push(rText(st.name));
+        parts.push(dispYear(primary.from) + "\u2013" + dispYear(primary.to));
+        sub.textContent = parts.join(" \u00B7 ");
+        txt.appendChild(sub);
+        rc.appendChild(txt);
+      }
+      rc.setAttribute("aria-label", (st ? rText(st.name) : "") + (rl.length ? ": " + rl.map((r) => rText(r.name)).join(", ") : ""));
     }
-    tk.hidden = !tk.children.length;
-    if (tk.hidden) return;
-    const sw = $("sliderwrap"), W = sw.clientWidth, half = tk.offsetWidth / 2;
-    tk.style.left = Math.min(Math.max(8 + (W - 16) * (+$("slider").value / 1000), half), W - half) + "px";
+    rc.hidden = !(st || rl.length);
   }
   // the highlight of the periods that contain the year (the others are dimmed) and the line at the position of the thumb
   function markRulers() {
@@ -3014,7 +3082,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     for (const s of ov) add(s.kind === "overlord" ? L.ruleOver : L.ruleAdmin, rText(s.name));
     for (const r of rl) add(rText(r.title) || rText(rulersData.groups[r.grp]), rText(r.name));
   }
-  $("showRulers").addEventListener("change", () => { buildRulersBand(); updateRuleLine(); });
+  $("showRulers").addEventListener("change", () => { if ($("showRulers").checked) { rulerCardDismissed = false; ensureRulers(); } buildRulersBand(); updateRuleLine(); });
 
   // Dragging the timeline with the mouse (or a finger). On the scale under the slider (years and events) the thumb follows the pointer; on the band of the rulers the band is grabbed
   // and pulled: dragging to the left brings later years to the line. A drag starts after 4 px, so a plain click on a year, an event or a ruler still works.
@@ -3067,7 +3135,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       setTo(Math.round(Math.min(hi, Math.max(lo, c.y0 - dx * c.span / c.w))));
     });
   })();
-  if (window.innerWidth > 900) $("showRulers").checked = true;      // on a narrow screen the band stays off until it is asked for
+  // Rulers band starts hidden by default (see filterDefaults) unless restored via localStorage ui_rb === "on".
   // Secondary header actions (#lang, #fbOpen, #btnSupport, #btnInstall) live in #moreMenu across all widths;
   // on narrow phones (#max-width:640px) #pagesSel also moves into #moreMenu so the top bar never overflows.
   {
@@ -3103,7 +3171,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     requestAnimationFrame(() => { syncBars(); window.dispatchEvent(new Event("resize")); });
   }
   $("tbToggle").addEventListener("click", () => setTbMin(!$("timebar").classList.contains("min"), true));
-  function setRulersOn(on) { $("showRulers").checked = on; $("showRulers").dispatchEvent(new Event("change")); uiSet("ui_rb", on ? "on" : "off"); }
+  function setRulersOn(on) { $("showRulers").checked = on; if (on) { rulerCardDismissed = false; ensureRulers(); } $("showRulers").dispatchEvent(new Event("change")); uiSet("ui_rb", on ? "on" : "off"); }
   $("rbToggle").addEventListener("click", () => setRulersOn(false));
   $("rbShow").addEventListener("click", () => setRulersOn(true));
   $("showRulers").addEventListener("change", () => uiSet("ui_rb", $("showRulers").checked ? "on" : "off"));
@@ -3116,24 +3184,26 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   if (uiGet("ui_tb") === "min" || (uiGet("ui_tb") === null && window.innerHeight < 600)) setTbMin(true, false);
   updateFoldTitles();
 
-  // science and culture: universities, institutes, libraries, museums, theatres; points that appear in the year (data/science.json); science is drawn larger and above culture
-  const SCI_COLOR = { science: "#1c7ed6", culture: "#868e96" };
+  // science, culture and communications: universities, institutes, libraries, museums, theatres, post, telegraph, publishers; points that appear in the year (data/science.json); science is drawn larger and above culture
+  const SCI_COLOR = { science: "#1c7ed6", culture: "#868e96", comm: "#d9480f" };
+  const SCI_SHAPE = { science: "micro", culture: "book", comm: "mail" };
   const sciFeats = () => science.map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] },
     properties: { id: c.id, kind: c.kind, from: c.from, sf: c.sf || 0, undated: !!c.undated, label: c.name[lang] || c.name.en } }));
   function addScience() {
     if (!science.length || map.getSource("sci")) return;
     if (!map.hasImage("sci-micro")) map.addImage("sci-micro", makeMapIcon("micro", SCI_COLOR.science), { pixelRatio: 2 });
     if (!map.hasImage("sci-cult")) map.addImage("sci-cult", makeMapIcon("book", SCI_COLOR.culture), { pixelRatio: 2 });
+    if (!map.hasImage("sci-comm")) map.addImage("sci-comm", makeMapIcon("mail", SCI_COLOR.comm), { pixelRatio: 2 });
     map.addSource("sci", { type: "geojson", data: { type: "FeatureCollection", features: sciFeats() } });
     const sci = ["==", ["get", "kind"], "science"];
     map.addLayer({ id: "sci-pt", type: "symbol", source: "sci", layout: { visibility: "none",
-      "icon-image": ["case", sci, "sci-micro", "sci-cult"],
+      "icon-image": ["match", ["get", "kind"], "science", "sci-micro", "comm", "sci-comm", "sci-cult"],
       "symbol-sort-key": ["case", sci, 2, 1],
       "icon-size": ["interpolate", ["linear"], ["zoom"], 12, ["case", sci, 1.02, 0.84], 17, ["case", sci, 1.4, 1.18]],
       "icon-allow-overlap": true },
       paint: { "icon-opacity": 1 } });
     map.addLayer({ id: "sci-lb", type: "symbol", source: "sci", minzoom: 14.5, layout: { visibility: "none", "text-field": ["get", "label"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-offset": [0, 1.3], "text-anchor": "top", "text-optional": true },
-      paint: { "text-color": ["case", sci, "#0b3d91", "#495057"], "text-halo-color": "#ffffff", "text-halo-width": 2 } });
+      paint: { "text-color": ["match", ["get", "kind"], "science", "#0b3d91", "comm", "#a63603", "#495057"], "text-halo-color": "#ffffff", "text-halo-width": 2 } });
     map.on("click", "sci-pt", (e) => {
       if (!claimClick(e)) return;
       const f = e.features && e.features[0], c = f && science.find((x) => x.id === f.properties.id);
@@ -3161,7 +3231,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const box = $("sciLegend");
     if (box) {
       box.textContent = "";
-      for (const k of Object.keys(SCI_COLOR)) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon(k === "science" ? "micro" : "book", SCI_COLOR[k])); s.appendChild(document.createTextNode(t().sciKinds[k])); box.appendChild(s); }
+      for (const k of Object.keys(SCI_COLOR)) { const s = document.createElement("span"); s.className = "ico"; s.appendChild(makeSvgIcon(SCI_SHAPE[k] || "book", SCI_COLOR[k])); s.appendChild(document.createTextNode(t().sciKinds[k])); box.appendChild(s); }
       syncLegend("showSci", "sciLegend");
     }
     const src = map && map.getSource && map.getSource("sci");
@@ -3389,6 +3459,11 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       g.stroke();
     } else if (shape === "sq") {
       g.beginPath(); g.rect(5.5, 5.5, 13, 13); g.arc(12, 12, 2, 0, Math.PI * 2); g.stroke();
+    } else if (shape === "mail") {
+      g.beginPath();
+      g.rect(4, 6.5, 16, 11);
+      g.moveTo(4.5, 7); g.lineTo(12, 13); g.lineTo(19.5, 7);
+      g.stroke();
     } else if (shape === "bldg") {
       g.beginPath(); g.rect(6, 4.5, 12, 15); g.moveTo(9.5, 8); g.lineTo(10.5, 8); g.moveTo(13.5, 8); g.lineTo(14.5, 8); g.moveTo(9.5, 12); g.lineTo(10.5, 12); g.moveTo(13.5, 12); g.lineTo(14.5, 12); g.stroke();
     } else {
@@ -4358,7 +4433,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       return;
     }
     if (r.kind === "u") {
-      $("showRulers").checked = true; buildRulersBand(); updateRuleLine(); syncFilterUi();
+      $("showRulers").checked = true; rulerCardDismissed = false; ensureRulers(); buildRulersBand(); updateRuleLine(); syncFilterUi();
       showRulerCard(r.u);
       return;
     }
