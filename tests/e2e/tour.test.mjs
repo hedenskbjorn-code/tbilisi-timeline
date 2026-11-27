@@ -24,17 +24,17 @@ test("the welcome window offers 4 scenarios and the 4-step tour; modal keeps foc
   assert.equal(await page.evaluate(() => document.getElementById("infoModal").hidden), true, "the welcome window is closed");
 
   let c = await card(page);
-  assert.match(c.txt, /1 of 5/);
+  assert.match(c.txt, /1 of 6/);
   assert.ok(inside(await hole(page), await center(page, "timebar")), "step 1 lights the time scale");
 
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /2 of 5/);
+  assert.match(c.txt, /2 of 6/);
   assert.ok(inside(await hole(page), await center(page, "btnSearch")), "step 2 lights Search");
 
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /3 of 5/);
+  assert.match(c.txt, /3 of 6/);
   assert.match(c.txt, /Map modes/);
   await page.waitForTimeout(500);
   const ok3 = await page.evaluate(() => {
@@ -46,15 +46,21 @@ test("the welcome window offers 4 scenarios and the 4-step tour; modal keeps foc
 
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /4 of 5/);
+  assert.match(c.txt, /4 of 6/);
   const h4 = await hole(page);
-  for (const id of ["thenBtn", "hereBtn", "btnViews", "linkBtn"]) assert.ok(inside(h4, await center(page, id)), "step 4 lights " + id);
+  for (const id of ["thenBtn", "hereBtn", "linkBtn"]) assert.ok(inside(h4, await center(page, id)), "step 4 lights " + id);
 
   await page.click("#tourCard button.chip.primary");
   c = await card(page);
-  assert.match(c.txt, /5 of 5/);
+  assert.match(c.txt, /5 of 6/);
   assert.match(c.txt, /Rulers and biography/);
   assert.ok(inside(await hole(page), await center(page, "rbShow")), "step 5 lights Rulers button");
+
+  await page.click("#tourCard button.chip.primary");
+  c = await card(page);
+  assert.match(c.txt, /6 of 6/);
+  assert.match(c.txt, /Other site pages/);
+  assert.ok(inside(await hole(page), await center(page, "pagesSel")), "step 6 lights pages selector");
   assert.match(await page.locator("#tourCard button.chip.primary").innerText(), /Done/);
 
   await page.click("#tourCard button.chip.primary");
@@ -79,7 +85,7 @@ test("Esc closes the tour; the button starts it again; Back goes one step back",
   await page.waitForSelector("#tourHole", { timeout: 10000 });
   await page.click("#tourCard button.chip.primary");
   await page.click("#tourCard button.chip:not(.primary)");
-  assert.match((await card(page)).txt, /1 of 5/, "Back");
+  assert.match((await card(page)).txt, /1 of 6/, "Back");
   await page.keyboard.press("Escape");
   assert.equal(await page.locator("#tour").count(), 0, "Esc");
   await page.ctx.close();
@@ -103,7 +109,7 @@ test("on a phone the card stays inside the screen at every step and the panel of
     if (done) break;
     assert.ok(n < 8, "no endless loop");
   }
-  assert.equal(n, 5, "all 5 steps shown on phone");
+  assert.equal(n, 6, "all 6 steps shown on phone");
   assert.equal(await filtersOpen(), f0, "the panel of the filters is as it was before the tour");
   await page.ctx.close();
 });
@@ -145,5 +151,17 @@ test("clicking the ruler photo in #rulerCard opens the biography modal", async (
   await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 10000 });
   const bodyTxt = await page.locator("#imBody").innerText();
   assert.ok(bodyTxt.length > 20, "ruler biography modal opened");
+  await page.ctx.close();
+});
+
+test("clicking the second ruler portrait (viceroy) opens the viceroy card, not the emperor", async () => {
+  const page = await openPage(browser, url());
+  await waitReady(page);
+  await page.click("#rbShow");
+  await page.waitForFunction(() => document.querySelectorAll("#rulerCard .rc-port.clickable").length >= 2, null, { timeout: 15000 });
+  await page.locator("#rulerCard .rc-port.clickable").nth(1).click();
+  await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 10000 });
+  const bodyTxt = await page.locator("#imBody").innerText();
+  assert.ok(/Viceroy|Наместник|Дондуков|Dondukov|დონდუკოვ/i.test(bodyTxt), "expected viceroy card, got: " + bodyTxt.slice(0, 120));
   await page.ctx.close();
 });

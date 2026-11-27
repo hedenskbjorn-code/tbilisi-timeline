@@ -2466,13 +2466,24 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       if (p.cls === "archaeology") p.ico = /სამაროვანი|ყორღანი/.test(p.name || "") ? "reg-cem" : "reg-arch";
       else if (p.cls === "garden") p.ico = "reg-garden";
       else if (/საფლავ/.test(p.name || "")) p.ico = "reg-cem";
-      else if (p.fn === "religious") p.ico = "reg-rel";
+      else if (p.fn === "religious") {
+        const nm = p.name || "";
+        if (/ჯამე|მეჩეთ/i.test(nm)) p.ico = "reg-mus";
+        else if (/სინაგოგ/i.test(nm)) p.ico = "reg-jew";
+        else if (/კათოლიკ/i.test(nm)) p.ico = "reg-cath";
+        else if (/ლუთერ/i.test(nm)) p.ico = "reg-luth";
+        else p.ico = "reg-rel";
+      }
       else if (p.fn === "memorial") p.ico = "reg-mem";
     }
     if (!map.hasImage("reg-cem")) map.addImage("reg-cem", makeMapIcon("cem", "#6c4a2e"), { pixelRatio: 2 });
     if (!map.hasImage("reg-arch")) map.addImage("reg-arch", makeMapIcon("arch", "#9c4221"), { pixelRatio: 2 });
     if (!map.hasImage("reg-garden")) map.addImage("reg-garden", makeMapIcon("leaf", "#2b8a3e"), { pixelRatio: 2 });
     if (!map.hasImage("reg-rel")) map.addImage("reg-rel", makeMapIcon("ortho", "#b8860b"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-mus")) map.addImage("reg-mus", makeMapIcon("mus", "#2b8a3e"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-jew")) map.addImage("reg-jew", makeMapIcon("jew", "#1864ab"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-cath")) map.addImage("reg-cath", makeMapIcon("cath", "#6741d9"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-luth")) map.addImage("reg-luth", makeMapIcon("cross", "#495057"), { pixelRatio: 2 });
     if (!map.hasImage("reg-mem")) map.addImage("reg-mem", makeMapIcon("mon", "#1864ab"), { pixelRatio: 2 });
     map.addSource("mon", { type: "geojson", data: monuments });
     map.addLayer({
@@ -2936,7 +2947,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     en: { suz: "the flag of the suzerain, a reconstruction", civil: "civil ensign; there was no national flag", recon: "reconstruction", img: "Image", cond: "Before the 18th century this is a conventional image (a fresco, a miniature or a monument), not a portrait from life.", flag: "Flag", open: "Card", src: "file on Commons" },
     ka: { suz: "სუზერენის დროშა, რეკონსტრუქცია", civil: "სამოქალაქო დროშა; სახელმწიფო დროშა არ იყო", recon: "რეკონსტრუქცია", img: "გამოსახულება", cond: "XVIII საუკუნემდე ეს პირობითი გამოსახულებაა (ფრესკა, მინიატურა ან ძეგლი), და არა ცოცხალი პორტრეტი.", flag: "დროშა", open: "ბარათი", src: "ფაილი Commons-ზე" },
   };
-  const RGROUP_ORDER = ["king", "emperor", "president", "secretary", "head", "viceroy", "wali", "emir"];
+  const RGROUP_ORDER = ["king", "emperor", "president", "ussr_leader", "secretary", "head", "viceroy", "wali", "emir"];
   function mediaImg(rel, w, h, alt) {
     const i = document.createElement("img");
     i.src = "data/rulers/" + rel; i.alt = alt || ""; i.loading = "lazy"; i.decoding = "async";
@@ -2972,7 +2983,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (!rc) return;
     if (!rulersData || !$("showRulers").checked || rulerCardDismissed) { rc.hidden = true; rc.dataset.key = ""; return; }
     const R = RN[lang] || RN.en, within = (it) => it.from < year + 1 && it.to > year;
-    const st = rulersData.states.find((s) => within(s) && !s.lane);
+    const st = rulersData.states.find((s) => within(s) && !s.lane) || rulersData.states.find(within);
     const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);
     const fl = st ? flagFor(st.id, year + 0.5) : null;
     const key = (st ? st.id : "") + "|" + rl.map((r) => r.id).join(",") + "|" + (fl ? fl.i : "") + "|" + lang;
@@ -2984,18 +2995,35 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       closeBtn.addEventListener("click", (e) => { e.stopPropagation(); rulerCardDismissed = true; rc.hidden = true; });
       rc.appendChild(closeBtn);
       const media = document.createElement("div"); media.className = "rc-media";
-      let hasPort = false;
+      const bindOpen = (el, target, label) => {
+        el.classList.add("clickable");
+        el.setAttribute("role", "button");
+        el.tabIndex = 0;
+        if (label) el.title = label;
+        const go = (e) => { e.stopPropagation(); showRulerCard(target); };
+        el.addEventListener("click", go);
+        el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(e); } });
+      };
       for (const r of rl) {
         const m = rulersMedia && rulersMedia.rulers && rulersMedia.rulers[r.id];
-        if (m) { const i = mediaImg(m.i, 48, 60, rText(r.name)); i.className = "rc-port"; media.appendChild(i); hasPort = true; }
+        const rName = rText(r.name);
+        if (m) {
+          const i = mediaImg(m.i, 48, 60, rName); i.className = "rc-port";
+          bindOpen(i, r, rName);
+          media.appendChild(i);
+        } else {
+          const g = document.createElement("span"); g.className = "rc-ph";
+          const ws = rName.replace(/\(.*?\)/g, "").trim().split(/\s+/);
+          g.textContent = ((ws[0] || "")[0] || "") + (ws.length > 1 && !/^[IVXLC]+$/.test(ws[ws.length - 1]) ? (ws[ws.length - 1][0] || "") : "");
+          bindOpen(g, r, rName);
+          media.appendChild(g);
+        }
       }
-      if (rl.length && !hasPort) {
-        const g = document.createElement("span"); g.className = "rc-ph";
-        const ws = rText(rl[0].name).replace(/\(.*?\)/g, "").trim().split(/\s+/);
-        g.textContent = ((ws[0] || "")[0] || "") + (ws.length > 1 && !/^[IVXLC]+$/.test(ws[ws.length - 1]) ? (ws[ws.length - 1][0] || "") : "");
-        media.appendChild(g);
+      if (fl) {
+        const i = mediaImg(fl.i, 0, 28, R.flag); i.className = "rc-flag";
+        if (st) bindOpen(i, st, rText(st.name));
+        media.appendChild(i);
       }
-      if (fl) { const i = mediaImg(fl.i, 0, 28, R.flag); i.className = "rc-flag"; media.appendChild(i); }
       const primary = rl[0] || st;
       if (media.children.length) {
         if (primary) {
@@ -3013,7 +3041,17 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         const txt = document.createElement("div"); txt.className = "rc-txt";
         txt.addEventListener("click", () => showRulerCard(primary));
         const nm = document.createElement("div"); nm.className = "rc-name";
-        nm.textContent = rl.length ? rl.map((r) => rText(r.name)).join(", ") : rText(st.name);
+        if (rl.length) {
+          rl.forEach((r, idx) => {
+            if (idx) nm.appendChild(document.createTextNode(", "));
+            const s = document.createElement("span"); s.className = "rc-nm-item";
+            s.textContent = rText(r.name);
+            bindOpen(s, r, rText(r.name));
+            nm.appendChild(s);
+          });
+        } else {
+          nm.textContent = rText(st.name);
+        }
         txt.appendChild(nm);
         const sub = document.createElement("div"); sub.className = "rc-sub";
         const parts = [];

@@ -24,10 +24,11 @@ KEEP_COMPLEX = {17828, 24768, 38177, 5072}   # Kukia church complex, remains of 
 BURIAL = re.compile(r"სამაროვან|ყორღან|სარკოფაგ|სამარხ|საფლავ|სასაფლაო|პანთეონ|აკლდამა|ნამოსახლარ|ნასოფლარ|კოლექცი|ნაქულბაქ|ქვაჯვარა")
 WORSHIP = re.compile(r"ეკლესია|ტაძარი|მონასტერი|მეჩეთი|სინაგოგა|სამლოცველო|ბაზილიკა|სამრეკლო|საყდარი|სალოცავი|ნაეკლესიარ|ნანგრევ|ეკლესი")
 RUIN = re.compile(r"ნაეკლესიარ|ნანგრევ|ნაშთ")
-DEN = [("armenian", r"სომხ|ეჩმიაძინ|შამქარეც|გრიგორიანულ|ვანქ"), ("catholic", r"კათოლიკ"),
+DEN = [("armenian", r"სომხური ეკლესია|ეკლესია \(სომხური\)|სომხ(?!ური წარწერ)|ეჩმიაძინ|შამქარეც|გრიგორიანულ|ვანქ"), ("catholic", r"კათოლიკ"),
        ("russian", r"რუსული მართლმადიდებლური|რუსული, მართლმადიდებლური|რუსეთის მართლმადიდებლ|რუსული ეკლესია"),
        ("lutheran", r"ლუთერ|ევანგელისტ"), ("jewish", r"ებრაულ|სინაგოგ"), ("muslim", r"მეჩეთ"), ("yazidi", r"ეზიდ"),
        ("orthodox", r"ქართული მართლმადიდებლ|საქართველოს სამოციქულო")]
+DEN_OVERRIDES = {26799: "orthodox"}
 APPROX = {"century", "era", "mixed", "middle", "quarter", "half", "decade"}
 
 
@@ -95,7 +96,7 @@ def main():
         r = raw[i]
         c = mon[i]["geometry"]["coordinates"]
         text = (p["name"] or "") + " " + (r.get("description") or "")
-        rel = next((k for k, rx in DEN if re.search(rx, text)), None)
+        rel = DEN_OVERRIDES.get(i) or next((k for k, rx in DEN if re.search(rx, text)), None)
         undated = not isinstance(p["ye"], (int, float))
         frm = 364 if undated else int(p["ye"])
         y0, y1 = p.get("y0"), p.get("y1")

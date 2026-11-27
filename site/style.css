@@ -166,7 +166,7 @@ body.rulers-on #filters, body.rulers-on #views { max-height:calc(100% - 84px - 2
   #yearchip { display:block; }
   #bottom { padding-bottom:34px; }
 }
-#yearchip { display:none; position:absolute; top:52px; left:8px; z-index:4; background:var(--panel); border-radius:8px; padding:3px 10px; font-weight:700; font-size:20px; box-shadow:0 1px 6px #0003; font-variant-numeric:tabular-nums; }
+#yearchip { display:none; position:absolute; top:calc(56px + var(--tb) + 8px); left:16px; z-index:4; background:var(--panel); border-radius:8px; padding:3px 10px; font-weight:700; font-size:20px; box-shadow:0 1px 6px #0003; font-variant-numeric:tabular-nums; }
 body:has(#side[hidden]) #yearchip { display:block; }
 body.panel-open #yearchip { display:none; }
 @media (max-width:640px) { body:not(.panel-open) #yearchip { display:block; } }
@@ -378,8 +378,9 @@ body.rulers-on #side, body.rulers-on #filters, body.rulers-on #views { max-heigh
 #rulerCard .rc-close { position:absolute; top:4px; right:6px; border:0; background:none; color:var(--muted); font-size:18px; line-height:1; cursor:pointer; padding:2px 4px; }
 #rulerCard .rc-close:hover { color:var(--fg); }
 #rulerCard .rc-media { display:flex; align-items:center; gap:6px; flex:none; }
-#rulerCard .rc-media.clickable { cursor:pointer; }
-#rulerCard .rc-media.clickable:hover .rc-port, #rulerCard .rc-media.clickable:hover .rc-ph { border-color:var(--accent); }
+#rulerCard .rc-media.clickable, #rulerCard .clickable { cursor:pointer; }
+#rulerCard .rc-port.clickable:hover, #rulerCard .rc-ph.clickable:hover, #rulerCard .rc-flag.clickable:hover { border-color:var(--accent); }
+#rulerCard .rc-nm-item.clickable:hover { color:var(--accent); text-decoration:underline; }
 #rulerCard .rc-port { width:48px; height:60px; object-fit:cover; object-position:top; border-radius:6px; display:block; border:1px solid var(--line); }
 #rulerCard .rc-flag { height:28px; width:auto; border:1px solid var(--line); border-radius:3px; display:block; }
 #rulerCard .rc-ph { width:44px; height:54px; display:flex; align-items:center; justify-content:center; font:650 15px/1 system-ui,sans-serif; color:var(--accent); background:var(--bg); border-radius:6px; border:1px solid var(--line); }
