@@ -38,7 +38,8 @@ def main():
         total_full += os.path.getsize(full)
         total_ov += os.path.getsize(os.path.join(SITE, "data", name))
         print("%s: %dx%d -> %dx%d, %.2f MB -> %.2f MB, %.1f m/px" % (p["id"], w, h, ow, oh, os.path.getsize(full) / 1e6, os.path.getsize(os.path.join(SITE, "data", name)) / 1e6, p["overview_mpp"]))
-    open(path, "w", encoding="utf-8", newline="").write(json.dumps(plans, ensure_ascii=False, indent=1))
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(plans, ensure_ascii=False, separators=(",", ":")) + "\n")
     print("plans: %.1f MB, overviews: %.1f MB" % (total_full / 1e6, total_ov / 1e6))
 
 

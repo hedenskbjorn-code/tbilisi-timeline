@@ -22,12 +22,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       - id: changes
         run: |
+          set -o pipefail
           if [ "${{ github.event_name }}" != "push" ] || [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
             echo "run_e2e=true" >> "$GITHUB_OUTPUT"
-          elif git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -qvE '^(site/data/|data/|docs/|work/|BIBLIOGRAPHY\.md)'; then
+          elif git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -qvE '^(data/|docs/|work/|BIBLIOGRAPHY\.md)'; then
             echo "run_e2e=true" >> "$GITHUB_OUTPUT"
           else
             echo "run_e2e=false" >> "$GITHUB_OUTPUT"
@@ -35,6 +36,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
       - run: npm ci --no-audit --no-fund
       - run: python3 -P tools/build_all.py --stage
       - run: node tests/check_data.mjs
@@ -65,6 +67,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
       - run: npm ci --no-audit --no-fund
       - run: echo "CHROME_PATH=$(which google-chrome)" >> "$GITHUB_ENV"
       - run: node --test --test-concurrency=1 ${{ matrix.files }}

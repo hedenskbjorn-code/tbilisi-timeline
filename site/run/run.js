@@ -45,11 +45,11 @@
 
   // ---- the old map under the route: an old plan of the city or a topographic map of the General Staff (same files as on the main map) with a slider of the opacity
   const OLD_T = {
-    ru: { title: "Старая карта", none: "нет", op: "Прозрачность", hint: "Планы 1735–1913 покрывают только старый центр; топокарты — весь город.", plans: "Старые планы", topo: "Топографические карты", btn: "Старая карта" },
-    en: { title: "Old map", none: "none", op: "Opacity", hint: "The plans of 1735-1913 cover only the old centre; the topographic maps cover the whole city.", plans: "Old plans", topo: "Topographic maps", btn: "Old map" },
-    ka: { title: "ძველი რუკა", none: "არცერთი", op: "გამჭვირვალობა", hint: "1735–1913 წლების გეგმები მხოლოდ ძველ ცენტრს ფარავს; ტოპოგრაფიული რუკები მთელ ქალაქს.", plans: "ძველი გეგმები", topo: "ტოპოგრაფიული რუკები", btn: "ძველი რუკა" },
+    ru: { title: "Старая карта", none: "нет", op: "Прозрачность", hint: "Планы 1735–1913 покрывают только старый центр; топокарты — весь город.", plans: "Старые планы", topo: "Топографические карты", btn: "Старая карта", t2: "1:2 000 · городской план (z17)" },
+    en: { title: "Old map", none: "none", op: "Opacity", hint: "The plans of 1735-1913 cover only the old centre; the topographic maps cover the whole city.", plans: "Old plans", topo: "Topographic maps", btn: "Old map", t2: "1:2 000 · city plan (z17)" },
+    ka: { title: "ძველი რუკა", none: "არცერთი", op: "გამჭვირვალობა", hint: "1735–1913 წლების გეგმები მხოლოდ ძველ ცენტრს ფარავს; ტოპოგრაფიული რუკები მთელ ქალაქს.", plans: "ძველი გეგმები", topo: "ტოპოგრაფიული რუკები", btn: "ძველი რუკა", t2: "1:2 000 · ქალაქის გეგმა (z17)" },
   };
-  const TOPOS = [["t10", "1:10 000 · 1952–2007", 17], ["t25", "1:25 000 · 1953–2004", 16], ["t50", "1:50 000 · 1973–1990", 15], ["t100", "1:100 000 · 1978–1990", 14]];
+  const TOPOS = [["t2", null, 17], ["t10", "1:10 000 · 1952–2007", 17], ["t25", "1:25 000 · 1953–2004", 16], ["t50", "1:50 000 · 1973–1990", 15], ["t100", "1:100 000 · 1978–1990", 14]];
   const TOPO_BOUNDS = [44.60, 41.55, 45.05, 41.88];
   let plans = [], oldSel = "", oldOp = 70;
   try { oldSel = localStorage.getItem("runOld") || ""; const o = parseInt(localStorage.getItem("runOldOp"), 10); if (o >= 0 && o <= 100) oldOp = o; } catch (e) {}
@@ -96,7 +96,7 @@
     const add = (parent, v, txt) => { const o = el("option", "", txt); o.value = v; parent.appendChild(o); };
     add(sel, "", L.none);
     const g1 = el("optgroup"); g1.label = L.plans; for (const p of plans) add(g1, p.id, p.year);
-    const g2 = el("optgroup"); g2.label = L.topo; for (const tp of TOPOS) add(g2, tp[0], tp[1]);
+    const g2 = el("optgroup"); g2.label = L.topo; for (const tp of TOPOS) add(g2, tp[0], tp[1] || L[tp[0]]);
     sel.appendChild(g1); sel.appendChild(g2);
     sel.value = [...sel.options].some((o) => o.value === oldSel) ? oldSel : "";
     if (sel.value !== oldSel) oldSel = "";
@@ -104,7 +104,7 @@
     $("oldHint").textContent = L.hint; $("oldOpL").textContent = L.op + " "; $("oldOp").setAttribute("aria-label", L.op);
   }
 
-  let route = null, sights = [], details = {}, markers = {}, active = 0, map = null;
+  let route = null, sights = [], details = {}, markers = {}, startMarker = null, active = 0, map = null;
   const BASE = "https://tiles.openfreemap.org/styles/liberty";
   const BG_STYLE = { version: 8, sources: {}, layers: [{ id: "bg", type: "background", paint: { "background-color": "#ece9df" } }] };
 
@@ -197,6 +197,9 @@
     document.title = L.title + " · Tbilisi through time";
     $("title").textContent = L.title;
     $("homeTxt").textContent = L.home;
+    $("home").href = "../?lang=" + lang;
+    $("home").setAttribute("aria-label", L.home);
+    $("home").title = L.home;
     { const sel = $("pagesSel");
       sel.textContent = "";
       sel.setAttribute("aria-label", L.ariaPages); sel.title = L.ariaPages;
@@ -250,7 +253,8 @@
     if (!OG) buildOldControl();
     const start = el("div", "mk start", "S");
     start.title = t().start;
-    new maplibregl.Marker({ element: start }).setLngLat(c[0]).addTo(map);
+    start.setAttribute("aria-label", t().start);
+    startMarker = new maplibregl.Marker({ element: start }).setLngLat(c[0]).addTo(map);
     for (const s of sights) {
       const m = el("button", "mk", String(s.n));                 // a button: the keyboard (Tab, Enter, Space) works and a screen reader names it
       m.type = "button";
@@ -265,9 +269,15 @@
   $("lang").addEventListener("change", (e) => {
     lang = e.target.value;
     try { localStorage.setItem("runLang", lang); } catch (x) {}
+    try { const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u.pathname + u.search + u.hash); } catch (x) {}
     renderText();
     fillOldSelect();
-    for (const s of sights) if (markers[s.n]) markers[s.n].getElement().title = s.name[lang] || s.name.en;
+    if (startMarker) { const elSt = startMarker.getElement(); elSt.title = t().start; elSt.setAttribute("aria-label", t().start); }
+    for (const s of sights) if (markers[s.n]) {
+      const elM = markers[s.n].getElement(), nm = s.name[lang] || s.name.en;
+      elM.title = nm;
+      elM.setAttribute("aria-label", s.n + ". " + nm);
+    }
   });
   $("share").addEventListener("click", async () => {
     const url = location.href;

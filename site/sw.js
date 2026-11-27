@@ -1,9 +1,9 @@
 // Service worker of the site: (1) the application shell works without network (the last seen data too), (2) accepts a photo shared to the site from the share menu of the phone
 // (Web Share Target: POST ./share-target) and leaves it for the page to pick up. Heavy things (tiles, photos, topographic maps) are never cached here.
-const VERSION = "tt-44fba3f4";
+const VERSION = "tt-785ddbdf";
 const SHARE_CACHE = "tt-share";
 const BASE = self.registration.scope;                                  // ends with "/"
-const SHELL = ["index.html", "app.js?v=12c80299", "js/net.js?v=46b6ac82", "js/plans.js?v=2282229a", "js/timeline.js?v=54a1da95", "js/tour.js?v=90324d2c", "i18n.js?v=3e78c189", "photo.js?v=4335926d", "pwa.js?v=4f2c4857", "support.js?v=0d64cfb5", "stats.js?v=d4621ad4", "config.js?v=36f6eee6", "style.css?v=07f1a54c", "translit.js?v=1f0144e5", "vendor/maplibre-gl.js?v=e877fe22", "vendor/maplibre-gl.css?v=576b085f", "manifest.webmanifest", "img/pwa/icon-192.png", "data/manifest.json"];
+const SHELL = ["index.html", "app.js?v=b210601e", "js/net.js?v=46b6ac82", "js/plans.js?v=2282229a", "js/timeline.js?v=54a1da95", "js/tour.js?v=5e5bdeed", "i18n.js?v=b82172cc", "photo.js?v=4335926d", "pwa.js?v=8fd80544", "support.js?v=a426beaf", "stats.js?v=d4621ad4", "config.js?v=36f6eee6", "style.css?v=c6674710", "translit.js?v=1f0144e5", "vendor/maplibre-gl.js?v=e877fe22", "vendor/maplibre-gl.css?v=576b085f", "manifest.webmanifest", "img/pwa/icon-192.png", "data/manifest.json"];
 const CORE_DATA = ["data/plans.json", "data/monuments.json", "data/tour.json"];
 const BASE_PATH = new URL(BASE).pathname;
 const INDEX = new URL("index.html", BASE);
@@ -51,11 +51,11 @@ self.addEventListener("install", (e) => {
         const url = new URL(href), path = url.pathname.slice(BASE_PATH.length);
         await checkHash(await cache.match(href), url.searchParams.get("v") || files[path], path);
       }));
+      await self.skipWaiting();
     } catch (error) {
       await caches.delete(VERSION);
       throw error;
     }
-    // The browser activates the new version once tabs using the previous version are closed.
   })());
 });
 self.addEventListener("activate", (e) => {
@@ -104,8 +104,12 @@ async function respond(req, url, path) {
       if (hit) return hit;
       const response = await fetch(url.href, { cache: "no-cache" });
       if (response.status === 200 && response.type === "basic") {
-        await checkHash(response.clone(), version, path);
-        await cache.put(url.href, response.clone()).catch(() => {});
+        try {
+          await checkHash(response.clone(), version, path);
+          await cache.put(url.href, response.clone()).catch(() => {});
+        } catch (err) {
+          self.registration.update().catch(() => {});
+        }
       }
       return response;
     }
@@ -120,5 +124,6 @@ self.addEventListener("fetch", (e) => {
   const rel = url.pathname.slice(BASE_PATH.length);
   if (rel.startsWith("img/") && !rel.startsWith("img/pwa/")) return;                                       // photos and previews: not cached here
   if (rel.startsWith("topo/")) return;
+  if (/\.(webp|png|jpe?g|geojson)$/i.test(rel) && !rel.startsWith("img/pwa/")) return;
   e.respondWith(respond(req, url, rel));
 });

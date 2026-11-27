@@ -29,10 +29,14 @@ def main():
         "site/index.html", "site/app.js", "site/style.css", "site/i18n.js", "site/translit.js",
         "site/js/plans.js", "site/js/timeline.js",
         "site/data/monuments.json", "site/data/photos.json", "site/data/names_i18n.json",
-        "site/data/history_events.json", "site/data/religious.json", "site/data/science.json",
-        "site/data/education.json", "site/data/museums.json", "site/data/places.json",
-        "site/data/mtskheta_tour.json", "site/data/catalog.json", "site/data/search_index.json",
-        "site/data/changelog.json", "site/data/version.json",
+        "site/data/history_events.json", "site/data/religious.json", "site/data/religious_osm.json",
+        "site/data/science.json", "site/data/education.json", "site/data/museums.json",
+        "site/data/places.json", "site/data/modernism.json", "site/data/sculptures.json",
+        "site/data/plaques.json", "site/data/rulers.json", "site/data/rulers_media.json",
+        "site/data/urban.json", "site/data/plans.json", "site/data/lost.json",
+        "site/data/street_geom.json", "site/data/transport.json", "site/data/views.json",
+        "site/data/water.json", "site/data/mtskheta_tour.json", "site/data/catalog.json",
+        "site/data/search_index.json", "site/data/changelog.json", "site/data/version.json",
     ]
 
     print(f"{'File':32s} {'Lines(old->new)':>17s} {'OldGZ':>7s} {'CurGZ':>7s} {'Delta':>8s}  Flags")

@@ -47,7 +47,14 @@
     const row = el("div", "modalbtns"), x = el("button", "chip", L.close); x.type = "button"; x.addEventListener("click", close);
     row.appendChild(x); box.appendChild(row);
   }
-  function close() { if (modal) modal.hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+  function close() {
+    if (modal) modal.hidden = true;
+    if (lastFocus) {
+      const target = lastFocus.getClientRects && lastFocus.getClientRects().length > 0 ? lastFocus : $("btnMore");
+      if (target && target.focus) target.focus();
+      lastFocus = null;
+    }
+  }
   async function open() {
     lastFocus = document.activeElement;
     if (!modal) {

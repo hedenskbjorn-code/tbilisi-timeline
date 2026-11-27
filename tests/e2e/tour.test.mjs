@@ -1,7 +1,9 @@
-// The guided tour after the welcome window: four concise steps (step 3 opens the layers panel and restores it), welcome quick-start scenarios, modal focus trap, Esc/Back.
+// The guided tour after the welcome window: six concise steps (step 3 opens the layers panel and restores it), welcome quick-start scenarios, modal focus trap, Esc/Back.
 import test from "node:test";
 import assert from "node:assert/strict";
-import { startServer, launch, openPage, waitReady } from "./helpers.mjs";
+import fs from "node:fs";
+import path from "node:path";
+import { startServer, launch, openPage, waitReady, DATA, tick } from "./helpers.mjs";
 
 let server, browser;
 test.before(async () => { server = await startServer(); browser = await launch(); });
@@ -13,7 +15,7 @@ const card = async (page) => { await page.waitForTimeout(300); return page.evalu
 const center = (page, id) => page.evaluate((i) => { const r = document.getElementById(i).getBoundingClientRect(); return { x: (r.left + r.right) / 2, y: (r.top + r.bottom) / 2 }; }, id);
 const inside = (h, p) => p.x >= h.l && p.x <= h.r && p.y >= h.t && p.y <= h.b;
 
-test("the welcome window offers 4 scenarios and the 4-step tour; modal keeps focus inside", async () => {
+test("the welcome window offers 4 scenarios and the 6-step tour; modal keeps focus inside", async () => {
   const page = await openPage(browser, url("&welcome=1"));
   await waitReady(page);
   await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 15000 });
@@ -163,5 +165,74 @@ test("clicking the second ruler portrait (viceroy) opens the viceroy card, not t
   await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 10000 });
   const bodyTxt = await page.locator("#imBody").innerText();
   assert.ok(/Viceroy|Наместник|Дондуков|Dondukov|დონდუკოვ/i.test(bodyTxt), "expected viceroy card, got: " + bodyTxt.slice(0, 120));
+  await page.ctx.close();
+});
+
+test("USSR dual-tier (#1950): #rulerCard shows 2 portraits and each opens its card with bio and Wikipedia link", async () => {
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#1950`);
+  await waitReady(page);
+  await page.click("#rbShow");
+  await page.waitForFunction(() => document.querySelectorAll("#rulerCard .rc-port.clickable").length === 2, null, { timeout: 15000 });
+
+  for (const [idx, nameRe, bioRe, wikiRe] of [
+    [0, /Joseph Stalin/i, /General Secretary of the Communist Party/i, /en\.wikipedia\.org\/wiki\/Joseph_Stalin/],
+    [1, /Charkviani/i, /First Secretary of the Communist Party of Georgia/i, /en\.wikipedia\.org\/wiki\/Kandid_Charkviani/],
+  ]) {
+    await page.locator("#rulerCard .rc-port.clickable").nth(idx).click();
+    await page.waitForFunction(() => !document.getElementById("infoModal").hidden, null, { timeout: 10000 });
+    const bodyTxt = await page.locator("#imBody").innerText();
+    const wikiHrefs = await page.locator('#imBody a[href*="wikipedia.org"]').evaluateAll((els) => els.map((e) => e.getAttribute("href")));
+    assert.match(bodyTxt, nameRe, `portrait ${idx} opened expected ruler`);
+    assert.match(bodyTxt, bioRe, `portrait ${idx} shows bio`);
+    assert.ok(wikiHrefs.some((h) => wikiRe.test(h || "")), `portrait ${idx} shows Wikipedia bio_src link: ${wikiHrefs.join(", ")}`);
+    await page.click("#imClose");
+    await page.waitForFunction(() => document.getElementById("infoModal").hidden, null, { timeout: 5000 });
+  }
+  await page.ctx.close();
+});
+
+test("#yearchip is visible below #timebar when #side is hidden", async () => {
+  const page = await openPage(browser, url());
+  await waitReady(page);
+  await page.click("#side .pclose");
+  await page.waitForFunction(() => document.getElementById("side").hidden, null, { timeout: 5000 });
+  const m = await page.evaluate(() => {
+    const yc = document.getElementById("yearchip"), tb = document.getElementById("timebar");
+    const cs = getComputedStyle(yc), yr = yc.getBoundingClientRect(), tr = tb.getBoundingClientRect();
+    return { display: cs.display, text: yc.textContent.trim(), w: yr.width, h: yr.height, top: yr.top, tbBottom: tr.bottom };
+  });
+  assert.notEqual(m.display, "none", "#yearchip is displayed when #side is hidden");
+  assert.ok(m.w > 0 && m.h > 0, "#yearchip has non-zero size");
+  assert.equal(m.text, "1887", "#yearchip shows active year");
+  assert.ok(m.top >= m.tbBottom - 1, `#yearchip (${m.top}) sits below #timebar (${m.tbBottom})`);
+  await page.ctx.close();
+});
+
+test("clicking a museum marker (showMus) opens a popup with #objShare link", async () => {
+  const museums = JSON.parse(fs.readFileSync(path.join(DATA, "museums.json"), "utf8"));
+  const science = JSON.parse(fs.readFileSync(path.join(DATA, "science.json"), "utf8"));
+  const sciIds = new Set(science.map((s) => s.id));
+  const mus = museums.find((m) => !sciIds.has(m.id) && m.from <= 2026) || museums[0];
+  const page = await openPage(browser, `${server.url}/?e2e=1&base=off&nostats=1&lang=en#2026`);
+  await waitReady(page);
+  await tick(page, "#showMus", true);
+  await tick(page, "#showSci", false);
+  await tick(page, "#showRel", false);
+  await page.waitForFunction(() => {
+    const m = window.TT_E2E.map;
+    return m.getLayer("mus-pt") && m.getLayoutProperty("mus-pt", "visibility") === "visible";
+  }, null, { timeout: 15000 });
+  const pt = await page.evaluate((c) => {
+    const m = window.TT_E2E.map;
+    m.jumpTo({ center: [c.lon, c.lat], zoom: 17 });
+    return new Promise((r) => m.once("idle", () => r(m.project([c.lon, c.lat]))));
+  }, mus);
+  const box = await page.locator("#map").boundingBox();
+  await page.mouse.click(box.x + pt.x, box.y + pt.y);
+  const pop = page.locator(".maplibregl-popup .pop");
+  await pop.waitFor({ timeout: 15000 });
+  assert.match(await pop.innerText(), new RegExp(mus.name.en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").slice(0, 20)));
+  assert.equal(await pop.locator("#objShare").count(), 1, "museum popup has #objShare");
+  assert.equal(await page.evaluate(() => new URL(location.href).searchParams.get("o")), "mu:" + mus.id, "URL parameter ?o=mu:<id> is set");
   await page.ctx.close();
 });

@@ -18,6 +18,7 @@ main { position:fixed; top:52px; left:0; right:0; bottom:0; display:grid; grid-t
 #tabs button[aria-selected="true"] { background:var(--accent); color:#fff; border-color:var(--accent); }
 #intro { font-size:13.5px; color:var(--muted); margin:0 0 10px; }
 #intro b { color:var(--fg); }
+#intro .it { display:none; margin:0 0 8px; font-size:18px; line-height:1.25; color:var(--fg); }
 #tools { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 12px; }
 #where { margin:0 0 12px; padding:8px 12px; border-radius:8px; background:var(--chip); font-size:13.5px; }
 #where[hidden] { display:none; }
@@ -65,12 +66,16 @@ button.mk { padding:0; cursor:pointer; }
   #list { grid-row:2; border-right:0; border-top:1px solid var(--line); }
   #loading { left:50%; top:calc(52px + 12px); }
   #title { display:none; }
+  #intro .it { display:block; }
 }
 #share { white-space:nowrap; }
 @media (max-width: 520px) {
-  #top { gap:6px; padding:0 8px; }
-  #pagesSel { flex:1 1 auto; min-width:110px; max-width:none; text-overflow:ellipsis; }
-  #share { font-size:0; padding:6px 10px; }
-  #share::before { content:"🔗"; font-size:16px; }
-  #lang { min-width:0; max-width:104px; padding:6px 4px; }
+  #top { gap:4px; padding:0 6px; }
+  #home { padding:5px 8px; }
+  .spacer { display:none; }
+  #pagesSel { flex:1 1 72px; min-width:72px; max-width:115px; padding:5px 4px; font-size:12px; text-overflow:ellipsis; }
+  #share { font-size:0; padding:5px 8px; }
+  #share::before { content:"🔗"; font-size:14px; }
+  #report { display:inline-block !important; flex:0 1 auto; min-width:0; max-width:118px; padding:5px 7px; font-size:11.5px; line-height:1.35; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #lang { min-width:0; max-width:86px; padding:5px 2px; font-size:12px; }
 }

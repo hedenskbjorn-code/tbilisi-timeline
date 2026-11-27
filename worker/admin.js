@@ -60,6 +60,7 @@ async function act(env, body, mail) {
   } else if (body.action === "reject") {
     m.status = "rejected"; m.reason = String(body.reason || "").slice(0, 80); m.by = mail; m.at = Date.now();
     await env.PHOTOS.delete("img:" + id);
+    if (m.hash) await env.PHOTOS.delete("h:" + m.hash);
     await env.PHOTOS.put("meta:" + id, JSON.stringify(m), { expirationTtl: 30 * 86400, metadata: small("rejected") });
   } else if (body.action === "reassign") {
     const o = String(body.obj || "");

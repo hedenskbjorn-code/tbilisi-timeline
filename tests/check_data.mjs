@@ -573,6 +573,15 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
       }
     }
   }
+  const lostTours = data["data/lost_tours.json"];
+  for (const p of lostTours?.parts || []) {
+    for (const s of p.stops || []) {
+      const w = `data/lost_tours.json ${p.id} stop ${s.id || s.n}`;
+      for (const item of String(s.ph || "").split("|").map((x) => x.trim()).filter(Boolean)) {
+        if (!(item in photos)) err(`${w}: photo "${item}" not found in photos.json`);
+      }
+    }
+  }
 }
 
 {
@@ -587,6 +596,51 @@ for (const v of data["data/views.json"] || []) if (v.image && !/^https?:/.test(v
     const firstFrom = rulers?.states?.[0]?.from;
     if (!(Number.isFinite(firstFrom) && firstFrom <= minYear)) {
       err(`rulers.json: states[0].from (${firstFrom}) > app.js MIN (${minYear})`);
+    }
+  }
+  const balancedParens = (s) => {
+    let bal = 0;
+    for (const ch of s) {
+      if (ch === "(") bal++;
+      else if (ch === ")") { bal--; if (bal < 0) return false; }
+    }
+    return bal === 0;
+  };
+  for (const r of rulers?.rulers || []) {
+    if (!r.bio) continue;
+    for (const l of ["ru", "en", "ka"]) {
+      const t = r.bio[l];
+      const w = `rulers.json ${r.id}.bio.${l}`;
+      if (typeof t !== "string" || !t.trim()) { err(`${w}: empty or missing`); continue; }
+      if (t.length > 320) err(`${w}: too long (${t.length} > 320)`);
+      if (!balancedParens(t)) err(`${w}: unbalanced parentheses`);
+      if (t.includes("\u0301")) err(`${w}: contains combining stress mark`);
+      if (t.includes("(;") || t.includes("()")) err(`${w}: contains malformed parentheses "(;" or "()"`);
+      if ((l === "en" || l === "ka") && count(CY, t) > 0) err(`${w}: contains Cyrillic`);
+    }
+  }
+  const rm = data["data/rulers_media.json"];
+  if (!rm) err("data/rulers_media.json: missing");
+  else {
+    const rulersDir = path.join(SITE, "data", "rulers");
+    const checkMedia = (where, m) => {
+      for (const f of ["i", "b"]) {
+        const relPath = String(m?.[f] || "");
+        if (!relPath || !fs.existsSync(path.join(rulersDir, relPath))) {
+          err(`rulers_media.json ${where}: missing ${f} file "${relPath}" under site/data/rulers/`);
+        }
+      }
+      if (/[?&]utm_(?:source|medium|campaign|content)=/i.test(String(m?.u || ""))) {
+        err(`rulers_media.json ${where}: utm_ tracking parameter in u`);
+      }
+      const author = String(m?.a || "");
+      if (/Unknown authorUnknown author/i.test(author) || author.includes("&amp;")) {
+        err(`rulers_media.json ${where}: dirty author "${author.slice(0, 60)}"`);
+      }
+    };
+    for (const [id, m] of Object.entries(rm.rulers || {})) checkMedia(`rulers.${id}`, m);
+    for (const [id, arr] of Object.entries(rm.flags || {})) {
+      for (const [idx, m] of (arr || []).entries()) checkMedia(`flags.${id}[${idx}]`, m);
     }
   }
 }
@@ -746,6 +800,7 @@ if (ev) {
     "data/monuments.json", "data/places.json", "data/religious.json", "data/catalog.json",
     "data/religious_osm.json", "data/modernism.json", "data/names_i18n.json",
     "data/run_trc2026.json", "data/museums.json", "data/science.json", "data/education.json",
+    "data/photos.json", "data/rulers.json", "data/rulers_media.json", "data/urban.json", "data/plans.json",
   ]) {
     if (!fs.existsSync(path.join(SITE, rel))) continue;
     const raw = fs.readFileSync(path.join(SITE, rel), "utf8");
@@ -796,6 +851,7 @@ if (ev) {
     "data/photos.json", "data/monuments.json", "data/religious.json", "data/religious_osm.json",
     "data/museums.json", "data/science.json", "data/education.json", "data/modernism.json",
     "data/places.json", "data/sculptures.json", "data/plaques.json",
+    "data/entrances.json", "data/run_details.json", "data/views.json",
   ]) {
     const p = path.join(SITE, rel);
     if (!fs.existsSync(p)) continue;

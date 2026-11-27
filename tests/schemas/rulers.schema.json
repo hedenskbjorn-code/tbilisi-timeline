@@ -1,4 +1,37 @@
 {
+  "$defs": {
+    "lang3": {
+      "type": "object",
+      "required": ["ru", "en", "ka"],
+      "properties": {
+        "ru": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 },
+        "ka": { "type": "string", "minLength": 1 }
+      }
+    },
+    "lang3Opt": {
+      "type": "object",
+      "required": ["ru", "en", "ka"],
+      "properties": {
+        "ru": { "type": "string" },
+        "en": { "type": "string" },
+        "ka": { "type": "string" }
+      }
+    },
+    "url3": {
+      "type": "object",
+      "required": ["ru", "en", "ka"],
+      "properties": {
+        "ru": { "type": "string", "pattern": "^https://" },
+        "en": { "type": "string", "pattern": "^https://" },
+        "ka": { "type": "string", "pattern": "^https://" }
+      }
+    },
+    "srcList": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^https?://" }
+    }
+  },
   "type": "object",
   "required": ["groups", "states", "rulers"],
   "properties": {
@@ -16,7 +49,12 @@
           "to": { "type": "number" },
           "kind": { "type": "string" },
           "lane": { "type": "integer" },
-          "name": { "type": "object", "required": ["ru", "en", "ka"] }
+          "approx": { "type": "boolean" },
+          "date": { "type": "string" },
+          "name": { "$ref": "#/$defs/lang3" },
+          "form": { "$ref": "#/$defs/lang3" },
+          "note": { "$ref": "#/$defs/lang3Opt" },
+          "src": { "$ref": "#/$defs/srcList" }
         }
       }
     },
@@ -31,7 +69,14 @@
           "from": { "type": "number" },
           "to": { "type": "number" },
           "grp": { "type": "string" },
-          "name": { "type": "object", "required": ["ru", "en", "ka"] }
+          "lane": { "type": "integer" },
+          "date": { "type": "string" },
+          "name": { "$ref": "#/$defs/lang3" },
+          "title": { "$ref": "#/$defs/lang3" },
+          "bio": { "$ref": "#/$defs/lang3" },
+          "bio_src": { "$ref": "#/$defs/url3" },
+          "note": { "$ref": "#/$defs/lang3Opt" },
+          "src": { "$ref": "#/$defs/srcList" }
         }
       }
     }

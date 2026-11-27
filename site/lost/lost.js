@@ -169,6 +169,8 @@
     document.title = L.title;
     $("homeTxt").textContent = L.home;
     $("home").href = "../?lang=" + lang;
+    $("home").setAttribute("aria-label", L.home);
+    $("home").title = L.home;
     $("title").textContent = L.title;
     const sel = $("pagesSel");
     if (sel) {
@@ -188,7 +190,10 @@
     $("lang").value = lang;
     if (part) {
       renderTabs();
-      $("intro").innerHTML = L.intro(part);
+      const box = $("intro");
+      box.textContent = "";
+      box.appendChild(el("h2", "it", L.title));
+      const p = el("span"); p.innerHTML = L.intro(part); box.appendChild(p);
       renderCards();
     }
     const cr = $("credits"); cr.textContent = "";
@@ -220,7 +225,7 @@
     for (const k of Object.keys(markers)) markers[k].remove();
     markers = {};
     if (startMarker) startMarker.remove();
-    const st = el("div", "mk start", "S"); st.title = t().start(part);
+    const st = el("div", "mk start", "S"); st.title = t().start(part); st.setAttribute("aria-label", t().start(part));
     startMarker = new maplibregl.Marker({ element: st }).setLngLat([part.start.lon, part.start.lat]).addTo(map);
     for (const s of part.stops) {
       const m = el("button", "mk" + (done.has(s.id) ? " done" : ""), String(s.n));
@@ -297,7 +302,7 @@
   $("lang").addEventListener("change", (e) => {
     lang = e.target.value;
     try { localStorage.setItem("lostLang", lang); } catch (err) {}
-    try { const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u.pathname + u.search); } catch (err) {}
+    try { const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u.pathname + u.search + u.hash); } catch (err) {}
     renderText();
     addMarkers();
   });
@@ -306,22 +311,48 @@
   });
   $("share").addEventListener("click", async () => {
     const b = $("share"), u = new URL(location.href); u.searchParams.set("lang", lang);
-    try { await navigator.clipboard.writeText(u.toString()); } catch (e) {}
-    b.textContent = t().copied; setTimeout(() => { b.textContent = t().share; }, 1800);
+    try {
+      await navigator.clipboard.writeText(u.toString());
+      b.textContent = t().copied; setTimeout(() => { b.textContent = t().share; }, 1800);
+    } catch (e) {
+      window.prompt(t().share, u.toString());
+    }
   });
 
   renderText();
+  const getJSON = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
   Promise.all([
-    fetch("../data/lost_tours.json").then((r) => r.json()),
-    fetch("../data/views.json").then((r) => r.json()).catch(() => [])
+    getJSON("../data/lost_tours.json"),
+    getJSON("../data/views.json").catch(() => [])
   ]).then(([d, vs]) => {
     data = d;
     if (Array.isArray(vs)) for (const v of vs) viewsDb[v.id] = v;
+    let initHash = "";
+    try { initHash = decodeURIComponent(location.hash.slice(1)); } catch (e) { initHash = location.hash.slice(1); }
     const pq = new URLSearchParams(location.search).get("part");
-    const pi = pq ? data.parts.findIndex((p) => p.id === pq) : 0;
-    showPart(pi >= 0 ? pi : 0);
+    let pi = pq ? data.parts.findIndex((p) => p.id === pq) : 0;
+    if (pi < 0) pi = 0;
+    let initStop = 0;
+    if (initHash) {
+      const byId = data.parts.findIndex((p) => p.stops.some((x) => x.id === initHash));
+      if (byId >= 0) {
+        pi = byId;
+        initStop = data.parts[pi].stops.find((x) => x.id === initHash).n;
+      } else if (/^\d+$/.test(initHash)) {
+        const n = +initHash;
+        if (data.parts[pi].stops.some((x) => x.n === n)) initStop = n;
+        else {
+          const byN = data.parts.findIndex((p) => p.stops.some((x) => x.n === n));
+          if (byN >= 0) { pi = byN; initStop = n; }
+        }
+      }
+    }
+    showPart(pi);
     initMap();
-    const h = +location.hash.slice(1);
-    if (h) setTimeout(() => select(h, { fly: true, scroll: true }), 400);
+    if (initStop) setTimeout(() => select(initStop, { fly: true, scroll: true }), 400);
+  }).catch((e) => {
+    const sp = $("loading") && $("loading").querySelector(".spin");
+    if (sp) sp.hidden = true;
+    $("loadingTxt").textContent = "Error: " + (e && e.message ? e.message : e);
   });
 })();

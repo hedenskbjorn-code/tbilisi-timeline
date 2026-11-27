@@ -28,16 +28,16 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1c2b4a">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="style.css?v=07f1a54c">
+<link rel="stylesheet" href="style.css?v=c6674710">
 <!-- the scripts are loaded in parallel with the page and run in this order after the page is parsed -->
 <script defer src="config.js?v=36f6eee6"></script>
 <script defer src="vendor/maplibre-gl.js?v=e877fe22"></script>
-<script defer src="i18n.js?v=3e78c189"></script>
+<script defer src="i18n.js?v=b82172cc"></script>
 <script defer src="translit.js?v=1f0144e5"></script>
 <script defer src="photo.js?v=4335926d"></script>
-<script defer src="pwa.js?v=4f2c4857"></script>
-<script defer src="support.js?v=0d64cfb5"></script>
-<script type="module" src="app.js?v=12c80299"></script>
+<script defer src="pwa.js?v=8fd80544"></script>
+<script defer src="support.js?v=a426beaf"></script>
+<script type="module" src="app.js?v=b210601e"></script>
 </head>
 <body>
 <div id="map"></div>
@@ -295,7 +295,7 @@
     <p class="small" data-i="fbHint"></p>
     <label><span data-i="fbType"></span>
       <select id="fbKind"><option value="data" data-i="fbK1"></option><option value="georef" data-i="fbK2"></option><option value="boundary" data-i="fbK3"></option><option value="translation" data-i="fbK4"></option><option value="rights" data-i="fbK5"></option><option value="other" data-i="fbK6"></option></select></label>
-    <label><span data-i="fbText"></span><textarea id="fbMsg" rows="5" maxlength="2000" required></textarea></label>
+    <label><span data-i="fbText"></span><textarea id="fbMsg" rows="5" minlength="5" maxlength="2000" required></textarea></label>
     <label><span data-i="fbCtx"></span><input id="fbCtx" type="text" readonly></label>
     <label><span data-i="fbContact"></span><input id="fbContactInput" type="text" maxlength="200"><span class="small" data-i="fbContactWarn"></span></label>
     <input id="fbTrap" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="trap">

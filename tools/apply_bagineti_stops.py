@@ -326,7 +326,7 @@ def main() -> int:
     tour_changed = new_tour != original_tour
     if not args.dry_run:
         if added_ph:
-            PHOTOS_PATH.write_text(json.dumps(photos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+            PHOTOS_PATH.write_text(json.dumps(photos, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
         if tour_changed:
             TOUR_PATH.write_text(new_tour, encoding="utf-8", newline="\n")
     action = "would update" if args.dry_run else "updated"

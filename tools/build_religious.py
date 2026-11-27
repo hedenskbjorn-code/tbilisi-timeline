@@ -281,7 +281,9 @@ def main():
         out.extend(json.load(open(reg_path, encoding="utf-8")))
     out.sort(key=lambda x: x["from"])
     p = os.path.join(ROOT, "site", "data", "religious.json")
-    json.dump(out, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    with open(p, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+        f.write("\n")
     print(len(out), "buildings ->", p)
     # the licence data of the photographs go into site/data/photos.json (build_site_data.py does the same when it rebuilds that file)
     pp = os.path.join(ROOT, "site", "data", "photos.json")

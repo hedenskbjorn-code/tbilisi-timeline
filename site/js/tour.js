@@ -33,7 +33,13 @@ function rectOf(step) {
     const w = Math.min(520, m.width * 0.7), h = Math.min(300, m.height * 0.36);
     return { left: m.left + (m.width - w) / 2, top: m.top + (m.height - h) / 2 + 24, right: m.left + (m.width + w) / 2, bottom: m.top + (m.height + h) / 2 + 24 };
   }
-  const rs = [...(step.ids || []).map((id) => document.getElementById(id)), ...(step.sel || []).flatMap((q) => [...document.querySelectorAll(q)])].map(visible).filter(Boolean);
+  let ids = step.ids || [];
+  if (ids.length === 2 && ids[0] === "pagesSel" && ids[1] === "btnMore") {
+    const ps = document.getElementById("pagesSel");
+    if (ps && ps.parentElement && ps.parentElement.id === "top" && visible(ps)) ids = ["pagesSel"];
+    else if (ps && ps.closest && ps.closest("#moreMenu")) ids = ["btnMore"];
+  }
+  const rs = [...ids.map((id) => document.getElementById(id)), ...(step.sel || []).flatMap((q) => [...document.querySelectorAll(q)])].map(visible).filter(Boolean);
   if (!rs.length) return null;
   return { left: Math.min(...rs.map((r) => r.left)), top: Math.min(...rs.map((r) => r.top)), right: Math.max(...rs.map((r) => r.right)), bottom: Math.max(...rs.map((r) => r.bottom)) };
 }
@@ -80,8 +86,16 @@ export async function startTour({ lang, onClose, free, panel }) {
   };
   // the panel and the blocks that the tour opened are closed again when it moves to a step that does not need them and when it ends
   const openedPanels = new Set(), openedSections = new Set();
+  let tbWasMin = false;
   const settle = () => new Promise((r) => setTimeout(r, 120));
   const prep = async (s) => {
+    const tb = document.getElementById("timebar");
+    if (s.ids && s.ids.includes("timebar")) {
+      if (tb && tb.classList.contains("min")) { tbWasMin = true; tb.classList.remove("min"); }
+    } else if (tbWasMin) {
+      if (tb) tb.classList.add("min");
+      tbWasMin = false;
+    }
     if (panel) {
       for (const k of [...openedPanels]) if (k !== s.open) { panel.set(k, false); openedPanels.delete(k); }
       if (s.open && !panel.get(s.open)) { panel.set(s.open, true); openedPanels.add(s.open); }
@@ -89,12 +103,17 @@ export async function startTour({ lang, onClose, free, panel }) {
     for (const d of [...openedSections]) if (!s.section || d.dataset.sec !== s.section) { d.open = false; openedSections.delete(d); }
     const d = s.section && document.querySelector('details[data-sec="' + s.section + '"]');
     if (d && !d.open) { d.open = true; openedSections.add(d); }
-    if (s.open || s.section) { await settle(); if (d && d.scrollIntoView) d.scrollIntoView({ block: "nearest" }); }
+    if (s.open || s.section) {
+      await settle();
+      if (s.open === "filters" && !s.section) { const f = document.getElementById("filters"); if (f) f.scrollTop = 0; }
+      if (d && d.scrollIntoView) d.scrollIntoView({ block: "nearest" });
+    }
   };
   const close = () => {
     document.removeEventListener("keydown", onKey, true);
     for (const d of openedSections) d.open = false;
     if (panel) for (const k of openedPanels) panel.set(k, false);
+    if (tbWasMin) { const tb = document.getElementById("timebar"); if (tb) tb.classList.add("min"); tbWasMin = false; }
     removeEventListener("resize", place);
     root.remove();
     try { localStorage.setItem("tour", "1"); } catch (e) {}

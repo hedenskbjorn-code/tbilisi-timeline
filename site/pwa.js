@@ -47,8 +47,13 @@
   }
   async function startShare() {
     history.replaceState(null, "", location.pathname + location.hash);              // the address without ?share=1
+    const deadline = Date.now() + 8000;
+    while (!(window.TT_APP && window.TT_PHOTO) && Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, 200));
+    }
+    if (!window.TT_PHOTO || !window.TT_PHOTO.enabled() || !window.TT_APP) return;
     const file = await takeShared();
-    if (!file || !window.TT_PHOTO || !window.TT_PHOTO.enabled() || !window.TT_APP) return;
+    if (!file) return;
     const bar = document.createElement("div");
     bar.style.cssText = "position:fixed;left:8px;right:8px;top:8px;z-index:60;background:#1c2b4a;color:#fff;padding:10px 12px;border-radius:8px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4)";
     const t = document.createElement("span"); t.style.flex = "1"; t.textContent = S().pick;
@@ -58,6 +63,6 @@
     x.addEventListener("click", done);
     window.TT_APP.pickObject((o) => { bar.remove(); window.TT_PHOTO.open({ obj: o.obj, name: o.name, lang: o.lang, lat: o.lat, lon: o.lon, file }); });
   }
-  if (new URLSearchParams(location.search).get("share") === "1") window.addEventListener("load", () => setTimeout(startShare, 1500));
+  if (new URLSearchParams(location.search).get("share") === "1") window.addEventListener("load", startShare);
   else if (window.caches) caches.delete("tt-share").catch(() => {});                  // a shared photo nobody picked up is not kept
 })();

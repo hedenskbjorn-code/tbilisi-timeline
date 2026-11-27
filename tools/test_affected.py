@@ -11,11 +11,37 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
+ALL_E2E = [
+    "basemap.test.mjs", "battles_map.test.mjs", "close_outside.test.mjs", "filters.test.mjs",
+    "groups.test.mjs", "header.test.mjs", "idle_load.test.mjs", "layers.test.mjs",
+    "lazy_retry.test.mjs", "modernism.test.mjs", "monuments.test.mjs", "object_link.test.mjs",
+    "osm_names.test.mjs", "panel.test.mjs", "parks.test.mjs", "perf.test.mjs",
+    "place_areas.test.mjs", "places.test.mjs", "religious_osm.test.mjs", "report_button.test.mjs",
+    "smoke.test.mjs", "tour.test.mjs", "ui.test.mjs",
+]
+
 RULES = [
     ("site/data/places.json", ["parks.test.mjs", "places.test.mjs", "place_areas.test.mjs", "osm_names.test.mjs", "object_link.test.mjs"]),
     ("site/data/monuments.json", ["monuments.test.mjs", "object_link.test.mjs", "perf.test.mjs", "layers.test.mjs"]),
     ("site/data/photos.json", ["monuments.test.mjs", "object_link.test.mjs", "perf.test.mjs", "modernism.test.mjs"]),
     ("site/data/religious.json", ["layers.test.mjs", "religious_osm.test.mjs", "object_link.test.mjs", "perf.test.mjs"]),
+    ("site/data/religious_osm.json", ["layers.test.mjs", "religious_osm.test.mjs", "object_link.test.mjs", "perf.test.mjs"]),
+    ("site/data/science.json", ["layers.test.mjs", "object_link.test.mjs", "report_button.test.mjs", "perf.test.mjs"]),
+    ("site/data/education.json", ["layers.test.mjs", "object_link.test.mjs", "report_button.test.mjs", "perf.test.mjs"]),
+    ("site/data/museums.json", ["layers.test.mjs", "tour.test.mjs", "object_link.test.mjs", "perf.test.mjs"]),
+    ("site/data/modernism.json", ["modernism.test.mjs", "object_link.test.mjs", "lazy_retry.test.mjs", "perf.test.mjs"]),
+    ("site/data/sculptures.json", ["monuments.test.mjs", "object_link.test.mjs", "idle_load.test.mjs", "perf.test.mjs"]),
+    ("site/data/plaques.json", ["monuments.test.mjs", "object_link.test.mjs", "idle_load.test.mjs", "perf.test.mjs"]),
+    ("site/data/rulers.json", ["tour.test.mjs", "object_link.test.mjs", "ui.test.mjs", "smoke.test.mjs", "perf.test.mjs"]),
+    ("site/data/rulers_media.json", ["tour.test.mjs", "object_link.test.mjs", "perf.test.mjs"]),
+    ("site/data/urban.json", ["layers.test.mjs", "perf.test.mjs"]),
+    ("site/data/street_names.json", ["object_link.test.mjs", "ui.test.mjs", "report_button.test.mjs", "perf.test.mjs"]),
+    ("site/data/street_geom.json", ["ui.test.mjs", "object_link.test.mjs", "perf.test.mjs"]),
+    ("site/data/transport.json", ["layers.test.mjs", "panel.test.mjs", "object_link.test.mjs", "perf.test.mjs"]),
+    ("site/data/lost.json", ["filters.test.mjs", "smoke.test.mjs", "perf.test.mjs"]),
+    ("site/data/views.json", ["close_outside.test.mjs", "ui.test.mjs", "perf.test.mjs"]),
+    ("site/data/names_i18n.json", ["monuments.test.mjs", "places.test.mjs", "osm_names.test.mjs", "smoke.test.mjs", "perf.test.mjs"]),
+    ("site/data/search_index.json", ["ui.test.mjs", "places.test.mjs", "idle_load.test.mjs", "perf.test.mjs"]),
     ("site/data/mtskheta_tour.json", ["object_link.test.mjs", "smoke.test.mjs"]),
     ("data/curated/catalog_links.json", ["object_link.test.mjs", "ui.test.mjs"]),
     ("site/data/catalog.json", ["object_link.test.mjs", "ui.test.mjs"]),
@@ -24,12 +50,7 @@ RULES = [
     ("site/data/plans.json", ["basemap.test.mjs", "layers.test.mjs", "perf.test.mjs"]),
     ("site/data/changelog.json", ["ui.test.mjs"]),
     ("site/data/version.json", ["ui.test.mjs"]),
-    ("site/app.js", [
-        "header.test.mjs", "filters.test.mjs", "groups.test.mjs", "panel.test.mjs", "close_outside.test.mjs",
-        "object_link.test.mjs", "ui.test.mjs", "perf.test.mjs", "parks.test.mjs", "places.test.mjs",
-        "place_areas.test.mjs", "osm_names.test.mjs", "monuments.test.mjs", "layers.test.mjs", "tour.test.mjs",
-        "battles_map.test.mjs",
-    ]),
+    ("site/app.js", ALL_E2E),
     ("site/style.css", ["header.test.mjs", "filters.test.mjs", "panel.test.mjs", "close_outside.test.mjs", "perf.test.mjs"]),
     ("site/i18n.js", ["header.test.mjs", "smoke.test.mjs", "ui.test.mjs", "perf.test.mjs"]),
     ("site/index.html", ["header.test.mjs", "filters.test.mjs", "groups.test.mjs", "smoke.test.mjs", "perf.test.mjs"]),

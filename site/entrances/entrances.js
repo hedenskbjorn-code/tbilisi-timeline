@@ -48,7 +48,7 @@
   };
   const t = () => T[lang];
 
-  let data = null, part = null, partIdx = 0, markers = {}, active = 0, map = null, meMarker = null;
+  let data = null, part = null, partIdx = 0, markers = {}, startMarker = null, active = 0, map = null, meMarker = null;
   let done = new Set();
   try { JSON.parse(localStorage.getItem("entrDone") || "[]").forEach((n) => done.add(n)); } catch (e) {}
   const saveDone = () => { try { localStorage.setItem("entrDone", JSON.stringify([...done])); } catch (e) {} };
@@ -119,6 +119,9 @@
     document.title = (part ? L3(part.title) + " · " : "") + L.title + " · Tbilisi through time";
     $("title").textContent = L.title;
     $("homeTxt").textContent = L.home;
+    $("home").href = "../?lang=" + lang;
+    $("home").setAttribute("aria-label", L.home);
+    $("home").title = L.home;
     { const sel = $("pagesSel");
       sel.textContent = "";
       sel.setAttribute("aria-label", L.ariaPages); sel.title = L.ariaPages;
@@ -206,8 +209,8 @@
     });
     map.on("style.load", addRoute);
     map.on("load", () => { addRoute(); $("loading").hidden = true; });
-    const st = el("div", "mk start", "S"); st.title = t().start;
-    new maplibregl.Marker({ element: st }).setLngLat([part.start.lon, part.start.lat]).addTo(map);
+    const st = el("div", "mk start", "S"); st.title = t().start; st.setAttribute("aria-label", t().start);
+    startMarker = new maplibregl.Marker({ element: st }).setLngLat([part.start.lon, part.start.lat]).addTo(map);
     addMarkers();
   }
 
@@ -256,9 +259,15 @@
   $("lang").addEventListener("change", (e) => {
     lang = e.target.value;
     try { localStorage.setItem("entrLang", lang); } catch (x) {}
+    try { const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u.pathname + u.search + u.hash); } catch (x) {}
     $("where").hidden = true;                      // its text was made in the old language
     renderText();
-    if (part) for (const s of part.stops) if (markers[s.n]) markers[s.n].getElement().title = L3(s.name) + ", " + L3(s.address);
+    if (startMarker) { const elSt = startMarker.getElement(); elSt.title = t().start; elSt.setAttribute("aria-label", t().start); }
+    if (part) for (const s of part.stops) if (markers[s.n]) {
+      const elM = markers[s.n].getElement(), lbl = L3(s.name) + ", " + L3(s.address);
+      elM.title = lbl;
+      elM.setAttribute("aria-label", s.n + ". " + lbl);
+    }
   });
   $("share").addEventListener("click", async () => {
     const url = location.href;

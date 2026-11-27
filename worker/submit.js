@@ -121,10 +121,16 @@ const FB_MAX_BYTES = 8000, FB_PER_IP_DAY = 3, FB_GLOBAL_DAY = 30, FB_TTL = 180 *
 async function feedback(req, env, origin, ctx) {
   if (origin !== ORIGIN) return reply({ ok: false, error: "origin" }, 403, origin);
   if ((await env.PHOTOS.get("cfg:fb_open")) === "0") return reply({ ok: false, error: "closed" }, 503, origin);
-  const len = parseInt(req.headers.get("Content-Length") || "0", 10);
-  if (!len || len > FB_MAX_BYTES) return reply({ ok: false, error: "size" }, 413, origin);
+  const rawLen = req.headers.get("Content-Length");
+  if (rawLen != null) {
+    const len = Number(rawLen);
+    if (!Number.isFinite(len) || len < 0 || len > FB_MAX_BYTES) return reply({ ok: false, error: "size" }, 413, origin);
+  }
+  let rawText;
+  try { rawText = await req.text(); } catch (e) { return reply({ ok: false, error: "json" }, 400, origin); }
+  if (new TextEncoder().encode(rawText).byteLength > FB_MAX_BYTES) return reply({ ok: false, error: "size" }, 413, origin);
   let b;
-  try { b = JSON.parse(await req.text()); } catch (e) { return reply({ ok: false, error: "json" }, 400, origin); }
+  try { b = JSON.parse(rawText); } catch (e) { return reply({ ok: false, error: "json" }, 400, origin); }
   if (!b || typeof b !== "object" || Array.isArray(b)) return reply({ ok: false, error: "json" }, 400, origin);
   if (String(b.hp || "")) return reply({ ok: true, id: "x" }, 200, origin);                          // a bot filled the hidden field: it is told "ok" and nothing is kept
   const spent = Date.now() - parseInt(b.t, 10);
@@ -135,14 +141,14 @@ async function feedback(req, env, origin, ctx) {
   if (message.length < 5) return reply({ ok: false, error: "short" }, 400, origin);
   const contact = clean(b.contact, 200), context = clean(b.context, 300);
   const page = String(b.page || "").startsWith(SITE) ? clean(b.page, 300) : "";
-  const hash = await sha256(new TextEncoder().encode(kind + "|" + message));
-  if (await env.PHOTOS.get("fh:" + hash)) return reply({ ok: true, dup: true }, 200, origin);          // the same message again does not spend the daily limits
   const ip = req.headers.get("CF-Connecting-IP") || "";
   if (!(await turnstileOk(env, b["cf-turnstile-response"], ip))) return reply({ ok: false, error: "captcha" }, 403, origin);
   const day = new Date().toISOString().slice(0, 10);
   const ipH = (await sha256(new TextEncoder().encode(env.HASH_SALT + "|" + ip))).slice(0, 16);
   if (!(await bump(env, "rlf:" + day + ":" + ipH, FB_PER_IP_DAY))) return reply({ ok: false, error: "limit" }, 429, origin);
   if (!(await bump(env, "rlf:" + day + ":all", FB_GLOBAL_DAY))) return reply({ ok: false, error: "busy" }, 429, origin);
+  const hash = await sha256(new TextEncoder().encode(kind + "|" + message));
+  if (await env.PHOTOS.get("fh:" + hash)) return reply({ ok: true, dup: true }, 200, origin);
   const ts = Date.now(), id = ts.toString(36) + hex(crypto.getRandomValues(new Uint8Array(3)));
   const rec = { id, kind, message, contact, context, page, ts, ipH, status: "new" };
   await env.PHOTOS.put("fb:" + id, JSON.stringify(rec), { expirationTtl: FB_TTL, metadata: { s: "new", k: kind, t: ts, n: message.slice(0, 80) } });
@@ -170,10 +176,16 @@ async function route(req, env, ctx) {
     if (url.pathname !== "/submit" || req.method !== "POST") return reply({ ok: false, error: "not_found" }, 404, origin);
     if (origin !== ORIGIN) return reply({ ok: false, error: "origin" }, 403, origin);
     if ((await env.PHOTOS.get("cfg:open")) === "0") return reply({ ok: false, error: "closed" }, 503, origin);
-    const len = parseInt(req.headers.get("Content-Length") || "0", 10);
-    if (!len || len > MAX_BYTES + 60000) return reply({ ok: false, error: "size" }, 413, origin);
+    const rawLen = req.headers.get("Content-Length");
+    if (rawLen != null) {
+      const len = Number(rawLen);
+      if (!Number.isFinite(len) || len < 0 || len > MAX_BYTES + 60000) return reply({ ok: false, error: "size" }, 413, origin);
+    }
+    let bodyBuf;
+    try { bodyBuf = await req.arrayBuffer(); } catch (e) { return reply({ ok: false, error: "form" }, 400, origin); }
+    if (bodyBuf.byteLength > MAX_BYTES + 60000) return reply({ ok: false, error: "size" }, 413, origin);
     let fd;
-    try { fd = await req.formData(); } catch (e) { return reply({ ok: false, error: "form" }, 400, origin); }
+    try { fd = await new Response(bodyBuf, { headers: { "Content-Type": req.headers.get("Content-Type") || "" } }).formData(); } catch (e) { return reply({ ok: false, error: "form" }, 400, origin); }
     if (String(fd.get("hp") || "")) return reply({ ok: true, id: "x" }, 200, origin);              // a bot filled the hidden field: it is told "ok" and nothing is kept
     const open = parseInt(fd.get("t"), 10), spent = Date.now() - open;
     if (!(spent >= MIN_FORM_MS && spent <= MAX_FORM_MS)) return reply({ ok: false, error: "time" }, 400, origin);
@@ -181,14 +193,13 @@ async function route(req, env, ctx) {
     if (!OBJ_RE.test(obj)) return reply({ ok: false, error: "object" }, 400, origin);
     const name = clean(fd.get("name"), 60), note = clean(fd.get("note"), 300);
     if (!name || fd.get("consent") !== "1") return reply({ ok: false, error: "consent" }, 400, origin);
-    if (/https?:|www\.|@[a-z0-9]/i.test(name + " " + note)) return reply({ ok: false, error: "links" }, 400, origin);
+    if (/https?:|www\.|[^\s@]+@[^\s@]+\.[^\s@]+/i.test(name + " " + note)) return reply({ ok: false, error: "links" }, 400, origin);
     const file = fd.get("photo");
     if (!file || typeof file === "string" || !file.size || file.size > MAX_BYTES) return reply({ ok: false, error: "size" }, 413, origin);
     const bytes = new Uint8Array(await file.arrayBuffer());
+    if (!bytes.length || bytes.length > MAX_BYTES) return reply({ ok: false, error: "size" }, 413, origin);
     const info = imageInfo(bytes);
     if (!info || !info.w || !info.h || Math.max(info.w, info.h) < MIN_SIDE || Math.max(info.w, info.h) > MAX_SIDE || info.w * info.h > MAX_PIXELS) return reply({ ok: false, error: "image" }, 400, origin);
-    const hash = await sha256(bytes);
-    if (await env.PHOTOS.get("h:" + hash)) return reply({ ok: true, dup: true }, 200, origin);          // a repeated photo does not spend the daily limits
     const oc = await objCoords(obj);                                        // the distances are counted here, not trusted from the page
     if (!obj.startsWith("mon:") || (COORDS && !oc)) return reply({ ok: false, error: "object" }, 400, origin);      // only the register objects that exist (if the list could not be loaded, the check is skipped)
     const ip = req.headers.get("CF-Connecting-IP") || "";
@@ -197,6 +208,8 @@ async function route(req, env, ctx) {
     const ipH = (await sha256(new TextEncoder().encode(env.HASH_SALT + "|" + ip))).slice(0, 16);
     if (!(await bump(env, "rl:" + day + ":" + ipH, PER_IP_DAY))) return reply({ ok: false, error: "limit" }, 429, origin);
     if (!(await bump(env, "rl:" + day + ":all", GLOBAL_DAY))) return reply({ ok: false, error: "busy" }, 429, origin);
+    const hash = await sha256(bytes);
+    if (await env.PHOTOS.get("h:" + hash)) return reply({ ok: true, dup: true }, 200, origin);
     const ts = Date.now(), rnd = hex(crypto.getRandomValues(new Uint8Array(3))), id = ts.toString(36) + rnd;
     const lat = num(fd.get("lat"), BBOX.lat[0], BBOX.lat[1]), lon = num(fd.get("lon"), BBOX.lon[0], BBOX.lon[1]);
     const glat = num(fd.get("glat"), BBOX.lat[0], BBOX.lat[1]), glon = num(fd.get("glon"), BBOX.lon[0], BBOX.lon[1]), gacc = num(fd.get("gacc"), 0, 5000);

@@ -73,10 +73,12 @@ button.mk { padding:0; cursor:pointer; }
 }
 #share { white-space:nowrap; }
 @media (max-width: 520px) {
-  #top { gap:6px; padding:0 8px; }
-  #logo { display:none; }
-  #pagesSel { flex:1 1 auto; min-width:110px; max-width:none; text-overflow:ellipsis; }
-  #share { font-size:0; padding:6px 10px; }                  /* only the icon: the long label does not fit a phone */
-  #share::before { content:"🔗"; font-size:16px; }
-  #lang { min-width:0; max-width:104px; padding:6px 4px; }
+  #top { gap:4px; padding:0 6px; }
+  #home { padding:5px 8px; }
+  #logo, .spacer { display:none; }
+  #pagesSel { flex:1 1 72px; min-width:72px; max-width:115px; padding:5px 4px; font-size:12px; text-overflow:ellipsis; }
+  #share { font-size:0; padding:5px 8px; }                  /* only the icon: the long label does not fit a phone */
+  #share::before { content:"🔗"; font-size:14px; }
+  #report { display:inline-block !important; flex:0 1 auto; min-width:0; max-width:118px; padding:5px 7px; font-size:11.5px; line-height:1.35; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #lang { min-width:0; max-width:86px; padding:5px 2px; font-size:12px; }
 }

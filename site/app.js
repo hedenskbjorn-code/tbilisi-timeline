@@ -269,6 +269,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         const cb = $("showSwipe"), turnOn = !cb.checked;
         if (turnOn) {
           if (!$("showPlan").checked) $("showPlan").checked = true;
+          if (explicitTopo()) { $("topoSel").value = "auto"; syncFilterUi(); }
           if (!currentPlan(year)) { const tb = territoryPlans(plans); if (tb.length) year = year < tb[0].year ? tb[0].year : tb[tb.length - 1].year; }   // the nearest plan
         }
         cb.checked = turnOn; update(); syncUrl();
@@ -304,6 +305,9 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   const mercY = (lat) => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
   async function showHere(ll) {
     const L = t();
+    if ($("infoModal").hidden) infoFocus = document.activeElement;
+    reopenInfo = null;
+    $("infoModal").classList.remove("sheet");
     $("imTitle").textContent = L.hereTitle;
     const body = $("imBody");
     body.textContent = "";
@@ -314,7 +318,10 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       return ll.lng >= Math.min(...lngs) && ll.lng <= Math.max(...lngs) && ll.lat >= Math.min(...lats) && ll.lat <= Math.max(...lats);
     });
     const wait = infoLine(body, cover.length ? L.hereLoad : L.hereNone);
+    $("imReport").textContent = L.fbBtn || "";
     $("infoModal").hidden = false;
+    const f = [...$("infoModal").querySelectorAll('button:not([hidden]):not([disabled]), a[href], input:not([hidden]), select:not([hidden])')].filter((el) => el.offsetParent !== null);
+    if (f.length) f[0].focus();
     const mine = ++hereToken;
     for (const p of cover) {
       let im;
@@ -346,7 +353,14 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const r = map.getCanvas().getBoundingClientRect();
     lastClick = { t: Date.now(), point: { x: ev.clientX - r.left, y: ev.clientY - r.top } };
   }, true);
-  map.on("click", (e) => { if ($("showHere").checked) showHere(e.lngLat); });
+  map.on("click", (e) => {
+    if (!$("showHere").checked) return;
+    queueMicrotask(() => {
+      if (e.originalEvent && e.originalEvent._ttHit) return;
+      if (openPop) openPop.remove();
+      showHere(e.lngLat);
+    });
+  });
   $("showHere").addEventListener("change", () => { $("map").classList.toggle("here", $("showHere").checked); });
 
   // plan rasters are added to the map only when a plan is first needed (keeps the first page load light)
@@ -1108,16 +1122,17 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
   async function runTour() {
     // on a phone the panel Info (it holds the button of the tour) covers the map: it is closed before the tour, and the step "Map" lights the free part of the map
     if (window.matchMedia("(max-width:640px)").matches && $("btnInfo").getAttribute("aria-pressed") === "true") $("btnInfo").click();
-    try { (await import("./js/tour.js?v=90324d2c")).startTour({ lang, free: freeRect, panel: window.TT_panels }); } catch (e) { console.error("tour", e && e.message); }
+    try { (await import("./js/tour.js?v=5e5bdeed")).startTour({ lang, free: freeRect, panel: window.TT_panels }); } catch (e) { console.error("tour", e && e.message); }
   }
   $("btnTour").addEventListener("click", runTour);
   // the welcome window: a short friendly text at the first visit. Not shown: in the tests (only with ?welcome=1), after a link to a year or to an object, after "Do not show again" (localStorage),
   // twice in one session (sessionStorage). "Start" and a closed window do not switch it off for good.
+  const hasReportParam = new URLSearchParams(location.search).has("report");
   function maybeWelcome() {
     const sp = new URLSearchParams(location.search), force = sp.get("welcome") === "1";
     let never = false, seen = false;
     try { never = localStorage.getItem("welcome") === "1"; seen = sessionStorage.getItem("welcome") === "1"; } catch (e) {}
-    if (!force && (sp.has("e2e") || sp.has("o") || (h >= MIN && h <= MAX) || never || seen)) return;
+    if (!force && (sp.has("e2e") || sp.has("o") || sp.has("report") || hasReportParam || !$("fbModal").hidden || (h >= MIN && h <= MAX) || never || seen)) return;
     try { sessionStorage.setItem("welcome", "1"); } catch (e) {}
     const L = t(), n = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     const streets = stNames.filter((x) => x.iv.some((v) => v[2]) || (x.undated && x.undated.length)).length;
@@ -1167,8 +1182,32 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     $("rowNoPhoto").hidden = !on; $("rowNear").hidden = !on;
     if (on) { const S = window.TT_PHOTO.s(lang); $("noPhotoL").textContent = S.noPhotoL; $("btnNear").textContent = S.nearBtn; }
   }
-  let lastPos = null, picker = null;
-  window.TT_APP = { pickObject: (cb) => { picker = cb; }, info: (title, lines) => openInfo((body) => { $("imTitle").textContent = title; for (const l of lines) infoLine(body, l); }) };
+  let lastPos = null, picker = null, pickerRestore = null;
+  const restorePickerBoxes = () => {
+    if (!pickerRestore) return;
+    for (const [id, v] of pickerRestore) $(id).checked = v;
+    pickerRestore = null;
+    syncFilterUi();
+    update();
+  };
+  window.TT_APP = {
+    pickObject: (cb) => {
+      picker = cb;
+      if (cb) {
+        const ids = ["showResid", "showPublic", "showDef", "showOtherB"];
+        if (ids.every((id) => !$(id).checked)) {
+          pickerRestore = ids.map((id) => [id, $(id).checked]);
+          $("showResid").checked = true;
+          $("showPublic").checked = true;
+          syncFilterUi();
+          update();
+        }
+      } else {
+        restorePickerBoxes();
+      }
+    },
+    info: (title, lines) => openInfo((body) => { $("imTitle").textContent = title; for (const l of lines) infoLine(body, l); }),
+  };
   function showNearby(pos) {
     const S = window.TT_PHOTO.s(lang);
     reopenInfo = () => showNearby(pos);
@@ -1281,7 +1320,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     d.appendChild(a); el.appendChild(d);
   }
   const fbRef = (kind, id, el) => ({ id: kind + ":" + (id == null ? "-" : id), name: ((el.querySelector("h3") || {}).textContent || "").slice(0, 80), reg: "-", link: OBJ_PREFIX[kind] && id != null ? OBJ_PREFIX[kind] + ":" + id : "" });
-  const OBJ_PREFIX = { REL: "rl", SCI: "sc", EDU: "ed" };
+  const OBJ_PREFIX = { REL: "rl", SCI: "sc", EDU: "ed", MUS: "mu" };
   function objLink(id) { const u = new URL(location.href); u.searchParams.set("o", id); return u.toString(); }
   async function shareObject(id, a) {                                         // a phone: the share window; elsewhere: the clipboard
     const url = objLink(id);
@@ -1852,23 +1891,36 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const contact = $("fbContactInput").value.trim();
     const ctx = feedbackContext();
     const payload = { kind: $("fbKind").value, kindLabel, message: body, contact, context: ctx, page: location.href.split("#")[0] };
+    const ghIssueUrl = () => {
+      const title = `[${payload.kind}] ${body.slice(0, 70).replace(/\s+/g, " ")}`;
+      const text = `${body}\n\n---\nType: ${kindLabel}\nContext: ${ctx}\nPage: ${payload.page}${contact ? "\nContact: " + contact : ""}`;
+      return `https://github.com/${cfg.repo}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(text)}`;
+    };
     if (cfg.feedbackEndpoint) {
       if (cfg.turnstileSitekey && !fbToken) { $("fbStatus").textContent = t().fbCaptcha; return; }
+      $("fbSend").disabled = true;
       try {
         const r = await fetch(cfg.feedbackEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({ ...payload, t: fbOpenedAt, hp: $("fbTrap").value, "cf-turnstile-response": fbToken }) });
         const j = await r.json().catch(() => ({}));
         if (r.ok && j.ok) { $("fbStatus").textContent = t().fbSent; fbToken = ""; setTimeout(closeFeedback, 1800); return; }
+        if (!r.ok && r.status >= 500 && cfg.repo) {
+          const st = $("fbStatus"), a = document.createElement("a");
+          st.textContent = t().fbFail + " ";
+          a.href = ghIssueUrl(); a.target = "_blank"; a.rel = "noopener"; a.textContent = "GitHub Issues";
+          st.appendChild(a);
+          fbTsReset();
+          return;
+        }
         // the service answered but refused: say why (the reserve with GitHub is for the case when the service cannot be reached at all)
         $("fbStatus").textContent = j.error === "captcha" ? t().fbCaptcha : (j.error === "limit" || j.error === "busy") ? t().fbLimit : j.error === "time" ? t().fbWait : t().fbFail;
         fbTsReset();
         return;
       } catch (err) { /* the service cannot be reached: fall through to GitHub */ }
+      finally { $("fbSend").disabled = false; }
     }
     if (cfg.repo) {
-      const title = `[${payload.kind}] ${body.slice(0, 70).replace(/\s+/g, " ")}`;
-      const text = `${body}\n\n---\nType: ${kindLabel}\nContext: ${ctx}\nPage: ${payload.page}${contact ? "\nContact: " + contact : ""}`;
-      window.open(`https://github.com/${cfg.repo}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(text)}`, "_blank", "noopener");
+      window.open(ghIssueUrl(), "_blank", "noopener");
       $("fbStatus").textContent = t().fbOpened;
     }
   });
@@ -1966,10 +2018,10 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         }
       }
       else if (kind === "o") { const f = monAllById.get(id); if (f) { const boxes = Object.entries(FN_BOXES).filter(([, fns]) => fns.includes(f.properties.fn)).map(([bid]) => bid); if (boxes.length && !boxes.some((bid) => $(bid).checked)) $(boxes[0]).checked = true; if (typeof f.properties.ye === "number") year = Math.max(year, f.properties.ye); update(); map.jumpTo({ center: f.geometry.coordinates, zoom: 17 }); popup(f.properties, { lng: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] }); } }
-      else if (kind === "rl") { if (relOsmLoading) await relOsmLoading; const c = religious.find((x) => x.id === id); if (c) { $("showRel").checked = true; go(c, popupRel, c.undated ? undefined : c.from); } }
-      else if (kind === "sc") { const c = science.find((x) => x.id === id); if (c) { $("showSci").checked = true; go(c, popupSci, c.from); } }
+      else if (kind === "rl") { if (relOsmLoading) await relOsmLoading; const c = religious.find((x) => x.id === id); if (c) { $("showRel").checked = true; if (!c.undated && c.to && Math.max(year, c.from || 0) >= c.to) year = Math.max(c.from || 100, c.to - 1); go(c, popupRel, c.undated ? MAX : c.from); } }
+      else if (kind === "sc") { const c = science.find((x) => x.id === id); if (c) { $("showSci").checked = true; go(c, popupSci, c.undated ? MAX : c.from); } }
       else if (kind === "ed") { const c = education.find((x) => x.id === id); if (c) { $("showEdu").checked = true; go(c, popupEdu, c.from); } }
-      else if (kind === "mu") { const c = museums.find((x) => x.id === id); if (c) { $("showMus").checked = true; go(c, popupMus, c.from); } }
+      else if (kind === "mu") { const c = museums.find((x) => x.id === id); if (c) { $("showMus").checked = true; go(c, popupMus, c.undated ? MAX : c.from); } }
       else if (kind === "pl") { await ensurePlaces(); const c = places && places.items.find((x) => x.id === id); if (c) { $("showPlaces").checked = true; updatePlaces(); go(c, popupPlace); } }
       else if (kind === "mt") { await ensureMtskheta(); const c = mtskhetaById && mtskhetaById.get(id); if (c) go(c, popupMtskheta, MT_FROM[c.id] || 100); }
       else if (kind === "mn" || kind === "pq" || kind === "md") {
@@ -1989,7 +2041,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         if (u) {
           $("showRulers").checked = true; rulerCardDismissed = false;
           year = (year >= u.from && year < u.to) ? year : Math.floor(u.from);
-          buildRulersBand(); updateRuleLine(); syncFilterUi(); showRulerCard(u);
+          update(); buildRulersBand(); updateRuleLine(); syncFilterUi(); showRulerCard(u);
         }
       }
     } catch (e) { console.error("link", o, e && e.message); }
@@ -2001,7 +2053,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const box = [[pt.x - NEAR_PX, pt.y - NEAR_PX], [pt.x + NEAR_PX, pt.y + NEAR_PX]], out = [], seen = new Set();
     const q = (layer) => (map.getLayer(layer) && map.getLayoutProperty(layer, "visibility") !== "none") ? map.queryRenderedFeatures(box, { layers: [layer] }) : [];
     const add = (key, label, open) => { if (key && label && !seen.has(key)) { seen.add(key); out.push({ key, label, open }); } };
-    for (const f of q("mon")) { const p = f.properties; let nm = p.name || ""; try { if (window.GeoTr) nm = window.GeoTr.nameInfo(p.name, lang, p.wp).text || nm; } catch (er) {} add(String(p.id), nm, (ll) => popup(p, ll)); }
+    for (const f of [...q("mon"), ...q("mon-ico")]) { const p = f.properties; let nm = p.name || ""; try { if (window.GeoTr) nm = window.GeoTr.nameInfo(p.name, lang, p.wp).text || nm; } catch (er) {} add(String(p.id), nm, (ll) => popup(p, ll)); }
     for (const f of q("rel-pt")) { const r = religious.find((x) => x.id === f.properties.id); if (r) add("rl:" + r.id, relTitle(r), (ll) => popupRel(r, ll)); }
     for (const f of q("sci-pt")) { const c = science.find((x) => x.id === f.properties.id); if (c) add("sc:" + c.id, c.name[lang] || c.name.en, (ll) => popupSci(c, ll)); }
     for (const f of q("edu-pt")) { const c = education.find((x) => x.id === f.properties.id); if (c) add("ed:" + c.id, c.name[lang] || c.name.en, (ll) => popupEdu(c, ll)); }
@@ -2345,8 +2397,14 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
                    paint: { "line-color": "#4a86c8", "line-width": 1.5 } });
     map.addLayer({ id: "lake54-fill", type: "fill", source: "water", filter: ["==", ["get", "t"], "lake54"], layout: { visibility: "none" },
                    paint: { "fill-color": "#7db0ea", "fill-opacity": 0.85, "fill-outline-color": "#3b78bd" } });
+    const POINT_LAYERS = ["mon", "mon-ico", "rel-pt", "sci-pt", "edu-pt", "mus-pt", "c94-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt", "battle-pt", "mt-pt"];
     for (const id of ["res-cover", "lake54-fill"]) {
-      map.on("click", id, (e) => { if (e.features && e.features[0]) waterPopup(e.features[0].properties, e.lngLat); });
+      map.on("click", id, (e) => {
+        const exact = POINT_LAYERS.filter((lid) => map.getLayer(lid));
+        if (exact.length && map.queryRenderedFeatures(e.point, { layers: exact }).length) return;
+        if (!claimClick(e)) return;
+        if (e.features && e.features[0]) waterPopup(e.features[0].properties, e.lngLat);
+      });
       map.on("mouseenter", id, () => { map.getCanvas().style.cursor = "pointer"; });
       map.on("mouseleave", id, () => { map.getCanvas().style.cursor = ""; });
     }
@@ -2381,16 +2439,17 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       // one click handler for all transport: the lines lie on one another (the tram is drawn 4 px beside the street, an avenue, a bridge and a railway can run along it), so
       // the object of the highest rank within a few pixels is taken: a tram before a metro line, a bridge before an avenue (found out 2026-11-19: on Chavchavadze Avenue the avenue took the click)
       const TR_PRIO = ["tram", "metro_station", "metro_line", "funicular", "cablecar", "railway", "bridge", "avenue", "road"];
-      const POINT_LAYERS = ["mon", "mon-ico", "rel-pt", "sci-pt", "lost-dot", "settle-dot", "mod-pt", "mon-pt", "plq-pt", "places-pt", "battle-pt", "mt-pt"];
       map.on("click", (e) => {
+        if (e.originalEvent && e.originalEvent._ttHit) return;
         const near = (r) => [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
         const hits = map.queryRenderedFeatures(near(5), { layers: ["tr-line", "tr-pt", "tr-funic", "tr-cable"].filter((id) => map.getLayer(id)) });
         if (!hits.length) return;
         const exact = POINT_LAYERS.filter((id) => map.getLayer(id));
         if (exact.length && map.queryRenderedFeatures(e.point, { layers: exact }).length) return;      // a point object right under the click has its own card
+        if (!claimClick(e)) return;
         const rank = (f) => { const i = TR_PRIO.indexOf(f.properties.kind); return i < 0 ? 99 : i; };
         hits.sort((x, y) => rank(x) - rank(y));
-        e.originalEvent.__trHit = true;
+        if (e.originalEvent) e.originalEvent.__trHit = true;
         transportPopup(hits[0].properties, e.lngLat);
       });
     } catch (e) { /* no transport layer */ }
@@ -2480,10 +2539,10 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     if (!map.hasImage("reg-arch")) map.addImage("reg-arch", makeMapIcon("arch", "#9c4221"), { pixelRatio: 2 });
     if (!map.hasImage("reg-garden")) map.addImage("reg-garden", makeMapIcon("leaf", "#2b8a3e"), { pixelRatio: 2 });
     if (!map.hasImage("reg-rel")) map.addImage("reg-rel", makeMapIcon("ortho", "#b8860b"), { pixelRatio: 2 });
-    if (!map.hasImage("reg-mus")) map.addImage("reg-mus", makeMapIcon("mus", "#2b8a3e"), { pixelRatio: 2 });
-    if (!map.hasImage("reg-jew")) map.addImage("reg-jew", makeMapIcon("jew", "#1864ab"), { pixelRatio: 2 });
-    if (!map.hasImage("reg-cath")) map.addImage("reg-cath", makeMapIcon("cath", "#6741d9"), { pixelRatio: 2 });
-    if (!map.hasImage("reg-luth")) map.addImage("reg-luth", makeMapIcon("cross", "#495057"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-mus")) map.addImage("reg-mus", makeMapIcon("mus", "#087f5b"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-jew")) map.addImage("reg-jew", makeMapIcon("jew", "#2f9e44"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-cath")) map.addImage("reg-cath", makeMapIcon("cath", "#1971c2"), { pixelRatio: 2 });
+    if (!map.hasImage("reg-luth")) map.addImage("reg-luth", makeMapIcon("cross", "#868e96"), { pixelRatio: 2 });
     if (!map.hasImage("reg-mem")) map.addImage("reg-mem", makeMapIcon("mon", "#1864ab"), { pixelRatio: 2 });
     map.addSource("mon", { type: "geojson", data: monuments });
     map.addLayer({
@@ -2518,7 +2577,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
         const p = e.features[0].properties, g = e.features[0].geometry.coordinates;
         let nm = p.name || "";
         try { if (window.GeoTr) nm = window.GeoTr.nameInfo(p.name, lang, p.wp).text || nm; } catch (er) {}
-        const cb = picker; picker = null; cb({ obj: "mon:" + p.id, name: nm, lang, lat: g[1], lon: g[0] });
+        const cb = picker; picker = null; restorePickerBoxes(); cb({ obj: "mon:" + p.id, name: nm, lang, lat: g[1], lon: g[0] });
         return;
       }
       const own = ["mod-pt", "places-pt", "mon-pt", "plq-pt", "edu-pt", "sci-pt", "mus-pt", "rel-pt", "battle-pt", "mt-pt"].filter((id) => map.getLayer(id) && map.getLayoutProperty(id, "visibility") === "visible");
@@ -2647,7 +2706,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const sel = $("topoSel");
     if (sel) {
       const i = Array.from(sel.options).findIndex((o) => o.defaultSelected);
-      if (i >= 0 && sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event("change", { bubbles: true })); }
+      if (i >= 0 && sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event("input", { bubbles: true })); sel.dispatchEvent(new Event("change", { bubbles: true })); }
     }
   }
   for (const b of document.querySelectorAll("#fpresets button[data-preset]")) {
@@ -2831,7 +2890,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const tb = $("timebar"), bb = $("bottom"), root = document.documentElement.style;
     root.setProperty("--tb", Math.round(tb.getBoundingClientRect().height) + "px");
     const bh = bb.getBoundingClientRect().height;
-    root.setProperty("--bb", (bh ? Math.round(bh) + 30 : 0) + "px");
+    root.setProperty("--bb", (bh ? Math.round(bh) + (window.innerWidth <= 640 ? 10 : 30) : 0) + "px");
     updateToken();
     updateRuleSummary();
     markRulers();
@@ -2972,7 +3031,7 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       getJSON("data/rulers_media.json", 1).catch(() => null),
     ]).then(([rd, rm]) => {
       rulersData = rd; rulersMedia = rm; searchIndex = null;
-      buildRulersBand(); updateRuleLine();
+      buildRulersBand(); updateRuleLine(); syncSections();
       if (!$("search").hidden) renderSearch();
       return rulersData;
     }).catch((e) => { console.error("rulers", e && e.message); rulersLoading = null; return null; });
@@ -2982,8 +3041,8 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
     const rc = $("rulerCard");
     if (!rc) return;
     if (!rulersData || !$("showRulers").checked || rulerCardDismissed) { rc.hidden = true; rc.dataset.key = ""; return; }
-    const R = RN[lang] || RN.en, within = (it) => it.from < year + 1 && it.to > year;
-    const st = rulersData.states.find((s) => within(s) && !s.lane) || rulersData.states.find(within);
+    const R = RN[lang] || RN.en, within = (it) => it.from < year + 1 && it.to > year, mid = (s) => s.from <= year + 0.5 && s.to > year + 0.5;
+    const st = rulersData.states.find((s) => mid(s) && !s.lane) || rulersData.states.find(mid) || rulersData.states.find((s) => within(s) && !s.lane) || rulersData.states.find(within);
     const rl = rulersData.rulers.filter(within).sort((a, b) => RGROUP_ORDER.indexOf(a.grp) - RGROUP_ORDER.indexOf(b.grp)).filter((r, i, a) => a.findIndex((x) => x.name.en === r.name.en) === i).slice(0, 2);
     const fl = st ? flagFor(st.id, year + 0.5) : null;
     const key = (st ? st.id : "") + "|" + rl.map((r) => r.id).join(",") + "|" + (fl ? fl.i : "") + "|" + lang;
@@ -3028,12 +3087,14 @@ import { yearToSlider, sliderToYear, computeZoomWindow, centeredZoomWindow } fro
       if (media.children.length) {
         if (primary) {
           media.classList.add("clickable");
-          media.setAttribute("role", "button");
-          media.tabIndex = 0;
           media.title = R.open || rText(primary.name);
           const openPrimary = () => showRulerCard(primary);
           media.addEventListener("click", openPrimary);
-          media.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPrimary(); } });
+          if (!media.querySelector('[role="button"]')) {
+            media.setAttribute("role", "button");
+            media.tabIndex = 0;
+            media.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPrimary(); } });
+          }
         }
         rc.appendChild(media);
       }

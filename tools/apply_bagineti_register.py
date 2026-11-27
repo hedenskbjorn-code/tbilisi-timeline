@@ -200,7 +200,7 @@ def main() -> int:
     if added:
         MON_PATH.write_text(json.dumps(mon, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
     if added_i18n:
-        I18N_PATH.write_text(json.dumps(i18n, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        I18N_PATH.write_text(json.dumps(i18n, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
     print(f"added {added} monuments, {added_i18n} names_i18n entries")
     return 0
 
