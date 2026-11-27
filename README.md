@@ -1,55 +1,48 @@
 # Tbilisi through time
 
-A non-commercial hobby project: an interactive map of Tbilisi with a timeline slider (364-2026; the early centuries are compressed, the scale can be zoomed).
-Moving the slider changes what is shown: objects of the national register of immovable cultural heritage appear by their
-(estimated) date of construction, and old city plans and traced city limits are shown for the years they cover.
-Along the scale: historical events with sources (invasions, floods, earthquakes, but also buildings, openings and the oldest surviving buildings),
-a "Views" panel with historical and recent photographs of the period, and a search over objects, events and years.
-The page is available in Georgian, English and Russian.
+A non-commercial hobby project: an interactive map of Tbilisi with a timeline slider (100–2026; the early centuries are compressed, and the scale can be zoomed).
+Moving the slider changes what is shown: objects of the national register of immovable cultural heritage appear by their (estimated) date of construction, and old city plans and traced city limits are shown for the years they cover.
+Along the scale: historical events with sources (invasions, floods, earthquakes, as well as buildings, openings and the oldest surviving monuments), a "Views" panel with historical and recent photographs of the period, and a search over objects, events and years.
+The site is available in Georgian, English and Russian.
 
 ## Live site
 Published with GitHub Pages from the `site/` folder (see `.github/workflows/pages.yml`).
 
 ## How it is built
-- `site/` - the static page (plain HTML/JS/CSS, [MapLibre GL JS](https://maplibre.org/) 4.7.1 from a CDN). No build step.
-- `tools/build_site_data.py` - builds `site/data/` from the working data in `data/` (not published here).
-- `tools/warp.py` - georeferences old plans from control points (affine, optionally with a thin-plate-spline residual) and writes a north-up WebP.
-- `tools/fetch_photos.py` - looks up Wikimedia Commons photos near each object (by coordinates only).
-- `viewer/` - a local-only tool for placing control points and tracing boundaries. **Never expose it to the internet**: it can write files and run scripts on the machine it runs on.
-- `sources.md` - detailed working notes: sources, methods, accuracy figures, open questions (in Russian).
+- `site/` — the static site (plain HTML/JS/CSS, [MapLibre GL JS](https://maplibre.org/) 4.7.1 from a CDN). No bundler/build step.
+- `tools/` — Python and Node.js data preparation, georeferencing (`warp.py`), photo lookup (`fetch_photos.py`), and verification scripts.
+- `viewer/` — a local-only helper tool for placing control points and tracing boundaries. **Never expose it to the internet**: it can write files and run scripts on the machine it runs on.
 
 ## Data and licences
-- Heritage objects: register of the Georgian National Agency for Cultural Heritage Preservation. No written open licence for this data could be found; only a reduced extract (name, address, coordinates, dates, register number) is used, for non-commercial purposes. Object dates are estimates derived from register records.
-- Old plans (Tiflis 1735 Vakhushti, 1785 Pishchevich, 1800 Chuiko, 1844 Military Topographic Depot, 1887 A. Ilyin, 1913 city survey department): scans from Wikimedia Commons, public domain. The 1821 plan (Shvetsov) is downloaded but not georeferenced yet. The georeferenced images are derived from them and are approximate (the accuracy is shown on the page).
-- Administrative boundary of Tbilisi (2019): OCHA COD-AB Georgia v01 via HDX (source: National Statistics Office of Georgia), CC BY-IGO.
-- District boundaries and names (10 districts): (c) OpenStreetMap contributors, ODbL 1.0 (`site/data/districts.json` is a derived database: keep the licence and attribution when reusing it).
-- An older city boundary shown for 1999-2005 comes from geoBoundaries ADM2 (metadata: 2007, public domain); its date is not confirmed.
-- Tbilisi Sea outline: (c) OpenStreetMap contributors, ODbL; the earlier salt lakes are traced from a topographic sheet of the Tiflis environs of c.1911 (Wikimedia Commons, public domain).
-- City area figures: N. Kharebava, PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024.
-- Photos on objects: Wikimedia Commons, shown with author and licence; they are matched to objects by coordinates and checked against the file title and the address, but a few may still show a neighbouring building. The 'Views' panel shows photographs of the periods (Wikimedia Commons: public domain or CC BY / CC BY-SA, with author and link; photographs of the project owner and of G. Chubinidze, published with their permission).
-- Layer 'Tbilisi Running Club': the route of the TRC City Run 2026 (the geometry of the club's GPX track, updated 2026-11-19: the new file lacked the ends, so they are taken from the older file (`tools/build_run_route.py <new.gpx> <old.gpx>`): 9.69 km, 58 sights; the page `site/run/` has a selector of an old plan or topographic map with a slider of the opacity under the route) and the architectural sights of the site data within 150 m of it (`tools/build_run_route.py`); only the geometry is kept, no personal data.
-- Version and log of changes: the button `v1.0` in the header opens `site/data/changelog.json` (the first entry is the current version; each release adds an entry at the top with the version, the date and the items of the kinds new / fix in ru, en and ka).
-- Photos from visitors: a form in the card of a register object (open for every visitor while `photoOpen: true` in `site/config.js`; `?club=0` hides it in a browser, `?club=1` shows it again; with `photoOpen: false` it is shown only after `?club=1`): `site/photo.js` re-encodes the picture in the browser (1600 px, no metadata) and sends it to the Worker `worker/submit.js` (Cloudflare Turnstile, size and type checks of the file itself, daily limits, duplicates, a kill switch); nothing is public until the owner approves it in the admin page `worker/admin.js` (behind Cloudflare Access, plus its own check of the signed header). `tools/import_user_photos.py` takes the approved pictures into `site/img/user/` and `data/user_photos.json`, `tools/build_site_data.py` adds them to the photos of the object (author and licence CC BY-SA 4.0 under the photo). Deploy: `tools/deploy_worker.py submit|admin` (secrets only from the environment). After `build_site_data.py` always run `tools/add_lost_repl_i18n.py`.
-- Page `/entrances/` ("Entrance halls of Tbilisi"): three walking routes (Sololaki, the centre and Agmashenebeli Avenue, Vera) past 20 old residential houses, built by `tools/build_entrances.py` into `site/data/entrances.json` (the order of the houses with the least walking time and the line of the route come from the public pedestrian router Valhalla, once at the build; the page makes no request to a router; no door codes are published). Facts: the dissertation of T. Kutateladze (2015, a table of buildings) and the heritage register.
-- Map points of battles, sieges and captures: `tools/add_battle_places.py` (coordinates from English Wikipedia and Wikidata; where the sources name no place the point is the city as a whole, approximate places are labelled; Rakhsi 1118, Botora 1120 and Khunan 1222 have none on purpose).
-- Photographs: register objects by coordinates (build_site_data.py) with hand-chosen replacements in `data/photos_object_override.json` (applied without a full rebuild by `tools/apply_photo_overrides.py`); religious buildings from `data/religious_photos.json` (`tools/build_religious.py`).
-- City outlines of 1924 and 1934: digitised from the land-use maps of the thesis of N. Kharebava (2024) by `tools/georef_thesis_map.py` (fit to the district borders, about 30 m per pixel) and `tools/digitize_thesis_maps.py`, put into `site/data/urban.json` by `tools/add_khar_outlines.py`; the same method gives 29.3 km2 for 1913 against 29 km2 in the thesis.
-- The list "Sections" in the header (`#pagesSel`) links the map, `/entrances/` and `/run/`; the language is passed with `?lang=`.
-- Layer 'Religious buildings': 33 curated buildings (`tools/build_religious.py`) plus the other worship buildings of the heritage register (`tools/add_register_religious.py` -> `data/religious_register.json`, 76 buildings: churches, monasteries, ruins; burial grounds, kurgans, dolmens and museums are not taken; the denomination only from the register, otherwise the category 'church, denomination not given'; undated objects are shown pale with the mark 'date unknown'). `tools/translit_names.mjs` makes their English and Russian names with the module of the site.
-- Layers 'Science and culture' (30 curated institutions + 58 from the register: universities, institutes, libraries, observatories, museums, theatres, cinemas, concert halls) and 'Education' (24 schools and kindergartens, off by default): `tools/add_register_layers.py` -> `data/science_register.json` and `data/education_register.json`; `tools/build_science.py` and `tools/build_education.py` write site/data. The register gives the date of the building, not the year of founding: the notes say so; undated objects are shown pale with the mark 'date unknown'.
-- Window 'Views': three pre-1918 pictures from Facebook posts (photographer unknown) by `tools/add_fb_views.py`; the Soviet-era pictures of the same archive and the trolleybus of 1962 (marked 'Givi Kikvadze, National Archives of Georgia (c)') are not used: their rights are not clear.
-- Counting of visits (Cloudflare Web Analytics, no cookies) is loaded by `site/stats.js`; to keep your own visits and tests out of the numbers open the site once with `?nostats=1` in that browser (`?nostats=0` counts it again).
-- Feedback (the button "Report a problem"): `site/app.js` sends the message as JSON to the Worker `worker/submit.js` (`POST /feedback`; `feedbackEndpoint` in `site/config.js`): origin check, kill switch `cfg:fb_open` = `0`, size, honeypot, time of the form, Cloudflare Turnstile, 3 messages a day per visitor and 30 in total, a duplicate check; nothing is public, the message waits in the private queue (KV keys `fb:<id>`, 180 days) and the owner reads it in the admin page `worker/admin.js` (the button "Сообщения", behind Cloudflare Access). When the service cannot be reached the window opens a GitHub issue as before.
-- Checks before every deploy (`.github/workflows/pages.yml`, job `checks`): `node tests/check_data.mjs` (valid JSON, every text in ru, en and ka, no Cyrillic or English in the Georgian texts, the events in order with sources, the changelog, the files of the page and of the service worker) and `node --test tests/*.test.mjs` (unit tests of `site/translit.js`). Run them by hand before a commit. The texts of the interface are in `site/i18n.js`.
-- Position check of the photos: the Worker computes the distance from the position in the file (EXIF) and from the visitor's live geolocation (optional button, or taken together with a shot of the in-page camera) to the object (coordinates from the public `data/monuments.json`); within 150 m a photo is marked verified and goes first in the admin queue, others are not rejected, only shown last. The position is kept only in the closed queue and is never published.
-- Rulers: the time bar (play, zoom, slider, events) is on the top of the screen (`#timebar`), the band of the rulers and the plate "who rules now" are at the bottom (`#bottom`); `app.js` `syncBars()` sets `--tb`/`--bb` for the panels between them. Portraits of the rulers and flags of the states: `tools/fetch_rulers_media.py` (Wikidata/Commons, free licences only, the match is checked by the years of life; `download` saves webp copies into `site/data/rulers/` and writes `site/data/rulers_media.json` with the author and the licence). Flags are taken only where they are attested (the pre-modern ones are reconstructions and are not shown); the files that are not a portrait are listed in `DROP_PORTRAIT`.
-- Support button: `site/support.js` (heart in the header; opens a window with a link and a QR to the owner's bank payment page; the link is in `site/data/support.json`, the QR in `site/img/support-qr.png`; only addresses on `transfer.tbcbank.ge` are accepted). Nothing is collected or stored by the site.
-- App (PWA): `site/manifest.webmanifest`, icons in `site/img/pwa/`, `site/sw.js` (shell and the last seen data work offline; tiles, photos and topographic maps are never cached; receives a photo from the share menu of the phone: POST `./share-target`, then `site/pwa.js` asks to tap the object and opens the form with the photo), `site/pwa.js` (registration, the "Install" button). `sw.js` has `VERSION`: change it to drop the old cache.
-- Layer 'Science and culture': 30 universities, institutes, libraries, museums and theatres (science and education in blue and larger, culture in grey) that appear in the year of their foundation or building; the card gives the founding date, the date of the building, the disagreements of the sources and links to Wikipedia (`tools/build_science.py`, `site/data/science.json`); where the present building is later than the institution, the point is faint before it.
-- Historical events: each is checked against the cited Wikipedia pages or books (see `site/data/history_events.json`, field `src`).
-- Built-up outlines since 1972: GUSV, Zenodo doi:10.5281/zenodo.14523232, CC BY 4.0 (smoothed and simplified). 1954 outline: U.S. Army Map Service sheet NK 38-8, public domain.
-- Base map: [OpenFreeMap](https://openfreemap.org) vector tiles, (c) OpenMapTiles, data (c) OpenStreetMap contributors.
-- The code in this repository is provided as is, without warranty. Licences: the code is under the PolyForm Noncommercial License 1.0.0 (`LICENSE`); the texts and the compiled data are under CC BY-NC 4.0; what belongs to other authors keeps its own terms (see `NOTICE.md`).
+
+### Sources and data attributions
+- **Heritage objects:** register of the Georgian National Agency for Cultural Heritage Preservation. No written open licence for this data could be found; only a reduced extract (name, address, coordinates, dates, register number) is used, for non-commercial purposes. Object dates are estimates derived from register records.
+- **Old plans:** Tiflis 1735 (Vakhushti), 1785 (Pishchevich), 1800 (Chuiko), 1844 (Military Topographic Depot), 1887 (A. Ilyin), and 1913 (city survey department) — scans from Wikimedia Commons (public domain). The georeferenced images are approximate; estimated accuracy is shown on the page.
+- **Administrative & city boundaries:**
+  - Tbilisi administrative boundary (2019): OCHA COD-AB Georgia v01 via HDX (source: National Statistics Office of Georgia), CC BY-IGO.
+  - District boundaries and names (10 districts): © OpenStreetMap contributors, ODbL 1.0 (`site/data/districts.json` is a derived database; keep the licence and attribution when reusing it).
+  - 1999–2005 city boundary: geoBoundaries ADM2 (metadata: 2007, public domain; date unconfirmed).
+  - Built-up outlines since 1972: GUSV, Zenodo (`doi:10.5281/zenodo.14523232`), CC BY 4.0 (smoothed and simplified). 1954 outline: U.S. Army Map Service sheet NK 38-8 (public domain).
+  - 1924 and 1934 outlines & city area figures: digitised from land-use maps in N. Kharebava, PhD thesis, Ivane Javakhishvili Tbilisi State University, 2024.
+  - Tbilisi Sea & earlier salt lakes: © OpenStreetMap contributors (ODbL 1.0), with pre-reservoir lakes traced from a c. 1911 Tiflis environs topographic sheet (Wikimedia Commons, public domain).
+- **Base map:** [OpenFreeMap](https://openfreemap.org) vector tiles, © OpenMapTiles, data © OpenStreetMap contributors.
+- **Curated layers & historical data:**
+  - **Religious buildings:** curated buildings plus worship buildings extracted from the heritage register and OpenStreetMap.
+  - **Science, culture & education:** curated institutions (universities, institutes, libraries, observatories, museums, theatres, cinemas, concert halls) plus schools and kindergartens from the heritage register (register dates reflect the building rather than founding year).
+  - **Entrance halls (`/entrances/`):** three walking routes past 20 historic residential buildings, using facts from T. Kutateladze's dissertation (2015) and the heritage register (no door codes are published).
+  - **Tbilisi Running Club layer (`/run/`):** geometry of the TRC City Run 2026 GPX track (9.69 km, no personal data) and nearby architectural sights.
+  - **Historical events & battle points:** compiled from cited Wikipedia articles and historical literature (see `site/data/history_events.json`), with coordinates from Wikipedia and Wikidata.
+  - **Rulers & flags:** portraits and attested state flags from Wikidata and Wikimedia Commons under free licences.
+- **Photographs:** object cards and the "Views" panel use Wikimedia Commons photographs under public domain or free licences (CC0 / CC BY / CC BY-SA) with author, licence, and source link, alongside owner-permitted photographs. Object photos matched by coordinates are checked against titles and addresses, though occasional mismatches with adjacent buildings may remain.
+
+### User submissions and privacy
+- Visitor-submitted photographs and problem reports undergo pre-moderation and are never published automatically.
+- Approved visitor photographs are published under **CC BY-SA 4.0** with EXIF metadata stripped; optional geolocation is used solely to verify proximity during moderation and is never published.
+- Site visits are counted via cookie-free Cloudflare Web Analytics.
+
+### Project licences
+- The code in this repository is provided as is, without warranty, under the **PolyForm Noncommercial License 1.0.0** (`LICENSE`).
+- Compiled texts and project datasets are licensed under **CC BY-NC 4.0**; third-party materials retain their respective licences and attributions (see `NOTICE.md`).
 
 ## Limitations
 Dates, boundaries and georeferencing are approximations made from open sources; they are not an authoritative record.
